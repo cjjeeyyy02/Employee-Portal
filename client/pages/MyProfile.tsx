@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Camera, Phone, AlertCircle, Briefcase, Mail, CheckCircle } from "lucide-react";
+import { Camera, Phone, AlertCircle, Briefcase, Mail, CheckCircle, Shield } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "personal" | "contact" | "emergency" | "employment";
