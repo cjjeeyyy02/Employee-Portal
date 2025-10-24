@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   LayoutDashboard,
   User,
@@ -9,7 +8,6 @@ import {
   FileText,
   MessageSquare,
   Users,
-  ChevronRight,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
