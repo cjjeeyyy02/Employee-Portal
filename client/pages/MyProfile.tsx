@@ -216,50 +216,72 @@ export default function MyProfile() {
 
         {/* Employment Tab */}
         {activeTab === "employment" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Briefcase className="w-4 h-4" /> Current Position
-              </h2>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Job Title</label>
-                  <p className="text-sm font-semibold text-gray-900">Senior Software Developer</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Department</label>
-                  <p className="text-sm text-gray-900 font-medium">Engineering</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Reports To</label>
-                  <p className="text-sm text-gray-900 font-medium">Sarah Johnson (Engineering Manager)</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Office Location</label>
-                  <p className="text-sm text-gray-900 font-medium">San Francisco, CA</p>
-                </div>
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-6">
+              <Briefcase className="w-5 h-5 text-blue-600" />
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Employment Information</h2>
+                <p className="text-sm text-gray-500">View your employment details and work information.</p>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-gray-900 mb-4">Employment Details</h2>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Start Date</label>
-                  <p className="text-sm text-gray-900 font-medium">January 15, 2023</p>
+            {/* Information Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+              {/* LEFT COLUMN */}
+              {/* Employee ID */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Employee ID</label>
+                <p className="text-base text-gray-800">EMP-2023-1156</p>
+              </div>
+
+              {/* Start Date */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Start Date</label>
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4 text-gray-500" />
+                  <p className="text-base text-gray-800">March 15, 2020</p>
                 </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Employment Type</label>
-                  <p className="text-sm text-gray-900 font-medium">Full-Time</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Years of Service</label>
-                  <p className="text-sm text-gray-900 font-medium">1 year, 9 months</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Employee ID</label>
-                  <p className="text-sm text-gray-900 font-medium">EMP-2023-0451</p>
-                </div>
+              </div>
+
+              {/* Job Title */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Job Title</label>
+                <p className="text-base text-gray-800">Senior Software Developer</p>
+              </div>
+
+              {/* Employment Type */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Employment Type</label>
+                <span className="inline-block rounded-full px-3 py-1 bg-gray-100 text-gray-800 font-medium text-sm">
+                  Full-time
+                </span>
+              </div>
+
+              {/* Department */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Department</label>
+                <p className="text-base text-gray-800">Engineering</p>
+              </div>
+
+              {/* Work Location */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Work Location</label>
+                <p className="text-base text-gray-800">New York Office</p>
+              </div>
+
+              {/* Manager */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Manager</label>
+                <p className="text-base text-gray-800">Sarah Johnson</p>
+              </div>
+
+              {/* Status */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Status</label>
+                <span className="inline-block rounded-full px-3 py-1 bg-green-500 text-white font-medium text-sm">
+                  Active
+                </span>
               </div>
             </div>
           </div>
