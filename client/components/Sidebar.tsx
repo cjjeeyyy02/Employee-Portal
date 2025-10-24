@@ -44,35 +44,18 @@ export default function Sidebar() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="w-64 bg-slate-950 text-white flex flex-col h-screen">
+    <div className="w-64 bg-white text-gray-900 flex flex-col h-screen border-r border-gray-200 shadow-sm">
       {/* Header */}
-      <div className="p-6 border-b border-slate-800">
-        <h1 className="text-lg font-bold text-white mb-4">ESS Portal</h1>
+      <div className="p-6 border-b border-gray-200">
+        <h1 className="text-lg font-bold text-gray-900 mb-6">ESS Portal</h1>
 
-        {/* Manager View Toggle */}
-        <div className="space-y-3">
-          {isManagerView && (
-            <div className="flex items-center justify-between bg-slate-900 rounded-lg p-3">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-white">Manager View</p>
-                <p className="text-xs text-gray-400">Engineering</p>
-              </div>
-              <input
-                type="checkbox"
-                checked={isManagerView}
-                readOnly
-                className="w-4 h-4 cursor-pointer"
-              />
-            </div>
-          )}
-
-          <button
-            onClick={() => setIsManagerView(!isManagerView)}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-2 px-3 rounded-full transition-colors"
-          >
-            {isManagerView ? "Switch to Employee View" : "Switch to Manager View"}
-          </button>
-        </div>
+        {/* Switch to Manager View Button */}
+        <button
+          onClick={() => setIsManagerView(!isManagerView)}
+          className="w-full border-2 border-blue-500 hover:bg-blue-50 text-blue-600 text-sm font-medium py-2 px-4 rounded-lg transition-colors"
+        >
+          {isManagerView ? "Switch to Employee View" : "Switch to Manager View"}
+        </button>
       </div>
 
       {/* Navigation */}
