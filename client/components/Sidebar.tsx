@@ -42,21 +42,26 @@ export default function Sidebar() {
 
         {/* Manager View Toggle */}
         <div className="space-y-3">
-          <div className="flex items-center justify-between bg-slate-900 rounded-lg p-3">
-            <div className="flex-1">
-              <p className="text-sm font-medium text-white">Manager View</p>
-              <p className="text-xs text-gray-400">Engineering</p>
+          {isManagerView && (
+            <div className="flex items-center justify-between bg-slate-900 rounded-lg p-3">
+              <div className="flex-1">
+                <p className="text-sm font-medium text-white">Manager View</p>
+                <p className="text-xs text-gray-400">Engineering</p>
+              </div>
+              <input
+                type="checkbox"
+                checked={isManagerView}
+                readOnly
+                className="w-4 h-4 cursor-pointer"
+              />
             </div>
-            <input
-              type="checkbox"
-              checked={isManagerView}
-              onChange={(e) => setIsManagerView(e.target.checked)}
-              className="w-4 h-4 cursor-pointer"
-            />
-          </div>
+          )}
 
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-2 px-3 rounded-full transition-colors">
-            Switch to Employee View
+          <button
+            onClick={() => setIsManagerView(!isManagerView)}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-2 px-3 rounded-full transition-colors"
+          >
+            {isManagerView ? "Switch to Employee View" : "Switch to Manager View"}
           </button>
         </div>
       </div>
