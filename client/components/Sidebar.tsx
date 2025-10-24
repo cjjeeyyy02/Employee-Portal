@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useView } from "@/context/ViewContext";
 
 const managerNavigationItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -36,12 +37,8 @@ const managerFunctions = [
   { icon: Users, label: "Team Management", path: "/team-management" },
 ];
 
-interface SidebarProps {
-  isManagerView: boolean;
-  setIsManagerView: (value: boolean) => void;
-}
-
-export default function Sidebar({ isManagerView, setIsManagerView }: SidebarProps) {
+export default function Sidebar() {
+  const { isManagerView, setIsManagerView } = useView();
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
