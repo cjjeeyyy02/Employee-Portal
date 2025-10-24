@@ -1,10 +1,8 @@
 import { Bell, Search, ChevronDown } from "lucide-react";
+import { useView } from "@/context/ViewContext";
 
-interface HeaderProps {
-  isManagerView: boolean;
-}
-
-export default function Header({ isManagerView }: HeaderProps) {
+export default function Header() {
+  const { isManagerView } = useView();
   return (
     <div className="bg-white border-b border-gray-200 shadow-sm">
       <div className="px-6 py-4 flex items-center justify-between">
