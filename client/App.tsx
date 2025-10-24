@@ -37,7 +37,7 @@ const App = () => (
 
             {/* Employee View Routes */}
             <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
-            <Route path="/my-profile" element={<Placeholder title="My Profile" />} />
+            <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/my-leave-attendance" element={<Placeholder title="My Leave & Attendance" />} />
             <Route path="/my-performance" element={<Placeholder title="My Performance" />} />
             <Route path="/my-tasks" element={<Placeholder title="My Tasks" />} />
