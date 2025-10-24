@@ -69,19 +69,19 @@ export default function MyProfile() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-semibold text-gray-900 mb-2">My Profile</h1>
-        <p className="text-gray-600">View and manage your profile information</p>
+      <div className="mb-4">
+        <h1 className="text-xl font-semibold text-gray-900 mb-1">My Profile</h1>
+        <p className="text-xs text-gray-600">View and manage your profile information</p>
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-8 bg-white rounded-t-lg">
-        <div className="flex gap-0 px-6">
+      <div className="border-b border-gray-200 mb-4 bg-white rounded-t-lg">
+        <div className="flex gap-0 px-4">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-4 font-medium text-sm border-b-2 transition-all whitespace-nowrap ${
+              className={`px-3 py-2 font-medium text-xs border-b-2 transition-all whitespace-nowrap ${
                 activeTab === tab.id
                   ? "text-blue-600 border-b-blue-600"
                   : "text-gray-600 border-b-transparent hover:text-gray-900 hover:bg-gray-50"
@@ -94,13 +94,13 @@ export default function MyProfile() {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white rounded-lg shadow-sm p-4">
         {/* Personal Info Tab */}
         {activeTab === "personal" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Profile Photo Card */}
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Profile Photo</h2>
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h2 className="text-sm font-semibold text-gray-900 mb-4">Profile Photo</h2>
               <div className="flex items-center justify-center py-8">
                 <div className="relative">
                   <img
@@ -116,35 +116,35 @@ export default function MyProfile() {
             </div>
 
             {/* Basic Information Card */}
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Basic Information</h2>
-              <div className="space-y-6">
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h2 className="text-sm font-semibold text-gray-900 mb-4">Basic Information</h2>
+              <div className="space-y-3">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-gray-600 mb-2">First Name</label>
-                    <p className="text-gray-900 font-medium">John</p>
+                    <label className="block text-xs text-gray-600 mb-1">First Name</label>
+                    <p className="text-sm text-gray-900 font-medium">John</p>
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-600 mb-2">Last Name</label>
-                    <p className="text-gray-900 font-medium">Doe</p>
+                    <label className="block text-xs text-gray-600 mb-1">Last Name</label>
+                    <p className="text-sm text-gray-900 font-medium">Doe</p>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Bio</label>
-                  <p className="text-gray-900 font-medium">
+                  <label className="block text-xs text-gray-600 mb-1">Bio</label>
+                  <p className="text-xs text-gray-900 font-medium">
                     Senior Software Developer with 8+ years of experience in full-stack development.
                   </p>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Email</label>
-                  <p className="text-gray-900 font-medium">john.doe@company.com</p>
+                  <label className="block text-xs text-gray-600 mb-1">Email</label>
+                  <p className="text-xs text-gray-900 font-medium">john.doe@company.com</p>
                 </div>
 
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Phone</label>
-                  <p className="text-gray-900 font-medium">+1 (555) 123-4567</p>
+                  <label className="block text-xs text-gray-600 mb-1">Phone</label>
+                  <p className="text-xs text-gray-900 font-medium">+1 (555) 123-4567</p>
                 </div>
               </div>
             </div>
@@ -153,49 +153,49 @@ export default function MyProfile() {
 
         {/* Work Details Tab */}
         {activeTab === "work" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
-                <Briefcase className="w-5 h-5" /> Current Position
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <Briefcase className="w-4 h-4" /> Current Position
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Job Title</label>
-                  <p className="text-gray-900 font-semibold text-lg">Senior Software Developer</p>
+                  <label className="block text-xs text-gray-600 mb-1">Job Title</label>
+                  <p className="text-sm font-semibold text-gray-900">Senior Software Developer</p>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Department</label>
-                  <p className="text-gray-900 font-medium">Engineering</p>
+                  <label className="block text-xs text-gray-600 mb-1">Department</label>
+                  <p className="text-sm text-gray-900 font-medium">Engineering</p>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Reports To</label>
-                  <p className="text-gray-900 font-medium">Sarah Johnson (Engineering Manager)</p>
+                  <label className="block text-xs text-gray-600 mb-1">Reports To</label>
+                  <p className="text-sm text-gray-900 font-medium">Sarah Johnson (Engineering Manager)</p>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Office Location</label>
-                  <p className="text-gray-900 font-medium">San Francisco, CA</p>
+                  <label className="block text-xs text-gray-600 mb-1">Office Location</label>
+                  <p className="text-sm text-gray-900 font-medium">San Francisco, CA</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-6">Employment Details</h2>
-              <div className="space-y-6">
+            <div className="bg-gray-50 rounded-xl p-4">
+              <h2 className="text-sm font-semibold text-gray-900 mb-4">Employment Details</h2>
+              <div className="space-y-3">
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Start Date</label>
-                  <p className="text-gray-900 font-medium">January 15, 2023</p>
+                  <label className="block text-xs text-gray-600 mb-1">Start Date</label>
+                  <p className="text-sm text-gray-900 font-medium">January 15, 2023</p>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Employment Type</label>
-                  <p className="text-gray-900 font-medium">Full-Time</p>
+                  <label className="block text-xs text-gray-600 mb-1">Employment Type</label>
+                  <p className="text-sm text-gray-900 font-medium">Full-Time</p>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Years of Service</label>
-                  <p className="text-gray-900 font-medium">1 year, 9 months</p>
+                  <label className="block text-xs text-gray-600 mb-1">Years of Service</label>
+                  <p className="text-sm text-gray-900 font-medium">1 year, 9 months</p>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600 mb-2">Employee ID</label>
-                  <p className="text-gray-900 font-medium">EMP-2023-0451</p>
+                  <label className="block text-xs text-gray-600 mb-1">Employee ID</label>
+                  <p className="text-sm text-gray-900 font-medium">EMP-2023-0451</p>
                 </div>
               </div>
             </div>
@@ -205,15 +205,15 @@ export default function MyProfile() {
         {/* Skills Tab */}
         {activeTab === "skills" && (
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
-              <Award className="w-5 h-5" /> Skills & Proficiencies
+            <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <Award className="w-4 h-4" /> Skills & Proficiencies
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-2">
               {skillsData.map((skill, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
+                <div key={index} className="bg-gray-50 rounded-lg p-3">
+                  <div className="flex items-center justify-between mb-1">
                     <div>
-                      <p className="font-semibold text-gray-900">{skill.name}</p>
+                      <p className="text-sm font-semibold text-gray-900">{skill.name}</p>
                       <p className="text-xs text-gray-600">{skill.proficiency}</p>
                     </div>
                     <span className="text-sm font-semibold text-blue-600">{skill.level}%</span>
@@ -233,16 +233,16 @@ export default function MyProfile() {
         {/* Training Tab */}
         {activeTab === "training" && (
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
-              <BookOpen className="w-5 h-5" /> Training & Development
+            <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <BookOpen className="w-4 h-4" /> Training & Development
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-2">
               {trainingData.map((training) => (
-                <div key={training.id} className="bg-gray-50 rounded-lg p-5 border border-gray-200">
-                  <div className="flex items-start justify-between mb-3">
+                <div key={training.id} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                  <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
-                      <p className="font-semibold text-gray-900">{training.title}</p>
-                      <p className="text-sm text-gray-600">{training.provider}</p>
+                      <p className="text-sm font-semibold text-gray-900">{training.title}</p>
+                      <p className="text-xs text-gray-600">{training.provider}</p>
                     </div>
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -285,23 +285,23 @@ export default function MyProfile() {
         {/* Payslips Tab */}
         {activeTab === "payslips" && (
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
-              <FileText className="w-5 h-5" /> Payslips
+            <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <FileText className="w-4 h-4" /> Payslips
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {payslipsData.map((payslip, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between bg-gray-50 rounded-lg p-4 border border-gray-200 hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between bg-gray-50 rounded-lg p-3 border border-gray-200 hover:bg-gray-100 transition-colors"
                 >
                   <div className="flex-1">
-                    <p className="font-semibold text-gray-900">{payslip.month}</p>
-                    <p className="text-sm text-gray-600">{payslip.date}</p>
+                    <p className="text-sm font-semibold text-gray-900">{payslip.month}</p>
+                    <p className="text-xs text-gray-600">{payslip.date}</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <p className="font-semibold text-gray-900">{payslip.amount}</p>
-                    <button className="text-blue-600 hover:text-blue-700 p-2 hover:bg-blue-50 rounded-lg transition-colors">
-                      <Download className="w-5 h-5" />
+                  <div className="flex items-center gap-3">
+                    <p className="text-sm font-semibold text-gray-900">{payslip.amount}</p>
+                    <button className="text-blue-600 hover:text-blue-700 p-1 hover:bg-blue-50 rounded-lg transition-colors">
+                      <Download className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -313,25 +313,25 @@ export default function MyProfile() {
         {/* Documents Tab */}
         {activeTab === "documents" && (
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
-              <FileText className="w-5 h-5" /> Documents
+            <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <FileText className="w-4 h-4" /> Documents
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {documentsData.map((doc) => (
                 <div
                   key={doc.id}
-                  className="flex items-center justify-between bg-gray-50 rounded-lg p-4 border border-gray-200 hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between bg-gray-50 rounded-lg p-3 border border-gray-200 hover:bg-gray-100 transition-colors"
                 >
                   <div className="flex-1">
-                    <p className="font-semibold text-gray-900">{doc.name}</p>
-                    <p className="text-sm text-gray-600">{doc.date}</p>
+                    <p className="text-sm font-semibold text-gray-900">{doc.name}</p>
+                    <p className="text-xs text-gray-600">{doc.date}</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs font-medium text-gray-600 bg-gray-200 px-2 py-1 rounded">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-medium text-gray-600 bg-gray-200 px-2 py-0.5 rounded">
                       {doc.type}
                     </span>
-                    <button className="text-blue-600 hover:text-blue-700 p-2 hover:bg-blue-50 rounded-lg transition-colors">
-                      <Download className="w-5 h-5" />
+                    <button className="text-blue-600 hover:text-blue-700 p-1 hover:bg-blue-50 rounded-lg transition-colors">
+                      <Download className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
