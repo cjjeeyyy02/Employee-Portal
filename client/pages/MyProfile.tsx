@@ -99,56 +99,76 @@ export default function MyProfile() {
 
         {/* Contact Tab */}
         {activeTab === "contact" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Phone className="w-4 h-4" /> Contact Information
-              </h2>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Email Address</label>
-                  <p className="text-sm text-gray-900 font-medium">john.doe@company.com</p>
+          <div className="space-y-6">
+            {/* Contact Information Card */}
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-lg font-bold text-gray-900 mb-1">Contact Information</h2>
+              <p className="text-sm text-gray-600 mb-6">Keep your contact details up to date for important communications</p>
+
+              <div className="space-y-6">
+                {/* Email Address */}
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Email Address</label>
+                    <div className="flex items-center gap-2">
+                      <p className="text-base text-gray-900 font-medium">john.doe@company.com</p>
+                      <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">
+                        <CheckCircle className="w-3 h-3" /> Verified
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Personal Email</label>
-                  <p className="text-sm text-gray-900 font-medium">john.doe@gmail.com</p>
+
+                {/* Primary Phone */}
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Primary Phone</label>
+                    <p className="text-base text-gray-900 font-medium">+1 (555) 123-4567</p>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Phone Number</label>
-                  <p className="text-sm text-gray-900 font-medium">+1 (555) 123-4567</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Mobile Number</label>
-                  <p className="text-sm text-gray-900 font-medium">+1 (555) 987-6543</p>
+
+                {/* Alternate Phone */}
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Alternate Phone</label>
+                    <p className="text-base text-gray-900 font-medium">+1 (555) 987-6543</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-gray-900 mb-4">Address Information</h2>
-              <div className="space-y-3">
+              {/* Divider */}
+              <div className="my-6 border-b border-gray-200"></div>
+
+              {/* Address Section */}
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Address</h2>
+              <div className="space-y-4">
                 <div>
-                  <label className="block text-xs text-gray-600 mb-1">Street Address</label>
-                  <p className="text-sm text-gray-900 font-medium">123 Main Street</p>
+                  <label className="block text-sm font-medium text-gray-600 mb-1">Street Address</label>
+                  <p className="text-base text-gray-900 font-medium">123 Main Street</p>
                 </div>
+
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-600 mb-1">City</label>
-                    <p className="text-sm text-gray-900 font-medium">San Francisco</p>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">City</label>
+                    <p className="text-base text-gray-900 font-medium">New York</p>
                   </div>
                   <div>
-                    <label className="block text-xs text-gray-600 mb-1">State</label>
-                    <p className="text-sm text-gray-900 font-medium">CA</p>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">State</label>
+                    <p className="text-base text-gray-900 font-medium">NY</p>
                   </div>
                 </div>
+
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-600 mb-1">ZIP Code</label>
-                    <p className="text-sm text-gray-900 font-medium">94105</p>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">ZIP Code</label>
+                    <p className="text-base text-gray-900 font-medium">10001</p>
                   </div>
                   <div>
-                    <label className="block text-xs text-gray-600 mb-1">Country</label>
-                    <p className="text-sm text-gray-900 font-medium">United States</p>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">Country</label>
+                    <p className="text-base text-gray-900 font-medium">United States</p>
                   </div>
                 </div>
               </div>
