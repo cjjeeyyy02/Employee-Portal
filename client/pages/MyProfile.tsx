@@ -178,52 +178,37 @@ export default function MyProfile() {
 
         {/* Emergency Tab */}
         {activeTab === "emergency" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4" /> Emergency Contact 1
-              </h2>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Full Name</label>
-                  <p className="text-sm text-gray-900 font-medium">Jane Doe</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Relationship</label>
-                  <p className="text-sm text-gray-900 font-medium">Spouse</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Phone Number</label>
-                  <p className="text-sm text-gray-900 font-medium">+1 (555) 234-5678</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Email Address</label>
-                  <p className="text-sm text-gray-900 font-medium">jane.doe@gmail.com</p>
-                </div>
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+            {/* Header */}
+            <div className="flex items-center gap-3 mb-6">
+              <Shield className="w-5 h-5 text-blue-600" />
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Emergency Contact</h2>
+                <p className="text-sm text-gray-500">Provide emergency contact information for urgent situations.</p>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4" /> Emergency Contact 2
-              </h2>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Full Name</label>
-                  <p className="text-sm text-gray-900 font-medium">Robert Doe</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Relationship</label>
-                  <p className="text-sm text-gray-900 font-medium">Brother</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Phone Number</label>
-                  <p className="text-sm text-gray-900 font-medium">+1 (555) 345-6789</p>
-                </div>
-                <div>
-                  <label className="block text-xs text-gray-600 mb-1">Email Address</label>
-                  <p className="text-sm text-gray-900 font-medium">robert.doe@gmail.com</p>
-                </div>
+            {/* Information Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Contact Name */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Contact Name</label>
+                <p className="text-base text-gray-800 font-medium">Jane Doe</p>
+              </div>
+
+              {/* Relationship */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Relationship</label>
+                <p className="text-base text-gray-800 font-medium">Spouse</p>
+              </div>
+            </div>
+
+            {/* Phone Number */}
+            <div className="mt-6">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                <p className="text-base text-gray-800 font-medium">+1 (555) 456-7890</p>
               </div>
             </div>
           </div>
