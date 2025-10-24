@@ -28,8 +28,12 @@ const managerFunctions = [
   { icon: Users, label: "Team Management", path: "/team-management" },
 ];
 
-export default function Sidebar() {
-  const [isManagerView, setIsManagerView] = useState(true);
+interface SidebarProps {
+  isManagerView: boolean;
+  setIsManagerView: (value: boolean) => void;
+}
+
+export default function Sidebar({ isManagerView, setIsManagerView }: SidebarProps) {
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
