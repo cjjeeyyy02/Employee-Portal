@@ -81,7 +81,7 @@ export default function Sidebar({ isManagerView, setIsManagerView }: SidebarProp
       {/* Navigation */}
       <nav className="flex-1 px-4 py-6 overflow-y-auto">
         <ul className="space-y-2">
-          {navigationItems.map((item) => {
+          {(isManagerView ? managerNavigationItems : employeeNavigationItems).map((item) => {
             const Icon = item.icon;
             const active = isActive(item.path);
 
