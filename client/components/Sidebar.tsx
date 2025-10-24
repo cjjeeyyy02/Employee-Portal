@@ -59,8 +59,8 @@ export default function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-6 overflow-y-auto">
-        <ul className="space-y-2">
+      <nav className="flex-1 px-5 py-6 overflow-y-auto">
+        <ul className="space-y-1">
           {(isManagerView ? managerNavigationItems : employeeNavigationItems).map((item) => {
             const Icon = item.icon;
             const active = isActive(item.path);
@@ -69,14 +69,14 @@ export default function Sidebar() {
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                  className={`flex items-center gap-3 px-5 py-3 rounded-lg transition-all font-medium text-sm ${
                     active
-                      ? "bg-slate-800 border-l-2 border-blue-500"
-                      : "text-gray-300 hover:bg-slate-800 hover:text-white"
+                      ? "bg-gray-100 text-blue-600 border-l-4 border-blue-500"
+                      : "text-gray-600 hover:bg-gray-50"
                   }`}
                 >
                   <Icon className="w-5 h-5 flex-shrink-0" />
-                  <span className="text-sm font-medium">{item.label}</span>
+                  <span>{item.label}</span>
                 </Link>
               </li>
             );
@@ -85,11 +85,11 @@ export default function Sidebar() {
 
         {/* Manager Functions Section - Only in Manager View */}
         {isManagerView && (
-          <div className="mt-8 pt-6 border-t border-slate-800">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4 px-5">
               Manager Functions
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {managerFunctions.map((item) => {
                 const Icon = item.icon;
                 const active = isActive(item.path);
@@ -98,14 +98,14 @@ export default function Sidebar() {
                   <li key={item.path}>
                     <Link
                       to={item.path}
-                      className={`flex items-center gap-3 px-4 py-2 rounded-lg transition-all ${
+                      className={`flex items-center gap-3 px-5 py-3 rounded-lg transition-all font-medium text-sm ${
                         active
-                          ? "bg-slate-800 border-l-2 border-blue-500"
-                          : "text-gray-300 hover:bg-slate-800 hover:text-white"
+                          ? "bg-gray-100 text-blue-600 border-l-4 border-blue-500"
+                          : "text-gray-600 hover:bg-gray-50"
                       }`}
                     >
                       <Icon className="w-5 h-5 flex-shrink-0" />
-                      <span className="text-sm font-medium">{item.label}</span>
+                      <span>{item.label}</span>
                     </Link>
                   </li>
                 );
