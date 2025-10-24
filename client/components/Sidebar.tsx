@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-const navigationItems = [
+const managerNavigationItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
   { icon: User, label: "Personal Info", path: "/personal-info" },
   { icon: Calendar, label: "Leave & Attendance", path: "/leave-attendance" },
@@ -20,6 +20,16 @@ const navigationItems = [
   { icon: Target, label: "Performance", path: "/performance" },
   { icon: FileText, label: "Requests & Documents", path: "/requests" },
   { icon: MessageSquare, label: "Communications", path: "/communications" },
+];
+
+const employeeNavigationItems = [
+  { icon: LayoutDashboard, label: "My Dashboard", path: "/employee-dashboard" },
+  { icon: User, label: "My Profile", path: "/my-profile" },
+  { icon: Calendar, label: "My Leave & Attendance", path: "/my-leave-attendance" },
+  { icon: Target, label: "My Performance", path: "/my-performance" },
+  { icon: CheckSquare, label: "My Tasks", path: "/my-tasks" },
+  { icon: DollarSign, label: "My Payslips", path: "/my-payslips" },
+  { icon: FileText, label: "Documents", path: "/documents" },
 ];
 
 const managerFunctions = [
