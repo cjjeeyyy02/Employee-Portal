@@ -178,37 +178,37 @@ export default function MyProfile() {
 
         {/* Emergency Tab */}
         {activeTab === "emergency" && (
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-6">
-              <Shield className="w-5 h-5 text-blue-600" />
+            <div className="flex items-center gap-2 mb-4">
+              <Shield className="w-4 h-4 text-blue-600" />
               <div>
-                <h2 className="text-lg font-semibold text-gray-900">Emergency Contact</h2>
-                <p className="text-sm text-gray-500">Provide emergency contact information for urgent situations.</p>
+                <h2 className="text-base font-semibold text-gray-900">Emergency Contact</h2>
+                <p className="text-xs text-gray-500">Provide emergency contact information for urgent situations.</p>
               </div>
             </div>
 
             {/* Information Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
               {/* Contact Name */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Contact Name</label>
-                <p className="text-base text-gray-800 font-medium">Jane Doe</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Contact Name</label>
+                <p className="text-xs text-gray-800 font-medium">Jane Doe</p>
               </div>
 
               {/* Relationship */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Relationship</label>
-                <p className="text-base text-gray-800 font-medium">Spouse</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Relationship</label>
+                <p className="text-xs text-gray-800 font-medium">Spouse</p>
               </div>
             </div>
 
             {/* Phone Number */}
-            <div className="mt-6">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                <p className="text-base text-gray-800 font-medium">+1 (555) 456-7890</p>
+            <div className="mt-3">
+              <label className="block text-xs font-semibold text-gray-700 mb-0.5">Phone Number</label>
+              <div className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-blue-500 flex-shrink-0" />
+                <p className="text-xs text-gray-800 font-medium">+1 (555) 456-7890</p>
               </div>
             </div>
           </div>
