@@ -11,6 +11,7 @@ import PersonalInfo from "./pages/PersonalInfo";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import MyProfile from "./pages/MyProfile";
 import MyLeaveAttendance from "./pages/MyLeaveAttendance";
+import MyPerformance from "./pages/MyPerformance";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
