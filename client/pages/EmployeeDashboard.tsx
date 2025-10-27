@@ -63,21 +63,6 @@ export default function EmployeeDashboard() {
         <p className="text-sm text-gray-600">Here's your dashboard overview for today</p>
       </div>
 
-      {/* Action Button Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {quickActions.map((action, index) => {
-          const Icon = action.icon;
-          return (
-            <button
-              key={index}
-              className={`${action.color} text-white font-medium py-3 px-5 rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2`}
-            >
-              <Icon className="w-5 h-5" />
-              <span className="text-sm">{action.label}</span>
-            </button>
-          );
-        })}
-      </div>
 
       {/* Stat Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
