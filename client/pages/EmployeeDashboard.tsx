@@ -97,6 +97,7 @@ export default function EmployeeDashboard() {
                 <div className="flex-1">
                   <p className="text-xs text-gray-600 mb-1">{metric.label}</p>
                   <p className="text-xl font-bold text-gray-900">{metric.value}</p>
+                  {metric.subtext && <p className="text-xs text-gray-500 mt-1">{metric.subtext}</p>}
                 </div>
               </div>
             </div>
