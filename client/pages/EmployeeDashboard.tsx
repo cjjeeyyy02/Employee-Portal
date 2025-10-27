@@ -15,12 +15,7 @@ import Layout from "@/components/Layout";
 export default function EmployeeDashboard() {
   const [expandedAnnouncement, setExpandedAnnouncement] = useState<number | null>(null);
 
-  const quickActions = [
-    { icon: Clock, label: "Clock In", color: "bg-blue-500 hover:bg-blue-600" },
-    { icon: Calendar, label: "Request Leave", color: "bg-green-500 hover:bg-green-600" },
-    { icon: Target, label: "View Goals", color: "bg-purple-500 hover:bg-purple-600" },
-    { icon: FileText, label: "View Payslip", color: "bg-orange-500 hover:bg-orange-600" },
-  ];
+  const quickActions = [];
 
   const metrics = [
     { label: "Available Leave", value: "18.5 days", subtext: "+2.5 from last month", icon: Calendar, bgColor: "bg-sky-100", iconColor: "text-sky-600" },
