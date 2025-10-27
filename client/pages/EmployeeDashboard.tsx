@@ -2,11 +2,8 @@ import { useState } from "react";
 import {
   Clock,
   Calendar,
-  Target,
-  FileText,
   MessageCircle,
   TrendingUp,
-  Users,
   CheckCircle,
   ChevronRight,
 } from "lucide-react";
