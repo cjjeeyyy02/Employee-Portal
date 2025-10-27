@@ -23,10 +23,10 @@ export default function EmployeeDashboard() {
   ];
 
   const metrics = [
-    { label: "Leave Balance", value: "12 days", icon: Calendar, bgColor: "bg-sky-100", iconColor: "text-sky-600" },
-    { label: "Pending Tasks", value: "5", icon: CheckCircle, bgColor: "bg-green-100", iconColor: "text-green-600" },
-    { label: "Performance Score", value: "4.5/5", icon: TrendingUp, bgColor: "bg-violet-100", iconColor: "text-violet-600" },
-    { label: "Team Size", value: "8", icon: Users, bgColor: "bg-amber-100", iconColor: "text-amber-600" },
+    { label: "Available Leave", value: "18.5 days", subtext: "+2.5 from last month", icon: Calendar, bgColor: "bg-sky-100", iconColor: "text-sky-600" },
+    { label: "Attendance Rate", value: "96.8%", subtext: "+1.2% from last month", icon: Clock, bgColor: "bg-green-100", iconColor: "text-green-600" },
+    { label: "Active Tasks", value: "7", subtext: "3 due this week", icon: CheckCircle, bgColor: "bg-purple-100", iconColor: "text-purple-600" },
+    { label: "Performance Score", value: "4.2/5", subtext: "Above average", icon: TrendingUp, bgColor: "bg-violet-100", iconColor: "text-violet-600" },
   ];
 
   const pendingTasks = [
