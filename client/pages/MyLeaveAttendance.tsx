@@ -128,59 +128,114 @@ export default function MyLeaveAttendance() {
             </div>
           </div>
 
-          {/* Attendance Summary Table */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-base font-semibold text-gray-900 mb-4">Attendance Summary</h2>
-
-            {/* Sub-tabs */}
-            <div className="flex gap-2 mb-4 border-b border-gray-200 pb-2">
-              {[
-                { id: "week", label: "Week" },
-                { id: "month", label: "Month" },
-                { id: "ot", label: "OT" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setAttendanceSummaryTab(tab.id as AttendanceSummaryTab)}
-                  className={`px-3 py-2 text-xs font-medium rounded transition-all ${
-                    attendanceSummaryTab === tab.id
-                      ? "bg-blue-100 text-blue-700"
-                      : "text-gray-600 hover:text-gray-900"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+          {/* Attendance Records */}
+          <div
+            className="w-full bg-white rounded-[12px] p-8 flex flex-col gap-4"
+            style={{
+              padding: "24px 32px",
+            }}
+          >
+            {/* Header */}
+            <div>
+              <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-3">Attendance Records</h2>
+              <p className="text-sm text-[#7A7A7A] mb-3">Your recent attendance history</p>
             </div>
 
             {/* Table */}
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">Date</th>
-                    <th className="px-4 py-3 text-center font-semibold text-gray-700">Clock In</th>
-                    <th className="px-4 py-3 text-center font-semibold text-gray-700">Clock Out</th>
-                    <th className="px-4 py-3 text-center font-semibold text-gray-700">Total Hours</th>
-                    <th className="px-4 py-3 text-center font-semibold text-gray-700">Overtime</th>
-                    <th className="px-4 py-3 text-center font-semibold text-gray-700">Status</th>
+                  <tr className="border-b border-gray-200">
+                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Date</th>
+                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Clock In</th>
+                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Clock Out</th>
+                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Total Hours</th>
+                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Status</th>
+                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {attendanceData.map((row, index) => (
-                    <tr key={index} className={`border-b border-gray-200 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
-                      <td className="px-4 py-3 text-gray-900 font-medium text-xs">{row.date}</td>
-                      <td className="px-4 py-3 text-center text-xs text-gray-600">{row.clockIn}</td>
-                      <td className="px-4 py-3 text-center text-xs text-gray-600">{row.clockOut}</td>
-                      <td className="px-4 py-3 text-center text-xs font-semibold text-gray-900">{row.totalHours}</td>
-                      <td className="px-4 py-3 text-center text-xs font-semibold text-blue-600">{row.overtime}</td>
-                      <td className="px-4 py-3 text-center">
-                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(row.status)}`}>
-                          {row.status}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
+                  {/* Row 01 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-10</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">09:00</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">17:30</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">8.5h</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
+                        Present
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-sm">—</td>
+                  </tr>
+
+                  {/* Row 02 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-09</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">09:15</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">17:30</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">8.25h</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#E0E0E0" }}>
+                        Late
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <button
+                        className="px-3.5 py-2 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                      >
+                        Request Correction
+                      </button>
+                    </td>
+                  </tr>
+
+                  {/* Row 03 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-06</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">09:00</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">17:30</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">8.5h</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
+                        Present
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-sm">—</td>
+                  </tr>
+
+                  {/* Row 04 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-05</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">09:00</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">13:00</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">4.0h</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#F2F2F2" }}>
+                        Half-day
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 text-sm">—</td>
+                  </tr>
+
+                  {/* Row 05 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-04</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">—</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">—</td>
+                    <td className="px-4 py-3 text-sm text-gray-900">0h</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#EB5757" }}>
+                        Absent
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
+                      <button
+                        className="px-3.5 py-2 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                      >
+                        Request Correction
+                      </button>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
