@@ -94,18 +94,6 @@ export default function MyLeaveAttendance() {
       {/* ===== ATTENDANCE TAB ===== */}
       {activeTab === "attendance" && (
         <div className="space-y-6">
-          {/* Clock Controls */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
-              <Clock className="w-5 h-5" /> Clock In
-            </button>
-            <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
-              <Coffee className="w-5 h-5" /> Start Break
-            </button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
-              <Clock8 className="w-5 h-5" /> Request OT
-            </button>
-          </div>
 
           {/* Today's Summary */}
           <div className="bg-white rounded-xl shadow-sm p-6">
