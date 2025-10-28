@@ -205,8 +205,10 @@ export default function MyLeaveAttendance() {
 
       {/* ===== LEAVE TAB ===== */}
       {activeTab === "leave" && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* LEFT PANEL — Available Leave */}
+        <div className="flex flex-col w-full gap-6">
+          {/* Available Leave & Recent Activities Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {/* LEFT PANEL — Available Leave */}
           <div className="bg-white rounded-[16px] p-4 flex flex-col gap-3" style={{ padding: "16px 20px" }}>
             {/* Section Title */}
             <div>
@@ -348,6 +350,64 @@ export default function MyLeaveAttendance() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Leave Requests Section Container */}
+        <div className="w-full flex flex-col gap-6 bg-white rounded-[16px] p-8 self-stretch" style={{ padding: "28px 32px", marginTop: "24px" }}>
+          {/* Section Header */}
+          <div>
+            <h2 className="text-lg font-semibold text-gray-900 mb-1">My Leave Requests</h2>
+            <p className="text-xs text-gray-600">Your leave request history and status</p>
+          </div>
+
+          {/* Leave Request Cards */}
+          <div className="flex flex-col gap-3 w-full">
+            {/* Request Card 1 */}
+            <div className="w-full bg-white border border-gray-200 rounded-[12px] p-4 flex flex-col gap-3">
+              <div className="flex justify-between items-start gap-3">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-gray-900">Annual Leave</p>
+                  <p className="text-xs text-gray-600 mt-1">Dec 20 - Dec 30, 2024</p>
+                </div>
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
+              </div>
+              <div className="flex justify-between items-center text-xs text-gray-600">
+                <span>10 days requested</span>
+                <span>Requested on Dec 10, 2024</span>
+              </div>
+            </div>
+
+            {/* Request Card 2 */}
+            <div className="w-full bg-white border border-gray-200 rounded-[12px] p-4 flex flex-col gap-3">
+              <div className="flex justify-between items-start gap-3">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-gray-900">Sick Leave</p>
+                  <p className="text-xs text-gray-600 mt-1">Nov 15, 2024</p>
+                </div>
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
+              </div>
+              <div className="flex justify-between items-center text-xs text-gray-600">
+                <span>1 day requested</span>
+                <span>Requested on Nov 14, 2024</span>
+              </div>
+            </div>
+
+            {/* Request Card 3 */}
+            <div className="w-full bg-white border border-gray-200 rounded-[12px] p-4 flex flex-col gap-3">
+              <div className="flex justify-between items-start gap-3">
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-gray-900">Personal Leave</p>
+                  <p className="text-xs text-gray-600 mt-1">Oct 22, 2024</p>
+                </div>
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-blue-500">Pending</span>
+              </div>
+              <div className="flex justify-between items-center text-xs text-gray-600">
+                <span>1 day requested</span>
+                <span>Requested on Oct 20, 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       )}
 
