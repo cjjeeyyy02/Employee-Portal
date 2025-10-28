@@ -81,9 +81,53 @@ export default function EmployeeDashboard() {
   return (
     <Layout>
       {/* Welcome Section */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-semibold text-gray-900 mb-2">Welcome back, John!</h1>
-        <p className="text-sm text-gray-600">Here's your dashboard overview for today</p>
+      <div className="flex flex-row items-center justify-between w-full mb-8 gap-8">
+        {/* Left Group */}
+        <div>
+          <h1 className="text-2xl font-semibold text-gray-900 mb-2">Welcome back, John!</h1>
+          <p className="text-sm text-gray-600">Here's your dashboard overview for today</p>
+        </div>
+
+        {/* Right Group - Time Card */}
+        <div
+          className="bg-white rounded-[16px] p-8 shadow-sm flex-shrink-0"
+          style={{
+            boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
+            padding: "24px 32px",
+          }}
+        >
+          <div className="flex flex-col items-center gap-2">
+            {/* Time Label */}
+            <div className="text-center">
+              <p className="text-[28px] font-semibold text-[#1A1A1A]">{currentTime}</p>
+            </div>
+
+            {/* Date Label */}
+            <div className="text-center">
+              <p className="text-base text-[#808080]">{currentDate}</p>
+            </div>
+
+            {/* Button Group */}
+            <div className="flex flex-row gap-3 mt-2">
+              {/* Clock In Button */}
+              <button
+                className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#2F80ED] text-white font-medium transition-colors hover:bg-blue-700"
+              >
+                <CheckCircle className="w-4 h-4" />
+                <span className="text-sm">Clock In</span>
+              </button>
+
+              {/* Break Button */}
+              <button
+                disabled
+                className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#F2F2F2] text-[#B3B3B3] font-medium cursor-not-allowed"
+              >
+                <Coffee className="w-4 h-4" />
+                <span className="text-sm">Break</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
 
