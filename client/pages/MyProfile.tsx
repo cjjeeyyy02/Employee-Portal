@@ -216,70 +216,70 @@ export default function MyProfile() {
 
         {/* Employment Tab */}
         {activeTab === "employment" && (
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
             {/* Header */}
-            <div className="flex items-center gap-3 mb-6">
-              <Briefcase className="w-5 h-5 text-blue-600" />
+            <div className="flex items-center gap-2 mb-4">
+              <Briefcase className="w-4 h-4 text-blue-600" />
               <div>
-                <h2 className="text-lg font-semibold text-gray-900">Employment Information</h2>
-                <p className="text-sm text-gray-500">View your employment details and work information.</p>
+                <h2 className="text-base font-semibold text-gray-900">Employment Information</h2>
+                <p className="text-xs text-gray-500">View your employment details and work information.</p>
               </div>
             </div>
 
             {/* Information Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
               {/* LEFT COLUMN */}
               {/* Employee ID */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Employee ID</label>
-                <p className="text-base text-gray-800">EMP-2023-1156</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Employee ID</label>
+                <p className="text-sm text-gray-800">EMP-2023-1156</p>
               </div>
 
               {/* Start Date */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Start Date</label>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Start Date</label>
                 <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4 text-gray-500" />
-                  <p className="text-base text-gray-800">March 15, 2020</p>
+                  <Calendar className="w-3.5 h-3.5 text-gray-500" />
+                  <p className="text-sm text-gray-800">March 15, 2020</p>
                 </div>
               </div>
 
               {/* Job Title */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Job Title</label>
-                <p className="text-base text-gray-800">Senior Software Developer</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Job Title</label>
+                <p className="text-sm text-gray-800">Senior Software Developer</p>
               </div>
 
               {/* Employment Type */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Employment Type</label>
-                <span className="inline-block rounded-full px-3 py-1 bg-gray-100 text-gray-800 font-medium text-sm">
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Employment Type</label>
+                <span className="inline-block rounded-full px-2.5 py-0.5 bg-gray-100 text-gray-800 font-medium text-xs">
                   Full-time
                 </span>
               </div>
 
               {/* Department */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Department</label>
-                <p className="text-base text-gray-800">Engineering</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Department</label>
+                <p className="text-sm text-gray-800">Engineering</p>
               </div>
 
               {/* Work Location */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Work Location</label>
-                <p className="text-base text-gray-800">New York Office</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Work Location</label>
+                <p className="text-sm text-gray-800">New York Office</p>
               </div>
 
               {/* Manager */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Manager</label>
-                <p className="text-base text-gray-800">Sarah Johnson</p>
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Manager</label>
+                <p className="text-sm text-gray-800">Sarah Johnson</p>
               </div>
 
               {/* Status */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1">Status</label>
-                <span className="inline-block rounded-full px-3 py-1 bg-green-500 text-white font-medium text-sm">
+                <label className="block text-xs font-semibold text-gray-700 mb-0.5">Status</label>
+                <span className="inline-block rounded-full px-2.5 py-0.5 bg-green-500 text-white font-medium text-xs">
                   Active
                 </span>
               </div>
