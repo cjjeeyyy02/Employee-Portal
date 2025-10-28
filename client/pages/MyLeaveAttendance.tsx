@@ -3,7 +3,6 @@ import { Calendar, AlertCircle, CheckCircle, XCircle, Plus } from "lucide-react"
 import Layout from "@/components/Layout";
 
 type TabType = "attendance" | "leave";
-type AttendanceSummaryTab = "week" | "month" | "ot";
 
 export default function MyLeaveAttendance() {
   const [activeTab, setActiveTab] = useState<TabType>("attendance");
