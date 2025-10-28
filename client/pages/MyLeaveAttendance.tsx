@@ -120,15 +120,15 @@ export default function MyLeaveAttendance() {
 
           {/* Attendance Records */}
           <div
-            className="w-full bg-white rounded-[12px] p-8 flex flex-col gap-4"
+            className="w-full bg-white rounded-[12px] p-3 flex flex-col gap-2"
             style={{
-              padding: "24px 32px",
+              padding: "16px 20px",
             }}
           >
             {/* Header */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-3">Attendance Records</h2>
-              <p className="text-sm text-[#7A7A7A] mb-3">Your recent attendance history</p>
+              <h2 className="text-base font-semibold text-[#1A1A1A] mb-1">Attendance Records</h2>
+              <p className="text-xs text-[#7A7A7A] mb-2">Your recent attendance history</p>
             </div>
 
             {/* Table */}
@@ -136,43 +136,43 @@ export default function MyLeaveAttendance() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Date</th>
-                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Clock In</th>
-                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Clock Out</th>
-                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Total Hours</th>
-                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Status</th>
-                    <th className="px-4 py-3 text-left text-sm font-bold text-gray-900">Actions</th>
+                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Date</th>
+                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Clock In</th>
+                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Clock Out</th>
+                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Total Hours</th>
+                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Status</th>
+                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {/* Row 01 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-10</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">09:00</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">17:30</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">8.5h</td>
-                    <td className="px-4 py-3">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
+                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-10</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">09:00</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">17:30</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">8.5h</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
                         Present
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-sm">—</td>
+                    <td className="px-3 py-2 text-xs">—</td>
                   </tr>
 
                   {/* Row 02 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-09</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">09:15</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">17:30</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">8.25h</td>
-                    <td className="px-4 py-3">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#E0E0E0" }}>
+                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-09</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">09:15</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">17:30</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">8.25h</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#E0E0E0" }}>
                         Late
                       </span>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-3 py-2">
                       <button
-                        className="px-3.5 py-2 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                        className="px-3 py-1 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         Request Correction
                       </button>
@@ -181,46 +181,46 @@ export default function MyLeaveAttendance() {
 
                   {/* Row 03 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-06</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">09:00</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">17:30</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">8.5h</td>
-                    <td className="px-4 py-3">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
+                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-06</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">09:00</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">17:30</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">8.5h</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
                         Present
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-sm">—</td>
+                    <td className="px-3 py-2 text-xs">—</td>
                   </tr>
 
                   {/* Row 04 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-05</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">09:00</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">13:00</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">4.0h</td>
-                    <td className="px-4 py-3">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#F2F2F2" }}>
+                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-05</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">09:00</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">13:00</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">4.0h</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#F2F2F2" }}>
                         Half-day
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-sm">—</td>
+                    <td className="px-3 py-2 text-xs">—</td>
                   </tr>
 
                   {/* Row 05 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">2024-12-04</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">—</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">—</td>
-                    <td className="px-4 py-3 text-sm text-gray-900">0h</td>
-                    <td className="px-4 py-3">
-                      <span className="inline-block px-3 py-1 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#EB5757" }}>
+                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-04</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">—</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">—</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">0h</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#EB5757" }}>
                         Absent
                       </span>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-3 py-2">
                       <button
-                        className="px-3.5 py-2 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                        className="px-3 py-1 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         Request Correction
                       </button>
