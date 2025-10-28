@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Clock, Coffee, Clock8, Calendar, AlertCircle, CheckCircle, XCircle, Plus } from "lucide-react";
+import { Calendar, AlertCircle, CheckCircle, XCircle, Plus } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "attendance" | "leave";
