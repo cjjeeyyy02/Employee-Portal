@@ -6,6 +6,7 @@ import {
   TrendingUp,
   CheckCircle,
   ChevronRight,
+  Coffee,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
