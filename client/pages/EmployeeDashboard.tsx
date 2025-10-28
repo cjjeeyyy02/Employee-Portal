@@ -90,40 +90,35 @@ export default function EmployeeDashboard() {
 
         {/* Right Group - Time Card */}
         <div
-          className="bg-white rounded-[16px] p-8 shadow-sm flex-shrink-0"
+          className="bg-white rounded-lg p-4 shadow-sm flex-shrink-0"
           style={{
             boxShadow: "0px 2px 8px rgba(0,0,0,0.08)",
-            padding: "24px 32px",
           }}
         >
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-1">
             {/* Time Label */}
-            <div className="text-center">
-              <p className="text-[28px] font-semibold text-[#1A1A1A]">{currentTime}</p>
-            </div>
+            <p className="text-lg font-semibold text-[#1A1A1A]">{currentTime}</p>
 
             {/* Date Label */}
-            <div className="text-center">
-              <p className="text-base text-[#808080]">{currentDate}</p>
-            </div>
+            <p className="text-xs text-[#808080]">{currentDate}</p>
 
             {/* Button Group */}
-            <div className="flex flex-row gap-3 mt-2">
+            <div className="flex flex-row gap-2 mt-2">
               {/* Clock In Button */}
               <button
-                className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#2F80ED] text-white font-medium transition-colors hover:bg-blue-700"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#2F80ED] text-white text-xs font-medium transition-colors hover:bg-blue-700"
               >
-                <CheckCircle className="w-4 h-4" />
-                <span className="text-sm">Clock In</span>
+                <CheckCircle className="w-3.5 h-3.5" />
+                <span>Clock In</span>
               </button>
 
               {/* Break Button */}
               <button
                 disabled
-                className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#F2F2F2] text-[#B3B3B3] font-medium cursor-not-allowed"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#F2F2F2] text-[#B3B3B3] text-xs font-medium cursor-not-allowed"
               >
-                <Coffee className="w-4 h-4" />
-                <span className="text-sm">Break</span>
+                <Coffee className="w-3.5 h-3.5" />
+                <span>Break</span>
               </button>
             </div>
           </div>
