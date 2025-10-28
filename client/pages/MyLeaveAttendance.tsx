@@ -7,16 +7,7 @@ type AttendanceSummaryTab = "week" | "month" | "ot";
 
 export default function MyLeaveAttendance() {
   const [activeTab, setActiveTab] = useState<TabType>("attendance");
-  const [attendanceSummaryTab, setAttendanceSummaryTab] = useState<AttendanceSummaryTab>("week");
   const [showLeaveModal, setShowLeaveModal] = useState(false);
-
-  const attendanceData = [
-    { date: "Oct 18, 2024", clockIn: "09:00 AM", clockOut: "06:15 PM", totalHours: "9.25", overtime: "1.25", status: "Present" },
-    { date: "Oct 17, 2024", clockIn: "09:15 AM", clockOut: "06:00 PM", totalHours: "8.75", overtime: "0.75", status: "Late" },
-    { date: "Oct 16, 2024", clockIn: "09:00 AM", clockOut: "05:45 PM", totalHours: "8.75", overtime: "0", status: "Present" },
-    { date: "Oct 15, 2024", clockIn: "—", clockOut: "—", totalHours: "0", overtime: "0", status: "Absent" },
-    { date: "Oct 14, 2024", clockIn: "09:00 AM", clockOut: "06:30 PM", totalHours: "9.5", overtime: "1.5", status: "Present" },
-  ];
 
   const leaveRequests = [
     { id: 1, date: "Oct 10, 2024", type: "Vacation", duration: "Oct 20 - Oct 25", days: 6, status: "Approved" },
