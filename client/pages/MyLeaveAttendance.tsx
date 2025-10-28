@@ -8,36 +8,6 @@ export default function MyLeaveAttendance() {
   const [activeTab, setActiveTab] = useState<TabType>("attendance");
   const [showLeaveModal, setShowLeaveModal] = useState(false);
 
-  const leaveRequests = [
-    { id: 1, date: "Oct 10, 2024", type: "Vacation", duration: "Oct 20 - Oct 25", days: 6, status: "Approved" },
-    { id: 2, date: "Oct 05, 2024", type: "Sick Leave", duration: "Oct 18 - Oct 18", days: 1, status: "Pending" },
-    { id: 3, date: "Sep 28, 2024", type: "Emergency", duration: "Oct 05 - Oct 05", days: 1, status: "Approved" },
-  ];
-
-  const leaveBalance = [
-    { type: "Vacation Leave", days: 5, icon: "☀️" },
-    { type: "Sick Leave", days: 3, icon: "🏥" },
-    { type: "Emergency Leave", days: 2, icon: "⚠️" },
-  ];
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Present":
-        return "bg-green-100 text-green-700";
-      case "Late":
-        return "bg-orange-100 text-orange-700";
-      case "Absent":
-        return "bg-red-100 text-red-700";
-      case "Approved":
-        return "bg-green-100 text-green-700";
-      case "Pending":
-        return "bg-yellow-100 text-yellow-700";
-      case "Declined":
-        return "bg-red-100 text-red-700";
-      default:
-        return "bg-gray-100 text-gray-700";
-    }
-  };
 
   return (
     <Layout>
