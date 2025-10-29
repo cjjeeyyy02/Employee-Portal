@@ -247,9 +247,12 @@ export default function DocumentRequests() {
           </button>
         </div>
 
-        {/* Requests List */}
-        <div className="space-y-2">
-          {filteredRequests.map((request) => (
+        {/* ===== MY REQUESTS TAB ===== */}
+        {activeTab === "requests" && (
+          <>
+            {/* Requests List */}
+            <div className="space-y-2">
+              {filteredRequests.map((request) => (
             <div key={request.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow">
               {/* Top Row: Title and Actions */}
               <div className="flex justify-between items-start">
@@ -303,8 +306,103 @@ export default function DocumentRequests() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* ===== MY DOCUMENTS TAB ===== */}
+        {activeTab === "documents" && (
+          <div className="space-y-4">
+            {/* Summary Metrics */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {docSummaryStats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={index} className="bg-white rounded-lg shadow-sm p-4 border border-gray-200">
+                    <div className="flex justify-between items-start">
+                      <div className="flex-1">
+                        <p className="text-xs text-gray-600 mb-1">{stat.label}</p>
+                        <p className="text-xl font-bold text-gray-900 mb-1">{stat.value}</p>
+                        <p className={`text-xs ${stat.subtitleColor ? stat.subtitleColor : "text-gray-600"}`}>{stat.subtitle}</p>
+                      </div>
+                      <Icon className={`w-4 h-4 ${stat.color} flex-shrink-0`} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Document Categories */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {categories.map((category, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg border border-gray-200 shadow-sm p-4 hover:bg-blue-50 transition-colors cursor-pointer"
+                >
+                  <div className="flex items-start gap-3">
+                    <Folder className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-bold text-gray-900">{category.name}</p>
+                      <p className="text-xs text-gray-600">{category.count} document{category.count !== 1 ? "s" : ""}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* All Documents Section */}
+            <div>
+              <h3 className="text-sm font-bold text-gray-900 mb-1">All Documents</h3>
+              <p className="text-xs text-gray-600 mb-3">Your uploaded and verified documents</p>
+
+              <div className="space-y-2">
+                {documents.map((doc) => (
+                  <div key={doc.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow">
+                    <div className="flex justify-between items-start">
+                      {/* Left: Document Info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <File className={`w-4 h-4 ${getFileTypeColor(doc.fileType)}`} />
+                          <p className="text-sm font-bold text-gray-900">{doc.fileName}</p>
+                        </div>
+
+                        {/* Badges */}
+                        <div className="flex gap-1.5 mb-1.5">
+                          {doc.isVerified && (
+                            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Verified</span>
+                          )}
+                          {doc.expiryDate && (
+                            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-800 border border-gray-300">Expires: {doc.expiryDate}</span>
+                          )}
+                        </div>
+
+                        {/* Details */}
+                        <p className="text-xs text-gray-600 mb-1">{doc.category}</p>
+                        <p className="text-xs text-gray-600">{doc.size} • Uploaded {doc.uploadedDate}</p>
+                      </div>
+
+                      {/* Right: Actions */}
+                      <div className="flex gap-1 ml-3">
+                        <button className="px-2 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1 whitespace-nowrap">
+                          <Eye className="w-3 h-3" />
+                          View
+                        </button>
+                        <button className="px-2 py-1 text-xs text-blue-600 border border-blue-300 bg-white rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-1 whitespace-nowrap">
+                          <Download className="w-3 h-3" />
+                          Download
+                        </button>
+                        <button className="px-2 py-1 text-xs text-red-600 border border-red-300 bg-white rounded-lg hover:bg-red-50 transition-colors flex items-center gap-1 whitespace-nowrap">
+                          <Trash2 className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
