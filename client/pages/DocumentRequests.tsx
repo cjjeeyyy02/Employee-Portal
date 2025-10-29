@@ -194,27 +194,26 @@ export default function DocumentRequests() {
 
   return (
     <Layout>
-      <div className="bg-gray-50 min-h-screen p-4">
-        {/* Header Section */}
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h1 className="text-xl font-bold text-gray-900 mb-1">Requests & Document Management</h1>
-            <p className="text-xs text-gray-600">Submit requests and manage your work-related documents</p>
-          </div>
-          <div className="flex gap-2">
-            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
-              <Upload className="w-3.5 h-3.5" />
-              Upload Document
-            </button>
-            <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
-              <Plus className="w-3.5 h-3.5" />
-              New Request
-            </button>
-          </div>
+      {/* Header Section */}
+      <div className="flex justify-between items-start mb-3">
+        <div>
+          <h1 className="text-lg font-semibold text-gray-900 mb-1">Requests & Document Management</h1>
+          <p className="text-xs text-gray-600">Submit requests and manage your work-related documents</p>
         </div>
+        <div className="flex gap-2">
+          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
+            <Upload className="w-3.5 h-3.5" />
+            Upload Document
+          </button>
+          <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+            <Plus className="w-3.5 h-3.5" />
+            New Request
+          </button>
+        </div>
+      </div>
 
-        {/* Tabs Navigation */}
-        <div className="flex gap-2 mb-4">
+      {/* Tabs Navigation */}
+      <div className="flex gap-2 mb-3">
           {[
             { id: "requests", label: "My Requests" },
             { id: "documents", label: "My Documents" },
@@ -448,7 +447,6 @@ export default function DocumentRequests() {
             </div>
           </div>
         )}
-      </div>
     </Layout>
   );
 }
