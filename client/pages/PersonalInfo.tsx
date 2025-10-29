@@ -35,7 +35,7 @@ export default function PersonalInfo() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-8">
+      <div className="border-b border-gray-200 mb-4">
         <div className="flex gap-0">
           {tabs.map((tab) => (
             <button
