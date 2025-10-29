@@ -400,31 +400,78 @@ export default function MyPerformance() {
 
       {/* ===== DEVELOPMENT TAB ===== */}
       {activeTab === "development" && (
-        <div className="space-y-3 sm:space-y-4">
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
-            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Development Activities</h3>
-            <div className="space-y-2">
-              <div className="flex items-start gap-2 pb-2 border-b border-gray-200">
-                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
-                <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Advanced React Patterns Course</p>
-                  <p className="text-xs text-gray-600 mt-0.5">Completed • 16 hours • Dec 5, 2024</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2 pb-2 border-b border-gray-200">
-                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
-                <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Technical Leadership Workshop</p>
-                  <p className="text-xs text-gray-600 mt-0.5">In Progress • 20 hours • Due: Dec 20, 2024</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
-                <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Agile Scrum Certification</p>
-                  <p className="text-xs text-gray-600 mt-0.5">Planned • 40 hours • Starting: Jan 2025</p>
-                </div>
-              </div>
+        <div className="space-y-8">
+          {/* DEVELOPMENT PLAN SECTION */}
+          <div>
+            <h2 className="text-lg font-bold text-gray-900 mb-1">Development Plan</h2>
+            <p className="text-sm text-gray-600 mb-4">Your professional growth roadmap</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+              <DevelopmentPlanCard
+                title="Advanced Leadership Course"
+                subtext="8 modules, 24 hours"
+                statusBadge="In Progress (5/8 modules)"
+              />
+              <DevelopmentPlanCard
+                title="Technical Certification"
+                subtext="AWS Solutions Architect"
+                statusBadge="Planned (Start Q1 2025)"
+              />
+              <DevelopmentPlanCard
+                title="Communication Workshop"
+                subtext="Public speaking skills"
+                statusBadge="Completed (Nov 2024)"
+              />
+            </div>
+            <button className="px-4 py-2 text-sm font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+              <Plus className="w-4 h-4" />
+              Add Development Activity
+            </button>
+          </div>
+
+          {/* ACHIEVEMENTS & RECOGNITION SECTION */}
+          <div>
+            <h2 className="text-lg font-bold text-gray-900 mb-1">Achievements & Recognition</h2>
+            <p className="text-sm text-gray-600 mb-4">Your accomplishments and awards</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <AchievementCard
+                icon="award"
+                title="Employee of the Month"
+                subtext="September 2024"
+              />
+              <AchievementCard
+                icon="team"
+                title="Team Leadership Excellence"
+                subtext="Q3 2024"
+              />
+              <AchievementCard
+                icon="target"
+                title="Project Delivery Excellence"
+                subtext="Q2 2024"
+              />
+            </div>
+          </div>
+
+          {/* SKILLS ASSESSMENT SECTION */}
+          <div>
+            <h2 className="text-lg font-bold text-gray-900 mb-1">Skills Assessment</h2>
+            <p className="text-sm text-gray-600 mb-4">Your current skill levels and growth areas</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <SkillsAssessment
+                groupName="Technical Skills"
+                skills={[
+                  { name: "React/JavaScript", level: "Expert", rating: 4.5, progress: 90 },
+                  { name: "Node.js/Backend", level: "Advanced", rating: 4.0, progress: 80 },
+                  { name: "Cloud/AWS", level: "Intermediate", rating: 3.0, progress: 60 },
+                ]}
+              />
+              <SkillsAssessment
+                groupName="Soft Skills"
+                skills={[
+                  { name: "Communication", level: "Advanced", rating: 4.3, progress: 86 },
+                  { name: "Leadership", level: "Intermediate", rating: 3.8, progress: 76 },
+                  { name: "Project Management", level: "Advanced", rating: 4.0, progress: 80 },
+                ]}
+              />
             </div>
           </div>
         </div>
