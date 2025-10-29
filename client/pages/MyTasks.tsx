@@ -60,6 +60,36 @@ export default function MyTasks() {
     },
   ];
 
+  const projects = [
+    {
+      id: 1,
+      title: "Q4 Performance Reviews",
+      subtitle: "Annual performance review cycle",
+      progress: 75,
+      completedTasks: 6,
+      totalTasks: 8,
+      team: ["John Doe", "Sarah Johnson", "Mike Chen"],
+    },
+    {
+      id: 2,
+      title: "Documentation Update",
+      subtitle: "Updating all project documentation",
+      progress: 45,
+      completedTasks: 5,
+      totalTasks: 12,
+      team: ["John Doe", "Alex Kim", "Lisa Brown"],
+    },
+    {
+      id: 3,
+      title: "Team Development",
+      subtitle: "Team building and skill development initiatives",
+      progress: 30,
+      completedTasks: 2,
+      totalTasks: 6,
+      team: ["John Doe", "Sarah Johnson"],
+    },
+  ];
+
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "High":
