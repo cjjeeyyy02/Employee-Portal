@@ -275,33 +275,40 @@ export default function MyPerformance() {
 
       {/* ===== GOALS TAB ===== */}
       {activeTab === "goals" && (
-        <div className="space-y-3 sm:space-y-4">
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
-            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Active Goals</h3>
-            <div className="space-y-2">
-              <div className="flex justify-between items-start pb-2 border-b border-gray-200">
-                <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Complete Leadership Training</p>
-                  <p className="text-xs text-gray-600 mt-0.5">Due: Dec 31, 2024</p>
-                </div>
-                <span className="text-xs font-medium text-blue-600">75%</span>
-              </div>
-              <div className="flex justify-between items-start pb-2 border-b border-gray-200">
-                <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Improve Code Quality</p>
-                  <p className="text-xs text-gray-600 mt-0.5">Due: Nov 30, 2024</p>
-                </div>
-                <span className="text-xs font-medium text-green-600">100%</span>
-              </div>
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Team Mentoring Program</p>
-                  <p className="text-xs text-gray-600 mt-0.5">Due: Dec 15, 2024</p>
-                </div>
-                <span className="text-xs font-medium text-orange-600">50%</span>
-              </div>
-            </div>
-          </div>
+        <div className="bg-white rounded-[12px] p-5 space-y-4">
+          <GoalCard
+            title="Improve Code Quality Metrics"
+            status="on track"
+            description="Increase code review approval rate and reduce bug reports"
+            target="Target: 95% approval rate"
+            current="Current: 87%"
+            progress={75}
+            category="Technical Skills"
+            dueDate="2024-12-31"
+            onEdit={() => console.log("Edit goal 1")}
+          />
+          <GoalCard
+            title="Complete Leadership Training Program"
+            status="on track"
+            description="Finish all modules of the advanced leadership development course"
+            target="Target: 8 modules"
+            current="Completed: 5 modules"
+            progress={60}
+            category="Professional Development"
+            dueDate="2025-02-28"
+            onEdit={() => console.log("Edit goal 2")}
+          />
+          <GoalCard
+            title="Mentor Two Junior Developers"
+            status="at risk"
+            description="Provide guidance and support to help junior team members grow"
+            target="Target: 2 mentees"
+            current="Current: 1 mentee"
+            progress={40}
+            category="Leadership"
+            dueDate="2025-01-31"
+            onEdit={() => console.log("Edit goal 3")}
+          />
         </div>
       )}
 
