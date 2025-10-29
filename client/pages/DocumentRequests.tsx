@@ -110,12 +110,46 @@ export default function DocumentRequests() {
     return matchesSearch && matchesStatus;
   });
 
+  const documents: Document[] = [
+    { id: 1, fileName: "Passport_Copy.pdf", fileType: "pdf", category: "Identity Documents", size: "2.4 MB", uploadedDate: "Nov 15, 2024", isVerified: true },
+    { id: 2, fileName: "Aadhar_ID.jpg", fileType: "jpg", category: "Identity Documents", size: "1.8 MB", uploadedDate: "Nov 10, 2024", isVerified: true },
+    { id: 3, fileName: "Medical_Report.pdf", fileType: "pdf", category: "Medical Records", size: "3.2 MB", uploadedDate: "Oct 20, 2024", isVerified: true, expiryDate: "Jan 15, 2025" },
+    { id: 4, fileName: "Certification.pdf", fileType: "pdf", category: "Certifications", size: "1.5 MB", uploadedDate: "Sep 30, 2024", isVerified: true },
+    { id: 5, fileName: "Insurance_Policy.doc", fileType: "doc", category: "Insurance", size: "2.1 MB", uploadedDate: "Aug 25, 2024", isVerified: false },
+  ];
+
+  const categories = [
+    { name: "Identity Documents", count: 2 },
+    { name: "Medical Records", count: 1 },
+    { name: "Certifications", count: 1 },
+    { name: "Insurance", count: 1 },
+  ];
+
   const summaryStats = [
     { label: "Total Requests", value: requests.length, subtitle: "This year", icon: FileText, color: "text-blue-600" },
     { label: "Pending", value: requests.filter((r) => r.status === "pending").length, subtitle: "Awaiting processing", icon: Clock, color: "text-orange-600" },
     { label: "In Progress", value: requests.filter((r) => r.status === "in-progress").length, subtitle: "Being processed", icon: Clock, color: "text-blue-600" },
     { label: "Completed", value: requests.filter((r) => r.status === "completed").length, subtitle: "Ready for download", icon: CheckCircle, color: "text-green-600" },
   ];
+
+  const docSummaryStats = [
+    { label: "Total Documents", value: documents.length, subtitle: "Across all categories", icon: FileText, color: "text-blue-600" },
+    { label: "Verified", value: documents.filter((d) => d.isVerified).length, subtitle: "HR verified documents", icon: Shield, color: "text-green-600", subtitleColor: "text-green-600" },
+    { label: "Expiring Soon", value: documents.filter((d) => d.expiryDate).length, subtitle: "Within 90 days", icon: Clock, color: "text-orange-600", subtitleColor: "text-orange-600" },
+  ];
+
+  const getFileTypeColor = (fileType: string) => {
+    switch (fileType) {
+      case "pdf":
+        return "text-red-500";
+      case "jpg":
+        return "text-blue-500";
+      case "doc":
+        return "text-blue-500";
+      default:
+        return "text-gray-500";
+    }
+  };
 
   return (
     <Layout>
