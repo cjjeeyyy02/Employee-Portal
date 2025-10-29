@@ -272,10 +272,131 @@ export default function MyPerformance() {
           </div>
         )}
 
-      {/* Other Tabs - Placeholder */}
-      {activeTab !== "overview" && (
-        <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-6 text-center">
-          <p className="text-gray-600">This tab is coming soon</p>
+      {/* ===== GOALS TAB ===== */}
+      {activeTab === "goals" && (
+        <div className="space-y-3 sm:space-y-4">
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
+            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Active Goals</h3>
+            <div className="space-y-2">
+              <div className="flex justify-between items-start pb-2 border-b border-gray-200">
+                <div className="flex-1">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Complete Leadership Training</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Due: Dec 31, 2024</p>
+                </div>
+                <span className="text-xs font-medium text-blue-600">75%</span>
+              </div>
+              <div className="flex justify-between items-start pb-2 border-b border-gray-200">
+                <div className="flex-1">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Improve Code Quality</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Due: Nov 30, 2024</p>
+                </div>
+                <span className="text-xs font-medium text-green-600">100%</span>
+              </div>
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Team Mentoring Program</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Due: Dec 15, 2024</p>
+                </div>
+                <span className="text-xs font-medium text-orange-600">50%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ===== REVIEWS TAB ===== */}
+      {activeTab === "reviews" && (
+        <div className="space-y-3 sm:space-y-4">
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
+            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Review History</h3>
+            <div className="space-y-2">
+              <div className="pb-2 border-b border-gray-200">
+                <div className="flex justify-between items-start">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Q4 2024 Performance Review</p>
+                  <span className="text-xs font-medium text-yellow-600">Pending</span>
+                </div>
+                <p className="text-xs text-gray-600 mt-0.5">Scheduled for Dec 15, 2024</p>
+              </div>
+              <div className="pb-2 border-b border-gray-200">
+                <div className="flex justify-between items-start">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Q3 2024 Performance Review</p>
+                  <span className="text-xs font-medium text-green-600">Completed</span>
+                </div>
+                <p className="text-xs text-gray-600 mt-0.5">Rating: 4.3/5.0 • Oct 15, 2024</p>
+              </div>
+              <div>
+                <div className="flex justify-between items-start">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Q2 2024 Performance Review</p>
+                  <span className="text-xs font-medium text-green-600">Completed</span>
+                </div>
+                <p className="text-xs text-gray-600 mt-0.5">Rating: 4.1/5.0 • Jul 15, 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ===== FEEDBACK TAB ===== */}
+      {activeTab === "feedback" && (
+        <div className="space-y-3 sm:space-y-4">
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
+            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Recent Feedback</h3>
+            <div className="space-y-2">
+              <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3">
+                <div className="flex justify-between items-start">
+                  <p className="text-xs font-semibold text-gray-900">Sarah Johnson</p>
+                  <span className="text-xs text-gray-600">Dec 5, 2024</span>
+                </div>
+                <p className="text-xs text-gray-600 mt-1">Great work on the project delivery. Your communication was excellent throughout.</p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3">
+                <div className="flex justify-between items-start">
+                  <p className="text-xs font-semibold text-gray-900">Michael Chen</p>
+                  <span className="text-xs text-gray-600">Nov 28, 2024</span>
+                </div>
+                <p className="text-xs text-gray-600 mt-1">Consider taking on more leadership responsibilities in the team.</p>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3">
+                <div className="flex justify-between items-start">
+                  <p className="text-xs font-semibold text-gray-900">Emma Wilson</p>
+                  <span className="text-xs text-gray-600">Nov 15, 2024</span>
+                </div>
+                <p className="text-xs text-gray-600 mt-1">Your technical expertise has been invaluable to the team.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ===== DEVELOPMENT TAB ===== */}
+      {activeTab === "development" && (
+        <div className="space-y-3 sm:space-y-4">
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
+            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Development Activities</h3>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 pb-2 border-b border-gray-200">
+                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
+                <div className="flex-1">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Advanced React Patterns Course</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Completed • 16 hours • Dec 5, 2024</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 pb-2 border-b border-gray-200">
+                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
+                <div className="flex-1">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Technical Leadership Workshop</p>
+                  <p className="text-xs text-gray-600 mt-0.5">In Progress • 20 hours • Due: Dec 20, 2024</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
+                <div className="flex-1">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Agile Scrum Certification</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Planned • 40 hours • Starting: Jan 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </Layout>
