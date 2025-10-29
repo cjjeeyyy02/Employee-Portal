@@ -56,29 +56,29 @@ export default function GoalCard({
       </div>
 
       {/* Description */}
-      <p className="text-sm text-gray-700 mb-2">{description}</p>
+      <p className="text-xs text-gray-700 mb-1.5">{description}</p>
 
       {/* Target and Current Info */}
-      <p className="text-xs text-gray-500 mb-3">{target}, {current}</p>
+      <p className="text-xs text-gray-500 mb-2">{target}, {current}</p>
 
       {/* Progress Section */}
-      <div className="mb-3">
-        <div className="flex items-center justify-between gap-2 mb-1">
+      <div className="mb-2">
+        <div className="flex items-center justify-between gap-2 mb-0.5">
           <label className="text-xs font-bold text-gray-900">Progress</label>
           <span className="text-xs text-gray-700">{progress}%</span>
         </div>
-        <div className="w-full bg-gray-200 rounded-[10px] h-2 overflow-hidden">
+        <div className="w-full bg-gray-200 rounded-[10px] h-1.5 overflow-hidden">
           <div
-            className="bg-blue-500 h-2 rounded-[10px] transition-all duration-300"
+            className="bg-blue-500 h-1.5 rounded-[10px] transition-all duration-300"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
       </div>
 
       {/* Category and Due Date */}
-      <div className="flex items-center justify-between">
-        <p className="text-xs text-gray-500">{category}</p>
-        <p className="text-xs text-gray-500">Due: {dueDate}</p>
+      <div className="flex items-center justify-between text-xs">
+        <p className="text-gray-500">{category}</p>
+        <p className="text-gray-500">Due: {dueDate}</p>
       </div>
     </div>
   );
