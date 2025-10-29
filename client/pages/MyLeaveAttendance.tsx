@@ -207,22 +207,22 @@ export default function MyLeaveAttendance() {
       {activeTab === "leave" && (
         <div className="flex flex-col w-full gap-6">
           {/* Available Leave & Recent Activities Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
             {/* LEFT PANEL — Available Leave */}
-          <div className="bg-white rounded-[16px] p-4 flex flex-col gap-3" style={{ padding: "16px 20px" }}>
+          <div className="bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-2" style={{ padding: "12px 16px" }}>
             {/* Section Title */}
             <div>
-              <h2 className="text-lg font-semibold text-[#1A1A1A] mb-1">Available Leave</h2>
+              <h2 className="text-sm sm:text-base font-semibold text-[#1A1A1A] mb-0.5">Available Leave</h2>
               <p className="text-xs text-[#7A7A7A]">Your current leave entitlements and usage</p>
             </div>
 
             {/* Leave Cards */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2.5 sm:gap-3">
               {/* Annual Leave */}
               <div>
-                <div className="flex justify-between items-start gap-2 mb-2">
+                <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-base font-bold text-gray-900 mb-0.5">Annual Leave</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Annual Leave</h3>
                     <p className="text-xs text-gray-600">Used: 8 days</p>
                   </div>
                   <div className="text-right">
@@ -237,9 +237,9 @@ export default function MyLeaveAttendance() {
 
               {/* Sick Leave */}
               <div>
-                <div className="flex justify-between items-start gap-2 mb-2">
+                <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-base font-bold text-gray-900 mb-0.5">Sick Leave</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Sick Leave</h3>
                     <p className="text-xs text-gray-600">Used: 3 days</p>
                   </div>
                   <div className="text-right">
@@ -254,9 +254,9 @@ export default function MyLeaveAttendance() {
 
               {/* Personal Leave */}
               <div>
-                <div className="flex justify-between items-start gap-2 mb-2">
+                <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-base font-bold text-gray-900 mb-0.5">Personal Leave</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Personal Leave</h3>
                     <p className="text-xs text-gray-600">Used: 2 days</p>
                   </div>
                   <div className="text-right">
@@ -271,9 +271,9 @@ export default function MyLeaveAttendance() {
 
               {/* Maternity Leave */}
               <div>
-                <div className="flex justify-between items-start gap-2 mb-2">
+                <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-base font-bold text-gray-900 mb-0.5">Maternity Leave</h3>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Maternity Leave</h3>
                     <p className="text-xs text-gray-600">Used: 0 days</p>
                   </div>
                   <div className="text-right">
@@ -290,27 +290,27 @@ export default function MyLeaveAttendance() {
             {/* Request Leave Button */}
             <button
               onClick={() => setShowLeaveModal(true)}
-              className="w-full mt-2 h-10 bg-[#2F80ED] text-white font-semibold rounded-[10px] flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors text-sm"
+              className="w-full mt-1.5 h-8 bg-[#2F80ED] text-white font-semibold rounded-lg flex items-center justify-center gap-1.5 hover:bg-blue-700 transition-colors text-xs sm:text-sm"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-3.5 h-3.5" />
               <span>Request Leave</span>
             </button>
           </div>
 
           {/* RIGHT PANEL — Recent Activities */}
-          <div className="bg-white rounded-[16px] p-4 flex flex-col gap-2" style={{ padding: "16px 20px" }}>
+          <div className="bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-2" style={{ padding: "12px 16px" }}>
             {/* Section Title */}
             <div>
-              <h2 className="text-lg font-semibold text-[#1A1A1A] mb-1">Recent Activities</h2>
+              <h2 className="text-sm sm:text-base font-semibold text-[#1A1A1A] mb-0.5">Recent Activities</h2>
               <p className="text-xs text-[#7A7A7A]">Latest leave-related updates</p>
             </div>
 
             {/* Activity Cards */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
               {/* Activity 1 */}
-              <div className="bg-white border border-[#E8EBF0] rounded-[14px] p-3 flex items-center justify-between">
+              <div className="bg-white border border-[#E8EBF0] rounded-lg p-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#FF9800" }}></div>
+                  <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#FF9800" }}></div>
                   <div>
                     <p className="text-xs font-bold text-gray-900">Leave request submitted</p>
                     <p className="text-xs text-gray-600 mt-0.5">Dec 20-30 Annual Leave</p>
@@ -322,9 +322,9 @@ export default function MyLeaveAttendance() {
               </div>
 
               {/* Activity 2 */}
-              <div className="bg-white border border-[#E8EBF0] rounded-[14px] p-3 flex items-center justify-between">
+              <div className="bg-white border border-[#E8EBF0] rounded-lg p-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#27AE60" }}></div>
+                  <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#27AE60" }}></div>
                   <div>
                     <p className="text-xs font-bold text-gray-900">Sick leave approved</p>
                     <p className="text-xs text-gray-600 mt-0.5">Nov 15 • Medical appointment</p>
@@ -336,9 +336,9 @@ export default function MyLeaveAttendance() {
               </div>
 
               {/* Activity 3 */}
-              <div className="bg-white border border-[#E8EBF0] rounded-[14px] p-3 flex items-center justify-between">
+              <div className="bg-white border border-[#E8EBF0] rounded-lg p-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: "#27AE60" }}></div>
+                  <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#27AE60" }}></div>
                   <div>
                     <p className="text-xs font-bold text-gray-900">Personal leave approved</p>
                     <p className="text-xs text-gray-600 mt-0.5">Oct 22 • Family emergency</p>
