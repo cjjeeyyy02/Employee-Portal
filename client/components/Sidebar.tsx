@@ -29,7 +29,6 @@ const employeeNavigationItems = [
   { icon: Calendar, label: "My Leave & Attendance", path: "/my-leave-attendance" },
   { icon: Target, label: "My Performance", path: "/my-performance" },
   { icon: CheckSquare, label: "My Tasks", path: "/my-tasks" },
-  { icon: DollarSign, label: "My Payslips", path: "/my-payslips" },
   { icon: FileText, label: "Documents", path: "/documents" },
 ];
 
