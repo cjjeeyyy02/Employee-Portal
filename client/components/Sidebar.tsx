@@ -57,37 +57,6 @@ export default function Sidebar() {
             );
           })}
         </ul>
-
-        {/* Manager Functions Section - Only in Manager View */}
-        {isManagerView && (
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4 px-5">
-              Manager Functions
-            </p>
-            <ul className="space-y-1">
-              {managerFunctions.map((item) => {
-                const Icon = item.icon;
-                const active = isActive(item.path);
-
-                return (
-                  <li key={item.path}>
-                    <Link
-                      to={item.path}
-                      className={`flex items-center gap-3 px-5 py-3 rounded-lg transition-all font-medium text-sm ${
-                        active
-                          ? "bg-gray-100 text-blue-600 border-l-4 border-blue-500"
-                          : "text-gray-600 hover:bg-gray-50"
-                      }`}
-                    >
-                      <Icon className="w-5 h-5 flex-shrink-0" />
-                      <span>{item.label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
       </nav>
     </div>
   );
