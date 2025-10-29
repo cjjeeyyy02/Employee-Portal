@@ -101,6 +101,79 @@ export default function MyTasks() {
     },
   ];
 
+  const teamMembers = [
+    { name: "John Doe", taskCount: 2 },
+    { name: "Alex Kim", taskCount: 1 },
+    { name: "Sarah Johnson", taskCount: 1 },
+    { name: "Mike Chen", taskCount: 1 },
+  ];
+
+  const teamTasksData: Record<string, Task[]> = {
+    "John Doe": [
+      {
+        id: 1,
+        title: "Complete Q4 Performance Review",
+        description: "",
+        dueDate: "2024-12-16",
+        category: "Performance Reviews",
+        priority: "High",
+        status: "In Progress",
+        assignedTo: "John Doe",
+        avatar: "JD",
+      },
+      {
+        id: 2,
+        title: "Submit expense report",
+        description: "",
+        dueDate: "2024-12-10",
+        category: "Administrative",
+        priority: "Low",
+        status: "Done",
+        assignedTo: "John Doe",
+        avatar: "JD",
+      },
+    ],
+    "Alex Kim": [
+      {
+        id: 3,
+        title: "Review code submissions",
+        description: "",
+        dueDate: "2024-12-15",
+        category: "Code Review",
+        priority: "Medium",
+        status: "In Progress",
+        assignedTo: "Alex Kim",
+        avatar: "AK",
+      },
+    ],
+    "Sarah Johnson": [
+      {
+        id: 4,
+        title: "Update project documentation",
+        description: "",
+        dueDate: "2024-12-20",
+        category: "Documentation",
+        priority: "Medium",
+        status: "Todo",
+        assignedTo: "Sarah Johnson",
+        avatar: "SJ",
+      },
+    ],
+    "Mike Chen": [
+      {
+        id: 5,
+        title: "Schedule team meeting",
+        description: "",
+        dueDate: "2024-12-12",
+        category: "Meetings",
+        priority: "High",
+        status: "In Progress",
+        assignedTo: "Mike Chen",
+        avatar: "MC",
+      },
+    ],
+  };
+
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "High":
