@@ -252,10 +252,10 @@ export default function MyTasks() {
               {tab.label}
             </button>
           ))}
-        </div>
+      </div>
 
-        {/* ===== MY TASKS TAB ===== */}
-        {activeTab === "myTasks" && (
+      {/* ===== MY TASKS TAB ===== */}
+      {activeTab === "myTasks" && (
           <>
             {/* View Options */}
             <div className="flex gap-2 mb-4">
