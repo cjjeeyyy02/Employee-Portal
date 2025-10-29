@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus, FileText, TrendingUp, CheckCircle, AlertCircle, Calendar, ArrowUp } from "lucide-react";
 import Layout from "@/components/Layout";
+import GoalCard from "@/components/GoalCard";
 
 type TabType = "overview" | "goals" | "reviews" | "feedback" | "development";
 
