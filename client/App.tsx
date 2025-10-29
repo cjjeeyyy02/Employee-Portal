@@ -41,7 +41,7 @@ export default function App() {
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/my-leave-attendance" element={<MyLeaveAttendance />} />
             <Route path="/my-performance" element={<MyPerformance />} />
-            <Route path="/my-tasks" element={<Placeholder title="My Tasks" />} />
+            <Route path="/my-tasks" element={<MyTasks />} />
             <Route path="/my-payslips" element={<Placeholder title="My Payslips" />} />
             <Route path="/documents" element={<Placeholder title="Documents" />} />
 
