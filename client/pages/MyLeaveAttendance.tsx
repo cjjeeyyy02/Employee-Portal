@@ -353,21 +353,21 @@ export default function MyLeaveAttendance() {
         </div>
 
         {/* Leave Requests Section Container */}
-        <div className="w-full flex flex-col gap-6 bg-white rounded-[16px] p-8 self-stretch" style={{ padding: "28px 32px", marginTop: "24px" }}>
+        <div className="w-full flex flex-col gap-3 sm:gap-4 bg-white rounded-lg p-3 sm:p-4 self-stretch" style={{ padding: "16px 20px", marginTop: "16px" }}>
           {/* Section Header */}
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-1">My Leave Requests</h2>
+            <h2 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">My Leave Requests</h2>
             <p className="text-xs text-gray-600">Your leave request history and status</p>
           </div>
 
           {/* Leave Request Cards */}
-          <div className="flex flex-col gap-3 w-full">
+          <div className="flex flex-col gap-2 sm:gap-3 w-full">
             {/* Request Card 1 */}
-            <div className="w-full bg-white border border-gray-200 rounded-[12px] p-4 flex flex-col gap-3">
-              <div className="flex justify-between items-start gap-3">
+            <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
+              <div className="flex justify-between items-start gap-2 sm:gap-3">
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-gray-900">Annual Leave</p>
-                  <p className="text-xs text-gray-600 mt-1">Dec 20 - Dec 30, 2024</p>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Annual Leave</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Dec 20 - Dec 30, 2024</p>
                 </div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
               </div>
