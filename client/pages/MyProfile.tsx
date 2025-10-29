@@ -42,10 +42,10 @@ export default function MyProfile() {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-lg shadow-sm p-4">
+      <div className="bg-white rounded-lg shadow-sm p-2 sm:p-3 md:p-4">
         {/* Personal Tab */}
         {activeTab === "personal" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             {/* Profile Photo Card */}
             <div className="bg-gray-50 rounded-xl p-4">
               <h2 className="text-sm font-semibold text-gray-900 mb-4">Profile Photo</h2>
