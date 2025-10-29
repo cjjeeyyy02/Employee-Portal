@@ -58,46 +58,46 @@ export default function MyPerformance() {
 
         {/* ===== OVERVIEW TAB ===== */}
         {activeTab === "overview" && (
-          <div className="space-y-4">
+          <div className="space-y-2.5">
             {/* Summary Stats - Top Row (4 cards) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
               {/* Overall Rating */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                <p className="text-xs text-gray-600 mb-1">Overall Rating</p>
-                <p className="text-2xl font-bold text-gray-900">4.2</p>
-                <p className="text-xs text-green-600 font-semibold mt-1">+0.2 from last review</p>
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                <p className="text-xs text-gray-600 mb-0.5">Overall Rating</p>
+                <p className="text-lg font-bold text-gray-900">4.2</p>
+                <p className="text-xs text-green-600 font-semibold mt-0.5">+0.2 from last review</p>
               </div>
 
               {/* Goals Progress */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                <p className="text-xs text-gray-600 mb-1">Goals Progress</p>
-                <p className="text-2xl font-bold text-gray-900">68%</p>
-                <p className="text-xs text-gray-700 mt-1">3 of 4 goals on track</p>
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                <p className="text-xs text-gray-600 mb-0.5">Goals Progress</p>
+                <p className="text-lg font-bold text-gray-900">68%</p>
+                <p className="text-xs text-gray-700 mt-0.5">3 of 4 goals on track</p>
               </div>
 
               {/* Reviews Complete */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                <p className="text-xs text-gray-600 mb-1">Reviews Complete</p>
-                <p className="text-2xl font-bold text-gray-900">2</p>
-                <p className="text-xs text-orange-600 font-semibold mt-1">1 pending review</p>
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                <p className="text-xs text-gray-600 mb-0.5">Reviews Complete</p>
+                <p className="text-lg font-bold text-gray-900">2</p>
+                <p className="text-xs text-orange-600 font-semibold mt-0.5">1 pending review</p>
               </div>
 
               {/* Development Hours */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                <p className="text-xs text-gray-600 mb-1">Development Hours</p>
-                <p className="text-2xl font-bold text-gray-900">24h</p>
-                <p className="text-xs text-green-600 font-semibold mt-1">120% of target</p>
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                <p className="text-xs text-gray-600 mb-0.5">Development Hours</p>
+                <p className="text-lg font-bold text-gray-900">24h</p>
+                <p className="text-xs text-green-600 font-semibold mt-0.5">120% of target</p>
               </div>
             </div>
 
             {/* Middle Section - Two Columns */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
               {/* Left: Active Goals */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                <h3 className="text-base font-bold text-gray-900 mb-1">Active Goals</h3>
-                <p className="text-xs text-gray-600 mb-3">Your current performance objectives</p>
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Active Goals</h3>
+                <p className="text-xs text-gray-600 mb-2">Your current performance objectives</p>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {/* Goal 1 */}
                   <div>
                     <div className="flex justify-between items-start gap-2 mb-1">
@@ -150,17 +150,17 @@ export default function MyPerformance() {
                   </div>
                 </div>
 
-                <button className="w-full mt-3 px-3 py-1.5 text-xs font-medium text-blue-600 border border-blue-300 rounded-lg hover:bg-blue-50 transition-colors">
+                <button className="w-full mt-2 px-3 py-1 text-xs font-medium text-blue-600 border border-blue-300 rounded-lg hover:bg-blue-50 transition-colors">
                   View All Goals
                 </button>
               </div>
 
               {/* Right: Performance Trends */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                <h3 className="text-base font-bold text-gray-900 mb-1">Performance Trends</h3>
-                <p className="text-xs text-gray-600 mb-3">Your ratings over time</p>
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">Performance Trends</h3>
+                <p className="text-xs text-gray-600 mb-2">Your ratings over time</p>
 
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   {/* Metric 1 */}
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex-1">
@@ -221,11 +221,11 @@ export default function MyPerformance() {
             </div>
 
             {/* Bottom Section - Action Items */}
-            <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-              <h3 className="text-base font-bold text-gray-900 mb-1">Action Items</h3>
-              <p className="text-xs text-gray-600 mb-3">Things that need your attention</p>
+            <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+              <h3 className="text-sm font-bold text-gray-900 mb-1">Action Items</h3>
+              <p className="text-xs text-gray-600 mb-2">Things that need your attention</p>
 
-              <div className="space-y-2.5">
+              <div className="space-y-2">
                 {/* Action Item 1 */}
                 <div className="flex items-center justify-between gap-3 pb-2.5 border-b border-gray-100 last:border-b-0 last:pb-0">
                   <div className="flex-1">
@@ -280,7 +280,7 @@ export default function MyPerformance() {
 
       {/* ===== GOALS TAB ===== */}
       {activeTab === "goals" && (
-        <div className="bg-white rounded-[12px] p-5 space-y-4">
+        <div className="bg-white rounded-[12px] p-4 space-y-3">
           <GoalCard
             title="Improve Code Quality Metrics"
             status="on track"
@@ -319,7 +319,7 @@ export default function MyPerformance() {
 
       {/* ===== REVIEWS TAB ===== */}
       {activeTab === "reviews" && (
-        <div className="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
+        <div className="bg-white border border-gray-200 rounded-lg p-4 space-y-3">
           <ReviewCard
             title="Q4 2024 - Quarterly Review"
             status="pending"
@@ -349,7 +349,7 @@ export default function MyPerformance() {
 
       {/* ===== FEEDBACK TAB ===== */}
       {activeTab === "feedback" && (
-        <div className="bg-gray-50 p-6 min-h-screen space-y-5">
+        <div className="bg-gray-50 p-4 min-h-screen space-y-3">
           <FeedbackCard
             name="Sarah Johnson"
             position="Engineering Manager"
@@ -400,12 +400,12 @@ export default function MyPerformance() {
 
       {/* ===== DEVELOPMENT TAB ===== */}
       {activeTab === "development" && (
-        <div className="space-y-8">
+        <div className="space-y-6">
           {/* DEVELOPMENT PLAN SECTION */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Development Plan</h2>
-            <p className="text-sm text-gray-600 mb-4">Your professional growth roadmap</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+            <h2 className="text-base font-bold text-gray-900 mb-1">Development Plan</h2>
+            <p className="text-xs text-gray-600 mb-3">Your professional growth roadmap</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
               <DevelopmentPlanCard
                 title="Advanced Leadership Course"
                 subtext="8 modules, 24 hours"
@@ -422,17 +422,17 @@ export default function MyPerformance() {
                 statusBadge="Completed (Nov 2024)"
               />
             </div>
-            <button className="px-4 py-2 text-sm font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-              <Plus className="w-4 h-4" />
+            <button className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+              <Plus className="w-3.5 h-3.5" />
               Add Development Activity
             </button>
           </div>
 
           {/* ACHIEVEMENTS & RECOGNITION SECTION */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Achievements & Recognition</h2>
-            <p className="text-sm text-gray-600 mb-4">Your accomplishments and awards</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <h2 className="text-base font-bold text-gray-900 mb-1">Achievements & Recognition</h2>
+            <p className="text-xs text-gray-600 mb-3">Your accomplishments and awards</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               <AchievementCard
                 icon="award"
                 title="Employee of the Month"
@@ -453,9 +453,9 @@ export default function MyPerformance() {
 
           {/* SKILLS ASSESSMENT SECTION */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Skills Assessment</h2>
-            <p className="text-sm text-gray-600 mb-4">Your current skill levels and growth areas</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h2 className="text-base font-bold text-gray-900 mb-1">Skills Assessment</h2>
+            <p className="text-xs text-gray-600 mb-3">Your current skill levels and growth areas</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <SkillsAssessment
                 groupName="Technical Skills"
                 skills={[
