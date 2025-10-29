@@ -81,11 +81,11 @@ export default function EmployeeDashboard() {
   return (
     <Layout>
       {/* Welcome Section */}
-      <div className="flex flex-row items-center justify-between w-full mb-8 gap-8">
+      <div className="flex flex-row items-center justify-between w-full mb-4 gap-4">
         {/* Left Group */}
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900 mb-2">Welcome back, John!</h1>
-          <p className="text-sm text-gray-600">Here's your dashboard overview for today</p>
+          <h1 className="text-lg font-semibold text-gray-900 mb-1">Welcome back, John!</h1>
+          <p className="text-xs text-gray-600">Here's your dashboard overview for today</p>
         </div>
 
         {/* Right Group - Time Card */}
