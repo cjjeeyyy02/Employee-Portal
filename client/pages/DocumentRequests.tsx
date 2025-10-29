@@ -243,7 +243,7 @@ export default function DocumentRequests() {
         </div>
 
         {/* Summary Cards */}
-        {activeTab !== "documents" && activeTab !== "forms" && (
+        {activeTab !== "documents" && activeTab !== "forms" && activeTab !== "archived" && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 mb-2 sm:mb-3">
             {summaryStats.map((stat, index) => {
               const Icon = stat.icon;
