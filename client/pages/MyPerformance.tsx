@@ -10,9 +10,9 @@ export default function MyPerformance() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex justify-between items-start mb-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-3 gap-2 sm:gap-3">
         <div>
-          <h1 className="text-lg font-semibold text-gray-900 mb-1">Performance Management</h1>
+          <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">Performance Management</h1>
             <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
           </div>
           <div className="flex gap-2">
