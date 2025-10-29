@@ -212,12 +212,12 @@ export default function MyTasks() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex justify-between items-start mb-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-3 gap-2 sm:gap-3">
         <div>
-          <h1 className="text-lg font-semibold text-gray-900 mb-1">Task Management</h1>
+          <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">Task Management</h1>
           <p className="text-xs text-gray-600">Manage your tasks, projects, and deadlines</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-1 sm:gap-2 flex-wrap">
           <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors">
             AI Assistant
           </button>
