@@ -169,9 +169,9 @@ export default function DocumentRequests() {
   ];
 
   const formCategories = [
-    { name: "HR Forms", subtitle: "Employee-related forms", bgColor: "bg-green-50", icon: FileText },
-    { name: "Finance Forms", subtitle: "Expense and payment forms", bgColor: "bg-blue-50", icon: FileText },
-    { name: "IT Forms", subtitle: "Technology support forms", bgColor: "bg-purple-50", icon: FileText },
+    { name: "HR Forms", subtitle: "Employee-related forms", bgColor: "#DCFCE7", iconBg: "#DCFCE7" },
+    { name: "Finance Forms", subtitle: "Expense and payment forms", bgColor: "#E0ECFF", iconBg: "#E0ECFF" },
+    { name: "IT Forms", subtitle: "Technology support forms", bgColor: "#F3E8FF", iconBg: "#F3E8FF" },
   ];
 
   const summaryStats = [
