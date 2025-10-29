@@ -28,7 +28,7 @@ export default function MyPerformance() {
         </div>
 
       {/* Navigation Tabs */}
-      <div className="flex gap-3 border-b border-gray-200 mb-2 sm:mb-3 overflow-x-auto">
+      <div className="flex gap-2 mb-1.5 sm:mb-2 overflow-x-auto">
           {[
             { id: "overview", label: "Overview" },
             { id: "goals", label: "Goals" },
@@ -39,9 +39,9 @@ export default function MyPerformance() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`pb-2 text-sm font-medium transition-colors ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${
                 activeTab === tab.id
-                  ? "text-blue-600 border-b-2 border-blue-600"
+                  ? "bg-gray-100 text-blue-600 border-b-2 border-blue-600 font-bold"
                   : "text-gray-600 hover:text-gray-900"
               }`}
             >
