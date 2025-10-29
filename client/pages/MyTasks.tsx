@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2 } from "lucide-react";
+import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, TrendingUp, Target, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "myTasks" | "projects" | "teamTasks" | "analytics";
