@@ -51,13 +51,13 @@ export default function FeedbackCard({
   return (
     <div
       onClick={onCardClick}
-      className="bg-white border border-gray-200 rounded-[10px] p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+      className="bg-white border border-gray-200 rounded-[10px] p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
     >
       {/* Header Row */}
-      <div className="flex justify-between items-start mb-3">
+      <div className="flex justify-between items-start mb-2">
         {/* Left Side: Name and Tags */}
         <div className="flex-1">
-          <h3 className="font-semibold text-base text-gray-900 mb-2">{name}</h3>
+          <h3 className="font-semibold text-sm text-gray-900 mb-1.5">{name}</h3>
           <div className="flex gap-1.5 flex-wrap">
             <span className="bg-gray-200 text-gray-700 text-xs font-medium rounded-[12px] px-2 py-0.5">
               {position}
