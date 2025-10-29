@@ -510,86 +510,86 @@ export default function MyTasks() {
 
         {/* ===== ANALYTICS TAB ===== */}
         {activeTab === "analytics" && (
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Top Section - Productivity Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {/* Productivity Metrics Card */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-6 flex flex-col items-center">
-                <div className="mb-3">
-                  <TrendingUp className="w-5 h-5 text-blue-600" />
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3 flex flex-col items-center">
+                <div className="mb-1.5">
+                  <TrendingUp className="w-4 h-4 text-blue-600" />
                 </div>
-                <p className="text-xs text-gray-600 text-center mb-2">Productivity Metrics</p>
-                <p className="text-3xl font-bold text-gray-900 mb-1">0</p>
-                <p className="text-xs text-gray-600 text-center">Tasks Completed This Month</p>
+                <p className="text-xs text-gray-600 text-center mb-1">Productivity Metrics</p>
+                <p className="text-xl font-bold text-gray-900 mb-0.5">0</p>
+                <p className="text-xs text-gray-600 text-center">Tasks Completed</p>
               </div>
 
               {/* On-Time Completion Card */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-6 flex flex-col items-center">
-                <div className="mb-3">
-                  <Target className="w-5 h-5 text-blue-600" />
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3 flex flex-col items-center">
+                <div className="mb-1.5">
+                  <Target className="w-4 h-4 text-blue-600" />
                 </div>
-                <p className="text-xs text-gray-600 text-center mb-2">On-Time Completion</p>
-                <p className="text-3xl font-bold text-gray-900 mb-1">0%</p>
-                <p className="text-xs text-gray-600 text-center">On-Time Completion Rate</p>
+                <p className="text-xs text-gray-600 text-center mb-1">On-Time Completion</p>
+                <p className="text-xl font-bold text-gray-900 mb-0.5">0%</p>
+                <p className="text-xs text-gray-600 text-center">Completion Rate</p>
               </div>
 
               {/* Average Task Duration Card */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-6 flex flex-col items-center">
-                <div className="mb-3">
-                  <Clock className="w-5 h-5 text-blue-600" />
+              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3 flex flex-col items-center">
+                <div className="mb-1.5">
+                  <Clock className="w-4 h-4 text-blue-600" />
                 </div>
-                <p className="text-xs text-gray-600 text-center mb-2">Average Task Duration</p>
-                <p className="text-3xl font-bold text-gray-900 mb-1">2.3 days</p>
-                <p className="text-xs text-gray-600 text-center">Average Task Duration</p>
+                <p className="text-xs text-gray-600 text-center mb-1">Average Task Duration</p>
+                <p className="text-xl font-bold text-gray-900 mb-0.5">2.3 days</p>
+                <p className="text-xs text-gray-600 text-center">Avg Duration</p>
               </div>
             </div>
 
             {/* Bottom Section - Team KPI & Goals */}
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-4">Team KPI & Goals</h2>
+              <h2 className="text-sm font-bold text-gray-900 mb-2.5">Team KPI & Goals</h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5">
                 {/* Q4 Performance Reviews */}
-                <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                  <div className="flex justify-between items-start mb-3">
+                <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                  <div className="flex justify-between items-start mb-2">
                     <div className="flex-1">
-                      <h3 className="text-base font-bold text-gray-900 mb-1">Q4 Performance Reviews</h3>
+                      <h3 className="text-sm font-bold text-gray-900 mb-0.5">Q4 Performance Reviews</h3>
                       <p className="text-xs text-gray-600">Annual performance review cycle</p>
                     </div>
                   </div>
 
-                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: "75%" }}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1.5">
+                    <div className="bg-blue-600 h-1.5 rounded-full" style={{ width: "75%" }}></div>
                   </div>
                   <p className="text-xs text-gray-600">6 of 8 completed</p>
                 </div>
 
                 {/* Documentation Update */}
-                <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                  <div className="flex justify-between items-start mb-3">
+                <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                  <div className="flex justify-between items-start mb-2">
                     <div className="flex-1">
-                      <h3 className="text-base font-bold text-gray-900 mb-1">Documentation Update</h3>
-                      <p className="text-xs text-gray-600">Updating all project documentation</p>
+                      <h3 className="text-sm font-bold text-gray-900 mb-0.5">Documentation Update</h3>
+                      <p className="text-xs text-gray-600">Updating project documentation</p>
                     </div>
                   </div>
 
-                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: "42%" }}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1.5">
+                    <div className="bg-blue-600 h-1.5 rounded-full" style={{ width: "42%" }}></div>
                   </div>
                   <p className="text-xs text-gray-600">5 of 12 completed</p>
                 </div>
 
                 {/* Team Development */}
-                <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4">
-                  <div className="flex justify-between items-start mb-3">
+                <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+                  <div className="flex justify-between items-start mb-2">
                     <div className="flex-1">
-                      <h3 className="text-base font-bold text-gray-900 mb-1">Team Development</h3>
-                      <p className="text-xs text-gray-600">Team building and skill development initiatives</p>
+                      <h3 className="text-sm font-bold text-gray-900 mb-0.5">Team Development</h3>
+                      <p className="text-xs text-gray-600">Skill development initiatives</p>
                     </div>
                   </div>
 
-                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: "33%" }}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mb-1.5">
+                    <div className="bg-blue-600 h-1.5 rounded-full" style={{ width: "33%" }}></div>
                   </div>
                   <p className="text-xs text-gray-600">2 of 6 completed</p>
                 </div>
