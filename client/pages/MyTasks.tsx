@@ -435,8 +435,81 @@ export default function MyTasks() {
           </div>
         )}
 
-        {/* ===== OTHER TABS PLACEHOLDER ===== */}
-        {(activeTab === "teamTasks" || activeTab === "analytics") && (
+        {/* ===== TEAM TASKS TAB ===== */}
+        {activeTab === "teamTasks" && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Left Column: Team Members */}
+            <div>
+              <h2 className="text-base font-bold text-gray-900 mb-3">Team Members</h2>
+              <div className="space-y-3">
+                {teamMembers.map((member) => (
+                  <button
+                    key={member.name}
+                    onClick={() => setSelectedTeamMember(member.name)}
+                    className={`w-full bg-white rounded-[12px] border shadow-sm p-3 flex justify-between items-center transition-all ${
+                      selectedTeamMember === member.name
+                        ? "border-blue-300 shadow-md"
+                        : "border-gray-200 hover:shadow-md"
+                    }`}
+                  >
+                    <p className="text-sm font-bold text-gray-900">{member.name}</p>
+                    <p className="text-xs text-gray-600">{member.taskCount} task{member.taskCount !== 1 ? "s" : ""}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Tasks for Selected Member */}
+            <div className="lg:col-span-2">
+              <div className="flex justify-between items-center mb-3">
+                <h2 className="text-base font-bold text-gray-900">Tasks for {selectedTeamMember}</h2>
+                <button
+                  onClick={() => setSelectedTeamMember("John Doe")}
+                  className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                {(teamTasksData[selectedTeamMember] || []).map((task) => (
+                  <div
+                    key={task.id}
+                    className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4 hover:shadow-md transition-shadow"
+                  >
+                    {/* Task Title */}
+                    <h3 className="text-base font-bold text-gray-900 mb-2">{task.title}</h3>
+
+                    {/* Category and Due Date */}
+                    <p className="text-xs text-gray-600 mb-3">
+                      {task.category} • {task.dueDate}
+                    </p>
+
+                    {/* Badges */}
+                    <div className="flex gap-2">
+                      {/* Priority Badge */}
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getPriorityColor(
+                          task.priority
+                        )}`}
+                      >
+                        {task.priority}
+                      </span>
+
+                      {/* Status Badge */}
+                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(task.status)}`}>
+                        {task.status}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ===== ANALYTICS TAB PLACEHOLDER ===== */}
+        {activeTab === "analytics" && (
           <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-8 text-center">
             <p className="text-gray-600">This tab is coming soon</p>
           </div>
