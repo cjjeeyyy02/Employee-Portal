@@ -17,14 +17,14 @@ export default function MyProfile() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-3">
-        <h1 className="text-lg font-semibold text-gray-900 mb-0.5">My Profile</h1>
+      <div className="mb-2 sm:mb-3">
+        <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-0.5">My Profile</h1>
         <p className="text-xs text-gray-600">View and manage your profile information</p>
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-3 bg-white rounded-t-lg">
-        <div className="flex gap-0 px-4">
+      <div className="border-b border-gray-200 mb-2 sm:mb-3 bg-white rounded-t-lg">
+        <div className="flex gap-0 px-2 sm:px-4 overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
