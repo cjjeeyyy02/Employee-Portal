@@ -248,12 +248,12 @@ export default function DocumentRequests() {
             {summaryStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-4">
-                  <div className="flex justify-between items-start mb-2">
+                <div key={index} className="bg-white rounded-lg shadow-sm p-2.5 sm:p-3">
+                  <div className="flex justify-between items-start mb-1">
                     <div className="flex-1">
-                      <p className="text-xs text-gray-600 mb-1">{stat.label}</p>
-                      <p className="text-xl font-bold text-gray-900">{stat.value}</p>
-                      <p className="text-xs text-gray-600 mt-1">{stat.subtitle}</p>
+                      <p className="text-xs text-gray-600 mb-0.5">{stat.label}</p>
+                      <p className="text-lg sm:text-xl font-bold text-gray-900">{stat.value}</p>
+                      <p className="text-xs text-gray-600 mt-0.5">{stat.subtitle}</p>
                     </div>
                     <Icon className={`w-4 h-4 ${stat.color} flex-shrink-0`} />
                   </div>
