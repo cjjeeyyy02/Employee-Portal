@@ -151,16 +151,16 @@ export default function MyLeaveAttendance() {
 
                   {/* Row 03 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-06</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">09:00</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">17:30</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">8.5h</td>
-                    <td className="px-3 py-2">
+                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-06</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">09:00</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">17:30</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">8.5h</td>
+                    <td className="px-2 py-1.5">
                       <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
                         Present
                       </span>
                     </td>
-                    <td className="px-3 py-2 text-xs">—</td>
+                    <td className="px-2 py-1.5 text-xs">—</td>
                   </tr>
 
                   {/* Row 04 */}
