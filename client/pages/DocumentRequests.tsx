@@ -125,6 +125,47 @@ export default function DocumentRequests() {
     { name: "Insurance", count: 1 },
   ];
 
+  const forms = [
+    {
+      id: 1,
+      title: "Employee Leave Request Form",
+      description: "Official form for submitting leave applications",
+      category: "HR Forms",
+      downloads: 245,
+      updatedDate: "Dec 5, 2024",
+    },
+    {
+      id: 2,
+      title: "Expense Reimbursement Form",
+      description: "Submit expenses for reimbursement",
+      category: "Finance Forms",
+      downloads: 189,
+      updatedDate: "Nov 28, 2024",
+    },
+    {
+      id: 3,
+      title: "IT Support Request Form",
+      description: "Request technical support or equipment",
+      category: "IT Forms",
+      downloads: 156,
+      updatedDate: "Nov 15, 2024",
+    },
+    {
+      id: 4,
+      title: "Performance Review Template",
+      description: "Annual performance evaluation form",
+      category: "HR Forms",
+      downloads: 312,
+      updatedDate: "Oct 30, 2024",
+    },
+  ];
+
+  const formCategories = [
+    { name: "HR Forms", subtitle: "Employee-related forms", bgColor: "bg-green-50", icon: FileText },
+    { name: "Finance Forms", subtitle: "Expense and payment forms", bgColor: "bg-blue-50", icon: FileText },
+    { name: "IT Forms", subtitle: "Technology support forms", bgColor: "bg-purple-50", icon: FileText },
+  ];
+
   const summaryStats = [
     { label: "Total Requests", value: requests.length, subtitle: "This year", icon: FileText, color: "text-blue-600" },
     { label: "Pending", value: requests.filter((r) => r.status === "pending").length, subtitle: "Awaiting processing", icon: Clock, color: "text-orange-600" },
