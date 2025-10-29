@@ -203,29 +203,29 @@ export default function DocumentRequests() {
         </div>
 
         {/* Requests List */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           {filteredRequests.map((request) => (
-            <div key={request.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-4 hover:shadow-md transition-shadow">
+            <div key={request.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow">
               {/* Top Row: Title and Actions */}
-              <div className="flex justify-between items-start mb-2">
+              <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <h3 className="text-base font-bold text-blue-700 mb-2">{request.title}</h3>
+                  <h3 className="text-sm font-bold text-blue-700 mb-1.5">{request.title}</h3>
 
                   {/* Status and Priority Badges */}
-                  <div className="flex gap-2 mb-2">
-                    <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize ${getStatusColor(request.status)}`}>
+                  <div className="flex gap-1.5 mb-1.5">
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold capitalize ${getStatusColor(request.status)}`}>
                       {request.status.replace("-", " ")}
                     </span>
-                    <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize ${getPriorityColor(request.priority)}`}>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold capitalize ${getPriorityColor(request.priority)}`}>
                       {request.priority}
                     </span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-600 mb-2">{request.description}</p>
+                  <p className="text-xs text-gray-600 mb-1.5">{request.description}</p>
 
                   {/* Details Row */}
-                  <p className="text-xs text-gray-600 mb-2">
+                  <p className="text-xs text-gray-600 mb-1.5">
                     Requested: {request.requestedDate}
                     {request.completedDate && ` • Completed: ${request.completedDate}`}
                     <br />
@@ -234,25 +234,25 @@ export default function DocumentRequests() {
 
                   {/* Note Bar */}
                   {request.note && (
-                    <div className="bg-blue-50 rounded-lg p-2 mb-2">
+                    <div className="bg-blue-50 rounded-lg p-1.5 mb-1.5">
                       <p className="text-xs text-blue-800">{request.note}</p>
                     </div>
                   )}
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2 ml-4">
+                <div className="flex gap-1.5 ml-3">
                   {request.status === "completed" ? (
-                    <button className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1 whitespace-nowrap">
-                      <Download className="w-3.5 h-3.5" />
+                    <button className="px-2.5 py-1 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1 whitespace-nowrap">
+                      <Download className="w-3 h-3" />
                       Download
                     </button>
                   ) : (
-                    <button className="px-3 py-1.5 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap">
+                    <button className="px-2.5 py-1 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap">
                       Edit
                     </button>
                   )}
-                  <button className="px-3 py-1.5 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
+                  <button className="px-2.5 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
                     Details
                   </button>
                 </div>
