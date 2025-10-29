@@ -12,9 +12,9 @@ export default function MyLeaveAttendance() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-6 flex items-start justify-between">
+      <div className="mb-4 flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900 mb-1">My Leave & Attendance</h1>
+          <h1 className="text-lg font-semibold text-gray-900 mb-1">My Leave & Attendance</h1>
           <p className="text-sm text-gray-600">Manage your attendance, breaks, overtime, and leave records.</p>
         </div>
         {activeTab === "attendance" && (
@@ -30,8 +30,8 @@ export default function MyLeaveAttendance() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-6 bg-white">
-        <div className="flex gap-0 px-6">
+      <div className="border-b border-gray-200 mb-4 bg-white">
+        <div className="flex gap-0 px-4">
           {[
             { id: "attendance", label: "Attendance" },
             { id: "leave", label: "Leave" },
