@@ -33,6 +33,7 @@ export default function MyTasks() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("All Status");
   const [filterPriority, setFilterPriority] = useState("All Priorities");
+  const [selectedTeamMember, setSelectedTeamMember] = useState<string>("John Doe");
 
   const tasks: Task[] = [
     {
