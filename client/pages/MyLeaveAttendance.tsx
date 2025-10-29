@@ -378,11 +378,11 @@ export default function MyLeaveAttendance() {
             </div>
 
             {/* Request Card 2 */}
-            <div className="w-full bg-white border border-gray-200 rounded-[12px] p-4 flex flex-col gap-3">
-              <div className="flex justify-between items-start gap-3">
+            <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
+              <div className="flex justify-between items-start gap-2 sm:gap-3">
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-gray-900">Sick Leave</p>
-                  <p className="text-xs text-gray-600 mt-1">Nov 15, 2024</p>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Sick Leave</p>
+                  <p className="text-xs text-gray-600 mt-0.5">Nov 15, 2024</p>
                 </div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
               </div>
