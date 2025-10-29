@@ -236,57 +236,61 @@ export default function DocumentRequests() {
         </div>
 
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-          {summaryStats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div key={index} className="bg-white rounded-lg shadow-sm p-4">
-                <div className="flex justify-between items-start mb-2">
-                  <div className="flex-1">
-                    <p className="text-xs text-gray-600 mb-1">{stat.label}</p>
-                    <p className="text-xl font-bold text-gray-900">{stat.value}</p>
-                    <p className="text-xs text-gray-600 mt-1">{stat.subtitle}</p>
+        {activeTab !== "documents" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+            {summaryStats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="bg-white rounded-lg shadow-sm p-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="flex-1">
+                      <p className="text-xs text-gray-600 mb-1">{stat.label}</p>
+                      <p className="text-xl font-bold text-gray-900">{stat.value}</p>
+                      <p className="text-xs text-gray-600 mt-1">{stat.subtitle}</p>
+                    </div>
+                    <Icon className={`w-4 h-4 ${stat.color} flex-shrink-0`} />
                   </div>
-                  <Icon className={`w-4 h-4 ${stat.color} flex-shrink-0`} />
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Filter & Search Bar */}
-        <div className="flex gap-3 mb-4">
-          {/* Search Bar */}
-          <div className="flex-1 relative">
-            <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search requests…"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        {activeTab !== "documents" && (
+          <div className="flex gap-3 mb-4">
+            {/* Search Bar */}
+            <div className="flex-1 relative">
+              <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search requests…"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-8 pr-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* Status Filter */}
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+            >
+              <option>All Status</option>
+              <option value="completed">Completed</option>
+              <option value="in-progress">In Progress</option>
+              <option value="pending">Pending</option>
+              <option value="rejected">Rejected</option>
+            </select>
+
+            {/* More Filters Button */}
+            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
+              <Filter className="w-3.5 h-3.5" />
+              More Filters
+            </button>
           </div>
-
-          {/* Status Filter */}
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-          >
-            <option>All Status</option>
-            <option value="completed">Completed</option>
-            <option value="in-progress">In Progress</option>
-            <option value="pending">Pending</option>
-            <option value="rejected">Rejected</option>
-          </select>
-
-          {/* More Filters Button */}
-          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
-            <Filter className="w-3.5 h-3.5" />
-            More Filters
-          </button>
-        </div>
+        )}
 
         {/* ===== MY REQUESTS TAB ===== */}
         {activeTab === "requests" && (
