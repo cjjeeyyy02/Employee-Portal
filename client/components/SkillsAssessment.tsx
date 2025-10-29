@@ -32,8 +32,8 @@ const SkillItem = ({ name, level, rating, progress }: Skill) => {
 
 export default function SkillsAssessment({ groupName, skills }: SkillGroupProps) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
-      <h3 className="text-base font-semibold text-gray-900 mb-4">{groupName}</h3>
+    <div className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm">
+      <h3 className="text-sm font-semibold text-gray-900 mb-3">{groupName}</h3>
       <div className="space-y-0">
         {skills.map((skill, index) => (
           <SkillItem
