@@ -207,61 +207,61 @@ export default function MyTasks() {
         </div>
 
         {/* Task Cards */}
-        <div className="space-y-4">
+        <div className="space-y-2.5">
           {filteredTasks.map((task) => (
             <div
               key={task.id}
-              className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow"
+              className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4 hover:shadow-md transition-shadow"
             >
-              {/* Top Row: Title and Status Badge */}
-              <div className="flex justify-between items-start mb-3">
-                <h3 className="text-lg font-bold text-gray-900 flex-1">{task.title}</h3>
-                <button className="text-gray-500 hover:text-gray-700 transition-colors">
-                  <Trash2 className="w-4 h-4" />
+              {/* Top Row: Title and Delete Button */}
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="text-base font-bold text-gray-900 flex-1">{task.title}</h3>
+                <button className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0">
+                  <Trash2 className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 mb-4">{task.description}</p>
+              <p className="text-xs text-gray-600 mb-2.5">{task.description}</p>
 
               {/* Middle Row: Icons and Details */}
-              <div className="flex gap-6 mb-4 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-gray-400" />
+              <div className="flex gap-4 mb-2.5 text-xs text-gray-600">
+                <div className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-gray-400" />
                   <span>{task.dueDate}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Folder className="w-4 h-4 text-gray-400" />
+                <div className="flex items-center gap-1.5">
+                  <Folder className="w-3.5 h-3.5 text-gray-400" />
                   <span>{task.category}</span>
                 </div>
               </div>
 
               {/* Bottom Row: Badges, Action Button, and Avatar */}
-              <div className="flex justify-between items-end">
-                <div className="flex gap-2">
+              <div className="flex justify-between items-center">
+                <div className="flex gap-1.5">
                   {/* Priority Badge */}
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getPriorityColor(task.priority)}`}>
+                  <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getPriorityColor(task.priority)}`}>
                     {task.priority}
                   </span>
 
                   {/* Status Badge */}
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(task.status)}`}>
+                  <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(task.status)}`}>
                     {task.status}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   {/* Mark Complete Button */}
-                  <button className="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors">
+                  <button className="text-blue-600 text-xs font-medium hover:text-blue-700 transition-colors whitespace-nowrap">
                     Mark Complete
                   </button>
 
                   {/* Avatar and Name */}
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">
                       {task.avatar}
                     </div>
-                    <span className="text-sm text-gray-700">{task.assignedTo}</span>
+                    <span className="text-xs text-gray-700">{task.assignedTo}</span>
                   </div>
                 </div>
               </div>
