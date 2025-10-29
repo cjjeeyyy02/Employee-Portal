@@ -79,10 +79,10 @@ export default function FeedbackCard({
       </div>
 
       {/* Comment Section */}
-      <p className="text-sm text-gray-700 leading-relaxed mb-4 mt-3">{comment}</p>
+      <p className="text-xs text-gray-700 leading-relaxed mb-3 mt-2">{comment}</p>
 
       {/* Category Ratings Section */}
-      <div className="bg-blue-50 rounded-[12px] px-4 py-3 flex justify-between items-center gap-4">
+      <div className="bg-blue-50 rounded-[12px] px-3 py-2 flex justify-between items-center gap-3">
         {categoryRatings.map((category, index) => (
           <div key={index} className="flex flex-col items-center">
             <p className="text-xs text-gray-700 mb-1">{category.name}</p>
