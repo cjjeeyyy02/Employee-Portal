@@ -4,6 +4,9 @@ import Layout from "@/components/Layout";
 import GoalCard from "@/components/GoalCard";
 import ReviewCard from "@/components/ReviewCard";
 import FeedbackCard from "@/components/FeedbackCard";
+import DevelopmentPlanCard from "@/components/DevelopmentPlanCard";
+import AchievementCard from "@/components/AchievementCard";
+import SkillsAssessment from "@/components/SkillsAssessment";
 
 type TabType = "overview" | "goals" | "reviews" | "feedback" | "development";
 
