@@ -247,8 +247,8 @@ export default function MyLeaveAttendance() {
                     <p className="text-xs text-gray-600">Total: 10 days</p>
                   </div>
                 </div>
-                <div className="w-full bg-[#E8EBF0] rounded-full h-1">
-                  <div className="bg-[#2F80ED] h-1 rounded-full" style={{ width: "30%" }}></div>
+                <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
+                  <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "30%" }}></div>
                 </div>
               </div>
 
@@ -264,8 +264,8 @@ export default function MyLeaveAttendance() {
                     <p className="text-xs text-gray-600">Total: 5 days</p>
                   </div>
                 </div>
-                <div className="w-full bg-[#E8EBF0] rounded-full h-1">
-                  <div className="bg-[#2F80ED] h-1 rounded-full" style={{ width: "40%" }}></div>
+                <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
+                  <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "40%" }}></div>
                 </div>
               </div>
 
@@ -281,8 +281,8 @@ export default function MyLeaveAttendance() {
                     <p className="text-xs text-gray-600">Total: 90 days</p>
                   </div>
                 </div>
-                <div className="w-full bg-[#E8EBF0] rounded-full h-1">
-                  <div className="bg-[#2F80ED] h-1 rounded-full" style={{ width: "0%" }}></div>
+                <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
+                  <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "0%" }}></div>
                 </div>
               </div>
             </div>
