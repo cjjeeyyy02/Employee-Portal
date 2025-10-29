@@ -10,6 +10,7 @@ import MyProfile from "./pages/MyProfile";
 import MyLeaveAttendance from "./pages/MyLeaveAttendance";
 import MyPerformance from "./pages/MyPerformance";
 import MyTasks from "./pages/MyTasks";
+import DocumentRequests from "./pages/DocumentRequests";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
