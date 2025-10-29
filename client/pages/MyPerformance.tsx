@@ -9,11 +9,10 @@ export default function MyPerformance() {
 
   return (
     <Layout>
-      <div className="bg-gray-50 min-h-screen p-4">
-        {/* Header Section */}
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h1 className="text-xl font-bold text-gray-900 mb-1">Performance Management</h1>
+      {/* Header Section */}
+      <div className="flex justify-between items-start mb-3">
+        <div>
+          <h1 className="text-lg font-semibold text-gray-900 mb-1">Performance Management</h1>
             <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
           </div>
           <div className="flex gap-2">
@@ -28,8 +27,8 @@ export default function MyPerformance() {
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <div className="flex gap-6 border-b border-gray-200 mb-4">
+      {/* Navigation Tabs */}
+      <div className="flex gap-4 border-b border-gray-200 mb-4">
           {[
             { id: "overview", label: "Overview" },
             { id: "goals", label: "Goals" },
@@ -273,13 +272,12 @@ export default function MyPerformance() {
           </div>
         )}
 
-        {/* Other Tabs - Placeholder */}
-        {activeTab !== "overview" && (
-          <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-8 text-center">
-            <p className="text-gray-600">This tab is coming soon</p>
-          </div>
-        )}
-      </div>
+      {/* Other Tabs - Placeholder */}
+      {activeTab !== "overview" && (
+        <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-6 text-center">
+          <p className="text-gray-600">This tab is coming soon</p>
+        </div>
+      )}
     </Layout>
   );
 }
