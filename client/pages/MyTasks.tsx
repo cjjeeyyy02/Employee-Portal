@@ -99,21 +99,21 @@ export default function MyTasks() {
     <Layout>
       <div className="bg-gray-50 min-h-screen p-6">
         {/* Header Section */}
-        <div className="flex justify-between items-start mb-8">
+        <div className="flex justify-between items-start mb-4">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Task Management</h1>
-            <p className="text-gray-600">Manage your tasks, projects, and deadlines</p>
+            <h1 className="text-xl font-bold text-gray-900 mb-1">Task Management</h1>
+            <p className="text-xs text-gray-600">Manage your tasks, projects, and deadlines</p>
           </div>
-          <div className="flex gap-3">
-            <button className="px-4 py-2 text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors">
+          <div className="flex gap-2">
+            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors">
               AI Assistant
             </button>
-            <button className="px-4 py-2 text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-2">
-              <Filter className="w-4 h-4" />
+            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
+              <Filter className="w-3.5 h-3.5" />
               Filters
             </button>
-            <button className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-              <Plus className="w-4 h-4" />
+            <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+              <Plus className="w-3.5 h-3.5" />
               New Task
             </button>
           </div>
