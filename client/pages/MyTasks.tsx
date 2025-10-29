@@ -212,9 +212,9 @@ export default function MyTasks() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-3 gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-1.5 sm:mb-2 gap-2 sm:gap-3">
         <div>
-          <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">Task Management</h1>
+          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">Task Management</h1>
           <p className="text-xs text-gray-600">Manage your tasks, projects, and deadlines</p>
         </div>
         <div className="flex gap-1 sm:gap-2 flex-wrap">
@@ -233,7 +233,7 @@ export default function MyTasks() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex gap-4 border-b border-gray-200 mb-4">
+      <div className="flex gap-3 border-b border-gray-200 mb-2 sm:mb-3 overflow-x-auto">
         {[
             { id: "myTasks", label: "My Tasks" },
             { id: "projects", label: "Projects" },
