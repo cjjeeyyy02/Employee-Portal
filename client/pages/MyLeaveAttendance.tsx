@@ -230,8 +230,8 @@ export default function MyLeaveAttendance() {
                     <p className="text-xs text-gray-600">Total: 25 days</p>
                   </div>
                 </div>
-                <div className="w-full bg-[#E8EBF0] rounded-full h-1">
-                  <div className="bg-[#2F80ED] h-1 rounded-full" style={{ width: "32%" }}></div>
+                <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
+                  <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "32%" }}></div>
                 </div>
               </div>
 
