@@ -48,9 +48,9 @@ export default function GoalCard({
         {/* Right Side: Edit Button */}
         <button
           onClick={onEdit}
-          className="flex items-center gap-1.5 px-3 py-1.25 bg-gray-50 border border-gray-200 text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-100 transition-colors ml-3 flex-shrink-0 whitespace-nowrap"
+          className="flex items-center gap-1 px-2 py-1 bg-gray-50 border border-gray-200 text-gray-900 text-xs font-medium rounded-lg hover:bg-gray-100 transition-colors ml-2 flex-shrink-0 whitespace-nowrap"
         >
-          <Edit2 className="w-3.5 h-3.5" />
+          <Edit2 className="w-3 h-3" />
           Edit
         </button>
       </div>
