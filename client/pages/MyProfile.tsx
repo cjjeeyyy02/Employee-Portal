@@ -17,14 +17,14 @@ export default function MyProfile() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-2 sm:mb-3">
-        <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-0.5">My Profile</h1>
+      <div className="mb-1.5 sm:mb-2">
+        <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">My Profile</h1>
         <p className="text-xs text-gray-600">View and manage your profile information</p>
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-2 sm:mb-3 bg-white rounded-t-lg">
-        <div className="flex gap-0 px-2 sm:px-4 overflow-x-auto">
+      <div className="border-b border-gray-200 mb-1.5 sm:mb-2 bg-white">
+        <div className="flex gap-0 px-2 sm:px-3 overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -42,10 +42,10 @@ export default function MyProfile() {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-lg shadow-sm p-2 sm:p-3 md:p-4">
+      <div className="bg-white p-2 sm:p-2.5 md:p-3">
         {/* Personal Tab */}
         {activeTab === "personal" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
             {/* Profile Photo Card */}
             <div className="bg-gray-50 rounded-xl p-4">
               <h2 className="text-sm font-semibold text-gray-900 mb-4">Profile Photo</h2>
