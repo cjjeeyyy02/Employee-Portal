@@ -455,6 +455,88 @@ export default function DocumentRequests() {
             </div>
           </div>
         )}
+
+        {/* ===== FORMS & TEMPLATES TAB ===== */}
+        {activeTab === "forms" && (
+          <div>
+            {/* Page Title Section */}
+            <div className="mb-5">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Company Forms & Templates</h2>
+              <p className="text-sm text-gray-600">Download official forms and document templates</p>
+            </div>
+
+            {/* Form List Section */}
+            <div className="bg-white rounded-lg border border-gray-200 p-6 mb-5">
+              <div className="space-y-4">
+                {forms.map((form) => (
+                  <div key={form.id} className="bg-white border border-gray-200 rounded-xl p-5 flex items-center justify-between hover:shadow-sm transition-shadow">
+                    {/* Left Side: Icon and Info */}
+                    <div className="flex items-center gap-4 flex-1">
+                      {/* Icon Container */}
+                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-100 flex-shrink-0">
+                        <FileText className="w-5 h-5 text-blue-600" />
+                      </div>
+
+                      {/* Form Info */}
+                      <div className="flex-1">
+                        <h3 className="font-bold text-base text-gray-900 mb-1">{form.title}</h3>
+                        <p className="text-sm text-gray-600 mb-2">{form.description}</p>
+
+                        {/* Metadata Row */}
+                        <div className="flex gap-2.5 text-xs text-gray-600">
+                          <span>Category: {form.category}</span>
+                          <span>•</span>
+                          <span>Downloads: {form.downloads}</span>
+                          <span>•</span>
+                          <span>Updated: {form.updatedDate}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Side: Action Buttons */}
+                    <div className="flex gap-2.5 ml-4 flex-shrink-0">
+                      <button className="px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-2 text-xs font-medium">
+                        <Eye className="w-3.5 h-3.5" />
+                        Preview
+                      </button>
+                      <button className="px-3.5 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 text-xs font-medium">
+                        <Download className="w-3.5 h-3.5" />
+                        Download
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category Section */}
+            <div className="mt-5">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {formCategories.map((category, index) => (
+                  <div
+                    key={index}
+                    className="rounded-xl p-4.5 flex items-center gap-3"
+                    style={{ backgroundColor: category.bgColor }}
+                  >
+                    {/* Icon */}
+                    <div
+                      className="flex items-center justify-center w-12 h-12 rounded-lg flex-shrink-0"
+                      style={{ backgroundColor: category.iconBg }}
+                    >
+                      <FileText className="w-5 h-5 text-gray-700" />
+                    </div>
+
+                    {/* Text */}
+                    <div>
+                      <h3 className="font-bold text-base text-gray-900">{category.name}</h3>
+                      <p className="text-sm text-gray-600">{category.subtitle}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
     </Layout>
   );
 }
