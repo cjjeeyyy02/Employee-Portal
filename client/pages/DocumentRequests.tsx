@@ -511,8 +511,8 @@ export default function DocumentRequests() {
             </div>
 
             {/* Category Section */}
-            <div className="mt-4 sm:mt-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div className="mt-2 sm:mt-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
                 {formCategories.map((category, index) => (
                   <div
                     key={index}
