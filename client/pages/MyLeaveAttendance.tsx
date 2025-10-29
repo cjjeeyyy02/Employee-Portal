@@ -12,10 +12,10 @@ export default function MyLeaveAttendance() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-4 flex items-start justify-between">
+      <div className="mb-3 sm:mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-lg font-semibold text-gray-900 mb-1">My Leave & Attendance</h1>
-          <p className="text-sm text-gray-600">Manage your attendance, breaks, overtime, and leave records.</p>
+          <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">My Leave & Attendance</h1>
+          <p className="text-xs sm:text-sm text-gray-600">Manage your attendance, breaks, overtime, and leave records.</p>
         </div>
         {activeTab === "attendance" && (
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
