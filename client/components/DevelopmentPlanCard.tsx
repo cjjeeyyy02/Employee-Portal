@@ -21,15 +21,15 @@ export default function DevelopmentPlanCard({
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-      <div className="flex justify-between items-start mb-2">
+    <div className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow">
+      <div className="flex justify-between items-start mb-1.5">
         <div>
-          <h3 className="text-base font-semibold text-gray-900">{title}</h3>
-          <p className="text-sm text-gray-600 mt-1">{subtext}</p>
+          <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
+          <p className="text-xs text-gray-600 mt-0.5">{subtext}</p>
         </div>
       </div>
-      <div className="flex justify-end mt-3">
-        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(statusBadge)}`}>
+      <div className="flex justify-end mt-2">
+        <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(statusBadge)}`}>
           {statusBadge}
         </span>
       </div>
