@@ -234,7 +234,7 @@ export default function MyTasks() {
 
       {/* Navigation Tabs */}
       <div className="flex gap-4 border-b border-gray-200 mb-4">
-          {[
+        {[
             { id: "myTasks", label: "My Tasks" },
             { id: "projects", label: "Projects" },
             { id: "teamTasks", label: "Team Tasks" },
