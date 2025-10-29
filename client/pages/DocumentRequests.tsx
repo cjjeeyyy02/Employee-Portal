@@ -460,16 +460,16 @@ export default function DocumentRequests() {
         {activeTab === "forms" && (
           <div>
             {/* Page Title Section */}
-            <div className="mb-5">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Company Forms & Templates</h2>
-              <p className="text-sm text-gray-600">Download official forms and document templates</p>
+            <div className="mb-4 sm:mb-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2">Company Forms & Templates</h2>
+              <p className="text-xs sm:text-sm text-gray-600">Download official forms and document templates</p>
             </div>
 
             {/* Form List Section */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6 mb-5">
-              <div className="space-y-4">
+            <div className="bg-white rounded-lg border border-gray-200 p-3 sm:p-4 md:p-6 mb-4 sm:mb-5">
+              <div className="space-y-3 sm:space-y-4">
                 {forms.map((form) => (
-                  <div key={form.id} className="bg-white border border-gray-200 rounded-xl p-5 flex items-center justify-between hover:shadow-sm transition-shadow">
+                  <div key={form.id} className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 hover:shadow-sm transition-shadow">
                     {/* Left Side: Icon and Info */}
                     <div className="flex items-center gap-4 flex-1">
                       {/* Icon Container */}
