@@ -515,8 +515,8 @@ export default function DocumentRequests() {
                 {formCategories.map((category, index) => (
                   <div
                     key={index}
-                    className="rounded-xl p-4.5 flex items-center gap-3"
-                    style={{ backgroundColor: category.bgColor }}
+                    className="rounded-xl p-4 flex items-center gap-3"
+                    style={{ backgroundColor: category.bgColor, padding: "18px" }}
                   >
                     {/* Icon */}
                     <div
