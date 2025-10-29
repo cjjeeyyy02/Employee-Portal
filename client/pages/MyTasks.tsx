@@ -211,30 +211,29 @@ export default function MyTasks() {
 
   return (
     <Layout>
-      <div className="bg-gray-50 min-h-screen p-4">
-        {/* Header Section */}
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h1 className="text-xl font-bold text-gray-900 mb-1">Task Management</h1>
-            <p className="text-xs text-gray-600">Manage your tasks, projects, and deadlines</p>
-          </div>
-          <div className="flex gap-2">
-            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors">
-              AI Assistant
-            </button>
-            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
-              <Filter className="w-3.5 h-3.5" />
-              Filters
-            </button>
-            <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
-              <Plus className="w-3.5 h-3.5" />
-              New Task
-            </button>
-          </div>
+      {/* Header Section */}
+      <div className="flex justify-between items-start mb-3">
+        <div>
+          <h1 className="text-lg font-semibold text-gray-900 mb-1">Task Management</h1>
+          <p className="text-xs text-gray-600">Manage your tasks, projects, and deadlines</p>
         </div>
+        <div className="flex gap-2">
+          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors">
+            AI Assistant
+          </button>
+          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
+            <Filter className="w-3.5 h-3.5" />
+            Filters
+          </button>
+          <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+            <Plus className="w-3.5 h-3.5" />
+            New Task
+          </button>
+        </div>
+      </div>
 
-        {/* Navigation Tabs */}
-        <div className="flex gap-6 border-b border-gray-200 mb-4">
+      {/* Navigation Tabs */}
+      <div className="flex gap-4 border-b border-gray-200 mb-4">
           {[
             { id: "myTasks", label: "My Tasks" },
             { id: "projects", label: "Projects" },
@@ -597,7 +596,6 @@ export default function MyTasks() {
             </div>
           </div>
         )}
-      </div>
     </Layout>
   );
 }
