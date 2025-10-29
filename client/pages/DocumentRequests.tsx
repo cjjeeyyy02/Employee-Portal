@@ -244,7 +244,7 @@ export default function DocumentRequests() {
 
         {/* Summary Cards */}
         {activeTab !== "documents" && activeTab !== "forms" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 mb-2 sm:mb-3">
             {summaryStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -265,7 +265,7 @@ export default function DocumentRequests() {
 
         {/* Filter & Search Bar */}
         {activeTab !== "documents" && activeTab !== "forms" && (
-          <div className="flex gap-3 mb-4">
+          <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
             {/* Search Bar */}
             <div className="flex-1 relative">
               <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
