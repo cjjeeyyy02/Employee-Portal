@@ -30,15 +30,7 @@ export default function Sidebar() {
     <div className="w-64 bg-white text-gray-900 flex flex-col h-screen border-r border-gray-200 shadow-sm">
       {/* Header */}
       <div className="p-6 border-b border-gray-200">
-        <h1 className="text-lg font-bold text-gray-900 mb-6">ESS Portal</h1>
-
-        {/* Switch to Manager View Button */}
-        <button
-          onClick={() => setIsManagerView(!isManagerView)}
-          className="w-full border-2 border-blue-500 hover:bg-blue-50 text-blue-600 text-sm font-medium py-2 px-4 rounded-lg transition-colors"
-        >
-          {isManagerView ? "Switch to Employee View" : "Switch to Manager View"}
-        </button>
+        <h1 className="text-lg font-bold text-gray-900">ESS Portal</h1>
       </div>
 
       {/* Navigation */}
