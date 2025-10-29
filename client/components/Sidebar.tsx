@@ -2,15 +2,11 @@ import {
   LayoutDashboard,
   User,
   Calendar,
-  DollarSign,
   CheckSquare,
   Target,
   FileText,
-  MessageSquare,
-  Users,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useView } from "@/context/ViewContext";
 
 const employeeNavigationItems = [
   { icon: LayoutDashboard, label: "My Dashboard", path: "/employee-dashboard" },
