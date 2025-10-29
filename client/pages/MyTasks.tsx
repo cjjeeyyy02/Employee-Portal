@@ -97,7 +97,7 @@ export default function MyTasks() {
 
   return (
     <Layout>
-      <div className="bg-gray-50 min-h-screen p-6">
+      <div className="bg-gray-50 min-h-screen p-4">
         {/* Header Section */}
         <div className="flex justify-between items-start mb-4">
           <div>
