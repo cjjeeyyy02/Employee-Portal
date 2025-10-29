@@ -346,33 +346,52 @@ export default function MyPerformance() {
 
       {/* ===== FEEDBACK TAB ===== */}
       {activeTab === "feedback" && (
-        <div className="space-y-3 sm:space-y-4">
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
-            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Recent Feedback</h3>
-            <div className="space-y-2">
-              <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3">
-                <div className="flex justify-between items-start">
-                  <p className="text-xs font-semibold text-gray-900">Sarah Johnson</p>
-                  <span className="text-xs text-gray-600">Dec 5, 2024</span>
-                </div>
-                <p className="text-xs text-gray-600 mt-1">Great work on the project delivery. Your communication was excellent throughout.</p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3">
-                <div className="flex justify-between items-start">
-                  <p className="text-xs font-semibold text-gray-900">Michael Chen</p>
-                  <span className="text-xs text-gray-600">Nov 28, 2024</span>
-                </div>
-                <p className="text-xs text-gray-600 mt-1">Consider taking on more leadership responsibilities in the team.</p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3">
-                <div className="flex justify-between items-start">
-                  <p className="text-xs font-semibold text-gray-900">Emma Wilson</p>
-                  <span className="text-xs text-gray-600">Nov 15, 2024</span>
-                </div>
-                <p className="text-xs text-gray-600 mt-1">Your technical expertise has been invaluable to the team.</p>
-              </div>
-            </div>
-          </div>
+        <div className="bg-gray-50 p-6 min-h-screen space-y-5">
+          <FeedbackCard
+            name="Sarah Johnson"
+            position="Engineering Manager"
+            feedbackType="manager"
+            rating={4.5}
+            date="Dec 5, 2024"
+            comment="John consistently delivers high-quality work and shows great initiative in solving complex problems. His collaboration with team members is excellent."
+            categoryRatings={[
+              { name: "Communication", rating: 4.5 },
+              { name: "Teamwork", rating: 4.7 },
+              { name: "Leadership", rating: 4.3 },
+              { name: "Technical", rating: 4.8 },
+            ]}
+            onCardClick={() => console.log("Open feedback details")}
+          />
+          <FeedbackCard
+            name="Michael Chen"
+            position="Senior Developer"
+            feedbackType="peer"
+            rating={4.2}
+            date="Nov 28, 2024"
+            comment="John is a great team player. He could consider taking on more leadership responsibilities in the team. His technical expertise is valuable and he shares knowledge effectively."
+            categoryRatings={[
+              { name: "Communication", rating: 4.1 },
+              { name: "Teamwork", rating: 4.6 },
+              { name: "Leadership", rating: 3.9 },
+              { name: "Technical", rating: 4.5 },
+            ]}
+            onCardClick={() => console.log("Open feedback details")}
+          />
+          <FeedbackCard
+            name="Emma Wilson"
+            position="Product Manager"
+            feedbackType="manager"
+            rating={4.6}
+            date="Nov 15, 2024"
+            comment="Your technical expertise has been invaluable to the team. You consistently bring innovative solutions to complex challenges and mentor others effectively."
+            categoryRatings={[
+              { name: "Communication", rating: 4.6 },
+              { name: "Teamwork", rating: 4.8 },
+              { name: "Leadership", rating: 4.4 },
+              { name: "Technical", rating: 4.9 },
+            ]}
+            onCardClick={() => console.log("Open feedback details")}
+          />
         </div>
       )}
 
