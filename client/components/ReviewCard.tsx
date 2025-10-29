@@ -97,7 +97,7 @@ export default function ReviewCard({
       {/* Right Section: Action Button */}
       <button
         onClick={onActionClick}
-        className={`px-4 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${buttonStyles[status]}`}
+        className={`px-3 py-1.5 text-xs font-medium rounded-md whitespace-nowrap transition-colors ${buttonStyles[status]}`}
       >
         {buttonText}
       </button>
