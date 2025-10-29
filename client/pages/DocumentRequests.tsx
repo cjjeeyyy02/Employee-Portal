@@ -264,7 +264,7 @@ export default function DocumentRequests() {
         )}
 
         {/* Filter & Search Bar */}
-        {activeTab !== "documents" && activeTab !== "forms" && (
+        {activeTab !== "documents" && activeTab !== "forms" && activeTab !== "archived" && (
           <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
             {/* Search Bar */}
             <div className="flex-1 relative">
