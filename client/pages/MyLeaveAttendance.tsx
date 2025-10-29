@@ -190,7 +190,7 @@ export default function MyLeaveAttendance() {
                     </td>
                     <td className="px-2 py-1.5">
                       <button
-                        className="px-3 py-1 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                        className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         Request Correction
                       </button>
