@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Upload, Plus, Search, Filter, FileText, Clock, CheckCircle, MoreHorizontal, Download } from "lucide-react";
+import { Upload, Plus, Search, Filter, FileText, Clock, CheckCircle, Download } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "requests" | "documents" | "forms" | "archived";
