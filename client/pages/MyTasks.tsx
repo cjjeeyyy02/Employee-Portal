@@ -120,7 +120,7 @@ export default function MyTasks() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex gap-8 border-b border-gray-200 mb-6">
+        <div className="flex gap-6 border-b border-gray-200 mb-4">
           {[
             { id: "myTasks", label: "My Tasks" },
             { id: "projects", label: "Projects" },
@@ -130,7 +130,7 @@ export default function MyTasks() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`pb-3 font-medium transition-colors ${
+              className={`pb-2 text-sm font-medium transition-colors ${
                 activeTab === tab.id
                   ? "text-blue-600 border-b-2 border-blue-600"
                   : "text-gray-600 hover:text-gray-900"
