@@ -5,7 +5,7 @@ export default function Header() {
   const { isManagerView } = useView();
   return (
     <div className="bg-white border-b border-gray-200">
-      <div className="px-2 sm:px-3 md:px-4 lg:px-6 py-2.5 sm:py-3 lg:py-4 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 flex items-center justify-between gap-2 sm:gap-3">
         {/* Left side - Search bar (hidden on mobile) */}
         <div className="hidden sm:flex flex-1 max-w-xs md:max-w-sm lg:max-w-md">
           <div className="relative w-full">
