@@ -29,13 +29,13 @@ export default function GoalCard({
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-[12px] p-5 shadow-sm hover:shadow-md transition-shadow mb-4">
+    <div className="bg-white border border-gray-200 rounded-[12px] p-3 shadow-sm hover:shadow-md transition-shadow mb-3">
       {/* Header Row */}
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1.5">
         {/* Left Side: Goal Info */}
-        <div className="flex-1 flex items-center gap-3">
+        <div className="flex-1 flex items-center gap-2">
           <div className="flex items-center gap-2">
-            <h3 className="text-base font-bold text-gray-900">{title}</h3>
+            <h3 className="text-sm font-bold text-gray-900">{title}</h3>
             <TrendingUp className="w-4 h-4 text-blue-600 flex-shrink-0" />
           </div>
           <span
