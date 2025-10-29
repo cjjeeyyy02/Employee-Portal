@@ -21,12 +21,7 @@ const employeeNavigationItems = [
   { icon: FileText, label: "Documents", path: "/documents" },
 ];
 
-const managerFunctions = [
-  { icon: Users, label: "Team Management", path: "/team-management" },
-];
-
 export default function Sidebar() {
-  const { isManagerView, setIsManagerView } = useView();
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
