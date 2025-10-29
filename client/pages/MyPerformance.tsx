@@ -3,6 +3,7 @@ import { Plus, FileText, TrendingUp, CheckCircle, AlertCircle, Calendar, ArrowUp
 import Layout from "@/components/Layout";
 import GoalCard from "@/components/GoalCard";
 import ReviewCard from "@/components/ReviewCard";
+import FeedbackCard from "@/components/FeedbackCard";
 
 type TabType = "overview" | "goals" | "reviews" | "feedback" | "development";
 
