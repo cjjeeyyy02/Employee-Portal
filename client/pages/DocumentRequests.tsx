@@ -203,9 +203,9 @@ export default function DocumentRequests() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-3 gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-1.5 sm:mb-2 gap-2 sm:gap-3">
         <div>
-          <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">Requests & Document Management</h1>
+          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">Requests & Document Management</h1>
           <p className="text-xs text-gray-600">Submit requests and manage your work-related documents</p>
         </div>
         <div className="flex gap-1 sm:gap-2 flex-wrap">
@@ -221,7 +221,7 @@ export default function DocumentRequests() {
       </div>
 
       {/* Tabs Navigation */}
-      <div className="flex gap-2 mb-3">
+      <div className="flex gap-2 mb-1.5 sm:mb-2 overflow-x-auto">
           {[
             { id: "requests", label: "My Requests" },
             { id: "documents", label: "My Documents" },
