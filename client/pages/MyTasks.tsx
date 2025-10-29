@@ -142,7 +142,7 @@ export default function MyTasks() {
         </div>
 
         {/* View Options */}
-        <div className="flex gap-3 mb-6">
+        <div className="flex gap-2 mb-4">
           {[
             { id: "list", label: "List", icon: List },
             { id: "kanban", label: "Kanban", icon: Grid3x3 },
@@ -153,13 +153,13 @@ export default function MyTasks() {
               <button
                 key={view.id}
                 onClick={() => setActiveView(view.id as ViewType)}
-                className={`px-4 py-2 rounded-lg flex items-center gap-2 transition-colors ${
+                className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1.5 transition-colors ${
                   activeView === view.id
                     ? "bg-blue-600 text-white"
                     : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <Icon className="w-3.5 h-3.5" />
                 {view.label}
               </button>
             );
