@@ -18,6 +18,17 @@ interface Request {
   note?: string;
 }
 
+interface Document {
+  id: number;
+  fileName: string;
+  fileType: "pdf" | "jpg" | "doc";
+  category: string;
+  size: string;
+  uploadedDate: string;
+  isVerified: boolean;
+  expiryDate?: string;
+}
+
 export default function DocumentRequests() {
   const [activeTab, setActiveTab] = useState<TabType>("requests");
   const [searchTerm, setSearchTerm] = useState("");
