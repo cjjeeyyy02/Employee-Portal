@@ -315,33 +315,31 @@ export default function MyPerformance() {
 
       {/* ===== REVIEWS TAB ===== */}
       {activeTab === "reviews" && (
-        <div className="space-y-3 sm:space-y-4">
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 sm:p-4">
-            <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3">Review History</h3>
-            <div className="space-y-2">
-              <div className="pb-2 border-b border-gray-200">
-                <div className="flex justify-between items-start">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Q4 2024 Performance Review</p>
-                  <span className="text-xs font-medium text-yellow-600">Pending</span>
-                </div>
-                <p className="text-xs text-gray-600 mt-0.5">Scheduled for Dec 15, 2024</p>
-              </div>
-              <div className="pb-2 border-b border-gray-200">
-                <div className="flex justify-between items-start">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Q3 2024 Performance Review</p>
-                  <span className="text-xs font-medium text-green-600">Completed</span>
-                </div>
-                <p className="text-xs text-gray-600 mt-0.5">Rating: 4.3/5.0 • Oct 15, 2024</p>
-              </div>
-              <div>
-                <div className="flex justify-between items-start">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Q2 2024 Performance Review</p>
-                  <span className="text-xs font-medium text-green-600">Completed</span>
-                </div>
-                <p className="text-xs text-gray-600 mt-0.5">Rating: 4.1/5.0 • Jul 15, 2024</p>
-              </div>
-            </div>
-          </div>
+        <div className="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
+          <ReviewCard
+            title="Q4 2024 - Quarterly Review"
+            status="pending"
+            dueDate="Dec 15, 2024"
+            onActionClick={() => console.log("Start review")}
+          />
+          <ReviewCard
+            title="Q3 2024 - Quarterly Review"
+            status="completed"
+            completedDate="Oct 15, 2024"
+            overallRating={4.3}
+            managerRating="4.2/5.0"
+            selfRating="4.5/5.0"
+            onActionClick={() => console.log("View details")}
+          />
+          <ReviewCard
+            title="Q2 2024 - Quarterly Review"
+            status="completed"
+            completedDate="Jul 15, 2024"
+            overallRating={4.1}
+            managerRating="4.0/5.0"
+            selfRating="4.3/5.0"
+            onActionClick={() => console.log("View details")}
+          />
         </div>
       )}
 
