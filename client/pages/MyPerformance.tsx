@@ -10,9 +10,9 @@ export default function MyPerformance() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-3 gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-1.5 sm:mb-2 gap-2 sm:gap-3">
         <div>
-          <h1 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">Performance Management</h1>
+          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">Performance Management</h1>
             <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
           </div>
           <div className="flex gap-2">
@@ -28,7 +28,7 @@ export default function MyPerformance() {
         </div>
 
       {/* Navigation Tabs */}
-      <div className="flex gap-4 border-b border-gray-200 mb-4">
+      <div className="flex gap-3 border-b border-gray-200 mb-2 sm:mb-3 overflow-x-auto">
           {[
             { id: "overview", label: "Overview" },
             { id: "goals", label: "Goals" },
