@@ -56,31 +56,31 @@ export default function MyLeaveAttendance() {
         <div className="space-y-6">
 
           {/* Today's Summary */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-base font-semibold text-gray-900 mb-4">Today's Summary</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="bg-white rounded-lg shadow-sm p-2.5 sm:p-3">
+            <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">Today's Summary</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
               <div>
-                <p className="text-xs text-gray-600 mb-1">Date</p>
+                <p className="text-xs text-gray-600 mb-0.5">Date</p>
                 <p className="text-sm font-semibold text-gray-900">Oct 18, 2024</p>
               </div>
               <div>
-                <p className="text-xs text-gray-600 mb-1">Clock In</p>
+                <p className="text-xs text-gray-600 mb-0.5">Clock In</p>
                 <p className="text-sm font-semibold text-gray-900">09:00 AM</p>
               </div>
               <div>
-                <p className="text-xs text-gray-600 mb-1">Clock Out</p>
+                <p className="text-xs text-gray-600 mb-0.5">Clock Out</p>
                 <p className="text-sm font-semibold text-gray-900">06:15 PM</p>
               </div>
               <div>
-                <p className="text-xs text-gray-600 mb-1">Total Hours</p>
+                <p className="text-xs text-gray-600 mb-0.5">Total Hours</p>
                 <p className="text-sm font-semibold text-gray-900">9h 15m</p>
               </div>
               <div>
-                <p className="text-xs text-gray-600 mb-1">Overtime</p>
+                <p className="text-xs text-gray-600 mb-0.5">Overtime</p>
                 <p className="text-sm font-semibold text-blue-600">1h 15m</p>
               </div>
               <div>
-                <p className="text-xs text-gray-600 mb-1">Status</p>
+                <p className="text-xs text-gray-600 mb-0.5">Status</p>
                 <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
                   Present
                 </span>
@@ -90,15 +90,15 @@ export default function MyLeaveAttendance() {
 
           {/* Attendance Records */}
           <div
-            className="w-full bg-white rounded-[12px] p-3 flex flex-col gap-2"
+            className="w-full bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
             style={{
-              padding: "16px 20px",
+              padding: "12px 16px",
             }}
           >
             {/* Header */}
             <div>
-              <h2 className="text-base font-semibold text-[#1A1A1A] mb-1">Attendance Records</h2>
-              <p className="text-xs text-[#7A7A7A] mb-2">Your recent attendance history</p>
+              <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Attendance Records</h2>
+              <p className="text-xs text-[#7A7A7A]">Your recent attendance history</p>
             </div>
 
             {/* Table */}
@@ -106,35 +106,35 @@ export default function MyLeaveAttendance() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Date</th>
-                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Clock In</th>
-                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Clock Out</th>
-                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Total Hours</th>
-                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Status</th>
-                    <th className="px-3 py-2 text-left text-xs font-bold text-gray-900">Actions</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Date</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock In</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock Out</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Total Hours</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Status</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {/* Row 01 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-10</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">09:00</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">17:30</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">8.5h</td>
-                    <td className="px-3 py-2">
+                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-10</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">09:00</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">17:30</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">8.5h</td>
+                    <td className="px-2 py-1.5">
                       <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
                         Present
                       </span>
                     </td>
-                    <td className="px-3 py-2 text-xs">—</td>
+                    <td className="px-2 py-1.5 text-xs">—</td>
                   </tr>
 
                   {/* Row 02 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-3 py-2 text-xs text-gray-900">2024-12-09</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">09:15</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">17:30</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">8.25h</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-09</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">09:15</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">17:30</td>
+                    <td className="px-2 py-1.5 text-xs text-gray-900">8.25h</td>
                     <td className="px-3 py-2">
                       <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#E0E0E0" }}>
                         Late
