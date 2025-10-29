@@ -516,21 +516,21 @@ export default function DocumentRequests() {
                 {formCategories.map((category, index) => (
                   <div
                     key={index}
-                    className="rounded-xl p-3 sm:p-4 flex items-center gap-2 sm:gap-3"
-                    style={{ backgroundColor: category.bgColor, padding: "12px" }}
+                    className="rounded-lg p-2 sm:p-3 flex items-center gap-2 sm:gap-3"
+                    style={{ backgroundColor: category.bgColor, padding: "8px" }}
                   >
                     {/* Icon */}
                     <div
-                      className="flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-lg flex-shrink-0"
+                      className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex-shrink-0"
                       style={{ backgroundColor: category.iconBg }}
                     >
-                      <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
+                      <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-700" />
                     </div>
 
                     {/* Text */}
                     <div className="min-w-0">
-                      <h3 className="font-bold text-sm sm:text-base text-gray-900 line-clamp-1">{category.name}</h3>
-                      <p className="text-xs sm:text-sm text-gray-600 line-clamp-1">{category.subtitle}</p>
+                      <h3 className="font-bold text-xs sm:text-sm text-gray-900 line-clamp-1">{category.name}</h3>
+                      <p className="text-xs text-gray-600 line-clamp-1">{category.subtitle}</p>
                     </div>
                   </div>
                 ))}
