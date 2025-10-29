@@ -303,9 +303,9 @@ export default function DocumentRequests() {
         {activeTab === "requests" && (
           <>
             {/* Requests List */}
-            <div className="space-y-2">
+            <div className="space-y-1.5 sm:space-y-2">
               {filteredRequests.map((request) => (
-            <div key={request.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow">
+            <div key={request.id} className="bg-white rounded-lg border border-gray-200 shadow-sm p-2 sm:p-2.5 hover:shadow-md transition-shadow">
               {/* Top Row: Title and Actions */}
               <div className="flex justify-between items-start">
                 <div className="flex-1">
