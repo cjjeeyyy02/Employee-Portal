@@ -469,18 +469,18 @@ export default function DocumentRequests() {
             <div className="bg-white rounded-lg border border-gray-200 p-2 sm:p-3 mb-2 sm:mb-3">
               <div className="space-y-1.5 sm:space-y-2">
                 {forms.map((form) => (
-                  <div key={form.id} className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 md:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 hover:shadow-sm transition-shadow">
+                  <div key={form.id} className="bg-white border border-gray-200 rounded-lg p-2 sm:p-2.5 md:p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 hover:shadow-sm transition-shadow">
                     {/* Left Side: Icon and Info */}
-                    <div className="flex items-start sm:items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                    <div className="flex items-start sm:items-center gap-2 sm:gap-3 flex-1 min-w-0">
                       {/* Icon Container */}
-                      <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-blue-100 flex-shrink-0">
-                        <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+                      <div className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-100 flex-shrink-0">
+                        <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" />
                       </div>
 
                       {/* Form Info */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-0.5 sm:mb-1 line-clamp-1">{form.title}</h3>
-                        <p className="text-xs sm:text-sm text-gray-600 mb-1 sm:mb-2 line-clamp-1">{form.description}</p>
+                        <h3 className="font-bold text-xs sm:text-sm text-gray-900 mb-0.5 line-clamp-1">{form.title}</h3>
+                        <p className="text-xs text-gray-600 mb-1 line-clamp-1">{form.description}</p>
 
                         {/* Metadata Row */}
                         <div className="flex flex-wrap gap-1 sm:gap-2.5 text-xs text-gray-600">
