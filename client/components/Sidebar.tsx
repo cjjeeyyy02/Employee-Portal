@@ -12,17 +12,6 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { useView } from "@/context/ViewContext";
 
-const managerNavigationItems = [
-  { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
-  { icon: User, label: "Personal Info", path: "/personal-info" },
-  { icon: Calendar, label: "Leave & Attendance", path: "/leave-attendance" },
-  { icon: DollarSign, label: "Payroll & Benefits", path: "/payroll-benefits" },
-  { icon: CheckSquare, label: "Task Management", path: "/tasks" },
-  { icon: Target, label: "Performance", path: "/performance" },
-  { icon: FileText, label: "Requests & Documents", path: "/requests" },
-  { icon: MessageSquare, label: "Communications", path: "/communications" },
-];
-
 const employeeNavigationItems = [
   { icon: LayoutDashboard, label: "My Dashboard", path: "/employee-dashboard" },
   { icon: User, label: "My Profile", path: "/my-profile" },
