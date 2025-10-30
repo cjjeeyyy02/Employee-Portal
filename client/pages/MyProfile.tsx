@@ -51,7 +51,14 @@ export default function MyProfile() {
           <div>
             {/* Personal Information Card */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Personal Information</h2>
+              <div className="flex items-center gap-4 mb-8">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+                  alt="Profile"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                />
+                <h2 className="text-lg font-bold text-gray-900">Personal Information</h2>
+              </div>
               <div className="space-y-5">
                 {/* First Name & Middle Name Row */}
                 <div className="grid grid-cols-2 gap-8">
