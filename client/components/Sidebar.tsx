@@ -37,7 +37,7 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         className="hidden max-lg:flex fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
       >
-        {isMobileOpen ? <Menu className="w-6 h-6" /> : <X className="w-6 h-6" />}
+        {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
       {/* Sidebar */}
