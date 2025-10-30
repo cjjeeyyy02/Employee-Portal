@@ -68,7 +68,6 @@ export default function Sidebar() {
                         ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
                         : "text-gray-700 hover:bg-gray-50"
                     }`}
-                    style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     <Icon
                       className={`w-6 h-6 flex-shrink-0 transition-colors ${
