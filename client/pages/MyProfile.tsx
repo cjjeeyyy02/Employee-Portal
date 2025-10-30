@@ -212,21 +212,30 @@ export default function MyProfile() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
                   <label className="block text-xs font-medium text-gray-600 mb-1">Contact Name</label>
-                  <p className="text-sm font-bold text-gray-900">Jane Doe</p>
+                  <p className="text-sm font-bold text-gray-900">John Mitchell</p>
                 </div>
 
                 <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
                   <label className="block text-xs font-medium text-gray-600 mb-1">Relationship</label>
-                  <p className="text-sm font-bold text-gray-900">Spouse</p>
+                  <p className="text-sm font-bold text-gray-900">Brother</p>
                 </div>
               </div>
 
-              {/* Phone Number */}
+              {/* Contact Number */}
+              <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <label className="block text-xs font-medium text-gray-600 mb-1">Contact Number</label>
+                  <p className="text-sm font-bold text-gray-900">+1 456 789 123</p>
+                </div>
+              </div>
+
+              {/* Alternate Number */}
               <div className="flex items-start gap-3 hover:bg-blue-50 p-1.5 rounded transition-colors">
                 <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Phone Number</label>
-                  <p className="text-sm font-bold text-gray-900">+1 (555) 456-7890</p>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">Alternate Number</label>
+                  <p className="text-sm font-bold text-gray-900">+1 321 654 987</p>
                 </div>
               </div>
             </div>
