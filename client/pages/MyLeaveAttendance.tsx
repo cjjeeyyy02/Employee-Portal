@@ -286,15 +286,6 @@ export default function MyLeaveAttendance() {
                 </div>
               </div>
             </div>
-
-            {/* Request Leave Button */}
-            <button
-              onClick={() => setShowLeaveModal(true)}
-              className="w-full mt-1.5 h-8 bg-[#2F80ED] text-white font-semibold rounded-lg flex items-center justify-center gap-1.5 hover:bg-blue-700 transition-colors text-xs sm:text-sm"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Request Leave</span>
-            </button>
           </div>
 
           {/* RIGHT PANEL — Recent Activities */}
