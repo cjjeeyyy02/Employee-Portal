@@ -11,14 +11,22 @@ export default function Layout({ children }: LayoutProps) {
   const { isManagerView } = useView();
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar - hidden on mobile, shown on desktop */}
       <div className="hidden lg:block">
         <Sidebar />
       </div>
+
+      {/* Mobile Sidebar */}
+      <div className="lg:hidden">
+        <Sidebar />
+      </div>
+
+      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         <Header />
         <main className="flex-1 overflow-y-auto bg-white">
-          <div className="px-2 py-1.5 sm:px-2.5 sm:py-2 md:px-3 md:py-2.5 max-w-full w-full">
+          <div className="px-4 py-3 sm:px-5 sm:py-4 md:px-6 md:py-5 max-w-full w-full">
             {children}
           </div>
         </main>
