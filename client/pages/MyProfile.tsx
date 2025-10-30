@@ -109,19 +109,36 @@ export default function MyProfile() {
         {/* Contact Tab */}
         {activeTab === "contact" && (
           <div className="space-y-6">
-            {/* Contact Information Card */}
+            {/* Contact Details Card */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h2 className="text-base font-bold text-gray-900 mb-1">Contact Information</h2>
-              <p className="text-xs text-gray-600 mb-4">Keep your contact details up to date for important communications</p>
+              <h2 className="text-base font-bold text-gray-900 mb-4">Contact Details</h2>
 
               <div className="space-y-3">
-                {/* Email Address */}
+                {/* Phone Number */}
+                <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1">Phone Number</label>
+                    <p className="text-sm font-bold text-gray-900">+1 234 567 890</p>
+                  </div>
+                </div>
+
+                {/* Alternate Number */}
+                <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1">Alternate Number</label>
+                    <p className="text-sm font-bold text-gray-900">+1 987 654 321</p>
+                  </div>
+                </div>
+
+                {/* Personal Email Address */}
                 <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
                   <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Email Address</label>
+                    <label className="block text-xs font-medium text-gray-600 mb-1">Personal Email Address</label>
                     <div className="flex items-center gap-2">
-                      <p className="text-sm font-bold text-gray-900">john.doe@company.com</p>
+                      <p className="text-sm font-bold text-gray-900">sarah.mitchell@email.com</p>
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap">
                         <CheckCircle className="w-3 h-3" /> Verified
                       </span>
@@ -129,29 +146,25 @@ export default function MyProfile() {
                   </div>
                 </div>
 
-                {/* Primary Phone */}
-                <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Primary Phone</label>
-                    <p className="text-sm font-bold text-gray-900">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-
-                {/* Alternate Phone */}
+                {/* Work Email Address */}
                 <div className="flex items-start gap-3 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Alternate Phone</label>
-                    <p className="text-sm font-bold text-gray-900">+1 (555) 987-6543</p>
+                    <label className="block text-xs font-medium text-gray-600 mb-1">Work Email Address</label>
+                    <div className="flex items-center gap-2">
+                      <p className="text-sm font-bold text-gray-900">sarah.m@company.com</p>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap">
+                        <CheckCircle className="w-3 h-3" /> Verified
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Address Card */}
+            {/* Address Information Card */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h2 className="text-base font-bold text-gray-900 mb-4">Address</h2>
+              <h2 className="text-base font-bold text-gray-900 mb-4">Address Information</h2>
               <div className="space-y-3">
                 {/* Street Address */}
                 <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
@@ -163,24 +176,18 @@ export default function MyProfile() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
                     <label className="block text-xs font-medium text-gray-600 mb-1">City</label>
-                    <p className="text-sm font-bold text-gray-900">New York</p>
+                    <p className="text-sm font-bold text-gray-900">Los Angeles</p>
                   </div>
                   <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
                     <label className="block text-xs font-medium text-gray-600 mb-1">State</label>
-                    <p className="text-sm font-bold text-gray-900">NY</p>
+                    <p className="text-sm font-bold text-gray-900">California</p>
                   </div>
                 </div>
 
-                {/* ZIP Code & Country Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">ZIP Code</label>
-                    <p className="text-sm font-bold text-gray-900">10001</p>
-                  </div>
-                  <div className="hover:bg-blue-50 p-1.5 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Country</label>
-                    <p className="text-sm font-bold text-gray-900">United States</p>
-                  </div>
+                {/* ZIP Code */}
+                <div className="hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-1">Zip Code</label>
+                  <p className="text-sm font-bold text-gray-900">90001</p>
                 </div>
               </div>
             </div>
