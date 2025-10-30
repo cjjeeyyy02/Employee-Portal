@@ -296,6 +296,296 @@ export default function MyProfile() {
             </div>
           </div>
         )}
+
+        {/* Payroll Tab */}
+        {activeTab === "payroll" && (
+          <div className="space-y-6">
+            {/* Salary Information Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex items-start gap-3 mb-8">
+                <DollarSign className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">Salary Information</h2>
+                  <p className="text-sm text-gray-600 mt-1">View your current salary details and compensation.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+                {/* Annual Salary */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Annual Salary</label>
+                  <p className="text-base font-bold text-gray-900">$95,000.00</p>
+                </div>
+
+                {/* Pay Frequency */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Pay Frequency</label>
+                  <p className="text-base font-bold text-gray-900">Bi-weekly</p>
+                </div>
+
+                {/* Currency */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Currency</label>
+                  <p className="text-base font-bold text-gray-900">USD</p>
+                </div>
+
+                {/* Last Salary Review */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Last Salary Review</label>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-base font-bold text-gray-900">March 15, 2024</p>
+                  </div>
+                </div>
+
+                {/* Tax ID */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Tax ID</label>
+                  <p className="text-base font-bold text-gray-900">12-3456789</p>
+                </div>
+
+                {/* Bank Account */}
+                <div className="hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Bank Account</label>
+                  <p className="text-base font-bold text-gray-900">****5678</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Deductions Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Deductions & Benefits</h2>
+              <div className="space-y-3">
+                {/* Health Insurance */}
+                <div className="flex justify-between items-start pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <span className="text-sm font-medium text-gray-700">Health Insurance</span>
+                  <span className="text-sm font-bold text-gray-900">$450/month</span>
+                </div>
+
+                {/* 401k Contribution */}
+                <div className="flex justify-between items-start pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <span className="text-sm font-medium text-gray-700">401k Contribution</span>
+                  <span className="text-sm font-bold text-gray-900">6%</span>
+                </div>
+
+                {/* Life Insurance */}
+                <div className="flex justify-between items-start pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <span className="text-sm font-medium text-gray-700">Life Insurance</span>
+                  <span className="text-sm font-bold text-gray-900">Included</span>
+                </div>
+
+                {/* Dental & Vision */}
+                <div className="flex justify-between items-start hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <span className="text-sm font-medium text-gray-700">Dental & Vision</span>
+                  <span className="text-sm font-bold text-gray-900">Included</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Performance Tab */}
+        {activeTab === "performance" && (
+          <div className="space-y-6">
+            {/* Performance Summary Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex items-start gap-3 mb-8">
+                <TrendingUp className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">Performance Summary</h2>
+                  <p className="text-sm text-gray-600 mt-1">Your current performance metrics and ratings.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+                {/* Overall Rating */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Overall Rating</label>
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-2xl font-bold text-blue-600">4.5</p>
+                    <p className="text-sm text-gray-600">/5.0</p>
+                  </div>
+                </div>
+
+                {/* Review Frequency */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Last Review Date</label>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-base font-bold text-gray-900">September 30, 2024</p>
+                  </div>
+                </div>
+
+                {/* Goals Completion */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Goals Completed</label>
+                  <p className="text-base font-bold text-gray-900">8/10</p>
+                </div>
+
+                {/* Next Review */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Next Review</label>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-base font-bold text-gray-900">March 31, 2025</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Competencies Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Key Competencies</h2>
+              <div className="space-y-4">
+                {/* Technical Skills */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-semibold text-gray-700">Technical Skills</span>
+                    <span className="text-sm font-bold text-gray-900">Excellent</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-green-500 h-2 rounded-full" style={{ width: "90%" }}></div>
+                  </div>
+                </div>
+
+                {/* Communication */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-semibold text-gray-700">Communication</span>
+                    <span className="text-sm font-bold text-gray-900">Good</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: "80%" }}></div>
+                  </div>
+                </div>
+
+                {/* Leadership */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-semibold text-gray-700">Leadership</span>
+                    <span className="text-sm font-bold text-gray-900">Good</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: "75%" }}></div>
+                  </div>
+                </div>
+
+                {/* Problem Solving */}
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-semibold text-gray-700">Problem Solving</span>
+                    <span className="text-sm font-bold text-gray-900">Excellent</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-green-500 h-2 rounded-full" style={{ width: "88%" }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Documents Tab */}
+        {activeTab === "documents" && (
+          <div className="space-y-6">
+            {/* Important Documents Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex items-start gap-3 mb-8">
+                <FileText className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">Important Documents</h2>
+                  <p className="text-sm text-gray-600 mt-1">Access and manage your work-related documents.</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {/* Offer Letter */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <FileText className="w-5 h-5 text-red-500 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">Offer Letter</p>
+                      <p className="text-xs text-gray-600">March 15, 2020</p>
+                    </div>
+                  </div>
+                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
+                    Download
+                  </button>
+                </div>
+
+                {/* Employment Contract */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <FileText className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">Employment Contract</p>
+                      <p className="text-xs text-gray-600">March 15, 2020</p>
+                    </div>
+                  </div>
+                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
+                    Download
+                  </button>
+                </div>
+
+                {/* Company Handbook */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <FileText className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">Company Handbook</p>
+                      <p className="text-xs text-gray-600">January 10, 2024</p>
+                    </div>
+                  </div>
+                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
+                    Download
+                  </button>
+                </div>
+
+                {/* Privacy Policy */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <FileText className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-gray-900">Privacy Policy</p>
+                      <p className="text-xs text-gray-600">June 1, 2023</p>
+                    </div>
+                  </div>
+                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
+                    Download
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Certification & Licenses Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Certifications & Licenses</h2>
+              <div className="space-y-3">
+                {/* AWS Certification */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
+                  <div>
+                    <p className="text-sm font-bold text-gray-900">AWS Solutions Architect</p>
+                    <p className="text-xs text-gray-600">Expires: December 15, 2025</p>
+                  </div>
+                  <span className="inline-block rounded-full px-3 py-1 bg-green-100 text-green-700 font-semibold text-xs">
+                    Valid
+                  </span>
+                </div>
+
+                {/* Project Management */}
+                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
+                  <div>
+                    <p className="text-sm font-bold text-gray-900">PMP Certification</p>
+                    <p className="text-xs text-gray-600">Expires: August 20, 2025</p>
+                  </div>
+                  <span className="inline-block rounded-full px-3 py-1 bg-green-100 text-green-700 font-semibold text-xs">
+                    Valid
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <style>{`
