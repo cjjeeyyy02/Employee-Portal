@@ -84,7 +84,7 @@ export default function Sidebar() {
 
         {/* Footer Info */}
         <div className="px-8 py-6 border-t border-gray-100 text-center">
-          <p className="text-xs text-gray-500" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p className="text-xs text-gray-500">
             © 2024 ESS Portal
           </p>
         </div>
