@@ -16,7 +16,7 @@ export default function Header({ onToggleSidebar, sidebarCollapsed }: HeaderProp
           {/* Sidebar Toggle Icon */}
           <button
             onClick={onToggleSidebar}
-            className="hidden lg:flex p-1.5 text-gray-700 hover:text-blue-600 transition-colors duration-300 hover:bg-blue-50 rounded-lg flex-shrink-0"
+            className="hidden lg:flex p-1.5 text-slate-800 hover:text-blue-600 transition-colors duration-300 hover:bg-blue-50 rounded-lg flex-shrink-0"
             title="Toggle Sidebar"
             aria-label="Toggle Sidebar"
           >
