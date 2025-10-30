@@ -48,25 +48,7 @@ export default function MyProfile() {
       <div className="animate-fadeIn">
         {/* Personal Tab */}
         {activeTab === "personal" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Profile Photo Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-8 text-center">Profile Photo</h2>
-              <div className="flex flex-col items-center">
-                <div className="relative mb-6 group">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
-                    alt="Profile"
-                    className="w-36 h-36 rounded-full object-cover border-2 border-gray-200 shadow-md transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <button className="absolute bottom-0 right-0 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    <Camera className="w-5 h-5" />
-                  </button>
-                </div>
-                <p className="text-xs text-gray-500 text-center">Click the camera icon to upload a new photo</p>
-              </div>
-            </div>
-
+          <div>
             {/* Personal Information Card */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
               <h2 className="text-lg font-bold text-gray-900 mb-6">Personal Information</h2>
