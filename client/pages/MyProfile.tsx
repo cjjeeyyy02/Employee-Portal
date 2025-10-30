@@ -360,14 +360,6 @@ export default function MyProfile() {
               </div>
             </div>
 
-            {/* Organizational Chart Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Organizational Chart</h2>
-              <button className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors text-sm">
-                View Organizational Chart
-              </button>
-            </div>
-
             {/* Previous Work History Card */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 overflow-x-auto">
               <h2 className="text-lg font-bold text-gray-900 mb-6">Previous Work History</h2>
