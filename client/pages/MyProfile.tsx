@@ -185,37 +185,37 @@ export default function MyProfile() {
 
         {/* Emergency Tab */}
         {activeTab === "emergency" && (
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
             {/* Header */}
-            <div className="flex items-start gap-3 mb-8">
-              <Shield className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div className="flex items-start gap-3 mb-4">
+              <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h2 className="text-lg font-bold text-gray-900">Emergency Contact</h2>
-                <p className="text-sm text-gray-600 mt-1">Provide emergency contact information for urgent situations.</p>
+                <h2 className="text-base font-bold text-gray-900">Emergency Contact</h2>
+                <p className="text-xs text-gray-600 mt-0.5">Provide emergency contact information for urgent situations.</p>
               </div>
             </div>
 
             {/* Information Section */}
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Contact Name & Relationship Row */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Contact Name</label>
-                  <p className="text-base font-bold text-gray-900">Jane Doe</p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-1">Contact Name</label>
+                  <p className="text-sm font-bold text-gray-900">Jane Doe</p>
                 </div>
 
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Relationship</label>
-                  <p className="text-base font-bold text-gray-900">Spouse</p>
+                <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-1">Relationship</label>
+                  <p className="text-sm font-bold text-gray-900">Spouse</p>
                 </div>
               </div>
 
               {/* Phone Number */}
-              <div className="flex items-start gap-3 hover:bg-blue-50 p-2 rounded transition-colors">
-                <Phone className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 hover:bg-blue-50 p-1.5 rounded transition-colors">
+                <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Phone Number</label>
-                  <p className="text-base font-bold text-gray-900">+1 (555) 456-7890</p>
+                  <label className="block text-xs font-medium text-gray-600 mb-1">Phone Number</label>
+                  <p className="text-sm font-bold text-gray-900">+1 (555) 456-7890</p>
                 </div>
               </div>
             </div>
