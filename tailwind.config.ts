@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      width: {
+        70: "70px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
