@@ -212,21 +212,21 @@ export default function MyLeaveAttendance() {
           <div className="bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-2" style={{ padding: "12px 16px" }}>
             {/* Section Title */}
             <div>
-              <h2 className="text-sm sm:text-base font-semibold text-[#1A1A1A] mb-0.5">Available Leave</h2>
+              <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Available Leave</h2>
               <p className="text-xs text-[#7A7A7A]">Your current leave entitlements and usage</p>
             </div>
 
             {/* Leave Cards */}
-            <div className="flex flex-col gap-2.5 sm:gap-3">
+            <div className="flex flex-col gap-2 sm:gap-2.5">
               {/* Annual Leave */}
               <div>
                 <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Annual Leave</h3>
+                    <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Annual Leave</h3>
                     <p className="text-xs text-gray-600">Used: 8 days</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-base font-bold text-gray-900">17 available</p>
+                    <p className="text-sm font-bold text-gray-900">17 available</p>
                     <p className="text-xs text-gray-600">Total: 25 days</p>
                   </div>
                 </div>
@@ -239,11 +239,11 @@ export default function MyLeaveAttendance() {
               <div>
                 <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Sick Leave</h3>
+                    <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Sick Leave</h3>
                     <p className="text-xs text-gray-600">Used: 3 days</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-base font-bold text-gray-900">7 available</p>
+                    <p className="text-sm font-bold text-gray-900">7 available</p>
                     <p className="text-xs text-gray-600">Total: 10 days</p>
                   </div>
                 </div>
@@ -256,11 +256,11 @@ export default function MyLeaveAttendance() {
               <div>
                 <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Personal Leave</h3>
+                    <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Personal Leave</h3>
                     <p className="text-xs text-gray-600">Used: 2 days</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-base font-bold text-gray-900">3 available</p>
+                    <p className="text-sm font-bold text-gray-900">3 available</p>
                     <p className="text-xs text-gray-600">Total: 5 days</p>
                   </div>
                 </div>
@@ -273,11 +273,11 @@ export default function MyLeaveAttendance() {
               <div>
                 <div className="flex justify-between items-start gap-2 mb-1.5">
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-0.5">Maternity Leave</h3>
+                    <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Maternity Leave</h3>
                     <p className="text-xs text-gray-600">Used: 0 days</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-base font-bold text-gray-900">90 available</p>
+                    <p className="text-sm font-bold text-gray-900">90 available</p>
                     <p className="text-xs text-gray-600">Total: 90 days</p>
                   </div>
                 </div>
@@ -292,7 +292,7 @@ export default function MyLeaveAttendance() {
           <div className="bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-2" style={{ padding: "12px 16px" }}>
             {/* Section Title */}
             <div>
-              <h2 className="text-sm sm:text-base font-semibold text-[#1A1A1A] mb-0.5">Recent Activities</h2>
+              <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Recent Activities</h2>
               <p className="text-xs text-[#7A7A7A]">Latest leave-related updates</p>
             </div>
 
@@ -347,7 +347,7 @@ export default function MyLeaveAttendance() {
         <div className="w-full flex flex-col gap-3 sm:gap-4 bg-white rounded-lg p-3 sm:p-4 self-stretch" style={{ padding: "16px 20px", marginTop: "16px" }}>
           {/* Section Header */}
           <div>
-            <h2 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">My Leave Requests</h2>
+            <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5">My Leave Requests</h2>
             <p className="text-xs text-gray-600">Your leave request history and status</p>
           </div>
 
@@ -357,7 +357,7 @@ export default function MyLeaveAttendance() {
             <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
               <div className="flex justify-between items-start gap-2 sm:gap-3">
                 <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Annual Leave</p>
+                  <p className="text-xs font-semibold text-gray-900">Annual Leave</p>
                   <p className="text-xs text-gray-600 mt-0.5">Dec 20 - Dec 30, 2024</p>
                 </div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
@@ -372,7 +372,7 @@ export default function MyLeaveAttendance() {
             <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
               <div className="flex justify-between items-start gap-2 sm:gap-3">
                 <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Sick Leave</p>
+                  <p className="text-xs font-semibold text-gray-900">Sick Leave</p>
                   <p className="text-xs text-gray-600 mt-0.5">Nov 15, 2024</p>
                 </div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
@@ -387,7 +387,7 @@ export default function MyLeaveAttendance() {
             <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
               <div className="flex justify-between items-start gap-2 sm:gap-3">
                 <div className="flex-1">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-900">Personal Leave</p>
+                  <p className="text-xs font-semibold text-gray-900">Personal Leave</p>
                   <p className="text-xs text-gray-600 mt-0.5">Oct 22, 2024</p>
                 </div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-blue-500">Pending</span>
