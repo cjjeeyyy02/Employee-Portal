@@ -67,38 +67,50 @@ export default function MyProfile() {
               </div>
             </div>
 
-            {/* Basic Information Card */}
+            {/* Personal Information Card */}
             <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Basic Information</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Personal Information</h2>
               <div className="space-y-5">
-                {/* First Name & Last Name Row */}
+                {/* First Name & Middle Name Row */}
                 <div className="grid grid-cols-2 gap-8">
                   <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
                     <label className="block text-xs font-medium text-gray-600 mb-2">First Name</label>
-                    <p className="text-base font-bold text-gray-900">John</p>
+                    <p className="text-base font-bold text-gray-900">Sarah</p>
                   </div>
                   <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Last Name</label>
-                    <p className="text-base font-bold text-gray-900">Doe</p>
+                    <label className="block text-xs font-medium text-gray-600 mb-2">Middle Name</label>
+                    <p className="text-base font-bold text-gray-900">—</p>
                   </div>
+                </div>
+
+                {/* Last Name */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Last Name</label>
+                  <p className="text-base font-bold text-gray-900">Mitchell</p>
                 </div>
 
                 {/* Date of Birth */}
                 <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
                   <label className="block text-xs font-medium text-gray-600 mb-2">Date of Birth</label>
-                  <p className="text-base font-bold text-gray-900">May 15, 1990</p>
+                  <p className="text-base font-bold text-gray-900">03-15-1990</p>
                 </div>
 
-                {/* Gender & Nationality Row */}
+                {/* Gender & Marital Status Row */}
                 <div className="grid grid-cols-2 gap-8">
                   <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
                     <label className="block text-xs font-medium text-gray-600 mb-2">Gender</label>
-                    <p className="text-base font-bold text-gray-900">Male</p>
+                    <p className="text-base font-bold text-gray-900">Female</p>
                   </div>
                   <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Nationality</label>
-                    <p className="text-base font-bold text-gray-900">United States</p>
+                    <label className="block text-xs font-medium text-gray-600 mb-2">Marital Status</label>
+                    <p className="text-base font-bold text-gray-900">Single</p>
                   </div>
+                </div>
+
+                {/* Nationality */}
+                <div className="hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Nationality</label>
+                  <p className="text-base font-bold text-gray-900">United States</p>
                 </div>
               </div>
             </div>
