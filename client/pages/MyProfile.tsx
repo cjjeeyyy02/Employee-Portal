@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle } from "lucide-react";
+import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText } from "lucide-react";
 import Layout from "@/components/Layout";
 
-type TabType = "personal" | "contact" | "emergency" | "employment";
+type TabType = "personal" | "contact" | "emergency" | "employment" | "payroll" | "performance" | "documents";
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
   { id: "contact", label: "Contact" },
   { id: "emergency", label: "Emergency" },
   { id: "employment", label: "Employment" },
+  { id: "payroll", label: "Payroll" },
+  { id: "performance", label: "Performance" },
+  { id: "documents", label: "Documents" },
 ];
 
 export default function MyProfile() {
