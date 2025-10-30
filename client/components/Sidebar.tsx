@@ -44,10 +44,10 @@ export default function Sidebar() {
       >
         {/* Header Section */}
         <div className="px-8 py-8 border-b border-gray-100">
-          <h1 className="text-xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <h1 className="text-xl font-bold text-gray-900">
             ESS Portal
           </h1>
-          <p className="text-xs text-gray-500 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p className="text-xs text-gray-500 mt-1">
             Employee Self Service
           </p>
         </div>
