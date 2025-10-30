@@ -1,13 +1,29 @@
-import { Bell, Search, ChevronDown } from "lucide-react";
+import { Bell, Search, ChevronDown, Menu } from "lucide-react";
 import { useView } from "@/context/ViewContext";
 
-export default function Header() {
+interface HeaderProps {
+  onToggleSidebar: () => void;
+  sidebarCollapsed: boolean;
+}
+
+export default function Header({ onToggleSidebar, sidebarCollapsed }: HeaderProps) {
   const { isManagerView } = useView();
   return (
     <div className="bg-white border-b border-gray-200">
       <div className="px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 flex items-center justify-between gap-2 sm:gap-3">
-        {/* Left side - Search bar (hidden on mobile) */}
-        <div className="hidden sm:flex flex-1 max-w-xs md:max-w-sm lg:max-w-md">
+        {/* Left side - Toggle and Search bar */}
+        <div className="hidden sm:flex items-center gap-3 flex-1 max-w-xs md:max-w-sm lg:max-w-md">
+          {/* Sidebar Toggle Icon */}
+          <button
+            onClick={onToggleSidebar}
+            className="hidden lg:flex p-1.5 text-gray-700 hover:text-blue-600 transition-colors duration-300 hover:bg-blue-50 rounded-lg flex-shrink-0"
+            title="Toggle Sidebar"
+            aria-label="Toggle Sidebar"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+
+          {/* Search bar */}
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
