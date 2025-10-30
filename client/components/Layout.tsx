@@ -12,15 +12,8 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Sidebar - hidden on mobile, shown on desktop */}
-      <div className="hidden lg:block">
-        <Sidebar />
-      </div>
-
-      {/* Mobile Sidebar */}
-      <div className="lg:hidden">
-        <Sidebar />
-      </div>
+      {/* Sidebar */}
+      <Sidebar />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
