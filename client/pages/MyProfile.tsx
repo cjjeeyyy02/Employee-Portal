@@ -589,6 +589,155 @@ export default function MyProfile() {
           </div>
         )}
 
+        {/* Leave & Attendance Tab */}
+        {activeTab === "leaveAttendance" && (
+          <div className="space-y-6">
+            {/* Leave Summary Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div className="flex items-start gap-3 mb-8">
+                <Calendar className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">Leave Summary</h2>
+                  <p className="text-sm text-gray-600 mt-1">View your leave balance and usage details.</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+                {/* Annual Leave */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Annual Leave</label>
+                  <div className="flex justify-between items-end">
+                    <p className="text-2xl font-bold text-blue-600">17</p>
+                    <p className="text-xs text-gray-600">of 25 days</p>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
+                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: "68%" }}></div>
+                  </div>
+                </div>
+
+                {/* Sick Leave */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Sick Leave</label>
+                  <div className="flex justify-between items-end">
+                    <p className="text-2xl font-bold text-green-600">7</p>
+                    <p className="text-xs text-gray-600">of 10 days</p>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
+                    <div className="bg-green-600 h-2 rounded-full" style={{ width: "70%" }}></div>
+                  </div>
+                </div>
+
+                {/* Personal Leave */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Personal Leave</label>
+                  <div className="flex justify-between items-end">
+                    <p className="text-2xl font-bold text-orange-600">3</p>
+                    <p className="text-xs text-gray-600">of 5 days</p>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
+                    <div className="bg-orange-600 h-2 rounded-full" style={{ width: "60%" }}></div>
+                  </div>
+                </div>
+
+                {/* Maternity Leave */}
+                <div className="hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Maternity Leave</label>
+                  <div className="flex justify-between items-end">
+                    <p className="text-2xl font-bold text-purple-600">90</p>
+                    <p className="text-xs text-gray-600">of 90 days</p>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
+                    <div className="bg-purple-600 h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Attendance Summary Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Attendance Summary</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                {/* Present Days */}
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg hover:shadow-sm transition-shadow">
+                  <p className="text-xs text-gray-600 mb-2">Present Days</p>
+                  <p className="text-2xl font-bold text-green-600">45</p>
+                  <p className="text-xs text-gray-600 mt-2">From total workdays</p>
+                </div>
+
+                {/* Absent Days */}
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg hover:shadow-sm transition-shadow">
+                  <p className="text-xs text-gray-600 mb-2">Absent Days</p>
+                  <p className="text-2xl font-bold text-red-600">2</p>
+                  <p className="text-xs text-gray-600 mt-2">Unauthorized absence</p>
+                </div>
+
+                {/* Attendance Rate */}
+                <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg hover:shadow-sm transition-shadow">
+                  <p className="text-xs text-gray-600 mb-2">Attendance Rate</p>
+                  <p className="text-2xl font-bold text-blue-600">95.7%</p>
+                  <p className="text-xs text-gray-600 mt-2">This month</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Leave Requests Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 overflow-x-auto">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Recent Leave Requests</h2>
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Leave Type</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">From Date</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">To Date</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Days</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Annual Leave Request */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Annual Leave</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Dec 20, 2024</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Dec 30, 2024</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">10 days</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block rounded-full px-3 py-1 bg-green-100 text-green-700 font-semibold text-xs">
+                        Approved
+                      </span>
+                    </td>
+                  </tr>
+
+                  {/* Sick Leave Request */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Sick Leave</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Nov 15, 2024</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Nov 15, 2024</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">1 day</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block rounded-full px-3 py-1 bg-green-100 text-green-700 font-semibold text-xs">
+                        Approved
+                      </span>
+                    </td>
+                  </tr>
+
+                  {/* Personal Leave Request */}
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Personal Leave</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Oct 22, 2024</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Oct 22, 2024</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">1 day</td>
+                    <td className="px-4 py-3">
+                      <span className="inline-block rounded-full px-3 py-1 bg-yellow-100 text-yellow-700 font-semibold text-xs">
+                        Pending
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
         {/* Documents Tab */}
         {activeTab === "documents" && (
           <div className="space-y-6">
