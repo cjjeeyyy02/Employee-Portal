@@ -40,21 +40,18 @@ export default function Sidebar() {
       <div
         className={`fixed lg:static top-0 left-0 h-screen transition-all duration-300 ease-in-out z-40 ${
           isCollapsed ? "-translate-x-full lg:translate-x-0" : "translate-x-0"
-        } w-72 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
+        } w-52 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
       >
         {/* Header Section */}
-        <div className="px-8 py-8 border-b border-gray-100">
-          <h1 className="text-xl font-bold text-gray-900">
+        <div className="px-4 py-5 border-b border-gray-100">
+          <h1 className="text-lg font-bold text-gray-900">
             ESS Portal
           </h1>
-          <p className="text-xs text-gray-500 mt-1">
-            Employee Self Service
-          </p>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-5 py-6 overflow-y-auto">
-          <ul className="space-y-2">
+        <nav className="flex-1 px-3 py-4 overflow-y-auto">
+          <ul className="space-y-1.5">
             {employeeNavigationItems.map((item) => {
               const Icon = item.icon;
               const active = isActive(item.path);
@@ -63,15 +60,15 @@ export default function Sidebar() {
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className={`flex items-center gap-4 px-5 py-3.5 rounded-lg transition-all duration-300 font-medium text-sm ${
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded transition-all duration-300 font-medium text-sm ${
                       active
-                        ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
-                        : "text-gray-700 hover:bg-gray-50"
+                        ? "bg-blue-50 text-blue-600 border-l-3 border-blue-600"
+                        : "text-slate-700 hover:bg-gray-50"
                     }`}
                   >
                     <Icon
-                      className={`w-6 h-6 flex-shrink-0 transition-colors ${
-                        active ? "text-blue-600" : "text-gray-400"
+                      className={`w-5 h-5 flex-shrink-0 transition-colors ${
+                        active ? "text-blue-600" : "text-slate-500"
                       }`}
                     />
                     <span className="hidden lg:inline">{item.label}</span>
@@ -83,8 +80,8 @@ export default function Sidebar() {
         </nav>
 
         {/* Footer Info */}
-        <div className="px-8 py-6 border-t border-gray-100 text-center">
-          <p className="text-xs text-gray-500">
+        <div className="px-4 py-3 border-t border-gray-100 text-center">
+          <p className="text-xs text-slate-400">
             © 2024 ESS Portal
           </p>
         </div>
