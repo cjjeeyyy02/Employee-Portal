@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText } from "lucide-react";
 import Layout from "@/components/Layout";
 
-type TabType = "personal" | "contact" | "emergency" | "employment" | "payroll" | "performance" | "documents";
+type TabType = "personal" | "contact" | "emergency" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents";
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
@@ -11,6 +11,7 @@ const tabs: { id: TabType; label: string }[] = [
   { id: "employment", label: "Employment" },
   { id: "payroll", label: "Payroll" },
   { id: "performance", label: "Performance" },
+  { id: "leaveAttendance", label: "Leave & Attendance" },
   { id: "documents", label: "Documents" },
 ];
 
