@@ -244,72 +244,166 @@ export default function MyProfile() {
 
         {/* Employment Tab */}
         {activeTab === "employment" && (
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            {/* Header */}
-            <div className="flex items-start gap-3 mb-8">
-              <Briefcase className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h2 className="text-lg font-bold text-gray-900">Employment Information</h2>
-                <p className="text-sm text-gray-600 mt-1">View your employment details and work information.</p>
-              </div>
-            </div>
-
-            {/* Information Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
-              {/* Employee ID */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Employee ID</label>
-                <p className="text-base font-bold text-gray-900">EMP-2023-1156</p>
-              </div>
-
-              {/* Start Date */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Start Date</label>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                  <p className="text-base font-bold text-gray-900">March 15, 2020</p>
+          <div className="space-y-6">
+            {/* Work Details Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              {/* Header */}
+              <div className="flex items-start gap-3 mb-8">
+                <Briefcase className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">Work Details</h2>
+                  <p className="text-sm text-gray-600 mt-1">Your current position and work information.</p>
                 </div>
               </div>
 
-              {/* Job Title */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Job Title</label>
-                <p className="text-base font-bold text-gray-900">Senior Software Developer</p>
-              </div>
+              {/* Information Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+                {/* Position */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Position</label>
+                  <p className="text-base font-bold text-gray-900">Senior Software Engineer</p>
+                </div>
 
-              {/* Employment Type */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Employment Type</label>
-                <span className="inline-block rounded-full px-3 py-1 bg-blue-100 text-blue-700 font-semibold text-xs">
-                  Full-time
-                </span>
-              </div>
+                {/* Department */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Department</label>
+                  <p className="text-base font-bold text-gray-900">Engineering</p>
+                </div>
 
-              {/* Department */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Department</label>
-                <p className="text-base font-bold text-gray-900">Engineering</p>
-              </div>
+                {/* Reporting Manager */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Reporting Manager</label>
+                  <p className="text-base font-bold text-gray-900">Michael Rodriguez</p>
+                </div>
 
-              {/* Work Location */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Work Location</label>
-                <p className="text-base font-bold text-gray-900">New York Office</p>
-              </div>
+                {/* Employment Status */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Employment Status</label>
+                  <span className="inline-block rounded-full px-3 py-1 bg-green-600 text-white font-semibold text-xs">
+                    Active
+                  </span>
+                </div>
 
-              {/* Manager */}
-              <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Manager</label>
-                <p className="text-base font-bold text-gray-900">Sarah Johnson</p>
-              </div>
+                {/* Employment Type */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Employment Type</label>
+                  <p className="text-base font-bold text-gray-900">Full-Time</p>
+                </div>
 
-              {/* Status */}
-              <div className="hover:bg-blue-50 p-2 rounded transition-colors">
-                <label className="block text-xs font-medium text-gray-600 mb-2">Status</label>
-                <span className="inline-block rounded-full px-3 py-1 bg-green-600 text-white font-semibold text-xs">
-                  Active
-                </span>
+                {/* Date Hired */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Date Hired</label>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-base font-bold text-gray-900">01/15/2023</p>
+                  </div>
+                </div>
+
+                {/* Probation End Date */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Probation End Date</label>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-base font-bold text-gray-900">07-15-2023</p>
+                  </div>
+                </div>
+
+                {/* Work Location / Site */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Work Location / Site</label>
+                  <p className="text-base font-bold text-gray-900">Head Office</p>
+                </div>
+
+                {/* Shift Schedule */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Shift Schedule</label>
+                  <p className="text-base font-bold text-gray-900">Day</p>
+                </div>
+
+                {/* Work Phone / Extension */}
+                <div className="hover:bg-blue-50 p-2 rounded transition-colors">
+                  <label className="block text-xs font-medium text-gray-600 mb-2">Work Phone / Extension</label>
+                  <p className="text-base font-bold text-gray-900">+1 (555) 123-4567 ext. 1234</p>
+                </div>
               </div>
+            </div>
+
+            {/* Position History Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Position History</h2>
+              <div className="space-y-4">
+                {/* Senior Analyst */}
+                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-3 rounded transition-colors">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-base font-bold text-gray-900">Senior Analyst</p>
+                      <p className="text-xs text-gray-600 mt-1">Jan 2022 – Aug 2023</p>
+                    </div>
+                    <span className="inline-block rounded-full px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold">
+                      Promoted
+                    </span>
+                  </div>
+                </div>
+
+                {/* HR Assistant */}
+                <div className="hover:bg-blue-50 p-3 rounded transition-colors">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-base font-bold text-gray-900">HR Assistant</p>
+                      <p className="text-xs text-gray-600 mt-1">Jun 2020 – Dec 2021</p>
+                    </div>
+                    <span className="inline-block rounded-full px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold">
+                      Transfer
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Organizational Chart Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Organizational Chart</h2>
+              <button className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                View Organizational Chart
+              </button>
+            </div>
+
+            {/* Previous Work History Card */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 overflow-x-auto">
+              <h2 className="text-lg font-bold text-gray-900 mb-6">Previous Work History</h2>
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Company Name</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Position</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Duration</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Location</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Employment Type</th>
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Reason for Leaving</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Nimbus Labs */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Nimbus Labs</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Software Engineer</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">2 years</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Vancouver, Canada</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Career growth</td>
+                  </tr>
+
+                  {/* Aster Corp */}
+                  <tr className="hover:bg-gray-50">
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Aster Corp</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Junior Developer</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">1.5 years</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Seattle, USA</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Relocation</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         )}
