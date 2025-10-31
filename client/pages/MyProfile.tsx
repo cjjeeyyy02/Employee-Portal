@@ -925,13 +925,6 @@ export default function MyProfile() {
               <h2 className="text-lg font-bold text-gray-900">Employee Documents</h2>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                 <button
-                  className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors"
-                  style={{ backgroundColor: "#007bff" }}
-                >
-                  <Upload className="w-4 h-4" />
-                  Bulk Upload
-                </button>
-                <button
                   className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-colors"
                   style={{ borderColor: "#007bff", color: "#007bff" }}
                 >
