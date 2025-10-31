@@ -920,101 +920,281 @@ export default function MyProfile() {
         {/* Documents Tab */}
         {activeTab === "documents" && (
           <div className="space-y-6">
-            {/* Important Documents Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <div className="flex items-start gap-3 mb-8">
-                <FileText className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">Important Documents</h2>
-                  <p className="text-sm text-gray-600 mt-1">Access and manage your work-related documents.</p>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                {/* Offer Letter */}
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-red-500 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">Offer Letter</p>
-                      <p className="text-xs text-gray-600">March 15, 2020</p>
-                    </div>
-                  </div>
-                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
-                    Download
-                  </button>
-                </div>
-
-                {/* Employment Contract */}
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">Employment Contract</p>
-                      <p className="text-xs text-gray-600">March 15, 2020</p>
-                    </div>
-                  </div>
-                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
-                    Download
-                  </button>
-                </div>
-
-                {/* Company Handbook */}
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">Company Handbook</p>
-                      <p className="text-xs text-gray-600">January 10, 2024</p>
-                    </div>
-                  </div>
-                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
-                    Download
-                  </button>
-                </div>
-
-                {/* Privacy Policy */}
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-bold text-gray-900">Privacy Policy</p>
-                      <p className="text-xs text-gray-600">June 1, 2023</p>
-                    </div>
-                  </div>
-                  <button className="px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 rounded transition-colors">
-                    Download
-                  </button>
-                </div>
+            {/* Header and Controls */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+              <h2 className="text-lg font-bold text-gray-900">Employee Documents</h2>
+              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                <button
+                  className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors"
+                  style={{ backgroundColor: "#007bff" }}
+                >
+                  <Upload className="w-4 h-4" />
+                  Bulk Upload
+                </button>
+                <button
+                  className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-colors"
+                  style={{ borderColor: "#007bff", color: "#007bff" }}
+                >
+                  <Download className="w-4 h-4" />
+                  Download
+                </button>
               </div>
             </div>
 
-            {/* Certification & Licenses Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Certifications & Licenses</h2>
-              <div className="space-y-3">
-                {/* AWS Certification */}
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
-                  <div>
-                    <p className="text-sm font-bold text-gray-900">AWS Solutions Architect</p>
-                    <p className="text-xs text-gray-600">Expires: December 15, 2025</p>
-                  </div>
-                  <span className="inline-block rounded-full px-3 py-1 bg-green-100 text-green-700 font-semibold text-xs">
-                    Valid
-                  </span>
-                </div>
+            {/* Documents Table */}
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 overflow-x-auto">
+              <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <thead>
+                  <tr style={{ backgroundColor: "#f8f8f8" }}>
+                    <th
+                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      Document Title
+                    </th>
+                    <th
+                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      File Type
+                    </th>
+                    <th
+                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      File Size
+                    </th>
+                    <th
+                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      Upload Date
+                    </th>
+                    <th
+                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Row 1 - Employment Contract */}
+                  <tr
+                    style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
+                  >
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                        Employment Contract
+                      </div>
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      PDF
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      2.4 MB
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      01/15/2023
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                        <Download className="w-4 h-4" />
+                      </button>
+                    </td>
+                  </tr>
 
-                {/* Project Management */}
-                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-blue-50 transition-colors">
-                  <div>
-                    <p className="text-sm font-bold text-gray-900">PMP Certification</p>
-                    <p className="text-xs text-gray-600">Expires: August 20, 2025</p>
-                  </div>
-                  <span className="inline-block rounded-full px-3 py-1 bg-green-100 text-green-700 font-semibold text-xs">
-                    Valid
-                  </span>
-                </div>
-              </div>
+                  {/* Row 2 - Tax Forms */}
+                  <tr
+                    style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e0e0e0" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#fafafa")}
+                  >
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                        Tax Forms (W-2)
+                      </div>
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      PDF
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      1.8 MB
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      12/31/2023
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                        <Download className="w-4 h-4" />
+                      </button>
+                    </td>
+                  </tr>
+
+                  {/* Row 3 - Performance Review */}
+                  <tr
+                    style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
+                  >
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <span style={{ color: "#2563eb", fontSize: "16px" }}>📘</span>
+                        Performance Review 2023
+                      </div>
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      DOCX
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      856 KB
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      11/20/2023
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                        <Download className="w-4 h-4" />
+                      </button>
+                    </td>
+                  </tr>
+
+                  {/* Row 4 - Benefits Enrollment */}
+                  <tr
+                    style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e0e0e0" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#fafafa")}
+                  >
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                        Benefits Enrollment
+                      </div>
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      PDF
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      3.1 MB
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      03/10/2023
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                        <Download className="w-4 h-4" />
+                      </button>
+                    </td>
+                  </tr>
+
+                  {/* Row 5 - Training Certificate */}
+                  <tr
+                    style={{ backgroundColor: "#ffffff" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
+                  >
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                        Training Certificate
+                      </div>
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      PDF
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      1.2 MB
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm text-gray-700"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      08/15/2023
+                    </td>
+                    <td
+                      className="border border-gray-300 text-center text-sm"
+                      style={{ padding: "14px 16px" }}
+                    >
+                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                        <Download className="w-4 h-4" />
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         )}
