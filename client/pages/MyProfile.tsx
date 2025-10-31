@@ -21,23 +21,36 @@ export default function MyProfile() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-6 animate-fadeIn">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">My Profile</h1>
-        <p className="text-sm text-gray-600">View and manage your profile information</p>
+      <div className="mb-8 animate-fadeIn">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>My Profile</h1>
+        <p className="text-sm text-gray-600" style={{ fontFamily: "Poppins, sans-serif" }}>View and manage your profile information</p>
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-8">
-        <div className="flex gap-8">
+      <div className="mb-8" style={{ borderBottom: "1px solid #E5E7EB" }}>
+        <div className="flex gap-6 overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`pb-4 font-semibold text-sm border-b-2 transition-all whitespace-nowrap ${
-                activeTab === tab.id
-                  ? "text-blue-600 border-b-blue-600"
-                  : "text-gray-600 border-b-transparent hover:text-gray-900 hover:bg-blue-50 px-2 py-1 rounded"
-              }`}
+              className="pb-4 font-semibold text-sm whitespace-nowrap transition-all"
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: activeTab === tab.id ? "#2563EB" : "#374151",
+                borderBottom: activeTab === tab.id ? "2px solid #2563EB" : "2px solid transparent",
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== tab.id) {
+                  (e.target as HTMLButtonElement).style.color = "#1D4ED8";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== tab.id) {
+                  (e.target as HTMLButtonElement).style.color = "#374151";
+                }
+              }}
             >
               {tab.label}
             </button>
@@ -49,58 +62,64 @@ export default function MyProfile() {
       <div className="animate-fadeIn">
         {/* Personal Tab */}
         {activeTab === "personal" && (
-          <div>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
             {/* Personal Information Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <div style={{
+              borderRadius: "8px",
+              border: "1px solid #E5E7EB",
+              backgroundColor: "#FFFFFF",
+              boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+              padding: "16px 20px"
+            }}>
               <div className="flex items-center gap-4 mb-8">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
                   alt="Profile"
                   className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shadow-sm"
                 />
-                <h2 className="text-lg font-bold text-gray-900">Personal Information</h2>
+                <h2 className="text-lg font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Personal Information</h2>
               </div>
               <div className="space-y-5">
                 {/* First Name & Middle Name Row */}
-                <div className="grid grid-cols-2 gap-8">
-                  <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-2">First Name</label>
-                    <p className="text-base font-bold text-gray-900">Sarah</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>First Name</label>
+                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Sarah</p>
                   </div>
-                  <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Middle Name</label>
-                    <p className="text-base font-bold text-gray-900">—</p>
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Middle Name</label>
+                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>—</p>
                   </div>
                 </div>
 
                 {/* Last Name */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Last Name</label>
-                  <p className="text-base font-bold text-gray-900">Mitchell</p>
+                <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Name</label>
+                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Mitchell</p>
                 </div>
 
                 {/* Date of Birth */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Date of Birth</label>
-                  <p className="text-base font-bold text-gray-900">03-15-1990</p>
+                <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Date of Birth</label>
+                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>03-15-1990</p>
                 </div>
 
                 {/* Gender & Marital Status Row */}
-                <div className="grid grid-cols-2 gap-8">
-                  <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Gender</label>
-                    <p className="text-base font-bold text-gray-900">Female</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Gender</label>
+                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Female</p>
                   </div>
-                  <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-2">Marital Status</label>
-                    <p className="text-base font-bold text-gray-900">Single</p>
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Marital Status</label>
+                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Single</p>
                   </div>
                 </div>
 
                 {/* Nationality */}
-                <div className="hover:bg-blue-50 hover:border-transparent p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Nationality</label>
-                  <p className="text-base font-bold text-gray-900">United States</p>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Nationality</label>
+                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>United States</p>
                 </div>
               </div>
             </div>
@@ -109,86 +128,100 @@ export default function MyProfile() {
 
         {/* Contact Tab */}
         {activeTab === "contact" && (
-          <div className="space-y-6">
-            {/* Contact Details Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h2 className="text-base font-bold text-gray-900 mb-4">Contact Details</h2>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-6">
+              {/* Contact Details Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-4" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Contact Details</h2>
 
-              <div className="space-y-3">
-                {/* Phone Number */}
-                <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Phone Number</label>
-                    <p className="text-sm font-bold text-gray-900">+1 234 567 890</p>
-                  </div>
-                </div>
-
-                {/* Alternate Number */}
-                <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Alternate Number</label>
-                    <p className="text-sm font-bold text-gray-900">+1 987 654 321</p>
-                  </div>
-                </div>
-
-                {/* Personal Email Address */}
-                <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Personal Email Address</label>
-                    <div className="flex items-center gap-2">
-                      <p className="text-sm font-bold text-gray-900">sarah.mitchell@email.com</p>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap">
-                        <CheckCircle className="w-3 h-3" /> Verified
-                      </span>
+                <div className="space-y-3">
+                  {/* Phone Number */}
+                  <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                    <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Phone Number</label>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 234 567 890</p>
                     </div>
                   </div>
-                </div>
 
-                {/* Work Email Address */}
-                <div className="flex items-start gap-3 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">Work Email Address</label>
-                    <div className="flex items-center gap-2">
-                      <p className="text-sm font-bold text-gray-900">sarah.m@company.com</p>
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap">
-                        <CheckCircle className="w-3 h-3" /> Verified
-                      </span>
+                  {/* Alternate Number */}
+                  <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                    <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Alternate Number</label>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 987 654 321</p>
+                    </div>
+                  </div>
+
+                  {/* Personal Email Address */}
+                  <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                    <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Personal Email Address</label>
+                      <div className="flex items-center gap-2">
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>sarah.mitchell@email.com</p>
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "Poppins, sans-serif" }}>
+                          <CheckCircle className="w-3 h-3" /> Verified
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Work Email Address */}
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Work Email Address</label>
+                      <div className="flex items-center gap-2">
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>sarah.m@company.com</p>
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "Poppins, sans-serif" }}>
+                          <CheckCircle className="w-3 h-3" /> Verified
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Address Information Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h2 className="text-base font-bold text-gray-900 mb-4">Address Information</h2>
-              <div className="space-y-3">
-                {/* Street Address */}
-                <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Street Address</label>
-                  <p className="text-sm font-bold text-gray-900">123 Main Street</p>
-                </div>
-
-                {/* City & State Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">City</label>
-                    <p className="text-sm font-bold text-gray-900">Los Angeles</p>
+              {/* Address Information Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-4" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Address Information</h2>
+                <div className="space-y-3">
+                  {/* Street Address */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Street Address</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>123 Main Street</p>
                   </div>
-                  <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                    <label className="block text-xs font-medium text-gray-600 mb-1">State</label>
-                    <p className="text-sm font-bold text-gray-900">California</p>
-                  </div>
-                </div>
 
-                {/* ZIP Code */}
-                <div className="hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Zip Code</label>
-                  <p className="text-sm font-bold text-gray-900">90001</p>
+                  {/* City & State Row */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                      <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>City</label>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Los Angeles</p>
+                    </div>
+                    <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                      <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>State</label>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>California</p>
+                    </div>
+                  </div>
+
+                  {/* ZIP Code */}
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Zip Code</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>90001</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -197,46 +230,54 @@ export default function MyProfile() {
 
         {/* Emergency Tab */}
         {activeTab === "emergency" && (
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            {/* Header */}
-            <div className="flex items-start gap-3 mb-4">
-              <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h2 className="text-base font-bold text-gray-900">Emergency Contact</h2>
-                <p className="text-xs text-gray-600 mt-0.5">Provide emergency contact information for urgent situations.</p>
-              </div>
-            </div>
-
-            {/* Information Section */}
-            <div className="space-y-3">
-              {/* Contact Name & Relationship Row */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Contact Name</label>
-                  <p className="text-sm font-bold text-gray-900">John Mitchell</p>
-                </div>
-
-                <div className="pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Relationship</label>
-                  <p className="text-sm font-bold text-gray-900">Brother</p>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div style={{
+              borderRadius: "8px",
+              border: "1px solid #E5E7EB",
+              backgroundColor: "#FFFFFF",
+              boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+              padding: "16px 20px"
+            }}>
+              {/* Header */}
+              <div className="flex items-start gap-3 mb-6">
+                <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Emergency Contact</h2>
+                  <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif" }}>Provide emergency contact information for urgent situations.</p>
                 </div>
               </div>
 
-              {/* Contact Number */}
-              <div className="flex items-start gap-3 pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                <div className="flex-1">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Contact Number</label>
-                  <p className="text-sm font-bold text-gray-900">+1 456 789 123</p>
-                </div>
-              </div>
+              {/* Information Section */}
+              <div className="space-y-3">
+                {/* Contact Name & Relationship Row */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Name</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>John Mitchell</p>
+                  </div>
 
-              {/* Alternate Number */}
-              <div className="flex items-start gap-3 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                <div className="flex-1">
-                  <label className="block text-xs font-medium text-gray-600 mb-1">Alternate Number</label>
-                  <p className="text-sm font-bold text-gray-900">+1 321 654 987</p>
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Relationship</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Brother</p>
+                  </div>
+                </div>
+
+                {/* Contact Number */}
+                <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Number</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 456 789 123</p>
+                  </div>
+                </div>
+
+                {/* Alternate Number */}
+                <div className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1">
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Alternate Number</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 321 654 987</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,243 +286,278 @@ export default function MyProfile() {
 
         {/* Employment Tab */}
         {activeTab === "employment" && (
-          <div className="space-y-6">
-            {/* Work Details Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              {/* Header */}
-              <div className="flex items-start gap-3 mb-8">
-                <Briefcase className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">Work Details</h2>
-                  <p className="text-sm text-gray-600 mt-1">Your current position and work information.</p>
-                </div>
-              </div>
-
-              {/* Information Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
-                {/* Position */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Position</label>
-                  <p className="text-base font-bold text-gray-900">Senior Software Engineer</p>
-                </div>
-
-                {/* Department */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Department</label>
-                  <p className="text-base font-bold text-gray-900">Engineering</p>
-                </div>
-
-                {/* Reporting Manager */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Reporting Manager</label>
-                  <p className="text-base font-bold text-gray-900">Michael Rodriguez</p>
-                </div>
-
-                {/* Employment Status */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Employment Status</label>
-                  <span className="inline-block rounded-full px-3 py-1 bg-green-600 text-white font-semibold text-xs">
-                    Active
-                  </span>
-                </div>
-
-                {/* Employment Type */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Employment Type</label>
-                  <p className="text-base font-bold text-gray-900">Full-Time</p>
-                </div>
-
-                {/* Date Hired */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Date Hired</label>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <p className="text-base font-bold text-gray-900">01/15/2023</p>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-6">
+              {/* Work Details Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-6">
+                  <Briefcase className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Work Details</h2>
+                    <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Your current position and work information.</p>
                   </div>
                 </div>
 
-                {/* Probation End Date */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Probation End Date</label>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <p className="text-base font-bold text-gray-900">07-15-2023</p>
+                {/* Information Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                  {/* Position */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Position</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Senior Software Engineer</p>
                   </div>
-                </div>
 
-                {/* Work Location / Site */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Work Location / Site</label>
-                  <p className="text-base font-bold text-gray-900">Head Office</p>
-                </div>
+                  {/* Department */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Department</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Engineering</p>
+                  </div>
 
-                {/* Shift Schedule */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Shift Schedule</label>
-                  <p className="text-base font-bold text-gray-900">Day</p>
-                </div>
+                  {/* Reporting Manager */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Reporting Manager</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Michael Rodriguez</p>
+                  </div>
 
-                {/* Work Phone / Extension */}
-                <div className="hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Work Phone / Extension</label>
-                  <p className="text-base font-bold text-gray-900">+1 (555) 123-4567 ext. 1234</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Position History Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Position History</h2>
-              <div className="space-y-4">
-                {/* Senior Analyst */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-3 rounded transition-colors">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <p className="text-base font-bold text-gray-900">Senior Analyst</p>
-                      <p className="text-xs text-gray-600 mt-1">Jan 2022 – Aug 2023</p>
-                    </div>
-                    <span className="inline-block rounded-full px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold">
-                      Promoted
+                  {/* Employment Status */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Employment Status</label>
+                    <span className="inline-block rounded-lg px-3 py-1 bg-green-600 text-white font-semibold text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      Active
                     </span>
                   </div>
-                </div>
 
-                {/* HR Assistant */}
-                <div className="hover:bg-blue-50 p-3 rounded transition-colors">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <p className="text-base font-bold text-gray-900">HR Assistant</p>
-                      <p className="text-xs text-gray-600 mt-1">Jun 2020 – Dec 2021</p>
+                  {/* Employment Type */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Employment Type</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Full-Time</p>
+                  </div>
+
+                  {/* Date Hired */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Date Hired</label>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>01/15/2023</p>
                     </div>
-                    <span className="inline-block rounded-full px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold">
-                      Transfer
-                    </span>
+                  </div>
+
+                  {/* Probation End Date */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Probation End Date</label>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>07-15-2023</p>
+                    </div>
+                  </div>
+
+                  {/* Work Location / Site */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Work Location / Site</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Head Office</p>
+                  </div>
+
+                  {/* Shift Schedule */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Shift Schedule</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Day</p>
+                  </div>
+
+                  {/* Work Phone / Extension */}
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Work Phone / Extension</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 (555) 123-4567 ext. 1234</p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Previous Work History Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 overflow-x-auto">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Previous Work History</h2>
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Company Name</th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Position</th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Duration</th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Location</th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Employment Type</th>
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Reason for Leaving</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* Nimbus Labs */}
-                  <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Nimbus Labs</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Software Engineer</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">2 years</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Vancouver, Canada</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Career growth</td>
-                  </tr>
+              {/* Position History Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Position History</h2>
+                <div className="space-y-4">
+                  {/* Senior Analyst */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Senior Analyst</p>
+                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 – Aug 2023</p>
+                      </div>
+                      <span className="inline-block rounded-lg px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        Promoted
+                      </span>
+                    </div>
+                  </div>
 
-                  {/* Aster Corp */}
-                  <tr className="hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Aster Corp</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Junior Developer</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">1.5 years</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Seattle, USA</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">Relocation</td>
-                  </tr>
-                </tbody>
-              </table>
+                  {/* HR Assistant */}
+                  <div>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>HR Assistant</p>
+                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jun 2020 – Dec 2021</p>
+                      </div>
+                      <span className="inline-block rounded-lg px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        Transfer
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Previous Work History Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px",
+                overflowX: "auto"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Previous Work History</h2>
+                <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <thead>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Company Name</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Position</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Duration</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Location</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Employment Type</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Reason for Leaving</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Nimbus Labs */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">Nimbus Labs</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Software Engineer</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">2 years</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Vancouver, Canada</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Career growth</td>
+                    </tr>
+
+                    {/* Aster Corp */}
+                    <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">Aster Corp</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Junior Developer</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">1.5 years</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Seattle, USA</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Relocation</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         )}
 
         {/* Payroll Tab */}
         {activeTab === "payroll" && (
-          <div className="space-y-6">
-            {/* Salary Information Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <div className="flex items-start gap-3 mb-8">
-                <DollarSign className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">Salary Information</h2>
-                  <p className="text-sm text-gray-600 mt-1">View your current salary details and compensation.</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
-                {/* Annual Salary */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Annual Salary</label>
-                  <p className="text-base font-bold text-gray-900">$95,000.00</p>
-                </div>
-
-                {/* Pay Frequency */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Pay Frequency</label>
-                  <p className="text-base font-bold text-gray-900">Bi-weekly</p>
-                </div>
-
-                {/* Currency */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Currency</label>
-                  <p className="text-base font-bold text-gray-900">USD</p>
-                </div>
-
-                {/* Last Salary Review */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Last Salary Review</label>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <p className="text-base font-bold text-gray-900">March 15, 2024</p>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-6">
+              {/* Salary Information Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <div className="flex items-start gap-3 mb-6">
+                  <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Salary Information</h2>
+                    <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>View your current salary details and compensation.</p>
                   </div>
                 </div>
 
-                {/* Tax ID */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Tax ID</label>
-                  <p className="text-base font-bold text-gray-900">12-3456789</p>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                  {/* Annual Salary */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Annual Salary</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>$95,000.00</p>
+                  </div>
 
-                {/* Bank Account */}
-                <div className="hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Bank Account</label>
-                  <p className="text-base font-bold text-gray-900">****5678</p>
+                  {/* Pay Frequency */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Pay Frequency</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Bi-weekly</p>
+                  </div>
+
+                  {/* Currency */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Currency</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>USD</p>
+                  </div>
+
+                  {/* Last Salary Review */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Salary Review</label>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>March 15, 2024</p>
+                    </div>
+                  </div>
+
+                  {/* Tax ID */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Tax ID</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>12-3456789</p>
+                  </div>
+
+                  {/* Bank Account */}
+                  <div>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Bank Account</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>****5678</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Deductions Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Deductions & Benefits</h2>
-              <div className="space-y-3">
-                {/* Health Insurance */}
-                <div className="flex justify-between items-start pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <span className="text-sm font-medium text-gray-700">Health Insurance</span>
-                  <span className="text-sm font-bold text-gray-900">$450/month</span>
-                </div>
+              {/* Deductions Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Deductions & Benefits</h2>
+                <div className="space-y-3">
+                  {/* Health Insurance */}
+                  <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Health Insurance</span>
+                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>$450/month</span>
+                  </div>
 
-                {/* 401k Contribution */}
-                <div className="flex justify-between items-start pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <span className="text-sm font-medium text-gray-700">401k Contribution</span>
-                  <span className="text-sm font-bold text-gray-900">6%</span>
-                </div>
+                  {/* 401k Contribution */}
+                  <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>401k Contribution</span>
+                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>6%</span>
+                  </div>
 
-                {/* Life Insurance */}
-                <div className="flex justify-between items-start pb-3 border-b border-gray-100 hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <span className="text-sm font-medium text-gray-700">Life Insurance</span>
-                  <span className="text-sm font-bold text-gray-900">Included</span>
-                </div>
+                  {/* Life Insurance */}
+                  <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
+                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Life Insurance</span>
+                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Included</span>
+                  </div>
 
-                {/* Dental & Vision */}
-                <div className="flex justify-between items-start hover:bg-blue-50 p-1.5 rounded transition-colors">
-                  <span className="text-sm font-medium text-gray-700">Dental & Vision</span>
-                  <span className="text-sm font-bold text-gray-900">Included</span>
+                  {/* Dental & Vision */}
+                  <div className="flex justify-between items-start">
+                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Dental & Vision</span>
+                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Included</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -490,98 +566,112 @@ export default function MyProfile() {
 
         {/* Performance Tab */}
         {activeTab === "performance" && (
-          <div className="space-y-6">
-            {/* Performance Summary Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <div className="flex items-start gap-3 mb-8">
-                <TrendingUp className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">Performance Summary</h2>
-                  <p className="text-sm text-gray-600 mt-1">Your current performance metrics and ratings.</p>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-6">
+              {/* Performance Summary Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <div className="flex items-start gap-3 mb-6">
+                  <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Performance Summary</h2>
+                    <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Your current performance metrics and ratings.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                  {/* Overall Rating */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Overall Rating</label>
+                    <div className="flex items-baseline gap-2">
+                      <p className="text-2xl font-bold text-blue-600" style={{ fontFamily: "Poppins, sans-serif" }}>4.5</p>
+                      <p className="text-sm text-gray-600" style={{ fontFamily: "Poppins, sans-serif" }}>/5.0</p>
+                    </div>
+                  </div>
+
+                  {/* Review Frequency */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Review Date</label>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>September 30, 2024</p>
+                    </div>
+                  </div>
+
+                  {/* Goals Completion */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Goals Completed</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>8/10</p>
+                  </div>
+
+                  {/* Next Review */}
+                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Next Review</label>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>March 31, 2025</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
-                {/* Overall Rating */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Overall Rating</label>
-                  <div className="flex items-baseline gap-2">
-                    <p className="text-2xl font-bold text-blue-600">4.5</p>
-                    <p className="text-sm text-gray-600">/5.0</p>
+              {/* Competencies Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Key Competencies</h2>
+                <div className="space-y-4">
+                  {/* Technical Skills */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Technical Skills</span>
+                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Excellent</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "90%" }}></div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Review Frequency */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Last Review Date</label>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <p className="text-base font-bold text-gray-900">September 30, 2024</p>
+                  {/* Communication */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Communication</span>
+                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Good</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "80%" }}></div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Goals Completion */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Goals Completed</label>
-                  <p className="text-base font-bold text-gray-900">8/10</p>
-                </div>
+                  {/* Leadership */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Leadership</span>
+                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Good</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "75%" }}></div>
+                    </div>
+                  </div>
 
-                {/* Next Review */}
-                <div className="pb-4 border-b border-gray-100 hover:bg-blue-50 p-2 rounded transition-colors">
-                  <label className="block text-xs font-medium text-gray-600 mb-2">Next Review</label>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                    <p className="text-base font-bold text-gray-900">March 31, 2025</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Competencies Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Key Competencies</h2>
-              <div className="space-y-4">
-                {/* Technical Skills */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Technical Skills</span>
-                    <span className="text-sm font-bold text-gray-900">Excellent</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-green-500 h-2 rounded-full" style={{ width: "90%" }}></div>
-                  </div>
-                </div>
-
-                {/* Communication */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Communication</span>
-                    <span className="text-sm font-bold text-gray-900">Good</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: "80%" }}></div>
-                  </div>
-                </div>
-
-                {/* Leadership */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Leadership</span>
-                    <span className="text-sm font-bold text-gray-900">Good</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: "75%" }}></div>
-                  </div>
-                </div>
-
-                {/* Problem Solving */}
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-semibold text-gray-700">Problem Solving</span>
-                    <span className="text-sm font-bold text-gray-900">Excellent</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div className="bg-green-500 h-2 rounded-full" style={{ width: "88%" }}></div>
+                  {/* Problem Solving */}
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Problem Solving</span>
+                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Excellent</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "88%" }}></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -591,324 +681,114 @@ export default function MyProfile() {
 
         {/* Leave & Attendance Tab */}
         {activeTab === "leaveAttendance" && (
-          <div className="space-y-8">
-            {/* Section 1 – Leave Balance */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Leave Balance</h2>
-              <div className="overflow-x-auto">
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-8">
+              {/* Leave Balance */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px",
+                overflowX: "auto"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Leave Balance</h2>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
-                    <tr style={{ backgroundColor: "#f8f8f8" }}>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Leave Type
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Leave Taken
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Leave Balance
-                      </th>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Type</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Taken</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Balance</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Annual Leave
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        7
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        13
-                      </td>
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">7</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">13</td>
                     </tr>
-                    <tr style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e0e0e0" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Sick Leave
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        3
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        7
-                      </td>
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Sick Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">3</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">7</td>
                     </tr>
-                    <tr style={{ backgroundColor: "#ffffff" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Personal Leave
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        2
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        4
-                      </td>
+                    <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Personal Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">2</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">4</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
 
-            {/* Section 2 – Leave History */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <h2 className="text-lg font-bold text-gray-900 mb-6">Leave History</h2>
-              <div className="overflow-x-auto">
+              {/* Leave History */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px",
+                overflowX: "auto"
+              }}>
+                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Leave History</h2>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
-                    <tr style={{ backgroundColor: "#f8f8f8" }}>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Leave Type
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Duration
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Total Days
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Approved By
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Status
-                      </th>
-                      <th
-                        className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Action
-                      </th>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Type</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Duration</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Total Days</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Approved By</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Status</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {/* Row 1 - Sick Leave */}
-                    <tr style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Sick Leave
+                    {/* Sick Leave */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Sick Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">03-15-2024 – 03-17-2024</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">3</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Michael Rodriguez</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
                       </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        03-15-2024 – 03-17-2024
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        3
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Michael Rodriguez
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        <span
-                          className="inline-block rounded-full px-3 py-1 font-semibold text-xs"
-                          style={{ backgroundColor: "#d4edda", color: "#155724" }}
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        —
-                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
                     </tr>
 
-                    {/* Row 2 - Annual Leave */}
-                    <tr style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e0e0e0" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Annual Leave
+                    {/* Annual Leave */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">01-08-2024 – 01-12-2024</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">5</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Michael Rodriguez</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
                       </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        01-08-2024 – 01-12-2024
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        5
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Michael Rodriguez
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        <span
-                          className="inline-block rounded-full px-3 py-1 font-semibold text-xs"
-                          style={{ backgroundColor: "#d4edda", color: "#155724" }}
-                        >
-                          Approved
-                        </span>
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        —
-                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
                     </tr>
 
-                    {/* Row 3 - Personal Leave */}
-                    <tr style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Personal Leave
+                    {/* Personal Leave */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Personal Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">04-22-2024 – 04-22-2024</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">1</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#fff3cd", color: "#856404" }}>Under Review</span>
                       </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        04-22-2024 – 04-22-2024
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        1
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        —
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        <span
-                          className="inline-block rounded-full px-3 py-1 font-semibold text-xs"
-                          style={{ backgroundColor: "#fff3cd", color: "#856404" }}
-                        >
-                          Under Review
-                        </span>
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        —
-                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
                     </tr>
 
-                    {/* Row 4 - Annual Leave Rejected */}
-                    <tr style={{ backgroundColor: "#fafafa" }}>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        Annual Leave
+                    {/* Annual Leave Rejected */}
+                    <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">05-10-2024 – 05-14-2024</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">5</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#f8d7da", color: "#721c24" }}>Rejected</span>
                       </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        05-10-2024 – 05-14-2024
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        5
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        —
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        <span
-                          className="inline-block rounded-full px-3 py-1 font-semibold text-xs"
-                          style={{ backgroundColor: "#f8d7da", color: "#721c24" }}
-                        >
-                          Rejected
-                        </span>
-                      </td>
-                      <td
-                        className="border border-gray-300 text-center text-sm text-gray-700"
-                        style={{ padding: "10px 12px" }}
-                      >
-                        —
-                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
                     </tr>
                   </tbody>
                 </table>
@@ -919,275 +799,144 @@ export default function MyProfile() {
 
         {/* Documents Tab */}
         {activeTab === "documents" && (
-          <div className="space-y-6">
-            {/* Header and Controls */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-              <h2 className="text-lg font-bold text-gray-900">Employee Documents</h2>
-              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                <button
-                  className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-colors"
-                  style={{ borderColor: "#007bff", color: "#007bff" }}
-                >
-                  <Download className="w-4 h-4" />
-                  Download
-                </button>
+          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-6">
+              {/* Header and Controls */}
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Employee Documents</h2>
+                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                  <button
+                    className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-colors"
+                    style={{ 
+                      borderColor: "#2563EB", 
+                      color: "#2563EB",
+                      fontFamily: "Poppins, sans-serif"
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLButtonElement).style.backgroundColor = "#EFF6FF";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLButtonElement).style.backgroundColor = "transparent";
+                    }}
+                  >
+                    <Download className="w-4 h-4" />
+                    Download
+                  </button>
+                </div>
               </div>
-            </div>
 
-            {/* Documents Table */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 overflow-x-auto">
-              <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
-                <thead>
-                  <tr style={{ backgroundColor: "#f8f8f8" }}>
-                    <th
-                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      Document Title
-                    </th>
-                    <th
-                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      File Type
-                    </th>
-                    <th
-                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      File Size
-                    </th>
-                    <th
-                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      Upload Date
-                    </th>
-                    <th
-                      className="border border-gray-300 text-center font-semibold text-sm text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* Row 1 - Employment Contract */}
-                  <tr
-                    style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
-                  >
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
-                        Employment Contract
-                      </div>
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      PDF
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      2.4 MB
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      01/15/2023
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
-                        <Download className="w-4 h-4" />
-                      </button>
-                    </td>
-                  </tr>
+              {/* Documents Table */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "16px 20px",
+                overflowX: "auto"
+              }}>
+                <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <thead>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Document Title</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">File Type</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">File Size</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Upload Date</th>
+                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Employment Contract */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">
+                        <div className="flex items-center justify-center gap-2">
+                          <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                          Employment Contract
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">PDF</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">2.4 MB</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">01/15/2023</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                          <Download className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
 
-                  {/* Row 2 - Tax Forms */}
-                  <tr
-                    style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e0e0e0" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#fafafa")}
-                  >
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
-                        Tax Forms (W-2)
-                      </div>
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      PDF
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      1.8 MB
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      12/31/2023
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
-                        <Download className="w-4 h-4" />
-                      </button>
-                    </td>
-                  </tr>
+                    {/* Tax Forms */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">
+                        <div className="flex items-center justify-center gap-2">
+                          <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                          Tax Forms (W-2)
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">PDF</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">1.8 MB</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">12/31/2023</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                          <Download className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
 
-                  {/* Row 3 - Performance Review */}
-                  <tr
-                    style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #e0e0e0" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
-                  >
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <span style={{ color: "#2563eb", fontSize: "16px" }}>📘</span>
-                        Performance Review 2023
-                      </div>
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      DOCX
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      856 KB
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      11/20/2023
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
-                        <Download className="w-4 h-4" />
-                      </button>
-                    </td>
-                  </tr>
+                    {/* Performance Review */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">
+                        <div className="flex items-center justify-center gap-2">
+                          <span style={{ color: "#2563eb", fontSize: "16px" }}>📘</span>
+                          Performance Review 2023
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">DOCX</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">856 KB</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">11/20/2023</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                          <Download className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
 
-                  {/* Row 4 - Benefits Enrollment */}
-                  <tr
-                    style={{ backgroundColor: "#fafafa", borderBottom: "1px solid #e0e0e0" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#fafafa")}
-                  >
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
-                        Benefits Enrollment
-                      </div>
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      PDF
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      3.1 MB
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      03/10/2023
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
-                        <Download className="w-4 h-4" />
-                      </button>
-                    </td>
-                  </tr>
+                    {/* Benefits Enrollment */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">
+                        <div className="flex items-center justify-center gap-2">
+                          <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                          Benefits Enrollment
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">PDF</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">3.1 MB</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">03/10/2023</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                          <Download className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
 
-                  {/* Row 5 - Training Certificate */}
-                  <tr
-                    style={{ backgroundColor: "#ffffff" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f1f5f9")}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
-                  >
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
-                        Training Certificate
-                      </div>
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      PDF
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm font-bold text-gray-900"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      1.2 MB
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm text-gray-700"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      08/15/2023
-                    </td>
-                    <td
-                      className="border border-gray-300 text-center text-sm"
-                      style={{ padding: "14px 16px" }}
-                    >
-                      <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
-                        <Download className="w-4 h-4" />
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    {/* Training Certificate */}
+                    <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">
+                        <div className="flex items-center justify-center gap-2">
+                          <span style={{ color: "#dc2626", fontSize: "16px" }}>📄</span>
+                          Training Certificate
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">PDF</td>
+                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">1.2 MB</td>
+                      <td className="px-4 py-3 text-center text-sm text-gray-700">08/15/2023</td>
+                      <td className="px-4 py-3 text-center text-sm">
+                        <button className="text-blue-600 hover:text-blue-800 transition-colors p-1">
+                          <Download className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         )}
