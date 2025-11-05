@@ -58,7 +58,7 @@ export default function MyLeaveAttendance() {
           {/* Today's Summary */}
           <div className="bg-white rounded-lg shadow-sm p-2.5 sm:p-3">
             <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">Today's Summary</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mb-4 pb-4 border-b border-gray-200">
               <div>
                 <p className="text-xs text-gray-600 mb-0.5">Date</p>
                 <p className="text-sm font-semibold text-gray-900">Oct 18, 2024</p>
@@ -85,6 +85,34 @@ export default function MyLeaveAttendance() {
                   Present
                 </span>
               </div>
+            </div>
+
+            {/* Clock Controls */}
+            <div className="flex flex-row gap-2 mt-2">
+              {/* Clock In Button */}
+              <button
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#2F80ED] text-white text-xs font-medium transition-colors hover:bg-blue-700"
+              >
+                <CheckCircle className="w-3.5 h-3.5" />
+                <span>Clock In</span>
+              </button>
+
+              {/* Clock Out Button */}
+              <button
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#DC2626] text-white text-xs font-medium transition-colors hover:bg-red-700"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span>Clock Out</span>
+              </button>
+
+              {/* Break Button */}
+              <button
+                disabled
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#F2F2F2] text-[#B3B3B3] text-xs font-medium cursor-not-allowed"
+              >
+                <Coffee className="w-3.5 h-3.5" />
+                <span>Break</span>
+              </button>
             </div>
           </div>
 
