@@ -101,25 +101,25 @@ export default function MyProfile() {
                 {/* Date of Birth */}
                 <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                   <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Date of Birth</label>
-                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>03-15-1990</p>
+                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>03-15-1990</p>
                 </div>
 
                 {/* Gender & Marital Status Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Gender</label>
-                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Female</p>
+                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Female</p>
                   </div>
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Marital Status</label>
-                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Single</p>
+                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Single</p>
                   </div>
                 </div>
 
                 {/* Nationality */}
                 <div>
                   <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Nationality</label>
-                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>United States</p>
+                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>United States</p>
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function MyProfile() {
                     <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Phone Number</label>
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 234 567 890</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 234 567 890</p>
                     </div>
                   </div>
 
@@ -155,7 +155,7 @@ export default function MyProfile() {
                     <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Alternate Number</label>
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 987 654 321</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 987 654 321</p>
                     </div>
                   </div>
 
@@ -165,7 +165,7 @@ export default function MyProfile() {
                     <div className="flex-1">
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Personal Email Address</label>
                       <div className="flex items-center gap-2">
-                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>sarah.mitchell@email.com</p>
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>sarah.mitchell@email.com</p>
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "Poppins, sans-serif" }}>
                           <CheckCircle className="w-3 h-3" /> Verified
                         </span>
@@ -179,7 +179,7 @@ export default function MyProfile() {
                     <div className="flex-1">
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Work Email Address</label>
                       <div className="flex items-center gap-2">
-                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>sarah.m@company.com</p>
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>sarah.m@company.com</p>
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "Poppins, sans-serif" }}>
                           <CheckCircle className="w-3 h-3" /> Verified
                         </span>
@@ -202,25 +202,25 @@ export default function MyProfile() {
                   {/* Street Address */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Street Address</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>123 Main Street</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>123 Main Street</p>
                   </div>
 
                   {/* City & State Row */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>City</label>
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Los Angeles</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Los Angeles</p>
                     </div>
                     <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>State</label>
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>California</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>California</p>
                     </div>
                   </div>
 
                   {/* ZIP Code */}
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Zip Code</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>90001</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>90001</p>
                   </div>
                 </div>
               </div>
@@ -253,12 +253,12 @@ export default function MyProfile() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Name</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>John Mitchell</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>John Mitchell</p>
                   </div>
 
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Relationship</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Brother</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Brother</p>
                   </div>
                 </div>
 
@@ -267,7 +267,7 @@ export default function MyProfile() {
                   <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Number</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 456 789 123</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 456 789 123</p>
                   </div>
                 </div>
 
@@ -276,7 +276,7 @@ export default function MyProfile() {
                   <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Alternate Number</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 321 654 987</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 321 654 987</p>
                   </div>
                 </div>
               </div>
@@ -310,19 +310,19 @@ export default function MyProfile() {
                   {/* Position */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Position</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Senior Software Engineer</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Senior Software Engineer</p>
                   </div>
 
                   {/* Department */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Department</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Engineering</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Engineering</p>
                   </div>
 
                   {/* Reporting Manager */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Reporting Manager</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Michael Rodriguez</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Michael Rodriguez</p>
                   </div>
 
                   {/* Employment Status */}
@@ -336,7 +336,7 @@ export default function MyProfile() {
                   {/* Employment Type */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Employment Type</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Full-Time</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Full-Time</p>
                   </div>
 
                   {/* Date Hired */}
@@ -344,7 +344,7 @@ export default function MyProfile() {
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Date Hired</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>01/15/2023</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>01/15/2023</p>
                     </div>
                   </div>
 
@@ -353,26 +353,26 @@ export default function MyProfile() {
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Probation End Date</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>07-15-2023</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>07-15-2023</p>
                     </div>
                   </div>
 
                   {/* Work Location / Site */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Work Location / Site</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Head Office</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Head Office</p>
                   </div>
 
                   {/* Shift Schedule */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Shift Schedule</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Day</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Day</p>
                   </div>
 
                   {/* Work Phone / Extension */}
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Work Phone / Extension</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>+1 (555) 123-4567 ext. 1234</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 (555) 123-4567 ext. 1234</p>
                   </div>
                 </div>
               </div>
@@ -391,7 +391,7 @@ export default function MyProfile() {
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Senior Analyst</p>
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Senior Analyst</p>
                         <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 – Aug 2023</p>
                       </div>
                       <span className="inline-block rounded-lg px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -404,7 +404,7 @@ export default function MyProfile() {
                   <div>
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>HR Assistant</p>
+                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>HR Assistant</p>
                         <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jun 2020 – Dec 2021</p>
                       </div>
                       <span className="inline-block rounded-lg px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -487,19 +487,19 @@ export default function MyProfile() {
                   {/* Annual Salary */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Annual Salary</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>$95,000.00</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>$95,000.00</p>
                   </div>
 
                   {/* Pay Frequency */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Pay Frequency</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Bi-weekly</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Bi-weekly</p>
                   </div>
 
                   {/* Currency */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Currency</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>USD</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>USD</p>
                   </div>
 
                   {/* Last Salary Review */}
@@ -507,20 +507,20 @@ export default function MyProfile() {
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Salary Review</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>March 15, 2024</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>March 15, 2024</p>
                     </div>
                   </div>
 
                   {/* Tax ID */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Tax ID</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>12-3456789</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>12-3456789</p>
                   </div>
 
                   {/* Bank Account */}
                   <div>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Bank Account</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>****5678</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>****5678</p>
                   </div>
                 </div>
               </div>
@@ -599,14 +599,14 @@ export default function MyProfile() {
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Review Date</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>September 30, 2024</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>September 30, 2024</p>
                     </div>
                   </div>
 
                   {/* Goals Completion */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Goals Completed</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>8/10</p>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>8/10</p>
                   </div>
 
                   {/* Next Review */}
@@ -614,7 +614,7 @@ export default function MyProfile() {
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Next Review</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>March 31, 2025</p>
+                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>March 31, 2025</p>
                     </div>
                   </div>
                 </div>
