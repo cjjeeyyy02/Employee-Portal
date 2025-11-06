@@ -60,34 +60,34 @@ export default function MyPerformance() {
 
         {/* ===== OVERVIEW TAB ===== */}
         {activeTab === "overview" && (
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {/* Summary Stats - Top Row (4 cards) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5">
               {/* Overall Rating */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-2">
                 <p className="text-xs text-gray-600 mb-0.5">Overall Rating</p>
-                <p className="text-lg font-bold text-gray-900">4.2</p>
+                <p className="text-base font-bold text-gray-900">4.2</p>
                 <p className="text-xs text-green-600 font-semibold mt-0.5">+0.2 from last review</p>
               </div>
 
               {/* Goals Progress */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-2">
                 <p className="text-xs text-gray-600 mb-0.5">Goals Progress</p>
-                <p className="text-lg font-bold text-gray-900">68%</p>
+                <p className="text-base font-bold text-gray-900">68%</p>
                 <p className="text-xs text-gray-700 mt-0.5">3 of 4 goals on track</p>
               </div>
 
               {/* Reviews Complete */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-2">
                 <p className="text-xs text-gray-600 mb-0.5">Reviews Complete</p>
-                <p className="text-lg font-bold text-gray-900">2</p>
+                <p className="text-base font-bold text-gray-900">2</p>
                 <p className="text-xs text-orange-600 font-semibold mt-0.5">1 pending review</p>
               </div>
 
               {/* Development Hours */}
-              <div className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-3">
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-2">
                 <p className="text-xs text-gray-600 mb-0.5">Development Hours</p>
-                <p className="text-lg font-bold text-gray-900">24h</p>
+                <p className="text-base font-bold text-gray-900">24h</p>
                 <p className="text-xs text-green-600 font-semibold mt-0.5">120% of target</p>
               </div>
             </div>
