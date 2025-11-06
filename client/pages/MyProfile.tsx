@@ -33,10 +33,10 @@ export default function MyProfile() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className="pb-4 font-semibold text-sm whitespace-nowrap transition-all"
+              className="pb-2 font-semibold text-xs whitespace-nowrap transition-all"
               style={{
                 fontFamily: "Poppins, sans-serif",
-                fontSize: "16px",
+                fontSize: "13px",
                 fontWeight: 600,
                 color: activeTab === tab.id ? "#2563EB" : "#374151",
                 borderBottom: activeTab === tab.id ? "2px solid #2563EB" : "2px solid transparent",
@@ -392,7 +392,7 @@ export default function MyProfile() {
                     <div className="flex justify-between items-start">
                       <div>
                         <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Senior Analyst</p>
-                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 �� Aug 2023</p>
+                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 – Aug 2023</p>
                       </div>
                       <span className="inline-block rounded-lg px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
                         Promoted
