@@ -386,7 +386,7 @@ export default function MyProfile() {
                 padding: "12px 16px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {/* Senior Analyst */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <div className="flex justify-between items-start">
@@ -629,7 +629,7 @@ export default function MyProfile() {
                 padding: "12px 16px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Key Competencies</h2>
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {/* Technical Skills */}
                   <div>
                     <div className="flex justify-between items-center mb-2">
