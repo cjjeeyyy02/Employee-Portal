@@ -34,7 +34,7 @@ export default function MyPerformance() {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-gray-200 mb-4 bg-white">
+      <div className="border-b border-gray-200 mb-2 sm:mb-3 bg-white">
         <div className="flex gap-0 px-2 sm:px-3">
           {[
             { id: "overview", label: "Overview" },
