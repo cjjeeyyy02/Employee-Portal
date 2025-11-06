@@ -99,18 +99,18 @@ export default function MyProfile() {
                 </div>
 
                 {/* Date of Birth */}
-                <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                   <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Date of Birth</label>
                   <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>03-15-1990</p>
                 </div>
 
                 {/* Gender & Marital Status Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Gender</label>
                     <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Female</p>
                   </div>
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Marital Status</label>
                     <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Single</p>
                   </div>
@@ -200,18 +200,18 @@ export default function MyProfile() {
                 <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Address Information</h2>
                 <div className="space-y-3">
                   {/* Street Address */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Street Address</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>123 Main Street</p>
                   </div>
 
                   {/* City & State Row */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>City</label>
                       <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Los Angeles</p>
                     </div>
-                    <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                    <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>State</label>
                       <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>California</p>
                     </div>
@@ -251,12 +251,12 @@ export default function MyProfile() {
               <div className="space-y-2" style={{ marginTop: "12px" }}>
                 {/* Contact Name & Relationship Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Name</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>John Mitchell</p>
                   </div>
 
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Relationship</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Brother</p>
                   </div>
@@ -308,25 +308,25 @@ export default function MyProfile() {
                 {/* Information Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
                   {/* Position */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Position</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Senior Software Engineer</p>
                   </div>
 
                   {/* Department */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Department</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Engineering</p>
                   </div>
 
                   {/* Reporting Manager */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Reporting Manager</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Michael Rodriguez</p>
                   </div>
 
                   {/* Employment Status */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Employment Status</label>
                     <span className="inline-block rounded-lg px-3 py-1 bg-green-600 text-white font-semibold text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
                       Active
@@ -334,13 +334,13 @@ export default function MyProfile() {
                   </div>
 
                   {/* Employment Type */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Employment Type</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Full-Time</p>
                   </div>
 
                   {/* Date Hired */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Date Hired</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
@@ -349,7 +349,7 @@ export default function MyProfile() {
                   </div>
 
                   {/* Probation End Date */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Probation End Date</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
@@ -358,13 +358,13 @@ export default function MyProfile() {
                   </div>
 
                   {/* Work Location / Site */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Work Location / Site</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Head Office</p>
                   </div>
 
                   {/* Shift Schedule */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Shift Schedule</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Day</p>
                   </div>
@@ -388,7 +388,7 @@ export default function MyProfile() {
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
                 <div className="space-y-4">
                   {/* Senior Analyst */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <div className="flex justify-between items-start">
                       <div>
                         <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Senior Analyst</p>
@@ -485,25 +485,25 @@ export default function MyProfile() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
                   {/* Annual Salary */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Annual Salary</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>$95,000.00</p>
                   </div>
 
                   {/* Pay Frequency */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Pay Frequency</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Bi-weekly</p>
                   </div>
 
                   {/* Currency */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Currency</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>USD</p>
                   </div>
 
                   {/* Last Salary Review */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Salary Review</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
@@ -512,7 +512,7 @@ export default function MyProfile() {
                   </div>
 
                   {/* Tax ID */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Tax ID</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>12-3456789</p>
                   </div>
@@ -586,7 +586,7 @@ export default function MyProfile() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
                   {/* Overall Rating */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Overall Rating</label>
                     <div className="flex items-baseline gap-2">
                       <p className="text-2xl font-bold text-blue-600" style={{ fontFamily: "Poppins, sans-serif" }}>4.5</p>
@@ -595,7 +595,7 @@ export default function MyProfile() {
                   </div>
 
                   {/* Review Frequency */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Review Date</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
@@ -604,13 +604,13 @@ export default function MyProfile() {
                   </div>
 
                   {/* Goals Completion */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Goals Completed</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>8/10</p>
                   </div>
 
                   {/* Next Review */}
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Next Review</label>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
@@ -885,7 +885,7 @@ export default function MyProfile() {
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-center text-sm text-gray-700">
                         <div className="flex items-center justify-center gap-2">
-                          <span style={{ color: "#2563eb", fontSize: "16px" }}>📘</span>
+                          <span style={{ color: "#2563eb", fontSize: "16px" }}>����</span>
                           Performance Review 2023
                         </div>
                       </td>
