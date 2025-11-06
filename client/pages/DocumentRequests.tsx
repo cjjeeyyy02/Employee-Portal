@@ -203,7 +203,7 @@ export default function DocumentRequests() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-4 sm:mb-6 gap-2 sm:gap-3">
+      <div className="mb-1.5 sm:mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
         <div>
           <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">Requests & Document Management</h1>
           <p className="text-xs text-gray-600">Submit requests and manage your work-related documents</p>
