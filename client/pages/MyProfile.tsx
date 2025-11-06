@@ -82,9 +82,9 @@ export default function MyProfile() {
               <div className="space-y-3">
                 {/* First Name & Middle Name Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
-                    <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>First Name</label>
-                    <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Sarah</p>
+                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>First Name</label>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Sarah</p>
                   </div>
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Middle Name</label>
