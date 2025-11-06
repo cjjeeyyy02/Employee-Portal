@@ -62,24 +62,24 @@ export default function MyProfile() {
       <div className="animate-fadeIn">
         {/* Personal Tab */}
         {activeTab === "personal" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
             {/* Personal Information Card */}
             <div style={{
               borderRadius: "8px",
               border: "1px solid #E5E7EB",
               backgroundColor: "#FFFFFF",
               boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-              padding: "16px 20px"
+              padding: "12px 16px"
             }}>
-              <div className="flex items-center gap-4 mb-8">
+              <div className="flex items-center gap-3 mb-4">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
                   alt="Profile"
-                  className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-gray-200 shadow-sm"
                 />
-                <h2 className="text-lg font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Personal Information</h2>
+                <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Personal Information</h2>
               </div>
-              <div className="space-y-5">
+              <div className="space-y-3">
                 {/* First Name & Middle Name Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
@@ -128,17 +128,17 @@ export default function MyProfile() {
 
         {/* Contact Tab */}
         {activeTab === "contact" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
-            <div className="space-y-6">
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
               {/* Contact Details Card */}
               <div style={{
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-4" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Contact Details</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Contact Details</h2>
 
                 <div className="space-y-3">
                   {/* Phone Number */}
@@ -195,9 +195,9 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-4" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Address Information</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Address Information</h2>
                 <div className="space-y-3">
                   {/* Street Address */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
@@ -230,25 +230,25 @@ export default function MyProfile() {
 
         {/* Emergency Tab */}
         {activeTab === "emergency" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
             <div style={{
               borderRadius: "8px",
               border: "1px solid #E5E7EB",
               backgroundColor: "#FFFFFF",
               boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-              padding: "16px 20px"
+              padding: "12px 16px"
             }}>
               {/* Header */}
-              <div className="flex items-start gap-3 mb-6">
+              <div className="flex items-start gap-2 mb-3">
                 <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Emergency Contact</h2>
-                  <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif" }}>Provide emergency contact information for urgent situations.</p>
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Emergency Contact</h2>
+                  <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Provide emergency contact information for urgent situations.</p>
                 </div>
               </div>
 
               {/* Information Section */}
-              <div className="space-y-3">
+              <div className="space-y-2" style={{ marginTop: "12px" }}>
                 {/* Contact Name & Relationship Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
@@ -286,22 +286,22 @@ export default function MyProfile() {
 
         {/* Employment Tab */}
         {activeTab === "employment" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
-            <div className="space-y-6">
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
               {/* Work Details Card */}
               <div style={{
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
                 {/* Header */}
-                <div className="flex items-start gap-3 mb-6">
+                <div className="flex items-start gap-2 mb-3">
                   <Briefcase className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
-                    <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Work Details</h2>
-                    <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Your current position and work information.</p>
+                    <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Work Details</h2>
+                    <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Your current position and work information.</p>
                   </div>
                 </div>
 
@@ -383,16 +383,16 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Position History</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
                 <div className="space-y-4">
                   {/* Senior Analyst */}
                   <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
                     <div className="flex justify-between items-start">
                       <div>
                         <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Senior Analyst</p>
-                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 – Aug 2023</p>
+                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 �� Aug 2023</p>
                       </div>
                       <span className="inline-block rounded-lg px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
                         Promoted
@@ -421,10 +421,10 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px",
+                padding: "12px 16px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Previous Work History</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Previous Work History</h2>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
@@ -465,21 +465,21 @@ export default function MyProfile() {
 
         {/* Payroll Tab */}
         {activeTab === "payroll" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
-            <div className="space-y-6">
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
               {/* Salary Information Card */}
               <div style={{
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <div className="flex items-start gap-3 mb-6">
+                <div className="flex items-start gap-2 mb-3">
                   <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
-                    <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Salary Information</h2>
-                    <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>View your current salary details and compensation.</p>
+                    <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Salary Information</h2>
+                    <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>View your current salary details and compensation.</p>
                   </div>
                 </div>
 
@@ -531,9 +531,9 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Deductions & Benefits</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Deductions & Benefits</h2>
                 <div className="space-y-3">
                   {/* Health Insurance */}
                   <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
@@ -566,21 +566,21 @@ export default function MyProfile() {
 
         {/* Performance Tab */}
         {activeTab === "performance" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
-            <div className="space-y-6">
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
               {/* Performance Summary Card */}
               <div style={{
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <div className="flex items-start gap-3 mb-6">
+                <div className="flex items-start gap-2 mb-3">
                   <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                   <div>
-                    <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Performance Summary</h2>
-                    <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Your current performance metrics and ratings.</p>
+                    <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Performance Summary</h2>
+                    <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Your current performance metrics and ratings.</p>
                   </div>
                 </div>
 
@@ -626,9 +626,9 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px"
+                padding: "12px 16px"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Key Competencies</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Key Competencies</h2>
                 <div className="space-y-4">
                   {/* Technical Skills */}
                   <div>
@@ -681,18 +681,18 @@ export default function MyProfile() {
 
         {/* Leave & Attendance Tab */}
         {activeTab === "leaveAttendance" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
-            <div className="space-y-8">
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
               {/* Leave Balance */}
               <div style={{
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px",
+                padding: "12px 16px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Leave Balance</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Leave Balance</h2>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
@@ -727,10 +727,10 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px",
+                padding: "12px 16px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-base font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Leave History</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Leave History</h2>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
@@ -799,11 +799,11 @@ export default function MyProfile() {
 
         {/* Documents Tab */}
         {activeTab === "documents" && (
-          <div style={{ paddingTop: "24px", paddingBottom: "24px", paddingLeft: "32px", paddingRight: "32px", backgroundColor: "#FFFFFF" }}>
-            <div className="space-y-6">
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
               {/* Header and Controls */}
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                <h2 className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", fontWeight: 600 }}>Employee Documents</h2>
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Employee Documents</h2>
                 <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                   <button
                     className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border transition-colors"
@@ -831,7 +831,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "16px 20px",
+                padding: "12px 16px",
                 overflowX: "auto"
               }}>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
