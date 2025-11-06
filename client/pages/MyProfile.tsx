@@ -71,13 +71,13 @@ export default function MyProfile() {
               boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
               padding: "12px 16px"
             }}>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-2 mb-2">
                 <img
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
                   alt="Profile"
-                  className="w-12 h-12 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm"
                 />
-                <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Personal Information</h2>
+                <h2 className="text-xs font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Personal Information</h2>
               </div>
               <div className="space-y-3">
                 {/* First Name & Middle Name Row */}
