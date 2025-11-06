@@ -16,25 +16,25 @@ export default function MyPerformance() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start mb-4 sm:mb-6 gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
         <div>
-          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">Performance Management</h1>
-            <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
-          </div>
-          <div className="flex gap-2">
-            <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
-              <FileText className="w-3.5 h-3.5" />
-              Performance Report
-            </button>
-            <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
-              <Plus className="w-3.5 h-3.5" />
-              New Goal
-            </button>
-          </div>
+          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Performance Management</h1>
+          <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
         </div>
+        <div className="flex gap-2">
+          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
+            <FileText className="w-3.5 h-3.5" />
+            Performance Report
+          </button>
+          <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+            <Plus className="w-3.5 h-3.5" />
+            New Goal
+          </button>
+        </div>
+      </div>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-gray-200 mb-2 sm:mb-3 bg-white">
+      <div className="border-b border-gray-200 mb-4 bg-white">
         <div className="flex gap-0 px-2 sm:px-3">
           {[
             { id: "overview", label: "Overview" },
