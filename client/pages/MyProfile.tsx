@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut } from "lucide-react";
 import Layout from "@/components/Layout";
 
-type TabType = "personal" | "contact" | "emergency" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents";
+type TabType = "personal" | "contact" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents";
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
   { id: "contact", label: "Contact" },
-  { id: "emergency", label: "Emergency" },
   { id: "employment", label: "Employment" },
   { id: "payroll", label: "Payroll" },
   { id: "performance", label: "Performance" },
@@ -400,61 +399,6 @@ export default function MyProfile() {
           </div>
         )}
 
-        {/* Emergency Tab */}
-        {activeTab === "emergency" && (
-          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
-            <div style={{
-              borderRadius: "8px",
-              border: "1px solid #E5E7EB",
-              backgroundColor: "#FFFFFF",
-              boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-              padding: "10px 12px"
-            }}>
-              {/* Header */}
-              <div className="flex items-start gap-2 mb-3">
-                <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Emergency Contact</h2>
-                  <p className="text-xs text-gray-600 mt-0.5" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Provide emergency contact information for urgent situations.</p>
-                </div>
-              </div>
-
-              {/* Information Section */}
-              <div className="space-y-2" style={{ marginTop: "12px" }}>
-                {/* Contact Name & Relationship Row */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
-                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Name</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>John Mitchell</p>
-                  </div>
-
-                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
-                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Relationship</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Brother</p>
-                  </div>
-                </div>
-
-                {/* Contact Number */}
-                <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
-                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Contact Number</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 456 789 123</p>
-                  </div>
-                </div>
-
-                {/* Alternate Number */}
-                <div className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Alternate Number</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>+1 321 654 987</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Employment Tab */}
         {activeTab === "employment" && (
