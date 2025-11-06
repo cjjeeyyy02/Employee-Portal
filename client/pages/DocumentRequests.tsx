@@ -246,18 +246,18 @@ export default function DocumentRequests() {
 
         {/* Summary Cards */}
         {activeTab !== "documents" && activeTab !== "forms" && activeTab !== "archived" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1.5 mb-1.5 sm:mb-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-1 mb-1.5">
             {summaryStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-2">
-                  <div className="flex justify-between items-start mb-0.5">
-                    <div className="flex-1">
+                <div key={index} className="bg-white rounded-lg shadow-sm p-1.5">
+                  <div className="flex justify-between items-start gap-1">
+                    <div className="flex-1 min-w-0">
                       <p className="text-xs text-gray-600 mb-0.5">{stat.label}</p>
-                      <p className="text-base font-bold text-gray-900">{stat.value}</p>
-                      <p className="text-xs text-gray-600 mt-0.5">{stat.subtitle}</p>
+                      <p className="text-sm font-bold text-gray-900">{stat.value}</p>
+                      <p className="text-xs text-gray-600 mt-0.5 line-clamp-1">{stat.subtitle}</p>
                     </div>
-                    <Icon className={`w-3.5 h-3.5 ${stat.color} flex-shrink-0`} />
+                    <Icon className={`w-3 h-3 ${stat.color} flex-shrink-0 mt-0.5`} />
                   </div>
                 </div>
               );
