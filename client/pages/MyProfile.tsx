@@ -306,7 +306,7 @@ export default function MyProfile() {
                 </div>
 
                 {/* Information Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-3 gap-y-2">
                   {/* Position */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Position</label>
@@ -483,7 +483,7 @@ export default function MyProfile() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-3 gap-y-2">
                   {/* Annual Salary */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Annual Salary</label>
@@ -584,7 +584,7 @@ export default function MyProfile() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-3 gap-y-2">
                   {/* Overall Rating */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Overall Rating</label>
