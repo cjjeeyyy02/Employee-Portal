@@ -34,7 +34,8 @@ export default function MyPerformance() {
         </div>
 
       {/* Navigation Tabs */}
-      <div className="flex gap-2 mb-1.5 sm:mb-2 overflow-x-auto">
+      <div className="border-b border-gray-200 mb-2 sm:mb-3 bg-white">
+        <div className="flex gap-0 px-2 sm:px-3">
           {[
             { id: "overview", label: "Overview" },
             { id: "goals", label: "Goals" },
@@ -45,16 +46,17 @@ export default function MyPerformance() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all ${
+              className={`px-4 py-3 font-medium text-sm border-b-2 transition-all ${
                 activeTab === tab.id
-                  ? "bg-gray-100 text-blue-600 border-b-2 border-blue-600 font-bold"
-                  : "text-gray-600 hover:text-gray-900"
+                  ? "text-blue-600 border-b-blue-600"
+                  : "text-gray-600 border-b-transparent hover:text-gray-900"
               }`}
             >
               {tab.label}
             </button>
           ))}
         </div>
+      </div>
 
         {/* ===== OVERVIEW TAB ===== */}
         {activeTab === "overview" && (
