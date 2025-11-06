@@ -93,9 +93,9 @@ export default function MyProfile() {
                 </div>
 
                 {/* Last Name */}
-                <div style={{ paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
-                  <label className="block text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Last Name</label>
-                  <p className="text-base font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}>Mitchell</p>
+                <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
+                  <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Last Name</label>
+                  <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Mitchell</p>
                 </div>
 
                 {/* Date of Birth */}
