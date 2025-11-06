@@ -819,8 +819,8 @@ export default function MyProfile() {
                       (e.target as HTMLButtonElement).style.backgroundColor = "transparent";
                     }}
                   >
-                    <Download className="w-4 h-4" />
-                    Download
+                    <Download className="w-3.5 h-3.5" />
+                    <span className="text-xs">Download</span>
                   </button>
                 </div>
               </div>
