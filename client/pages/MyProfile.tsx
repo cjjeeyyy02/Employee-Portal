@@ -69,7 +69,7 @@ export default function MyProfile() {
               border: "1px solid #E5E7EB",
               backgroundColor: "#FFFFFF",
               boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-              padding: "12px 16px"
+              padding: "10px 12px"
             }}>
               <div className="flex items-center gap-2 mb-2">
                 <img
@@ -136,7 +136,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Contact Details</h2>
 
@@ -195,7 +195,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Address Information</h2>
                 <div className="space-y-3">
@@ -236,7 +236,7 @@ export default function MyProfile() {
               border: "1px solid #E5E7EB",
               backgroundColor: "#FFFFFF",
               boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-              padding: "12px 16px"
+              padding: "10px 12px"
             }}>
               {/* Header */}
               <div className="flex items-start gap-2 mb-3">
@@ -294,7 +294,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 {/* Header */}
                 <div className="flex items-start gap-2 mb-3">
@@ -383,7 +383,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
                 <div className="space-y-2">
@@ -421,7 +421,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px",
+                padding: "10px 12px",
                 overflowX: "auto"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Previous Work History</h2>
@@ -473,7 +473,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <div className="flex items-start gap-2 mb-3">
                   <DollarSign className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -531,7 +531,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Deductions & Benefits</h2>
                 <div className="space-y-3">
@@ -574,7 +574,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <div className="flex items-start gap-2 mb-3">
                   <TrendingUp className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -626,7 +626,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px"
+                padding: "10px 12px"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Key Competencies</h2>
                 <div className="space-y-2">
@@ -689,7 +689,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px",
+                padding: "10px 12px",
                 overflowX: "auto"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Leave Balance</h2>
@@ -727,7 +727,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px",
+                padding: "10px 12px",
                 overflowX: "auto"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Leave History</h2>
@@ -831,7 +831,7 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "12px 16px",
+                padding: "10px 12px",
                 overflowX: "auto"
               }}>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
