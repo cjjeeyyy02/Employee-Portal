@@ -27,8 +27,8 @@ export default function MyProfile() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="mb-8" style={{ borderBottom: "1px solid #E5E7EB" }}>
-        <div className="flex gap-6 overflow-x-auto">
+      <div className="mb-4" style={{ borderBottom: "1px solid #E5E7EB" }}>
+        <div className="flex gap-4 overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
