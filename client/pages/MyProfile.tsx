@@ -21,9 +21,9 @@ export default function MyProfile() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="mb-8 animate-fadeIn">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>My Profile</h1>
-        <p className="text-sm text-gray-600" style={{ fontFamily: "Poppins, sans-serif" }}>View and manage your profile information</p>
+      <div className="mb-4 animate-fadeIn">
+        <h1 className="text-lg font-bold text-gray-900 mb-0.5" style={{ fontFamily: "Poppins, sans-serif" }}>My Profile</h1>
+        <p className="text-xs text-gray-600" style={{ fontFamily: "Poppins, sans-serif" }}>View and manage your profile information</p>
       </div>
 
       {/* Tab Navigation */}
