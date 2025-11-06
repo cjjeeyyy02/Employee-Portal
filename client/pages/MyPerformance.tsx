@@ -16,7 +16,7 @@ export default function MyPerformance() {
   return (
     <Layout>
       {/* Header Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
+      <div className="mb-1.5 sm:mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
         <div>
           <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Performance Management</h1>
           <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
