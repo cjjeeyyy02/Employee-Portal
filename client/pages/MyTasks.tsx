@@ -390,7 +390,7 @@ export default function MyTasks() {
                   {/* Top Row: Title and Delete Button */}
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-base font-bold text-gray-900 flex-1">{task.title}</h3>
-                    <button className="text-gray-400 hover:text-gray-600 transition-colors flex-shrink-0">
+                    <button onClick={() => handleDeleteTask(task.id)} className="text-gray-400 hover:text-red-600 transition-colors flex-shrink-0">
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
