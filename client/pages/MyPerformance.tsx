@@ -297,7 +297,7 @@ export default function MyPerformance() {
                     <span className="inline-block px-2 py-0.5 rounded text-xs font-semibold bg-yellow-100 text-yellow-800">
                       Due Soon
                     </span>
-                    <button className="px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded transition-colors whitespace-nowrap">
+                    <button onClick={() => setActiveModal('review')} className="px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded transition-colors whitespace-nowrap">
                       Start Review
                     </button>
                   </div>
@@ -313,7 +313,7 @@ export default function MyPerformance() {
                     <span className="inline-block px-2 py-0.5 rounded text-xs font-semibold bg-red-100 text-red-800">
                       Behind
                     </span>
-                    <button className="px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded transition-colors whitespace-nowrap">
+                    <button onClick={() => setActiveModal('goal')} className="px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded transition-colors whitespace-nowrap">
                       Update Goal
                     </button>
                   </div>
@@ -329,7 +329,7 @@ export default function MyPerformance() {
                     <span className="inline-block px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-800">
                       Pending
                     </span>
-                    <button className="px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded transition-colors whitespace-nowrap">
+                    <button onClick={() => setActiveModal('schedule')} className="px-2 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded transition-colors whitespace-nowrap">
                       Schedule
                     </button>
                   </div>
