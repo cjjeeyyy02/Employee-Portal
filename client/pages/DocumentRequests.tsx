@@ -514,15 +514,15 @@ export default function DocumentRequests() {
 
                       {/* Right: Actions */}
                       <div className="flex gap-1 ml-3">
-                        <button className="px-2 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1 whitespace-nowrap">
+                        <button onClick={() => handleViewDocument(doc)} className="px-2 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1 whitespace-nowrap">
                           <Eye className="w-3 h-3" />
                           View
                         </button>
-                        <button className="px-2 py-1 text-xs text-blue-600 border border-blue-300 bg-white rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-1 whitespace-nowrap">
+                        <button onClick={() => handleDownloadDocument(doc)} className="px-2 py-1 text-xs text-blue-600 border border-blue-300 bg-white rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-1 whitespace-nowrap">
                           <Download className="w-3 h-3" />
                           Download
                         </button>
-                        <button className="px-2 py-1 text-xs text-red-600 border border-red-300 bg-white rounded-lg hover:bg-red-50 transition-colors flex items-center gap-1 whitespace-nowrap">
+                        <button onClick={() => handleDeleteDocument(doc.id)} className="px-2 py-1 text-xs text-red-600 border border-red-300 bg-white rounded-lg hover:bg-red-50 transition-colors flex items-center gap-1 whitespace-nowrap">
                           <Trash2 className="w-3 h-3" />
                         </button>
                       </div>
