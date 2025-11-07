@@ -380,68 +380,196 @@ export default function MyTasks() {
               </select>
             </div>
 
-            {/* Task Cards */}
-            <div className="space-y-2.5">
-              {filteredTasks.map((task) => (
-                <div
-                  key={task.id}
-                  className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4 hover:shadow-md transition-shadow"
-                >
-                  {/* Top Row: Title and Delete Button */}
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-base font-bold text-gray-900 flex-1">{task.title}</h3>
-                    <button onClick={() => handleDeleteTask(task.id)} className="text-gray-400 hover:text-red-600 transition-colors flex-shrink-0">
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
+            {/* LIST VIEW */}
+            {activeView === "list" && (
+              <div className="space-y-2.5">
+                {filteredTasks.length > 0 ? (
+                  filteredTasks.map((task) => (
+                    <div
+                      key={task.id}
+                      className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4 hover:shadow-md transition-shadow"
+                    >
+                      {/* Top Row: Title and Delete Button */}
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-base font-bold text-gray-900 flex-1">{task.title}</h3>
+                        <button onClick={() => handleDeleteTask(task.id)} className="text-gray-400 hover:text-red-600 transition-colors flex-shrink-0">
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
 
-                  {/* Description */}
-                  <p className="text-xs text-gray-600 mb-2.5">{task.description}</p>
+                      {/* Description */}
+                      <p className="text-xs text-gray-600 mb-2.5">{task.description}</p>
 
-                  {/* Middle Row: Icons and Details */}
-                  <div className="flex gap-4 mb-2.5 text-xs text-gray-600">
-                    <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-gray-400" />
-                      <span>{task.dueDate}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Folder className="w-3.5 h-3.5 text-gray-400" />
-                      <span>{task.category}</span>
-                    </div>
-                  </div>
-
-                  {/* Bottom Row: Badges, Action Button, and Avatar */}
-                  <div className="flex justify-between items-center">
-                    <div className="flex gap-1.5">
-                      {/* Priority Badge */}
-                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getPriorityColor(task.priority)}`}>
-                        {task.priority}
-                      </span>
-
-                      {/* Status Badge */}
-                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(task.status)}`}>
-                        {task.status}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      {/* Mark Complete Button */}
-                      <button onClick={() => handleMarkComplete(task.id)} className="text-blue-600 text-xs font-medium hover:text-blue-700 transition-colors whitespace-nowrap">
-                        Mark Complete
-                      </button>
-
-                      {/* Avatar and Name */}
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                          {task.avatar}
+                      {/* Middle Row: Icons and Details */}
+                      <div className="flex gap-4 mb-2.5 text-xs text-gray-600">
+                        <div className="flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-gray-400" />
+                          <span>{task.dueDate}</span>
                         </div>
-                        <span className="text-xs text-gray-700">{task.assignedTo}</span>
+                        <div className="flex items-center gap-1.5">
+                          <Folder className="w-3.5 h-3.5 text-gray-400" />
+                          <span>{task.category}</span>
+                        </div>
+                      </div>
+
+                      {/* Bottom Row: Badges, Action Button, and Avatar */}
+                      <div className="flex justify-between items-center">
+                        <div className="flex gap-1.5">
+                          {/* Priority Badge */}
+                          <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getPriorityColor(task.priority)}`}>
+                            {task.priority}
+                          </span>
+
+                          {/* Status Badge */}
+                          <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${getStatusColor(task.status)}`}>
+                            {task.status}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          {/* Mark Complete Button */}
+                          <button onClick={() => handleMarkComplete(task.id)} className="text-blue-600 text-xs font-medium hover:text-blue-700 transition-colors whitespace-nowrap">
+                            Mark Complete
+                          </button>
+
+                          {/* Avatar and Name */}
+                          <div className="flex items-center gap-1.5">
+                            <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">
+                              {task.avatar}
+                            </div>
+                            <span className="text-xs text-gray-700">{task.assignedTo}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="text-center py-8 text-gray-500">
+                    <p>No tasks found. Try adjusting your filters.</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* KANBAN VIEW */}
+            {activeView === "kanban" && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {["Todo", "In Progress", "Review", "Done"].map((status) => (
+                  <div key={status} className="bg-gray-50 rounded-lg p-3 min-h-[500px]">
+                    <h3 className="font-semibold text-gray-900 mb-3 text-sm">{status}</h3>
+                    <div className="space-y-3">
+                      {filteredTasks
+                        .filter((task) => task.status === status)
+                        .map((task) => (
+                          <div
+                            key={task.id}
+                            className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow"
+                          >
+                            <div className="flex justify-between items-start gap-2 mb-2">
+                              <h4 className="text-sm font-semibold text-gray-900 flex-1">{task.title}</h4>
+                              <button onClick={() => handleDeleteTask(task.id)} className="text-gray-400 hover:text-red-600 flex-shrink-0">
+                                <Trash2 className="w-3 h-3" />
+                              </button>
+                            </div>
+                            <p className="text-xs text-gray-600 mb-2">{task.category}</p>
+                            <div className="flex gap-1.5 mb-2">
+                              <span className={`px-2 py-0.5 rounded text-xs font-semibold ${getPriorityColor(task.priority)}`}>
+                                {task.priority}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs text-gray-600">{task.dueDate}</span>
+                              <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold">
+                                {task.avatar}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      {filteredTasks.filter((task) => task.status === status).length === 0 && (
+                        <div className="text-center py-8 text-gray-400">
+                          <p className="text-xs">No tasks</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* CALENDAR VIEW */}
+            {activeView === "calendar" && (
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Task Calendar - December 2024</h3>
+                  <div className="grid grid-cols-7 gap-2 mb-4">
+                    {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+                      <div key={day} className="text-center font-semibold text-gray-700 text-sm py-2">
+                        {day}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="grid grid-cols-7 gap-2">
+                    {Array.from({ length: 35 }).map((_, i) => {
+                      const date = i - 6 + 1;
+                      const isCurrentMonth = date > 0 && date <= 31;
+                      const dateStr = isCurrentMonth ? `Dec ${date}, 2024` : "";
+                      const dayTasks = filteredTasks.filter((task) => task.dueDate === dateStr);
+
+                      return (
+                        <div
+                          key={i}
+                          className={`min-h-[100px] p-2 rounded-lg border ${
+                            isCurrentMonth
+                              ? "bg-white border-gray-200 hover:border-blue-300 hover:shadow-md transition-all"
+                              : "bg-gray-50 border-gray-100"
+                          }`}
+                        >
+                          {isCurrentMonth && (
+                            <>
+                              <div className="font-semibold text-sm text-gray-900 mb-1">{date}</div>
+                              <div className="space-y-1">
+                                {dayTasks.slice(0, 2).map((task) => (
+                                  <div
+                                    key={task.id}
+                                    className="text-xs bg-blue-50 text-blue-700 p-1 rounded truncate hover:bg-blue-100 cursor-pointer"
+                                    title={task.title}
+                                  >
+                                    {task.title}
+                                  </div>
+                                ))}
+                                {dayTasks.length > 2 && (
+                                  <div className="text-xs text-gray-600 px-1">
+                                    +{dayTasks.length - 2} more
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-              ))}
-            </div>
+
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <h4 className="font-semibold text-gray-900 mb-3">Upcoming Tasks</h4>
+                  <div className="space-y-2 max-h-[200px] overflow-y-auto">
+                    {filteredTasks.slice(0, 5).map((task) => (
+                      <div key={task.id} className="flex justify-between items-center p-2 bg-gray-50 rounded">
+                        <div className="flex-1">
+                          <p className="text-sm font-medium text-gray-900">{task.title}</p>
+                          <p className="text-xs text-gray-600">{task.dueDate}</p>
+                        </div>
+                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getPriorityColor(task.priority)}`}>
+                          {task.priority}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </>
         )}
 
