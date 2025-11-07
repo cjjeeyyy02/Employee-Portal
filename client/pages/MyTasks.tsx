@@ -482,7 +482,7 @@ export default function MyTasks() {
                     </div>
 
                     {/* View Project Button */}
-                    <button className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap ml-2">
+                    <button onClick={() => handleViewProject(project)} className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap ml-2">
                       View Project
                     </button>
                   </div>
@@ -539,7 +539,7 @@ export default function MyTasks() {
 
                     {/* Category and Due Date */}
                     <p className="text-xs text-gray-600 mb-3">
-                      {task.category} • {task.dueDate}
+                      {task.category} �� {task.dueDate}
                     </p>
 
                     {/* Badges */}
