@@ -343,7 +343,7 @@ export default function MyTasks() {
             {/* Search and Filters Row */}
             <div className="flex gap-3 mb-4">
               {/* Search Bar */}
-              <div className="flex-1 relative">
+              <div className="max-w-sm relative">
                 <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
                 <input
                   type="text"
