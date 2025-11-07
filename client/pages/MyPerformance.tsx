@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, FileText, TrendingUp, CheckCircle, AlertCircle, Calendar, ArrowUp } from "lucide-react";
+import { Plus, FileText, TrendingUp, CheckCircle, AlertCircle, Calendar, ArrowUp, X } from "lucide-react";
 import Layout from "@/components/Layout";
 import GoalCard from "@/components/GoalCard";
 import ReviewCard from "@/components/ReviewCard";
@@ -9,9 +9,68 @@ import AchievementCard from "@/components/AchievementCard";
 import SkillsAssessment from "@/components/SkillsAssessment";
 
 type TabType = "overview" | "goals" | "reviews" | "feedback" | "development";
+type ModalType = "goal" | "review" | "development" | "schedule" | "report" | null;
 
 export default function MyPerformance() {
   const [activeTab, setActiveTab] = useState<TabType>("overview");
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
+
+  // Form states
+  const [goalForm, setGoalForm] = useState({ title: '', category: '', description: '', dueDate: '' });
+  const [reviewForm, setReviewForm] = useState({ type: '', rating: '', comments: '' });
+  const [developmentForm, setDevelopmentForm] = useState({ title: '', category: '', startDate: '', endDate: '' });
+  const [scheduleForm, setScheduleForm] = useState({ date: '', time: '', notes: '' });
+
+  const showNotification = (message: string, type: 'success' | 'info' = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleNewGoal = () => {
+    if (goalForm.title && goalForm.category && goalForm.dueDate) {
+      showNotification('Goal created successfully', 'success');
+      setGoalForm({ title: '', category: '', description: '', dueDate: '' });
+      setActiveModal(null);
+    } else {
+      showNotification('Please fill in all required fields', 'info');
+    }
+  };
+
+  const handleStartReview = () => {
+    if (reviewForm.rating && reviewForm.comments) {
+      showNotification('Self-review submitted successfully', 'success');
+      setReviewForm({ type: '', rating: '', comments: '' });
+      setActiveModal(null);
+    } else {
+      showNotification('Please provide rating and comments', 'info');
+    }
+  };
+
+  const handleAddDevelopment = () => {
+    if (developmentForm.title && developmentForm.category) {
+      showNotification('Development activity added successfully', 'success');
+      setDevelopmentForm({ title: '', category: '', startDate: '', endDate: '' });
+      setActiveModal(null);
+    } else {
+      showNotification('Please fill in required fields', 'info');
+    }
+  };
+
+  const handleSchedule = () => {
+    if (scheduleForm.date && scheduleForm.time) {
+      showNotification('Meeting scheduled successfully', 'success');
+      setScheduleForm({ date: '', time: '', notes: '' });
+      setActiveModal(null);
+    } else {
+      showNotification('Please select date and time', 'info');
+    }
+  };
+
+  const handlePerformanceReport = () => {
+    showNotification('Performance report generated', 'success');
+    setActiveModal('report');
+  };
 
   return (
     <Layout>
