@@ -539,7 +539,7 @@ export default function MyTasks() {
 
                     {/* Category and Due Date */}
                     <p className="text-xs text-gray-600 mb-3">
-                      {task.category} �� {task.dueDate}
+                      {task.category} • {task.dueDate}
                     </p>
 
                     {/* Badges */}
@@ -654,6 +654,251 @@ export default function MyTasks() {
             </div>
           </div>
         )}
+
+      {/* Notification Toast */}
+      {notification && (
+        <div className={`fixed top-4 right-4 px-4 py-3 rounded-lg text-white text-sm font-medium z-50 ${
+          notification.type === 'success' ? 'bg-green-500' : 'bg-blue-500'
+        }`}>
+          {notification.message}
+        </div>
+      )}
+
+      {/* New Task Modal */}
+      {activeModal === 'newTask' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Create New Task</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Task Title</label>
+                <input
+                  type="text"
+                  value={newTaskForm.title}
+                  onChange={(e) => setNewTaskForm({ ...newTaskForm, title: e.target.value })}
+                  placeholder="Enter task title"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea
+                  value={newTaskForm.description}
+                  onChange={(e) => setNewTaskForm({ ...newTaskForm, description: e.target.value })}
+                  placeholder="Enter task description"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <select
+                  value={newTaskForm.category}
+                  onChange={(e) => setNewTaskForm({ ...newTaskForm, category: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select a category</option>
+                  <option value="Documentation">Documentation</option>
+                  <option value="Performance Reviews">Performance Reviews</option>
+                  <option value="Team Meetings">Team Meetings</option>
+                  <option value="Administrative">Administrative</option>
+                </select>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
+                  <input
+                    type="date"
+                    value={newTaskForm.dueDate}
+                    onChange={(e) => setNewTaskForm({ ...newTaskForm, dueDate: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+                  <select
+                    value={newTaskForm.priority}
+                    onChange={(e) => setNewTaskForm({ ...newTaskForm, priority: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                  </select>
+                </div>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleNewTask} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Create Task
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Filters Modal */}
+      {activeModal === 'filters' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Filter Tasks</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                <div className="space-y-2">
+                  {['All Status', 'Todo', 'In Progress', 'Review', 'Done'].map((status) => (
+                    <label key={status} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="status"
+                        value={status}
+                        checked={filterPanel.status === status}
+                        onChange={(e) => setFilterPanel({ ...filterPanel, status: e.target.value })}
+                        className="w-4 h-4"
+                      />
+                      <span className="text-sm text-gray-700">{status}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                <div className="space-y-2">
+                  {['All Priorities', 'High', 'Medium', 'Low'].map((priority) => (
+                    <label key={priority} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="priority"
+                        value={priority}
+                        checked={filterPanel.priority === priority}
+                        onChange={(e) => setFilterPanel({ ...filterPanel, priority: e.target.value })}
+                        className="w-4 h-4"
+                      />
+                      <span className="text-sm text-gray-700">{priority}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleApplyFilters} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Apply Filters
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* AI Assistant Modal */}
+      {activeModal === 'aiAssistant' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center gap-2">
+                <Zap className="w-5 h-5 text-blue-600" />
+                <h2 className="text-lg font-semibold text-gray-900">AI Assistant</h2>
+              </div>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <p className="text-sm text-gray-600">Ask AI to help with your tasks. You can request task suggestions, summaries, or automation.</p>
+              <textarea
+                value={aiInput}
+                onChange={(e) => setAiInput(e.target.value)}
+                placeholder="e.g., Create a task for Q4 review or summarize my tasks"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                rows={4}
+              ></textarea>
+              <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg text-sm text-blue-800">
+                <p>AI can help you: Create tasks, Summarize progress, Set reminders, Assign tasks</p>
+              </div>
+              <div className="flex gap-3">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleAiAssistant} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm flex items-center justify-center gap-2">
+                  <Zap className="w-3.5 h-3.5" />
+                  Ask AI
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* View Project Modal */}
+      {activeModal === 'viewProject' && selectedProject && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">{selectedProject.title}</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-3">{selectedProject.subtitle}</p>
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-gray-700">Progress</span>
+                  <span className="text-lg font-bold text-gray-900">{selectedProject.progress}%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${selectedProject.progress}%` }}></div>
+                </div>
+                <p className="text-xs text-gray-600 mt-2">
+                  {selectedProject.completedTasks} of {selectedProject.totalTasks} tasks completed
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">Team Members</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.team.map((member) => (
+                    <span key={member} className="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
+                      {member}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg text-sm text-blue-800">
+                <p>Project is in progress. Continue tracking tasks in the My Tasks tab.</p>
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Close
+                </button>
+                <button onClick={() => { showNotification('Project details updated', 'success'); setActiveModal(null); }} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
