@@ -1,12 +1,99 @@
 import { useState } from "react";
-import { Calendar, AlertCircle, CheckCircle, XCircle, Plus, Coffee, LogOut } from "lucide-react";
+import { Calendar, AlertCircle, CheckCircle, XCircle, Plus, Coffee, LogOut, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "attendance" | "leave";
 
+interface AttendanceRecord {
+  date: string;
+  clockIn: string | null;
+  clockOut: string | null;
+  totalHours: string;
+  status: string;
+}
+
 export default function MyLeaveAttendance() {
   const [activeTab, setActiveTab] = useState<TabType>("attendance");
   const [showLeaveModal, setShowLeaveModal] = useState(false);
+  const [showOvertimeModal, setShowOvertimeModal] = useState(false);
+  const [showBreakModal, setShowBreakModal] = useState(false);
+
+  // Attendance state
+  const [isClockedIn, setIsClockedIn] = useState(false);
+  const [clockInTime, setClockInTime] = useState<string | null>("09:00 AM");
+  const [clockOutTime, setClockOutTime] = useState<string | null>("06:15 PM");
+  const [isOnBreak, setIsOnBreak] = useState(false);
+  const [breakStartTime, setBreakStartTime] = useState<string | null>(null);
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
+
+  // Overtime form state
+  const [overtimeForm, setOvertimeForm] = useState({
+    date: '',
+    hours: '',
+    reason: ''
+  });
+
+  const getCurrentTime = () => {
+    const now = new Date();
+    return now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+  };
+
+  const showNotification = (message: string, type: 'success' | 'info' = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleClockIn = () => {
+    if (!isClockedIn) {
+      const time = getCurrentTime();
+      setClockInTime(time);
+      setIsClockedIn(true);
+      setIsOnBreak(false);
+      showNotification(`Clocked in at ${time}`, 'success');
+    }
+  };
+
+  const handleClockOut = () => {
+    if (isClockedIn && !isOnBreak) {
+      const time = getCurrentTime();
+      setClockOutTime(time);
+      setIsClockedIn(false);
+      showNotification(`Clocked out at ${time}`, 'success');
+    } else if (isOnBreak) {
+      showNotification('Please end your break before clocking out', 'info');
+    }
+  };
+
+  const handleBreak = () => {
+    if (isClockedIn && !isOnBreak) {
+      const time = getCurrentTime();
+      setBreakStartTime(time);
+      setIsOnBreak(true);
+      showNotification(`Break started at ${time}`, 'success');
+    } else if (isOnBreak) {
+      setShowBreakModal(true);
+    }
+  };
+
+  const handleEndBreak = () => {
+    if (isOnBreak) {
+      const time = getCurrentTime();
+      showNotification(`Break ended at ${time}`, 'success');
+      setIsOnBreak(false);
+      setBreakStartTime(null);
+      setShowBreakModal(false);
+    }
+  };
+
+  const handleOvertimeSubmit = () => {
+    if (overtimeForm.date && overtimeForm.hours && overtimeForm.reason) {
+      showNotification('Overtime request submitted successfully', 'success');
+      setOvertimeForm({ date: '', hours: '', reason: '' });
+      setShowOvertimeModal(false);
+    } else {
+      showNotification('Please fill in all fields', 'info');
+    }
+  };
 
 
   return (
