@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Upload, Plus, Search, Filter, FileText, Clock, CheckCircle, Download, Shield, Folder, Eye, Trash2, File } from "lucide-react";
+import { Upload, Plus, Search, Filter, FileText, Clock, CheckCircle, Download, Shield, Folder, Eye, Trash2, File, X } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "requests" | "documents" | "forms" | "archived";
 type StatusType = "completed" | "in-progress" | "pending" | "rejected";
 type PriorityType = "high" | "medium" | "low";
+type ModalType = "upload" | "newRequest" | "moreFilters" | "details" | "preview" | null;
 
 interface Request {
   id: number;
@@ -33,6 +34,81 @@ export default function DocumentRequests() {
   const [activeTab, setActiveTab] = useState<TabType>("requests");
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("All Status");
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const [selectedRequest, setSelectedRequest] = useState<Request | null>(null);
+  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
+
+  // Form states
+  const [uploadForm, setUploadForm] = useState({ fileName: '', category: '', file: null as File | null });
+  const [newRequestForm, setNewRequestForm] = useState({ title: '', description: '', priority: 'medium', deliveryMethod: 'Email' });
+  const [filterPanel, setFilterPanel] = useState({ status: 'All Status', priority: 'All Priorities' });
+
+  const showNotification = (message: string, type: 'success' | 'info' = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleUploadDocument = () => {
+    if (uploadForm.fileName && uploadForm.category) {
+      showNotification('Document uploaded successfully', 'success');
+      setUploadForm({ fileName: '', category: '', file: null });
+      setActiveModal(null);
+    } else {
+      showNotification('Please fill in all required fields', 'info');
+    }
+  };
+
+  const handleNewRequest = () => {
+    if (newRequestForm.title && newRequestForm.description) {
+      showNotification('Request submitted successfully', 'success');
+      setNewRequestForm({ title: '', description: '', priority: 'medium', deliveryMethod: 'Email' });
+      setActiveModal(null);
+    } else {
+      showNotification('Please fill in all required fields', 'info');
+    }
+  };
+
+  const handleDownloadRequest = (request: Request) => {
+    showNotification(`Downloading: ${request.title}`, 'success');
+  };
+
+  const handleEditRequest = (request: Request) => {
+    setSelectedRequest(request);
+    setActiveModal('details');
+  };
+
+  const handleViewDetails = (request: Request) => {
+    setSelectedRequest(request);
+    setActiveModal('details');
+  };
+
+  const handleViewDocument = (doc: Document) => {
+    setSelectedDocument(doc);
+    showNotification(`Opening: ${doc.fileName}`, 'info');
+  };
+
+  const handleDownloadDocument = (doc: Document) => {
+    showNotification(`Downloading: ${doc.fileName}`, 'success');
+  };
+
+  const handleDeleteDocument = (docId: number) => {
+    showNotification('Document deleted successfully', 'success');
+  };
+
+  const handlePreviewForm = (formTitle: string) => {
+    showNotification(`Previewing: ${formTitle}`, 'info');
+  };
+
+  const handleDownloadForm = (formTitle: string) => {
+    showNotification(`Downloading: ${formTitle}`, 'success');
+  };
+
+  const handleApplyFilters = () => {
+    setStatusFilter(filterPanel.status);
+    showNotification('Filters applied', 'success');
+    setActiveModal(null);
+  };
 
   const requests: Request[] = [
     {
