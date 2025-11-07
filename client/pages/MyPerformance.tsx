@@ -537,6 +537,300 @@ export default function MyPerformance() {
           </div>
         </div>
       )}
+
+      {/* Notification Toast */}
+      {notification && (
+        <div className={`fixed top-4 right-4 px-4 py-3 rounded-lg text-white text-sm font-medium z-50 ${
+          notification.type === 'success' ? 'bg-green-500' : 'bg-blue-500'
+        }`}>
+          {notification.message}
+        </div>
+      )}
+
+      {/* New Goal Modal */}
+      {activeModal === 'goal' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Create New Goal</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Goal Title</label>
+                <input
+                  type="text"
+                  value={goalForm.title}
+                  onChange={(e) => setGoalForm({ ...goalForm, title: e.target.value })}
+                  placeholder="e.g., Improve code quality"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <select
+                  value={goalForm.category}
+                  onChange={(e) => setGoalForm({ ...goalForm, category: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select a category</option>
+                  <option value="Technical Skills">Technical Skills</option>
+                  <option value="Professional Development">Professional Development</option>
+                  <option value="Leadership">Leadership</option>
+                  <option value="Communication">Communication</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea
+                  value={goalForm.description}
+                  onChange={(e) => setGoalForm({ ...goalForm, description: e.target.value })}
+                  placeholder="Describe your goal..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
+                <input
+                  type="date"
+                  value={goalForm.dueDate}
+                  onChange={(e) => setGoalForm({ ...goalForm, dueDate: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleNewGoal} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Create Goal
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Self-Review Modal */}
+      {activeModal === 'review' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Self-Review</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Rating (1-5)</label>
+                <select
+                  value={reviewForm.rating}
+                  onChange={(e) => setReviewForm({ ...reviewForm, rating: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select rating</option>
+                  <option value="5">5 - Excellent</option>
+                  <option value="4">4 - Good</option>
+                  <option value="3">3 - Satisfactory</option>
+                  <option value="2">2 - Needs Improvement</option>
+                  <option value="1">1 - Poor</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Comments</label>
+                <textarea
+                  value={reviewForm.comments}
+                  onChange={(e) => setReviewForm({ ...reviewForm, comments: e.target.value })}
+                  placeholder="Share your self-assessment..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={4}
+                ></textarea>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleStartReview} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Development Activity Modal */}
+      {activeModal === 'development' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Add Development Activity</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Activity Title</label>
+                <input
+                  type="text"
+                  value={developmentForm.title}
+                  onChange={(e) => setDevelopmentForm({ ...developmentForm, title: e.target.value })}
+                  placeholder="e.g., AWS Certification Course"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <select
+                  value={developmentForm.category}
+                  onChange={(e) => setDevelopmentForm({ ...developmentForm, category: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select category</option>
+                  <option value="Training">Training</option>
+                  <option value="Certification">Certification</option>
+                  <option value="Workshop">Workshop</option>
+                  <option value="Self-Study">Self-Study</option>
+                </select>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
+                  <input
+                    type="date"
+                    value={developmentForm.startDate}
+                    onChange={(e) => setDevelopmentForm({ ...developmentForm, startDate: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
+                  <input
+                    type="date"
+                    value={developmentForm.endDate}
+                    onChange={(e) => setDevelopmentForm({ ...developmentForm, endDate: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleAddDevelopment} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Add Activity
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Schedule Meeting Modal */}
+      {activeModal === 'schedule' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Schedule Discussion</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <input
+                  type="date"
+                  value={scheduleForm.date}
+                  onChange={(e) => setScheduleForm({ ...scheduleForm, date: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
+                <input
+                  type="time"
+                  value={scheduleForm.time}
+                  onChange={(e) => setScheduleForm({ ...scheduleForm, time: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                <textarea
+                  value={scheduleForm.notes}
+                  onChange={(e) => setScheduleForm({ ...scheduleForm, notes: e.target.value })}
+                  placeholder="Add any notes..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                ></textarea>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleSchedule} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Schedule
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Performance Report Modal */}
+      {activeModal === 'report' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Performance Report</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h3 className="font-semibold text-gray-900 mb-2">Q4 2024 Performance Summary</h3>
+                <p className="text-sm text-gray-600 mb-3">Generated on {new Date().toLocaleDateString()}</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Overall Rating:</span>
+                    <span className="font-semibold text-gray-900">4.2 / 5.0</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Goals Progress:</span>
+                    <span className="font-semibold text-gray-900">68%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Development Hours:</span>
+                    <span className="font-semibold text-gray-900">24 hours (120% of target)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Reviews Completed:</span>
+                    <span className="font-semibold text-gray-900">2 of 3</span>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg text-sm text-blue-800">
+                <p>Your full performance report has been generated and is ready for download or sharing with your manager.</p>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Close
+                </button>
+                <button onClick={() => { showNotification('Report downloaded successfully', 'success'); setActiveModal(null); }} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Download Report
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
