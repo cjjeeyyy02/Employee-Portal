@@ -539,6 +539,15 @@ export default function MyLeaveAttendance() {
         </div>
       )}
 
+      {/* Notification Toast */}
+      {notification && (
+        <div className={`fixed top-4 right-4 px-4 py-3 rounded-lg text-white text-sm font-medium z-50 ${
+          notification.type === 'success' ? 'bg-green-500' : 'bg-blue-500'
+        }`}>
+          {notification.message}
+        </div>
+      )}
+
       {/* Leave Request Modal */}
       {showLeaveModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -575,6 +584,83 @@ export default function MyLeaveAttendance() {
                   Submit
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Overtime Request Modal */}
+      {showOvertimeModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Request Overtime</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <input
+                  type="date"
+                  value={overtimeForm.date}
+                  onChange={(e) => setOvertimeForm({ ...overtimeForm, date: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Hours</label>
+                <input
+                  type="number"
+                  value={overtimeForm.hours}
+                  onChange={(e) => setOvertimeForm({ ...overtimeForm, hours: e.target.value })}
+                  placeholder="e.g., 2"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Reason</label>
+                <textarea
+                  value={overtimeForm.reason}
+                  onChange={(e) => setOvertimeForm({ ...overtimeForm, reason: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  rows={3}
+                  placeholder="Enter reason for overtime"
+                ></textarea>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setShowOvertimeModal(false)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleOvertimeSubmit} className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors text-sm">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Break End Modal */}
+      {showBreakModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full mx-4">
+            <div className="flex items-center gap-3 mb-4">
+              <Coffee className="w-5 h-5 text-orange-500" />
+              <h2 className="text-lg font-semibold text-gray-900">End Break</h2>
+            </div>
+            <p className="text-sm text-gray-600 mb-6">
+              Break started at {breakStartTime}. Are you ready to resume work?
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowBreakModal(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+              >
+                Continue Break
+              </button>
+              <button
+                onClick={handleEndBreak}
+                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors text-sm"
+              >
+                End Break
+              </button>
             </div>
           </div>
         </div>
