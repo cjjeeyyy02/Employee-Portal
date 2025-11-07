@@ -211,7 +211,7 @@ export default function MyPerformance() {
                   </div>
                 </div>
 
-                <button className="w-full mt-2 px-3 py-1 text-xs font-medium text-blue-600 border border-blue-300 rounded-lg hover:bg-blue-50 transition-colors">
+                <button onClick={() => setActiveTab('goals')} className="w-full mt-2 px-3 py-1 text-xs font-medium text-blue-600 border border-blue-300 rounded-lg hover:bg-blue-50 transition-colors">
                   View All Goals
                 </button>
               </div>
