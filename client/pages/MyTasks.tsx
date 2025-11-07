@@ -426,7 +426,7 @@ export default function MyTasks() {
 
                     <div className="flex items-center gap-3">
                       {/* Mark Complete Button */}
-                      <button className="text-blue-600 text-xs font-medium hover:text-blue-700 transition-colors whitespace-nowrap">
+                      <button onClick={() => handleMarkComplete(task.id)} className="text-blue-600 text-xs font-medium hover:text-blue-700 transition-colors whitespace-nowrap">
                         Mark Complete
                       </button>
 
