@@ -105,7 +105,7 @@ export default function MyLeaveAttendance() {
           <p className="text-xs text-gray-600">Manage your attendance, breaks, overtime, and leave records.</p>
         </div>
         {activeTab === "attendance" && (
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+          <button onClick={() => setShowOvertimeModal(true)} className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
             Request Overtime
           </button>
         )}
