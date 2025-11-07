@@ -149,12 +149,12 @@ export default function MyProfile() {
 
       {/* Tab Navigation */}
       <div className="mb-4" style={{ borderBottom: "1px solid #E5E7EB" }}>
-        <div className="flex gap-4 overflow-x-auto">
+        <div className="flex gap-8 overflow-x-auto px-4">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className="pb-2 font-semibold text-xs whitespace-nowrap transition-all"
+              className="pb-3 font-semibold text-xs whitespace-nowrap transition-all px-1"
               style={{
                 fontFamily: "Poppins, sans-serif",
                 fontSize: "13px",
