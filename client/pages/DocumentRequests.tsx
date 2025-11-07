@@ -616,6 +616,252 @@ export default function DocumentRequests() {
             </div>
           </div>
         )}
+
+      {/* Notification Toast */}
+      {notification && (
+        <div className={`fixed top-4 right-4 px-4 py-3 rounded-lg text-white text-sm font-medium z-50 ${
+          notification.type === 'success' ? 'bg-green-500' : 'bg-blue-500'
+        }`}>
+          {notification.message}
+        </div>
+      )}
+
+      {/* Upload Document Modal */}
+      {activeModal === 'upload' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Upload Document</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">File Name</label>
+                <input
+                  type="text"
+                  value={uploadForm.fileName}
+                  onChange={(e) => setUploadForm({ ...uploadForm, fileName: e.target.value })}
+                  placeholder="e.g., My_Document.pdf"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                <select
+                  value={uploadForm.category}
+                  onChange={(e) => setUploadForm({ ...uploadForm, category: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select a category</option>
+                  <option value="Identity Documents">Identity Documents</option>
+                  <option value="Medical Records">Medical Records</option>
+                  <option value="Certifications">Certifications</option>
+                  <option value="Insurance">Insurance</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Select File</label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                  <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                  <p className="text-sm text-gray-600">Click to upload or drag and drop</p>
+                  <input type="file" className="hidden" />
+                </div>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleUploadDocument} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Upload
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* New Request Modal */}
+      {activeModal === 'newRequest' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">New Request</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Request Title</label>
+                <input
+                  type="text"
+                  value={newRequestForm.title}
+                  onChange={(e) => setNewRequestForm({ ...newRequestForm, title: e.target.value })}
+                  placeholder="e.g., Work Certificate"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea
+                  value={newRequestForm.description}
+                  onChange={(e) => setNewRequestForm({ ...newRequestForm, description: e.target.value })}
+                  placeholder="Describe what you need..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                ></textarea>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+                  <select
+                    value={newRequestForm.priority}
+                    onChange={(e) => setNewRequestForm({ ...newRequestForm, priority: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Delivery</label>
+                  <select
+                    value={newRequestForm.deliveryMethod}
+                    onChange={(e) => setNewRequestForm({ ...newRequestForm, deliveryMethod: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Email">Email</option>
+                    <option value="In-person">In-person</option>
+                    <option value="Portal">Portal</option>
+                  </select>
+                </div>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleNewRequest} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Submit Request
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* More Filters Modal */}
+      {activeModal === 'moreFilters' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Advanced Filters</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                <div className="space-y-2">
+                  {['All Status', 'completed', 'in-progress', 'pending', 'rejected'].map((status) => (
+                    <label key={status} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="status"
+                        value={status}
+                        checked={filterPanel.status === status}
+                        onChange={(e) => setFilterPanel({ ...filterPanel, status: e.target.value })}
+                        className="w-4 h-4"
+                      />
+                      <span className="text-sm text-gray-700 capitalize">{status.replace('-', ' ')}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+                <div className="space-y-2">
+                  {['All Priorities', 'high', 'medium', 'low'].map((priority) => (
+                    <label key={priority} className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="priority"
+                        value={priority}
+                        checked={filterPanel.priority === priority}
+                        onChange={(e) => setFilterPanel({ ...filterPanel, priority: e.target.value })}
+                        className="w-4 h-4"
+                      />
+                      <span className="text-sm text-gray-700 capitalize">{priority}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button onClick={() => setActiveModal(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                  Cancel
+                </button>
+                <button onClick={handleApplyFilters} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                  Apply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Request Details Modal */}
+      {activeModal === 'details' && selectedRequest && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">Request Details</h2>
+              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-gray-50 p-3 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Title</p>
+                <p className="text-lg font-semibold text-gray-900">{selectedRequest.title}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs text-gray-600 mb-1">Status</p>
+                  <span className={`px-2 py-1 rounded-full text-xs font-semibold capitalize ${getStatusColor(selectedRequest.status)}`}>
+                    {selectedRequest.status.replace('-', ' ')}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600 mb-1">Priority</p>
+                  <span className={`px-2 py-1 rounded-full text-xs font-semibold capitalize ${getPriorityColor(selectedRequest.priority)}`}>
+                    {selectedRequest.priority}
+                  </span>
+                </div>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Description</p>
+                <p className="text-sm text-gray-900">{selectedRequest.description}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Delivery Method</p>
+                <p className="text-sm text-gray-900">{selectedRequest.deliveryMethod}</p>
+              </div>
+              {selectedRequest.note && (
+                <div className="bg-blue-50 p-3 rounded-lg">
+                  <p className="text-xs text-blue-600 font-medium mb-1">Note</p>
+                  <p className="text-sm text-blue-900">{selectedRequest.note}</p>
+                </div>
+              )}
+              <button onClick={() => setActiveModal(null)} className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
