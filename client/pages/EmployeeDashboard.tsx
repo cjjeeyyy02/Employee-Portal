@@ -82,45 +82,45 @@ export default function EmployeeDashboard() {
 
   return (
     <Layout>
-      {/* Welcome Section - Enhanced */}
-      <div className="mb-8">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+      {/* Welcome Section - Minimized */}
+      <div className="mb-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
           {/* Left Group */}
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">Welcome back, John!</h1>
-            <p className="text-sm text-gray-600">Here's your dashboard overview for today</p>
+            <h1 className="text-lg sm:text-xl font-bold text-gray-900 mb-0.5">Welcome back, John!</h1>
+            <p className="text-xs text-gray-600">Here's your dashboard overview for today</p>
           </div>
 
           {/* Right Group - Time Card */}
           <div
-            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow"
+            className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow"
             style={{
               boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
             }}
           >
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-1.5">
               {/* Time Label */}
-              <p className="text-3xl font-bold text-gray-900">{currentTime}</p>
+              <p className="text-2xl font-bold text-gray-900">{currentTime}</p>
 
               {/* Date Label */}
               <p className="text-xs font-medium text-gray-500">{currentDate}</p>
 
               {/* Button Group */}
-              <div className="flex flex-row gap-2 mt-4">
+              <div className="flex flex-row gap-1.5 mt-2">
                 {/* Clock In Button */}
                 <button
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-semibold transition-all hover:bg-blue-700 active:scale-95"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold transition-all hover:bg-blue-700 active:scale-95"
                 >
-                  <CheckCircle className="w-4 h-4" />
+                  <CheckCircle className="w-3.5 h-3.5" />
                   <span>Clock In</span>
                 </button>
 
                 {/* Break Button */}
                 <button
                   disabled
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gray-100 text-gray-400 text-xs font-semibold cursor-not-allowed"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gray-100 text-gray-400 text-xs font-semibold cursor-not-allowed"
                 >
-                  <Coffee className="w-4 h-4" />
+                  <Coffee className="w-3.5 h-3.5" />
                   <span>Break</span>
                 </button>
               </div>
@@ -129,23 +129,23 @@ export default function EmployeeDashboard() {
         </div>
       </div>
 
-      {/* Stat Cards Grid - Enhanced */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+      {/* Stat Cards Grid - Minimized */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {metrics.map((metric, index) => {
           const Icon = metric.icon;
           return (
             <div
               key={index}
-              className={`bg-white rounded-2xl border ${metric.borderColor} p-6 shadow-sm hover:shadow-md hover:border-gray-300 transition-all group`}
+              className={`bg-white rounded-lg border ${metric.borderColor} p-4 shadow-sm hover:shadow-md hover:border-gray-300 transition-all group`}
             >
-              <div className="flex items-start gap-4">
-                <div className={`${metric.bgColor} p-3 rounded-xl group-hover:scale-110 transition-transform`}>
-                  <Icon className={`w-6 h-6 ${metric.iconColor}`} />
+              <div className="flex items-start gap-3">
+                <div className={`${metric.bgColor} p-2 rounded-lg group-hover:scale-110 transition-transform`}>
+                  <Icon className={`w-5 h-5 ${metric.iconColor}`} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wide">{metric.label}</p>
-                  <p className="text-2xl font-bold text-gray-900">{metric.value}</p>
-                  {metric.subtext && <p className="text-xs text-gray-500 mt-2 flex items-center gap-1"><ArrowUpRight className="w-3 h-3 text-green-600" />{metric.subtext}</p>}
+                  <p className="text-xs font-medium text-gray-500 mb-0.5 uppercase tracking-wide">{metric.label}</p>
+                  <p className="text-lg font-bold text-gray-900">{metric.value}</p>
+                  {metric.subtext && <p className="text-xs text-gray-500 mt-1 flex items-center gap-1"><ArrowUpRight className="w-3 h-3 text-green-600" />{metric.subtext}</p>}
                 </div>
               </div>
             </div>
@@ -154,27 +154,27 @@ export default function EmployeeDashboard() {
       </div>
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
-        {/* Pending Tasks - Enhanced */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
+        {/* Pending Tasks - Minimized */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Pending Tasks</h2>
-              <span className="bg-red-50 text-red-700 text-xs font-semibold px-3 py-1 rounded-full">{pendingTasks.length} tasks</span>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-5">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-base font-bold text-gray-900">Pending Tasks</h2>
+              <span className="bg-red-50 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">{pendingTasks.length} tasks</span>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {pendingTasks.map((task) => (
                 <div
                   key={task.id}
-                  className="flex items-center justify-between p-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all group cursor-pointer"
+                  className="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-all group cursor-pointer"
                 >
                   <div className="flex-1">
-                    <p className="font-semibold text-gray-900 text-sm group-hover:text-blue-600 transition-colors">{task.title}</p>
-                    <p className="text-xs text-gray-500 mt-1">Due: {task.dueDate}</p>
+                    <p className="font-semibold text-gray-900 text-xs group-hover:text-blue-600 transition-colors">{task.title}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Due: {task.dueDate}</p>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
                     <span
-                      className={`text-xs font-semibold px-3 py-1.5 rounded-full ${
+                      className={`text-xs font-semibold px-2 py-1 rounded-full ${
                         task.status === "pending"
                           ? "bg-red-100 text-red-700"
                           : task.status === "in-progress"
@@ -185,7 +185,7 @@ export default function EmployeeDashboard() {
                       {task.status.replace("-", " ")}
                     </span>
                     <span
-                      className={`text-xs font-semibold px-3 py-1.5 rounded-full ${
+                      className={`text-xs font-semibold px-2 py-1 rounded-full ${
                         task.priority === "high"
                           ? "bg-red-50 text-red-700 border border-red-200"
                           : "bg-yellow-50 text-yellow-700 border border-yellow-200"
@@ -197,20 +197,20 @@ export default function EmployeeDashboard() {
                 </div>
               ))}
             </div>
-            <button className="mt-6 text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 group">
-              View all tasks <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <button className="mt-4 text-blue-600 hover:text-blue-700 font-semibold text-xs flex items-center gap-1 group">
+              View all tasks <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>
 
-        {/* This Week - Enhanced */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7">
-          <h3 className="font-bold text-gray-900 mb-6 text-lg">This Week</h3>
-          <div className="space-y-4">
+        {/* This Week - Minimized */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-5">
+          <h3 className="font-bold text-gray-900 mb-4 text-base">This Week</h3>
+          <div className="space-y-2.5">
             {weeklyHours.map((item) => (
-              <div key={item.day} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl hover:bg-blue-50 transition-colors">
-                <span className="text-sm font-semibold text-gray-700">{item.day}</span>
-                <span className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded-full font-bold">
+              <div key={item.day} className="flex items-center justify-between p-2.5 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
+                <span className="text-xs font-semibold text-gray-700">{item.day}</span>
+                <span className="text-xs bg-blue-600 text-white px-2.5 py-1 rounded-full font-bold">
                   {item.hours}h
                 </span>
               </div>
@@ -219,15 +219,15 @@ export default function EmployeeDashboard() {
         </div>
       </div>
 
-      {/* Latest Announcements - Enhanced */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-7 mb-10">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <Bell className="w-5 h-5 text-blue-600" />
+      {/* Latest Announcements - Minimized */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-5 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
+            <Bell className="w-4 h-4 text-blue-600" />
             Latest Announcements
           </h2>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2">
           {[
             {
               id: 1,
@@ -251,13 +251,13 @@ export default function EmployeeDashboard() {
               content: "Open enrollment for health and wellness benefits is now live.",
             },
           ].map((announcement) => (
-            <div key={announcement.id} className="border border-gray-200 rounded-xl p-4 hover:border-blue-200 hover:bg-blue-50 transition-all">
-              <div className="flex items-start justify-between mb-2">
+            <div key={announcement.id} className="border border-gray-200 rounded-lg p-3 hover:border-blue-200 hover:bg-blue-50 transition-all">
+              <div className="flex items-start justify-between mb-1.5">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <h3 className="font-semibold text-gray-900 text-sm">{announcement.title}</h3>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <h3 className="font-semibold text-gray-900 text-xs">{announcement.title}</h3>
                     <span
-                      className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+                      className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                         announcement.category === "HR"
                           ? "bg-blue-100 text-blue-700"
                           : "bg-purple-100 text-purple-700"
@@ -277,7 +277,7 @@ export default function EmployeeDashboard() {
                   className="text-gray-400 hover:text-gray-600 transition-colors"
                 >
                   <ChevronRight
-                    className={`w-5 h-5 transition-transform ${
+                    className={`w-4 h-4 transition-transform ${
                       expandedAnnouncement === announcement.id ? "rotate-90" : ""
                     }`}
                   />
@@ -285,7 +285,7 @@ export default function EmployeeDashboard() {
               </div>
 
               {expandedAnnouncement === announcement.id && (
-                <p className="text-sm text-gray-700 mt-3 pt-3 border-t border-gray-200">
+                <p className="text-xs text-gray-700 mt-2.5 pt-2.5 border-t border-gray-200">
                   {announcement.content}
                 </p>
               )}
@@ -294,22 +294,22 @@ export default function EmployeeDashboard() {
         </div>
       </div>
 
-      {/* AI Chat Section - Enhanced */}
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl border border-blue-200 p-7 shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <MessageCircle className="w-5 h-5 text-blue-600" />
+      {/* AI Chat Section - Minimized */}
+      <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border border-blue-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
+            <MessageCircle className="w-4 h-4 text-blue-600" />
             AI Assistant
           </h2>
-          <span className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-semibold flex items-center gap-1">
+          <span className="text-xs bg-green-100 text-green-700 px-2.5 py-1 rounded-full font-semibold flex items-center gap-1">
             <span className="w-2 h-2 bg-green-600 rounded-full"></span>
             Online
           </span>
         </div>
-        <p className="text-sm text-gray-700 mb-5 leading-relaxed">
+        <p className="text-xs text-gray-700 mb-4 leading-relaxed">
           Need help? Our AI assistant is available to answer questions about your benefits, leave, payroll, and more.
         </p>
-        <button className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold py-2.5 px-6 rounded-lg transition-all text-sm shadow-sm hover:shadow-md">
+        <button className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold py-2 px-4 rounded-lg transition-all text-xs shadow-sm hover:shadow-md">
           Start Chat
         </button>
       </div>
