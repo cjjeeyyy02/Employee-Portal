@@ -421,16 +421,16 @@ export default function DocumentRequests() {
                 {/* Action Buttons */}
                 <div className="flex gap-1.5 ml-3">
                   {request.status === "completed" ? (
-                    <button className="px-2.5 py-1 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1 whitespace-nowrap">
+                    <button onClick={() => handleDownloadRequest(request)} className="px-2.5 py-1 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1 whitespace-nowrap">
                       <Download className="w-3 h-3" />
                       Download
                     </button>
                   ) : (
-                    <button className="px-2.5 py-1 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap">
+                    <button onClick={() => handleEditRequest(request)} className="px-2.5 py-1 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap">
                       Edit
                     </button>
                   )}
-                  <button className="px-2.5 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
+                  <button onClick={() => handleViewDetails(request)} className="px-2.5 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
                     Details
                   </button>
                 </div>
