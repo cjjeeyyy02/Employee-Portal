@@ -82,14 +82,15 @@ export default function EmployeeDashboard() {
 
   return (
     <Layout>
-      {/* Welcome Section - At Top */}
-      <div className="mb-4">
-        <h1 className="text-lg sm:text-xl font-bold text-gray-900 mb-0.5">Welcome back, John!</h1>
-        <p className="text-xs text-gray-600">Here's your dashboard overview for today</p>
-      </div>
+      {/* Welcome & Time Card Section - Same Row */}
+      <div className="mb-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
+        {/* Welcome Text */}
+        <div>
+          <h1 className="text-lg sm:text-xl font-bold text-gray-900 mb-0.5">Welcome back, John!</h1>
+          <p className="text-xs text-gray-600">Here's your dashboard overview for today</p>
+        </div>
 
-      {/* Time Card Section */}
-      <div className="mb-5 flex justify-end">
+        {/* Time Card */}
         <div
           className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow w-full sm:w-auto"
           style={{
