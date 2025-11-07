@@ -178,7 +178,13 @@ export default function MyLeaveAttendance() {
             <div className="flex flex-row gap-2 mt-2">
               {/* Clock In Button */}
               <button
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#2F80ED] text-white text-xs font-medium transition-colors hover:bg-blue-700"
+                onClick={handleClockIn}
+                disabled={isClockedIn}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-white text-xs font-medium transition-colors ${
+                  isClockedIn
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-[#2F80ED] hover:bg-blue-700'
+                }`}
               >
                 <CheckCircle className="w-3.5 h-3.5" />
                 <span>Clock In</span>
@@ -186,7 +192,13 @@ export default function MyLeaveAttendance() {
 
               {/* Clock Out Button */}
               <button
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#DC2626] text-white text-xs font-medium transition-colors hover:bg-red-700"
+                onClick={handleClockOut}
+                disabled={!isClockedIn || isOnBreak}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-white text-xs font-medium transition-colors ${
+                  !isClockedIn || isOnBreak
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-[#DC2626] hover:bg-red-700'
+                }`}
               >
                 <LogOut className="w-3.5 h-3.5" />
                 <span>Clock Out</span>
@@ -194,11 +206,18 @@ export default function MyLeaveAttendance() {
 
               {/* Break Button */}
               <button
-                disabled
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#F2F2F2] text-[#B3B3B3] text-xs font-medium cursor-not-allowed"
+                onClick={handleBreak}
+                disabled={!isClockedIn}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                  !isClockedIn
+                    ? 'bg-[#F2F2F2] text-[#B3B3B3] cursor-not-allowed'
+                    : isOnBreak
+                    ? 'bg-orange-500 text-white hover:bg-orange-600'
+                    : 'bg-orange-500 text-white hover:bg-orange-600'
+                }`}
               >
                 <Coffee className="w-3.5 h-3.5" />
-                <span>Break</span>
+                <span>{isOnBreak ? 'End Break' : 'Break'}</span>
               </button>
             </div>
           </div>
