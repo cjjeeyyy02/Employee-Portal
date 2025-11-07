@@ -81,11 +81,11 @@ export default function MyPerformance() {
           <p className="text-xs text-gray-600">Track your goals, reviews, and professional development</p>
         </div>
         <div className="flex gap-2">
-          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
+          <button onClick={handlePerformanceReport} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
             <FileText className="w-3.5 h-3.5" />
             Performance Report
           </button>
-          <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+          <button onClick={() => setActiveModal('goal')} className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
             <Plus className="w-3.5 h-3.5" />
             New Goal
           </button>
