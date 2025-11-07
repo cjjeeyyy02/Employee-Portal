@@ -285,11 +285,11 @@ export default function DocumentRequests() {
           <p className="text-xs text-gray-600">Submit requests and manage your work-related documents</p>
         </div>
         <div className="flex gap-1 sm:gap-2 flex-wrap">
-          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
+          <button onClick={() => setActiveModal('upload')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
             <Upload className="w-3.5 h-3.5" />
             Upload Document
           </button>
-          <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+          <button onClick={() => setActiveModal('newRequest')} className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
             <Plus className="w-3.5 h-3.5" />
             New Request
           </button>
