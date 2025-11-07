@@ -483,7 +483,7 @@ export default function MyPerformance() {
                 statusBadge="Completed (Nov 2024)"
               />
             </div>
-            <button className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+            <button onClick={() => setActiveModal('development')} className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
               <Plus className="w-3.5 h-3.5" />
               Add Development Activity
             </button>
