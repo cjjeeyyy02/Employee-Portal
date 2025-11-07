@@ -383,9 +383,9 @@ export default function DocumentRequests() {
             {/* Requests List */}
             <div className="space-y-1.5 sm:space-y-2">
               {filteredRequests.map((request) => (
-            <div key={request.id} className="bg-white rounded-lg border border-gray-200 shadow-sm p-2 sm:p-2.5 hover:shadow-md transition-shadow">
+            <div key={request.id} className="bg-white rounded-lg border border-gray-200 shadow-sm p-2 sm:p-2.5 hover:shadow-md transition-shadow min-h-[140px] sm:min-h-[150px] flex flex-col">
               {/* Top Row: Title and Actions */}
-              <div className="flex justify-between items-start">
+              <div className="flex justify-between items-start flex-1">
                 <div className="flex-1">
                   <h3 className="text-sm font-bold text-blue-700 mb-1.5">{request.title}</h3>
 
