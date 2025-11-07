@@ -82,48 +82,45 @@ export default function EmployeeDashboard() {
 
   return (
     <Layout>
-      {/* Welcome Section - Minimized */}
+      {/* Welcome Section - At Top */}
       <div className="mb-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
-          {/* Left Group */}
-          <div>
-            <h1 className="text-lg sm:text-xl font-bold text-gray-900 mb-0.5">Welcome back, John!</h1>
-            <p className="text-xs text-gray-600">Here's your dashboard overview for today</p>
-          </div>
+        <h1 className="text-lg sm:text-xl font-bold text-gray-900 mb-0.5">Welcome back, John!</h1>
+        <p className="text-xs text-gray-600">Here's your dashboard overview for today</p>
+      </div>
 
-          {/* Right Group - Time Card */}
-          <div
-            className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow"
-            style={{
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
-            }}
-          >
-            <div className="flex flex-col items-center gap-1.5">
-              {/* Time Label */}
-              <p className="text-2xl font-bold text-gray-900">{currentTime}</p>
+      {/* Time Card Section */}
+      <div className="mb-5 flex justify-end">
+        <div
+          className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex-shrink-0 hover:shadow-md transition-shadow w-full sm:w-auto"
+          style={{
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)",
+          }}
+        >
+          <div className="flex flex-col items-center gap-1.5">
+            {/* Time Label */}
+            <p className="text-2xl font-bold text-gray-900">{currentTime}</p>
 
-              {/* Date Label */}
-              <p className="text-xs font-medium text-gray-500">{currentDate}</p>
+            {/* Date Label */}
+            <p className="text-xs font-medium text-gray-500">{currentDate}</p>
 
-              {/* Button Group */}
-              <div className="flex flex-row gap-1.5 mt-2">
-                {/* Clock In Button */}
-                <button
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold transition-all hover:bg-blue-700 active:scale-95"
-                >
-                  <CheckCircle className="w-3.5 h-3.5" />
-                  <span>Clock In</span>
-                </button>
+            {/* Button Group */}
+            <div className="flex flex-row gap-1.5 mt-2">
+              {/* Clock In Button */}
+              <button
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold transition-all hover:bg-blue-700 active:scale-95"
+              >
+                <CheckCircle className="w-3.5 h-3.5" />
+                <span>Clock In</span>
+              </button>
 
-                {/* Break Button */}
-                <button
-                  disabled
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gray-100 text-gray-400 text-xs font-semibold cursor-not-allowed"
-                >
-                  <Coffee className="w-3.5 h-3.5" />
-                  <span>Break</span>
-                </button>
-              </div>
+              {/* Break Button */}
+              <button
+                disabled
+                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gray-100 text-gray-400 text-xs font-semibold cursor-not-allowed"
+              >
+                <Coffee className="w-3.5 h-3.5" />
+                <span>Break</span>
+              </button>
             </div>
           </div>
         </div>
