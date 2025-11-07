@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, TrendingUp, Target, Clock } from "lucide-react";
+import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, TrendingUp, Target, Clock, X, Zap } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "myTasks" | "projects" | "teamTasks" | "analytics";
 type ViewType = "list" | "kanban" | "calendar";
+type ModalType = "newTask" | "filters" | "aiAssistant" | "viewProject" | null;
 
 interface Task {
   id: number;
@@ -34,6 +35,60 @@ export default function MyTasks() {
   const [filterStatus, setFilterStatus] = useState("All Status");
   const [filterPriority, setFilterPriority] = useState("All Priorities");
   const [selectedTeamMember, setSelectedTeamMember] = useState<string>("John Doe");
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
+  const [tasksList, setTasksList] = useState<Task[]>([]);
+
+  // Form states
+  const [newTaskForm, setNewTaskForm] = useState({ title: '', description: '', dueDate: '', category: '', priority: 'Medium' });
+  const [filterPanel, setFilterPanel] = useState({ status: 'All Status', priority: 'All Priorities' });
+  const [aiInput, setAiInput] = useState('');
+
+  const showNotification = (message: string, type: 'success' | 'info' = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleNewTask = () => {
+    if (newTaskForm.title && newTaskForm.dueDate && newTaskForm.category) {
+      showNotification('Task created successfully', 'success');
+      setNewTaskForm({ title: '', description: '', dueDate: '', category: '', priority: 'Medium' });
+      setActiveModal(null);
+    } else {
+      showNotification('Please fill in all required fields', 'info');
+    }
+  };
+
+  const handleDeleteTask = (taskId: number) => {
+    showNotification('Task deleted successfully', 'success');
+  };
+
+  const handleMarkComplete = (taskId: number) => {
+    showNotification('Task marked as complete', 'success');
+  };
+
+  const handleViewProject = (project: Project) => {
+    setSelectedProject(project);
+    setActiveModal('viewProject');
+    showNotification(`Opening project: ${project.title}`, 'info');
+  };
+
+  const handleApplyFilters = () => {
+    setFilterStatus(filterPanel.status);
+    setFilterPriority(filterPanel.priority);
+    showNotification('Filters applied', 'success');
+    setActiveModal(null);
+  };
+
+  const handleAiAssistant = () => {
+    if (aiInput.trim()) {
+      showNotification(`AI processing: "${aiInput}"`, 'info');
+      setAiInput('');
+    } else {
+      showNotification('Please enter a task or question', 'info');
+    }
+  };
 
   const tasks: Task[] = [
     {
