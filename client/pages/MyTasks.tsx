@@ -273,14 +273,15 @@ export default function MyTasks() {
           <p className="text-xs text-gray-600">Manage your tasks, projects, and deadlines</p>
         </div>
         <div className="flex gap-1 sm:gap-2 flex-wrap">
-          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors">
+          <button onClick={() => setActiveModal('aiAssistant')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
+            <Zap className="w-3.5 h-3.5" />
             AI Assistant
           </button>
-          <button className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
+          <button onClick={() => setActiveModal('filters')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
             <Filter className="w-3.5 h-3.5" />
             Filters
           </button>
-          <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+          <button onClick={() => setActiveModal('newTask')} className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
             <Plus className="w-3.5 h-3.5" />
             New Task
           </button>
