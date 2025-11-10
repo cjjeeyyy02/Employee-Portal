@@ -240,7 +240,10 @@ export default function MyLeaveAttendance() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200">
-                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Date</th>
+                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900 flex items-center gap-1.5 cursor-pointer hover:text-blue-600 transition-colors">
+                      <span>Date</span>
+                      <Calendar className="w-3.5 h-3.5 text-gray-500 hover:text-blue-600" />
+                    </th>
                     <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock In</th>
                     <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock Out</th>
                     <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Total Hours</th>
