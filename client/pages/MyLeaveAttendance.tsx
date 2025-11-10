@@ -293,9 +293,19 @@ export default function MyLeaveAttendance() {
             }}
           >
             {/* Header */}
-            <div>
-              <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Attendance Records</h2>
-              <p className="text-xs text-[#7A7A7A]">Your recent attendance history</p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Attendance Records</h2>
+                <p className="text-xs text-[#7A7A7A]">Your recent attendance history</p>
+              </div>
+              {selectedDate && (
+                <button
+                  onClick={clearDateFilter}
+                  className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors"
+                >
+                  Clear Filter ({selectedDate})
+                </button>
+              )}
             </div>
 
             {/* Table */}
