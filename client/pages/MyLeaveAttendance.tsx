@@ -333,87 +333,50 @@ export default function MyLeaveAttendance() {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* Row 01 */}
-                  <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-10</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">09:00</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">17:30</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">8.5h</td>
-                    <td className="px-2 py-1.5">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
-                        Present
-                      </span>
-                    </td>
-                    <td className="px-2 py-1.5 text-xs">—</td>
-                  </tr>
+                  {filteredAttendanceData.map((record, index) => {
+                    const getStatusColor = (status: string) => {
+                      switch (status) {
+                        case "Present":
+                          return { bg: "#2F80ED", text: "white" };
+                        case "Late":
+                          return { bg: "#E0E0E0", text: "#555555" };
+                        case "Half-day":
+                          return { bg: "#F2F2F2", text: "#555555" };
+                        case "Absent":
+                          return { bg: "#EB5757", text: "white" };
+                        default:
+                          return { bg: "#E0E0E0", text: "#555555" };
+                      }
+                    };
 
-                  {/* Row 02 */}
-                  <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-09</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">09:15</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">17:30</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">8.25h</td>
-                    <td className="px-2 py-1.5">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#E0E0E0" }}>
-                        Late
-                      </span>
-                    </td>
-                    <td className="px-2 py-1.5">
-                      <button
-                        className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
-                      >
-                        Request Correction
-                      </button>
-                    </td>
-                  </tr>
+                    const statusColor = getStatusColor(record.status);
 
-                  {/* Row 03 */}
-                  <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-06</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">09:00</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">17:30</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">8.5h</td>
-                    <td className="px-2 py-1.5">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#2F80ED" }}>
-                        Present
-                      </span>
-                    </td>
-                    <td className="px-2 py-1.5 text-xs">—</td>
-                  </tr>
-
-                  {/* Row 04 */}
-                  <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-05</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">09:00</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">13:00</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">4.0h</td>
-                    <td className="px-2 py-1.5">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-[#555555]" style={{ backgroundColor: "#F2F2F2" }}>
-                        Half-day
-                      </span>
-                    </td>
-                    <td className="px-2 py-1.5 text-xs">—</td>
-                  </tr>
-
-                  {/* Row 05 */}
-                  <tr className="border-b border-gray-200 hover:bg-gray-50">
-                    <td className="px-2 py-1.5 text-xs text-gray-900">2024-12-04</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">—</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">—</td>
-                    <td className="px-2 py-1.5 text-xs text-gray-900">0h</td>
-                    <td className="px-2 py-1.5">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white" style={{ backgroundColor: "#EB5757" }}>
-                        Absent
-                      </span>
-                    </td>
-                    <td className="px-2 py-1.5">
-                      <button
-                        className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
-                      >
-                        Request Correction
-                      </button>
-                    </td>
-                  </tr>
+                    return (
+                      <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.date}</td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockIn || "—"}</td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockOut || "—"}</td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.totalHours}</td>
+                        <td className="px-2 py-1.5">
+                          <span
+                            className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium"
+                            style={{ backgroundColor: statusColor.bg, color: statusColor.text }}
+                          >
+                            {record.status}
+                          </span>
+                        </td>
+                        <td className="px-2 py-1.5 text-xs">
+                          {record.status === "Late" || record.status === "Absent" ? (
+                            <button className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors">
+                              Request Correction
+                            </button>
+                          ) : (
+                            "—"
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
