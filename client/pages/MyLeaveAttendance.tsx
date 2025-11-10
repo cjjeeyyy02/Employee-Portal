@@ -12,11 +12,59 @@ interface AttendanceRecord {
   status: string;
 }
 
+interface AttendanceData {
+  date: string;
+  clockIn: string | null;
+  clockOut: string | null;
+  totalHours: string;
+  status: string;
+}
+
+const allAttendanceData: AttendanceData[] = [
+  {
+    date: "2024-12-10",
+    clockIn: "09:00",
+    clockOut: "17:30",
+    totalHours: "8.5h",
+    status: "Present",
+  },
+  {
+    date: "2024-12-09",
+    clockIn: "09:15",
+    clockOut: "17:30",
+    totalHours: "8.25h",
+    status: "Late",
+  },
+  {
+    date: "2024-12-06",
+    clockIn: "09:00",
+    clockOut: "17:30",
+    totalHours: "8.5h",
+    status: "Present",
+  },
+  {
+    date: "2024-12-05",
+    clockIn: "09:00",
+    clockOut: "13:00",
+    totalHours: "4.0h",
+    status: "Half-day",
+  },
+  {
+    date: "2024-12-04",
+    clockIn: null,
+    clockOut: null,
+    totalHours: "0h",
+    status: "Absent",
+  },
+];
+
 export default function MyLeaveAttendance() {
   const [activeTab, setActiveTab] = useState<TabType>("attendance");
   const [showLeaveModal, setShowLeaveModal] = useState(false);
   const [showOvertimeModal, setShowOvertimeModal] = useState(false);
   const [showBreakModal, setShowBreakModal] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   // Attendance state
   const [isClockedIn, setIsClockedIn] = useState(false);
