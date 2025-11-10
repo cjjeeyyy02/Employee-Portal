@@ -143,6 +143,21 @@ export default function MyLeaveAttendance() {
     }
   };
 
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+    setShowDatePicker(false);
+    showNotification(`Filtered by date: ${date}`, 'info');
+  };
+
+  const clearDateFilter = () => {
+    setSelectedDate(null);
+    showNotification('Filter cleared', 'info');
+  };
+
+  const filteredAttendanceData = selectedDate
+    ? allAttendanceData.filter((record) => record.date === selectedDate)
+    : allAttendanceData;
+
 
   return (
     <Layout>
