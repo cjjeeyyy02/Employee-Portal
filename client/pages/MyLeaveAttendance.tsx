@@ -712,6 +712,60 @@ export default function MyLeaveAttendance() {
           </div>
         </div>
       )}
+
+      {/* Date Filter Modal */}
+      {showDatePicker && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex items-center gap-3 mb-4">
+              <Calendar className="w-5 h-5 text-blue-600" />
+              <h2 className="text-lg font-semibold text-gray-900">Filter by Date</h2>
+            </div>
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Select a date</label>
+              <input
+                type="date"
+                onChange={(e) => handleDateSelect(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="grid grid-cols-3 gap-2 mb-6">
+              <h3 className="col-span-3 text-sm font-medium text-gray-700 mb-2">Quick select:</h3>
+              {allAttendanceData.map((record) => (
+                <button
+                  key={record.date}
+                  onClick={() => handleDateSelect(record.date)}
+                  className={`px-2 py-2 rounded-lg text-xs font-medium transition-colors ${
+                    selectedDate === record.date
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  {record.date}
+                </button>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowDatePicker(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedDate(null);
+                  setShowDatePicker(false);
+                  showNotification('Filter cleared', 'info');
+                }}
+                className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors text-sm"
+              >
+                Clear Filter
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
