@@ -25,8 +25,10 @@ export default function App() {
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Employee View Routes */}
+            <Route path="/" element={<EmployeeDashboard />} />
+
             {/* Manager View Routes */}
-            <Route path="/" element={<PersonalInfo />} />
             <Route path="/dashboard" element={<PersonalInfo />} />
             <Route path="/personal-info" element={<PersonalInfo />} />
             <Route path="/leave-attendance" element={<Placeholder title="Leave & Attendance" />} />
