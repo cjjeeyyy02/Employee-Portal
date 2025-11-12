@@ -805,6 +805,43 @@ export default function MyProfile() {
                   </div>
                 </div>
               </div>
+
+              {/* Payslip History Card */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "10px 12px",
+                overflowX: "auto"
+              }}>
+                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Payslip History</h2>
+                <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <thead>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Date</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Pay Period</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Net Pay</th>
+                      <th className="px-4 py-3 text-center font-semibold text-xs text-gray-900">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {payslips.map((payslip) => (
+                      <tr key={payslip.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">{payslip.date}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{payslip.payPeriod}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 font-semibold">{payslip.netPay}</td>
+                        <td className="px-4 py-3 text-center">
+                          <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs flex items-center gap-1 justify-center mx-auto">
+                            <Download className="w-3.5 h-3.5" />
+                            PDF
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         )}
