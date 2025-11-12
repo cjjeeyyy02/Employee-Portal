@@ -64,7 +64,9 @@ export default function MyLeaveAttendance() {
   const [showOvertimeModal, setShowOvertimeModal] = useState(false);
   const [showBreakModal, setShowBreakModal] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showCorrectionModal, setShowCorrectionModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedCorrectionDate, setSelectedCorrectionDate] = useState<string>("");
 
   // Attendance state
   const [isClockedIn, setIsClockedIn] = useState(false);
