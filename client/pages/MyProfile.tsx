@@ -317,7 +317,17 @@ export default function MyProfile() {
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
                 padding: "10px 12px"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Contact Details</h2>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Contact Details</h2>
+                  <button
+                    onClick={() => setEditModalType("contact")}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors text-xs font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    <Edit2 className="w-3.5 h-3.5" />
+                    Edit
+                  </button>
+                </div>
 
                 <div className="space-y-3">
                   {/* Phone Number */}
