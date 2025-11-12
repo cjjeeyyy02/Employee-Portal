@@ -206,6 +206,66 @@ export default function EmployeeDashboard() {
         </div>
       </div>
 
+      {/* Pending Requests & Upcoming Events Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-6">
+        {/* Pending Requests */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 text-orange-600" />
+              Pending Requests
+            </h2>
+            <span className="bg-orange-50 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full">{pendingRequests.length}</span>
+          </div>
+          <div className="space-y-3">
+            {pendingRequests.map((request) => (
+              <div key={request.id} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors border border-gray-200 hover:border-orange-200">
+                <div className="w-2 h-2 rounded-full bg-orange-600 mt-1.5 flex-shrink-0"></div>
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-gray-900">{request.title}</p>
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-xs text-gray-500">{request.daysAgo} days ago</span>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 font-medium">{request.status}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="mt-4 text-blue-600 hover:text-blue-700 font-semibold text-xs flex items-center gap-1 group">
+            View all requests <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+
+        {/* Upcoming Events */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-blue-600" />
+              Upcoming Events
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {upcomingEvents.map((event) => (
+              <div key={event.id} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors border border-gray-200 hover:border-blue-200">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${event.type === 'meeting' ? 'bg-blue-100' : event.type === 'deadline' ? 'bg-red-100' : 'bg-green-100'}`}>
+                  <div className={`w-2 h-2 rounded-full ${event.type === 'meeting' ? 'bg-blue-600' : event.type === 'deadline' ? 'bg-red-600' : 'bg-green-600'}`}></div>
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-gray-900">{event.title}</p>
+                  <p className="text-xs text-gray-600 mt-0.5">{event.description}</p>
+                  <div className="flex items-center justify-between mt-1.5">
+                    <span className="text-xs text-gray-500">{event.date} • {event.time}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button className="mt-4 text-blue-600 hover:text-blue-700 font-semibold text-xs flex items-center gap-1 group">
+            View calendar <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
+
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
         {/* Pending Tasks - Minimized */}
