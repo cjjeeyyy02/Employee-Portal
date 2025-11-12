@@ -399,12 +399,33 @@ export default function MyTasks() {
                       key={task.id}
                       className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-4 hover:shadow-md transition-shadow"
                     >
-                      {/* Top Row: Title and Delete Button */}
+                      {/* Top Row: Title and Actions Dropdown */}
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-base font-bold text-gray-900 flex-1">{task.title}</h3>
-                        <button onClick={() => handleDeleteTask(task.id)} className="text-gray-400 hover:text-red-600 transition-colors flex-shrink-0">
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
+                        <div className="relative">
+                          <button
+                            onClick={() => setActionDropdown(actionDropdown === task.id ? null : task.id)}
+                            className="text-gray-400 hover:text-gray-700 transition-colors flex-shrink-0 p-1"
+                          >
+                            <MoreVertical className="w-4 h-4" />
+                          </button>
+                          {actionDropdown === task.id && (
+                            <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10">
+                              <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2 text-xs font-medium border-b border-gray-100">
+                                <Edit className="w-3.5 h-3.5" />
+                                Edit
+                              </button>
+                              <button onClick={() => handleMarkComplete(task.id)} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2 text-xs font-medium border-b border-gray-100">
+                                <CheckCircle className="w-3.5 h-3.5" />
+                                Mark as Complete
+                              </button>
+                              <button onClick={() => { handleDeleteTask(task.id); setActionDropdown(null); }} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2 text-xs font-medium">
+                                <Trash2 className="w-3.5 h-3.5" />
+                                Delete
+                              </button>
+                            </div>
+                          )}
+                        </div>
                       </div>
 
                       {/* Description */}
@@ -422,7 +443,7 @@ export default function MyTasks() {
                         </div>
                       </div>
 
-                      {/* Bottom Row: Badges, Action Button, and Avatar */}
+                      {/* Bottom Row: Badges and Avatar */}
                       <div className="flex justify-between items-center">
                         <div className="flex gap-1.5">
                           {/* Priority Badge */}
@@ -436,19 +457,12 @@ export default function MyTasks() {
                           </span>
                         </div>
 
-                        <div className="flex items-center gap-3">
-                          {/* Mark Complete Button */}
-                          <button onClick={() => handleMarkComplete(task.id)} className="text-blue-600 text-xs font-medium hover:text-blue-700 transition-colors whitespace-nowrap">
-                            Mark Complete
-                          </button>
-
-                          {/* Avatar and Name */}
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                              {task.avatar}
-                            </div>
-                            <span className="text-xs text-gray-700">{task.assignedTo}</span>
+                        {/* Avatar and Name */}
+                        <div className="flex items-center gap-1.5">
+                          <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0">
+                            {task.avatar}
                           </div>
+                          <span className="text-xs text-gray-700">{task.assignedTo}</span>
                         </div>
                       </div>
                     </div>
