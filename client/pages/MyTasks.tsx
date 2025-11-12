@@ -288,10 +288,6 @@ export default function MyTasks() {
             <Zap className="w-3.5 h-3.5" />
             AI Assistant
           </button>
-          <button onClick={() => setActiveModal('filters')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5">
-            <Filter className="w-3.5 h-3.5" />
-            Filters
-          </button>
           <button onClick={() => setActiveModal('newTask')} className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
             <Plus className="w-3.5 h-3.5" />
             New Task
