@@ -730,6 +730,76 @@ export default function MyLeaveAttendance() {
         </div>
       )}
 
+      {/* Request Correction Modal */}
+      {showCorrectionModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Request Correction</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <input
+                  type="date"
+                  value={correctionForm.date}
+                  onChange={(e) => setCorrectionForm({...correctionForm, date: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Type of Correction</label>
+                <select
+                  value={correctionForm.correctionType}
+                  onChange={(e) => setCorrectionForm({...correctionForm, correctionType: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option>Time Entry Error</option>
+                  <option>Attendance Status Error</option>
+                  <option>Missing Clock Out</option>
+                  <option>Early Departure</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Remarks</label>
+                <textarea
+                  value={correctionForm.remarks}
+                  onChange={(e) => setCorrectionForm({...correctionForm, remarks: e.target.value})}
+                  placeholder="Describe the correction needed..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Attachment (Optional)</label>
+                <input
+                  type="file"
+                  onChange={(e) => setCorrectionForm({...correctionForm, attachment: e.target.files?.[0] || null})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button
+                  onClick={() => setShowCorrectionModal(false)}
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    showNotification('Correction request submitted successfully', 'success');
+                    setShowCorrectionModal(false);
+                    setCorrectionForm({date: '', correctionType: 'Time Entry Error', remarks: '', attachment: null});
+                  }}
+                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Date Filter Modal */}
       {showDatePicker && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
