@@ -63,7 +63,16 @@ export default function MyTasks() {
   };
 
   const handleDeleteTask = (taskId: number) => {
-    showNotification('Task deleted successfully', 'success');
+    setTaskToDelete(taskId);
+    setActiveModal('deleteConfirm');
+  };
+
+  const confirmDeleteTask = () => {
+    if (taskToDelete !== null) {
+      showNotification('Task deleted successfully', 'success');
+      setTaskToDelete(null);
+      setActiveModal(null);
+    }
   };
 
   const handleMarkComplete = (taskId: number) => {
