@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, TrendingUp, Target, Clock, X, Zap } from "lucide-react";
+import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, TrendingUp, Target, Clock, X, Zap, MoreVertical, Edit, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "myTasks" | "projects" | "teamTasks" | "analytics";
 type ViewType = "list" | "kanban" | "calendar";
-type ModalType = "newTask" | "filters" | "aiAssistant" | "viewProject" | null;
+type ModalType = "newTask" | "filters" | "aiAssistant" | "viewProject" | "deleteConfirm" | null;
 
 interface Task {
   id: number;
