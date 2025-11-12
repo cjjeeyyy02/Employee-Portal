@@ -9,8 +9,27 @@ import {
   Coffee,
   Bell,
   ArrowUpRight,
+  LogOut,
+  Plus,
+  AlertCircle,
 } from "lucide-react";
 import Layout from "@/components/Layout";
+
+interface PendingRequest {
+  id: number;
+  title: string;
+  status: string;
+  daysAgo: number;
+}
+
+interface UpcomingEvent {
+  id: number;
+  title: string;
+  date: string;
+  time: string;
+  description: string;
+  type: "meeting" | "deadline" | "event";
+}
 
 export default function EmployeeDashboard() {
   const [expandedAnnouncement, setExpandedAnnouncement] = useState<number | null>(null);
@@ -40,7 +59,24 @@ export default function EmployeeDashboard() {
     return () => clearInterval(interval);
   }, []);
 
-  const quickActions = [];
+  const quickActions = [
+    { icon: Coffee, label: "Request Leave", action: "leave" },
+    { icon: Clock, label: "Request Overtime", action: "overtime" },
+    { icon: MessageCircle, label: "Submit Request", action: "request" },
+    { icon: Plus, label: "New Task", action: "task" },
+  ];
+
+  const pendingRequests: PendingRequest[] = [
+    { id: 1, title: "Annual Leave Application", status: "Pending Approval", daysAgo: 3 },
+    { id: 2, title: "Expense Reimbursement", status: "Under Review", daysAgo: 2 },
+    { id: 3, title: "Equipment Request", status: "Awaiting Manager Review", daysAgo: 5 },
+  ];
+
+  const upcomingEvents: UpcomingEvent[] = [
+    { id: 1, title: "Quarterly Town Hall Meeting", date: "Dec 15, 2024", time: "10:00 AM", description: "Company-wide quarterly updates and discussions", type: "meeting" },
+    { id: 2, title: "Project Deadline", date: "Dec 18, 2024", time: "5:00 PM", description: "Q4 deliverables submission deadline", type: "deadline" },
+    { id: 3, title: "Team Lunch & Learn", date: "Dec 20, 2024", time: "12:00 PM", description: "Tech knowledge sharing session with snacks", type: "event" },
+  ];
 
   const metrics = [
     { label: "Available Leave", value: "18.5 days", subtext: "+2.5 from last month", icon: Calendar, bgColor: "bg-sky-50", iconColor: "text-sky-600", borderColor: "border-sky-200" },
