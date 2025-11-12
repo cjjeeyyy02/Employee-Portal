@@ -83,6 +83,14 @@ export default function MyLeaveAttendance() {
     reason: ''
   });
 
+  // Request Correction form state
+  const [correctionForm, setCorrectionForm] = useState({
+    date: '',
+    correctionType: 'Time Entry Error',
+    remarks: '',
+    attachment: null as File | null,
+  });
+
   const getCurrentTime = () => {
     const now = new Date();
     return now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
