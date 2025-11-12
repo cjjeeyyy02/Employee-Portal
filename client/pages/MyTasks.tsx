@@ -583,7 +583,13 @@ export default function MyTasks() {
         {/* ===== PROJECTS TAB ===== */}
         {activeTab === "projects" && (
           <div>
-            <h2 className="text-base font-bold text-gray-900 mb-4">Projects</h2>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-base font-bold text-gray-900">Projects</h2>
+              <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+                <Plus className="w-3.5 h-3.5" />
+                New Project
+              </button>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
                 <div
