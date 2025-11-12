@@ -647,6 +647,67 @@ export default function MyProfile() {
           </div>
         )}
 
+        {/* Training & Certification Tab */}
+        {activeTab === "training" && (
+          <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
+            <div className="space-y-3">
+              {/* Training Header with Add Button */}
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Training & Certification</h2>
+                <button
+                  onClick={() => setEditModalType("training")}
+                  className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors text-xs font-medium"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  Add Training
+                </button>
+              </div>
+
+              {/* Training Table */}
+              <div style={{
+                borderRadius: "8px",
+                border: "1px solid #E5E7EB",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                padding: "10px 12px",
+                overflowX: "auto"
+              }}>
+                <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <thead>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Certification Name</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issuing Organization</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issue Date</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Expiry Date</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Status</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {trainings.map((training) => (
+                      <tr key={training.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">{training.name}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{training.issuer}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{training.issueDate}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{training.expiryDate}</td>
+                        <td className="px-4 py-3 text-sm">
+                          <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${training.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}>
+                            {training.status}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-700">
+                          <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs">View</button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Payroll Tab */}
         {activeTab === "payroll" && (
           <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
