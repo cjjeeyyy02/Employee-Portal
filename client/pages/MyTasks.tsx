@@ -39,6 +39,8 @@ export default function MyTasks() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
   const [tasksList, setTasksList] = useState<Task[]>([]);
+  const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
+  const [actionDropdown, setActionDropdown] = useState<number | null>(null);
 
   // Form states
   const [newTaskForm, setNewTaskForm] = useState({ title: '', description: '', dueDate: '', category: '', priority: 'Medium' });
