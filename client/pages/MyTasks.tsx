@@ -322,69 +322,72 @@ export default function MyTasks() {
       {/* ===== MY TASKS TAB ===== */}
       {activeTab === "myTasks" && (
           <>
-            {/* View Options */}
-            <div className="flex gap-2 mb-4">
-              {[
-                { id: "list", label: "List", icon: List },
-                { id: "kanban", label: "Kanban", icon: Grid3x3 },
-                { id: "calendar", label: "Calendar", icon: Calendar },
-              ].map((view) => {
-                const Icon = view.icon;
-                return (
-                  <button
-                    key={view.id}
-                    onClick={() => setActiveView(view.id as ViewType)}
-                    className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1.5 transition-colors ${
-                      activeView === view.id
-                        ? "bg-blue-600 text-white"
-                        : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                    {view.label}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Search and Filters Row */}
-            <div className="flex gap-3 mb-4">
-              {/* Search Bar */}
-              <div className="max-w-sm relative">
-                <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search tasks…"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-8 pr-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+            {/* Top Controls Row - Search on Right */}
+            <div className="flex items-center justify-between mb-4 gap-3">
+              {/* View Options - Left Side */}
+              <div className="flex gap-2">
+                {[
+                  { id: "list", label: "List", icon: List },
+                  { id: "kanban", label: "Kanban", icon: Grid3x3 },
+                  { id: "calendar", label: "Calendar", icon: Calendar },
+                ].map((view) => {
+                  const Icon = view.icon;
+                  return (
+                    <button
+                      key={view.id}
+                      onClick={() => setActiveView(view.id as ViewType)}
+                      className={`px-3 py-1.5 text-xs rounded-lg flex items-center gap-1.5 transition-colors ${
+                        activeView === view.id
+                          ? "bg-blue-600 text-white"
+                          : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+                      }`}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      {view.label}
+                    </button>
+                  );
+                })}
               </div>
 
-              {/* Status Filter */}
-              <select
-                value={filterStatus}
-                onChange={(e) => setFilterStatus(e.target.value)}
-                className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-              >
-                <option>All Status</option>
-                <option>Todo</option>
-                <option>In Progress</option>
-                <option>Review</option>
-                <option>Done</option>
-              </select>
+              {/* Search and Filters - Right Side */}
+              <div className="flex gap-3">
+                {/* Search Bar */}
+                <div className="max-w-sm relative">
+                  <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search tasks…"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-8 pr-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
 
-              {/* Priority Filter */}
-              <select
-                value={filterPriority}
-                onChange={(e) => setFilterPriority(e.target.value)}
-                className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-              >
-                <option>All Priorities</option>
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
-              </select>
+                {/* Status Filter */}
+                <select
+                  value={filterStatus}
+                  onChange={(e) => setFilterStatus(e.target.value)}
+                  className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                >
+                  <option>All Status</option>
+                  <option>Todo</option>
+                  <option>In Progress</option>
+                  <option>Review</option>
+                  <option>Done</option>
+                </select>
+
+                {/* Priority Filter */}
+                <select
+                  value={filterPriority}
+                  onChange={(e) => setFilterPriority(e.target.value)}
+                  className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                >
+                  <option>All Priorities</option>
+                  <option>High</option>
+                  <option>Medium</option>
+                  <option>Low</option>
+                </select>
+              </div>
             </div>
 
             {/* LIST VIEW */}
