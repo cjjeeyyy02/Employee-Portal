@@ -187,6 +187,25 @@ export default function EmployeeDashboard() {
         })}
       </div>
 
+      {/* Quick Actions Grid */}
+      <div className="mb-6 bg-white rounded-lg shadow-sm border border-gray-100 p-5">
+        <h2 className="text-base font-bold text-gray-900 mb-4">Quick Actions</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {quickActions.map((action, index) => {
+            const Icon = action.icon;
+            return (
+              <button
+                key={index}
+                className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-300 transition-all group"
+              >
+                <Icon className="w-6 h-6 text-blue-600 group-hover:scale-110 transition-transform" />
+                <span className="text-xs font-medium text-gray-700 group-hover:text-blue-600 text-center">{action.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
         {/* Pending Tasks - Minimized */}
