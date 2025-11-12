@@ -377,7 +377,14 @@ export default function MyLeaveAttendance() {
                         </td>
                         <td className="px-2 py-1.5 text-xs">
                           {record.status === "Late" || record.status === "Absent" ? (
-                            <button className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors">
+                            <button
+                              onClick={() => {
+                                setSelectedCorrectionDate(record.date);
+                                setCorrectionForm({...correctionForm, date: record.date});
+                                setShowCorrectionModal(true);
+                              }}
+                              className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                            >
                               Request Correction
                             </button>
                           ) : (
