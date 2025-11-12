@@ -7,6 +7,7 @@ import {
   FileText,
   Menu,
   X,
+  MessageCircle,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -18,6 +19,7 @@ const employeeNavigationItems = [
   { icon: Target, label: "My Performance", path: "/my-performance" },
   { icon: CheckSquare, label: "My Tasks", path: "/my-tasks" },
   { icon: FileText, label: "Documents", path: "/documents" },
+  { icon: MessageCircle, label: "AI Assistant", path: "/ai-chat" },
 ];
 
 interface SidebarProps {
