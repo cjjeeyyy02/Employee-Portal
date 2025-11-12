@@ -1,21 +1,69 @@
 import { useState } from "react";
-import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut } from "lucide-react";
+import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut, Edit2, X } from "lucide-react";
 import Layout from "@/components/Layout";
 
-type TabType = "personal" | "contact" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents";
+type TabType = "personal" | "contact" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents" | "training";
+type EditModalType = "personal" | "contact" | "training" | null;
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
   { id: "contact", label: "Contact" },
   { id: "employment", label: "Employment" },
+  { id: "training", label: "Training & Certification" },
   { id: "payroll", label: "Payroll" },
   { id: "performance", label: "Performance" },
   { id: "leaveAttendance", label: "Leave & Attendance" },
   { id: "documents", label: "Documents" },
 ];
 
+interface Payslip {
+  id: number;
+  date: string;
+  payPeriod: string;
+  netPay: string;
+}
+
+interface Training {
+  id: number;
+  name: string;
+  issuer: string;
+  issueDate: string;
+  expiryDate: string;
+  status: string;
+}
+
 export default function MyProfile() {
   const [activeTab, setActiveTab] = useState<TabType>("personal");
+  const [editModalType, setEditModalType] = useState<EditModalType>(null);
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
+
+  // Edit form states
+  const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
+  const [contactForm, setContactForm] = useState({ phone: "+1 234 567 890", personalEmail: "sarah.mitchell@email.com", workEmail: "sarah.m@company.com", street: "123 Main Street", city: "Los Angeles", state: "California", zipCode: "90001" });
+  const [trainingForm, setTrainingForm] = useState({ name: "", issuer: "", issueDate: "", expiryDate: "" });
+
+  const payslips: Payslip[] = [
+    { id: 1, date: "Nov 30, 2024", payPeriod: "Nov 1 - Nov 30, 2024", netPay: "$3,750.00" },
+    { id: 2, date: "Nov 15, 2024", payPeriod: "Nov 1 - Nov 15, 2024", netPay: "$1,875.00" },
+    { id: 3, date: "Oct 31, 2024", payPeriod: "Oct 1 - Oct 31, 2024", netPay: "$3,750.00" },
+    { id: 4, date: "Oct 15, 2024", payPeriod: "Oct 1 - Oct 15, 2024", netPay: "$1,875.00" },
+  ];
+
+  const trainings: Training[] = [
+    { id: 1, name: "AWS Solutions Architect", issuer: "Amazon Web Services", issueDate: "06/20/2023", expiryDate: "06/20/2025", status: "Active" },
+    { id: 2, name: "Project Management Professional", issuer: "PMI", issueDate: "03/15/2022", expiryDate: "03/15/2025", status: "Active" },
+    { id: 3, name: "Leadership Development", issuer: "LinkedIn Learning", issueDate: "12/10/2023", expiryDate: "—", status: "Completed" },
+  ];
+
+  const showNotification = (message: string, type: 'success' | 'info' = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleEditSubmit = (type: EditModalType) => {
+    showNotification(`${type === 'personal' ? 'Personal' : type === 'contact' ? 'Contact' : 'Training'} information updated successfully`, 'success');
+    setEditModalType(null);
+  };
 
   return (
     <Layout>
