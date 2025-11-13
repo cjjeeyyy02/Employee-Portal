@@ -3,42 +3,180 @@ import Layout from "@/components/Layout";
 export default function EmployeeDashboard() {
   return (
     <Layout>
-      {/* Top Summary Cards - 4 Small + 1 Tall on Right */}
-      <div className="grid grid-cols-5 gap-4 mb-6">
-        {/* Small Cards - Left 4 */}
-        <div className="col-span-1 h-24 bg-gray-300 rounded-lg animate-pulse"></div>
-        <div className="col-span-1 h-24 bg-gray-300 rounded-lg animate-pulse"></div>
-        <div className="col-span-1 h-24 bg-gray-300 rounded-lg animate-pulse"></div>
-        <div className="col-span-1 h-24 bg-gray-300 rounded-lg animate-pulse"></div>
-
-        {/* Tall Card - Right */}
-        <div className="col-span-1 h-96 bg-gray-300 rounded-lg animate-pulse"></div>
-      </div>
-
-      {/* Main Content Grid - 70/30 Layout */}
-      <div className="grid grid-cols-3 gap-6 mb-6">
-        {/* Left Column - 70% (2 cards) */}
-        <div className="col-span-2 space-y-6">
-          {/* Card 1 */}
-          <div className="h-48 bg-gray-300 rounded-lg animate-pulse"></div>
-
-          {/* Card 2 */}
-          <div className="h-48 bg-gray-300 rounded-lg animate-pulse"></div>
+      {/* Top Section - 2 Column Flex Layout */}
+      <div style={{ gap: "20px", display: "flex" }}>
+        {/* Left Column - 50% */}
+        <div style={{ display: "flex", flexDirection: "column", lineHeight: "normal", width: "50%", marginLeft: "0px" }}>
+          {/* Tall Skeleton Card */}
+          <div
+            style={{
+              animationDuration: "2s",
+              animationIterationCount: "infinite",
+              animationName: "pulse",
+              animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+              backgroundColor: "rgb(209, 213, 219)",
+              borderRadius: "8px",
+              fontWeight: "400",
+              height: "384px",
+            }}
+          />
         </div>
 
-        {/* Right Column - 30% (1 tall card) */}
-        <div className="col-span-1">
-          <div className="h-96 bg-gray-300 rounded-lg animate-pulse"></div>
+        {/* Right Column - 50% */}
+        <div style={{ display: "flex", flexDirection: "column", lineHeight: "normal", width: "50%", marginLeft: "20px" }}>
+          {/* 5-Card Grid (4 small + 1 tall) */}
+          <div
+            style={{
+              display: "grid",
+              fontWeight: "400",
+              gap: "16px",
+              gridTemplate: "none / repeat(5, minmax(0px, 1fr))",
+              marginBottom: "24px",
+            }}
+          >
+            {/* Small Card 1 */}
+            <div
+              style={{
+                animationDuration: "2s",
+                animationIterationCount: "infinite",
+                animationName: "pulse",
+                animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+                backgroundColor: "rgb(209, 213, 219)",
+                borderRadius: "8px",
+                fontWeight: "400",
+                gridArea: "auto / span 1 / auto / span 1",
+                height: "96px",
+              }}
+            />
+
+            {/* Small Card 2 */}
+            <div
+              style={{
+                animationDuration: "2s",
+                animationIterationCount: "infinite",
+                animationName: "pulse",
+                animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+                backgroundColor: "rgb(209, 213, 219)",
+                borderRadius: "8px",
+                fontWeight: "400",
+                gridArea: "auto / span 1 / auto / span 1",
+                height: "96px",
+              }}
+            />
+
+            {/* Small Card 3 */}
+            <div
+              style={{
+                animationDuration: "2s",
+                animationIterationCount: "infinite",
+                animationName: "pulse",
+                animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+                backgroundColor: "rgb(209, 213, 219)",
+                borderRadius: "8px",
+                fontWeight: "400",
+                gridArea: "auto / span 1 / auto / span 1",
+                height: "96px",
+              }}
+            />
+
+            {/* Small Card 4 */}
+            <div
+              style={{
+                animationDuration: "2s",
+                animationIterationCount: "infinite",
+                animationName: "pulse",
+                animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+                backgroundColor: "rgb(209, 213, 219)",
+                borderRadius: "8px",
+                fontWeight: "400",
+                gridArea: "auto / span 1 / auto / span 1",
+                height: "96px",
+              }}
+            />
+
+            {/* Tall Card */}
+            <div
+              style={{
+                animationDuration: "2s",
+                animationIterationCount: "infinite",
+                animationName: "pulse",
+                animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+                backgroundColor: "rgb(209, 213, 219)",
+                borderRadius: "8px",
+                fontWeight: "400",
+                gridArea: "auto / span 1 / auto / span 1",
+                height: "384px",
+              }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Bottom Section - 70/30 Layout */}
-      <div className="grid grid-cols-3 gap-6">
-        {/* Left - Large Card */}
-        <div className="col-span-2 h-48 bg-gray-300 rounded-lg animate-pulse"></div>
+      {/* Middle Section - 3 Column Grid */}
+      <div
+        style={{
+          display: "grid",
+          fontWeight: "400",
+          gap: "24px",
+          gridTemplate: "none / repeat(3, minmax(0px, 1fr))",
+          marginBottom: "24px",
+        }}
+      >
+        {/* Left Side - Spans 2 Columns */}
+        <div
+          style={{
+            fontWeight: "400",
+            gridArea: "auto / span 2 / auto / span 2",
+          }}
+        />
 
-        {/* Right - Smaller Card */}
-        <div className="col-span-1 h-48 bg-gray-300 rounded-lg animate-pulse"></div>
+        {/* Right Side - Spans 1 Column */}
+        <div
+          style={{
+            fontWeight: "400",
+            gridArea: "auto / span 1 / auto / span 1",
+          }}
+        />
+      </div>
+
+      {/* Bottom Section - 3 Column Grid */}
+      <div
+        style={{
+          display: "grid",
+          fontWeight: "400",
+          gap: "24px",
+          gridTemplate: "none / repeat(3, minmax(0px, 1fr))",
+        }}
+      >
+        {/* Left Side - Spans 2 Columns */}
+        <div
+          style={{
+            animationDuration: "2s",
+            animationIterationCount: "infinite",
+            animationName: "pulse",
+            animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+            backgroundColor: "rgb(209, 213, 219)",
+            borderRadius: "8px",
+            fontWeight: "400",
+            gridArea: "auto / span 2 / auto / span 2",
+            height: "192px",
+          }}
+        />
+
+        {/* Right Side - Spans 1 Column */}
+        <div
+          style={{
+            animationDuration: "2s",
+            animationIterationCount: "infinite",
+            animationName: "pulse",
+            animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+            backgroundColor: "rgb(209, 213, 219)",
+            borderRadius: "8px",
+            fontWeight: "400",
+            gridArea: "auto / span 1 / auto / span 1",
+            height: "192px",
+          }}
+        />
       </div>
     </Layout>
   );
