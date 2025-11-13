@@ -361,7 +361,7 @@ export default function EmployeeDashboard() {
                 </a>
               </div>
 
-              {/* Right Column - Pending Tasks List */}
+              {/* Right Column - Pending Review List */}
               <div style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
@@ -380,7 +380,7 @@ export default function EmployeeDashboard() {
                     fontWeight: '600',
                     color: '#1f2937',
                     margin: '0'
-                  }}>Pending Tasks</h3>
+                  }}>Pending Review</h3>
                   <span style={{
                     fontSize: '11px',
                     backgroundColor: '#e5e7eb',
