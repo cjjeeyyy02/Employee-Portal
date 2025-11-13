@@ -157,8 +157,44 @@ export default function EmployeeDashboard() {
               </div>
             </div>
 
-            {/* Bottom Row - 1 Large Card */}
-            <div className="bg-white border border-gray-300 rounded h-[297px]"></div>
+            {/* Bottom Row - 1 Large Card - Upcoming Events */}
+            <div className="bg-white border border-gray-300 rounded-lg p-5 flex flex-col h-[297px]">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-bold text-gray-900">📅 Upcoming Events</h2>
+                <span className="text-xs px-2.5 py-1 bg-gray-600 text-white rounded-full font-semibold">4 Events This Month</span>
+              </div>
+
+              <div className="flex-1 grid grid-cols-2 gap-4 overflow-y-auto">
+                {/* Event 1 */}
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900">Company-Wide Town Hall</h3>
+                  <p className="text-xs text-gray-600 mt-2 flex items-start gap-1">
+                    🗓️ <span>Thursday, Nov 14 at 10:00 AM PST</span>
+                  </p>
+                  <p className="text-xs text-gray-600 mt-2 flex items-start gap-1 leading-relaxed">
+                    📌 <span>Mandatory attendance for all staff. Topic: Q4 Performance…</span>
+                  </p>
+                </div>
+
+                {/* Event 2 */}
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900">New Employee Data Security Training</h3>
+                  <p className="text-xs text-gray-600 mt-2 flex items-start gap-1">
+                    🗓️ <span>Due: Nov 30, 2024 (5 days)</span>
+                  </p>
+                  <p className="text-xs text-gray-600 mt-2 flex items-start gap-1 leading-relaxed">
+                    💬 <span>Must complete training for new hires joining the Sales team to maintain compliance.</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* View Calendar Link */}
+              <div className="mt-4 pt-3 border-t border-gray-200">
+                <button className="text-blue-600 hover:text-blue-700 text-sm font-semibold">
+                  🔗 View Full Events Calendar
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Right Section - 30% */}
