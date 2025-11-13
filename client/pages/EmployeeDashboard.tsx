@@ -132,24 +132,24 @@ export default function EmployeeDashboard() {
       </div>
 
       {/* Summary Cards - 4 Columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
         {summaryMetrics.map((metric, index) => {
           const Icon = metric.icon;
           return (
-            <div key={index} className={`bg-white rounded-xl border ${metric.borderColor} p-5 shadow-sm hover:shadow-md transition-all`}>
-              <div className="flex items-start justify-between gap-3">
+            <div key={index} className={`bg-white rounded-lg border ${metric.borderColor} p-3 shadow-sm hover:shadow-md transition-all`}>
+              <div className="flex items-start justify-between gap-2">
                 <div>
                   <p className="text-xs font-medium text-gray-600 mb-1">{metric.label}</p>
-                  <p className="text-3xl font-bold text-gray-900">{metric.value}</p>
+                  <p className="text-2xl font-bold text-gray-900">{metric.value}</p>
                   {metric.subtext && (
-                    <p className="text-xs text-gray-500 mt-1.5 flex items-center gap-1">
-                      <ArrowUpRight className="w-3 h-3 text-green-600" />
+                    <p className="text-xs text-gray-500 mt-1 flex items-center gap-0.5">
+                      <ArrowUpRight className="w-2.5 h-2.5 text-green-600" />
                       {metric.subtext}
                     </p>
                   )}
                 </div>
-                <div className={`${metric.bgColor} p-3 rounded-lg`}>
-                  <Icon className={`w-6 h-6 ${metric.iconColor}`} />
+                <div className={`${metric.bgColor} p-2 rounded-lg`}>
+                  <Icon className={`w-5 h-5 ${metric.iconColor}`} />
                 </div>
               </div>
             </div>
