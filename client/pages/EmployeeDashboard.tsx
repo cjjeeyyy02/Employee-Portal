@@ -733,54 +733,6 @@ export default function EmployeeDashboard() {
                   }}>Posted on Nov 1, 2023</p>
                 </div>
 
-                {/* Announcement 4 */}
-                <div style={{
-                  paddingBottom: '12px',
-                  borderBottom: '1px solid #e5e7eb'
-                }}>
-                  <h3 style={{
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: '#1f2937',
-                    marginBottom: '4px',
-                    margin: '0 0 4px 0'
-                  }}>Cybersecurity Awareness Month</h3>
-                  <p style={{
-                    fontSize: '13px',
-                    color: '#4b5563',
-                    lineHeight: '1.4',
-                    margin: '0'
-                  }}>Join our awareness sessions and learn how to keep company data secure. Check your email for schedule details.</p>
-                  <p style={{
-                    fontSize: '12px',
-                    color: '#9ca3af',
-                    marginTop: '4px',
-                    margin: '4px 0 0 0'
-                  }}>Posted on Oct 29, 2023</p>
-                </div>
-
-                {/* Announcement 5 */}
-                <div>
-                  <h3 style={{
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: '#1f2937',
-                    marginBottom: '4px',
-                    margin: '0 0 4px 0'
-                  }}>Office Renovation Update</h3>
-                  <p style={{
-                    fontSize: '13px',
-                    color: '#4b5563',
-                    lineHeight: '1.4',
-                    margin: '0'
-                  }}>The 3rd floor renovation will begin next week. Temporary workspaces will be provided.</p>
-                  <p style={{
-                    fontSize: '12px',
-                    color: '#9ca3af',
-                    marginTop: '4px',
-                    margin: '4px 0 0 0'
-                  }}>Posted on Nov 12, 2023</p>
-                </div>
               </div>
 
               {/* Divider Line */}
