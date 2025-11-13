@@ -37,12 +37,96 @@ export default function EmployeeDashboard() {
   return (
     <Layout>
       <div className="max-w-[1400px] mx-auto">
-        {/* Welcome Header */}
-        <div className="mb-4">
-          <h1 className="text-2xl font-normal text-black" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>
-            Welcome back, John!
-          </h1>
-          <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>Here's your dashboard overview for today</p>
+        {/* Welcome Header with Clock Actions */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginBottom: '16px'
+        }}>
+          {/* Left side - Welcome Text */}
+          <div>
+            <h1 className="text-2xl font-normal text-black" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>
+              Welcome back, John!
+            </h1>
+            <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>Here's your dashboard overview for today</p>
+          </div>
+
+          {/* Right side - Clock Actions */}
+          <div style={{
+            display: 'flex',
+            gap: '12px',
+            alignItems: 'center'
+          }}>
+            <button style={{
+              padding: '8px 16px',
+              backgroundColor: '#ffffff',
+              border: '1px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '13px',
+              fontWeight: '500',
+              color: '#374151',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease-in-out',
+              whiteSpace: 'nowrap'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#f3f4f6';
+              e.currentTarget.style.borderColor = '#9ca3af';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#ffffff';
+              e.currentTarget.style.borderColor = '#d1d5db';
+            }}>
+              🕐 Clock In
+            </button>
+
+            <button style={{
+              padding: '8px 16px',
+              backgroundColor: '#ffffff',
+              border: '1px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '13px',
+              fontWeight: '500',
+              color: '#374151',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease-in-out',
+              whiteSpace: 'nowrap'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#f3f4f6';
+              e.currentTarget.style.borderColor = '#9ca3af';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#ffffff';
+              e.currentTarget.style.borderColor = '#d1d5db';
+            }}>
+              🕐 Clock Out
+            </button>
+
+            <button style={{
+              padding: '8px 16px',
+              backgroundColor: '#ffffff',
+              border: '1px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '13px',
+              fontWeight: '500',
+              color: '#374151',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease-in-out',
+              whiteSpace: 'nowrap'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#f3f4f6';
+              e.currentTarget.style.borderColor = '#9ca3af';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#ffffff';
+              e.currentTarget.style.borderColor = '#d1d5db';
+            }}>
+              ☕ Break
+            </button>
+          </div>
         </div>
 
         {/* Main Grid Layout */}
