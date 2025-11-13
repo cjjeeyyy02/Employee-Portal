@@ -266,9 +266,9 @@ export default function EmployeeDashboard() {
                   marginBottom: '12px'
                 }}>Tasks that require your attention</p>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                   {/* Task 1 */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', paddingBottom: '12px', borderBottom: '1px solid #e5e7eb', marginBottom: '12px' }}>
                     <div>
                       <p style={{
                         fontSize: '14px',
@@ -294,7 +294,7 @@ export default function EmployeeDashboard() {
                   </div>
 
                   {/* Task 2 */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', paddingBottom: '12px', borderBottom: '1px solid #e5e7eb', marginBottom: '12px' }}>
                     <div>
                       <p style={{
                         fontSize: '14px',
@@ -391,9 +391,9 @@ export default function EmployeeDashboard() {
                   }}>3</span>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                   {/* Card 1 */}
-                  <div>
+                  <div style={{ paddingBottom: '12px', borderBottom: '1px solid #e5e7eb', marginBottom: '12px' }}>
                     <p style={{
                       fontSize: '14px',
                       fontWeight: '600',
@@ -426,7 +426,7 @@ export default function EmployeeDashboard() {
                   </div>
 
                   {/* Card 2 */}
-                  <div>
+                  <div style={{ paddingBottom: '12px', borderBottom: '1px solid #e5e7eb', marginBottom: '12px' }}>
                     <p style={{
                       fontSize: '14px',
                       fontWeight: '600',
