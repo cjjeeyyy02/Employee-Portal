@@ -75,85 +75,250 @@ export default function EmployeeDashboard() {
               })}
             </div>
 
-            {/* Middle Row - 2 Medium Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {/* Pending Tasks Card */}
-              <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[260px]">
-                <div className="mb-2">
-                  <h2 className="text-base font-bold text-gray-900">Pending Tasks</h2>
-                  <p className="text-xs text-gray-600 mt-0.5">Tasks that require your attention</p>
-                </div>
+            {/* Middle Row - 2 Column Grid with Equal Width */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', width: '100%' }}>
+              {/* Left Column - Pending Tasks */}
+              <div style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '24px',
+                border: '1px solid #e5e7eb',
+                padding: '16px',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+              }}>
+                <h3 style={{
+                  fontSize: '18px',
+                  fontWeight: '600',
+                  color: '#1f2937',
+                  marginBottom: '4px'
+                }}>Pending Tasks</h3>
+                <p style={{
+                  fontSize: '13px',
+                  color: '#6b7280',
+                  marginBottom: '12px'
+                }}>Tasks that require your attention</p>
 
-                <div className="flex-1 space-y-2 overflow-y-auto">
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {/* Task 1 */}
-                  <div className="pb-2 border-b border-gray-200">
-                    <p className="text-xs font-semibold text-gray-900">Complete Q4 Performance Review</p>
-                    <div className="flex items-center justify-between mt-1">
-                      <span className="text-xs text-gray-600">Due: Tomorrow</span>
-                      <span className="text-xs px-1.5 py-0.5 bg-red-100 text-red-700 rounded font-semibold">High</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                    <div>
+                      <p style={{
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        color: '#1f2937',
+                        margin: '0'
+                      }}>Complete Q4 Performance Review</p>
+                      <p style={{
+                        fontSize: '12px',
+                        color: '#6b7280',
+                        margin: '4px 0 0 0'
+                      }}>Due: Tomorrow</p>
                     </div>
+                    <span style={{
+                      fontSize: '11px',
+                      backgroundColor: '#fee2e2',
+                      color: '#dc2626',
+                      padding: '2px 8px',
+                      borderRadius: '9999px',
+                      whiteSpace: 'nowrap',
+                      fontWeight: '600'
+                    }}>High</span>
                   </div>
 
                   {/* Task 2 */}
-                  <div className="pb-2 border-b border-gray-200">
-                    <p className="text-xs font-semibold text-gray-900">Submit Travel Expense Report</p>
-                    <div className="flex items-center justify-between mt-1">
-                      <span className="text-xs text-gray-600">Due: Friday</span>
-                      <span className="text-xs px-1.5 py-0.5 bg-yellow-100 text-yellow-700 rounded font-semibold">Med</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                    <div>
+                      <p style={{
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        color: '#1f2937',
+                        margin: '0'
+                      }}>Submit Travel Expense Report</p>
+                      <p style={{
+                        fontSize: '12px',
+                        color: '#6b7280',
+                        margin: '4px 0 0 0'
+                      }}>Due: Friday</p>
                     </div>
+                    <span style={{
+                      fontSize: '11px',
+                      backgroundColor: '#fef3c7',
+                      color: '#b45309',
+                      padding: '2px 8px',
+                      borderRadius: '9999px',
+                      whiteSpace: 'nowrap',
+                      fontWeight: '600'
+                    }}>Med</span>
                   </div>
 
                   {/* Task 3 */}
-                  <div className="pb-2">
-                    <p className="text-xs font-semibold text-gray-900">Team Meeting Preparation</p>
-                    <div className="flex items-center justify-between mt-1">
-                      <span className="text-xs text-gray-600">Due: Next Week</span>
-                      <span className="text-xs px-1.5 py-0.5 bg-green-100 text-green-700 rounded font-semibold">Low</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                    <div>
+                      <p style={{
+                        fontSize: '14px',
+                        fontWeight: '700',
+                        color: '#1f2937',
+                        margin: '0'
+                      }}>Team Meeting Preparation</p>
+                      <p style={{
+                        fontSize: '12px',
+                        color: '#6b7280',
+                        margin: '4px 0 0 0'
+                      }}>Due: Next Week</p>
                     </div>
+                    <span style={{
+                      fontSize: '11px',
+                      backgroundColor: '#d1fae5',
+                      color: '#047857',
+                      padding: '2px 8px',
+                      borderRadius: '9999px',
+                      whiteSpace: 'nowrap',
+                      fontWeight: '600'
+                    }}>Low</span>
                   </div>
                 </div>
 
-                {/* View All Tasks Link */}
-                <div className="mt-2 pt-2 border-t border-gray-200">
-                  <button className="text-blue-600 hover:text-blue-700 text-xs font-semibold">View All Tasks →</button>
-                </div>
+                <a href="#" style={{
+                  fontSize: '13px',
+                  color: '#2563eb',
+                  fontWeight: '500',
+                  marginTop: '16px',
+                  display: 'inline-block',
+                  textDecoration: 'none',
+                  borderBottom: '2px solid transparent',
+                  transition: 'border-color 0.2s'
+                }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = '#2563eb'}
+                   onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>
+                  View All Tasks →
+                </a>
               </div>
 
-              {/* Pending Tasks List Card */}
-              <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[260px]">
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-base font-bold text-gray-900">Pending Tasks</h2>
-                  <span className="text-xs px-2 py-0.5 bg-gray-600 text-white rounded-full font-semibold text-[10px]">3</span>
+              {/* Right Column - Pending Tasks List */}
+              <div style={{
+                backgroundColor: '#ffffff',
+                borderRadius: '24px',
+                border: '1px solid #e5e7eb',
+                padding: '16px',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '12px'
+                }}>
+                  <h3 style={{
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    color: '#1f2937',
+                    margin: '0'
+                  }}>Pending Tasks</h3>
+                  <span style={{
+                    fontSize: '11px',
+                    backgroundColor: '#e5e7eb',
+                    color: '#4b5563',
+                    padding: '2px 8px',
+                    borderRadius: '9999px',
+                    fontWeight: '600'
+                  }}>3</span>
                 </div>
 
-                <div className="flex-1 space-y-2 overflow-y-auto">
-                  {/* Task 1 */}
-                  <div className="pb-2 border-b border-gray-200">
-                    <p className="text-xs font-semibold text-gray-900">Q4 Performance Review</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Oct 25, 2024</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      <span className="text-xs px-1.5 py-0 bg-red-100 text-red-700 rounded font-semibold text-[10px]">Pending</span>
-                      <span className="text-xs px-1.5 py-0 bg-red-100 text-red-700 rounded font-semibold text-[10px]">High</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {/* Card 1 */}
+                  <div>
+                    <p style={{
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      color: '#1f2937',
+                      margin: '0'
+                    }}>Q4 Performance Review</p>
+                    <p style={{
+                      fontSize: '12px',
+                      color: '#6b7280',
+                      margin: '4px 0 0 0'
+                    }}>Oct 25, 2024</p>
+                    <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
+                      <span style={{
+                        fontSize: '11px',
+                        backgroundColor: '#fee2e2',
+                        color: '#dc2626',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        fontWeight: '600'
+                      }}>Pending</span>
+                      <span style={{
+                        fontSize: '11px',
+                        backgroundColor: '#fee2e2',
+                        color: '#dc2626',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        fontWeight: '600'
+                      }}>High</span>
                     </div>
                   </div>
 
-                  {/* Task 2 */}
-                  <div className="pb-2 border-b border-gray-200">
-                    <p className="text-xs font-semibold text-gray-900">Complete Training Module</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Oct 30, 2024</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      <span className="text-xs px-1.5 py-0 bg-yellow-100 text-yellow-700 rounded font-semibold text-[10px]">Progress</span>
-                      <span className="text-xs px-1.5 py-0 bg-yellow-100 text-yellow-700 rounded font-semibold text-[10px]">Med</span>
+                  {/* Card 2 */}
+                  <div>
+                    <p style={{
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      color: '#1f2937',
+                      margin: '0'
+                    }}>Complete Training Module</p>
+                    <p style={{
+                      fontSize: '12px',
+                      color: '#6b7280',
+                      margin: '4px 0 0 0'
+                    }}>Oct 30, 2024</p>
+                    <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
+                      <span style={{
+                        fontSize: '11px',
+                        backgroundColor: '#fef3c7',
+                        color: '#b45309',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        fontWeight: '600'
+                      }}>Progress</span>
+                      <span style={{
+                        fontSize: '11px',
+                        backgroundColor: '#fef3c7',
+                        color: '#b45309',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        fontWeight: '600'
+                      }}>Med</span>
                     </div>
                   </div>
 
-                  {/* Task 3 */}
-                  <div className="pb-2">
-                    <p className="text-xs font-semibold text-gray-900">Submit Project Deliverables</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Nov 5, 2024</p>
-                    <div className="flex items-center gap-1 mt-1">
-                      <span className="text-xs px-1.5 py-0 bg-red-100 text-red-700 rounded font-semibold text-[10px]">Pending</span>
-                      <span className="text-xs px-1.5 py-0 bg-red-100 text-red-700 rounded font-semibold text-[10px]">High</span>
+                  {/* Card 3 */}
+                  <div>
+                    <p style={{
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      color: '#1f2937',
+                      margin: '0'
+                    }}>Submit Project Deliverables</p>
+                    <p style={{
+                      fontSize: '12px',
+                      color: '#6b7280',
+                      margin: '4px 0 0 0'
+                    }}>Nov 5, 2024</p>
+                    <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
+                      <span style={{
+                        fontSize: '11px',
+                        backgroundColor: '#fee2e2',
+                        color: '#dc2626',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        fontWeight: '600'
+                      }}>Pending</span>
+                      <span style={{
+                        fontSize: '11px',
+                        backgroundColor: '#fee2e2',
+                        color: '#dc2626',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        fontWeight: '600'
+                      }}>High</span>
                     </div>
                   </div>
                 </div>
