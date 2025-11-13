@@ -17,7 +17,7 @@ export default function EmployeeDashboard() {
               backgroundColor: "rgb(209, 213, 219)",
               borderRadius: "8px",
               fontWeight: "400",
-              height: "384px",
+              height: "192px",
             }}
           />
         </div>
