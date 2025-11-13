@@ -709,8 +709,7 @@ export default function EmployeeDashboard() {
 
                 {/* Announcement 3 */}
                 <div style={{
-                  paddingBottom: '12px',
-                  borderBottom: '1px solid #e5e7eb'
+                  paddingBottom: '12px'
                 }}>
                   <h3 style={{
                     fontSize: '14px',
