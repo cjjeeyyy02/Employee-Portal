@@ -325,43 +325,142 @@ export default function EmployeeDashboard() {
               </div>
             </div>
 
-            {/* Bottom Row - 1 Large Card - Upcoming Events */}
-            <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[240px]">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-base font-bold text-gray-900">📅 Upcoming Events</h2>
-                <span className="text-xs px-2 py-0.5 bg-gray-600 text-white rounded-full font-semibold text-[10px]">4 Events</span>
+            {/* Bottom Row - Upcoming Events Container */}
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #e5e7eb',
+              borderRadius: '20px',
+              boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
+              padding: '16px',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              {/* Header */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '12px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <span style={{ fontSize: '18px', marginRight: '6px' }}>📅</span>
+                  <h3 style={{
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    color: '#1f2937',
+                    margin: '0'
+                  }}>Upcoming Events</h3>
+                </div>
+                <span style={{
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  backgroundColor: '#374151',
+                  color: '#ffffff',
+                  padding: '4px 10px',
+                  borderRadius: '9999px'
+                }}>4 Events</span>
               </div>
 
-              <div className="flex-1 grid grid-cols-2 gap-2 overflow-y-auto">
+              {/* Events Grid */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '12px',
+                marginBottom: '12px'
+              }}>
                 {/* Event 1 */}
-                <div className="bg-gray-50 rounded-lg p-2 border border-gray-200">
-                  <h3 className="text-xs font-semibold text-gray-900">Company-Wide Town Hall</h3>
-                  <p className="text-xs text-gray-600 mt-1 flex items-start gap-1">
-                    🗓️ <span className="text-[11px]">Nov 14 10:00 AM</span>
+                <div style={{
+                  backgroundColor: '#f9fafb',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '12px',
+                  padding: '12px'
+                }}>
+                  <p style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    margin: '0'
+                  }}>Company-Wide Town Hall</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#6b7280',
+                    margin: '4px 0 0 0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    📅 <span>Nov 14 10:00 AM</span>
                   </p>
-                  <p className="text-xs text-gray-600 mt-1 flex items-start gap-1 leading-tight">
-                    📌 <span className="text-[11px]">Mandatory for all staff…</span>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#6b7280',
+                    margin: '4px 0 0 0',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '6px'
+                  }}>
+                    📌 <span>Mandatory for all staff…</span>
                   </p>
                 </div>
 
                 {/* Event 2 */}
-                <div className="bg-gray-50 rounded-lg p-2 border border-gray-200">
-                  <h3 className="text-xs font-semibold text-gray-900">Data Security Training</h3>
-                  <p className="text-xs text-gray-600 mt-1 flex items-start gap-1">
-                    🗓️ <span className="text-[11px]">Nov 30 (5 days)</span>
+                <div style={{
+                  backgroundColor: '#f9fafb',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '12px',
+                  padding: '12px'
+                }}>
+                  <p style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    margin: '0'
+                  }}>Data Security Training</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#6b7280',
+                    margin: '4px 0 0 0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    📅 <span>Nov 30 (5 days)</span>
                   </p>
-                  <p className="text-xs text-gray-600 mt-1 flex items-start gap-1 leading-tight">
-                    💬 <span className="text-[11px]">Complete for new hires…</span>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#6b7280',
+                    margin: '4px 0 0 0',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '6px'
+                  }}>
+                    💬 <span>Complete for new hires…</span>
                   </p>
                 </div>
               </div>
 
+              {/* Divider */}
+              <div style={{
+                borderTop: '1px solid #e5e7eb',
+                marginTop: '12px',
+                marginBottom: '8px'
+              }}></div>
+
               {/* View Calendar Link */}
-              <div className="mt-2 pt-2 border-t border-gray-200">
-                <button className="text-blue-600 hover:text-blue-700 text-xs font-semibold">
-                  🔗 View Calendar
-                </button>
-              </div>
+              <a href="#" style={{
+                fontSize: '13px',
+                fontWeight: '500',
+                color: '#2563eb',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                borderBottom: '2px solid transparent',
+                transition: 'border-color 0.2s'
+              }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = '#2563eb'}
+                 onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>
+                🔗 <span>View Calendar →</span>
+              </a>
             </div>
           </div>
 
