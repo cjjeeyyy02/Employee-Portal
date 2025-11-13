@@ -52,8 +52,8 @@ export default function EmployeeDashboard() {
             {/* Top Row - 4 Metric Cards Grid */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '16px',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '12px',
               width: '100%',
               backgroundColor: 'transparent'
             }}>
@@ -69,41 +69,42 @@ export default function EmployeeDashboard() {
                     style={{
                       backgroundColor: '#ffffff',
                       border: '1px solid #e5e7eb',
-                      borderRadius: '20px',
-                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
-                      padding: '16px',
+                      borderRadius: '16px',
+                      boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                      padding: '12px',
                       display: 'flex',
                       alignItems: 'flex-start',
                       justifyContent: 'space-between',
+                      gap: '8px',
                       transition: 'all 0.25s ease-in-out',
                       cursor: 'pointer',
-                      minHeight: '100px'
+                      minHeight: 'auto'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'scale(1.02)';
-                      e.currentTarget.style.boxShadow = '0 10px 15px rgba(0, 0, 0, 0.1)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
                       e.currentTarget.style.borderColor = '#d1d5db';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'scale(1)';
-                      e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.05)';
+                      e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
                       e.currentTarget.style.borderColor = '#e5e7eb';
                     }}
                   >
                     {/* Left Content */}
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                       <p style={{
-                        fontSize: '13px',
+                        fontSize: '11px',
                         fontWeight: '500',
                         color: '#6b7280',
                         letterSpacing: '0.2px',
                         margin: '0',
-                        marginBottom: '6px'
+                        marginBottom: '3px'
                       }}>
                         {metric.label}
                       </p>
                       <p style={{
-                        fontSize: '22px',
+                        fontSize: '16px',
                         fontWeight: '700',
                         color: '#111827',
                         margin: '0'
@@ -112,12 +113,12 @@ export default function EmployeeDashboard() {
                       </p>
                       {metric.subtext && (
                         <p style={{
-                          fontSize: '12px',
+                          fontSize: '10px',
                           color: isPositive ? '#059669' : '#dc2626',
-                          margin: '4px 0 0 0',
+                          margin: '2px 0 0 0',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '4px'
+                          gap: '2px'
                         }}>
                           {isPositive ? '↑' : '↓'} {metric.subtext}
                         </p>
@@ -126,8 +127,8 @@ export default function EmployeeDashboard() {
 
                     {/* Right Icon */}
                     <div style={{
-                      width: '32px',
-                      height: '32px',
+                      width: '28px',
+                      height: '28px',
                       borderRadius: '8px',
                       backgroundColor: iconBgColors[index],
                       display: 'flex',
@@ -135,7 +136,7 @@ export default function EmployeeDashboard() {
                       justifyContent: 'center',
                       flexShrink: 0
                     }}>
-                      <Icon style={{ width: '16px', height: '16px', color: iconColors[index] }} />
+                      <Icon style={{ width: '14px', height: '14px', color: iconColors[index] }} />
                     </div>
                   </div>
                 );
