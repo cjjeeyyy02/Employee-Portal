@@ -42,7 +42,7 @@ export default function EmployeeDashboard() {
           <h1 className="text-3xl font-normal text-black" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>
             Welcome back, John!
           </h1>
-          <p className="text-base text-gray-600 mt-2">Here's your dashboard overview for today</p>
+          <p className="text-base text-gray-600 mt-2" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>Here's your dashboard overview for today</p>
         </div>
 
         {/* Main Grid Layout */}
