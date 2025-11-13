@@ -49,26 +49,93 @@ export default function EmployeeDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
           {/* Left Section - 70% */}
           <div className="lg:col-span-8 space-y-4">
-            {/* Top Row - 4 Small Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            {/* Top Row - 4 Metric Cards Grid */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '16px',
+              width: '100%',
+              backgroundColor: 'transparent'
+            }}>
               {metrics.map((metric, index) => {
                 const Icon = metric.icon;
+                const iconBgColors = ['#eff6ff', '#ecfdf5', '#f5f3ff', '#fff7ed'];
+                const iconColors = ['#2563eb', '#16a34a', '#7c3aed', '#f97316'];
+                const isPositive = metric.subtext && metric.subtext.includes('+');
+
                 return (
-                  <div key={index} className="bg-white border border-gray-300 rounded-lg p-2 flex flex-col justify-between h-20">
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="min-w-0">
-                        <p className="text-xs text-gray-600 font-medium leading-tight truncate text-[11px]">{metric.label}</p>
-                        <p className="text-sm font-bold text-gray-900 mt-0 leading-tight">{metric.value}</p>
-                        {metric.subtext && (
-                          <p className="text-xs text-gray-600 mt-0 flex items-center gap-0.5 leading-tight text-[10px]">
-                            <ArrowUpRight className="w-2 h-2 text-green-600 flex-shrink-0" />
-                            <span className="truncate">{metric.subtext}</span>
-                          </p>
-                        )}
-                      </div>
-                      <div className={`${metric.bgColor} p-1 rounded flex-shrink-0`}>
-                        <Icon className={`w-3 h-3 ${metric.iconColor}`} />
-                      </div>
+                  <div
+                    key={index}
+                    style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '20px',
+                      boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
+                      padding: '16px',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      justifyContent: 'space-between',
+                      transition: 'all 0.25s ease-in-out',
+                      cursor: 'pointer',
+                      minHeight: '100px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.02)';
+                      e.currentTarget.style.boxShadow = '0 10px 15px rgba(0, 0, 0, 0.1)';
+                      e.currentTarget.style.borderColor = '#d1d5db';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.05)';
+                      e.currentTarget.style.borderColor = '#e5e7eb';
+                    }}
+                  >
+                    {/* Left Content */}
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <p style={{
+                        fontSize: '13px',
+                        fontWeight: '500',
+                        color: '#6b7280',
+                        letterSpacing: '0.2px',
+                        margin: '0',
+                        marginBottom: '6px'
+                      }}>
+                        {metric.label}
+                      </p>
+                      <p style={{
+                        fontSize: '22px',
+                        fontWeight: '700',
+                        color: '#111827',
+                        margin: '0'
+                      }}>
+                        {metric.value}
+                      </p>
+                      {metric.subtext && (
+                        <p style={{
+                          fontSize: '12px',
+                          color: isPositive ? '#059669' : '#dc2626',
+                          margin: '4px 0 0 0',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px'
+                        }}>
+                          {isPositive ? '↑' : '↓'} {metric.subtext}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Right Icon */}
+                    <div style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '8px',
+                      backgroundColor: iconBgColors[index],
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }}>
+                      <Icon style={{ width: '16px', height: '16px', color: iconColors[index] }} />
                     </div>
                   </div>
                 );
