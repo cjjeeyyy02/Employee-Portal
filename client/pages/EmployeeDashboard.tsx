@@ -189,8 +189,25 @@ export default function EmployeeDashboard() {
               </div>
             </div>
 
-            {/* Bottom Medium Card */}
-            <div className="bg-white border border-gray-300 rounded h-[242px]"></div>
+            {/* Bottom Medium Card - Quick Actions */}
+            <div className="bg-white border border-gray-300 rounded-lg p-5 flex flex-col h-[242px]">
+              <h2 className="text-lg font-bold text-gray-900 mb-3">Quick Actions</h2>
+
+              <div className="flex-1 space-y-2">
+                <button className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                  📋 Request Leave
+                </button>
+                <button className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                  ⏱️ Request Overtime
+                </button>
+                <button className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                  📝 Submit Request
+                </button>
+                <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                  ✨ New Task / Assign Task
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
