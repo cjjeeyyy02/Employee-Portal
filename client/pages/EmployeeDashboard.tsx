@@ -163,8 +163,31 @@ export default function EmployeeDashboard() {
 
           {/* Right Section - 30% */}
           <div className="lg:col-span-4 space-y-4">
-            {/* Top Tall Card */}
-            <div className="bg-white border border-gray-300 rounded h-[542px]"></div>
+            {/* Top Tall Card - Announcements */}
+            <div className="bg-white border border-gray-300 rounded-lg p-5 flex flex-col h-[542px]">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Announcements</h2>
+
+              <div className="flex-1 space-y-4 overflow-y-auto">
+                {/* Announcement 1 */}
+                <div className="pb-4 border-b border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900">Company-Wide Holiday Schedule Update</h3>
+                  <p className="text-xs text-gray-600 mt-2 leading-relaxed">Please review the updated holiday schedule for Oct 26, 2023.</p>
+                </div>
+
+                {/* Announcement 2 */}
+                <div className="pb-4">
+                  <h3 className="text-sm font-semibold text-gray-900">New Benefits Enrollment Period Open</h3>
+                  <p className="text-xs text-gray-600 mt-2 leading-relaxed">Annual benefits enrollment is now open until Oct 25, 2023.</p>
+                </div>
+              </div>
+
+              {/* View All Link */}
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <button className="text-blue-600 hover:text-blue-700 text-sm font-semibold flex items-center gap-1">
+                  🔗 View All Announcements →
+                </button>
+              </div>
+            </div>
 
             {/* Bottom Medium Card */}
             <div className="bg-white border border-gray-300 rounded h-[242px]"></div>
