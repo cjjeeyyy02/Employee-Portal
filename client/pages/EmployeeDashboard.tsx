@@ -116,7 +116,45 @@ export default function EmployeeDashboard() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-300 rounded h-[340px]"></div>
+              {/* Pending Tasks List Card */}
+              <div className="bg-white border border-gray-300 rounded-lg p-5 flex flex-col h-[340px]">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-bold text-gray-900">Pending Tasks</h2>
+                  <span className="text-xs px-2.5 py-1 bg-gray-600 text-white rounded-full font-semibold">3 tasks</span>
+                </div>
+
+                <div className="flex-1 space-y-3 overflow-y-auto">
+                  {/* Task 1 */}
+                  <div className="pb-3 border-b border-gray-200">
+                    <p className="text-sm font-semibold text-gray-900">Q4 Performance Review</p>
+                    <p className="text-xs text-gray-600 mt-1">Due: Oct 25, 2024</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="text-xs px-2 py-0.5 bg-red-100 text-red-700 rounded font-semibold">Pending</span>
+                      <span className="text-xs px-2 py-0.5 bg-red-100 text-red-700 rounded font-semibold">High</span>
+                    </div>
+                  </div>
+
+                  {/* Task 2 */}
+                  <div className="pb-3 border-b border-gray-200">
+                    <p className="text-sm font-semibold text-gray-900">Complete Training Module</p>
+                    <p className="text-xs text-gray-600 mt-1">Due: Oct 30, 2024</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="text-xs px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded font-semibold">In Progress</span>
+                      <span className="text-xs px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded font-semibold">Medium</span>
+                    </div>
+                  </div>
+
+                  {/* Task 3 */}
+                  <div className="pb-3">
+                    <p className="text-sm font-semibold text-gray-900">Submit Project Deliverables</p>
+                    <p className="text-xs text-gray-600 mt-1">Due: Nov 5, 2024</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <span className="text-xs px-2 py-0.5 bg-red-100 text-red-700 rounded font-semibold">Pending</span>
+                      <span className="text-xs px-2 py-0.5 bg-red-100 text-red-700 rounded font-semibold">High</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Bottom Row - 1 Large Card */}
