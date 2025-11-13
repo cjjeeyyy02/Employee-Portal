@@ -4,27 +4,10 @@ export default function EmployeeDashboard() {
   return (
     <Layout>
       {/* Top Section - 2 Column Flex Layout */}
-      <div style={{ gap: "20px", display: "flex" }}>
+      <div style={{ display: "flex", fontWeight: "400", gap: "20px", marginRight: "-3px" }}>
         {/* Left Column - 50% */}
-        <div style={{ display: "flex", flexDirection: "column", lineHeight: "normal", width: "50%", marginLeft: "0px" }}>
-          {/* Tall Skeleton Card */}
-          <div
-            style={{
-              animationDuration: "2s",
-              animationIterationCount: "infinite",
-              animationName: "pulse",
-              animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
-              backgroundColor: "rgb(209, 213, 219)",
-              borderRadius: "8px",
-              fontWeight: "400",
-              height: "192px",
-            }}
-          />
-        </div>
-
-        {/* Right Column - 50% */}
-        <div style={{ display: "flex", flexDirection: "column", lineHeight: "normal", width: "50%", marginLeft: "20px" }}>
-          {/* 5-Card Grid (4 small + 1 tall) */}
+        <div style={{ display: "flex", flexDirection: "column", fontWeight: "400", width: "50%" }}>
+          {/* 5-Card Grid (4 small cards) */}
           <div
             style={{
               display: "grid",
@@ -91,21 +74,6 @@ export default function EmployeeDashboard() {
                 fontWeight: "400",
                 gridArea: "auto / span 1 / auto / span 1",
                 height: "96px",
-              }}
-            />
-
-            {/* Tall Card */}
-            <div
-              style={{
-                animationDuration: "2s",
-                animationIterationCount: "infinite",
-                animationName: "pulse",
-                animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
-                backgroundColor: "rgb(209, 213, 219)",
-                borderRadius: "8px",
-                fontWeight: "400",
-                gridArea: "auto / span 1 / auto / span 1",
-                height: "384px",
               }}
             />
           </div>
@@ -175,6 +143,7 @@ export default function EmployeeDashboard() {
             fontWeight: "400",
             gridArea: "auto / span 1 / auto / span 1",
             height: "192px",
+            marginTop: "-1px",
           }}
         />
       </div>
