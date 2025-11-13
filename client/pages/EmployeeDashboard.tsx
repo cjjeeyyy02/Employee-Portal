@@ -618,30 +618,195 @@ export default function EmployeeDashboard() {
 
           {/* Right Section - 30% */}
           <div className="lg:col-span-4 space-y-4">
-            {/* Top Tall Card - Announcements */}
-            <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[380px]">
-              <h2 className="text-base font-bold text-gray-900 mb-2">Announcements</h2>
+            {/* Announcements Container */}
+            <div style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #e5e7eb',
+              borderRadius: '20px',
+              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 2px 6px',
+              padding: '16px',
+              display: 'flex',
+              flexDirection: 'column',
+              height: 'auto'
+            }}>
+              {/* Header Section */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '12px'
+              }}>
+                <span style={{
+                  fontSize: '18px',
+                  marginRight: '6px',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}>📢</span>
+                <h2 style={{
+                  fontSize: '18px',
+                  fontWeight: '600',
+                  color: '#1f2937',
+                  margin: '0'
+                }}>Announcements</h2>
+              </div>
 
-              <div className="flex-1 space-y-3 overflow-y-auto">
+              {/* Announcements Stack */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '12px'
+              }}>
                 {/* Announcement 1 */}
-                <div className="pb-3 border-b border-gray-200">
-                  <h3 className="text-xs font-semibold text-gray-900">Holiday Schedule Update</h3>
-                  <p className="text-xs text-gray-600 mt-1 leading-tight">Please review the updated holiday schedule for Oct 26, 2023.</p>
+                <div style={{
+                  paddingBottom: '12px',
+                  borderBottom: '1px solid #e5e7eb'
+                }}>
+                  <h3 style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '4px',
+                    margin: '0 0 4px 0'
+                  }}>Holiday Schedule Update</h3>
+                  <p style={{
+                    fontSize: '13px',
+                    color: '#4b5563',
+                    lineHeight: '1.4',
+                    margin: '0'
+                  }}>Please review the updated holiday schedule for Oct 26, 2023.</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    marginTop: '4px',
+                    margin: '4px 0 0 0'
+                  }}>Posted on Nov 10, 2023</p>
                 </div>
 
                 {/* Announcement 2 */}
-                <div className="pb-3">
-                  <h3 className="text-xs font-semibold text-gray-900">Benefits Enrollment Open</h3>
-                  <p className="text-xs text-gray-600 mt-1 leading-tight">Annual benefits enrollment is now open until Oct 25, 2023.</p>
+                <div style={{
+                  paddingBottom: '12px',
+                  borderBottom: '1px solid #e5e7eb'
+                }}>
+                  <h3 style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '4px',
+                    margin: '0 0 4px 0'
+                  }}>Benefits Enrollment Open</h3>
+                  <p style={{
+                    fontSize: '13px',
+                    color: '#4b5563',
+                    lineHeight: '1.4',
+                    margin: '0'
+                  }}>Annual benefits enrollment is now open until Oct 25, 2023.</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    marginTop: '4px',
+                    margin: '4px 0 0 0'
+                  }}>Posted on Oct 5, 2023</p>
+                </div>
+
+                {/* Announcement 3 */}
+                <div style={{
+                  paddingBottom: '12px',
+                  borderBottom: '1px solid #e5e7eb'
+                }}>
+                  <h3 style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '4px',
+                    margin: '0 0 4px 0'
+                  }}>New Remote Work Policy</h3>
+                  <p style={{
+                    fontSize: '13px',
+                    color: '#4b5563',
+                    lineHeight: '1.4',
+                    margin: '0'
+                  }}>A new flexible remote work policy will take effect starting Jan 2024. Please review the updated guidelines.</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    marginTop: '4px',
+                    margin: '4px 0 0 0'
+                  }}>Posted on Nov 1, 2023</p>
+                </div>
+
+                {/* Announcement 4 */}
+                <div style={{
+                  paddingBottom: '12px',
+                  borderBottom: '1px solid #e5e7eb'
+                }}>
+                  <h3 style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '4px',
+                    margin: '0 0 4px 0'
+                  }}>Cybersecurity Awareness Month</h3>
+                  <p style={{
+                    fontSize: '13px',
+                    color: '#4b5563',
+                    lineHeight: '1.4',
+                    margin: '0'
+                  }}>Join our awareness sessions and learn how to keep company data secure. Check your email for schedule details.</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    marginTop: '4px',
+                    margin: '4px 0 0 0'
+                  }}>Posted on Oct 29, 2023</p>
+                </div>
+
+                {/* Announcement 5 */}
+                <div>
+                  <h3 style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '4px',
+                    margin: '0 0 4px 0'
+                  }}>Office Renovation Update</h3>
+                  <p style={{
+                    fontSize: '13px',
+                    color: '#4b5563',
+                    lineHeight: '1.4',
+                    margin: '0'
+                  }}>The 3rd floor renovation will begin next week. Temporary workspaces will be provided.</p>
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#9ca3af',
+                    marginTop: '4px',
+                    margin: '4px 0 0 0'
+                  }}>Posted on Nov 12, 2023</p>
                 </div>
               </div>
 
-              {/* View All Link */}
-              <div className="mt-2 pt-2 border-t border-gray-200">
-                <button className="text-blue-600 hover:text-blue-700 text-xs font-semibold flex items-center gap-1">
-                  🔗 View All →
-                </button>
-              </div>
+              {/* Divider Line */}
+              <div style={{
+                borderTop: '1px solid #e5e7eb',
+                marginTop: '12px',
+                marginBottom: '8px'
+              }}></div>
+
+              {/* Footer Link */}
+              <a href="#" style={{
+                fontSize: '13px',
+                fontWeight: '500',
+                color: '#2563eb',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                borderBottom: '2px solid transparent',
+                transition: 'border-color 0.2s',
+                marginTop: '4px',
+                cursor: 'pointer'
+              }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = '#2563eb'}
+                 onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>
+                🔗 <span>View All →</span>
+              </a>
             </div>
 
             {/* Bottom Medium Card - Quick Actions */}
