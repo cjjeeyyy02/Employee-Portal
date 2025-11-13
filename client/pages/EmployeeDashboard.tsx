@@ -1,4 +1,4 @@
-import { Briefcase, AlertCircle, TrendingUp, Calendar, ArrowUpRight } from "lucide-react";
+import { Briefcase, AlertCircle, TrendingUp, Calendar, ArrowUpRight, CheckCircle, Coffee } from "lucide-react";
 import Layout from "@/components/Layout";
 
 export default function EmployeeDashboard() {
@@ -52,80 +52,97 @@ export default function EmployeeDashboard() {
             <p className="text-sm text-gray-600 mt-1" style={{ fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif' }}>Here's your dashboard overview for today</p>
           </div>
 
-          {/* Right side - Clock Actions */}
+          {/* Right side - Time & Clock Actions */}
           <div style={{
             display: 'flex',
-            gap: '12px',
-            alignItems: 'center'
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+            gap: '8px'
           }}>
-            <button style={{
-              padding: '8px 16px',
-              backgroundColor: '#ffffff',
-              border: '1px solid #d1d5db',
-              borderRadius: '8px',
-              fontSize: '13px',
-              fontWeight: '500',
-              color: '#374151',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease-in-out',
-              whiteSpace: 'nowrap'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f3f4f6';
-              e.currentTarget.style.borderColor = '#9ca3af';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ffffff';
-              e.currentTarget.style.borderColor = '#d1d5db';
+            {/* Time Display */}
+            <div style={{
+              textAlign: 'right'
             }}>
-              🕐 Clock In
-            </button>
+              <div style={{
+                fontSize: '18px',
+                fontWeight: '600',
+                color: '#111827',
+                letterSpacing: '-0.5px'
+              }}>
+                {new Date().toLocaleTimeString('en-US', { hour12: false })}
+              </div>
+              <div style={{
+                fontSize: '13px',
+                color: '#6b7280',
+                marginTop: '2px'
+              }}>
+                {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}
+              </div>
+            </div>
 
-            <button style={{
-              padding: '8px 16px',
-              backgroundColor: '#ffffff',
-              border: '1px solid #d1d5db',
-              borderRadius: '8px',
-              fontSize: '13px',
-              fontWeight: '500',
-              color: '#374151',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease-in-out',
-              whiteSpace: 'nowrap'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f3f4f6';
-              e.currentTarget.style.borderColor = '#9ca3af';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ffffff';
-              e.currentTarget.style.borderColor = '#d1d5db';
+            {/* Clock Action Buttons */}
+            <div style={{
+              display: 'flex',
+              gap: '8px',
+              alignItems: 'center'
             }}>
-              🕐 Clock Out
-            </button>
+              <button style={{
+                padding: '10px 20px',
+                backgroundColor: '#3b82f6',
+                border: 'none',
+                borderRadius: '10px',
+                fontSize: '14px',
+                fontWeight: '500',
+                color: '#ffffff',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease-in-out',
+                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 1px 3px rgba(59, 130, 246, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#2563eb';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(59, 130, 246, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#3b82f6';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 1px 3px rgba(59, 130, 246, 0.3)';
+              }}>
+                <CheckCircle size={18} />
+                Clock In
+              </button>
 
-            <button style={{
-              padding: '8px 16px',
-              backgroundColor: '#ffffff',
-              border: '1px solid #d1d5db',
-              borderRadius: '8px',
-              fontSize: '13px',
-              fontWeight: '500',
-              color: '#374151',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease-in-out',
-              whiteSpace: 'nowrap'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#f3f4f6';
-              e.currentTarget.style.borderColor = '#9ca3af';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ffffff';
-              e.currentTarget.style.borderColor = '#d1d5db';
-            }}>
-              ☕ Break
-            </button>
+              <button style={{
+                padding: '10px 20px',
+                backgroundColor: '#ffffff',
+                border: '1px solid #e5e7eb',
+                borderRadius: '10px',
+                fontSize: '14px',
+                fontWeight: '500',
+                color: '#6b7280',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease-in-out',
+                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#f9fafb';
+                e.currentTarget.style.borderColor = '#d1d5db';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff';
+                e.currentTarget.style.borderColor = '#e5e7eb';
+              }}>
+                <Coffee size={18} />
+                Break
+              </button>
+            </div>
           </div>
         </div>
 
