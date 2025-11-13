@@ -74,7 +74,48 @@ export default function EmployeeDashboard() {
 
             {/* Middle Row - 2 Medium Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white border border-gray-300 rounded h-[340px]"></div>
+              {/* Pending Tasks Card */}
+              <div className="bg-white border border-gray-300 rounded-lg p-5 flex flex-col h-[340px]">
+                <div className="mb-4">
+                  <h2 className="text-lg font-bold text-gray-900">Pending Tasks</h2>
+                  <p className="text-sm text-gray-600 mt-1">Tasks that require your attention</p>
+                </div>
+
+                <div className="flex-1 space-y-3 overflow-y-auto">
+                  {/* Task 1 */}
+                  <div className="pb-3 border-b border-gray-200">
+                    <p className="text-sm font-semibold text-gray-900">Complete Q4 Performance Review</p>
+                    <div className="flex items-center justify-between mt-2">
+                      <span className="text-xs text-gray-600">Due: Tomorrow</span>
+                      <span className="text-xs px-2 py-1 bg-red-100 text-red-700 rounded font-semibold">High Priority</span>
+                    </div>
+                  </div>
+
+                  {/* Task 2 */}
+                  <div className="pb-3 border-b border-gray-200">
+                    <p className="text-sm font-semibold text-gray-900">Submit Travel Expense Report</p>
+                    <div className="flex items-center justify-between mt-2">
+                      <span className="text-xs text-gray-600">Due: Friday</span>
+                      <span className="text-xs px-2 py-1 bg-yellow-100 text-yellow-700 rounded font-semibold">Medium</span>
+                    </div>
+                  </div>
+
+                  {/* Task 3 */}
+                  <div className="pb-3">
+                    <p className="text-sm font-semibold text-gray-900">Team Meeting Preparation</p>
+                    <div className="flex items-center justify-between mt-2">
+                      <span className="text-xs text-gray-600">Due: Next Week</span>
+                      <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded font-semibold">Low</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* View All Tasks Link */}
+                <div className="mt-4 pt-3 border-t border-gray-200">
+                  <button className="text-blue-600 hover:text-blue-700 text-sm font-semibold">View All Tasks →</button>
+                </div>
+              </div>
+
               <div className="bg-white border border-gray-300 rounded h-[340px]"></div>
             </div>
 
