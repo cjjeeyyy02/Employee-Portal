@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut, Edit2, X, MoreVertical, Eye, Trash2 } from "lucide-react";
 import Layout from "@/components/Layout";
 
