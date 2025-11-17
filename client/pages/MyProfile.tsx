@@ -20,6 +20,8 @@ interface Payslip {
   id: number;
   date: string;
   payPeriod: string;
+  grossPay: string;
+  deduction: string;
   netPay: string;
 }
 
@@ -44,9 +46,9 @@ export default function MyProfile() {
   const [trainingForm, setTrainingForm] = useState({ name: "", issuer: "", issueDate: "", expiryDate: "" });
 
   const payslips: Payslip[] = [
-    { id: 1, date: "Nov 30, 2024", payPeriod: "Nov 1 - Nov 30, 2024", netPay: "$3,750.00" },
-    { id: 2, date: "Nov 15, 2024", payPeriod: "Nov 1 - Nov 15, 2024", netPay: "$1,875.00" },
-    { id: 3, date: "Oct 31, 2024", payPeriod: "Oct 1 - Oct 31, 2024", netPay: "$3,750.00" },
+    { id: 1, date: "Nov 30, 2024", payPeriod: "Nov 1 - Nov 30, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
+    { id: 2, date: "Nov 15, 2024", payPeriod: "Nov 1 - Nov 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
+    { id: 3, date: "Oct 31, 2024", payPeriod: "Oct 1 - Oct 31, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
     { id: 4, date: "Oct 15, 2024", payPeriod: "Oct 1 - Oct 15, 2024", netPay: "$1,875.00" },
   ];
 
@@ -792,6 +794,8 @@ export default function MyProfile() {
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Payroll Date</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Pay Period</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Gross Pay</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Deduction</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Net Pay</th>
                       <th className="px-4 py-3 text-center font-semibold text-xs text-gray-900">Action</th>
                     </tr>
@@ -801,6 +805,8 @@ export default function MyProfile() {
                       <tr key={payslip.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                         <td className="px-4 py-3 text-sm text-gray-900 font-medium">{payslip.date}</td>
                         <td className="px-4 py-3 text-sm text-gray-700">{payslip.payPeriod}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 font-semibold">{payslip.grossPay}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{payslip.deduction}</td>
                         <td className="px-4 py-3 text-sm text-gray-900 font-semibold">{payslip.netPay}</td>
                         <td className="px-4 py-3 text-center">
                           <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs flex items-center gap-1 justify-center mx-auto" title="Download">
