@@ -957,6 +957,81 @@ export default function MyProfile() {
         {activeTab === "leaveAttendance" && (
           <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
             <div className="space-y-3">
+              {/* Metrics Cards Grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
+                {/* Total Present Today */}
+                <div style={{
+                  borderRadius: "8px",
+                  border: "1px solid #E5E7EB",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  padding: "12px"
+                }}>
+                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Total Present Today</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>86</p>
+                </div>
+
+                {/* On Leave */}
+                <div style={{
+                  borderRadius: "8px",
+                  border: "1px solid #E5E7EB",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  padding: "12px"
+                }}>
+                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>On Leave</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>12</p>
+                </div>
+
+                {/* Pending Leave Request */}
+                <div style={{
+                  borderRadius: "8px",
+                  border: "1px solid #E5E7EB",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  padding: "12px"
+                }}>
+                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Pending Leave Request</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>5</p>
+                </div>
+
+                {/* Today's Late Arrival */}
+                <div style={{
+                  borderRadius: "8px",
+                  border: "1px solid #E5E7EB",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  padding: "12px"
+                }}>
+                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Today's Late Arrival</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>7</p>
+                </div>
+
+                {/* Attendance Rate */}
+                <div style={{
+                  borderRadius: "8px",
+                  border: "1px solid #E5E7EB",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  padding: "12px"
+                }}>
+                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Attendance Rate</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>90.9%</p>
+                </div>
+
+                {/* Punctuality Rate */}
+                <div style={{
+                  borderRadius: "8px",
+                  border: "1px solid #E5E7EB",
+                  backgroundColor: "#FFFFFF",
+                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+                  padding: "12px"
+                }}>
+                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Punctuality Rate</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>95.5%</p>
+                </div>
+              </div>
+
               {/* Leave Balance */}
               <div style={{
                 borderRadius: "8px",
@@ -970,26 +1045,26 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Type</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Taken</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Balance</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Type</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Taken</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Balance</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Annual Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">7</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">13</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">7</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">13</td>
                     </tr>
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Sick Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">3</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">7</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Sick Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">3</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">7</td>
                     </tr>
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Personal Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">2</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">4</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Personal Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">2</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">4</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1008,61 +1083,61 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Leave Type</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Duration</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Total Days</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Approved By</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Status</th>
-                      <th className="px-4 py-3 text-center font-semibold text-sm text-gray-900">Action</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Type</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Duration</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Total Days</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Approved By</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Status</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     {/* Sick Leave */}
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Sick Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">03-15-2024 – 03-17-2024</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">3</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Michael Rodriguez</td>
-                      <td className="px-4 py-3 text-center text-sm">
+                      <td className="px-4 py-3 text-sm text-gray-700">Sick Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">03-15-2024 – 03-17-2024</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">3</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Michael Rodriguez</td>
+                      <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
                       </td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
                     </tr>
 
                     {/* Annual Leave */}
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Annual Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">01-08-2024 – 01-12-2024</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">5</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Michael Rodriguez</td>
-                      <td className="px-4 py-3 text-center text-sm">
+                      <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">01-08-2024 – 01-12-2024</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">5</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Michael Rodriguez</td>
+                      <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
                       </td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
                     </tr>
 
                     {/* Personal Leave */}
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Personal Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">04-22-2024 – 04-22-2024</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">1</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
-                      <td className="px-4 py-3 text-center text-sm">
+                      <td className="px-4 py-3 text-sm text-gray-700">Personal Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">04-22-2024 – 04-22-2024</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">1</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#fff3cd", color: "#856404" }}>Under Review</span>
                       </td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
                     </tr>
 
                     {/* Annual Leave Rejected */}
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">Annual Leave</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">05-10-2024 – 05-14-2024</td>
-                      <td className="px-4 py-3 text-center text-sm font-bold text-gray-900">5</td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
-                      <td className="px-4 py-3 text-center text-sm">
+                      <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">05-10-2024 – 05-14-2024</td>
+                      <td className="px-4 py-3 text-sm font-bold text-gray-900">5</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#f8d7da", color: "#721c24" }}>Rejected</span>
                       </td>
-                      <td className="px-4 py-3 text-center text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
                     </tr>
                   </tbody>
                 </table>
