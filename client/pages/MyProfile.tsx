@@ -1015,8 +1015,11 @@ export default function MyProfile() {
                   boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
                   padding: "12px"
                 }}>
-                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Attendance Rate</p>
-                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>90.9%</p>
+                  <p className="text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Attendance Rate</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>90.9%</p>
+                  <div style={{ width: "100%", height: "6px", backgroundColor: "#E5E7EB", borderRadius: "3px", overflow: "hidden" }}>
+                    <div style={{ width: "90.9%", height: "100%", backgroundColor: "#3B82F6", borderRadius: "3px" }}></div>
+                  </div>
                 </div>
 
                 {/* Punctuality Rate */}
@@ -1027,8 +1030,11 @@ export default function MyProfile() {
                   boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
                   padding: "12px"
                 }}>
-                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Punctuality Rate</p>
-                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>95.5%</p>
+                  <p className="text-xs font-medium text-gray-600 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>Punctuality Rate</p>
+                  <p className="text-2xl font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>95.5%</p>
+                  <div style={{ width: "100%", height: "6px", backgroundColor: "#E5E7EB", borderRadius: "3px", overflow: "hidden" }}>
+                    <div style={{ width: "95.5%", height: "100%", backgroundColor: "#14B8A6", borderRadius: "3px" }}></div>
+                  </div>
                 </div>
               </div>
 
