@@ -5,6 +5,8 @@ type TabType = "goals" | "reviews" | "feedback";
 
 export default function MyPerformance() {
   const [activeTab, setActiveTab] = useState<TabType>("goals");
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [performanceRating, setPerformanceRating] = useState("1");
 
   return (
     <Layout>
@@ -271,16 +273,18 @@ export default function MyPerformance() {
                 Due: 2024-12-20
               </p>
             </div>
-            <button style={{
-              backgroundColor: "#1A73E8",
-              color: "#FFFFFF",
-              padding: "6px 10px",
-              borderRadius: "5px",
-              fontSize: "11px",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: "500"
-            }}>
+            <button
+              onClick={() => setShowReviewModal(true)}
+              style={{
+                backgroundColor: "#1A73E8",
+                color: "#FFFFFF",
+                padding: "6px 10px",
+                borderRadius: "5px",
+                fontSize: "11px",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "500"
+              }}>
               Start Review
             </button>
           </div>
@@ -406,6 +410,212 @@ export default function MyPerformance() {
           <div className="text-center py-12">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Feedback</h3>
             <p className="text-sm text-gray-600">Feedback from colleagues and managers will appear here.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Review Modal */}
+      {showReviewModal && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1000,
+          padding: "20px"
+        }}>
+          <div style={{
+            width: "850px",
+            maxWidth: "100%",
+            maxHeight: "90vh",
+            backgroundColor: "#FFFFFF",
+            padding: "40px",
+            borderRadius: "14px",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "28px",
+            overflowY: "auto"
+          }}>
+            {/* Header */}
+            <div>
+              <h2 style={{ fontSize: "26px", fontWeight: "700", color: "#222", margin: "0 0 8px 0" }}>
+                Q4 2024 Self-Review
+              </h2>
+              <p style={{ fontSize: "16px", color: "#6C757D", margin: "0 0 16px 0" }}>
+                Complete your self-evaluation
+              </p>
+            </div>
+
+            {/* Overall Performance Section */}
+            <div>
+              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Overall Performance (1-5 scale)
+              </label>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                {[
+                  { value: "1", label: "1 - Unacceptable" },
+                  { value: "2", label: "2 - Below Expectation" },
+                  { value: "3", label: "3 - Meets Expectation" },
+                  { value: "4", label: "4 - Exceeds Expectation" },
+                  { value: "5", label: "5 - Outstanding" }
+                ].map((option) => (
+                  <label key={option.value} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
+                    <input
+                      type="radio"
+                      name="performance"
+                      value={option.value}
+                      checked={performanceRating === option.value}
+                      onChange={(e) => setPerformanceRating(e.target.value)}
+                      style={{ width: "18px", height: "18px", cursor: "pointer" }}
+                    />
+                    <span style={{ fontSize: "15px", color: "#333" }}>{option.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Achievements */}
+            <div>
+              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Key Achievements This Quarter
+              </label>
+              <textarea
+                placeholder="Describe your major accomplishments…"
+                style={{
+                  width: "100%",
+                  height: "110px",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "14px",
+                  fontFamily: "inherit",
+                  resize: "vertical"
+                }}
+              />
+            </div>
+
+            {/* Challenges */}
+            <div>
+              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Challenges and How You Overcame Them
+              </label>
+              <textarea
+                placeholder="Discuss any obstacles you faced…"
+                style={{
+                  width: "100%",
+                  height: "110px",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "14px",
+                  fontFamily: "inherit",
+                  resize: "vertical"
+                }}
+              />
+            </div>
+
+            {/* Goal Achievement */}
+            <div>
+              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Goal Achievement
+              </label>
+              <textarea
+                placeholder="Review your progress on set goals…"
+                style={{
+                  width: "100%",
+                  height: "110px",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "14px",
+                  fontFamily: "inherit",
+                  resize: "vertical"
+                }}
+              />
+            </div>
+
+            {/* Areas for Development */}
+            <div>
+              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Areas for Development
+              </label>
+              <textarea
+                placeholder="What skills would you like to develop?"
+                style={{
+                  width: "100%",
+                  height: "110px",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "14px",
+                  fontFamily: "inherit",
+                  resize: "vertical"
+                }}
+              />
+            </div>
+
+            {/* Additional Comments */}
+            <div>
+              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Additional Comments
+              </label>
+              <textarea
+                placeholder="Add any comments or insights you'd like your manager to know"
+                style={{
+                  width: "100%",
+                  height: "110px",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "14px",
+                  fontFamily: "inherit",
+                  resize: "vertical"
+                }}
+              />
+            </div>
+
+            {/* Action Buttons */}
+            <div style={{ display: "flex", gap: "12px", justifyContent: "flex-end", marginTop: "12px" }}>
+              <button
+                onClick={() => setShowReviewModal(false)}
+                style={{
+                  padding: "10px 24px",
+                  borderRadius: "8px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  // Handle submit logic here
+                  setShowReviewModal(false);
+                }}
+                style={{
+                  padding: "10px 24px",
+                  borderRadius: "8px",
+                  border: "none",
+                  backgroundColor: "#1A73E8",
+                  color: "#FFFFFF",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Submit Review
+              </button>
+            </div>
           </div>
         </div>
       )}
