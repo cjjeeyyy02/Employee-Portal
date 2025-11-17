@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut, Edit2, X, MoreVertical, Eye, Trash2 } from "lucide-react";
+import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut, Edit2, X, MoreVertical, Eye, Trash2, Plus, Paperclip } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "personal" | "contact" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents" | "training";
@@ -47,6 +47,15 @@ export default function MyProfile() {
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
   const [showSalary, setShowSalary] = useState<boolean>(false);
   const [openLeaveMenu, setOpenLeaveMenu] = useState<number | null>(null);
+  const [showLeaveModal, setShowLeaveModal] = useState<boolean>(false);
+  const [leaveForm, setLeaveForm] = useState({
+    leaveType: "Annual Leave",
+    startDate: "",
+    endDate: "",
+    reason: "",
+    approver: "",
+  });
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
@@ -973,6 +982,17 @@ export default function MyProfile() {
         {activeTab === "leaveAttendance" && (
           <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
             <div className="space-y-3">
+              {/* Apply for Leave Button */}
+              <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "12px" }}>
+                <button
+                  onClick={() => setShowLeaveModal(true)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                  style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                >
+                  <Plus className="w-4 h-4" />
+                  Apply for Leave
+                </button>
+              </div>
               {/* Top 4 Metrics Cards Grid */}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
                 {/* Total Present Today */}
@@ -1258,6 +1278,234 @@ export default function MyProfile() {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Apply for Leave Modal */}
+        {showLeaveModal && (
+          <div style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 50,
+            padding: "16px"
+          }}>
+            <div style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              maxWidth: "600px",
+              width: "100%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+              boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.15)"
+            }}>
+              {/* Modal Header */}
+              <div style={{
+                padding: "20px 24px",
+                borderBottom: "1px solid #E5E7EB",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}>
+                <h2 style={{ fontFamily: "Poppins, sans-serif", fontSize: "18px", fontWeight: 600, color: "#111827" }}>
+                  Apply for Leave
+                </h2>
+                <button
+                  onClick={() => setShowLeaveModal(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Modal Body */}
+              <div style={{ padding: "24px" }}>
+                <div className="space-y-4">
+                  {/* Leave Type */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      Leave Type <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={leaveForm.leaveType}
+                      onChange={(e) => setLeaveForm({ ...leaveForm, leaveType: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                    >
+                      <option value="Annual Leave">Annual Leave</option>
+                      <option value="Sick Leave">Sick Leave</option>
+                      <option value="Personal Leave">Personal Leave</option>
+                      <option value="Emergency Leave">Emergency Leave</option>
+                      <option value="Maternity/Paternity Leave">Maternity/Paternity Leave</option>
+                    </select>
+                  </div>
+
+                  {/* Date Range */}
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        Start Date <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="date"
+                        value={leaveForm.startDate}
+                        onChange={(e) => setLeaveForm({ ...leaveForm, startDate: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        End Date <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="date"
+                        value={leaveForm.endDate}
+                        onChange={(e) => setLeaveForm({ ...leaveForm, endDate: e.target.value })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Approver Selection */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      Select Approver <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={leaveForm.approver}
+                      onChange={(e) => setLeaveForm({ ...leaveForm, approver: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                    >
+                      <option value="">Select an approver...</option>
+                      <option value="Michael Rodriguez">Michael Rodriguez - Manager</option>
+                      <option value="Jennifer Smith">Jennifer Smith - HR Director</option>
+                      <option value="David Chen">David Chen - Department Head</option>
+                      <option value="Emily Brown">Emily Brown - VP Operations</option>
+                    </select>
+                  </div>
+
+                  {/* Reason for Leave */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      Reason for Leave <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      value={leaveForm.reason}
+                      onChange={(e) => setLeaveForm({ ...leaveForm, reason: e.target.value })}
+                      rows={4}
+                      placeholder="Please provide a brief reason for your leave request..."
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                    />
+                  </div>
+
+                  {/* Document Upload */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      Attach Documents (Optional)
+                    </label>
+                    <div style={{
+                      border: "2px dashed #D1D5DB",
+                      borderRadius: "8px",
+                      padding: "20px",
+                      textAlign: "center",
+                      backgroundColor: "#F9FAFB"
+                    }}>
+                      <input
+                        type="file"
+                        multiple
+                        onChange={(e) => {
+                          if (e.target.files) {
+                            setUploadedFiles(Array.from(e.target.files));
+                          }
+                        }}
+                        className="hidden"
+                        id="file-upload"
+                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                      />
+                      <label
+                        htmlFor="file-upload"
+                        className="cursor-pointer"
+                      >
+                        <Paperclip className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                        <p style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px", color: "#6B7280" }}>
+                          Click to upload or drag and drop
+                        </p>
+                        <p style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px", color: "#9CA3AF", marginTop: "4px" }}>
+                          PDF, DOC, DOCX, JPG, PNG (Max 10MB)
+                        </p>
+                      </label>
+                    </div>
+                    {uploadedFiles.length > 0 && (
+                      <div className="mt-3 space-y-2">
+                        {uploadedFiles.map((file, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center justify-between px-3 py-2 bg-gray-50 rounded-lg"
+                            style={{ fontFamily: "Poppins, sans-serif" }}
+                          >
+                            <div className="flex items-center gap-2">
+                              <FileText className="w-4 h-4 text-gray-500" />
+                              <span className="text-sm text-gray-700">{file.name}</span>
+                              <span className="text-xs text-gray-500">({(file.size / 1024).toFixed(1)} KB)</span>
+                            </div>
+                            <button
+                              onClick={() => setUploadedFiles(uploadedFiles.filter((_, i) => i !== index))}
+                              className="text-red-500 hover:text-red-700 transition-colors"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div style={{
+                padding: "16px 24px",
+                borderTop: "1px solid #E5E7EB",
+                display: "flex",
+                justifyContent: "flex-end",
+                gap: "12px"
+              }}>
+                <button
+                  onClick={() => {
+                    setShowLeaveModal(false);
+                    setLeaveForm({ leaveType: "Annual Leave", startDate: "", endDate: "", reason: "", approver: "" });
+                    setUploadedFiles([]);
+                  }}
+                  className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+                  style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px", fontWeight: 500 }}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    // Handle form submission here
+                    console.log("Leave application submitted:", leaveForm, uploadedFiles);
+                    setShowLeaveModal(false);
+                    setLeaveForm({ leaveType: "Annual Leave", startDate: "", endDate: "", reason: "", approver: "" });
+                    setUploadedFiles([]);
+                  }}
+                  className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                  style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px", fontWeight: 500 }}
+                >
+                  Submit Request
+                </button>
               </div>
             </div>
           </div>
