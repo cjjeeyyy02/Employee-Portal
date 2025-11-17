@@ -595,59 +595,6 @@ export default function MyTasks() {
           </>
         )}
 
-        {/* ===== PROJECTS TAB ===== */}
-        {activeTab === "projects" && (
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-bold text-gray-900">Projects</h2>
-              <button className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
-                <Plus className="w-3.5 h-3.5" />
-                New Project
-              </button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="bg-white rounded-[12px] border border-gray-200 shadow-sm p-5 hover:border-blue-300 hover:shadow-md transition-all flex flex-col"
-                >
-                  {/* Project Title */}
-                  <h3 className="text-base font-bold text-gray-900 mb-1">{project.title}</h3>
-
-                  {/* Project Subtitle */}
-                  <p className="text-sm text-gray-600 mb-3">{project.subtitle}</p>
-
-                  {/* Progress Percentage */}
-                  <p className="text-lg font-bold text-gray-900 mb-1">{project.progress}%</p>
-
-                  {/* Progress Bar */}
-                  <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${project.progress}%` }}></div>
-                  </div>
-
-                  {/* Task Count */}
-                  <p className="text-xs text-gray-600 mb-4">
-                    {project.completedTasks}/{project.totalTasks} tasks
-                  </p>
-
-                  {/* Team Members and View Button */}
-                  <div className="flex justify-between items-end mt-auto">
-                    {/* Team Members */}
-                    <div className="flex-1">
-                      <p className="text-xs text-gray-700">{project.team.join(", ")}</p>
-                    </div>
-
-                    {/* View Project Button */}
-                    <button onClick={() => handleViewProject(project)} className="px-3 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap ml-2">
-                      View Project
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* ===== TEAM TASKS TAB ===== */}
         {activeTab === "teamTasks" && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
