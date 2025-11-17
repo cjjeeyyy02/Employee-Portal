@@ -246,10 +246,157 @@ export default function MyPerformance() {
       )}
 
       {activeTab === "reviews" && (
-        <div style={{ padding: "24px", backgroundColor: "#FFFFFF", borderRadius: "8px", boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)" }}>
-          <div className="text-center py-12">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Reviews</h3>
-            <p className="text-sm text-gray-600">Performance reviews and evaluations will appear here.</p>
+        <div style={{
+          backgroundColor: "#FFFFFF",
+          padding: "24px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px"
+        }}>
+          {/* Review Item #1 - Q4 2024 */}
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between"
+          }}>
+            <div>
+              <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#222", margin: "0 0 6px 0" }}>
+                Q4 2024 - Quarterly Review
+              </h3>
+              <p style={{ fontSize: "14px", color: "#888", margin: "0" }}>
+                Due: 2024-12-20
+              </p>
+            </div>
+            <button style={{
+              backgroundColor: "#1A73E8",
+              color: "#FFFFFF",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              fontSize: "14px",
+              border: "none",
+              cursor: "pointer",
+              fontWeight: "500"
+            }}>
+              Start Review
+            </button>
+          </div>
+
+          {/* Review Item #2 - Q3 2024 */}
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between"
+          }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#222", margin: "0" }}>
+                  Q3 2024 - Quarterly Review
+                </h3>
+                <span style={{
+                  backgroundColor: "#D1F7D9",
+                  color: "#2E7D32",
+                  padding: "4px 10px",
+                  borderRadius: "50px",
+                  fontSize: "13px",
+                  fontWeight: "500"
+                }}>
+                  completed
+                </span>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
+                <span style={{ color: "#666", fontWeight: "500" }}>Overall Rating:</span>
+                <span style={{ color: "#F4B400", fontSize: "16px" }}>⭐⭐⭐⭐☆</span>
+                <span style={{ color: "#222", fontWeight: "600" }}>4.2</span>
+              </div>
+
+              <div style={{ fontSize: "14px", color: "#666" }}>
+                <p style={{ margin: "0 0 4px 0" }}>Manager Rating: 4.5</p>
+                <p style={{ margin: "0 0 4px 0" }}>Self Rating: 4</p>
+              </div>
+
+              <p style={{ fontSize: "14px", color: "#666", margin: "0" }}>
+                Completed: 2024-09-28
+              </p>
+            </div>
+
+            <button style={{
+              backgroundColor: "#FFFFFF",
+              color: "#222",
+              border: "1px solid #D0D0D0",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              fontSize: "14px",
+              cursor: "pointer",
+              fontWeight: "500"
+            }}>
+              View Details
+            </button>
+          </div>
+
+          {/* Review Item #3 - Mid-Year 2024 */}
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between"
+          }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#222", margin: "0" }}>
+                  Mid-Year 2024 - Mid-Year Review
+                </h3>
+                <span style={{
+                  backgroundColor: "#D1F7D9",
+                  color: "#2E7D32",
+                  padding: "4px 10px",
+                  borderRadius: "50px",
+                  fontSize: "13px",
+                  fontWeight: "500"
+                }}>
+                  completed
+                </span>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
+                <span style={{ color: "#666", fontWeight: "500" }}>Overall Rating:</span>
+                <span style={{ color: "#F4B400", fontSize: "16px" }}>⭐⭐⭐⭐☆</span>
+                <span style={{ color: "#222", fontWeight: "600" }}>4.0</span>
+              </div>
+
+              <div style={{ fontSize: "14px", color: "#666" }}>
+                <p style={{ margin: "0 0 4px 0" }}>Manager Rating: 4.2</p>
+                <p style={{ margin: "0 0 4px 0" }}>Self Rating: 3.8</p>
+              </div>
+
+              <p style={{ fontSize: "14px", color: "#666", margin: "0" }}>
+                Completed: 2024-06-25
+              </p>
+            </div>
+
+            <button style={{
+              backgroundColor: "#FFFFFF",
+              color: "#222",
+              border: "1px solid #D0D0D0",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              fontSize: "14px",
+              cursor: "pointer",
+              fontWeight: "500"
+            }}>
+              View Details
+            </button>
           </div>
         </div>
       )}
