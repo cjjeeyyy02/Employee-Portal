@@ -46,10 +46,10 @@ export default function MyProfile() {
   const [trainingForm, setTrainingForm] = useState({ name: "", issuer: "", issueDate: "", expiryDate: "" });
 
   const payslips: Payslip[] = [
-    { id: 1, date: "Nov 30, 2024", payPeriod: "Nov 1 - Nov 30, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
-    { id: 2, date: "Nov 15, 2024", payPeriod: "Nov 1 - Nov 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
-    { id: 3, date: "Oct 31, 2024", payPeriod: "Oct 1 - Oct 31, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
-    { id: 4, date: "Oct 15, 2024", payPeriod: "Oct 1 - Oct 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
+    { id: 1, date: "11/30/2024", payPeriod: "Nov 1 - Nov 30, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
+    { id: 2, date: "11/15/2024", payPeriod: "Nov 1 - Nov 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
+    { id: 3, date: "10/31/2024", payPeriod: "Oct 1 - Oct 31, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
+    { id: 4, date: "10/15/2024", payPeriod: "Oct 1 - Oct 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
   ];
 
   const trainings: Training[] = [
