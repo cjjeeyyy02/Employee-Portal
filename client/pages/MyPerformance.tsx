@@ -409,50 +409,50 @@ export default function MyPerformance() {
         <div style={{
           backgroundColor: "#FFFFFF",
           width: "100%",
-          padding: "20px",
+          padding: "12px",
           display: "flex",
           flexDirection: "column",
-          gap: "22px"
+          gap: "12px"
         }}>
           {/* Feedback Card 1 */}
           <div style={{
             backgroundColor: "white",
             border: "1px solid #E5E7EB",
-            borderRadius: "12px",
-            padding: "18px 22px",
+            borderRadius: "8px",
+            padding: "12px 14px",
             display: "flex",
             flexDirection: "column",
-            gap: "14px"
+            gap: "10px"
           }}>
             {/* Top Text Block */}
             <div style={{
               display: "flex",
               flexDirection: "column",
-              gap: "4px"
+              gap: "3px"
             }}>
               <p style={{
-                fontSize: "16px",
+                fontSize: "13px",
                 fontWeight: "600",
                 color: "#000",
                 margin: "0"
               }}>Sarah Johnson</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#555",
                 margin: "0"
               }}>Software Analyst | Engineering</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#555",
                 margin: "0"
               }}>Peer Feedback | Category: Collaboration</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#444",
                 margin: "0"
               }}>Rating: 3 - Meets Expectation</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#666",
                 margin: "0"
               }}>Feedback Date: 11-10-2024</p>
@@ -461,14 +461,14 @@ export default function MyPerformance() {
             {/* Comment Box */}
             <div style={{
               backgroundColor: "#E9F3FF",
-              padding: "14px 16px",
-              borderRadius: "10px",
+              padding: "10px 12px",
+              borderRadius: "8px",
               width: "100%"
             }}>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#333",
-                lineHeight: "1.5",
+                lineHeight: "1.4",
                 margin: "0"
               }}>
                 You consistently produce high-quality work, communicate clearly, and collaborate effectively with the team. Your initiative and reliability have positively impacted our workflow, and your ability to deliver results with minimal supervision is highly appreciated
@@ -480,41 +480,41 @@ export default function MyPerformance() {
           <div style={{
             backgroundColor: "white",
             border: "1px solid #E5E7EB",
-            borderRadius: "12px",
-            padding: "18px 22px",
+            borderRadius: "8px",
+            padding: "12px 14px",
             display: "flex",
             flexDirection: "column",
-            gap: "14px"
+            gap: "10px"
           }}>
             {/* Top Text Block */}
             <div style={{
               display: "flex",
               flexDirection: "column",
-              gap: "4px"
+              gap: "3px"
             }}>
               <p style={{
-                fontSize: "16px",
+                fontSize: "13px",
                 fontWeight: "600",
                 color: "#000",
                 margin: "0"
               }}>Sarah Johnson</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#555",
                 margin: "0"
               }}>Software Analyst | Engineering</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#555",
                 margin: "0"
               }}>Peer Feedback | Category: Collaboration</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#444",
                 margin: "0"
               }}>Rating: 3 - Meets Expectation</p>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#666",
                 margin: "0"
               }}>Feedback Date: 11-10-2024</p>
@@ -523,14 +523,14 @@ export default function MyPerformance() {
             {/* Comment Box */}
             <div style={{
               backgroundColor: "#E9F3FF",
-              padding: "14px 16px",
-              borderRadius: "10px",
+              padding: "10px 12px",
+              borderRadius: "8px",
               width: "100%"
             }}>
               <p style={{
-                fontSize: "14px",
+                fontSize: "11px",
                 color: "#333",
-                lineHeight: "1.5",
+                lineHeight: "1.4",
                 margin: "0"
               }}>
                 You consistently produce high-quality work, communicate clearly, and collaborate effectively with the team. Your initiative and reliability have positively impacted our workflow, and your ability to deliver results with minimal supervision is highly appreciated
