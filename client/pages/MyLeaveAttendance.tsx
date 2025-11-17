@@ -76,6 +76,12 @@ export default function MyLeaveAttendance() {
   const [breakStartTime, setBreakStartTime] = useState<string | null>(null);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
 
+  // Format date from YYYY-MM-DD to MM/DD/YYYY
+  const formatDate = (dateString: string): string => {
+    const [year, month, day] = dateString.split('-');
+    return `${month}/${day}/${year}`;
+  };
+
   // Overtime form state
   const [overtimeForm, setOvertimeForm] = useState({
     date: '',
