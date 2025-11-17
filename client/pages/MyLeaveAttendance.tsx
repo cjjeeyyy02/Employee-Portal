@@ -293,6 +293,20 @@ export default function MyLeaveAttendance() {
                 <Coffee className="w-3.5 h-3.5" />
                 <span>{isOnBreak ? 'End Break' : 'Break'}</span>
               </button>
+
+              {/* Request Overtime Button */}
+              <button
+                onClick={() => setShowOvertimeModal(true)}
+                disabled={!isClockedIn}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+                  !isClockedIn
+                    ? 'bg-[#F2F2F2] text-[#B3B3B3] cursor-not-allowed'
+                    : 'bg-purple-500 text-white hover:bg-purple-600'
+                }`}
+              >
+                <Clock className="w-3.5 h-3.5" />
+                <span>Request Overtime</span>
+              </button>
             </div>
           </div>
 
