@@ -777,42 +777,6 @@ export default function MyProfile() {
                 </div>
               </div>
 
-              {/* Deductions Card */}
-              <div style={{
-                borderRadius: "8px",
-                border: "1px solid #E5E7EB",
-                backgroundColor: "#FFFFFF",
-                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "10px 12px"
-              }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Deductions & Benefits</h2>
-                <div className="space-y-3">
-                  {/* Health Insurance */}
-                  <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
-                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Health Insurance</span>
-                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>$450/month</span>
-                  </div>
-
-                  {/* 401k Contribution */}
-                  <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
-                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>401k Contribution</span>
-                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>6%</span>
-                  </div>
-
-                  {/* Life Insurance */}
-                  <div className="flex justify-between items-start pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
-                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Life Insurance</span>
-                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Included</span>
-                  </div>
-
-                  {/* Dental & Vision */}
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-medium text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Dental & Vision</span>
-                    <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Included</span>
-                  </div>
-                </div>
-              </div>
-
               {/* Payslip History Card */}
               <div style={{
                 borderRadius: "8px",
