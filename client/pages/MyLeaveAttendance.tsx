@@ -437,7 +437,7 @@ export default function MyLeaveAttendance() {
                   <div>
                     <div className="flex justify-between items-start gap-2 mb-1.5">
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Annual Leave</h3>
+                        <h3 className="text-xs text-gray-900 mb-0.5">Annual Leave</h3>
                         <p className="text-xs text-gray-600">Used: 8 days</p>
                       </div>
                       <div className="text-right">
@@ -445,8 +445,8 @@ export default function MyLeaveAttendance() {
                         <p className="text-xs text-gray-600">Total: 25 days</p>
                       </div>
                     </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
-                      <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "32%" }}></div>
+                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
+                      <div className="bg-red-500 h-2 rounded-full" style={{ width: "32%" }}></div>
                     </div>
                   </div>
 
@@ -454,7 +454,7 @@ export default function MyLeaveAttendance() {
                   <div>
                     <div className="flex justify-between items-start gap-2 mb-1.5">
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Sick Leave</h3>
+                        <h3 className="text-xs text-gray-900 mb-0.5">Sick Leave</h3>
                         <p className="text-xs text-gray-600">Used: 3 days</p>
                       </div>
                       <div className="text-right">
@@ -462,8 +462,8 @@ export default function MyLeaveAttendance() {
                         <p className="text-xs text-gray-600">Total: 10 days</p>
                       </div>
                     </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
-                      <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "30%" }}></div>
+                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
+                      <div className="bg-red-500 h-2 rounded-full" style={{ width: "30%" }}></div>
                     </div>
                   </div>
 
@@ -471,7 +471,7 @@ export default function MyLeaveAttendance() {
                   <div>
                     <div className="flex justify-between items-start gap-2 mb-1.5">
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Personal Leave</h3>
+                        <h3 className="text-xs text-gray-900 mb-0.5">Personal Leave</h3>
                         <p className="text-xs text-gray-600">Used: 2 days</p>
                       </div>
                       <div className="text-right">
@@ -479,8 +479,8 @@ export default function MyLeaveAttendance() {
                         <p className="text-xs text-gray-600">Total: 5 days</p>
                       </div>
                     </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
-                      <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "40%" }}></div>
+                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
+                      <div className="bg-red-500 h-2 rounded-full" style={{ width: "40%" }}></div>
                     </div>
                   </div>
 
@@ -488,7 +488,7 @@ export default function MyLeaveAttendance() {
                   <div>
                     <div className="flex justify-between items-start gap-2 mb-1.5">
                       <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">Maternity Leave</h3>
+                        <h3 className="text-xs text-gray-900 mb-0.5">Maternity Leave</h3>
                         <p className="text-xs text-gray-600">Used: 0 days</p>
                       </div>
                       <div className="text-right">
@@ -496,8 +496,8 @@ export default function MyLeaveAttendance() {
                         <p className="text-xs text-gray-600">Total: 90 days</p>
                       </div>
                     </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-0.5">
-                      <div className="bg-[#2F80ED] h-0.5 rounded-full" style={{ width: "0%" }}></div>
+                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
+                      <div className="bg-red-500 h-2 rounded-full" style={{ width: "0%" }}></div>
                     </div>
                   </div>
                 </div>
