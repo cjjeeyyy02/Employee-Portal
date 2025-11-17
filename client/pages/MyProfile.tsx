@@ -608,37 +608,37 @@ export default function MyProfile() {
                 padding: "10px 12px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Previous Work History</h2>
+                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px", fontWeight: 600 }}>Previous Work History</h2>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Company Name</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Position</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Duration</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Location</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Employment Type</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-900">Reason for Leaving</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Company Name</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Position</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Duration</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Location</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Employment Type</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Reason for Leaving</th>
                     </tr>
                   </thead>
                   <tbody>
                     {/* Nimbus Labs */}
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">Nimbus Labs</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Software Engineer</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">2 years</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Vancouver, Canada</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Career growth</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>Nimbus Labs</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Software Engineer</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>2 years</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Vancouver, Canada</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Full-time</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Career growth</td>
                     </tr>
 
                     {/* Aster Corp */}
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">Aster Corp</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Junior Developer</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">1.5 years</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Seattle, USA</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Full-time</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Relocation</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>Aster Corp</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Junior Developer</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>1.5 years</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Seattle, USA</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Full-time</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Relocation</td>
                     </tr>
                   </tbody>
                 </table>
