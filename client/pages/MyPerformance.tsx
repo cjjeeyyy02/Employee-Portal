@@ -406,10 +406,136 @@ export default function MyPerformance() {
       )}
 
       {activeTab === "feedback" && (
-        <div style={{ padding: "24px", backgroundColor: "#FFFFFF", borderRadius: "8px", boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)" }}>
-          <div className="text-center py-12">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Feedback</h3>
-            <p className="text-sm text-gray-600">Feedback from colleagues and managers will appear here.</p>
+        <div style={{
+          backgroundColor: "#FFFFFF",
+          width: "100%",
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "22px"
+        }}>
+          {/* Feedback Card 1 */}
+          <div style={{
+            backgroundColor: "white",
+            border: "1px solid #E5E7EB",
+            borderRadius: "12px",
+            padding: "18px 22px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "14px"
+          }}>
+            {/* Top Text Block */}
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px"
+            }}>
+              <p style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                color: "#000",
+                margin: "0"
+              }}>Sarah Johnson</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#555",
+                margin: "0"
+              }}>Software Analyst | Engineering</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#555",
+                margin: "0"
+              }}>Peer Feedback | Category: Collaboration</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#444",
+                margin: "0"
+              }}>Rating: 3 - Meets Expectation</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#666",
+                margin: "0"
+              }}>Feedback Date: 11-10-2024</p>
+            </div>
+
+            {/* Comment Box */}
+            <div style={{
+              backgroundColor: "#E9F3FF",
+              padding: "14px 16px",
+              borderRadius: "10px",
+              width: "100%"
+            }}>
+              <p style={{
+                fontSize: "14px",
+                color: "#333",
+                lineHeight: "1.5",
+                margin: "0"
+              }}>
+                You consistently produce high-quality work, communicate clearly, and collaborate effectively with the team. Your initiative and reliability have positively impacted our workflow, and your ability to deliver results with minimal supervision is highly appreciated
+              </p>
+            </div>
+          </div>
+
+          {/* Feedback Card 2 */}
+          <div style={{
+            backgroundColor: "white",
+            border: "1px solid #E5E7EB",
+            borderRadius: "12px",
+            padding: "18px 22px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "14px"
+          }}>
+            {/* Top Text Block */}
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "4px"
+            }}>
+              <p style={{
+                fontSize: "16px",
+                fontWeight: "600",
+                color: "#000",
+                margin: "0"
+              }}>Sarah Johnson</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#555",
+                margin: "0"
+              }}>Software Analyst | Engineering</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#555",
+                margin: "0"
+              }}>Peer Feedback | Category: Collaboration</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#444",
+                margin: "0"
+              }}>Rating: 3 - Meets Expectation</p>
+              <p style={{
+                fontSize: "14px",
+                color: "#666",
+                margin: "0"
+              }}>Feedback Date: 11-10-2024</p>
+            </div>
+
+            {/* Comment Box */}
+            <div style={{
+              backgroundColor: "#E9F3FF",
+              padding: "14px 16px",
+              borderRadius: "10px",
+              width: "100%"
+            }}>
+              <p style={{
+                fontSize: "14px",
+                color: "#333",
+                lineHeight: "1.5",
+                margin: "0"
+              }}>
+                You consistently produce high-quality work, communicate clearly, and collaborate effectively with the team. Your initiative and reliability have positively impacted our workflow, and your ability to deliver results with minimal supervision is highly appreciated
+              </p>
+            </div>
           </div>
         </div>
       )}
