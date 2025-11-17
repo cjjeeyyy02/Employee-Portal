@@ -790,7 +790,7 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Date</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Payroll Date</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Pay Period</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Net Pay</th>
                       <th className="px-4 py-3 text-center font-semibold text-xs text-gray-900">Action</th>
