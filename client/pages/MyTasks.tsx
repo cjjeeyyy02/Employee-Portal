@@ -3,7 +3,7 @@ import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, Trending
 import Layout from "@/components/Layout";
 
 type TabType = "myTasks" | "teamTasks";
-type ViewType = "list" | "kanban" | "calendar";
+type ViewType = "list" | "calendar";
 type ModalType = "newTask" | "filters" | "aiAssistant" | "viewProject" | "deleteConfirm" | null;
 
 interface Task {
@@ -326,7 +326,6 @@ export default function MyTasks() {
               <div className="flex gap-2">
                 {[
                   { id: "list", label: "List", icon: List },
-                  { id: "kanban", label: "Kanban", icon: Grid3x3 },
                   { id: "calendar", label: "Calendar", icon: Calendar },
                 ].map((view) => {
                   const Icon = view.icon;
@@ -470,51 +469,6 @@ export default function MyTasks() {
                     <p>No tasks found. Try adjusting your filters.</p>
                   </div>
                 )}
-              </div>
-            )}
-
-            {/* KANBAN VIEW */}
-            {activeView === "kanban" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {["Todo", "In Progress", "Review", "Done"].map((status) => (
-                  <div key={status} className="bg-gray-50 rounded-lg p-3 min-h-[500px]">
-                    <h3 className="font-semibold text-gray-900 mb-3 text-sm">{status}</h3>
-                    <div className="space-y-3">
-                      {filteredTasks
-                        .filter((task) => task.status === status)
-                        .map((task) => (
-                          <div
-                            key={task.id}
-                            className="bg-white rounded-lg border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow"
-                          >
-                            <div className="flex justify-between items-start gap-2 mb-2">
-                              <h4 className="text-sm font-semibold text-gray-900 flex-1">{task.title}</h4>
-                              <button onClick={() => handleDeleteTask(task.id)} className="text-gray-400 hover:text-red-600 flex-shrink-0">
-                                <Trash2 className="w-3 h-3" />
-                              </button>
-                            </div>
-                            <p className="text-xs text-gray-600 mb-2">{task.category}</p>
-                            <div className="flex gap-1.5 mb-2">
-                              <span className={`px-2 py-0.5 rounded text-xs font-semibold ${getPriorityColor(task.priority)}`}>
-                                {task.priority}
-                              </span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-xs text-gray-600">{task.dueDate}</span>
-                              <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold">
-                                {task.avatar}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      {filteredTasks.filter((task) => task.status === status).length === 0 && (
-                        <div className="text-center py-8 text-gray-400">
-                          <p className="text-xs">No tasks</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
               </div>
             )}
 
