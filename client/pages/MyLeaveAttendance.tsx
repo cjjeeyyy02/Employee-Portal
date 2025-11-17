@@ -388,7 +388,7 @@ export default function MyLeaveAttendance() {
                               Correction Request
                             </button>
                           ) : (
-                            "—"
+                            ""
                           )}
                         </td>
                       </tr>

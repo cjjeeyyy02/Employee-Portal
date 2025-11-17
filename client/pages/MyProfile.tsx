@@ -1313,7 +1313,7 @@ export default function MyProfile() {
                       <td className="px-4 py-3 text-sm text-gray-700">Personal Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">04-22-2024 – 04-22-2024</td>
                       <td className="px-4 py-3 text-sm font-bold text-gray-900">1</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm text-gray-700"></td>
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#fff3cd", color: "#856404" }}>Under Review</span>
                       </td>
@@ -1348,7 +1348,7 @@ export default function MyProfile() {
                       <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">05-10-2024 – 05-14-2024</td>
                       <td className="px-4 py-3 text-sm font-bold text-gray-900">5</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm text-gray-700"></td>
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#f8d7da", color: "#721c24" }}>Rejected</span>
                       </td>
