@@ -637,72 +637,74 @@ export default function EmployeeDashboard() {
           <div className="lg:col-span-4 space-y-4">
             {/* Action Items Container */}
             <div style={{
-              backgroundColor: '#F8F8F8',
-              padding: '24px',
+              backgroundColor: '#ffffff',
+              padding: '16px',
               width: '100%',
               borderRadius: '12px',
-              boxShadow: 'rgba(0, 0, 0, 0.08) 0px 2px 8px',
+              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 2px 6px',
+              border: '1px solid #e5e7eb',
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px'
+              gap: '16px',
+              fontFamily: 'Poppins, -apple-system, Roboto, Helvetica, sans-serif'
             }}>
               {/* Header Section */}
               <div>
                 <h2 style={{
-                  fontSize: '20px',
-                  fontWeight: '700',
+                  fontSize: '14px',
+                  fontWeight: '600',
                   color: '#222',
-                  margin: '0 0 4px 0'
+                  margin: '0 0 2px 0'
                 }}>Action Items</h2>
                 <p style={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   color: '#777',
-                  margin: '0 0 10px 0'
+                  margin: '0 0 8px 0'
                 }}>Things that need your attention</p>
               </div>
 
               {/* TODAY Section */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {/* TODAY Tag with Line */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
                   <span style={{
                     backgroundColor: '#FF4A4A',
                     color: 'white',
-                    padding: '4px 12px',
+                    padding: '3px 10px',
                     borderRadius: '4px',
-                    fontSize: '12px',
+                    fontSize: '10px',
                     fontWeight: '600'
                   }}>TODAY</span>
                   <div style={{ flex: 1, height: '1px', backgroundColor: '#FF4A4A' }}></div>
                 </div>
 
                 {/* Item 1 */}
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'start', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'start', marginBottom: '10px' }}>
                   <div style={{
-                    width: '18px',
-                    height: '18px',
+                    width: '16px',
+                    height: '16px',
                     border: '2px solid #666',
                     borderRadius: '3px',
                     flexShrink: 0,
-                    marginTop: '2px'
+                    marginTop: '1px'
                   }}></div>
                   <div>
                     <h3 style={{
-                      fontSize: '16px',
+                      fontSize: '13px',
                       fontWeight: '600',
                       color: '#222',
-                      margin: '0 0 4px 0'
+                      margin: '0 0 3px 0'
                     }}>Finalize Q4 Budget Report</h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                       <span style={{
-                        width: '6px',
-                        height: '6px',
+                        width: '5px',
+                        height: '5px',
                         borderRadius: '50%',
                         backgroundColor: '#C62828',
                         display: 'inline-block'
                       }}></span>
                       <span style={{
-                        fontSize: '13px',
+                        fontSize: '11px',
                         color: '#C62828'
                       }}>High / Due 11-14-2025</span>
                     </div>
@@ -711,47 +713,47 @@ export default function EmployeeDashboard() {
               </div>
 
               {/* TOMORROW Section */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {/* TOMORROW Tag with Line */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
                   <span style={{
                     backgroundColor: '#C9C9C9',
                     color: '#444',
-                    padding: '4px 12px',
+                    padding: '3px 10px',
                     borderRadius: '4px',
-                    fontSize: '12px',
+                    fontSize: '10px',
                     fontWeight: '600'
                   }}>TOMORROW</span>
                   <div style={{ flex: 1, height: '1px', backgroundColor: '#D9D9D9' }}></div>
                 </div>
 
                 {/* Item 2 */}
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'start', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'start', marginBottom: '10px' }}>
                   <div style={{
-                    width: '18px',
-                    height: '18px',
+                    width: '16px',
+                    height: '16px',
                     border: '2px solid #666',
                     borderRadius: '3px',
                     flexShrink: 0,
-                    marginTop: '2px'
+                    marginTop: '1px'
                   }}></div>
                   <div>
                     <h3 style={{
-                      fontSize: '16px',
+                      fontSize: '13px',
                       fontWeight: '600',
                       color: '#222',
-                      margin: '0 0 4px 0'
+                      margin: '0 0 3px 0'
                     }}>Review marketing campaign creatives</h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                       <span style={{
-                        width: '6px',
-                        height: '6px',
+                        width: '5px',
+                        height: '5px',
                         borderRadius: '50%',
                         backgroundColor: '#AF8700',
                         display: 'inline-block'
                       }}></span>
                       <span style={{
-                        fontSize: '13px',
+                        fontSize: '11px',
                         color: '#AF8700'
                       }}>Medium / Due 11-15-2025</span>
                     </div>
@@ -760,47 +762,47 @@ export default function EmployeeDashboard() {
               </div>
 
               {/* NEXT WEEK Section */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {/* NEXT WEEK Tag with Line */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
                   <span style={{
                     backgroundColor: '#C9C9C9',
                     color: '#444',
-                    padding: '4px 12px',
+                    padding: '3px 10px',
                     borderRadius: '4px',
-                    fontSize: '12px',
+                    fontSize: '10px',
                     fontWeight: '600'
                   }}>NEXT WEEK</span>
                   <div style={{ flex: 1, height: '1px', backgroundColor: '#D9D9D9' }}></div>
                 </div>
 
                 {/* Item 3 */}
-                <div style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'start' }}>
                   <div style={{
-                    width: '18px',
-                    height: '18px',
+                    width: '16px',
+                    height: '16px',
                     border: '2px solid #666',
                     borderRadius: '3px',
                     flexShrink: 0,
-                    marginTop: '2px'
+                    marginTop: '1px'
                   }}></div>
                   <div>
                     <h3 style={{
-                      fontSize: '16px',
+                      fontSize: '13px',
                       fontWeight: '600',
                       color: '#222',
-                      margin: '0 0 4px 0'
+                      margin: '0 0 3px 0'
                     }}>Schedule 1:1 with Jane Doe</h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                       <span style={{
-                        width: '6px',
-                        height: '6px',
+                        width: '5px',
+                        height: '5px',
                         borderRadius: '50%',
                         backgroundColor: '#4CAF50',
                         display: 'inline-block'
                       }}></span>
                       <span style={{
-                        fontSize: '13px',
+                        fontSize: '11px',
                         color: '#4CAF50'
                       }}>Low / Due 11-20-2025</span>
                     </div>
