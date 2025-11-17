@@ -659,7 +659,6 @@ export default function MyProfile() {
                   className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors text-xs font-medium"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
-                  <Upload className="w-3.5 h-3.5" />
                   +Add Training/Certification
                 </button>
               </div>
