@@ -1575,6 +1575,15 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#FAFBFC", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-3 py-2 text-center font-semibold text-xs text-gray-700" style={{ width: "40px" }}>
+                        <input
+                          type="checkbox"
+                          checked={selectedDocs.length === documents.length && documents.length > 0}
+                          onChange={toggleSelectAll}
+                          className="cursor-pointer"
+                          style={{ width: "16px", height: "16px" }}
+                        />
+                      </th>
                       <th className="px-3 py-2 text-left font-semibold text-xs text-gray-700">Document Title</th>
                       <th className="px-3 py-2 text-left font-semibold text-xs text-gray-700">File Type</th>
                       <th className="px-3 py-2 text-left font-semibold text-xs text-gray-700">File Size</th>
