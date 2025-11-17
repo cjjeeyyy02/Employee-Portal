@@ -53,6 +53,21 @@ export default function MyProfile() {
   const [contactForm, setContactForm] = useState({ phone: "+1 234 567 890", personalEmail: "sarah.mitchell@email.com", workEmail: "sarah.m@company.com", street: "123 Main Street", city: "Los Angeles", state: "California", zipCode: "90001" });
   const [trainingForm, setTrainingForm] = useState({ name: "", issuer: "", issueDate: "", expiryDate: "" });
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openLeaveMenu !== null) {
+        const target = event.target as HTMLElement;
+        if (!target.closest('button') && !target.closest('.absolute')) {
+          setOpenLeaveMenu(null);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [openLeaveMenu]);
+
   const payslips: Payslip[] = [
     { id: 1, date: "11/30/2024", payPeriod: "Nov 1 - Nov 30, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
     { id: 2, date: "11/15/2024", payPeriod: "Nov 1 - Nov 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
