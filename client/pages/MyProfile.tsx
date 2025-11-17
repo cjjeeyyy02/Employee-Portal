@@ -36,6 +36,7 @@ export default function MyProfile() {
   const [activeTab, setActiveTab] = useState<TabType>("personal");
   const [editModalType, setEditModalType] = useState<EditModalType>(null);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
+  const [showSalary, setShowSalary] = useState<boolean>(false);
 
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
@@ -731,7 +732,14 @@ export default function MyProfile() {
                   {/* Annual Salary */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Annual Salary</label>
-                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>$95,000.00</p>
+                    <p
+                      className="text-sm font-bold text-gray-900 cursor-pointer hover:text-blue-600 transition-colors"
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
+                      onClick={() => setShowSalary(!showSalary)}
+                      title="Click to toggle visibility"
+                    >
+                      {showSalary ? "$95,000.00" : "**********"}
+                    </p>
                   </div>
 
                   {/* Pay Frequency */}
