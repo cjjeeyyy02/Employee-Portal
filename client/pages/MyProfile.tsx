@@ -1592,70 +1592,40 @@ export default function MyProfile() {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* Employment Contract */}
-                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}>
-                      <td className="px-3 py-2.5 text-sm text-gray-900">Employment Contract</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">PDF</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">2.4 MB</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">01/15/2023</td>
-                      <td className="px-3 py-2.5 text-center">
-                        <button className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1" title="Download">
-                          <Download className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Tax Forms */}
-                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}>
-                      <td className="px-3 py-2.5 text-sm text-gray-900">Tax Forms (W-2)</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">PDF</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">1.8 MB</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">12/31/2023</td>
-                      <td className="px-3 py-2.5 text-center">
-                        <button className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1" title="Download">
-                          <Download className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Performance Review */}
-                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}>
-                      <td className="px-3 py-2.5 text-sm text-gray-900">Performance Review 2023</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">DOCX</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">856 KB</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">11/20/2023</td>
-                      <td className="px-3 py-2.5 text-center">
-                        <button className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1" title="Download">
-                          <Download className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Benefits Enrollment */}
-                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}>
-                      <td className="px-3 py-2.5 text-sm text-gray-900">Benefits Enrollment</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">PDF</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">3.1 MB</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">03/10/2023</td>
-                      <td className="px-3 py-2.5 text-center">
-                        <button className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1" title="Download">
-                          <Download className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    </tr>
-
-                    {/* Training Certificate */}
-                    <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}>
-                      <td className="px-3 py-2.5 text-sm text-gray-900">Training Certificate</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">PDF</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">1.2 MB</td>
-                      <td className="px-3 py-2.5 text-sm text-gray-600">08/15/2023</td>
-                      <td className="px-3 py-2.5 text-center">
-                        <button className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1" title="Download">
-                          <Download className="w-3.5 h-3.5" />
-                        </button>
-                      </td>
-                    </tr>
+                    {documents.map((doc) => (
+                      <tr
+                        key={doc.id}
+                        style={{ borderBottom: "1px solid #E5E7EB" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                      >
+                        <td className="px-3 py-2.5 text-center">
+                          <input
+                            type="checkbox"
+                            checked={selectedDocs.includes(doc.id)}
+                            onChange={() => toggleDocSelection(doc.id)}
+                            className="cursor-pointer"
+                            style={{ width: "16px", height: "16px" }}
+                          />
+                        </td>
+                        <td className="px-3 py-2.5 text-sm text-gray-900">{doc.title}</td>
+                        <td className="px-3 py-2.5 text-sm text-gray-600">{doc.fileType}</td>
+                        <td className="px-3 py-2.5 text-sm text-gray-600">{doc.fileSize}</td>
+                        <td className="px-3 py-2.5 text-sm text-gray-600">{doc.uploadDate}</td>
+                        <td className="px-3 py-2.5 text-center">
+                          <button
+                            className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1"
+                            title="Download"
+                            onClick={() => {
+                              console.log(`Downloading: ${doc.title}`);
+                              alert(`Downloading ${doc.title}...`);
+                            }}
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
