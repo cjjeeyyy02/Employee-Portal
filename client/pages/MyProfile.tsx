@@ -56,6 +56,38 @@ export default function MyProfile() {
     approver: "",
   });
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [selectedDocs, setSelectedDocs] = useState<number[]>([]);
+
+  const documents = [
+    { id: 1, title: "Employment Contract", fileType: "PDF", fileSize: "2.4 MB", uploadDate: "01/15/2023" },
+    { id: 2, title: "Tax Forms (W-2)", fileType: "PDF", fileSize: "1.8 MB", uploadDate: "12/31/2023" },
+    { id: 3, title: "Performance Review 2023", fileType: "DOCX", fileSize: "856 KB", uploadDate: "11/20/2023" },
+    { id: 4, title: "Benefits Enrollment", fileType: "PDF", fileSize: "3.1 MB", uploadDate: "03/10/2023" },
+    { id: 5, title: "Training Certificate", fileType: "PDF", fileSize: "1.2 MB", uploadDate: "08/15/2023" },
+  ];
+
+  const toggleDocSelection = (docId: number) => {
+    setSelectedDocs(prev =>
+      prev.includes(docId) ? prev.filter(id => id !== docId) : [...prev, docId]
+    );
+  };
+
+  const toggleSelectAll = () => {
+    setSelectedDocs(prev =>
+      prev.length === documents.length ? [] : documents.map(doc => doc.id)
+    );
+  };
+
+  const handleDownloadSelected = () => {
+    if (selectedDocs.length === 0) {
+      alert("Please select at least one document to download.");
+      return;
+    }
+    const selectedDocuments = documents.filter(doc => selectedDocs.includes(doc.id));
+    console.log("Downloading documents:", selectedDocuments);
+    // Implement actual download logic here
+    alert(`Downloading ${selectedDocs.length} document(s)...`);
+  };
 
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
