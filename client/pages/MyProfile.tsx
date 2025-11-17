@@ -803,9 +803,8 @@ export default function MyProfile() {
                         <td className="px-4 py-3 text-sm text-gray-700">{payslip.payPeriod}</td>
                         <td className="px-4 py-3 text-sm text-gray-900 font-semibold">{payslip.netPay}</td>
                         <td className="px-4 py-3 text-center">
-                          <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs flex items-center gap-1 justify-center mx-auto">
+                          <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs flex items-center gap-1 justify-center mx-auto" title="Download">
                             <Download className="w-3.5 h-3.5" />
-                            PDF
                           </button>
                         </td>
                       </tr>
