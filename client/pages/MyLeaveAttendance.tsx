@@ -518,7 +518,7 @@ export default function MyLeaveAttendance() {
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#FF9800" }}></div>
                       <div>
-                        <p className="text-xs font-bold text-gray-900">Leave request submitted</p>
+                        <p className="text-xs text-gray-900">Leave request submitted</p>
                         <p className="text-xs text-gray-600 mt-0.5">Dec 20-30 Annual Leave</p>
                       </div>
                     </div>
@@ -532,7 +532,7 @@ export default function MyLeaveAttendance() {
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#27AE60" }}></div>
                       <div>
-                        <p className="text-xs font-bold text-gray-900">Sick leave approved</p>
+                        <p className="text-xs text-gray-900">Sick leave approved</p>
                         <p className="text-xs text-gray-600 mt-0.5">Nov 15 • Medical appointment</p>
                       </div>
                     </div>
@@ -546,7 +546,7 @@ export default function MyLeaveAttendance() {
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#27AE60" }}></div>
                       <div>
-                        <p className="text-xs font-bold text-gray-900">Personal leave approved</p>
+                        <p className="text-xs text-gray-900">Personal leave approved</p>
                         <p className="text-xs text-gray-600 mt-0.5">Oct 22 • Family emergency</p>
                       </div>
                     </div>
