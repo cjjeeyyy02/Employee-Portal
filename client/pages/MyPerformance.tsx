@@ -312,14 +312,30 @@ export default function MyPerformance() {
                   fontSize: "10px",
                   fontWeight: "500"
                 }}>
-                  completed
+                  Completed
                 </span>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px" }}>
                 <span style={{ color: "#666", fontWeight: "500" }}>Overall Rating:</span>
-                <span style={{ color: "#F4B400", fontSize: "12px" }}>⭐⭐⭐⭐☆</span>
-                <span style={{ color: "#222", fontWeight: "600" }}>4.2</span>
+                <div style={{ display: "flex", gap: "2px" }}>
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg
+                      key={star}
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill={star <= 4 ? "#F59E0B" : "none"}
+                      stroke={star <= 4 ? "#F59E0B" : "#D1D5DB"}
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                </div>
+                <span style={{ color: "#222", fontWeight: "600", marginLeft: "4px" }}>4.2</span>
               </div>
 
               <div style={{ fontSize: "11px", color: "#666", display: "flex", gap: "12px" }}>
@@ -369,14 +385,30 @@ export default function MyPerformance() {
                   fontSize: "10px",
                   fontWeight: "500"
                 }}>
-                  completed
+                  Completed
                 </span>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px" }}>
                 <span style={{ color: "#666", fontWeight: "500" }}>Overall Rating:</span>
-                <span style={{ color: "#F4B400", fontSize: "12px" }}>⭐⭐⭐⭐☆</span>
-                <span style={{ color: "#222", fontWeight: "600" }}>4.0</span>
+                <div style={{ display: "flex", gap: "2px" }}>
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg
+                      key={star}
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill={star <= 4 ? "#F59E0B" : "none"}
+                      stroke={star <= 4 ? "#F59E0B" : "#D1D5DB"}
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                </div>
+                <span style={{ color: "#222", fontWeight: "600", marginLeft: "4px" }}>4.0</span>
               </div>
 
               <div style={{ fontSize: "11px", color: "#666", display: "flex", gap: "12px" }}>
