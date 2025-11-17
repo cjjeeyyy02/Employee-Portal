@@ -385,7 +385,7 @@ export default function MyLeaveAttendance() {
                               }}
                               className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
                             >
-                              Request Correction
+                              Correction Request
                             </button>
                           ) : (
                             "—"
@@ -734,7 +734,7 @@ export default function MyLeaveAttendance() {
       {showCorrectionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Request Correction</h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Correction Request</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
