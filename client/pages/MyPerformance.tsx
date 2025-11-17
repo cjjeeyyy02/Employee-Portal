@@ -430,34 +430,34 @@ export default function MyPerformance() {
           padding: "20px"
         }}>
           <div style={{
-            width: "850px",
+            width: "700px",
             maxWidth: "100%",
             maxHeight: "90vh",
             backgroundColor: "#FFFFFF",
-            padding: "40px",
-            borderRadius: "14px",
+            padding: "24px",
+            borderRadius: "12px",
             boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
             display: "flex",
             flexDirection: "column",
-            gap: "28px",
+            gap: "16px",
             overflowY: "auto"
           }}>
             {/* Header */}
             <div>
-              <h2 style={{ fontSize: "26px", fontWeight: "700", color: "#222", margin: "0 0 8px 0" }}>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: "0 0 4px 0" }}>
                 Q4 2024 Self-Review
               </h2>
-              <p style={{ fontSize: "16px", color: "#6C757D", margin: "0 0 16px 0" }}>
+              <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 8px 0" }}>
                 Complete your self-evaluation
               </p>
             </div>
 
             {/* Overall Performance Section */}
             <div>
-              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "6px" }}>
                 Overall Performance (1-5 scale)
               </label>
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 {[
                   { value: "1", label: "1 - Unacceptable" },
                   { value: "2", label: "2 - Below Expectation" },
@@ -465,16 +465,16 @@ export default function MyPerformance() {
                   { value: "4", label: "4 - Exceeds Expectation" },
                   { value: "5", label: "5 - Outstanding" }
                 ].map((option) => (
-                  <label key={option.value} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
+                  <label key={option.value} style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
                     <input
                       type="radio"
                       name="performance"
                       value={option.value}
                       checked={performanceRating === option.value}
                       onChange={(e) => setPerformanceRating(e.target.value)}
-                      style={{ width: "18px", height: "18px", cursor: "pointer" }}
+                      style={{ width: "16px", height: "16px", cursor: "pointer" }}
                     />
-                    <span style={{ fontSize: "15px", color: "#333" }}>{option.label}</span>
+                    <span style={{ fontSize: "12px", color: "#333" }}>{option.label}</span>
                   </label>
                 ))}
               </div>
@@ -482,18 +482,18 @@ export default function MyPerformance() {
 
             {/* Key Achievements */}
             <div>
-              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "6px" }}>
                 Key Achievements This Quarter
               </label>
               <textarea
                 placeholder="Describe your major accomplishments…"
                 style={{
                   width: "100%",
-                  height: "110px",
-                  padding: "12px",
-                  borderRadius: "10px",
+                  height: "70px",
+                  padding: "8px",
+                  borderRadius: "8px",
                   border: "1px solid #E0E0E0",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontFamily: "inherit",
                   resize: "vertical"
                 }}
@@ -502,18 +502,18 @@ export default function MyPerformance() {
 
             {/* Challenges */}
             <div>
-              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "6px" }}>
                 Challenges and How You Overcame Them
               </label>
               <textarea
                 placeholder="Discuss any obstacles you faced…"
                 style={{
                   width: "100%",
-                  height: "110px",
-                  padding: "12px",
-                  borderRadius: "10px",
+                  height: "70px",
+                  padding: "8px",
+                  borderRadius: "8px",
                   border: "1px solid #E0E0E0",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontFamily: "inherit",
                   resize: "vertical"
                 }}
@@ -522,18 +522,18 @@ export default function MyPerformance() {
 
             {/* Goal Achievement */}
             <div>
-              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "6px" }}>
                 Goal Achievement
               </label>
               <textarea
                 placeholder="Review your progress on set goals…"
                 style={{
                   width: "100%",
-                  height: "110px",
-                  padding: "12px",
-                  borderRadius: "10px",
+                  height: "70px",
+                  padding: "8px",
+                  borderRadius: "8px",
                   border: "1px solid #E0E0E0",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontFamily: "inherit",
                   resize: "vertical"
                 }}
@@ -542,18 +542,18 @@ export default function MyPerformance() {
 
             {/* Areas for Development */}
             <div>
-              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "6px" }}>
                 Areas for Development
               </label>
               <textarea
                 placeholder="What skills would you like to develop?"
                 style={{
                   width: "100%",
-                  height: "110px",
-                  padding: "12px",
-                  borderRadius: "10px",
+                  height: "70px",
+                  padding: "8px",
+                  borderRadius: "8px",
                   border: "1px solid #E0E0E0",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontFamily: "inherit",
                   resize: "vertical"
                 }}
@@ -562,18 +562,18 @@ export default function MyPerformance() {
 
             {/* Additional Comments */}
             <div>
-              <label style={{ fontSize: "16px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "6px" }}>
                 Additional Comments
               </label>
               <textarea
                 placeholder="Add any comments or insights you'd like your manager to know"
                 style={{
                   width: "100%",
-                  height: "110px",
-                  padding: "12px",
-                  borderRadius: "10px",
+                  height: "70px",
+                  padding: "8px",
+                  borderRadius: "8px",
                   border: "1px solid #E0E0E0",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontFamily: "inherit",
                   resize: "vertical"
                 }}
@@ -581,16 +581,16 @@ export default function MyPerformance() {
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: "flex", gap: "12px", justifyContent: "flex-end", marginTop: "12px" }}>
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end", marginTop: "8px" }}>
               <button
                 onClick={() => setShowReviewModal(false)}
                 style={{
-                  padding: "10px 24px",
-                  borderRadius: "8px",
+                  padding: "8px 18px",
+                  borderRadius: "6px",
                   border: "1px solid #D0D0D0",
                   backgroundColor: "#FFFFFF",
                   color: "#333",
-                  fontSize: "15px",
+                  fontSize: "12px",
                   fontWeight: "500",
                   cursor: "pointer"
                 }}
@@ -603,12 +603,12 @@ export default function MyPerformance() {
                   setShowReviewModal(false);
                 }}
                 style={{
-                  padding: "10px 24px",
-                  borderRadius: "8px",
+                  padding: "8px 18px",
+                  borderRadius: "6px",
                   border: "none",
                   backgroundColor: "#1A73E8",
                   color: "#FFFFFF",
-                  fontSize: "15px",
+                  fontSize: "12px",
                   fontWeight: "500",
                   cursor: "pointer"
                 }}
