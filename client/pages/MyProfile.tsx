@@ -986,10 +986,10 @@ export default function MyProfile() {
               <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "12px" }}>
                 <button
                   onClick={() => setShowLeaveModal(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
-                  style={{ fontFamily: "Poppins, sans-serif", fontSize: "14px" }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                  style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-3.5 h-3.5" />
                   Apply for Leave
                 </button>
               </div>
