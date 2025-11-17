@@ -10,7 +10,7 @@ const tabs: { id: TabType; label: string }[] = [
   { id: "contact", label: "Contact" },
   { id: "employment", label: "Employment" },
   { id: "training", label: "Training & Certification" },
-  { id: "payroll", label: "Payroll" },
+  { id: "payroll", label: "Compensation" },
   { id: "performance", label: "Performance" },
   { id: "leaveAttendance", label: "Leave & Attendance" },
   { id: "documents", label: "Documents" },
