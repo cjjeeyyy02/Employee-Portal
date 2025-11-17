@@ -660,7 +660,7 @@ export default function MyProfile() {
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   <Upload className="w-3.5 h-3.5" />
-                  Add Training
+                  +Add Training/Certification
                 </button>
               </div>
 
