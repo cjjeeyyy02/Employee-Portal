@@ -567,52 +567,65 @@ export default function MyLeaveAttendance() {
               <p className="text-xs text-gray-600">Your leave request history and status</p>
             </div>
 
-            {/* Leave Request Cards */}
-            <div className="flex flex-col gap-2 sm:gap-3 w-full">
-              {/* Request Card 1 */}
-              <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
-                <div className="flex justify-between items-start gap-2 sm:gap-3">
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-gray-900">Annual Leave</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Dec 20 - Dec 30, 2024</p>
-                  </div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
-                </div>
-                <div className="flex justify-between items-center text-xs text-gray-600">
-                  <span>10 days requested</span>
-                  <span>Requested on Dec 10, 2024</span>
-                </div>
-              </div>
+            {/* Leave Request Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Leave Type</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Number of Days</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Period from</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Period to</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Applied Date</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Approved Date</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Approver</th>
+                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Request 1 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-3 py-2 text-xs text-gray-900">Annual Leave</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">10</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">12/20/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">12/30/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">12/10/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">12/12/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">Michael Rodriguez</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
+                    </td>
+                  </tr>
 
-              {/* Request Card 2 */}
-              <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
-                <div className="flex justify-between items-start gap-2 sm:gap-3">
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-gray-900">Sick Leave</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Nov 15, 2024</p>
-                  </div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
-                </div>
-                <div className="flex justify-between items-center text-xs text-gray-600">
-                  <span>1 day requested</span>
-                  <span>Requested on Nov 14, 2024</span>
-                </div>
-              </div>
+                  {/* Request 2 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-3 py-2 text-xs text-gray-900">Sick Leave</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">1</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">11/15/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">11/15/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">11/14/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">11/14/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">Michael Rodriguez</td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">Approved</span>
+                    </td>
+                  </tr>
 
-              {/* Request Card 3 */}
-              <div className="w-full bg-white border border-gray-200 rounded-lg p-2.5 sm:p-3 flex flex-col gap-2">
-                <div className="flex justify-between items-start gap-2 sm:gap-3">
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-gray-900">Personal Leave</p>
-                    <p className="text-xs text-gray-600 mt-0.5">Oct 22, 2024</p>
-                  </div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-blue-500">Pending</span>
-                </div>
-                <div className="flex justify-between items-center text-xs text-gray-600">
-                  <span>1 day requested</span>
-                  <span>Requested on Oct 20, 2024</span>
-                </div>
-              </div>
+                  {/* Request 3 */}
+                  <tr className="border-b border-gray-200 hover:bg-gray-50">
+                    <td className="px-3 py-2 text-xs text-gray-900">Personal Leave</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">1</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">10/22/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">10/22/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900">10/20/2024</td>
+                    <td className="px-3 py-2 text-xs text-gray-900"></td>
+                    <td className="px-3 py-2 text-xs text-gray-900"></td>
+                    <td className="px-3 py-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-blue-500">Pending</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
