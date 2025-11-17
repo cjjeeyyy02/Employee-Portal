@@ -573,7 +573,7 @@ export default function MyLeaveAttendance() {
                 <thead>
                   <tr className="border-b border-gray-200">
                     <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Leave Type</th>
-                    <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Number of Days</th>
+                    <th className="px-3 py-2 text-center text-xs font-semibold text-gray-900">Number of Days</th>
                     <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Period from</th>
                     <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Period to</th>
                     <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">Applied Date</th>
@@ -586,7 +586,7 @@ export default function MyLeaveAttendance() {
                   {/* Request 1 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
                     <td className="px-3 py-2 text-xs text-gray-900">Annual Leave</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">10</td>
+                    <td className="px-3 py-2 text-xs text-gray-900 text-center">10</td>
                     <td className="px-3 py-2 text-xs text-gray-900">12/20/2024</td>
                     <td className="px-3 py-2 text-xs text-gray-900">12/30/2024</td>
                     <td className="px-3 py-2 text-xs text-gray-900">12/10/2024</td>
@@ -600,7 +600,7 @@ export default function MyLeaveAttendance() {
                   {/* Request 2 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
                     <td className="px-3 py-2 text-xs text-gray-900">Sick Leave</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">1</td>
+                    <td className="px-3 py-2 text-xs text-gray-900 text-center">1</td>
                     <td className="px-3 py-2 text-xs text-gray-900">11/15/2024</td>
                     <td className="px-3 py-2 text-xs text-gray-900">11/15/2024</td>
                     <td className="px-3 py-2 text-xs text-gray-900">11/14/2024</td>
@@ -614,7 +614,7 @@ export default function MyLeaveAttendance() {
                   {/* Request 3 */}
                   <tr className="border-b border-gray-200 hover:bg-gray-50">
                     <td className="px-3 py-2 text-xs text-gray-900">Personal Leave</td>
-                    <td className="px-3 py-2 text-xs text-gray-900">1</td>
+                    <td className="px-3 py-2 text-xs text-gray-900 text-center">1</td>
                     <td className="px-3 py-2 text-xs text-gray-900">10/22/2024</td>
                     <td className="px-3 py-2 text-xs text-gray-900">10/22/2024</td>
                     <td className="px-3 py-2 text-xs text-gray-900">10/20/2024</td>
