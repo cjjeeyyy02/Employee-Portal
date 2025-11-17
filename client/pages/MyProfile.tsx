@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut, Edit2, X } from "lucide-react";
+import { Camera, Phone, Mail, Shield, Briefcase, Calendar, CheckCircle, DollarSign, TrendingUp, FileText, Download, Upload, Coffee, LogOut, Edit2, X, MoreVertical, Eye, Trash2 } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "personal" | "contact" | "employment" | "payroll" | "performance" | "leaveAttendance" | "documents" | "training";
@@ -46,6 +46,7 @@ export default function MyProfile() {
   const [editModalType, setEditModalType] = useState<EditModalType>(null);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
   const [showSalary, setShowSalary] = useState<boolean>(false);
+  const [openLeaveMenu, setOpenLeaveMenu] = useState<number | null>(null);
 
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
@@ -1110,7 +1111,30 @@ export default function MyProfile() {
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm relative">
+                        <button
+                          onClick={() => setOpenLeaveMenu(openLeaveMenu === 1 ? null : 1)}
+                          className="text-gray-600 hover:text-gray-900 transition-colors"
+                          title="Actions"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {openLeaveMenu === 1 && (
+                          <div
+                            className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                            style={{ fontFamily: "Poppins, sans-serif" }}
+                          >
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                              <Eye className="w-4 h-4" />
+                              View Details
+                            </button>
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                              <Trash2 className="w-4 h-4" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </td>
                     </tr>
 
                     {/* Annual Leave */}
@@ -1122,7 +1146,30 @@ export default function MyProfile() {
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm relative">
+                        <button
+                          onClick={() => setOpenLeaveMenu(openLeaveMenu === 2 ? null : 2)}
+                          className="text-gray-600 hover:text-gray-900 transition-colors"
+                          title="Actions"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {openLeaveMenu === 2 && (
+                          <div
+                            className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                            style={{ fontFamily: "Poppins, sans-serif" }}
+                          >
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                              <Eye className="w-4 h-4" />
+                              View Details
+                            </button>
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                              <Trash2 className="w-4 h-4" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </td>
                     </tr>
 
                     {/* Personal Leave */}
@@ -1134,7 +1181,30 @@ export default function MyProfile() {
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#fff3cd", color: "#856404" }}>Under Review</span>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm relative">
+                        <button
+                          onClick={() => setOpenLeaveMenu(openLeaveMenu === 3 ? null : 3)}
+                          className="text-gray-600 hover:text-gray-900 transition-colors"
+                          title="Actions"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {openLeaveMenu === 3 && (
+                          <div
+                            className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                            style={{ fontFamily: "Poppins, sans-serif" }}
+                          >
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                              <Eye className="w-4 h-4" />
+                              View Details
+                            </button>
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                              <Trash2 className="w-4 h-4" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </td>
                     </tr>
 
                     {/* Annual Leave Rejected */}
@@ -1146,7 +1216,30 @@ export default function MyProfile() {
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#f8d7da", color: "#721c24" }}>Rejected</span>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                      <td className="px-4 py-3 text-sm relative">
+                        <button
+                          onClick={() => setOpenLeaveMenu(openLeaveMenu === 4 ? null : 4)}
+                          className="text-gray-600 hover:text-gray-900 transition-colors"
+                          title="Actions"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {openLeaveMenu === 4 && (
+                          <div
+                            className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                            style={{ fontFamily: "Poppins, sans-serif" }}
+                          >
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                              <Eye className="w-4 h-4" />
+                              View Details
+                            </button>
+                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                              <Trash2 className="w-4 h-4" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
