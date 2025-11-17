@@ -635,146 +635,178 @@ export default function EmployeeDashboard() {
 
           {/* Right Section - 30% */}
           <div className="lg:col-span-4 space-y-4">
-            {/* Announcements Container */}
+            {/* Action Items Container */}
             <div style={{
-              backgroundColor: '#ffffff',
-              border: '1px solid #e5e7eb',
-              borderRadius: '20px',
-              boxShadow: 'rgba(0, 0, 0, 0.05) 0px 2px 6px',
-              padding: '16px',
+              backgroundColor: '#F8F8F8',
+              padding: '24px',
+              width: '100%',
+              borderRadius: '12px',
+              boxShadow: 'rgba(0, 0, 0, 0.08) 0px 2px 8px',
               display: 'flex',
               flexDirection: 'column',
-              height: 'auto'
+              gap: '20px'
             }}>
               {/* Header Section */}
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '12px'
-              }}>
-                <span style={{
-                  fontSize: '18px',
-                  marginRight: '6px',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}>📢</span>
+              <div>
                 <h2 style={{
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  color: '#1f2937',
-                  margin: '0'
-                }}>Announcements</h2>
+                  fontSize: '20px',
+                  fontWeight: '700',
+                  color: '#222',
+                  margin: '0 0 4px 0'
+                }}>Action Items</h2>
+                <p style={{
+                  fontSize: '14px',
+                  color: '#777',
+                  margin: '0 0 10px 0'
+                }}>Things that need your attention</p>
               </div>
 
-              {/* Announcements Stack */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px'
-              }}>
-                {/* Announcement 1 */}
-                <div style={{
-                  paddingBottom: '12px',
-                  borderBottom: '1px solid #e5e7eb'
-                }}>
-                  <h3 style={{
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: '#1f2937',
-                    marginBottom: '4px',
-                    margin: '0 0 4px 0'
-                  }}>Holiday Schedule Update</h3>
-                  <p style={{
-                    fontSize: '13px',
-                    color: '#4b5563',
-                    lineHeight: '1.4',
-                    margin: '0'
-                  }}>Please review the updated holiday schedule for Oct 26, 2023.</p>
-                  <p style={{
+              {/* TODAY Section */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {/* TODAY Tag with Line */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                  <span style={{
+                    backgroundColor: '#FF4A4A',
+                    color: 'white',
+                    padding: '4px 12px',
+                    borderRadius: '4px',
                     fontSize: '12px',
-                    color: '#9ca3af',
-                    marginTop: '4px',
-                    margin: '4px 0 0 0'
-                  }}>Posted on Nov 10, 2023</p>
+                    fontWeight: '600'
+                  }}>TODAY</span>
+                  <div style={{ flex: 1, height: '1px', backgroundColor: '#FF4A4A' }}></div>
                 </div>
 
-                {/* Announcement 2 */}
-                <div style={{
-                  paddingBottom: '12px',
-                  borderBottom: '1px solid #e5e7eb'
-                }}>
-                  <h3 style={{
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: '#1f2937',
-                    marginBottom: '4px',
-                    margin: '0 0 4px 0'
-                  }}>Benefits Enrollment Open</h3>
-                  <p style={{
-                    fontSize: '13px',
-                    color: '#4b5563',
-                    lineHeight: '1.4',
-                    margin: '0'
-                  }}>Annual benefits enrollment is now open until Oct 25, 2023.</p>
-                  <p style={{
-                    fontSize: '12px',
-                    color: '#9ca3af',
-                    marginTop: '4px',
-                    margin: '4px 0 0 0'
-                  }}>Posted on Oct 5, 2023</p>
+                {/* Item 1 */}
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'start', marginBottom: '14px' }}>
+                  <div style={{
+                    width: '18px',
+                    height: '18px',
+                    border: '2px solid #666',
+                    borderRadius: '3px',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}></div>
+                  <div>
+                    <h3 style={{
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: '#222',
+                      margin: '0 0 4px 0'
+                    }}>Finalize Q4 Budget Report</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        backgroundColor: '#C62828',
+                        display: 'inline-block'
+                      }}></span>
+                      <span style={{
+                        fontSize: '13px',
+                        color: '#C62828'
+                      }}>High / Due 11-14-2025</span>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Announcement 3 */}
-                <div style={{
-                  paddingBottom: '12px'
-                }}>
-                  <h3 style={{
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    color: '#1f2937',
-                    marginBottom: '4px',
-                    margin: '0 0 4px 0'
-                  }}>New Remote Work Policy</h3>
-                  <p style={{
-                    fontSize: '13px',
-                    color: '#4b5563',
-                    lineHeight: '1.4',
-                    margin: '0'
-                  }}>A new flexible remote work policy will take effect starting Jan 2024. Please review the updated guidelines.</p>
-                  <p style={{
-                    fontSize: '12px',
-                    color: '#9ca3af',
-                    marginTop: '4px',
-                    margin: '4px 0 0 0'
-                  }}>Posted on Nov 1, 2023</p>
-                </div>
-
               </div>
 
-              {/* Divider Line */}
-              <div style={{
-                borderTop: '1px solid #e5e7eb',
-                marginTop: '12px',
-                marginBottom: '8px'
-              }}></div>
+              {/* TOMORROW Section */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {/* TOMORROW Tag with Line */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                  <span style={{
+                    backgroundColor: '#C9C9C9',
+                    color: '#444',
+                    padding: '4px 12px',
+                    borderRadius: '4px',
+                    fontSize: '12px',
+                    fontWeight: '600'
+                  }}>TOMORROW</span>
+                  <div style={{ flex: 1, height: '1px', backgroundColor: '#D9D9D9' }}></div>
+                </div>
 
-              {/* Footer Link */}
-              <a href="#" style={{
-                fontSize: '13px',
-                fontWeight: '500',
-                color: '#2563eb',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px',
-                borderBottom: '2px solid transparent',
-                transition: 'border-color 0.2s',
-                marginTop: '4px',
-                cursor: 'pointer'
-              }} onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = '#2563eb'}
-                 onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}>
-                🔗 <span>View All →</span>
-              </a>
+                {/* Item 2 */}
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'start', marginBottom: '14px' }}>
+                  <div style={{
+                    width: '18px',
+                    height: '18px',
+                    border: '2px solid #666',
+                    borderRadius: '3px',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}></div>
+                  <div>
+                    <h3 style={{
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: '#222',
+                      margin: '0 0 4px 0'
+                    }}>Review marketing campaign creatives</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        backgroundColor: '#AF8700',
+                        display: 'inline-block'
+                      }}></span>
+                      <span style={{
+                        fontSize: '13px',
+                        color: '#AF8700'
+                      }}>Medium / Due 11-15-2025</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* NEXT WEEK Section */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {/* NEXT WEEK Tag with Line */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                  <span style={{
+                    backgroundColor: '#C9C9C9',
+                    color: '#444',
+                    padding: '4px 12px',
+                    borderRadius: '4px',
+                    fontSize: '12px',
+                    fontWeight: '600'
+                  }}>NEXT WEEK</span>
+                  <div style={{ flex: 1, height: '1px', backgroundColor: '#D9D9D9' }}></div>
+                </div>
+
+                {/* Item 3 */}
+                <div style={{ display: 'flex', gap: '12px', alignItems: 'start' }}>
+                  <div style={{
+                    width: '18px',
+                    height: '18px',
+                    border: '2px solid #666',
+                    borderRadius: '3px',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}></div>
+                  <div>
+                    <h3 style={{
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      color: '#222',
+                      margin: '0 0 4px 0'
+                    }}>Schedule 1:1 with Jane Doe</h3>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        backgroundColor: '#4CAF50',
+                        display: 'inline-block'
+                      }}></span>
+                      <span style={{
+                        fontSize: '13px',
+                        color: '#4CAF50'
+                      }}>Low / Due 11-20-2025</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Bottom Medium Card - Quick Actions */}
