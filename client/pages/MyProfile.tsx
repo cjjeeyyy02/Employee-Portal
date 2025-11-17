@@ -763,9 +763,9 @@ export default function MyProfile() {
                     </div>
                   </div>
 
-                  {/* Tax ID */}
+                  {/* SIN */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
-                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Tax ID</label>
+                    <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>SIN</label>
                     <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>12-3456789</p>
                   </div>
 
