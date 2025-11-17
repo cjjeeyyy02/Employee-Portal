@@ -57,6 +57,7 @@ export default function MyProfile() {
   });
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [selectedDocs, setSelectedDocs] = useState<number[]>([]);
+  const [showDocCheckboxes, setShowDocCheckboxes] = useState<boolean>(false);
 
   const documents = [
     { id: 1, title: "Employment Contract", fileType: "PDF", fileSize: "2.4 MB", uploadDate: "01/15/2023" },
@@ -79,6 +80,12 @@ export default function MyProfile() {
   };
 
   const handleDownloadSelected = () => {
+    if (!showDocCheckboxes) {
+      // Enable selection mode
+      setShowDocCheckboxes(true);
+      return;
+    }
+
     if (selectedDocs.length === 0) {
       alert("Please select at least one document to download.");
       return;
@@ -87,6 +94,15 @@ export default function MyProfile() {
     console.log("Downloading documents:", selectedDocuments);
     // Implement actual download logic here
     alert(`Downloading ${selectedDocs.length} document(s)...`);
+
+    // Reset selection mode
+    setShowDocCheckboxes(false);
+    setSelectedDocs([]);
+  };
+
+  const handleCancelSelection = () => {
+    setShowDocCheckboxes(false);
+    setSelectedDocs([]);
   };
 
   // Edit form states
@@ -1551,14 +1567,24 @@ export default function MyProfile() {
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
                 <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Employee Documents</h2>
                 <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                  {showDocCheckboxes && (
+                    <button
+                      onClick={handleCancelSelection}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
+                    >
+                      <X className="w-3.5 h-3.5" />
+                      Cancel
+                    </button>
+                  )}
                   <button
                     onClick={handleDownloadSelected}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-400 disabled:cursor-not-allowed"
                     style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
-                    disabled={selectedDocs.length === 0}
+                    disabled={showDocCheckboxes && selectedDocs.length === 0}
                   >
                     <Download className="w-3.5 h-3.5" />
-                    Download {selectedDocs.length > 0 ? `(${selectedDocs.length})` : ''}
+                    {showDocCheckboxes ? `Download ${selectedDocs.length > 0 ? `(${selectedDocs.length})` : ''}` : 'Download'}
                   </button>
                 </div>
               </div>
@@ -1575,15 +1601,17 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#FAFBFC", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-3 py-2 text-center font-semibold text-xs text-gray-700" style={{ width: "40px" }}>
-                        <input
-                          type="checkbox"
-                          checked={selectedDocs.length === documents.length && documents.length > 0}
-                          onChange={toggleSelectAll}
-                          className="cursor-pointer"
-                          style={{ width: "16px", height: "16px" }}
-                        />
-                      </th>
+                      {showDocCheckboxes && (
+                        <th className="px-3 py-2 text-center font-semibold text-xs text-gray-700" style={{ width: "40px" }}>
+                          <input
+                            type="checkbox"
+                            checked={selectedDocs.length === documents.length && documents.length > 0}
+                            onChange={toggleSelectAll}
+                            className="cursor-pointer"
+                            style={{ width: "16px", height: "16px" }}
+                          />
+                        </th>
+                      )}
                       <th className="px-3 py-2 text-left font-semibold text-xs text-gray-700">Document Title</th>
                       <th className="px-3 py-2 text-left font-semibold text-xs text-gray-700">File Type</th>
                       <th className="px-3 py-2 text-left font-semibold text-xs text-gray-700">File Size</th>
@@ -1599,15 +1627,17 @@ export default function MyProfile() {
                         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")}
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                       >
-                        <td className="px-3 py-2.5 text-center">
-                          <input
-                            type="checkbox"
-                            checked={selectedDocs.includes(doc.id)}
-                            onChange={() => toggleDocSelection(doc.id)}
-                            className="cursor-pointer"
-                            style={{ width: "16px", height: "16px" }}
-                          />
-                        </td>
+                        {showDocCheckboxes && (
+                          <td className="px-3 py-2.5 text-center">
+                            <input
+                              type="checkbox"
+                              checked={selectedDocs.includes(doc.id)}
+                              onChange={() => toggleDocSelection(doc.id)}
+                              className="cursor-pointer"
+                              style={{ width: "16px", height: "16px" }}
+                            />
+                          </td>
+                        )}
                         <td className="px-3 py-2.5 text-sm text-gray-900">{doc.title}</td>
                         <td className="px-3 py-2.5 text-sm text-gray-600">{doc.fileType}</td>
                         <td className="px-3 py-2.5 text-sm text-gray-600">{doc.fileSize}</td>
