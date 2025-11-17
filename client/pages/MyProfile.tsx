@@ -767,7 +767,7 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Certification Name</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Training</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issuing Organization</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issue Date</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Expiry Date</th>
