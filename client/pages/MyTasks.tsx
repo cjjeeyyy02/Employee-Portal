@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Plus, Calendar, Folder, Filter, Search, Grid3x3, List, Trash2, TrendingUp, Target, Clock, X, Zap, MoreVertical, Edit, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 
-type TabType = "myTasks" | "projects" | "teamTasks" | "analytics";
+type TabType = "myTasks" | "teamTasks";
 type ViewType = "list" | "kanban" | "calendar";
 type ModalType = "newTask" | "filters" | "aiAssistant" | "viewProject" | "deleteConfirm" | null;
 
@@ -300,9 +300,7 @@ export default function MyTasks() {
         <div className="flex gap-0 px-2 sm:px-3">
           {[
             { id: "myTasks", label: "My Tasks" },
-            { id: "projects", label: "Projects" },
             { id: "teamTasks", label: "Team Tasks" },
-            { id: "analytics", label: "Analytics" },
           ].map((tab) => (
             <button
               key={tab.id}
