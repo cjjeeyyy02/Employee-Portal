@@ -369,7 +369,7 @@ export default function MyLeaveAttendance() {
 
                     return (
                       <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.date}</td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">{formatDate(record.date)}</td>
                         <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockIn || "—"}</td>
                         <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockOut || "—"}</td>
                         <td className="px-2 py-1.5 text-xs text-gray-900">{record.totalHours}</td>
@@ -834,7 +834,7 @@ export default function MyLeaveAttendance() {
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
-                  {record.date}
+                  {formatDate(record.date)}
                 </button>
               ))}
             </div>
