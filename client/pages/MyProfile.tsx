@@ -25,6 +25,13 @@ interface Payslip {
   netPay: string;
 }
 
+interface Skill {
+  id: number;
+  name: string;
+  experience: number;
+  level: string;
+}
+
 interface Training {
   id: number;
   name: string;
@@ -50,6 +57,15 @@ export default function MyProfile() {
     { id: 2, date: "11/15/2024", payPeriod: "Nov 1 - Nov 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
     { id: 3, date: "10/31/2024", payPeriod: "Oct 1 - Oct 31, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
     { id: 4, date: "10/15/2024", payPeriod: "Oct 1 - Oct 15, 2024", grossPay: "$2,250.00", deduction: "$375.00", netPay: "$1,875.00" },
+  ];
+
+  const skills: Skill[] = [
+    { id: 1, name: "React", experience: 4, level: "Expert" },
+    { id: 2, name: "TypeScript", experience: 3, level: "Advanced" },
+    { id: 3, name: "Node.js", experience: 3, level: "Advanced" },
+    { id: 4, name: "Python", experience: 2, level: "Intermediate" },
+    { id: 5, name: "AWS", experience: 2, level: "Intermediate" },
+    { id: 6, name: "Docker", experience: 1, level: "Beginner" },
   ];
 
   const trainings: Training[] = [
@@ -878,60 +894,60 @@ export default function MyProfile() {
                 </div>
               </div>
 
-              {/* Competencies Card */}
+              {/* Skills Summary Card */}
               <div style={{
                 borderRadius: "8px",
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "10px 12px"
+                padding: "10px 12px",
+                overflowX: "auto"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-2" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Key Competencies</h2>
-                <div className="space-y-2">
-                  {/* Technical Skills */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Technical Skills</span>
-                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Excellent</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "90%" }}></div>
-                    </div>
-                  </div>
-
-                  {/* Communication */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Communication</span>
-                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Good</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "80%" }}></div>
-                    </div>
-                  </div>
-
-                  {/* Leadership */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Leadership</span>
-                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Good</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "75%" }}></div>
-                    </div>
-                  </div>
-
-                  {/* Problem Solving */}
-                  <div>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: "Poppins, sans-serif" }}>Problem Solving</span>
-                      <span className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>Excellent</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "88%" }}></div>
-                    </div>
-                  </div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Skills Summary</h2>
+                  <button
+                    onClick={() => setEditModalType("skills")}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors text-xs font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    Add Skill
+                  </button>
                 </div>
+                <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <thead>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Skill Name</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Experience (Years)</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Skill Level</th>
+                      <th className="px-3 py-2 text-center" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {skills.map((skill) => (
+                      <tr key={skill.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                        <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>{skill.name}</td>
+                        <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.experience}</td>
+                        <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>
+                          <span className={
+                            skill.level === "Expert" ? "px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" :
+                            skill.level === "Advanced" ? "px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800" :
+                            skill.level === "Intermediate" ? "px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" :
+                            "px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                          }>
+                            {skill.level}
+                          </span>
+                        </td>
+                        <td className="px-3 py-2 text-center">
+                          <button className="text-blue-600 hover:text-blue-800 transition-colors" title="Edit">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
