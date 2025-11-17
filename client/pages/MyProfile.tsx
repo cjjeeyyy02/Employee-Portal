@@ -1552,11 +1552,13 @@ export default function MyProfile() {
                 <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Employee Documents</h2>
                 <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                   <button
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                    onClick={handleDownloadSelected}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-400 disabled:cursor-not-allowed"
                     style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
+                    disabled={selectedDocs.length === 0}
                   >
                     <Download className="w-3.5 h-3.5" />
-                    Download
+                    Download {selectedDocs.length > 0 ? `(${selectedDocs.length})` : ''}
                   </button>
                 </div>
               </div>
