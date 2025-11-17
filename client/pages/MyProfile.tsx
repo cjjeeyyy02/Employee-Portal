@@ -1520,26 +1520,11 @@ export default function MyProfile() {
                 <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Employee Documents</h2>
                 <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                   <button
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 font-semibold transition-colors"
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      color: "#2563EB",
-                      borderBottom: "2px solid #2563EB",
-                      backgroundColor: "transparent"
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.target as HTMLButtonElement).style.color = "#1D4ED8";
-                      (e.target as HTMLButtonElement).style.borderBottomColor = "#1D4ED8";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.target as HTMLButtonElement).style.color = "#2563EB";
-                      (e.target as HTMLButtonElement).style.borderBottomColor = "#2563EB";
-                    }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Download</span>
+                    Download
                   </button>
                 </div>
               </div>
