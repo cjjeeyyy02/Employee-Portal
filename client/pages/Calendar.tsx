@@ -24,7 +24,6 @@ export default function Calendar() {
     description: "",
     location: "",
   });
-  const { toast } = useToast();
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
@@ -103,18 +102,11 @@ export default function Calendar() {
     e.preventDefault();
 
     if (!eventForm.title || !eventForm.date) {
-      toast({
-        title: "Error",
-        description: "Please fill in the required fields (Title and Date)",
-        variant: "destructive",
-      });
+      toast.error("Please fill in the required fields (Title and Date)");
       return;
     }
 
-    toast({
-      title: "Event Created",
-      description: `${eventForm.title} has been added to your calendar`,
-    });
+    toast.success(`${eventForm.title} has been added to your calendar`);
 
     setEventForm({
       title: "",
