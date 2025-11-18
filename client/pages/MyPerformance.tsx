@@ -449,7 +449,7 @@ export default function MyPerformance() {
           {/* Header with Button */}
           <div style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "flex-end",
             alignItems: "center",
             marginBottom: "8px"
           }}>
