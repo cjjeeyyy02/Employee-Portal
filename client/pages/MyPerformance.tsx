@@ -852,6 +852,163 @@ export default function MyPerformance() {
           </div>
         </div>
       )}
+
+      {/* Review Details Modal */}
+      {showDetailsModal && selectedReview && reviewDetails[selectedReview] && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1000,
+          padding: "20px"
+        }}>
+          <div style={{
+            width: "700px",
+            maxWidth: "100%",
+            maxHeight: "90vh",
+            backgroundColor: "#FFFFFF",
+            padding: "24px",
+            borderRadius: "12px",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            overflowY: "auto"
+          }}>
+            {/* Header */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: "0 0 4px 0" }}>
+                  {reviewDetails[selectedReview].title}
+                </h2>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0" }}>
+                  {reviewDetails[selectedReview].period}
+                </p>
+              </div>
+              <button
+                onClick={() => setShowDetailsModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "4px",
+                  color: "#6C757D",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#222"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#6C757D"; }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Overall Rating */}
+            <div style={{ display: "flex", gap: "24px", padding: "12px", backgroundColor: "#F9FAFB", borderRadius: "8px" }}>
+              <div>
+                <p style={{ fontSize: "12px", color: "#666", margin: "0 0 4px 0" }}>Overall Rating</p>
+                <p style={{ fontSize: "24px", fontWeight: "700", color: "#222", margin: "0" }}>
+                  {reviewDetails[selectedReview].overallRating}/5.0
+                </p>
+              </div>
+              <div>
+                <p style={{ fontSize: "12px", color: "#666", margin: "0 0 4px 0" }}>Manager Rating</p>
+                <p style={{ fontSize: "20px", fontWeight: "600", color: "#222", margin: "0" }}>
+                  {reviewDetails[selectedReview].managerRating}
+                </p>
+              </div>
+              <div>
+                <p style={{ fontSize: "12px", color: "#666", margin: "0 0 4px 0" }}>Self Rating</p>
+                <p style={{ fontSize: "20px", fontWeight: "600", color: "#222", margin: "0" }}>
+                  {reviewDetails[selectedReview].selfRating}
+                </p>
+              </div>
+              <div style={{ marginLeft: "auto" }}>
+                <p style={{ fontSize: "12px", color: "#666", margin: "0 0 4px 0" }}>Completed</p>
+                <p style={{ fontSize: "13px", fontWeight: "500", color: "#222", margin: "0" }}>
+                  {reviewDetails[selectedReview].completed}
+                </p>
+              </div>
+            </div>
+
+            {/* Key Achievements */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Key Achievements
+              </label>
+              <p style={{ fontSize: "12px", color: "#333", lineHeight: "1.6", margin: "0", padding: "12px", backgroundColor: "#F9FAFB", borderRadius: "6px" }}>
+                {reviewDetails[selectedReview].achievements}
+              </p>
+            </div>
+
+            {/* Challenges */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Challenges and How You Overcame Them
+              </label>
+              <p style={{ fontSize: "12px", color: "#333", lineHeight: "1.6", margin: "0", padding: "12px", backgroundColor: "#F9FAFB", borderRadius: "6px" }}>
+                {reviewDetails[selectedReview].challenges}
+              </p>
+            </div>
+
+            {/* Goal Achievement */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Goal Achievement
+              </label>
+              <p style={{ fontSize: "12px", color: "#333", lineHeight: "1.6", margin: "0", padding: "12px", backgroundColor: "#F9FAFB", borderRadius: "6px" }}>
+                {reviewDetails[selectedReview].goalAchievement}
+              </p>
+            </div>
+
+            {/* Areas for Development */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Areas for Development
+              </label>
+              <p style={{ fontSize: "12px", color: "#333", lineHeight: "1.6", margin: "0", padding: "12px", backgroundColor: "#F9FAFB", borderRadius: "6px" }}>
+                {reviewDetails[selectedReview].development}
+              </p>
+            </div>
+
+            {/* Manager Comments */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Manager Comments
+              </label>
+              <p style={{ fontSize: "12px", color: "#333", lineHeight: "1.6", margin: "0", padding: "12px", backgroundColor: "#FEF3C7", borderRadius: "6px" }}>
+                {reviewDetails[selectedReview].managerComments}
+              </p>
+            </div>
+
+            {/* Close Button */}
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "8px" }}>
+              <button
+                onClick={() => setShowDetailsModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#1A73E8",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
