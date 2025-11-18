@@ -830,6 +830,56 @@ export default function EmployeeDashboard() {
                 </button>
               </div>
             </div>
+
+            {/* Announcements Container */}
+            <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
+              <div className="flex justify-between items-center mb-3">
+                <h2 className="text-lg font-bold text-gray-900">Announcements</h2>
+                <span className="text-xs text-gray-500">���</span>
+              </div>
+
+              <div className="space-y-3">
+                {/* Announcement 1 */}
+                <div className="pb-3 border-b border-gray-200">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-blue-500"></div>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-1">Company Holiday Schedule 2025</h3>
+                      <p className="text-xs text-gray-600 mb-1">The updated holiday schedule for 2025 has been posted. Please review and plan accordingly.</p>
+                      <span className="text-xs text-gray-500">Jan 20, 2025</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Announcement 2 */}
+                <div className="pb-3 border-b border-gray-200">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-green-500"></div>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-1">New Health & Wellness Program</h3>
+                      <p className="text-xs text-gray-600 mb-1">Join our new wellness program with fitness classes and mental health resources.</p>
+                      <span className="text-xs text-gray-500">Jan 18, 2025</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Announcement 3 */}
+                <div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-orange-500"></div>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold text-gray-900 mb-1">IT System Maintenance</h3>
+                      <p className="text-xs text-gray-600 mb-1">Scheduled maintenance on Jan 25th from 2 AM to 4 AM. Services may be temporarily unavailable.</p>
+                      <span className="text-xs text-gray-500">Jan 15, 2025</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button className="mt-4 text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                View All Announcements →
+              </button>
+            </div>
           </div>
         </div>
       </div>
