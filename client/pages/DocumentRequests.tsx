@@ -38,7 +38,7 @@ export default function DocumentRequests() {
   // Form states
   const [uploadForm, setUploadForm] = useState({ fileName: '', category: '', file: null as File | null });
   const [newRequestForm, setNewRequestForm] = useState({ title: '', description: '', priority: 'medium', deliveryMethod: 'Email' });
-  const [filterPanel, setFilterPanel] = useState({ status: 'All Status', priority: 'All Priorities' });
+  const [filterPanel, setFilterPanel] = useState({ status: 'All', priority: 'All Priorities' });
 
   const showNotification = (message: string, type: 'success' | 'info' = 'success') => {
     setNotification({ message, type });
