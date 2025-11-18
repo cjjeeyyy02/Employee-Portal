@@ -282,6 +282,44 @@ export default function MyProfile() {
           }}>
             Active
           </span>
+
+          {/* Profile Completion */}
+          <div style={{ width: "100%", marginTop: "8px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
+              <span style={{
+                fontFamily: "Poppins, sans-serif",
+                fontSize: "12px",
+                fontWeight: 600,
+                color: "#6B7280"
+              }}>
+                Profile Completion
+              </span>
+              <span style={{
+                fontFamily: "Poppins, sans-serif",
+                fontSize: "12px",
+                fontWeight: 700,
+                color: "#2563EB"
+              }}>
+                85%
+              </span>
+            </div>
+            {/* Progress Bar */}
+            <div style={{
+              width: "100%",
+              height: "8px",
+              backgroundColor: "#E5E7EB",
+              borderRadius: "9999px",
+              overflow: "hidden"
+            }}>
+              <div style={{
+                width: "85%",
+                height: "100%",
+                backgroundColor: "#2563EB",
+                borderRadius: "9999px",
+                transition: "width 0.3s ease-in-out"
+              }}></div>
+            </div>
+          </div>
         </div>
       </div>
 
