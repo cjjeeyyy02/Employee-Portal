@@ -216,12 +216,12 @@ export default function MyLeaveAttendance() {
 
       {/* ===== ATTENDANCE TAB ===== */}
       {activeTab === "attendance" && (
-        <div className="space-y-6">
+        <div className="space-y-3">
 
           {/* Today's Summary */}
           <div className="bg-white rounded-lg shadow-sm p-2.5 sm:p-3">
             <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">Today's Summary</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mb-4 pb-4 border-b border-gray-200">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mb-2 pb-2 border-b border-gray-200">
               <div>
                 <p className="text-xs text-gray-600 mb-0.5">Date</p>
                 <p className="text-sm font-semibold text-gray-900">Oct 18, 2024</p>
@@ -251,7 +251,7 @@ export default function MyLeaveAttendance() {
             </div>
 
             {/* Clock Controls */}
-            <div className="flex flex-row gap-2 mt-2">
+            <div className="flex flex-row gap-2">
               {/* Clock In Button */}
               <button
                 onClick={handleClockIn}
@@ -313,7 +313,7 @@ export default function MyLeaveAttendance() {
           </div>
 
           {/* Sub-Tabs Navigation */}
-          <div className="bg-white py-2">
+          <div className="bg-white py-1.5">
             <div className="inline-flex border border-gray-300 rounded-lg overflow-hidden">
               {[
                 { id: "dailyLogs", label: "Daily logs" },
