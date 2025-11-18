@@ -48,6 +48,7 @@ export default function MyProfile() {
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'info' } | null>(null);
   const [showSalary, setShowSalary] = useState<boolean>(false);
   const [openLeaveMenu, setOpenLeaveMenu] = useState<number | null>(null);
+  const [openSkillMenu, setOpenSkillMenu] = useState<number | null>(null);
   const [showLeaveModal, setShowLeaveModal] = useState<boolean>(false);
   const [leaveForm, setLeaveForm] = useState({
     leaveType: "Annual Leave",
@@ -1131,12 +1132,29 @@ export default function MyProfile() {
                           </span>
                         </td>
                         <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.lastUpdated}</td>
-                        <td className="px-3 py-2 text-center">
-                          <button className="text-blue-600 hover:text-blue-800 transition-colors" title="Edit">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
+                        <td className="px-3 py-2 text-center relative">
+                          <button
+                            onClick={() => setOpenSkillMenu(openSkillMenu === skill.id ? null : skill.id)}
+                            className="text-gray-600 hover:text-gray-900 transition-colors"
+                            title="Actions"
+                          >
+                            <MoreVertical className="w-4 h-4" />
                           </button>
+                          {openSkillMenu === skill.id && (
+                            <div
+                              className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                              style={{ fontFamily: "Poppins, sans-serif" }}
+                            >
+                              <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                                <Edit2 className="w-4 h-4" />
+                                Edit
+                              </button>
+                              <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                                <Trash2 className="w-4 h-4" />
+                                Delete
+                              </button>
+                            </div>
+                          )}
                         </td>
                       </tr>
                     ))}
