@@ -19,6 +19,7 @@ const employeeNavigationItems = [
   { icon: Target, label: "My Performance", path: "/my-performance" },
   { icon: CheckSquare, label: "My Tasks", path: "/my-tasks" },
   { icon: FileText, label: "Documents", path: "/documents" },
+  { icon: Calendar, label: "Calendar", path: "/calendar" },
   { icon: MessageCircle, label: "AI Assistant", path: "/ai-chat" },
 ];
 
