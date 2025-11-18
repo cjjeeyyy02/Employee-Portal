@@ -844,7 +844,7 @@ export default function EmployeeDashboard() {
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-blue-500"></div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-1">Company Holiday Schedule 2025</h3>
+                      <h3 className="text-sm font-medium text-gray-900 mb-1">Company Holiday Schedule 2025</h3>
                       <p className="text-xs text-gray-600 mb-1">The updated holiday schedule for 2025 has been posted. Please review and plan accordingly.</p>
                       <span className="text-xs text-gray-500">Jan 20, 2025</span>
                     </div>
@@ -856,7 +856,7 @@ export default function EmployeeDashboard() {
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-green-500"></div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-1">New Health & Wellness Program</h3>
+                      <h3 className="text-sm font-medium text-gray-900 mb-1">New Health & Wellness Program</h3>
                       <p className="text-xs text-gray-600 mb-1">Join our new wellness program with fitness classes and mental health resources.</p>
                       <span className="text-xs text-gray-500">Jan 18, 2025</span>
                     </div>
@@ -868,7 +868,7 @@ export default function EmployeeDashboard() {
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-orange-500"></div>
                     <div className="flex-1">
-                      <h3 className="text-sm font-semibold text-gray-900 mb-1">IT System Maintenance</h3>
+                      <h3 className="text-sm font-medium text-gray-900 mb-1">IT System Maintenance</h3>
                       <p className="text-xs text-gray-600 mb-1">Scheduled maintenance on Jan 25th from 2 AM to 4 AM. Services may be temporarily unavailable.</p>
                       <span className="text-xs text-gray-500">Jan 15, 2025</span>
                     </div>
