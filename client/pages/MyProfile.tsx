@@ -450,7 +450,7 @@ export default function MyProfile() {
                   </button>
                 </div>
 
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   {/* Phone Number */}
                   <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
                     <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -474,7 +474,7 @@ export default function MyProfile() {
                     <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Personal Email Address</label>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>sarah.mitchell@email.com</p>
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "Poppins, sans-serif" }}>
                           <CheckCircle className="w-3 h-3" /> Verified
@@ -484,11 +484,11 @@ export default function MyProfile() {
                   </div>
 
                   {/* Work Email Address */}
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 pb-3" style={{ borderBottom: "1px solid #E5E7EB" }}>
                     <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <div className="flex-1">
                       <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Work Email Address</label>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>sarah.m@company.com</p>
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-medium whitespace-nowrap" style={{ fontFamily: "Poppins, sans-serif" }}>
                           <CheckCircle className="w-3 h-3" /> Verified
