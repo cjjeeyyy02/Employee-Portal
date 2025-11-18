@@ -188,7 +188,7 @@ export default function MyProfile() {
         <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
           {/* Employee Details */}
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
               {/* Profile Picture */}
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
@@ -210,7 +210,8 @@ export default function MyProfile() {
               fontFamily: "Poppins, sans-serif",
               color: "#6B7280",
               fontSize: "15px",
-              margin: 0
+              margin: 0,
+              marginLeft: "52px"
             }}>
               sarah.mitchell@company.com
             </p>
@@ -218,7 +219,8 @@ export default function MyProfile() {
               fontFamily: "Poppins, sans-serif",
               color: "#6B7280",
               fontSize: "15px",
-              margin: 0
+              margin: 0,
+              marginLeft: "52px"
             }}>
               +1 (555) 010–1200
             </p>
@@ -226,7 +228,8 @@ export default function MyProfile() {
               fontFamily: "Poppins, sans-serif",
               color: "#9CA3AF",
               fontSize: "14px",
-              margin: 0
+              margin: 0,
+              marginLeft: "52px"
             }}>
               Engineering • San Francisco, CA, USA
             </p>
