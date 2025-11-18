@@ -61,10 +61,10 @@ export default function Calendar() {
 
   const renderCalendarDays = () => {
     const days = [];
-    
+
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(
-        <div key={`empty-${i}`} className="bg-gray-50 border-r border-b border-gray-200 min-h-[100px]">
+        <div key={`empty-${i}`} className="bg-gray-50 border-r border-b border-gray-200 min-h-[70px]">
         </div>
       );
     }
@@ -72,29 +72,29 @@ export default function Calendar() {
     for (let day = 1; day <= daysInMonth; day++) {
       const dayEvents = getEventsForDay(day);
       const todayCell = isToday(day);
-      
+
       days.push(
         <div
           key={day}
-          className={`border-r border-b border-gray-200 min-h-[100px] p-2 hover:bg-gray-50 transition-colors cursor-pointer ${
+          className={`border-r border-b border-gray-200 min-h-[70px] p-1.5 hover:bg-gray-50 transition-colors cursor-pointer ${
             todayCell ? "bg-blue-50" : "bg-white"
           }`}
         >
           <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between mb-1">
+            <div className="flex items-center justify-between mb-0.5">
               <span
-                className={`text-sm font-semibold ${
-                  todayCell ? "bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs" : "text-gray-700"
+                className={`text-xs font-semibold ${
+                  todayCell ? "bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px]" : "text-gray-700"
                 }`}
               >
                 {day}
               </span>
             </div>
-            <div className="flex-1 space-y-1 overflow-hidden">
+            <div className="flex-1 space-y-0.5 overflow-hidden">
               {dayEvents.map((event, idx) => (
                 <div
                   key={idx}
-                  className={`${event.color} text-white text-xs px-2 py-1 rounded truncate`}
+                  className={`${event.color} text-white text-[10px] px-1.5 py-0.5 rounded truncate`}
                   title={`${event.title} - ${event.time}`}
                 >
                   {event.title}
