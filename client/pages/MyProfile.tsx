@@ -715,7 +715,7 @@ export default function MyProfile() {
                   <tbody>
                     {/* Senior Analyst */}
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-sm text-gray-900 font-medium">Senior Analyst</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">Senior Analyst</td>
                       <td className="px-4 py-3 text-sm text-gray-700">Jan 2022 – Aug 2023</td>
                       <td className="px-4 py-3 text-sm text-gray-700">Engineering</td>
                       <td className="px-4 py-3 text-sm text-gray-700">San Francisco, CA</td>
@@ -729,7 +729,7 @@ export default function MyProfile() {
 
                     {/* HR Assistant */}
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-4 py-3 text-sm text-gray-900 font-medium">HR Assistant</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">HR Assistant</td>
                       <td className="px-4 py-3 text-sm text-gray-700">Jun 2020 – Dec 2021</td>
                       <td className="px-4 py-3 text-sm text-gray-700">Human Resources</td>
                       <td className="px-4 py-3 text-sm text-gray-700">San Francisco, CA</td>
@@ -768,7 +768,7 @@ export default function MyProfile() {
                   <tbody>
                     {/* Nimbus Labs */}
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>Nimbus Labs</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#111827" }}>Nimbus Labs</td>
                       <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Software Engineer</td>
                       <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>2 years</td>
                       <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Vancouver, Canada</td>
@@ -778,7 +778,7 @@ export default function MyProfile() {
 
                     {/* Aster Corp */}
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                      <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>Aster Corp</td>
+                      <td className="px-3 py-2" style={{ fontSize: "11px", color: "#111827" }}>Aster Corp</td>
                       <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Junior Developer</td>
                       <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>1.5 years</td>
                       <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>Seattle, USA</td>
