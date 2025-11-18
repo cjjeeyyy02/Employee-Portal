@@ -697,36 +697,51 @@ export default function MyProfile() {
                 border: "1px solid #E5E7EB",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                padding: "10px 12px"
+                padding: "10px 12px",
+                overflowX: "auto"
               }}>
                 <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
-                <div className="space-y-2">
-                  {/* Senior Analyst */}
-                  <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>Senior Analyst</p>
-                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jan 2022 – Aug 2023</p>
-                      </div>
-                      <span className="inline-block rounded-lg px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
-                        Promoted
-                      </span>
-                    </div>
-                  </div>
+                <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <thead>
+                    <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Position</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Period</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Department</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Location</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Reporting Manager</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Movement Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Senior Analyst */}
+                    <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-sm text-gray-900 font-medium">Senior Analyst</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Jan 2022 – Aug 2023</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Engineering</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">San Francisco, CA</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Michael Rodriguez</td>
+                      <td className="px-4 py-3 text-sm">
+                        <span className="inline-block rounded-lg px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold">
+                          Promoted
+                        </span>
+                      </td>
+                    </tr>
 
-                  {/* HR Assistant */}
-                  <div>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>HR Assistant</p>
-                        <p className="text-xs text-gray-600 mt-1" style={{ fontFamily: "Poppins, sans-serif" }}>Jun 2020 – Dec 2021</p>
-                      </div>
-                      <span className="inline-block rounded-lg px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
-                        Transfer
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                    {/* HR Assistant */}
+                    <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                      <td className="px-4 py-3 text-sm text-gray-900 font-medium">HR Assistant</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Jun 2020 – Dec 2021</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Human Resources</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">San Francisco, CA</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">Jennifer Smith</td>
+                      <td className="px-4 py-3 text-sm">
+                        <span className="inline-block rounded-lg px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold">
+                          Transfer
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
 
               {/* Previous Work History Card */}
