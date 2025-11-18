@@ -337,28 +337,6 @@ export default function MyLeaveAttendance() {
             </div>
           </div>
 
-          {/* Sub-Tab Content */}
-          {activeSubTab === "dailyLogs" && (
-            <div className="bg-white rounded-lg shadow-sm p-4">
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">Daily Logs</h3>
-              <p className="text-xs text-gray-600">Your daily attendance logs will appear here.</p>
-            </div>
-          )}
-
-          {activeSubTab === "timesheets" && (
-            <div className="bg-white rounded-lg shadow-sm p-4">
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">Timesheets</h3>
-              <p className="text-xs text-gray-600">Your timesheets and work hours summary will appear here.</p>
-            </div>
-          )}
-
-          {activeSubTab === "scheduledShifts" && (
-            <div className="bg-white rounded-lg shadow-sm p-4">
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">Scheduled Shifts</h3>
-              <p className="text-xs text-gray-600">Your upcoming scheduled shifts will appear here.</p>
-            </div>
-          )}
-
           {/* Attendance Records */}
           <div
             className="w-full bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
