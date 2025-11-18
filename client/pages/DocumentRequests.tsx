@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 type TabType = "requests" | "documents";
 type StatusType = "completed" | "in-progress" | "pending" | "rejected";
 type PriorityType = "high" | "medium" | "low";
-type ModalType = "upload" | "newRequest" | "moreFilters" | "details" | "preview" | null;
+type ModalType = "upload" | "newRequest" | "moreFilters" | null;
 
 interface Request {
   id: string;
