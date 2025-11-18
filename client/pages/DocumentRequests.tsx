@@ -137,15 +137,15 @@ export default function DocumentRequests() {
     },
   ];
 
-  const getStatusColor = (status: StatusType) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
-      case "completed":
+      case "Approved":
         return "bg-green-100 text-green-800";
-      case "in-progress":
+      case "In Review":
         return "bg-blue-100 text-blue-800";
-      case "pending":
+      case "Pending":
         return "bg-orange-100 text-orange-800";
-      case "rejected":
+      case "Rejected":
         return "bg-red-100 text-red-800";
       default:
         return "bg-gray-100 text-gray-800";
@@ -166,9 +166,8 @@ export default function DocumentRequests() {
   };
 
   const filteredRequests = requests.filter((request) => {
-    const matchesSearch = request.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === "All Status" || request.status === statusFilter;
-    return matchesSearch && matchesStatus;
+    const matchesStatus = statusFilter === "All" || request.status === statusFilter;
+    return matchesStatus;
   });
 
   const documents: Document[] = [
