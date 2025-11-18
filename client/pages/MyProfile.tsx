@@ -115,17 +115,18 @@ export default function MyProfile() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (openLeaveMenu !== null) {
+      if (openLeaveMenu !== null || openSkillMenu !== null) {
         const target = event.target as HTMLElement;
         if (!target.closest('button') && !target.closest('.absolute')) {
           setOpenLeaveMenu(null);
+          setOpenSkillMenu(null);
         }
       }
     };
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
-  }, [openLeaveMenu]);
+  }, [openLeaveMenu, openSkillMenu]);
 
   const payslips: Payslip[] = [
     { id: 1, date: "11/30/2024", payPeriod: "Nov 1 - Nov 30, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
