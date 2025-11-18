@@ -184,37 +184,28 @@ export default function MyProfile() {
         gap: "16px",
         marginBottom: "16px"
       }}>
-        {/* Left Content - Avatar and Employee Details */}
+        {/* Left Content - Employee Details */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
-          {/* Circular Avatar with Initials */}
-          <div style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            backgroundColor: "#DBEAFE",
-            color: "#2563EB",
-            fontWeight: 700,
-            fontSize: "16px",
-            fontFamily: "Poppins, sans-serif",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0
-          }}>
-            SM
-          </div>
-
           {/* Employee Details */}
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <p style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 600,
-              fontSize: "18px",
-              color: "#111827",
-              margin: 0
-            }}>
-              Sarah Mitchell
-            </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              {/* Profile Picture */}
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+                alt="Profile"
+                className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+                style={{ flexShrink: 0 }}
+              />
+              <p style={{
+                fontFamily: "Poppins, sans-serif",
+                fontWeight: 600,
+                fontSize: "18px",
+                color: "#111827",
+                margin: 0
+              }}>
+                Sarah Mitchell
+              </p>
+            </div>
             <p style={{
               fontFamily: "Poppins, sans-serif",
               color: "#6B7280",
