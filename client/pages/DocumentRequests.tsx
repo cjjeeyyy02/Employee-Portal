@@ -361,66 +361,48 @@ export default function DocumentRequests() {
 
         {/* ===== MY REQUESTS TAB ===== */}
         {activeTab === "requests" && (
-          <>
-            {/* Requests List */}
-            <div className="space-y-1.5 sm:space-y-2">
-              {filteredRequests.map((request) => (
-            <div key={request.id} className="bg-white rounded-lg border border-gray-200 shadow-sm p-2 sm:p-2.5 hover:shadow-md transition-shadow min-h-[140px] sm:min-h-[150px] flex flex-col">
-              {/* Top Row: Title and Actions */}
-              <div className="flex justify-between items-start flex-1">
-                <div className="flex-1">
-                  <h3 className="text-sm font-bold text-blue-700 mb-1.5">{request.title}</h3>
-
-                  {/* Status and Priority Badges */}
-                  <div className="flex gap-1.5 mb-1.5">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold capitalize ${getStatusColor(request.status)}`}>
-                      {request.status.replace("-", " ")}
-                    </span>
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold capitalize ${getPriorityColor(request.priority)}`}>
-                      {request.priority}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs text-gray-600 mb-1.5">{request.description}</p>
-
-                  {/* Details Row */}
-                  <p className="text-xs text-gray-600 mb-1.5">
-                    Requested: {request.requestedDate}
-                    {request.completedDate && ` • Completed: ${request.completedDate}`}
-                    <br />
-                    Delivery: {request.deliveryMethod}
-                  </p>
-
-                  {/* Note Bar */}
-                  {request.note && (
-                    <div className="bg-blue-50 rounded-lg p-1.5 mb-1.5">
-                      <p className="text-xs text-blue-800">{request.note}</p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-1.5 ml-3">
-                  {request.status === "completed" ? (
-                    <button onClick={() => handleDownloadRequest(request)} className="px-2.5 py-1 text-xs font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1 whitespace-nowrap">
-                      <Download className="w-3 h-3" />
-                      Download
-                    </button>
-                  ) : (
-                    <button onClick={() => handleEditRequest(request)} className="px-2.5 py-1 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-colors whitespace-nowrap">
-                      Edit
-                    </button>
-                  )}
-                  <button onClick={() => handleViewDetails(request)} className="px-2.5 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap">
-                    Details
-                  </button>
-                </div>
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-x-auto">
+            {filteredRequests.length > 0 ? (
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b-2 border-gray-200 bg-gray-50">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Request ID</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Request Type</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Submitted Date</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Status</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Approver</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredRequests.map((request) => (
+                    <tr key={request.id} className="border-b border-gray-100 hover:bg-blue-50 transition-colors">
+                      <td className="px-4 py-3 text-xs font-semibold text-gray-900">{request.id}</td>
+                      <td className="px-4 py-3 text-xs text-gray-700">{request.requestType}</td>
+                      <td className="px-4 py-3 text-xs text-gray-600">{request.submittedDate}</td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${getStatusColor(request.status)}`}>
+                          {request.status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-xs text-gray-700">{request.approver}</td>
+                      <td className="px-4 py-3 text-xs">
+                        <div className="flex gap-2">
+                          <button className="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                          <span className="text-gray-300">|</span>
+                          <button className="text-red-600 hover:text-red-800 font-medium">Cancel</button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                <p>No requests found.</p>
               </div>
-            </div>
-              ))}
-            </div>
-          </>
+            )}
+          </div>
         )}
 
         {/* ===== MY DOCUMENTS TAB ===== */}
