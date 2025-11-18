@@ -7,7 +7,43 @@ type TabType = "goals" | "reviews" | "feedback";
 export default function MyPerformance() {
   const [activeTab, setActiveTab] = useState<TabType>("goals");
   const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [selectedReview, setSelectedReview] = useState<string | null>(null);
   const [performanceRating, setPerformanceRating] = useState("1");
+
+  const reviewDetails: Record<string, any> = {
+    "Q3 2024": {
+      title: "Q3 2024 - Quarterly Review",
+      period: "July - September 2024",
+      completed: "2024-09-28",
+      overallRating: 4.2,
+      managerRating: 4.5,
+      selfRating: 4,
+      achievements: "Successfully led the migration of legacy systems to cloud infrastructure, resulting in 40% performance improvement. Mentored 2 junior developers and improved team collaboration.",
+      challenges: "Faced initial resistance to new processes but overcame through clear communication and demonstrations of benefits.",
+      goalAchievement: "Completed 8 out of 10 quarterly goals, including all high-priority objectives.",
+      development: "Focus on advanced architecture patterns and leadership skills for Q4.",
+      managerComments: "Excellent performance this quarter. Your technical leadership and ability to deliver complex projects on time has been outstanding."
+    },
+    "Mid-Year 2024": {
+      title: "Mid-Year 2024 - Mid-Year Review",
+      period: "January - June 2024",
+      completed: "2024-06-25",
+      overallRating: 4.0,
+      managerRating: 4.2,
+      selfRating: 3.8,
+      achievements: "Implemented new testing framework that increased code coverage by 35%. Delivered critical features ahead of schedule.",
+      challenges: "Balanced multiple high-priority projects simultaneously while maintaining quality standards.",
+      goalAchievement: "Met all primary goals for the first half of the year with strong execution.",
+      development: "Continue building technical expertise and explore opportunities for cross-team collaboration.",
+      managerComments: "Solid performance with consistent delivery. Looking forward to seeing continued growth in the second half."
+    }
+  };
+
+  const handleViewDetails = (reviewTitle: string) => {
+    setSelectedReview(reviewTitle);
+    setShowDetailsModal(true);
+  };
 
   return (
     <Layout>
@@ -349,16 +385,18 @@ export default function MyPerformance() {
               </p>
             </div>
 
-            <button style={{
-              backgroundColor: "#FFFFFF",
-              color: "#222",
-              border: "1px solid #D0D0D0",
-              padding: "6px 10px",
-              borderRadius: "5px",
-              fontSize: "11px",
-              cursor: "pointer",
-              fontWeight: "500"
-            }}>
+            <button
+              onClick={() => handleViewDetails("Q3 2024")}
+              style={{
+                backgroundColor: "#FFFFFF",
+                color: "#222",
+                border: "1px solid #D0D0D0",
+                padding: "6px 10px",
+                borderRadius: "5px",
+                fontSize: "11px",
+                cursor: "pointer",
+                fontWeight: "500"
+              }}>
               View Details
             </button>
           </div>
@@ -422,16 +460,18 @@ export default function MyPerformance() {
               </p>
             </div>
 
-            <button style={{
-              backgroundColor: "#FFFFFF",
-              color: "#222",
-              border: "1px solid #D0D0D0",
-              padding: "6px 10px",
-              borderRadius: "5px",
-              fontSize: "11px",
-              cursor: "pointer",
-              fontWeight: "500"
-            }}>
+            <button
+              onClick={() => handleViewDetails("Mid-Year 2024")}
+              style={{
+                backgroundColor: "#FFFFFF",
+                color: "#222",
+                border: "1px solid #D0D0D0",
+                padding: "6px 10px",
+                borderRadius: "5px",
+                fontSize: "11px",
+                cursor: "pointer",
+                fontWeight: "500"
+              }}>
               View Details
             </button>
           </div>
