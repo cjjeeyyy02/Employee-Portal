@@ -65,18 +65,12 @@ export default function DocumentRequests() {
     }
   };
 
-  const handleDownloadRequest = (request: Request) => {
-    showNotification(`Downloading: ${request.title}`, 'success');
+  const handleViewRequest = (request: Request) => {
+    showNotification(`Viewing request: ${request.id}`, 'info');
   };
 
-  const handleEditRequest = (request: Request) => {
-    setSelectedRequest(request);
-    setActiveModal('details');
-  };
-
-  const handleViewDetails = (request: Request) => {
-    setSelectedRequest(request);
-    setActiveModal('details');
+  const handleCancelRequest = (request: Request) => {
+    showNotification(`Request ${request.id} cancelled`, 'success');
   };
 
   const handleViewDocument = (doc: Document) => {
