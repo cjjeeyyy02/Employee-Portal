@@ -319,16 +319,14 @@ export default function DocumentRequests() {
           <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">My Requests & Documents</h1>
           <p className="text-xs text-gray-600">View, track, and manage your personal requests and documents.</p>
         </div>
-        <div className="flex gap-1 sm:gap-2 flex-wrap">
-          <button onClick={() => setActiveModal('upload')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
-            <Upload className="w-3.5 h-3.5" />
-            Upload Document
-          </button>
-          <button onClick={() => setActiveModal('newRequest')} className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
-            <Plus className="w-3.5 h-3.5" />
-            New Request
-          </button>
-        </div>
+        {activeTab === "requests" && (
+          <div className="flex gap-1 sm:gap-2 flex-wrap">
+            <button onClick={() => setActiveModal('newRequest')} className="px-3 py-1.5 text-xs bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+              <Plus className="w-3.5 h-3.5" />
+              New Request
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Tabs Navigation */}
