@@ -401,7 +401,7 @@ export default function DocumentRequests() {
                     <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Submitted Date</th>
                     <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Status</th>
                     <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Approver</th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Action</th>
+                    <th className="text-center px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">Action</th>
                   </tr>
                 </thead>
                 <tbody>
