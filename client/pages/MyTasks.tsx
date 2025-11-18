@@ -570,9 +570,6 @@ export default function MyTasks() {
                         Category
                       </th>
                       <th className="text-left px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
-                        Description
-                      </th>
-                      <th className="text-left px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
                         Priority
                       </th>
                       <th className="text-left px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
@@ -585,13 +582,7 @@ export default function MyTasks() {
                         Due Date
                       </th>
                       <th className="text-left px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
-                        Progress
-                      </th>
-                      <th className="text-left px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
                         Status
-                      </th>
-                      <th className="text-left px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
-                        Notes
                       </th>
                       <th className="text-center px-3 py-2.5 text-xs font-semibold text-gray-700 whitespace-nowrap">
                         Action
@@ -613,12 +604,6 @@ export default function MyTasks() {
                         <td className="px-3 py-2.5 text-xs text-gray-600 whitespace-nowrap">
                           {task.category}
                         </td>
-                        <td
-                          className="px-3 py-2.5 text-xs text-gray-600 max-w-[180px] truncate"
-                          title={task.description}
-                        >
-                          {task.description}
-                        </td>
                         <td className="px-3 py-2.5">
                           <span
                             className={`px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${getPriorityColor(task.priority)}`}
@@ -636,30 +621,11 @@ export default function MyTasks() {
                           {task.dueDate}
                         </td>
                         <td className="px-3 py-2.5">
-                          <div className="flex items-center gap-2 min-w-[100px]">
-                            <div className="w-12 bg-gray-200 rounded-full h-1.5">
-                              <div
-                                className="bg-blue-600 h-1.5 rounded-full transition-all"
-                                style={{ width: `${task.progress}%` }}
-                              ></div>
-                            </div>
-                            <span className="text-xs text-gray-700 font-medium whitespace-nowrap">
-                              {task.progress}%
-                            </span>
-                          </div>
-                        </td>
-                        <td className="px-3 py-2.5">
                           <span
                             className={`px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${getStatusColor(task.status)}`}
                           >
                             {task.status}
                           </span>
-                        </td>
-                        <td
-                          className="px-3 py-2.5 text-xs text-gray-600 max-w-[150px] truncate"
-                          title={task.notes}
-                        >
-                          {task.notes}
                         </td>
                         <td className="px-3 py-2.5 text-center">
                           <div className="relative inline-block">
