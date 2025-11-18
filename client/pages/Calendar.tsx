@@ -1,12 +1,30 @@
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Plus, Clock, MapPin, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
 
 type ViewMode = "day" | "week" | "month";
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [viewMode, setViewMode] = useState<ViewMode>("month");
+  const [isNewEventOpen, setIsNewEventOpen] = useState(false);
+  const [eventForm, setEventForm] = useState({
+    title: "",
+    date: "",
+    startTime: "",
+    endTime: "",
+    description: "",
+    location: "",
+  });
+  const { toast } = useToast();
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
