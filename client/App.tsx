@@ -49,6 +49,7 @@ export default function App() {
             <Route path="/my-tasks" element={<MyTasks />} />
             <Route path="/my-payslips" element={<Placeholder title="My Payslips" />} />
             <Route path="/documents" element={<DocumentRequests />} />
+            <Route path="/calendar" element={<Calendar />} />
             <Route path="/ai-chat" element={<AIChat />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
