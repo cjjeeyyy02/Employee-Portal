@@ -6,10 +6,60 @@ import {
   ArrowUpRight,
   CheckCircle,
   Coffee,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Layout from "@/components/Layout";
+import { useState } from "react";
 
 export default function EmployeeDashboard() {
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const daysInMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  ).getDate();
+
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  ).getDay();
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const dayNames = ["S", "M", "T", "W", "T", "F", "S"];
+
+  const previousMonth = () => {
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+  };
+
+  const nextMonth = () => {
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+  };
+
+  const today = new Date();
+  const isToday = (day: number) => {
+    return (
+      day === today.getDate() &&
+      currentDate.getMonth() === today.getMonth() &&
+      currentDate.getFullYear() === today.getFullYear()
+    );
+  };
+
+  const sampleEvents = [
+    { day: 15, title: "Team Standup", color: "bg-blue-500" },
+    { day: 18, title: "Client Meeting", color: "bg-green-500" },
+    { day: 22, title: "All Hands", color: "bg-orange-500" },
+  ];
+
+  const getEventsForDay = (day: number) => {
+    return sampleEvents.filter(event => event.day === day);
+  };
   const metrics = [
     {
       label: "Pending Tasks",
