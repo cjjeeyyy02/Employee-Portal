@@ -14,11 +14,11 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const employeeNavigationItems = [
-  { icon: LayoutDashboard, label: "My Dashboard", path: "/employee-dashboard" },
-  { icon: User, label: "My Profile", path: "/my-profile" },
-  { icon: Calendar, label: "My Leave & Attendance", path: "/my-leave-attendance" },
-  { icon: Target, label: "My Performance", path: "/my-performance" },
-  { icon: CheckSquare, label: "My Tasks", path: "/my-tasks" },
+  { icon: LayoutDashboard, label: "Dashboard", path: "/employee-dashboard" },
+  { icon: User, label: "Profile", path: "/my-profile" },
+  { icon: Calendar, label: "Leave & Attendance", path: "/my-leave-attendance" },
+  { icon: Target, label: "Performance", path: "/my-performance" },
+  { icon: CheckSquare, label: "Tasks", path: "/my-tasks" },
   { icon: FileText, label: "Documents", path: "/documents" },
   { icon: Calendar, label: "Calendar", path: "/calendar" },
   { icon: Settings, label: "Settings and Configuration", path: "/settings" },
