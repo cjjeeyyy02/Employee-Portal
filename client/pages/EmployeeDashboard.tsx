@@ -396,7 +396,7 @@ export default function EmployeeDashboard() {
                   <div style={{ paddingBottom: '12px', borderBottom: '1px solid #e5e7eb', marginBottom: '12px' }}>
                     <p style={{
                       fontSize: '14px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: '#1f2937',
                       margin: '0'
                     }}>Leave Request - Annual Leave</p>
@@ -429,7 +429,7 @@ export default function EmployeeDashboard() {
                   <div style={{ paddingBottom: '12px', borderBottom: '1px solid #e5e7eb', marginBottom: '12px' }}>
                     <p style={{
                       fontSize: '14px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: '#1f2937',
                       margin: '0'
                     }}>Document Request - Certificate</p>
@@ -462,7 +462,7 @@ export default function EmployeeDashboard() {
                   <div>
                     <p style={{
                       fontSize: '14px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: '#1f2937',
                       margin: '0'
                     }}>Schedule Change Request</p>
