@@ -700,7 +700,16 @@ export default function MyProfile() {
                 padding: "10px 12px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Position History</h2>
+                  <button
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    <Edit2 className="w-4 h-4" />
+                    Edit
+                  </button>
+                </div>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
@@ -753,7 +762,16 @@ export default function MyProfile() {
                 padding: "10px 12px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px", fontWeight: 600 }}>Previous Work History</h2>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px", fontWeight: 600 }}>Previous Work History</h2>
+                  <button
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    <Edit2 className="w-4 h-4" />
+                    Edit
+                  </button>
+                </div>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
