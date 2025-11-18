@@ -839,27 +839,27 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Training Name</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issuing Organization</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issue Date</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Expiry Date</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Status</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Action</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Training Name</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Issuing Organization</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Issue Date</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Expiry Date</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Status</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     {trainings.map((training) => (
                       <tr key={training.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">{training.name}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">{training.issuer}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">{training.issueDate}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">{training.expiryDate}</td>
-                        <td className="px-4 py-3 text-sm">
+                        <td className="px-4 py-2 text-xs text-gray-900">{training.name}</td>
+                        <td className="px-4 py-2 text-xs text-gray-700">{training.issuer}</td>
+                        <td className="px-4 py-2 text-xs text-gray-700">{training.issueDate}</td>
+                        <td className="px-4 py-2 text-xs text-gray-700">{training.expiryDate}</td>
+                        <td className="px-4 py-2 text-xs">
                           <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${training.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}>
                             {training.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-700">
+                        <td className="px-4 py-2 text-xs text-gray-700">
                           <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs">View</button>
                         </td>
                       </tr>
@@ -881,22 +881,22 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Certification Name</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issuing Organization</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Issue Date</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Expiry Date</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Status</th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Action</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Certification Name</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Issuing Organization</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Issue Date</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Expiry Date</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Status</th>
+                      <th className="px-4 py-2 text-left text-xs text-gray-900">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     {certifications.map((cert) => (
                       <tr key={cert.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">{cert.name}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">{cert.issuer}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">{cert.issueDate}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">{cert.expiryDate}</td>
-                        <td className="px-4 py-3 text-sm">
+                        <td className="px-4 py-2 text-xs text-gray-900">{cert.name}</td>
+                        <td className="px-4 py-2 text-xs text-gray-700">{cert.issuer}</td>
+                        <td className="px-4 py-2 text-xs text-gray-700">{cert.issueDate}</td>
+                        <td className="px-4 py-2 text-xs text-gray-700">{cert.expiryDate}</td>
+                        <td className="px-4 py-2 text-xs">
                           <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${
                             cert.status === "Active" ? "bg-green-100 text-green-700" :
                             cert.status === "Expired" ? "bg-red-100 text-red-700" :
@@ -905,7 +905,7 @@ export default function MyProfile() {
                             {cert.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-sm text-gray-700">
+                        <td className="px-4 py-2 text-xs text-gray-700">
                           <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs">View</button>
                         </td>
                       </tr>
