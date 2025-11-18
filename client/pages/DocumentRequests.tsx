@@ -236,9 +236,9 @@ export default function DocumentRequests() {
 
   const summaryStats = [
     { label: "Total Requests", value: requests.length, subtitle: "This year", icon: FileText, color: "text-blue-600" },
-    { label: "Pending", value: requests.filter((r) => r.status === "pending").length, subtitle: "Awaiting processing", icon: Clock, color: "text-orange-600" },
-    { label: "In Progress", value: requests.filter((r) => r.status === "in-progress").length, subtitle: "Being processed", icon: Clock, color: "text-blue-600" },
-    { label: "Completed", value: requests.filter((r) => r.status === "completed").length, subtitle: "Ready for download", icon: CheckCircle, color: "text-green-600" },
+    { label: "Pending", value: requests.filter((r) => r.status === "Pending").length, subtitle: "Awaiting processing", icon: Clock, color: "text-orange-600" },
+    { label: "In Review", value: requests.filter((r) => r.status === "In Review").length, subtitle: "Being reviewed", icon: Clock, color: "text-blue-600" },
+    { label: "Approved", value: requests.filter((r) => r.status === "Approved").length, subtitle: "Approved requests", icon: CheckCircle, color: "text-green-600" },
   ];
 
   const docSummaryStats = [
