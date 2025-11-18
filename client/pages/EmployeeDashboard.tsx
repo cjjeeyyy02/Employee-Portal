@@ -244,9 +244,9 @@ export default function EmployeeDashboard() {
               })}
             </div>
 
-            {/* Middle Row - 2 Column Grid with Equal Width */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', width: '100%' }}>
-              {/* Left Column - Pending Tasks */}
+            {/* Middle Row - Stacked Layout: Pending Tasks then Pending Request */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px', width: '100%' }}>
+              {/* Row 1 - Pending Tasks */}
               <div style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
