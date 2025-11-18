@@ -633,7 +633,16 @@ export default function MyProfile() {
                   {/* Employment Status */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Employment Status</label>
-                    <span className="inline-block rounded-lg px-3 py-1 bg-green-600 text-white font-semibold text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <span style={{
+                      backgroundColor: "#D1FAE5",
+                      color: "#065F46",
+                      fontSize: "12px",
+                      fontWeight: 700,
+                      fontFamily: "Poppins, sans-serif",
+                      padding: "4px 8px",
+                      borderRadius: "9999px",
+                      display: "inline-block"
+                    }}>
                       Active
                     </span>
                   </div>
