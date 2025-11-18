@@ -416,8 +416,8 @@ export default function DocumentRequests() {
                         </span>
                       </td>
                       <td className="px-4 py-3 text-xs text-gray-700">{request.approver}</td>
-                      <td className="px-4 py-3 text-xs">
-                        <div className="relative">
+                      <td className="px-4 py-3 text-xs text-center">
+                        <div className="relative inline-block">
                           <button
                             onClick={() => setActionDropdown(actionDropdown === request.id ? null : request.id)}
                             className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1.5 rounded"
