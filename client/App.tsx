@@ -13,6 +13,7 @@ import MyTasks from "./pages/MyTasks";
 import DocumentRequests from "./pages/DocumentRequests";
 import Calendar from "./pages/Calendar";
 import AIChat from "./pages/AIChat";
+import Settings from "./pages/Settings";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
@@ -51,6 +52,7 @@ export default function App() {
             <Route path="/documents" element={<DocumentRequests />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/ai-chat" element={<AIChat />} />
+            <Route path="/settings" element={<Settings />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
