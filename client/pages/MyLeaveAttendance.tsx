@@ -501,71 +501,71 @@ export default function MyLeaveAttendance() {
               </div>
 
               {/* Day Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
 
                 {/* SUNDAY Card */}
-                <div className="bg-white rounded-2xl shadow-md p-5">
-                  <div className="flex justify-between items-start mb-4">
+                <div className="bg-white rounded-xl shadow-md p-3">
+                  <div className="flex justify-between items-start mb-2">
                     <div>
-                      <h3 className="text-base font-bold text-gray-900 tracking-wide">SUNDAY</h3>
-                      <p className="text-sm text-gray-600 mt-1">October 19, 2025</p>
+                      <h3 className="text-xs font-bold text-gray-900 tracking-wide">SUNDAY</h3>
+                      <p className="text-xs text-gray-600 mt-0.5">October 19, 2025</p>
                     </div>
                     {/* User Group Icon */}
-                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
                   {/* Divider */}
-                  <div className="border-t border-gray-200 mb-4"></div>
+                  <div className="border-t border-gray-200 mb-2"></div>
                   {/* Shifts */}
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {/* Alex - Blue */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 flex-1">
-                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                    <div className="flex items-center justify-between gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-1">
+                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-900">Alex</span>
+                            <span className="text-xs font-medium text-gray-900">Alex</span>
                             <span className="text-xs text-gray-600">9–18</span>
                           </div>
-                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">Shift</span>
                         </div>
                         {/* Edit Icon */}
-                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                         </svg>
                       </div>
                     </div>
                     {/* Maria - Red */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 flex-1">
-                        <div className="w-1 h-10 bg-red-500 rounded-full"></div>
-                        <div className="bg-red-50 px-3 py-2 rounded-lg flex-1">
+                    <div className="flex items-center justify-between gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-1">
+                        <div className="w-0.5 h-7 bg-red-500 rounded-full"></div>
+                        <div className="bg-red-50 px-2 py-1 rounded-md flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-900">Maria</span>
+                            <span className="text-xs font-medium text-gray-900">Maria</span>
                             <span className="text-xs text-gray-600">10–19</span>
                           </div>
-                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800">Shift</span>
+                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800">Shift</span>
                         </div>
                         {/* Edit Icon */}
-                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                         </svg>
                       </div>
                     </div>
                     {/* Jordan - Blue */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 flex-1">
-                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                    <div className="flex items-center justify-between gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-1">
+                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-900">Jordan</span>
+                            <span className="text-xs font-medium text-gray-900">Jordan</span>
                             <span className="text-xs text-gray-600">9–18</span>
                           </div>
-                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">Shift</span>
                         </div>
                         {/* Edit Icon */}
-                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                         </svg>
                       </div>
