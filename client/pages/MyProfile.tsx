@@ -1170,17 +1170,6 @@ export default function MyProfile() {
         {activeTab === "leaveAttendance" && (
           <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
             <div className="space-y-3">
-              {/* Apply for Leave Button */}
-              <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "12px" }}>
-                <button
-                  onClick={() => setShowLeaveModal(true)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
-                  style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  Apply for Leave
-                </button>
-              </div>
               {/* Top 4 Metrics Cards Grid */}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
                 {/* Total Present Today */}
@@ -1274,7 +1263,17 @@ export default function MyProfile() {
                 padding: "10px 12px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Leave Balance</h2>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Leave Balance</h2>
+                  <button
+                    onClick={() => setShowLeaveModal(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    Apply for Leave
+                  </button>
+                </div>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
