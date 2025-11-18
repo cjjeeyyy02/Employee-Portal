@@ -185,33 +185,33 @@ export default function MyProfile() {
         marginBottom: "16px"
       }}>
         {/* Left Content - Employee Details */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", flex: 1 }}>
+          {/* Profile Picture - Centered */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+              alt="Profile"
+              className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shadow-sm"
+              style={{ flexShrink: 0 }}
+            />
+          </div>
+
           {/* Employee Details */}
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "4px" }}>
-              {/* Profile Picture */}
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
-                alt="Profile"
-                className="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm"
-                style={{ flexShrink: 0 }}
-              />
-              <p style={{
-                fontFamily: "Poppins, sans-serif",
-                fontWeight: 600,
-                fontSize: "18px",
-                color: "#111827",
-                margin: 0
-              }}>
-                Sarah Mitchell
-              </p>
-            </div>
+            <p style={{
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: 600,
+              fontSize: "18px",
+              color: "#111827",
+              margin: 0
+            }}>
+              Sarah Mitchell
+            </p>
             <p style={{
               fontFamily: "Poppins, sans-serif",
               color: "#6B7280",
               fontSize: "15px",
-              margin: 0,
-              marginLeft: "52px"
+              margin: 0
             }}>
               sarah.mitchell@company.com
             </p>
@@ -219,8 +219,7 @@ export default function MyProfile() {
               fontFamily: "Poppins, sans-serif",
               color: "#6B7280",
               fontSize: "15px",
-              margin: 0,
-              marginLeft: "52px"
+              margin: 0
             }}>
               +1 (555) 010–1200
             </p>
@@ -228,8 +227,7 @@ export default function MyProfile() {
               fontFamily: "Poppins, sans-serif",
               color: "#9CA3AF",
               fontSize: "14px",
-              margin: 0,
-              marginLeft: "52px"
+              margin: 0
             }}>
               Engineering • San Francisco, CA, USA
             </p>
