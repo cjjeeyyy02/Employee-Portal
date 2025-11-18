@@ -11,6 +11,7 @@ import MyLeaveAttendance from "./pages/MyLeaveAttendance";
 import MyPerformance from "./pages/MyPerformance";
 import MyTasks from "./pages/MyTasks";
 import DocumentRequests from "./pages/DocumentRequests";
+import Calendar from "./pages/Calendar";
 import AIChat from "./pages/AIChat";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
