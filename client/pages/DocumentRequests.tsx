@@ -465,92 +465,120 @@ export default function DocumentRequests() {
         {/* ===== MY DOCUMENTS TAB ===== */}
         {activeTab === "documents" && (
           <div className="space-y-4">
-            {/* Summary Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              {docSummaryStats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={index} className="bg-white rounded-lg shadow-sm p-4 border border-gray-200">
-                    <div className="flex justify-between items-start">
-                      <div className="flex-1">
-                        <p className="text-xs text-gray-600 mb-1">{stat.label}</p>
-                        <p className="text-xl font-bold text-gray-900 mb-1">{stat.value}</p>
-                        <p className={`text-xs ${stat.subtitleColor ? stat.subtitleColor : "text-gray-600"}`}>{stat.subtitle}</p>
-                      </div>
-                      <Icon className={`w-4 h-4 ${stat.color} flex-shrink-0`} />
-                    </div>
+            {/* Filter & Action Bar */}
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                {/* Left Side: Search and Filter */}
+                <div className="flex gap-3 flex-wrap flex-1">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-10 pr-4 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                    />
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Document Categories */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-              {categories.map((category, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg border border-gray-200 shadow-sm p-4 hover:bg-blue-50 transition-colors cursor-pointer"
-                >
-                  <div className="flex items-start gap-3">
-                    <Folder className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-bold text-gray-900">{category.name}</p>
-                      <p className="text-xs text-gray-600">{category.count} document{category.count !== 1 ? "s" : ""}</p>
-                    </div>
-                  </div>
+                  <select className="px-4 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700">
+                    <option>filter by category</option>
+                    <option>Payslips</option>
+                    <option>Contracts</option>
+                    <option>Identification</option>
+                    <option>Certificates</option>
+                  </select>
                 </div>
-              ))}
+
+                {/* Right Side: Upload and Download */}
+                <div className="flex gap-3 items-center">
+                  <button
+                    onClick={() => setActiveModal('upload')}
+                    className="px-4 py-2 text-sm bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+                  >
+                    <Plus className="w-4 h-4" />
+                    Upload Document
+                  </button>
+                  <button className="text-sm text-red-600 font-medium hover:text-red-700 transition-colors">
+                    Download
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* All Documents Section */}
-            <div>
-              <h3 className="text-sm font-bold text-gray-900 mb-1">All Documents</h3>
-              <p className="text-xs text-gray-600 mb-3">Your uploaded and verified documents</p>
+            {/* Documents Table */}
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">File Name</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Category</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Uploaded Date</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Uploaded By</th>
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Row 1 */}
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900">Payslip_Jan2025.pdf</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Payslips</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                    <td className="px-4 py-3 text-sm">
+                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
+                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    </td>
+                  </tr>
 
-              <div className="space-y-2">
-                {documents.map((doc) => (
-                  <div key={doc.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-3 hover:shadow-md transition-shadow">
-                    <div className="flex justify-between items-start">
-                      {/* Left: Document Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <File className={`w-4 h-4 ${getFileTypeColor(doc.fileType)}`} />
-                          <p className="text-sm font-bold text-gray-900">{doc.fileName}</p>
-                        </div>
+                  {/* Row 2 */}
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900">Employment_Contract.pdf</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Contracts</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                    <td className="px-4 py-3 text-sm">
+                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
+                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    </td>
+                  </tr>
 
-                        {/* Badges */}
-                        <div className="flex gap-1.5 mb-1.5">
-                          {doc.isVerified && (
-                            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">Verified</span>
-                          )}
-                          {doc.expiryDate && (
-                            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-800 border border-gray-300">Expires: {doc.expiryDate}</span>
-                          )}
-                        </div>
+                  {/* Row 3 */}
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900">Passport.pdf</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Identification</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                    <td className="px-4 py-3 text-sm">
+                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
+                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    </td>
+                  </tr>
 
-                        {/* Details */}
-                        <p className="text-xs text-gray-600 mb-1">{doc.category}</p>
-                        <p className="text-xs text-gray-600">{doc.size} • Uploaded {doc.uploadedDate}</p>
-                      </div>
+                  {/* Row 4 */}
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900">Training_Certificate.pdf</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Certificates</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                    <td className="px-4 py-3 text-sm">
+                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
+                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    </td>
+                  </tr>
 
-                      {/* Right: Actions */}
-                      <div className="flex gap-1 ml-3">
-                        <button onClick={() => handleViewDocument(doc)} className="px-2 py-1 text-xs text-gray-700 border border-gray-300 bg-white rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1 whitespace-nowrap">
-                          <Eye className="w-3 h-3" />
-                          View
-                        </button>
-                        <button onClick={() => handleDownloadDocument(doc)} className="px-2 py-1 text-xs text-blue-600 border border-blue-300 bg-white rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-1 whitespace-nowrap">
-                          <Download className="w-3 h-3" />
-                          Download
-                        </button>
-                        <button onClick={() => handleDeleteDocument(doc.id)} className="px-2 py-1 text-xs text-red-600 border border-red-300 bg-white rounded-lg hover:bg-red-50 transition-colors flex items-center gap-1 whitespace-nowrap">
-                          <Trash2 className="w-3 h-3" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  {/* Row 5 */}
+                  <tr className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900">Work_Permit.pdf</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">Identification</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
+                    <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                    <td className="px-4 py-3 text-sm">
+                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
+                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         )}
