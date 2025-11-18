@@ -49,6 +49,7 @@ export default function MyProfile() {
   const [showSalary, setShowSalary] = useState<boolean>(false);
   const [openLeaveMenu, setOpenLeaveMenu] = useState<number | null>(null);
   const [openSkillMenu, setOpenSkillMenu] = useState<number | null>(null);
+  const [openDocMenu, setOpenDocMenu] = useState<number | null>(null);
   const [showLeaveModal, setShowLeaveModal] = useState<boolean>(false);
   const [leaveForm, setLeaveForm] = useState({
     leaveType: "Annual Leave",
@@ -115,18 +116,19 @@ export default function MyProfile() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (openLeaveMenu !== null || openSkillMenu !== null) {
+      if (openLeaveMenu !== null || openSkillMenu !== null || openDocMenu !== null) {
         const target = event.target as HTMLElement;
         if (!target.closest('button') && !target.closest('.absolute')) {
           setOpenLeaveMenu(null);
           setOpenSkillMenu(null);
+          setOpenDocMenu(null);
         }
       }
     };
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
-  }, [openLeaveMenu, openSkillMenu]);
+  }, [openLeaveMenu, openSkillMenu, openDocMenu]);
 
   const payslips: Payslip[] = [
     { id: 1, date: "11/30/2024", payPeriod: "Nov 1 - Nov 30, 2024", grossPay: "$4,500.00", deduction: "$750.00", netPay: "$3,750.00" },
@@ -1781,17 +1783,43 @@ export default function MyProfile() {
                         <td className="px-3 py-2.5 text-sm text-gray-600">{doc.fileType}</td>
                         <td className="px-3 py-2.5 text-sm text-gray-600">{doc.fileSize}</td>
                         <td className="px-3 py-2.5 text-sm text-gray-600">{doc.uploadDate}</td>
-                        <td className="px-3 py-2.5 text-center">
+                        <td className="px-3 py-2.5 text-center relative">
                           <button
-                            className="text-blue-600 hover:text-blue-800 transition-colors hover:bg-blue-50 rounded p-1"
-                            title="Download"
-                            onClick={() => {
-                              console.log(`Downloading: ${doc.title}`);
-                              alert(`Downloading ${doc.title}...`);
-                            }}
+                            onClick={() => setOpenDocMenu(openDocMenu === doc.id ? null : doc.id)}
+                            className="text-gray-600 hover:text-gray-900 transition-colors"
+                            title="Actions"
                           >
-                            <Download className="w-3.5 h-3.5" />
+                            <MoreVertical className="w-4 h-4" />
                           </button>
+                          {openDocMenu === doc.id && (
+                            <div
+                              className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                              style={{ fontFamily: "Poppins, sans-serif" }}
+                            >
+                              <button
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                                onClick={() => {
+                                  console.log(`Viewing: ${doc.title}`);
+                                  alert(`Viewing ${doc.title}...`);
+                                  setOpenDocMenu(null);
+                                }}
+                              >
+                                <Eye className="w-4 h-4" />
+                                View
+                              </button>
+                              <button
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                                onClick={() => {
+                                  console.log(`Downloading: ${doc.title}`);
+                                  alert(`Downloading ${doc.title}...`);
+                                  setOpenDocMenu(null);
+                                }}
+                              >
+                                <Download className="w-4 h-4" />
+                                Download
+                              </button>
+                            </div>
+                          )}
                         </td>
                       </tr>
                     ))}
