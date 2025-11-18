@@ -361,7 +361,7 @@ export default function EmployeeDashboard() {
                 </a>
               </div>
 
-              {/* Right Column - Pending Review List */}
+              {/* Right Column - Pending Request List */}
               <div style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
@@ -380,7 +380,7 @@ export default function EmployeeDashboard() {
                     fontWeight: '600',
                     color: '#1f2937',
                     margin: '0'
-                  }}>Pending Review</h3>
+                  }}>Pending Request</h3>
                   <span style={{
                     fontSize: '11px',
                     backgroundColor: '#e5e7eb',
@@ -399,12 +399,12 @@ export default function EmployeeDashboard() {
                       fontWeight: '600',
                       color: '#1f2937',
                       margin: '0'
-                    }}>Q4 Performance Review</p>
+                    }}>Leave Request - Annual Leave</p>
                     <p style={{
                       fontSize: '12px',
                       color: '#6b7280',
                       margin: '4px 0 0 0'
-                    }}>Oct 25, 2024</p>
+                    }}>Jan 15, 2025</p>
                     <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
                       <span style={{
                         fontSize: '11px',
@@ -432,12 +432,12 @@ export default function EmployeeDashboard() {
                       fontWeight: '600',
                       color: '#1f2937',
                       margin: '0'
-                    }}>Complete Training Module</p>
+                    }}>Document Request - Certificate</p>
                     <p style={{
                       fontSize: '12px',
                       color: '#6b7280',
                       margin: '4px 0 0 0'
-                    }}>Oct 30, 2024</p>
+                    }}>Jan 12, 2025</p>
                     <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
                       <span style={{
                         fontSize: '11px',
@@ -446,7 +446,7 @@ export default function EmployeeDashboard() {
                         padding: '2px 8px',
                         borderRadius: '9999px',
                         fontWeight: '600'
-                      }}>Progress</span>
+                      }}>In Review</span>
                       <span style={{
                         fontSize: '11px',
                         backgroundColor: '#fef3c7',
@@ -465,12 +465,12 @@ export default function EmployeeDashboard() {
                       fontWeight: '600',
                       color: '#1f2937',
                       margin: '0'
-                    }}>Submit Project Deliverables</p>
+                    }}>Schedule Change Request</p>
                     <p style={{
                       fontSize: '12px',
                       color: '#6b7280',
                       margin: '4px 0 0 0'
-                    }}>Nov 5, 2024</p>
+                    }}>Jan 10, 2025</p>
                     <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
                       <span style={{
                         fontSize: '11px',
