@@ -1,8 +1,10 @@
 import { Settings as SettingsIcon, User, Bell, Lock, Palette, Globe, Server, Database, Shield } from "lucide-react";
 import Layout from "@/components/Layout";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
 
 export default function Settings() {
+  const [activeTab, setActiveTab] = useState<"settings" | "configuration">("settings");
+
   const settingsSections = [
     {
       title: "Profile Settings",
@@ -80,41 +82,61 @@ export default function Settings() {
           </p>
         </div>
 
-        <Tabs defaultValue="settings" className="w-full">
-          <TabsList className="mb-6">
-            <TabsTrigger value="settings">Settings</TabsTrigger>
-            <TabsTrigger value="configuration">Configuration</TabsTrigger>
-          </TabsList>
+        <div className="mb-6">
+          <div className="inline-flex bg-gray-100 rounded-lg p-1">
+            <button
+              onClick={() => setActiveTab("settings")}
+              className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                activeTab === "settings"
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              Settings
+            </button>
+            <button
+              onClick={() => setActiveTab("configuration")}
+              className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+                activeTab === "configuration"
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}
+            >
+              Configuration
+            </button>
+          </div>
+        </div>
 
-          <TabsContent value="settings">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {settingsSections.map((section) => {
-                const Icon = section.icon;
-                return (
-                  <div
-                    key={section.title}
-                    className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className={`w-12 h-12 rounded-lg ${section.bgColor} flex items-center justify-center flex-shrink-0`}>
-                        <Icon className={`w-6 h-6 ${section.iconColor}`} />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">
-                          {section.title}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          {section.description}
-                        </p>
-                      </div>
+        {activeTab === "settings" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {settingsSections.map((section) => {
+              const Icon = section.icon;
+              return (
+                <div
+                  key={section.title}
+                  className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-lg ${section.bgColor} flex items-center justify-center flex-shrink-0`}>
+                      <Icon className={`w-6 h-6 ${section.iconColor}`} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                        {section.title}
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        {section.description}
+                      </p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </TabsContent>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
-          <TabsContent value="configuration">
+        {activeTab === "configuration" && (
+          <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {configurationSections.map((section) => {
                 const Icon = section.icon;
@@ -158,8 +180,8 @@ export default function Settings() {
                 </div>
               </div>
             </div>
-          </TabsContent>
-        </Tabs>
+          </>
+        )}
       </div>
     </Layout>
   );
