@@ -523,9 +523,39 @@ export default function DocumentRequests() {
                     <td className="px-4 py-3 text-sm text-gray-700">Payslips</td>
                     <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
                     <td className="px-4 py-3 text-sm text-gray-700">—</td>
-                    <td className="px-4 py-3 text-sm">
-                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
-                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    <td className="px-4 py-3 text-sm text-center">
+                      <div className="relative inline-block">
+                        <button
+                          onClick={() => setActionDropdown(actionDropdown === 'doc-1' ? null : 'doc-1')}
+                          className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1.5 rounded"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {actionDropdown === 'doc-1' && (
+                          <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[120px]">
+                            <button
+                              onClick={() => {
+                                showNotification('Viewing: Payslip_Jan2025.pdf', 'info');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              View
+                            </button>
+                            <button
+                              onClick={() => {
+                                showNotification('Document deleted', 'success');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2 font-medium"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   </tr>
 
@@ -535,9 +565,39 @@ export default function DocumentRequests() {
                     <td className="px-4 py-3 text-sm text-gray-700">Contracts</td>
                     <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
                     <td className="px-4 py-3 text-sm text-gray-700">—</td>
-                    <td className="px-4 py-3 text-sm">
-                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
-                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    <td className="px-4 py-3 text-sm text-center">
+                      <div className="relative inline-block">
+                        <button
+                          onClick={() => setActionDropdown(actionDropdown === 'doc-2' ? null : 'doc-2')}
+                          className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1.5 rounded"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {actionDropdown === 'doc-2' && (
+                          <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[120px]">
+                            <button
+                              onClick={() => {
+                                showNotification('Viewing: Employment_Contract.pdf', 'info');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              View
+                            </button>
+                            <button
+                              onClick={() => {
+                                showNotification('Document deleted', 'success');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2 font-medium"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   </tr>
 
@@ -547,9 +607,39 @@ export default function DocumentRequests() {
                     <td className="px-4 py-3 text-sm text-gray-700">Identification</td>
                     <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
                     <td className="px-4 py-3 text-sm text-gray-700">—</td>
-                    <td className="px-4 py-3 text-sm">
-                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
-                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    <td className="px-4 py-3 text-sm text-center">
+                      <div className="relative inline-block">
+                        <button
+                          onClick={() => setActionDropdown(actionDropdown === 'doc-3' ? null : 'doc-3')}
+                          className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1.5 rounded"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {actionDropdown === 'doc-3' && (
+                          <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[120px]">
+                            <button
+                              onClick={() => {
+                                showNotification('Viewing: Passport.pdf', 'info');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              View
+                            </button>
+                            <button
+                              onClick={() => {
+                                showNotification('Document deleted', 'success');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2 font-medium"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   </tr>
 
@@ -559,9 +649,39 @@ export default function DocumentRequests() {
                     <td className="px-4 py-3 text-sm text-gray-700">Certificates</td>
                     <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
                     <td className="px-4 py-3 text-sm text-gray-700">—</td>
-                    <td className="px-4 py-3 text-sm">
-                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
-                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    <td className="px-4 py-3 text-sm text-center">
+                      <div className="relative inline-block">
+                        <button
+                          onClick={() => setActionDropdown(actionDropdown === 'doc-4' ? null : 'doc-4')}
+                          className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1.5 rounded"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {actionDropdown === 'doc-4' && (
+                          <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[120px]">
+                            <button
+                              onClick={() => {
+                                showNotification('Viewing: Training_Certificate.pdf', 'info');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              View
+                            </button>
+                            <button
+                              onClick={() => {
+                                showNotification('Document deleted', 'success');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2 font-medium"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   </tr>
 
@@ -571,9 +691,39 @@ export default function DocumentRequests() {
                     <td className="px-4 py-3 text-sm text-gray-700">Identification</td>
                     <td className="px-4 py-3 text-sm text-gray-700">mm-dd-yyyy</td>
                     <td className="px-4 py-3 text-sm text-gray-700">—</td>
-                    <td className="px-4 py-3 text-sm">
-                      <button className="text-blue-600 hover:text-blue-700 font-medium mr-3">View</button>
-                      <button className="text-red-600 hover:text-red-700 font-medium">Delete</button>
+                    <td className="px-4 py-3 text-sm text-center">
+                      <div className="relative inline-block">
+                        <button
+                          onClick={() => setActionDropdown(actionDropdown === 'doc-5' ? null : 'doc-5')}
+                          className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors p-1.5 rounded"
+                        >
+                          <MoreVertical className="w-4 h-4" />
+                        </button>
+                        {actionDropdown === 'doc-5' && (
+                          <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[120px]">
+                            <button
+                              onClick={() => {
+                                showNotification('Viewing: Work_Permit.pdf', 'info');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100"
+                            >
+                              <Eye className="w-3.5 h-3.5" />
+                              View
+                            </button>
+                            <button
+                              onClick={() => {
+                                showNotification('Document deleted', 'success');
+                                setActionDropdown(null);
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2 font-medium"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                              Delete
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </td>
                   </tr>
                 </tbody>
