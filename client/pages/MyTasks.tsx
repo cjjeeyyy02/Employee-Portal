@@ -56,7 +56,7 @@ interface Project {
 
 export default function MyTasks() {
   const [activeTab, setActiveTab] = useState<TabType>("myTasks");
-  const [activeView, setActiveView] = useState<ViewType>("calendar");
+  const [activeView, setActiveView] = useState<ViewType>("list");
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("All Status");
   const [filterPriority, setFilterPriority] = useState("All Priorities");
