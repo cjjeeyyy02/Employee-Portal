@@ -26,13 +26,31 @@ export default function Calendar() {
   ];
 
   const dayNames = ["S", "M", "T", "W", "T", "F", "S"];
+  const fullDayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const timeSlots = Array.from({ length: 24 }, (_, i) => {
+    const hour = i % 12 || 12;
+    const period = i < 12 ? "AM" : "PM";
+    return `${hour}:00 ${period}`;
+  });
 
-  const previousMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+  const previousPeriod = () => {
+    if (viewMode === "day") {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 1));
+    } else if (viewMode === "week") {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 7));
+    } else {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+    }
   };
 
-  const nextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+  const nextPeriod = () => {
+    if (viewMode === "day") {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1));
+    } else if (viewMode === "week") {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 7));
+    } else {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+    }
   };
 
   const goToToday = () => {
@@ -49,17 +67,132 @@ export default function Calendar() {
   };
 
   const sampleEvents = [
-    { day: 15, title: "Team Standup", time: "9:00 AM", color: "bg-blue-500" },
-    { day: 15, title: "Project Review", time: "2:00 PM", color: "bg-purple-500" },
-    { day: 18, title: "Client Meeting", time: "10:30 AM", color: "bg-green-500" },
-    { day: 22, title: "All Hands", time: "3:00 PM", color: "bg-orange-500" },
+    { day: 15, title: "Team Standup", time: "9:00 AM", hour: 9, color: "bg-blue-500" },
+    { day: 15, title: "Project Review", time: "2:00 PM", hour: 14, color: "bg-purple-500" },
+    { day: 18, title: "Client Meeting", time: "10:30 AM", hour: 10, color: "bg-green-500" },
+    { day: 22, title: "All Hands", time: "3:00 PM", hour: 15, color: "bg-orange-500" },
   ];
 
   const getEventsForDay = (day: number) => {
     return sampleEvents.filter(event => event.day === day);
   };
 
-  const renderCalendarDays = () => {
+  const getEventsForHour = (day: number, hour: number) => {
+    return sampleEvents.filter(event => event.day === day && event.hour === hour);
+  };
+
+  const getWeekDays = () => {
+    const curr = new Date(currentDate);
+    const first = curr.getDate() - curr.getDay();
+    const weekDays = [];
+    
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(curr.setDate(first + i));
+      weekDays.push(date);
+    }
+    
+    return weekDays;
+  };
+
+  const getPeriodTitle = () => {
+    if (viewMode === "day") {
+      return `${fullDayNames[currentDate.getDay()]}, ${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
+    } else if (viewMode === "week") {
+      const weekDays = getWeekDays();
+      const firstDay = weekDays[0];
+      const lastDay = weekDays[6];
+      return `${monthNames[firstDay.getMonth()]} ${firstDay.getDate()} - ${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}, ${currentDate.getFullYear()}`;
+    } else {
+      return `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+    }
+  };
+
+  const renderDayView = () => {
+    return (
+      <div className="border-l border-t border-gray-200">
+        {timeSlots.map((time, idx) => {
+          const events = getEventsForHour(currentDate.getDate(), idx);
+          return (
+            <div key={idx} className="flex border-b border-gray-200 min-h-[50px]">
+              <div className="w-20 border-r border-gray-200 bg-gray-50 p-2 text-xs text-gray-600 font-medium">
+                {time}
+              </div>
+              <div className="flex-1 p-1 bg-white hover:bg-gray-50 transition-colors cursor-pointer">
+                {events.map((event, eventIdx) => (
+                  <div
+                    key={eventIdx}
+                    className={`${event.color} text-white text-xs px-2 py-1 rounded mb-1`}
+                  >
+                    <div className="font-semibold">{event.title}</div>
+                    <div className="text-[10px]">{event.time}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const renderWeekView = () => {
+    const weekDays = getWeekDays();
+    
+    return (
+      <div className="border-l border-t border-gray-200">
+        <div className="grid grid-cols-8 sticky top-0 bg-white z-10">
+          <div className="border-r border-b border-gray-200 bg-gray-50 p-2"></div>
+          {weekDays.map((day, idx) => {
+            const isCurrentDay = day.toDateString() === today.toDateString();
+            return (
+              <div
+                key={idx}
+                className={`border-r border-b border-gray-200 bg-gray-50 p-2 text-center ${
+                  isCurrentDay ? "bg-blue-50" : ""
+                }`}
+              >
+                <div className="text-xs font-semibold text-gray-700">{fullDayNames[day.getDay()].slice(0, 3)}</div>
+                <div className={`text-xs mt-1 ${
+                  isCurrentDay ? "bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center mx-auto" : "text-gray-600"
+                }`}>
+                  {day.getDate()}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        {timeSlots.map((time, timeIdx) => (
+          <div key={timeIdx} className="grid grid-cols-8 min-h-[50px]">
+            <div className="border-r border-b border-gray-200 bg-gray-50 p-2 text-xs text-gray-600 font-medium">
+              {time}
+            </div>
+            {weekDays.map((day, dayIdx) => {
+              const events = getEventsForHour(day.getDate(), timeIdx);
+              return (
+                <div
+                  key={dayIdx}
+                  className="border-r border-b border-gray-200 p-1 bg-white hover:bg-gray-50 transition-colors cursor-pointer"
+                >
+                  {events.map((event, eventIdx) => (
+                    <div
+                      key={eventIdx}
+                      className={`${event.color} text-white text-[10px] px-1 py-0.5 rounded truncate mb-0.5`}
+                      title={`${event.title} - ${event.time}`}
+                    >
+                      {event.title}
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const renderMonthView = () => {
     const days = [];
 
     for (let i = 0; i < firstDayOfMonth; i++) {
@@ -106,7 +239,19 @@ export default function Calendar() {
       );
     }
 
-    return days;
+    return (
+      <div className="grid grid-cols-7 border-l border-t border-gray-200">
+        {dayNames.map((day, idx) => (
+          <div
+            key={idx}
+            className="border-r border-b border-gray-200 bg-gray-50 p-1.5 text-center font-semibold text-xs text-gray-700"
+          >
+            {day}
+          </div>
+        ))}
+        {days}
+      </div>
+    );
   };
 
   return (
@@ -132,16 +277,16 @@ export default function Calendar() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <button
-                onClick={previousMonth}
+                onClick={previousPeriod}
                 className="p-1 hover:bg-gray-100 rounded-md transition-colors"
               >
                 <ChevronLeft className="w-4 h-4 text-gray-600" />
               </button>
-              <h2 className="text-base font-semibold text-gray-900 min-w-[160px]">
-                {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+              <h2 className="text-base font-semibold text-gray-900 min-w-[200px]">
+                {getPeriodTitle()}
               </h2>
               <button
-                onClick={nextMonth}
+                onClick={nextPeriod}
                 className="p-1 hover:bg-gray-100 rounded-md transition-colors"
               >
                 <ChevronRight className="w-4 h-4 text-gray-600" />
@@ -184,17 +329,9 @@ export default function Calendar() {
         </div>
 
         <div className="flex-1 overflow-auto bg-white">
-          <div className="grid grid-cols-7 border-l border-t border-gray-200">
-            {dayNames.map((day, idx) => (
-              <div
-                key={idx}
-                className="border-r border-b border-gray-200 bg-gray-50 p-1.5 text-center font-semibold text-xs text-gray-700"
-              >
-                {day}
-              </div>
-            ))}
-            {renderCalendarDays()}
-          </div>
+          {viewMode === "day" && renderDayView()}
+          {viewMode === "week" && renderWeekView()}
+          {viewMode === "month" && renderMonthView()}
         </div>
 
         <div className="bg-white border-t border-gray-200 p-2">
