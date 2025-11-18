@@ -467,14 +467,6 @@ export default function MyLeaveAttendance() {
                   defaultValue="2025-10-27"
                   className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
                 />
-                {/* Department Filter */}
-                <select className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700">
-                  <option>All Departments</option>
-                </select>
-                {/* Position Filter */}
-                <select className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700">
-                  <option>All Positions</option>
-                </select>
                 {/* View Toggle Icons */}
                 <div className="flex gap-1 ml-auto">
                   {/* Grid View Icon (Selected) */}
