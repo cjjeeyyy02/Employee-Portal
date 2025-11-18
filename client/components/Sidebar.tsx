@@ -8,6 +8,7 @@ import {
   Menu,
   X,
   MessageCircle,
+  Settings,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -21,6 +22,7 @@ const employeeNavigationItems = [
   { icon: FileText, label: "Documents", path: "/documents" },
   { icon: Calendar, label: "Calendar", path: "/calendar" },
   { icon: MessageCircle, label: "AI Assistant", path: "/ai-chat" },
+  { icon: Settings, label: "Settings and Configuration", path: "/settings" },
 ];
 
 interface SidebarProps {
