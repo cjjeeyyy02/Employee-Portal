@@ -446,6 +446,21 @@ export default function MyPerformance() {
           flexDirection: "column",
           gap: "12px"
         }}>
+          {/* Header with Button */}
+          <div style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "8px"
+          }}>
+            <button
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+              style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px" }}
+            >
+              Give/Request Feedback
+            </button>
+          </div>
+
           {/* Feedback Card 1 */}
           <div style={{
             backgroundColor: "white",
