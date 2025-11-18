@@ -691,7 +691,7 @@ export default function EmployeeDashboard() {
                   <div>
                     <h3 style={{
                       fontSize: '13px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: '#222',
                       margin: '0 0 3px 0'
                     }}>Finalize Q4 Budget Report</h3>
@@ -740,7 +740,7 @@ export default function EmployeeDashboard() {
                   <div>
                     <h3 style={{
                       fontSize: '13px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: '#222',
                       margin: '0 0 3px 0'
                     }}>Review marketing campaign creatives</h3>
@@ -789,7 +789,7 @@ export default function EmployeeDashboard() {
                   <div>
                     <h3 style={{
                       fontSize: '13px',
-                      fontWeight: '600',
+                      fontWeight: '500',
                       color: '#222',
                       margin: '0 0 3px 0'
                     }}>Schedule 1:1 with Jane Doe</h3>
