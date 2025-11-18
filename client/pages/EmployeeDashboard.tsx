@@ -546,7 +546,7 @@ export default function EmployeeDashboard() {
                 }}>
                   <p style={{
                     fontSize: '14px',
-                    fontWeight: '700',
+                    fontWeight: '500',
                     color: '#1f2937',
                     margin: '0'
                   }}>Company-Wide Town Hall</p>
@@ -581,7 +581,7 @@ export default function EmployeeDashboard() {
                 }}>
                   <p style={{
                     fontSize: '14px',
-                    fontWeight: '700',
+                    fontWeight: '500',
                     color: '#1f2937',
                     margin: '0'
                   }}>Data Security Training</p>
