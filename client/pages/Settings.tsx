@@ -1,5 +1,6 @@
-import { Settings as SettingsIcon, User, Bell, Lock, Palette, Globe } from "lucide-react";
+import { Settings as SettingsIcon, User, Bell, Lock, Palette, Globe, Server, Database, Shield } from "lucide-react";
 import Layout from "@/components/Layout";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Settings() {
   const settingsSections = [
@@ -31,12 +32,36 @@ export default function Settings() {
       iconColor: "text-purple-600",
       bgColor: "bg-purple-50",
     },
+  ];
+
+  const configurationSections = [
     {
       title: "Language & Region",
       description: "Set your language, timezone, and regional preferences",
       icon: Globe,
       iconColor: "text-orange-600",
       bgColor: "bg-orange-50",
+    },
+    {
+      title: "System Settings",
+      description: "Configure system-level preferences and defaults",
+      icon: Server,
+      iconColor: "text-indigo-600",
+      bgColor: "bg-indigo-50",
+    },
+    {
+      title: "Database",
+      description: "Manage database connections and configurations",
+      icon: Database,
+      iconColor: "text-cyan-600",
+      bgColor: "bg-cyan-50",
+    },
+    {
+      title: "Access Control",
+      description: "Configure permissions and user access levels",
+      icon: Shield,
+      iconColor: "text-rose-600",
+      bgColor: "bg-rose-50",
     },
   ];
 
@@ -51,53 +76,90 @@ export default function Settings() {
             <h1 className="text-2xl font-bold text-gray-900">Settings and Configuration</h1>
           </div>
           <p className="text-sm text-gray-500">
-            Manage your account settings and preferences
+            Manage your account settings and system configurations
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {settingsSections.map((section) => {
-            const Icon = section.icon;
-            return (
-              <div
-                key={section.title}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
-              >
-                <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-lg ${section.bgColor} flex items-center justify-center flex-shrink-0`}>
-                    <Icon className={`w-6 h-6 ${section.iconColor}`} />
+        <Tabs defaultValue="settings" className="w-full">
+          <TabsList className="mb-6">
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+            <TabsTrigger value="configuration">Configuration</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="settings">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {settingsSections.map((section) => {
+                const Icon = section.icon;
+                return (
+                  <div
+                    key={section.title}
+                    className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`w-12 h-12 rounded-lg ${section.bgColor} flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={`w-6 h-6 ${section.iconColor}`} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-gray-900 mb-1">
+                          {section.title}
+                        </h3>
+                        <p className="text-sm text-gray-500">
+                          {section.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      {section.title}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {section.description}
-                    </p>
+                );
+              })}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="configuration">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {configurationSections.map((section) => {
+                const Icon = section.icon;
+                return (
+                  <div
+                    key={section.title}
+                    className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow cursor-pointer"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`w-12 h-12 rounded-lg ${section.bgColor} flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={`w-6 h-6 ${section.iconColor}`} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-gray-900 mb-1">
+                          {section.title}
+                        </h3>
+                        <p className="text-sm text-gray-500">
+                          {section.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-6 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">System Information</h2>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="text-sm text-gray-500">Version</span>
+                  <span className="text-sm font-medium text-gray-900">1.0.0</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                  <span className="text-sm text-gray-500">Last Updated</span>
+                  <span className="text-sm font-medium text-gray-900">November 2024</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-sm text-gray-500">Environment</span>
+                  <span className="text-sm font-medium text-gray-900">Production</span>
                 </div>
               </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-6 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">System Information</h2>
-          <div className="space-y-3">
-            <div className="flex justify-between items-center py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Version</span>
-              <span className="text-sm font-medium text-gray-900">1.0.0</span>
             </div>
-            <div className="flex justify-between items-center py-2 border-b border-gray-100">
-              <span className="text-sm text-gray-500">Last Updated</span>
-              <span className="text-sm font-medium text-gray-900">November 2024</span>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-sm text-gray-500">Environment</span>
-              <span className="text-sm font-medium text-gray-900">Production</span>
-            </div>
-          </div>
-        </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </Layout>
   );
