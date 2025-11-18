@@ -337,109 +337,529 @@ export default function MyLeaveAttendance() {
             </div>
           </div>
 
-          {/* Attendance Records */}
-          <div
-            className="w-full bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
-            style={{
-              padding: "12px 16px",
-            }}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Attendance Records</h2>
-                <p className="text-xs text-[#7A7A7A]">Your recent attendance history</p>
+          {/* Daily Logs Tab - Attendance Records */}
+          {activeSubTab === "dailyLogs" && (
+            <div
+              className="w-full bg-white rounded-lg p-2.5 sm:p-3 flex flex-col gap-1.5 sm:gap-2"
+              style={{
+                padding: "12px 16px",
+              }}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">Attendance Records</h2>
+                  <p className="text-xs text-[#7A7A7A]">Your recent attendance history</p>
+                </div>
+                {selectedDate && (
+                  <button
+                    onClick={clearDateFilter}
+                    className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors"
+                  >
+                    Clear Filter ({selectedDate})
+                  </button>
+                )}
               </div>
-              {selectedDate && (
-                <button
-                  onClick={clearDateFilter}
-                  className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors"
-                >
-                  Clear Filter ({selectedDate})
-                </button>
-              )}
-            </div>
 
-            {/* Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th
-                      className="px-2 py-1.5 text-left text-xs font-bold text-gray-900 flex items-center gap-1.5"
-                      onClick={() => setShowDatePicker(true)}
-                    >
-                      <span>Date</span>
-                      <button
-                        className="text-gray-500 hover:text-blue-600 transition-colors cursor-pointer"
-                        title="Filter by date"
+              {/* Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th
+                        className="px-2 py-1.5 text-left text-xs font-bold text-gray-900 flex items-center gap-1.5"
+                        onClick={() => setShowDatePicker(true)}
                       >
-                        <Calendar className="w-3.5 h-3.5" />
-                      </button>
-                    </th>
-                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock In</th>
-                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock Out</th>
-                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Total Hours</th>
-                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Status</th>
-                    <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredAttendanceData.map((record, index) => {
-                    const getStatusColor = (status: string) => {
-                      switch (status) {
-                        case "Present":
-                          return { bg: "#2F80ED", text: "white" };
-                        case "Late":
-                          return { bg: "#E0E0E0", text: "#555555" };
-                        case "Half-day":
-                          return { bg: "#F2F2F2", text: "#555555" };
-                        case "Absent":
-                          return { bg: "#EB5757", text: "white" };
-                        default:
-                          return { bg: "#E0E0E0", text: "#555555" };
-                      }
-                    };
+                        <span>Date</span>
+                        <button
+                          className="text-gray-500 hover:text-blue-600 transition-colors cursor-pointer"
+                          title="Filter by date"
+                        >
+                          <Calendar className="w-3.5 h-3.5" />
+                        </button>
+                      </th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock In</th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Clock Out</th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Total Hours</th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Status</th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredAttendanceData.map((record, index) => {
+                      const getStatusColor = (status: string) => {
+                        switch (status) {
+                          case "Present":
+                            return { bg: "#2F80ED", text: "white" };
+                          case "Late":
+                            return { bg: "#E0E0E0", text: "#555555" };
+                          case "Half-day":
+                            return { bg: "#F2F2F2", text: "#555555" };
+                          case "Absent":
+                            return { bg: "#EB5757", text: "white" };
+                          default:
+                            return { bg: "#E0E0E0", text: "#555555" };
+                        }
+                      };
 
-                    const statusColor = getStatusColor(record.status);
+                      const statusColor = getStatusColor(record.status);
 
-                    return (
-                      <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="px-2 py-1.5 text-xs text-gray-900">{formatDate(record.date)}</td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockIn || "—"}</td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockOut || "—"}</td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">{record.totalHours}</td>
-                        <td className="px-2 py-1.5">
-                          <span
-                            className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium"
-                            style={{ backgroundColor: statusColor.bg, color: statusColor.text }}
-                          >
-                            {record.status}
-                          </span>
-                        </td>
-                        <td className="px-2 py-1.5 text-xs">
-                          {record.status === "Late" || record.status === "Absent" ? (
-                            <button
-                              onClick={() => {
-                                setSelectedCorrectionDate(record.date);
-                                setCorrectionForm({...correctionForm, date: record.date});
-                                setShowCorrectionModal(true);
-                              }}
-                              className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                      return (
+                        <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                          <td className="px-2 py-1.5 text-xs text-gray-900">{formatDate(record.date)}</td>
+                          <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockIn || "—"}</td>
+                          <td className="px-2 py-1.5 text-xs text-gray-900">{record.clockOut || "—"}</td>
+                          <td className="px-2 py-1.5 text-xs text-gray-900">{record.totalHours}</td>
+                          <td className="px-2 py-1.5">
+                            <span
+                              className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium"
+                              style={{ backgroundColor: statusColor.bg, color: statusColor.text }}
                             >
-                              Correction Request
-                            </button>
-                          ) : (
-                            ""
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                              {record.status}
+                            </span>
+                          </td>
+                          <td className="px-2 py-1.5 text-xs">
+                            {record.status === "Late" || record.status === "Absent" ? (
+                              <button
+                                onClick={() => {
+                                  setSelectedCorrectionDate(record.date);
+                                  setCorrectionForm({...correctionForm, date: record.date});
+                                  setShowCorrectionModal(true);
+                                }}
+                                className="px-2 py-0.5 text-xs font-medium text-gray-900 bg-white border border-[#E0E0E0] rounded-lg hover:bg-gray-50 transition-colors"
+                              >
+                                Correction Request
+                              </button>
+                            ) : (
+                              ""
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Timesheets Tab */}
+          {activeSubTab === "timesheets" && (
+            <div className="w-full bg-white rounded-lg p-6 flex items-center justify-center">
+              <p className="text-sm text-gray-500">Timesheets content coming soon</p>
+            </div>
+          )}
+
+          {/* Scheduled Shifts Tab */}
+          {activeSubTab === "scheduledShifts" && (
+            <div className="w-full">
+              {/* Top Filters Row */}
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                {/* Date Range Selector 1 */}
+                <input
+                  type="date"
+                  defaultValue="2025-10-20"
+                  className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                />
+                {/* Date Range Selector 2 */}
+                <input
+                  type="date"
+                  defaultValue="2025-10-27"
+                  className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                />
+                {/* Department Filter */}
+                <select className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700">
+                  <option>All Departments</option>
+                </select>
+                {/* Position Filter */}
+                <select className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700">
+                  <option>All Positions</option>
+                </select>
+                {/* View Toggle Icons */}
+                <div className="flex gap-1 ml-auto">
+                  {/* Grid View Icon (Selected) */}
+                  <button className="p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+                      <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+                      <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+                      <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+                    </svg>
+                  </button>
+                  {/* List View Icon */}
+                  <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-md transition-colors">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="8" y1="6" x2="21" y2="6"></line>
+                      <line x1="8" y1="12" x2="21" y2="12"></line>
+                      <line x1="8" y1="18" x2="21" y2="18"></line>
+                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                      <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                      <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Day Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                {/* SUNDAY Card */}
+                <div className="bg-white rounded-2xl shadow-md p-5">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900 tracking-wide">SUNDAY</h3>
+                      <p className="text-sm text-gray-600 mt-1">October 19, 2025</p>
+                    </div>
+                    {/* User Group Icon */}
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 mb-4"></div>
+                  {/* Shifts */}
+                  <div className="space-y-3">
+                    {/* Alex - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Alex</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Maria - Red */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-red-500 rounded-full"></div>
+                        <div className="bg-red-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Maria</span>
+                            <span className="text-xs text-gray-600">10–19</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Jordan - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Jordan</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* MONDAY Card */}
+                <div className="bg-white rounded-2xl shadow-md p-5">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900 tracking-wide">MONDAY</h3>
+                      <p className="text-sm text-gray-600 mt-1">October 20, 2025</p>
+                    </div>
+                    {/* User Group Icon */}
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 mb-4"></div>
+                  {/* Shifts */}
+                  <div className="space-y-3">
+                    {/* Alex - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Alex</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Priya - Red */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-red-500 rounded-full"></div>
+                        <div className="bg-red-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Priya</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Jordan - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Jordan</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* TUESDAY Card */}
+                <div className="bg-white rounded-2xl shadow-md p-5">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900 tracking-wide">TUESDAY</h3>
+                      <p className="text-sm text-gray-600 mt-1">October 21, 2025</p>
+                    </div>
+                    {/* User Group Icon */}
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 mb-4"></div>
+                  {/* Shifts */}
+                  <div className="space-y-3">
+                    {/* Maria - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Maria</span>
+                            <span className="text-xs text-gray-600">10–19</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Priya - Red */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-red-500 rounded-full"></div>
+                        <div className="bg-red-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Priya</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Jordan - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Jordan</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Footer Text */}
+                  <div className="mt-4 text-center">
+                    <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">Show 1 more</button>
+                  </div>
+                </div>
+
+                {/* WEDNESDAY Card */}
+                <div className="bg-white rounded-2xl shadow-md p-5">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900 tracking-wide">WEDNESDAY</h3>
+                      <p className="text-sm text-gray-600 mt-1">October 22, 2025</p>
+                    </div>
+                    {/* User Group Icon */}
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 mb-4"></div>
+                  {/* Shifts */}
+                  <div className="space-y-3">
+                    {/* Alex - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Alex</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Maria - Red */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-red-500 rounded-full"></div>
+                        <div className="bg-red-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Maria</span>
+                            <span className="text-xs text-gray-600">10–19</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Jordan - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Jordan</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* THURSDAY Card */}
+                <div className="bg-white rounded-2xl shadow-md p-5">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900 tracking-wide">THURSDAY</h3>
+                      <p className="text-sm text-gray-600 mt-1">October 23, 2025</p>
+                    </div>
+                    {/* User Group Icon */}
+                    <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 mb-4"></div>
+                  {/* Shifts */}
+                  <div className="space-y-3">
+                    {/* Alex - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Alex</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Maria - Red */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-red-500 rounded-full"></div>
+                        <div className="bg-red-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Maria</span>
+                            <span className="text-xs text-gray-600">10–19</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Priya - Blue */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <div className="w-1 h-10 bg-blue-500 rounded-full"></div>
+                        <div className="bg-blue-50 px-3 py-2 rounded-lg flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-medium text-gray-900">Priya</span>
+                            <span className="text-xs text-gray-600">9–18</span>
+                          </div>
+                          <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Shift</span>
+                        </div>
+                        {/* Edit Icon */}
+                        <svg className="w-4 h-4 text-gray-400 cursor-pointer hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          )}
         </div>
       )}
 
