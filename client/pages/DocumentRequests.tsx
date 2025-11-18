@@ -129,6 +129,62 @@ export default function DocumentRequests() {
       status: "Rejected",
       approver: "A. Smith",
     },
+    {
+      id: "REQ-2025-1238",
+      requestType: "Leave",
+      submittedDate: "Jan 05, 2025",
+      status: "Approved",
+      approver: "A. Johnson",
+    },
+    {
+      id: "REQ-2025-1239",
+      requestType: "HR Inquiry",
+      submittedDate: "Jan 03, 2025",
+      status: "Pending",
+      approver: "A. Brown",
+    },
+    {
+      id: "REQ-2025-1240",
+      requestType: "Schedule Change",
+      submittedDate: "Dec 28, 2024",
+      status: "Approved",
+      approver: "A. Smith",
+    },
+    {
+      id: "REQ-2025-1241",
+      requestType: "Overtime",
+      submittedDate: "Dec 22, 2024",
+      status: "In Review",
+      approver: "A. Johnson",
+    },
+    {
+      id: "REQ-2025-1242",
+      requestType: "Leave",
+      submittedDate: "Dec 18, 2024",
+      status: "Approved",
+      approver: "A. Brown",
+    },
+    {
+      id: "REQ-2025-1243",
+      requestType: "HR Inquiry",
+      submittedDate: "Dec 15, 2024",
+      status: "Rejected",
+      approver: "A. Smith",
+    },
+    {
+      id: "REQ-2025-1244",
+      requestType: "Schedule Change",
+      submittedDate: "Dec 10, 2024",
+      status: "In Review",
+      approver: "A. Johnson",
+    },
+    {
+      id: "REQ-2025-1245",
+      requestType: "Overtime",
+      submittedDate: "Dec 05, 2024",
+      status: "Approved",
+      approver: "A. Brown",
+    },
   ];
 
   const getStatusColor = (status: string) => {
