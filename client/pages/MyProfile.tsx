@@ -442,10 +442,10 @@ export default function MyProfile() {
                   <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Contact Details</h2>
                   <button
                     onClick={() => setEditModalType("contact")}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors text-xs font-medium"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    <Edit2 className="w-3.5 h-3.5" />
+                    <Edit2 className="w-4 h-4" />
                     Edit
                   </button>
                 </div>
