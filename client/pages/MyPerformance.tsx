@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { X } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "goals" | "reviews" | "feedback";
@@ -616,13 +617,32 @@ export default function MyPerformance() {
             overflowY: "auto"
           }}>
             {/* Header */}
-            <div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: "0 0 4px 0" }}>
-                Q4 2024 Self-Review
-              </h2>
-              <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 8px 0" }}>
-                Complete your self-evaluation
-              </p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: "0 0 4px 0" }}>
+                  Q4 2024 Self-Review
+                </h2>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 8px 0" }}>
+                  Complete your self-evaluation
+                </p>
+              </div>
+              <button
+                onClick={() => setShowReviewModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "4px",
+                  color: "#6C757D",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#222"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#6C757D"; }}
+              >
+                <X size={20} />
+              </button>
             </div>
 
             {/* Overall Performance Section */}
@@ -768,7 +788,7 @@ export default function MyPerformance() {
                   cursor: "pointer"
                 }}
               >
-                Cancel
+                Save Draft
               </button>
               <button
                 onClick={() => {
