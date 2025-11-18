@@ -99,6 +99,41 @@ export default function Calendar() {
     return sampleEvents.filter(event => event.day === day && event.hour === hour);
   };
 
+  const handleCreateEvent = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!eventForm.title || !eventForm.date) {
+      toast({
+        title: "Error",
+        description: "Please fill in the required fields (Title and Date)",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    toast({
+      title: "Event Created",
+      description: `${eventForm.title} has been added to your calendar`,
+    });
+
+    setEventForm({
+      title: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      description: "",
+      location: "",
+    });
+    setIsNewEventOpen(false);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setEventForm({
+      ...eventForm,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const getWeekDays = () => {
     const curr = new Date(currentDate);
     const first = curr.getDate() - curr.getDay();
@@ -286,7 +321,10 @@ export default function Calendar() {
                 Today
               </button>
             </div>
-            <button className="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+            <button
+              onClick={() => setIsNewEventOpen(true)}
+              className="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center gap-1.5"
+            >
               <Plus className="w-3.5 h-3.5" />
               New event
             </button>
@@ -392,6 +430,124 @@ export default function Calendar() {
           </div>
         </div>
       </div>
+
+      <Dialog open={isNewEventOpen} onOpenChange={setIsNewEventOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogHeader>
+            <DialogTitle>Create New Event</DialogTitle>
+          </DialogHeader>
+          <form onSubmit={handleCreateEvent}>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <label htmlFor="title" className="text-sm font-medium text-gray-900">
+                  Event Title <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  value={eventForm.title}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Team meeting, Project review..."
+                  required
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label htmlFor="date" className="text-sm font-medium text-gray-900">
+                    Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="date"
+                    name="date"
+                    type="date"
+                    value={eventForm.date}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="startTime" className="text-sm font-medium text-gray-900">
+                    Start Time
+                  </label>
+                  <input
+                    id="startTime"
+                    name="startTime"
+                    type="time"
+                    value={eventForm.startTime}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="endTime" className="text-sm font-medium text-gray-900">
+                  End Time
+                </label>
+                <input
+                  id="endTime"
+                  name="endTime"
+                  type="time"
+                  value={eventForm.endTime}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="location" className="text-sm font-medium text-gray-900">
+                  Location
+                </label>
+                <input
+                  id="location"
+                  name="location"
+                  type="text"
+                  value={eventForm.location}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Conference room, Online..."
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="description" className="text-sm font-medium text-gray-900">
+                  Description
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  value={eventForm.description}
+                  onChange={handleInputChange}
+                  rows={3}
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  placeholder="Add event details..."
+                />
+              </div>
+            </div>
+
+            <DialogFooter>
+              <button
+                type="button"
+                onClick={() => setIsNewEventOpen(false)}
+                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors"
+              >
+                Create Event
+              </button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 }
