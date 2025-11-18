@@ -3,6 +3,7 @@ import { Calendar, AlertCircle, CheckCircle, XCircle, Plus, Coffee, LogOut, Cloc
 import Layout from "@/components/Layout";
 
 type TabType = "attendance" | "leave";
+type AttendanceSubTabType = "dailyLogs" | "timesheets" | "scheduledShifts";
 
 interface AttendanceRecord {
   date: string;
@@ -60,6 +61,7 @@ const allAttendanceData: AttendanceData[] = [
 
 export default function MyLeaveAttendance() {
   const [activeTab, setActiveTab] = useState<TabType>("attendance");
+  const [activeSubTab, setActiveSubTab] = useState<AttendanceSubTabType>("dailyLogs");
   const [showLeaveModal, setShowLeaveModal] = useState(false);
   const [showOvertimeModal, setShowOvertimeModal] = useState(false);
   const [showBreakModal, setShowBreakModal] = useState(false);
@@ -309,6 +311,51 @@ export default function MyLeaveAttendance() {
               </button>
             </div>
           </div>
+
+          {/* Sub-Tabs Navigation */}
+          <div className="border-b border-gray-200 bg-white">
+            <div className="flex gap-0 px-2 sm:px-3">
+              {[
+                { id: "dailyLogs", label: "Daily logs" },
+                { id: "timesheets", label: "Timesheets" },
+                { id: "scheduledShifts", label: "Scheduled shifts" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveSubTab(tab.id as AttendanceSubTabType)}
+                  className={`px-4 py-3 font-medium text-sm border-b-2 transition-all ${
+                    activeSubTab === tab.id
+                      ? "text-blue-600 border-b-blue-600"
+                      : "text-gray-600 border-b-transparent hover:text-gray-900"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Sub-Tab Content */}
+          {activeSubTab === "dailyLogs" && (
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">Daily Logs</h3>
+              <p className="text-xs text-gray-600">Your daily attendance logs will appear here.</p>
+            </div>
+          )}
+
+          {activeSubTab === "timesheets" && (
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">Timesheets</h3>
+              <p className="text-xs text-gray-600">Your timesheets and work hours summary will appear here.</p>
+            </div>
+          )}
+
+          {activeSubTab === "scheduledShifts" && (
+            <div className="bg-white rounded-lg shadow-sm p-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">Scheduled Shifts</h3>
+              <p className="text-xs text-gray-600">Your upcoming scheduled shifts will appear here.</p>
+            </div>
+          )}
 
           {/* Attendance Records */}
           <div
