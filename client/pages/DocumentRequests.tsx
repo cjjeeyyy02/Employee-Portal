@@ -513,7 +513,7 @@ export default function DocumentRequests() {
                     <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Category</th>
                     <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Uploaded Date</th>
                     <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Uploaded By</th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700">Action</th>
+                    <th className="text-center px-4 py-3 text-xs font-semibold text-gray-700">Action</th>
                   </tr>
                 </thead>
                 <tbody>
