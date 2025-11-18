@@ -361,7 +361,7 @@ export default function EmployeeDashboard() {
                 </a>
               </div>
 
-              {/* Right Column - Pending Request List */}
+              {/* Row 2 - Pending Request List */}
               <div style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '24px',
