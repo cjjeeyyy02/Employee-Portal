@@ -997,7 +997,7 @@ export default function EmployeeDashboard() {
                   <h2
                     style={{
                       fontSize: "16px",
-                      fontWeight: "600",
+                      fontWeight: "500",
                       color: "#222",
                       margin: "0",
                     }}
@@ -1222,7 +1222,7 @@ export default function EmployeeDashboard() {
 
             {/* Bottom Medium Card - Quick Actions */}
             <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[180px]">
-              <h2 className="text-base font-bold text-gray-900 mb-2">
+              <h2 className="text-base font-semibold text-gray-900 mb-2">
                 Quick Actions
               </h2>
 
@@ -1245,7 +1245,7 @@ export default function EmployeeDashboard() {
             {/* Announcements Container */}
             <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
               <div className="flex justify-between items-center mb-3">
-                <h2 className="text-lg font-bold text-gray-900">
+                <h2 className="text-lg font-semibold text-gray-900">
                   Announcements
                 </h2>
                 <span className="text-xs text-gray-500">���</span>
