@@ -390,7 +390,7 @@ export default function EmployeeDashboard() {
                 <h3
                   style={{
                     fontSize: "18px",
-                    fontWeight: "600",
+                    fontWeight: "500",
                     color: "#1f2937",
                     marginBottom: "4px",
                   }}
@@ -596,7 +596,7 @@ export default function EmployeeDashboard() {
                   <h3
                     style={{
                       fontSize: "18px",
-                      fontWeight: "600",
+                      fontWeight: "500",
                       color: "#1f2937",
                       margin: "0",
                     }}
@@ -816,7 +816,7 @@ export default function EmployeeDashboard() {
                   <h3
                     style={{
                       fontSize: "18px",
-                      fontWeight: "600",
+                      fontWeight: "500",
                       color: "#1f2937",
                       margin: "0",
                     }}
