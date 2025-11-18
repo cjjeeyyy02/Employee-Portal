@@ -11,6 +11,7 @@ import {
 import { toast } from "sonner";
 
 type ViewMode = "day" | "week" | "month";
+// Calendar component with Day, Week, and Month views
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
