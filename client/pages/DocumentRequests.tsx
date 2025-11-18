@@ -496,7 +496,7 @@ export default function DocumentRequests() {
                     <Plus className="w-4 h-4" />
                     Upload Document
                   </button>
-                  <button className="px-4 py-2 text-sm bg-white text-red-600 font-medium rounded-lg hover:bg-red-50 transition-colors flex items-center gap-2 border border-red-600">
+                  <button className="px-4 py-2 text-sm bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
                     <Download className="w-4 h-4" />
                     Download
                   </button>
