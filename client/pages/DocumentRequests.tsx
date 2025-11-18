@@ -29,7 +29,7 @@ interface Document {
 export default function DocumentRequests() {
   const [activeTab, setActiveTab] = useState<TabType>("requests");
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState("All Status");
+  const [statusFilter, setStatusFilter] = useState("All");
   const [activeModal, setActiveModal] = useState<ModalType>(null);
   const [selectedRequest, setSelectedRequest] = useState<Request | null>(null);
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
