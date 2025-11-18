@@ -697,7 +697,7 @@ export default function DocumentRequests() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
                 <div className="space-y-2">
-                  {['All Status', 'completed', 'in-progress', 'pending', 'rejected'].map((status) => (
+                  {['All', 'Pending', 'Approved', 'In Review', 'Rejected'].map((status) => (
                     <label key={status} className="flex items-center gap-2">
                       <input
                         type="radio"
@@ -707,7 +707,7 @@ export default function DocumentRequests() {
                         onChange={(e) => setFilterPanel({ ...filterPanel, status: e.target.value })}
                         className="w-4 h-4"
                       />
-                      <span className="text-sm text-gray-700 capitalize">{status.replace('-', ' ')}</span>
+                      <span className="text-sm text-gray-700">{status}</span>
                     </label>
                   ))}
                 </div>
