@@ -313,20 +313,22 @@ export default function MyLeaveAttendance() {
           </div>
 
           {/* Sub-Tabs Navigation */}
-          <div className="bg-white py-3">
-            <div className="flex gap-3 px-2 sm:px-3">
+          <div className="bg-white py-2">
+            <div className="inline-flex border border-gray-300 rounded-lg overflow-hidden">
               {[
                 { id: "dailyLogs", label: "Daily logs" },
                 { id: "timesheets", label: "Timesheets" },
                 { id: "scheduledShifts", label: "Scheduled shifts" },
-              ].map((tab) => (
+              ].map((tab, index) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveSubTab(tab.id as AttendanceSubTabType)}
-                  className={`px-4 py-2.5 font-medium text-sm rounded-lg border transition-all ${
+                  className={`px-3 py-1.5 font-medium text-xs transition-all ${
+                    index > 0 ? "border-l border-gray-300" : ""
+                  } ${
                     activeSubTab === tab.id
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "bg-white text-gray-600 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
+                      ? "bg-blue-600 text-white"
+                      : "bg-white text-gray-600 hover:bg-gray-50"
                   }`}
                 >
                   {tab.label}
