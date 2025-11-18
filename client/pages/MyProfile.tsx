@@ -30,6 +30,7 @@ interface Skill {
   name: string;
   experience: number;
   level: string;
+  lastUpdated: string;
 }
 
 interface Training {
@@ -133,12 +134,12 @@ export default function MyProfile() {
   ];
 
   const skills: Skill[] = [
-    { id: 1, name: "React", experience: 4, level: "Expert" },
-    { id: 2, name: "TypeScript", experience: 3, level: "Advanced" },
-    { id: 3, name: "Node.js", experience: 3, level: "Advanced" },
-    { id: 4, name: "Python", experience: 2, level: "Intermediate" },
-    { id: 5, name: "AWS", experience: 2, level: "Intermediate" },
-    { id: 6, name: "Docker", experience: 1, level: "Beginner" },
+    { id: 1, name: "React", experience: 4, level: "Expert", lastUpdated: "01/15/2024" },
+    { id: 2, name: "TypeScript", experience: 3, level: "Advanced", lastUpdated: "02/20/2024" },
+    { id: 3, name: "Node.js", experience: 3, level: "Advanced", lastUpdated: "03/10/2024" },
+    { id: 4, name: "Python", experience: 2, level: "Intermediate", lastUpdated: "12/05/2023" },
+    { id: 5, name: "AWS", experience: 2, level: "Intermediate", lastUpdated: "11/18/2023" },
+    { id: 6, name: "Docker", experience: 1, level: "Beginner", lastUpdated: "10/22/2023" },
   ];
 
   const trainings: Training[] = [
@@ -1108,8 +1109,9 @@ export default function MyProfile() {
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
                       <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Skill Name</th>
-                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Experience (Years)</th>
+                      <th className="px-3 py-2 text-center" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Experience (Years)</th>
                       <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Skill Level</th>
+                      <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Last Updated</th>
                       <th className="px-3 py-2 text-center" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Action</th>
                     </tr>
                   </thead>
@@ -1117,7 +1119,7 @@ export default function MyProfile() {
                     {skills.map((skill) => (
                       <tr key={skill.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                         <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>{skill.name}</td>
-                        <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.experience}</td>
+                        <td className="px-3 py-2 text-center" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.experience}</td>
                         <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>
                           <span className={
                             skill.level === "Expert" ? "px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" :
@@ -1128,6 +1130,7 @@ export default function MyProfile() {
                             {skill.level}
                           </span>
                         </td>
+                        <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.lastUpdated}</td>
                         <td className="px-3 py-2 text-center">
                           <button className="text-blue-600 hover:text-blue-800 transition-colors" title="Edit">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
