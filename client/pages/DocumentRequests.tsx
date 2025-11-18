@@ -382,9 +382,9 @@ export default function DocumentRequests() {
                       <td className="px-4 py-3 text-xs text-gray-700">{request.approver}</td>
                       <td className="px-4 py-3 text-xs">
                         <div className="flex gap-2">
-                          <button className="text-blue-600 hover:text-blue-800 font-medium">View</button>
+                          <button onClick={() => handleViewRequest(request)} className="text-blue-600 hover:text-blue-800 font-medium">View</button>
                           <span className="text-gray-300">|</span>
-                          <button className="text-red-600 hover:text-red-800 font-medium">Cancel</button>
+                          <button onClick={() => handleCancelRequest(request)} className="text-red-600 hover:text-red-800 font-medium">Cancel</button>
                         </div>
                       </td>
                     </tr>
