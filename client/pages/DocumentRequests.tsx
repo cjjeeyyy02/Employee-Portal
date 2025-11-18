@@ -2,21 +2,17 @@ import { useState } from "react";
 import { Upload, Plus, Search, Filter, FileText, Clock, CheckCircle, Download, Shield, Folder, Eye, Trash2, File, X } from "lucide-react";
 import Layout from "@/components/Layout";
 
-type TabType = "requests" | "documents" | "forms" | "archived";
+type TabType = "requests" | "documents";
 type StatusType = "completed" | "in-progress" | "pending" | "rejected";
 type PriorityType = "high" | "medium" | "low";
 type ModalType = "upload" | "newRequest" | "moreFilters" | "details" | "preview" | null;
 
 interface Request {
-  id: number;
-  title: string;
-  status: StatusType;
-  priority: PriorityType;
-  description: string;
-  requestedDate: string;
-  completedDate?: string;
-  deliveryMethod: string;
-  note?: string;
+  id: string;
+  requestType: string;
+  submittedDate: string;
+  status: string;
+  approver: string;
 }
 
 interface Document {
@@ -112,43 +108,32 @@ export default function DocumentRequests() {
 
   const requests: Request[] = [
     {
-      id: 1,
-      title: "Leave Application Form",
-      status: "completed",
-      priority: "high",
-      description: "Annual leave request for Q4",
-      requestedDate: "Dec 1, 2024",
-      completedDate: "Dec 3, 2024",
-      deliveryMethod: "Email",
-      note: "Document ready for pickup",
+      id: "REQ-2025-1234",
+      requestType: "Leave",
+      submittedDate: "Jan 15, 2025",
+      status: "Pending",
+      approver: "A. Smith",
     },
     {
-      id: 2,
-      title: "Updated Work Certificate",
-      status: "in-progress",
-      priority: "medium",
-      description: "Verification certificate with updated employment details",
-      requestedDate: "Dec 5, 2024",
-      deliveryMethod: "In-person",
+      id: "REQ-2025-1235",
+      requestType: "Schedule Change",
+      submittedDate: "Jan 12, 2025",
+      status: "Approved",
+      approver: "A. Johnson",
     },
     {
-      id: 3,
-      title: "Salary Review Request",
-      status: "pending",
-      priority: "high",
-      description: "Annual salary review documentation",
-      requestedDate: "Dec 10, 2024",
-      deliveryMethod: "Email",
+      id: "REQ-2025-1236",
+      requestType: "HR Inquiry",
+      submittedDate: "Jan 10, 2025",
+      status: "In Review",
+      approver: "A. Brown",
     },
     {
-      id: 4,
-      title: "Training Certificate",
-      status: "completed",
-      priority: "low",
-      description: "Professional development training completion",
-      requestedDate: "Nov 20, 2024",
-      completedDate: "Nov 28, 2024",
-      deliveryMethod: "Email",
+      id: "REQ-2025-1237",
+      requestType: "Overtime",
+      submittedDate: "Jan 08, 2025",
+      status: "Rejected",
+      approver: "A. Smith",
     },
   ];
 
@@ -281,8 +266,8 @@ export default function DocumentRequests() {
       {/* Header Section */}
       <div className="mb-1.5 sm:mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
         <div>
-          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">Requests & Document Management</h1>
-          <p className="text-xs text-gray-600">Submit requests and manage your work-related documents</p>
+          <h1 className="text-sm sm:text-base font-semibold text-gray-900 mb-0.5">My Requests & Documents</h1>
+          <p className="text-xs text-gray-600">View, track, and manage your personal requests and documents.</p>
         </div>
         <div className="flex gap-1 sm:gap-2 flex-wrap">
           <button onClick={() => setActiveModal('upload')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
@@ -302,8 +287,6 @@ export default function DocumentRequests() {
           {[
             { id: "requests", label: "My Requests" },
             { id: "documents", label: "My Documents" },
-            { id: "forms", label: "Forms & Templates" },
-            { id: "archived", label: "Archived" },
           ].map((tab) => (
             <button
               key={tab.id}
