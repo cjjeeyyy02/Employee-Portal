@@ -1288,17 +1288,17 @@ export default function MyProfile() {
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">7</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">13</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">13</td>
                     </tr>
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Sick Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">3</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">7</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">7</td>
                     </tr>
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Personal Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">2</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">4</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">4</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1330,7 +1330,7 @@ export default function MyProfile() {
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Sick Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">03-15-2024 – 03-17-2024</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">3</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">3</td>
                       <td className="px-4 py-3 text-sm text-gray-700">Michael Rodriguez</td>
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
@@ -1365,7 +1365,7 @@ export default function MyProfile() {
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">01-08-2024 – 01-12-2024</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">5</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">5</td>
                       <td className="px-4 py-3 text-sm text-gray-700">Michael Rodriguez</td>
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#d4edda", color: "#155724" }}>Approved</span>
@@ -1400,7 +1400,7 @@ export default function MyProfile() {
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Personal Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">04-22-2024 – 04-22-2024</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">1</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">1</td>
                       <td className="px-4 py-3 text-sm text-gray-700"></td>
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#fff3cd", color: "#856404" }}>Under Review</span>
@@ -1435,7 +1435,7 @@ export default function MyProfile() {
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
                       <td className="px-4 py-3 text-sm text-gray-700">05-10-2024 – 05-14-2024</td>
-                      <td className="px-4 py-3 text-sm font-bold text-gray-900">5</td>
+                      <td className="px-4 py-3 text-sm text-gray-900">5</td>
                       <td className="px-4 py-3 text-sm text-gray-700"></td>
                       <td className="px-4 py-3 text-sm">
                         <span className="inline-block rounded-lg px-3 py-1 font-semibold text-xs" style={{ backgroundColor: "#f8d7da", color: "#721c24" }}>Rejected</span>
