@@ -325,19 +325,18 @@ export default function DocumentRequests() {
         )}
 
         {/* Filter & Search Bar */}
-        {activeTab !== "documents" && activeTab !== "forms" && activeTab !== "archived" && (
+        {activeTab !== "documents" && (
           <div className="flex gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
-            {/* Search Bar */}
-            <div className="max-w-sm relative">
-              <Search className="absolute left-2.5 top-2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search requests…"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-8 pr-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+            {/* Request Type Filter */}
+            <select
+              className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+            >
+              <option>All</option>
+              <option>Leave</option>
+              <option>Schedule Change</option>
+              <option>HR Inquiry</option>
+              <option>Overtime</option>
+            </select>
 
             {/* Status Filter */}
             <select
@@ -345,18 +344,19 @@ export default function DocumentRequests() {
               onChange={(e) => setStatusFilter(e.target.value)}
               className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
             >
-              <option>All Status</option>
-              <option value="completed">Completed</option>
-              <option value="in-progress">In Progress</option>
-              <option value="pending">Pending</option>
-              <option value="rejected">Rejected</option>
+              <option>All</option>
+              <option value="Pending">Pending</option>
+              <option value="Approved">Approved</option>
+              <option value="In Review">In Review</option>
+              <option value="Rejected">Rejected</option>
             </select>
 
-            {/* More Filters Button */}
-            <button onClick={() => setActiveModal('moreFilters')} className="px-3 py-1.5 text-xs text-gray-700 font-medium hover:bg-gray-200 rounded-lg transition-colors flex items-center gap-1.5 border border-gray-300 bg-white">
-              <Filter className="w-3.5 h-3.5" />
-              More Filters
-            </button>
+            {/* Date Range Filter */}
+            <input
+              type="date"
+              className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+              placeholder="Date Range"
+            />
           </div>
         )}
 
