@@ -524,691 +524,152 @@ export default function MyLeaveAttendance() {
                 {/* Date Range Selector 1 */}
                 <input
                   type="date"
-                  defaultValue="2025-10-20"
+                  defaultValue="2025-10-19"
                   className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
                 />
                 {/* Date Range Selector 2 */}
                 <input
                   type="date"
-                  defaultValue="2025-10-27"
+                  defaultValue="2025-10-25"
                   className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
                 />
-                {/* View Toggle Icons */}
-                <div className="flex gap-1 ml-auto">
-                  {/* Grid View Icon (Selected) */}
-                  <button className="p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="3" y="3" width="7" height="7" rx="2"></rect>
-                      <rect x="14" y="3" width="7" height="7" rx="2"></rect>
-                      <rect x="3" y="14" width="7" height="7" rx="2"></rect>
-                      <rect x="14" y="14" width="7" height="7" rx="2"></rect>
-                    </svg>
-                  </button>
-                  {/* List View Icon */}
-                  <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-md transition-colors">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="8" y1="6" x2="21" y2="6"></line>
-                      <line x1="8" y1="12" x2="21" y2="12"></line>
-                      <line x1="8" y1="18" x2="21" y2="18"></line>
-                      <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                      <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                      <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                    </svg>
-                  </button>
-                </div>
               </div>
 
-              {/* Day Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                {/* SUNDAY Card */}
-                <div className="bg-white rounded-xl shadow-md p-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-xs font-bold text-gray-900 tracking-wide">
-                        SUNDAY
-                      </h3>
-                      <p className="text-xs text-gray-600 mt-0.5">
-                        October 19, 2025
-                      </p>
-                    </div>
-                    {/* User Group Icon */}
-                    <svg
-                      className="w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  {/* Divider */}
-                  <div className="border-t border-gray-200 mb-2"></div>
-                  {/* Shifts */}
-                  <div className="space-y-2">
-                    {/* Alex - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Alex
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    {/* Maria - Red */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-red-500 rounded-full"></div>
-                        <div className="bg-red-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Maria
-                            </span>
-                            <span className="text-xs text-gray-600">10–19</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    {/* Jordan - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Jordan
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {/* My Weekly Schedule - Single Row */}
+              <div className="bg-white rounded-xl shadow-md overflow-hidden">
+                <div className="p-4">
+                  <h2 className="text-sm font-semibold text-gray-900 mb-4">
+                    My Weekly Schedule
+                  </h2>
 
-                {/* MONDAY Card */}
-                <div className="bg-white rounded-xl shadow-md p-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-xs font-bold text-gray-900 tracking-wide">
-                        MONDAY
-                      </h3>
-                      <p className="text-xs text-gray-600 mt-0.5">
-                        October 20, 2025
-                      </p>
-                    </div>
-                    {/* User Group Icon */}
-                    <svg
-                      className="w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  {/* Divider */}
-                  <div className="border-t border-gray-200 mb-2"></div>
-                  {/* Shifts */}
-                  <div className="space-y-2">
-                    {/* Alex - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Alex
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
+                  {/* Week Grid - 7 columns */}
+                  <div className="grid grid-cols-7 gap-2">
+                    {/* Sunday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          SUN
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 19</p>
+                      </div>
+                      <div className="bg-blue-50 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-between mb-1">
+                          <Clock className="w-3 h-3 text-blue-600" />
+                          <span className="text-xs font-medium text-gray-900">9–18</span>
                         </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
+                        <span className="inline-block px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
+                          Shift
+                        </span>
                       </div>
                     </div>
-                    {/* Priya - Red */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-red-500 rounded-full"></div>
-                        <div className="bg-red-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Priya
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    {/* Jordan - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Jordan
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* TUESDAY Card */}
-                <div className="bg-white rounded-xl shadow-md p-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-xs font-bold text-gray-900 tracking-wide">
-                        TUESDAY
-                      </h3>
-                      <p className="text-xs text-gray-600 mt-0.5">
-                        October 21, 2025
-                      </p>
-                    </div>
-                    {/* User Group Icon */}
-                    <svg
-                      className="w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  {/* Divider */}
-                  <div className="border-t border-gray-200 mb-2"></div>
-                  {/* Shifts */}
-                  <div className="space-y-2">
-                    {/* Maria - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Maria
-                            </span>
-                            <span className="text-xs text-gray-600">10–19</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
+                    {/* Monday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          MON
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 20</p>
+                      </div>
+                      <div className="bg-blue-50 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-between mb-1">
+                          <Clock className="w-3 h-3 text-blue-600" />
+                          <span className="text-xs font-medium text-gray-900">9–18</span>
                         </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
+                        <span className="inline-block px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
+                          Shift
+                        </span>
                       </div>
                     </div>
-                    {/* Priya - Red */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-red-500 rounded-full"></div>
-                        <div className="bg-red-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Priya
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    {/* Jordan - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Jordan
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Footer Text */}
-                  <div className="mt-2 text-center">
-                    <button className="text-xs text-blue-600 hover:text-blue-700 font-medium">
-                      Show 1 more
-                    </button>
-                  </div>
-                </div>
 
-                {/* WEDNESDAY Card */}
-                <div className="bg-white rounded-xl shadow-md p-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-xs font-bold text-gray-900 tracking-wide">
-                        WEDNESDAY
-                      </h3>
-                      <p className="text-xs text-gray-600 mt-0.5">
-                        October 22, 2025
-                      </p>
-                    </div>
-                    {/* User Group Icon */}
-                    <svg
-                      className="w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  {/* Divider */}
-                  <div className="border-t border-gray-200 mb-2"></div>
-                  {/* Shifts */}
-                  <div className="space-y-2">
-                    {/* Alex - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Alex
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
+                    {/* Tuesday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          TUE
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 21</p>
+                      </div>
+                      <div className="bg-blue-50 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-between mb-1">
+                          <Clock className="w-3 h-3 text-blue-600" />
+                          <span className="text-xs font-medium text-gray-900">9–18</span>
                         </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
+                        <span className="inline-block px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
+                          Shift
+                        </span>
                       </div>
                     </div>
-                    {/* Maria - Red */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-red-500 rounded-full"></div>
-                        <div className="bg-red-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Maria
-                            </span>
-                            <span className="text-xs text-gray-600">10–19</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    {/* Jordan - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Jordan
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
-                        </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* THURSDAY Card */}
-                <div className="bg-white rounded-xl shadow-md p-3">
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-xs font-bold text-gray-900 tracking-wide">
-                        THURSDAY
-                      </h3>
-                      <p className="text-xs text-gray-600 mt-0.5">
-                        October 23, 2025
-                      </p>
-                    </div>
-                    {/* User Group Icon */}
-                    <svg
-                      className="w-4 h-4 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  {/* Divider */}
-                  <div className="border-t border-gray-200 mb-2"></div>
-                  {/* Shifts */}
-                  <div className="space-y-2">
-                    {/* Alex - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Alex
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
+                    {/* Wednesday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          WED
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 22</p>
+                      </div>
+                      <div className="bg-blue-50 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-between mb-1">
+                          <Clock className="w-3 h-3 text-blue-600" />
+                          <span className="text-xs font-medium text-gray-900">9–18</span>
                         </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
+                        <span className="inline-block px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
+                          Shift
+                        </span>
                       </div>
                     </div>
-                    {/* Maria - Red */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-red-500 rounded-full"></div>
-                        <div className="bg-red-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Maria
-                            </span>
-                            <span className="text-xs text-gray-600">10–19</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800">
-                            Shift
-                          </span>
+
+                    {/* Thursday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          THU
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 23</p>
+                      </div>
+                      <div className="bg-blue-50 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-between mb-1">
+                          <Clock className="w-3 h-3 text-blue-600" />
+                          <span className="text-xs font-medium text-gray-900">9–18</span>
                         </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
+                        <span className="inline-block px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
+                          Shift
+                        </span>
                       </div>
                     </div>
-                    {/* Priya - Blue */}
-                    <div className="flex items-center justify-between gap-1.5">
-                      <div className="flex items-center gap-1.5 flex-1">
-                        <div className="w-0.5 h-7 bg-blue-500 rounded-full"></div>
-                        <div className="bg-blue-50 px-2 py-1 rounded-md flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-medium text-gray-900">
-                              Priya
-                            </span>
-                            <span className="text-xs text-gray-600">9–18</span>
-                          </div>
-                          <span className="inline-block mt-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
-                            Shift
-                          </span>
+
+                    {/* Friday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          FRI
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 24</p>
+                      </div>
+                      <div className="bg-blue-50 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-between mb-1">
+                          <Clock className="w-3 h-3 text-blue-600" />
+                          <span className="text-xs font-medium text-gray-900">9–18</span>
                         </div>
-                        {/* Edit Icon */}
-                        <svg
-                          className="w-3 h-3 text-gray-400 cursor-pointer hover:text-gray-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
+                        <span className="inline-block px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-800">
+                          Shift
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Saturday */}
+                    <div className="bg-white border border-gray-200 rounded-lg p-2">
+                      <div className="mb-2">
+                        <h3 className="text-xs font-bold text-gray-900 tracking-wide">
+                          SAT
+                        </h3>
+                        <p className="text-xs text-gray-600">Oct 25</p>
+                      </div>
+                      <div className="bg-gray-100 px-2 py-2 rounded-md">
+                        <div className="flex items-center justify-center">
+                          <span className="text-xs text-gray-500">Off</span>
+                        </div>
                       </div>
                     </div>
                   </div>
