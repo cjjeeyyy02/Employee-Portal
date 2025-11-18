@@ -112,46 +112,46 @@ export default function Calendar() {
   return (
     <Layout>
       <div className="max-w-[1600px] mx-auto h-full flex flex-col">
-        <div className="bg-white border-b border-gray-200 px-6 py-4">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <h1 className="text-2xl font-semibold text-gray-900">Calendar</h1>
+        <div className="bg-white border-b border-gray-200 px-4 py-2">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-3">
+              <h1 className="text-lg font-semibold text-gray-900">Calendar</h1>
               <button
                 onClick={goToToday}
-                className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                className="px-3 py-1 text-xs font-medium text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
               >
                 Today
               </button>
             </div>
-            <button className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center gap-2">
-              <Plus className="w-4 h-4" />
+            <button className="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-md hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+              <Plus className="w-3.5 h-3.5" />
               New event
             </button>
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <button
                 onClick={previousMonth}
-                className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+                className="p-1 hover:bg-gray-100 rounded-md transition-colors"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
+                <ChevronLeft className="w-4 h-4 text-gray-600" />
               </button>
-              <h2 className="text-xl font-semibold text-gray-900 min-w-[200px]">
+              <h2 className="text-base font-semibold text-gray-900 min-w-[160px]">
                 {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
               </h2>
               <button
                 onClick={nextMonth}
-                className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+                className="p-1 hover:bg-gray-100 rounded-md transition-colors"
               >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
+                <ChevronRight className="w-4 h-4 text-gray-600" />
               </button>
             </div>
 
-            <div className="flex items-center gap-1 bg-gray-100 rounded-md p-1">
+            <div className="flex items-center gap-0.5 bg-gray-100 rounded-md p-0.5">
               <button
                 onClick={() => setViewMode("day")}
-                className={`px-4 py-1.5 text-sm font-medium rounded transition-colors ${
+                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                   viewMode === "day"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -161,7 +161,7 @@ export default function Calendar() {
               </button>
               <button
                 onClick={() => setViewMode("week")}
-                className={`px-4 py-1.5 text-sm font-medium rounded transition-colors ${
+                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                   viewMode === "week"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -171,7 +171,7 @@ export default function Calendar() {
               </button>
               <button
                 onClick={() => setViewMode("month")}
-                className={`px-4 py-1.5 text-sm font-medium rounded transition-colors ${
+                className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                   viewMode === "month"
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-600 hover:text-gray-900"
@@ -188,7 +188,7 @@ export default function Calendar() {
             {dayNames.map((day, idx) => (
               <div
                 key={idx}
-                className="border-r border-b border-gray-200 bg-gray-50 p-3 text-center font-semibold text-sm text-gray-700"
+                className="border-r border-b border-gray-200 bg-gray-50 p-1.5 text-center font-semibold text-xs text-gray-700"
               >
                 {day}
               </div>
@@ -197,40 +197,40 @@ export default function Calendar() {
           </div>
         </div>
 
-        <div className="bg-white border-t border-gray-200 p-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-white" />
+        <div className="bg-white border-t border-gray-200 p-2">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+            <div className="bg-blue-50 rounded-lg p-2 border border-blue-100">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
+                  <Clock className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900">Upcoming Today</h3>
-                  <p className="text-xs text-gray-600">2 meetings scheduled</p>
+                  <h3 className="text-xs font-semibold text-gray-900">Upcoming Today</h3>
+                  <p className="text-[10px] text-gray-600">2 meetings scheduled</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-white" />
+            <div className="bg-purple-50 rounded-lg p-2 border border-purple-100">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-purple-600 flex items-center justify-center">
+                  <Users className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900">Team Events</h3>
-                  <p className="text-xs text-gray-600">4 this week</p>
+                  <h3 className="text-xs font-semibold text-gray-900">Team Events</h3>
+                  <p className="text-[10px] text-gray-600">4 this week</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-green-50 rounded-lg p-4 border border-green-100">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-white" />
+            <div className="bg-green-50 rounded-lg p-2 border border-green-100">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-green-600 flex items-center justify-center">
+                  <MapPin className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900">In-Person</h3>
-                  <p className="text-xs text-gray-600">1 meeting this week</p>
+                  <h3 className="text-xs font-semibold text-gray-900">In-Person</h3>
+                  <p className="text-[10px] text-gray-600">1 meeting this week</p>
                 </div>
               </div>
             </div>
