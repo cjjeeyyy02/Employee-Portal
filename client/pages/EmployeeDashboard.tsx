@@ -272,7 +272,7 @@ export default function EmployeeDashboard() {
                     <div>
                       <p style={{
                         fontSize: '14px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         color: '#1f2937',
                         margin: '0'
                       }}>Complete Q4 Performance Review</p>
@@ -298,7 +298,7 @@ export default function EmployeeDashboard() {
                     <div>
                       <p style={{
                         fontSize: '14px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         color: '#1f2937',
                         margin: '0'
                       }}>Submit Travel Expense Report</p>
@@ -324,7 +324,7 @@ export default function EmployeeDashboard() {
                     <div>
                       <p style={{
                         fontSize: '14px',
-                        fontWeight: '600',
+                        fontWeight: '500',
                         color: '#1f2937',
                         margin: '0'
                       }}>Team Meeting Preparation</p>
