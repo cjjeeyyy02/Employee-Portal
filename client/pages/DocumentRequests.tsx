@@ -687,56 +687,6 @@ export default function DocumentRequests() {
         </div>
       )}
 
-      {/* Request Details Modal */}
-      {activeModal === 'details' && selectedRequest && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold text-gray-900">Request Details</h2>
-              <button onClick={() => setActiveModal(null)} className="text-gray-500 hover:text-gray-700">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div className="bg-gray-50 p-3 rounded-lg">
-                <p className="text-sm text-gray-600 mb-1">Title</p>
-                <p className="text-lg font-semibold text-gray-900">{selectedRequest.title}</p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-xs text-gray-600 mb-1">Status</p>
-                  <span className={`px-2 py-1 rounded-full text-xs font-semibold capitalize ${getStatusColor(selectedRequest.status)}`}>
-                    {selectedRequest.status.replace('-', ' ')}
-                  </span>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-600 mb-1">Priority</p>
-                  <span className={`px-2 py-1 rounded-full text-xs font-semibold capitalize ${getPriorityColor(selectedRequest.priority)}`}>
-                    {selectedRequest.priority}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Description</p>
-                <p className="text-sm text-gray-900">{selectedRequest.description}</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-600 mb-1">Delivery Method</p>
-                <p className="text-sm text-gray-900">{selectedRequest.deliveryMethod}</p>
-              </div>
-              {selectedRequest.note && (
-                <div className="bg-blue-50 p-3 rounded-lg">
-                  <p className="text-xs text-blue-600 font-medium mb-1">Note</p>
-                  <p className="text-sm text-blue-900">{selectedRequest.note}</p>
-                </div>
-              )}
-              <button onClick={() => setActiveModal(null)} className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </Layout>
   );
 }
