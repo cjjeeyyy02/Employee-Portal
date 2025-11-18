@@ -975,7 +975,7 @@ export default function EmployeeDashboard() {
 
           {/* Right Section - 30% */}
           <div className="lg:col-span-4 space-y-4">
-            {/* Action Items Container */}
+            {/* Calendar Container */}
             <div
               style={{
                 backgroundColor: "#ffffff",
@@ -986,307 +986,238 @@ export default function EmployeeDashboard() {
                 border: "1px solid #e5e7eb",
                 display: "flex",
                 flexDirection: "column",
-                gap: "16px",
+                gap: "12px",
                 fontFamily:
                   "Poppins, -apple-system, Roboto, Helvetica, sans-serif",
               }}
             >
-              {/* Header Section */}
+              {/* Header Section with Navigation */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div>
+                  <h2
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: "600",
+                      color: "#222",
+                      margin: "0",
+                    }}
+                  >
+                    {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+                  </h2>
+                </div>
+                <div style={{ display: "flex", gap: "4px" }}>
+                  <button
+                    onClick={previousMonth}
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "6px",
+                      backgroundColor: "#ffffff",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#f9fafb";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ffffff";
+                    }}
+                  >
+                    <ChevronLeft size={14} color="#6b7280" />
+                  </button>
+                  <button
+                    onClick={nextMonth}
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "6px",
+                      backgroundColor: "#ffffff",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#f9fafb";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ffffff";
+                    }}
+                  >
+                    <ChevronRight size={14} color="#6b7280" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Calendar Grid */}
               <div>
-                <h2
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#222",
-                    margin: "0 0 2px 0",
-                  }}
-                >
-                  Action Items
-                </h2>
-                <p
-                  style={{
-                    fontSize: "12px",
-                    color: "#777",
-                    margin: "0 0 8px 0",
-                  }}
-                >
-                  Things that need your attention
-                </p>
-              </div>
-
-              {/* TODAY Section */}
-              <div
-                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
-              >
-                {/* TODAY Tag with Line */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    marginBottom: "8px",
-                  }}
-                >
-                  <span
-                    style={{
-                      backgroundColor: "#FF4A4A",
-                      color: "white",
-                      padding: "3px 10px",
-                      borderRadius: "4px",
-                      fontSize: "10px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    TODAY
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: "1px",
-                      backgroundColor: "#FF4A4A",
-                    }}
-                  ></div>
-                </div>
-
-                {/* Item 1 */}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    alignItems: "start",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "16px",
-                      height: "16px",
-                      border: "2px solid #666",
-                      borderRadius: "3px",
-                      flexShrink: 0,
-                      marginTop: "1px",
-                    }}
-                  ></div>
-                  <div>
-                    <h3
+                {/* Day Names */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px", marginBottom: "4px" }}>
+                  {dayNames.map((day, idx) => (
+                    <div
+                      key={idx}
                       style={{
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        color: "#222",
-                        margin: "0 0 3px 0",
+                        textAlign: "center",
+                        fontSize: "10px",
+                        fontWeight: "600",
+                        color: "#9ca3af",
+                        padding: "4px 0",
                       }}
                     >
-                      Finalize Q4 Budget Report
-                    </h3>
+                      {day}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Calendar Days */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" }}>
+                  {/* Empty cells for days before month starts */}
+                  {Array.from({ length: firstDayOfMonth }).map((_, i) => (
+                    <div key={`empty-${i}`} style={{ height: "32px" }}></div>
+                  ))}
+
+                  {/* Actual days of the month */}
+                  {Array.from({ length: daysInMonth }).map((_, i) => {
+                    const day = i + 1;
+                    const dayEvents = getEventsForDay(day);
+                    const todayCell = isToday(day);
+
+                    return (
+                      <div
+                        key={day}
+                        style={{
+                          height: "32px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          position: "relative",
+                          borderRadius: "6px",
+                          cursor: "pointer",
+                          transition: "all 0.2s",
+                          backgroundColor: todayCell ? "#3b82f6" : "transparent",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!todayCell) {
+                            e.currentTarget.style.backgroundColor = "#f3f4f6";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!todayCell) {
+                            e.currentTarget.style.backgroundColor = "transparent";
+                          }
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontSize: "12px",
+                            fontWeight: todayCell ? "600" : "500",
+                            color: todayCell ? "#ffffff" : "#374151",
+                          }}
+                        >
+                          {day}
+                        </span>
+                        {dayEvents.length > 0 && (
+                          <div
+                            style={{
+                              position: "absolute",
+                              bottom: "2px",
+                              left: "50%",
+                              transform: "translateX(-50%)",
+                              display: "flex",
+                              gap: "2px",
+                            }}
+                          >
+                            {dayEvents.slice(0, 3).map((event, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  width: "3px",
+                                  height: "3px",
+                                  borderRadius: "50%",
+                                  backgroundColor: todayCell ? "#ffffff" : "#3b82f6",
+                                }}
+                              ></div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Upcoming Events */}
+              <div style={{ marginTop: "8px", paddingTop: "12px", borderTop: "1px solid #e5e7eb" }}>
+                <h3 style={{ fontSize: "12px", fontWeight: "600", color: "#6b7280", marginBottom: "8px" }}>
+                  Upcoming Events
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                  {sampleEvents.map((event, idx) => (
                     <div
+                      key={idx}
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "5px",
+                        gap: "8px",
+                        padding: "6px 8px",
+                        backgroundColor: "#f9fafb",
+                        borderRadius: "6px",
+                        border: "1px solid #e5e7eb",
                       }}
                     >
-                      <span
+                      <div
                         style={{
-                          width: "5px",
-                          height: "5px",
+                          width: "6px",
+                          height: "6px",
                           borderRadius: "50%",
-                          backgroundColor: "#C62828",
-                          display: "inline-block",
+                          backgroundColor: event.color.includes("blue") ? "#3b82f6" :
+                                          event.color.includes("green") ? "#10b981" : "#f97316",
+                          flexShrink: 0,
                         }}
-                      ></span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          color: "#C62828",
-                        }}
-                      >
-                        High / Due 11-14-2025
-                      </span>
+                      ></div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <p style={{ fontSize: "11px", fontWeight: "500", color: "#374151", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          {event.title}
+                        </p>
+                        <p style={{ fontSize: "10px", color: "#9ca3af", margin: 0 }}>
+                          {monthNames[currentDate.getMonth()]} {event.day}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* TOMORROW Section */}
-              <div
-                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+              {/* View Full Calendar Link */}
+              <a
+                href="/calendar"
+                style={{
+                  fontSize: "12px",
+                  color: "#3b82f6",
+                  fontWeight: "500",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "4px",
+                  borderBottom: "2px solid transparent",
+                  transition: "border-color 0.2s",
+                  marginTop: "4px",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.borderBottomColor = "#3b82f6")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.borderBottomColor = "transparent")
+                }
               >
-                {/* TOMORROW Tag with Line */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    marginBottom: "8px",
-                  }}
-                >
-                  <span
-                    style={{
-                      backgroundColor: "#C9C9C9",
-                      color: "#444",
-                      padding: "3px 10px",
-                      borderRadius: "4px",
-                      fontSize: "10px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    TOMORROW
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: "1px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  ></div>
-                </div>
-
-                {/* Item 2 */}
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    alignItems: "start",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "16px",
-                      height: "16px",
-                      border: "2px solid #666",
-                      borderRadius: "3px",
-                      flexShrink: 0,
-                      marginTop: "1px",
-                    }}
-                  ></div>
-                  <div>
-                    <h3
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        color: "#222",
-                        margin: "0 0 3px 0",
-                      }}
-                    >
-                      Review marketing campaign creatives
-                    </h3>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: "5px",
-                          height: "5px",
-                          borderRadius: "50%",
-                          backgroundColor: "#AF8700",
-                          display: "inline-block",
-                        }}
-                      ></span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          color: "#AF8700",
-                        }}
-                      >
-                        Medium / Due 11-15-2025
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* NEXT WEEK Section */}
-              <div
-                style={{ display: "flex", flexDirection: "column", gap: "8px" }}
-              >
-                {/* NEXT WEEK Tag with Line */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    marginBottom: "8px",
-                  }}
-                >
-                  <span
-                    style={{
-                      backgroundColor: "#C9C9C9",
-                      color: "#444",
-                      padding: "3px 10px",
-                      borderRadius: "4px",
-                      fontSize: "10px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    NEXT WEEK
-                  </span>
-                  <div
-                    style={{
-                      flex: 1,
-                      height: "1px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  ></div>
-                </div>
-
-                {/* Item 3 */}
-                <div
-                  style={{ display: "flex", gap: "10px", alignItems: "start" }}
-                >
-                  <div
-                    style={{
-                      width: "16px",
-                      height: "16px",
-                      border: "2px solid #666",
-                      borderRadius: "3px",
-                      flexShrink: 0,
-                      marginTop: "1px",
-                    }}
-                  ></div>
-                  <div>
-                    <h3
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        color: "#222",
-                        margin: "0 0 3px 0",
-                      }}
-                    >
-                      Schedule 1:1 with Jane Doe
-                    </h3>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "5px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: "5px",
-                          height: "5px",
-                          borderRadius: "50%",
-                          backgroundColor: "#4CAF50",
-                          display: "inline-block",
-                        }}
-                      ></span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          color: "#4CAF50",
-                        }}
-                      >
-                        Low / Due 11-20-2025
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                View Full Calendar →
+              </a>
             </div>
 
             {/* Bottom Medium Card - Quick Actions */}
