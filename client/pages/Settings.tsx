@@ -177,7 +177,7 @@ export default function Settings() {
         <div className="mb-4">
           <div className="mb-1">
             <h1 className="text-lg font-bold text-gray-900">
-              Configuration and settings
+              Configurations and Settings
             </h1>
           </div>
           <p className="text-xs text-gray-500">
