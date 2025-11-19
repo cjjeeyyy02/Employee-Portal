@@ -5700,6 +5700,88 @@ export default function MyProfile() {
         </div>
       )}
 
+      {/* View Training Modal */}
+      {showTrainingViewModal && selectedTraining && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Training Details</h2>
+              <button onClick={() => setShowTrainingViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+                <X size={24} color="#6b7280" />
+              </button>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div><strong>Name:</strong> {selectedTraining.name}</div>
+              <div><strong>Issuer:</strong> {selectedTraining.issuer}</div>
+              <div><strong>Issue Date:</strong> {selectedTraining.issueDate}</div>
+              <div><strong>Expiry Date:</strong> {selectedTraining.expiryDate}</div>
+              <div><strong>Status:</strong> <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${selectedTraining.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}>{selectedTraining.status}</span></div>
+            </div>
+            <button onClick={() => setShowTrainingViewModal(false)} style={{ marginTop: "20px", padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer", width: "100%" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* View Certification Modal */}
+      {showCertificationViewModal && selectedCertification && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Certification Details</h2>
+              <button onClick={() => setShowCertificationViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+                <X size={24} color="#6b7280" />
+              </button>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div><strong>Name:</strong> {selectedCertification.name}</div>
+              <div><strong>Issuer:</strong> {selectedCertification.issuer}</div>
+              <div><strong>Issue Date:</strong> {selectedCertification.issueDate}</div>
+              <div><strong>Expiry Date:</strong> {selectedCertification.expiryDate}</div>
+              <div><strong>Status:</strong> <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${selectedCertification.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}>{selectedCertification.status}</span></div>
+            </div>
+            <button onClick={() => setShowCertificationViewModal(false)} style={{ marginTop: "20px", padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer", width: "100%" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Training Confirmation Modal */}
+      {showDeleteTrainingModal && selectedTraining && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+                <Trash2 size={24} color="#DC2626" />
+              </div>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Training</h2>
+            </div>
+            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedTraining.name}"? This action cannot be undone.</p>
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
+              <button onClick={() => setShowDeleteTrainingModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
+              <button onClick={confirmDeleteTraining} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Certification Confirmation Modal */}
+      {showDeleteCertModal && selectedCertification && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+                <Trash2 size={24} color="#DC2626" />
+              </div>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Certification</h2>
+            </div>
+            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedCertification.name}"? This action cannot be undone.</p>
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
+              <button onClick={() => setShowDeleteCertModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
+              <button onClick={confirmDeleteCertification} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes fadeIn {
           from {
