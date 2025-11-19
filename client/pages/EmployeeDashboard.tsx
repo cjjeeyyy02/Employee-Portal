@@ -412,7 +412,7 @@ export default function EmployeeDashboard() {
               <div
                 style={{
                   backgroundColor: "#ffffff",
-                  borderRadius: "24px",
+                  borderRadius: "12px",
                   border: "1px solid #e5e7eb",
                   padding: "16px",
                   boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
