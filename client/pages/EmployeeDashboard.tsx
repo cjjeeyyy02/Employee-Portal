@@ -104,7 +104,6 @@ export default function EmployeeDashboard() {
       icon: TrendingUp,
       iconColor: "text-purple-600",
       bgColor: "bg-purple-50",
-      route: "/my-performance",
     },
     {
       label: "# of Meetings Today",
@@ -380,7 +379,7 @@ export default function EmployeeDashboard() {
                 return (
                   <div
                     key={index}
-                    onClick={() => navigate(metric.route)}
+                    onClick={metric.route ? () => navigate(metric.route) : undefined}
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid #e5e7eb",
@@ -392,21 +391,21 @@ export default function EmployeeDashboard() {
                       justifyContent: "space-between",
                       gap: "8px",
                       transition: "all 0.25s ease-in-out",
-                      cursor: "pointer",
+                      cursor: metric.route ? "pointer" : "default",
                       minHeight: "auto",
                     }}
-                    onMouseEnter={(e) => {
+                    onMouseEnter={metric.route ? (e) => {
                       e.currentTarget.style.transform = "scale(1.02)";
                       e.currentTarget.style.boxShadow =
                         "0 4px 12px rgba(0, 0, 0, 0.1)";
                       e.currentTarget.style.borderColor = "#d1d5db";
-                    }}
-                    onMouseLeave={(e) => {
+                    } : undefined}
+                    onMouseLeave={metric.route ? (e) => {
                       e.currentTarget.style.transform = "scale(1)";
                       e.currentTarget.style.boxShadow =
                         "0 1px 3px rgba(0, 0, 0, 0.05)";
                       e.currentTarget.style.borderColor = "#e5e7eb";
-                    }}
+                    } : undefined}
                   >
                     {/* Left Content */}
                     <div
