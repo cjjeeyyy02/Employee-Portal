@@ -5864,6 +5864,73 @@ export default function MyProfile() {
         </div>
       )}
 
+      {/* View Document Modal */}
+      {showDocViewModal && selectedDoc && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Document Details</h2>
+              <button onClick={() => setShowDocViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+                <X size={24} color="#6b7280" />
+              </button>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ padding: "16px", backgroundColor: "#f9fafb", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                  <FileText size={32} color="#3b82f6" />
+                  <div>
+                    <h3 style={{ fontSize: "16px", fontWeight: "600", color: "#1f2937", margin: "0 0 4px 0" }}>{selectedDoc.title}</h3>
+                    <p style={{ fontSize: "12px", color: "#6b7280", margin: 0 }}>{selectedDoc.fileType} • {selectedDoc.fileSize}</p>
+                  </div>
+                </div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+                <div>
+                  <p style={{ fontSize: "12px", color: "#6b7280", marginBottom: "4px" }}>Upload Date</p>
+                  <p style={{ fontSize: "14px", color: "#1f2937", fontWeight: "500", margin: 0 }}>{selectedDoc.uploadDate}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize: "12px", color: "#6b7280", marginBottom: "4px" }}>File Type</p>
+                  <p style={{ fontSize: "14px", color: "#1f2937", fontWeight: "500", margin: 0 }}>{selectedDoc.fileType}</p>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: "flex", gap: "12px", marginTop: "24px" }}>
+              <button
+                onClick={() => {
+                  setNotification({ message: `Downloading ${selectedDoc.title}...`, type: "info" });
+                  setTimeout(() => setNotification(null), 3000);
+                }}
+                style={{ flex: 1, padding: "10px 20px", borderRadius: "8px", border: "1px solid #d1d5db", backgroundColor: "#ffffff", color: "#374151", fontSize: "14px", fontWeight: "500", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
+              >
+                <Download size={16} />
+                Download
+              </button>
+              <button onClick={() => setShowDocViewModal(false)} style={{ flex: 1, padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer" }}>Close</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Document Confirmation Modal */}
+      {showDeleteDocModal && selectedDoc && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+                <Trash2 size={24} color="#DC2626" />
+              </div>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Document</h2>
+            </div>
+            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedDoc.title}"? This action cannot be undone.</p>
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
+              <button onClick={() => setShowDeleteDocModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
+              <button onClick={confirmDeleteDoc} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes fadeIn {
           from {
