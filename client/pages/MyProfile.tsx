@@ -411,6 +411,7 @@ export default function MyProfile() {
     emergencyAlternatePhone: "+1 321 654 987",
   });
   const [trainingForm, setTrainingForm] = useState({
+    type: "Certification Name",
     name: "",
     issuer: "",
     issueDate: "",
@@ -4757,7 +4758,22 @@ export default function MyProfile() {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Certification Name
+                  Type
+                </label>
+                <select
+                  value={trainingForm.type}
+                  onChange={(e) =>
+                    setTrainingForm({ ...trainingForm, type: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="Certification Name">Certification Name</option>
+                  <option value="Training Name">Training Name</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {trainingForm.type}
                 </label>
                 <input
                   type="text"
@@ -4765,7 +4781,7 @@ export default function MyProfile() {
                   onChange={(e) =>
                     setTrainingForm({ ...trainingForm, name: e.target.value })
                   }
-                  placeholder="e.g., AWS Solutions Architect"
+                  placeholder={trainingForm.type === "Certification Name" ? "e.g., AWS Solutions Architect" : "e.g., Advanced JavaScript Workshop"}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
