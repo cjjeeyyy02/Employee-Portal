@@ -93,6 +93,57 @@ export default function MyLeaveAttendance() {
   const [selectedCorrectionDate, setSelectedCorrectionDate] =
     useState<string>("");
 
+  // Timesheet state
+  const [currentWeekStart, setCurrentWeekStart] = useState<Date>(new Date());
+  const [showTimesheetSubmitModal, setShowTimesheetSubmitModal] = useState(false);
+  const [timesheetEntries, setTimesheetEntries] = useState<TimesheetEntry[]>([
+    {
+      date: "2024-12-09",
+      day: "Mon",
+      regularHours: "8",
+      overtimeHours: "0",
+      project: "HRIS Development",
+      task: "Frontend UI Updates",
+      status: "Submitted",
+    },
+    {
+      date: "2024-12-10",
+      day: "Tue",
+      regularHours: "8",
+      overtimeHours: "1",
+      project: "HRIS Development",
+      task: "API Integration",
+      status: "Submitted",
+    },
+    {
+      date: "2024-12-11",
+      day: "Wed",
+      regularHours: "8",
+      overtimeHours: "0",
+      project: "HRIS Development",
+      task: "Bug Fixes",
+      status: "Draft",
+    },
+    {
+      date: "2024-12-12",
+      day: "Thu",
+      regularHours: "0",
+      overtimeHours: "0",
+      project: "",
+      task: "",
+      status: "Draft",
+    },
+    {
+      date: "2024-12-13",
+      day: "Fri",
+      regularHours: "0",
+      overtimeHours: "0",
+      project: "",
+      task: "",
+      status: "Draft",
+    },
+  ]);
+
   // Attendance state
   const [isClockedIn, setIsClockedIn] = useState(false);
   const [clockInTime, setClockInTime] = useState<string | null>("09:00 AM");
