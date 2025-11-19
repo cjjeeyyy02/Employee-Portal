@@ -487,7 +487,426 @@ export default function EmployeeDashboard() {
               })}
             </div>
 
+            {/* KPI Detailed View */}
+            {showKPIDetailedView && (
+              <div
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "12px",
+                  border: "1px solid #e5e7eb",
+                  padding: "20px",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)",
+                }}
+              >
+                {/* Header with Back Button */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: "20px",
+                  }}
+                >
+                  <h2
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0",
+                    }}
+                  >
+                    KPI Detailed View
+                  </h2>
+                  <button
+                    onClick={() => setShowKPIDetailedView(false)}
+                    style={{
+                      padding: "8px 16px",
+                      backgroundColor: "#f3f4f6",
+                      border: "1px solid #e5e7eb",
+                      borderRadius: "8px",
+                      fontSize: "13px",
+                      fontWeight: "500",
+                      color: "#374151",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#e5e7eb";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#f3f4f6";
+                    }}
+                  >
+                    ← Back to Dashboard
+                  </button>
+                </div>
+
+                {/* Two Column Grid */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "35% 65%",
+                    gap: "32px",
+                  }}
+                >
+                  {/* Left Column - Circular Progress */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "16px",
+                    }}
+                  >
+                    {/* Circular Progress Chart */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <div style={{ position: "relative", width: "140px", height: "140px" }}>
+                        <svg
+                          width="140"
+                          height="140"
+                          viewBox="0 0 140 140"
+                          style={{ transform: "rotate(-90deg)" }}
+                        >
+                          <circle
+                            cx="70"
+                            cy="70"
+                            r="60"
+                            fill="none"
+                            stroke="#E8F3EF"
+                            strokeWidth="12"
+                          />
+                          <circle
+                            cx="70"
+                            cy="70"
+                            r="60"
+                            fill="none"
+                            stroke="#2CB585"
+                            strokeWidth="12"
+                            strokeDasharray={`${2 * Math.PI * 60}`}
+                            strokeDashoffset={`${2 * Math.PI * 60 * (1 - 0.9)}`}
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            textAlign: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              fontSize: "32px",
+                              fontWeight: "700",
+                              color: "#2CB585",
+                            }}
+                          >
+                            90%
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          textAlign: "center",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontSize: "12px",
+                            color: "#6b7280",
+                            margin: "0 0 4px 0",
+                          }}
+                        >
+                          Total Assigned Tasks
+                        </p>
+                        <p
+                          style={{
+                            fontSize: "20px",
+                            fontWeight: "600",
+                            color: "#1f2937",
+                            margin: "0",
+                          }}
+                        >
+                          20
+                        </p>
+                      </div>
+
+                      <div
+                        style={{
+                          width: "100%",
+                          marginTop: "8px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "8px",
+                            backgroundColor: "#D9E7E2",
+                            borderRadius: "9999px",
+                            overflow: "hidden",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "90%",
+                              height: "100%",
+                              backgroundColor: "#2CB585",
+                              borderRadius: "9999px",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column - KPI Table */}
+                  <div>
+                    <h3
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: "700",
+                        color: "#1f2937",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      My KPI Score
+                    </h3>
+
+                    <div
+                      style={{
+                        border: "1px solid #e5e7eb",
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                        <thead>
+                          <tr style={{ backgroundColor: "#f9fafb" }}>
+                            <th
+                              style={{
+                                padding: "12px 16px",
+                                textAlign: "left",
+                                fontSize: "12px",
+                                fontWeight: "600",
+                                color: "#6b7280",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              Label
+                            </th>
+                            <th
+                              style={{
+                                padding: "12px 16px",
+                                textAlign: "center",
+                                fontSize: "12px",
+                                fontWeight: "600",
+                                color: "#6b7280",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              # of Tasks
+                            </th>
+                            <th
+                              style={{
+                                padding: "12px 16px",
+                                textAlign: "center",
+                                fontSize: "12px",
+                                fontWeight: "600",
+                                color: "#6b7280",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              Weight
+                            </th>
+                            <th
+                              style={{
+                                padding: "12px 16px",
+                                textAlign: "right",
+                                fontSize: "12px",
+                                fontWeight: "600",
+                                color: "#6b7280",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              Weighted Score
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              Completion Rate
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                textAlign: "center",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              18
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                textAlign: "center",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              40%
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                fontWeight: "600",
+                                color: "#1f2937",
+                                textAlign: "right",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              36.00
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              On-Time Completion Rate
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                textAlign: "center",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              15
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                textAlign: "center",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              40%
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                fontWeight: "600",
+                                color: "#1f2937",
+                                textAlign: "right",
+                                borderBottom: "1px solid #e5e7eb",
+                              }}
+                            >
+                              37.00
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                              }}
+                            >
+                              Overdue Task Penalty
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                textAlign: "center",
+                              }}
+                            >
+                              3
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                color: "#374151",
+                                textAlign: "center",
+                              }}
+                            >
+                              20%
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 16px",
+                                fontSize: "13px",
+                                fontWeight: "600",
+                                color: "#1f2937",
+                                textAlign: "right",
+                              }}
+                            >
+                              17.00
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div
+                      style={{
+                        marginTop: "20px",
+                        padding: "16px",
+                        backgroundColor: "#f9fafb",
+                        borderRadius: "8px",
+                        border: "1px solid #e5e7eb",
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: "700",
+                          color: "#1f2937",
+                          margin: "0",
+                        }}
+                      >
+                        My KPI Score for the month: 90.00
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Middle Row - Stacked Layout: Pending Tasks then Pending Request */}
+            {!showKPIDetailedView && (
             <div
               style={{
                 display: "grid",
@@ -953,11 +1372,13 @@ export default function EmployeeDashboard() {
                   }
                 >
                   View All Requests →
-                </a>
-              </div>
+              </a>
             </div>
+            </div>
+            )}
 
             {/* Bottom Row - Recent Activities Container */}
+            {!showKPIDetailedView && (
             <div
               style={{
                 backgroundColor: "#ffffff",
@@ -1234,9 +1655,10 @@ export default function EmployeeDashboard() {
                 }
               >
                 View All Activities →
-              </a>
-            </div>
+            </a>
           </div>
+            )}
+        </div>
 
           {/* Right Section - 30% */}
           <div className="lg:col-span-4 space-y-4">
