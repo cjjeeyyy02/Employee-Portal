@@ -1,14 +1,51 @@
-import { Settings as SettingsIcon, User, Bell, Lock, Palette, Globe, Server, Database, Shield } from "lucide-react";
+import { Settings as SettingsIcon, User, Bell, Lock, Palette, Globe, Server, Database, Shield, X, Save } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useState } from "react";
+
+type ConfigModal = "Language & Region" | "System Settings" | "Database" | "Access Control" | null;
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState<"settings" | "configuration">("settings");
   const [notification, setNotification] = useState<string | null>(null);
+  const [activeModal, setActiveModal] = useState<ConfigModal>(null);
+  const [languageSettings, setLanguageSettings] = useState({
+    language: "English",
+    timezone: "UTC-8 (Pacific Time)",
+    dateFormat: "MM/DD/YYYY",
+    timeFormat: "12-hour",
+  });
+  const [systemSettings, setSystemSettings] = useState({
+    theme: "light",
+    notifications: "enabled",
+    autoSave: "enabled",
+    sessionTimeout: "30",
+  });
+  const [databaseSettings, setDatabaseSettings] = useState({
+    host: "localhost",
+    port: "5432",
+    database: "ess_portal",
+    connectionPool: "10",
+  });
+  const [accessSettings, setAccessSettings] = useState({
+    defaultRole: "user",
+    mfa: "enabled",
+    passwordExpiry: "90",
+    sessionDuration: "480",
+  });
 
   const handleCardClick = (title: string) => {
-    setNotification(`Opening ${title}...`);
+    if (title === "Language & Region" || title === "System Settings" || title === "Database" || title === "Access Control") {
+      setActiveModal(title as ConfigModal);
+    } else {
+      setNotification(`Opening ${title}...`);
+      setTimeout(() => setNotification(null), 2000);
+    }
+  };
+
+  const handleSaveSettings = () => {
+    setNotification(`Settings saved successfully!`);
     setTimeout(() => setNotification(null), 2000);
+    setActiveModal(null);
   };
 
   const settingsSections = [
