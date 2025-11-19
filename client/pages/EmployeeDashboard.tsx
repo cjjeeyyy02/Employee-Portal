@@ -891,7 +891,7 @@ export default function EmployeeDashboard() {
               </div>
             </div>
 
-            {/* Bottom Row - Upcoming Events Container */}
+            {/* Bottom Row - Recent Activities Container */}
             <div
               style={{
                 backgroundColor: "#ffffff",
