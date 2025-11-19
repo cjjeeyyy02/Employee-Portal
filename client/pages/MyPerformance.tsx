@@ -291,6 +291,18 @@ export default function MyPerformance() {
 
             {/* Right Column: KPI */}
             <div className="flex flex-col gap-2">
+              {/* Section Title */}
+              <h2
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "700",
+                  color: "#1A73E8",
+                  marginBottom: "4px",
+                }}
+              >
+                Key Performance Indicator (KPI)
+              </h2>
+
               {/* KPI Card Section */}
               <div
                 style={{
@@ -302,17 +314,6 @@ export default function MyPerformance() {
                   gap: "8px",
                 }}
               >
-                {/* KPI Title Row */}
-                <h3
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "600",
-                    color: "#111827",
-                  }}
-                >
-                  Key Performance Indicator (KPI)
-                </h3>
-
                 {/* Two Column Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {/* KPI Title */}
@@ -592,6 +593,18 @@ export default function MyPerformance() {
 
             {/* Right Column: KPI */}
             <div className="flex flex-col gap-2">
+              {/* Section Title */}
+              <h2
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "700",
+                  color: "#1A73E8",
+                  marginBottom: "4px",
+                }}
+              >
+                Key Performance Indicator (KPI)
+              </h2>
+
               {/* KPI Card Section */}
               <div
                 style={{
@@ -603,17 +616,6 @@ export default function MyPerformance() {
                   gap: "8px",
                 }}
               >
-                {/* KPI Title Row */}
-                <h3
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "600",
-                    color: "#111827",
-                  }}
-                >
-                  Key Performance Indicator (KPI)
-                </h3>
-
                 {/* Two Column Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {/* KPI Title */}
