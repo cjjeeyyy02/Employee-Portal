@@ -2,12 +2,12 @@ import { Settings as SettingsIcon, User, Bell, Lock, Palette, Globe, Server, Dat
 import Layout from "@/components/Layout";
 import { useState } from "react";
 
-type ConfigModal = "Language & Region" | "System Settings" | "Database" | "Access Control" | null;
+type ModalType = "Language & Region" | "System Settings" | "Database" | "Access Control" | "Profile Settings" | "Notifications" | "Security & Privacy" | "Appearance" | null;
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState<"settings" | "configuration">("settings");
   const [notification, setNotification] = useState<string | null>(null);
-  const [activeModal, setActiveModal] = useState<ConfigModal>(null);
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
   const [languageSettings, setLanguageSettings] = useState({
     language: "English",
     timezone: "UTC-8 (Pacific Time)",
@@ -32,10 +32,39 @@ export default function Settings() {
     passwordExpiry: "90",
     sessionDuration: "480",
   });
+  const [profileSettings, setProfileSettings] = useState({
+    firstName: "Sarah",
+    lastName: "Mitchell",
+    email: "sarah.mitchell@company.com",
+    phone: "+1 (555) 123-4567",
+    department: "Human Resources",
+    jobTitle: "HR Manager",
+  });
+  const [notificationSettings, setNotificationSettings] = useState({
+    emailNotifications: "enabled",
+    pushNotifications: "enabled",
+    smsNotifications: "disabled",
+    taskReminders: "enabled",
+    weeklyDigest: "enabled",
+  });
+  const [securitySettings, setSecuritySettings] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+    twoFactorAuth: "enabled",
+    loginAlerts: "enabled",
+  });
+  const [appearanceSettings, setAppearanceSettings] = useState({
+    theme: "light",
+    colorScheme: "blue",
+    fontSize: "medium",
+    sidebarCollapsed: "no",
+  });
 
   const handleCardClick = (title: string) => {
-    if (title === "Language & Region" || title === "System Settings" || title === "Database" || title === "Access Control") {
-      setActiveModal(title as ConfigModal);
+    const validModals = ["Language & Region", "System Settings", "Database", "Access Control", "Profile Settings", "Notifications", "Security & Privacy", "Appearance"];
+    if (validModals.includes(title)) {
+      setActiveModal(title as ModalType);
     } else {
       setNotification(`Opening ${title}...`);
       setTimeout(() => setNotification(null), 2000);
