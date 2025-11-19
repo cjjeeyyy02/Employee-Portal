@@ -61,6 +61,9 @@ export default function MyProfile() {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [selectedDocs, setSelectedDocs] = useState<number[]>([]);
   const [showDocCheckboxes, setShowDocCheckboxes] = useState<boolean>(false);
+  const [showLeaveDetailsModal, setShowLeaveDetailsModal] = useState<boolean>(false);
+  const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState<boolean>(false);
+  const [selectedLeave, setSelectedLeave] = useState<any>(null);
 
   const documents = [
     { id: 1, title: "Employment Contract", fileType: "PDF", fileSize: "2.4 MB", uploadDate: "01/15/2023" },
@@ -74,6 +77,71 @@ export default function MyProfile() {
     setSelectedDocs(prev =>
       prev.includes(docId) ? prev.filter(id => id !== docId) : [...prev, docId]
     );
+  };
+
+  const leaveHistory = [
+    {
+      id: 1,
+      leaveType: "Sick Leave",
+      duration: "03-15-2024 – 03-17-2024",
+      totalDays: 3,
+      approvedBy: "Michael Rodriguez",
+      status: "Approved",
+      reason: "Medical checkup and recovery",
+      requestDate: "03-10-2024"
+    },
+    {
+      id: 2,
+      leaveType: "Annual Leave",
+      duration: "01-08-2024 – 01-12-2024",
+      totalDays: 5,
+      approvedBy: "Michael Rodriguez",
+      status: "Approved",
+      reason: "Family vacation",
+      requestDate: "12-20-2023"
+    },
+    {
+      id: 3,
+      leaveType: "Personal Leave",
+      duration: "04-22-2024 – 04-22-2024",
+      totalDays: 1,
+      approvedBy: "",
+      status: "Under Review",
+      reason: "Personal matters",
+      requestDate: "04-15-2024"
+    },
+    {
+      id: 4,
+      leaveType: "Annual Leave",
+      duration: "05-10-2024 – 05-14-2024",
+      totalDays: 5,
+      approvedBy: "",
+      status: "Rejected",
+      reason: "Vacation during peak season",
+      requestDate: "04-25-2024",
+      rejectionReason: "Peak business period, insufficient staffing coverage"
+    }
+  ];
+
+  const handleViewLeaveDetails = (leave: any) => {
+    setSelectedLeave(leave);
+    setShowLeaveDetailsModal(true);
+    setOpenLeaveMenu(null);
+  };
+
+  const handleDeleteLeave = (leave: any) => {
+    setSelectedLeave(leave);
+    setShowDeleteConfirmModal(true);
+    setOpenLeaveMenu(null);
+  };
+
+  const confirmDeleteLeave = () => {
+    if (selectedLeave) {
+      setNotification({ message: `Leave request for ${selectedLeave.leaveType} has been deleted`, type: 'success' });
+      setTimeout(() => setNotification(null), 3000);
+      setShowDeleteConfirmModal(false);
+      setSelectedLeave(null);
+    }
   };
 
   const toggleSelectAll = () => {
