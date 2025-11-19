@@ -934,7 +934,7 @@ export default function EmployeeDashboard() {
                     borderRadius: "9999px",
                   }}
                 >
-                  4 Events
+                  Recent
                 </span>
               </div>
 
