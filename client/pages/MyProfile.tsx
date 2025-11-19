@@ -178,6 +178,44 @@ export default function MyProfile() {
     setSelectedDocs([]);
   };
 
+  const togglePayslipSelection = (payslipId: number) => {
+    setSelectedPayslips(prev =>
+      prev.includes(payslipId) ? prev.filter(id => id !== payslipId) : [...prev, payslipId]
+    );
+  };
+
+  const toggleSelectAllPayslips = () => {
+    setSelectedPayslips(prev =>
+      prev.length === payslips.length ? [] : payslips.map(p => p.id)
+    );
+  };
+
+  const handleDownloadPayslips = () => {
+    if (!showPayslipCheckboxes) {
+      // Enable selection mode
+      setShowPayslipCheckboxes(true);
+      return;
+    }
+
+    if (selectedPayslips.length === 0) {
+      alert("Please select at least one payslip to download.");
+      return;
+    }
+    const selectedPayslipData = payslips.filter(p => selectedPayslips.includes(p.id));
+    console.log("Downloading payslips:", selectedPayslipData);
+    // Implement actual download logic here
+    alert(`Downloading ${selectedPayslips.length} payslip(s)...`);
+
+    // Reset selection mode
+    setShowPayslipCheckboxes(false);
+    setSelectedPayslips([]);
+  };
+
+  const handleCancelPayslipSelection = () => {
+    setShowPayslipCheckboxes(false);
+    setSelectedPayslips([]);
+  };
+
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
   const [contactForm, setContactForm] = useState({ phone: "+1 234 567 890", personalEmail: "sarah.mitchell@email.com", workEmail: "sarah.m@company.com", street: "123 Main Street", city: "Los Angeles", state: "California", zipCode: "90001" });
