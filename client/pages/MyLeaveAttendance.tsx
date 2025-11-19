@@ -8,11 +8,23 @@ import {
   Coffee,
   LogOut,
   Clock,
+  Save,
+  Edit,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
 type TabType = "attendance" | "leave";
 type AttendanceSubTabType = "dailyLogs" | "timesheets" | "scheduledShifts";
+
+interface TimesheetEntry {
+  date: string;
+  day: string;
+  regularHours: string;
+  overtimeHours: string;
+  project: string;
+  task: string;
+  status: "Draft" | "Submitted" | "Approved";
+}
 
 interface AttendanceRecord {
   date: string;
