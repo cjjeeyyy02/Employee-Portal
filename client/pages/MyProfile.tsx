@@ -922,6 +922,10 @@ export default function MyProfile() {
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px", fontWeight: 600 }}>Previous Work History</h2>
                   <button
+                    onClick={() => {
+                      setNotification({ message: 'Edit Previous Work History functionality', type: 'info' });
+                      setTimeout(() => setNotification(null), 3000);
+                    }}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
