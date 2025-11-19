@@ -64,6 +64,8 @@ export default function DocumentRequests() {
     file: null as File | null,
   });
   const [newRequestForm, setNewRequestForm] = useState({
+    requestType: "",
+    requestTo: "",
     title: "",
     description: "",
     priority: "medium",
@@ -96,6 +98,8 @@ export default function DocumentRequests() {
     if (newRequestForm.title && newRequestForm.description) {
       showNotification("Request submitted successfully", "success");
       setNewRequestForm({
+        requestType: "",
+        requestTo: "",
         title: "",
         description: "",
         priority: "medium",
@@ -872,7 +876,7 @@ export default function DocumentRequests() {
                   <td className="px-4 py-3 text-sm text-gray-700">
                     mm-dd-yyyy
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700">—</td>
+                  <td className="px-4 py-3 text-sm text-gray-700">��</td>
                   <td className="px-4 py-3 text-sm text-center">
                     <div className="relative inline-block">
                       <button
@@ -1082,6 +1086,52 @@ export default function DocumentRequests() {
               </button>
             </div>
             <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Request Type
+                </label>
+                <select
+                  value={newRequestForm.requestType}
+                  onChange={(e) =>
+                    setNewRequestForm({
+                      ...newRequestForm,
+                      requestType: e.target.value,
+                    })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select request type</option>
+                  <option value="Leave">Leave</option>
+                  <option value="Schedule Change">Schedule Change</option>
+                  <option value="HR Inquiry">HR Inquiry</option>
+                  <option value="Overtime">Overtime</option>
+                  <option value="Document Request">Document Request</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Request To
+                </label>
+                <select
+                  value={newRequestForm.requestTo}
+                  onChange={(e) =>
+                    setNewRequestForm({
+                      ...newRequestForm,
+                      requestTo: e.target.value,
+                    })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select recipient</option>
+                  <option value="A. Smith">A. Smith</option>
+                  <option value="A. Johnson">A. Johnson</option>
+                  <option value="A. Brown">A. Brown</option>
+                  <option value="HR Department">HR Department</option>
+                  <option value="Finance Department">Finance Department</option>
+                  <option value="IT Department">IT Department</option>
+                </select>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Request Title
