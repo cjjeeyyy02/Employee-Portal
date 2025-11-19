@@ -1582,38 +1582,38 @@ export default function EmployeeDashboard() {
             </div>
 
             {/* Upcoming Events Container */}
-            <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-base font-semibold text-gray-900">
+            <div className="bg-white border border-gray-300 rounded-lg p-3 shadow-sm">
+              <div className="flex items-center justify-between mb-2">
+                <h2 className="text-sm font-semibold text-gray-900">
                   Upcoming Events
                 </h2>
                 <span className="text-xs text-gray-500">This Week</span>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {/* Event 1 */}
                 <div
                   style={{
                     display: "flex",
-                    gap: "12px",
-                    padding: "12px",
+                    gap: "8px",
+                    padding: "8px",
                     backgroundColor: "#f9fafb",
-                    borderRadius: "8px",
+                    borderRadius: "6px",
                     border: "1px solid #e5e7eb",
                   }}
                 >
                   <div
                     style={{
-                      width: "4px",
+                      width: "3px",
                       backgroundColor: "#3b82f6",
                       borderRadius: "2px",
                     }}
                   ></div>
                   <div style={{ flex: 1 }}>
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-start justify-between mb-1">
                       <h3
                         style={{
-                          fontSize: "14px",
+                          fontSize: "12px",
                           fontWeight: "600",
                           color: "#1f2937",
                           margin: 0,
@@ -1623,11 +1623,11 @@ export default function EmployeeDashboard() {
                       </h3>
                       <span
                         style={{
-                          fontSize: "10px",
-                          padding: "2px 8px",
+                          fontSize: "9px",
+                          padding: "2px 6px",
                           backgroundColor: "#dbeafe",
                           color: "#1e40af",
-                          borderRadius: "12px",
+                          borderRadius: "10px",
                           fontWeight: "500",
                         }}
                       >
@@ -1636,7 +1636,7 @@ export default function EmployeeDashboard() {
                     </div>
                     <p
                       style={{
-                        fontSize: "12px",
+                        fontSize: "11px",
                         color: "#6b7280",
                         margin: 0,
                       }}
@@ -1645,9 +1645,9 @@ export default function EmployeeDashboard() {
                     </p>
                     <p
                       style={{
-                        fontSize: "11px",
+                        fontSize: "10px",
                         color: "#9ca3af",
-                        margin: "4px 0 0 0",
+                        margin: "2px 0 0 0",
                       }}
                     >
                       Weekly team sync and project updates
@@ -1659,25 +1659,25 @@ export default function EmployeeDashboard() {
                 <div
                   style={{
                     display: "flex",
-                    gap: "12px",
-                    padding: "12px",
+                    gap: "8px",
+                    padding: "8px",
                     backgroundColor: "#f9fafb",
-                    borderRadius: "8px",
+                    borderRadius: "6px",
                     border: "1px solid #e5e7eb",
                   }}
                 >
                   <div
                     style={{
-                      width: "4px",
+                      width: "3px",
                       backgroundColor: "#10b981",
                       borderRadius: "2px",
                     }}
                   ></div>
                   <div style={{ flex: 1 }}>
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-start justify-between mb-1">
                       <h3
                         style={{
-                          fontSize: "14px",
+                          fontSize: "12px",
                           fontWeight: "600",
                           color: "#1f2937",
                           margin: 0,
@@ -1687,11 +1687,11 @@ export default function EmployeeDashboard() {
                       </h3>
                       <span
                         style={{
-                          fontSize: "10px",
-                          padding: "2px 8px",
+                          fontSize: "9px",
+                          padding: "2px 6px",
                           backgroundColor: "#d1fae5",
                           color: "#065f46",
-                          borderRadius: "12px",
+                          borderRadius: "10px",
                           fontWeight: "500",
                         }}
                       >
@@ -1700,7 +1700,7 @@ export default function EmployeeDashboard() {
                     </div>
                     <p
                       style={{
-                        fontSize: "12px",
+                        fontSize: "11px",
                         color: "#6b7280",
                         margin: 0,
                       }}
@@ -1709,9 +1709,9 @@ export default function EmployeeDashboard() {
                     </p>
                     <p
                       style={{
-                        fontSize: "11px",
+                        fontSize: "10px",
                         color: "#9ca3af",
-                        margin: "4px 0 0 0",
+                        margin: "2px 0 0 0",
                       }}
                     >
                       Q4 project final submission
@@ -1723,25 +1723,25 @@ export default function EmployeeDashboard() {
                 <div
                   style={{
                     display: "flex",
-                    gap: "12px",
-                    padding: "12px",
+                    gap: "8px",
+                    padding: "8px",
                     backgroundColor: "#f9fafb",
-                    borderRadius: "8px",
+                    borderRadius: "6px",
                     border: "1px solid #e5e7eb",
                   }}
                 >
                   <div
                     style={{
-                      width: "4px",
+                      width: "3px",
                       backgroundColor: "#f59e0b",
                       borderRadius: "2px",
                     }}
                   ></div>
                   <div style={{ flex: 1 }}>
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-start justify-between mb-1">
                       <h3
                         style={{
-                          fontSize: "14px",
+                          fontSize: "12px",
                           fontWeight: "600",
                           color: "#1f2937",
                           margin: 0,
@@ -1751,11 +1751,11 @@ export default function EmployeeDashboard() {
                       </h3>
                       <span
                         style={{
-                          fontSize: "10px",
-                          padding: "2px 8px",
+                          fontSize: "9px",
+                          padding: "2px 6px",
                           backgroundColor: "#fef3c7",
                           color: "#92400e",
-                          borderRadius: "12px",
+                          borderRadius: "10px",
                           fontWeight: "500",
                         }}
                       >
@@ -1764,7 +1764,7 @@ export default function EmployeeDashboard() {
                     </div>
                     <p
                       style={{
-                        fontSize: "12px",
+                        fontSize: "11px",
                         color: "#6b7280",
                         margin: 0,
                       }}
@@ -1773,9 +1773,9 @@ export default function EmployeeDashboard() {
                     </p>
                     <p
                       style={{
-                        fontSize: "11px",
+                        fontSize: "10px",
                         color: "#9ca3af",
-                        margin: "4px 0 0 0",
+                        margin: "2px 0 0 0",
                       }}
                     >
                       Annual performance review with manager
@@ -1786,7 +1786,7 @@ export default function EmployeeDashboard() {
 
               <a
                 href="/calendar"
-                className="mt-4 text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center gap-2"
+                className="mt-2 text-xs text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center gap-2"
               >
                 View All Events →
               </a>
