@@ -1181,8 +1181,8 @@ export default function MyProfile() {
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
                       <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Skill Name</th>
-                      <th className="px-3 py-2 text-center" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Experience (Years)</th>
                       <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Skill Level</th>
+                      <th className="px-3 py-2 text-center" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Experience (Years)</th>
                       <th className="px-3 py-2 text-left" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Last Updated</th>
                       <th className="px-3 py-2 text-center" style={{ fontSize: "11px", fontWeight: 600, color: "#111827" }}>Action</th>
                     </tr>
