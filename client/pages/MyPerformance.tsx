@@ -94,13 +94,15 @@ export default function MyPerformance() {
         <div className="flex flex-col gap-3" style={{ padding: "12px", backgroundColor: "#FFFFFF", borderRadius: "8px", boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)" }}>
           {/* Goal Block 1 */}
           <div className="grid grid-cols-2 gap-3">
-            {/* Section Title */}
-            <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#1A73E8", marginBottom: "4px" }}>
-              Goal Details
-            </h2>
+            {/* Left Column: Goal Details */}
+            <div className="flex flex-col gap-2">
+              {/* Section Title */}
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#1A73E8", marginBottom: "4px" }}>
+                Goal Details
+              </h2>
 
-            {/* Goal Card */}
-            <div style={{ backgroundColor: "#FFFFFF", borderRadius: "6px", padding: "10px", boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", display: "flex", flexDirection: "column", gap: "8px" }}>
+              {/* Goal Card */}
+              <div style={{ backgroundColor: "#FFFFFF", borderRadius: "6px", padding: "10px", boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", display: "flex", flexDirection: "column", gap: "8px" }}>
               {/* Goal Header Row */}
               <div className="flex justify-between items-start gap-2">
                 <div className="flex-1">
@@ -136,66 +138,72 @@ export default function MyPerformance() {
                   <div style={{ width: "60%", height: "5px", backgroundColor: "#3D5AFE", borderRadius: "9999px" }}></div>
                 </div>
               </div>
+              </div>
             </div>
 
-            {/* KPI Card Section */}
-            <div style={{ backgroundColor: "#FFFBEA", borderRadius: "6px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px" }}>
-              {/* KPI Title Row */}
-              <h3 style={{ fontSize: "11px", fontWeight: "600", color: "#111827" }}>Key Performance Indicator (KPI)</h3>
+            {/* Right Column: KPI */}
+            <div className="flex flex-col gap-2">
+              {/* KPI Card Section */}
+              <div style={{ backgroundColor: "#FFFBEA", borderRadius: "6px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px", marginTop: "30px" }}>
+                {/* KPI Title Row */}
+                <h3 style={{ fontSize: "11px", fontWeight: "600", color: "#111827" }}>Key Performance Indicator (KPI)</h3>
 
-              {/* Two Column Grid */}
-              <div className="grid grid-cols-2 gap-3">
-                {/* KPI Title */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Title</p>
-                  <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Monthly Active User (MAU) Growth</p>
-                </div>
+                {/* Two Column Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  {/* KPI Title */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Title</p>
+                    <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Monthly Active User (MAU) Growth</p>
+                  </div>
 
-                {/* KPI Target */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Target</p>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#1DB954" }}>25% (Growth)</p>
-                </div>
+                  {/* KPI Target */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Target</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: "#1DB954" }}>25% (Growth)</p>
+                  </div>
 
-                {/* KPI Unit Type */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Unit Type</p>
-                  <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Percentage (%)</p>
-                </div>
+                  {/* KPI Unit Type */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Unit Type</p>
+                    <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Percentage (%)</p>
+                  </div>
 
-                {/* KPI Tags */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "4px" }}>KPI Tags</p>
-                  <div className="flex gap-1 flex-wrap">
-                    <span style={{ backgroundColor: "#E3F2FD", color: "#1E88E5", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
-                      Lagging & Quantitative
-                    </span>
-                    <span style={{ backgroundColor: "#E8F5E9", color: "#43A047", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
-                      Outcome
-                    </span>
+                  {/* KPI Tags */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "4px" }}>KPI Tags</p>
+                    <div className="flex gap-1 flex-wrap">
+                      <span style={{ backgroundColor: "#E3F2FD", color: "#1E88E5", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
+                        Lagging & Quantitative
+                      </span>
+                      <span style={{ backgroundColor: "#E8F5E9", color: "#43A047", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
+                        Outcome
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* KPI Notes (Full Width) */}
-              <div>
-                <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Notes</p>
-                <p style={{ fontSize: "11px", color: "#374151", lineHeight: "1.4" }}>
-                  KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
-                </p>
+                {/* KPI Notes (Full Width) */}
+                <div>
+                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Notes</p>
+                  <p style={{ fontSize: "11px", color: "#374151", lineHeight: "1.4" }}>
+                    KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Goal Block 2 (Duplicate) */}
-          <div className="flex flex-col gap-2">
-            {/* Section Title */}
-            <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#1A73E8", marginBottom: "4px" }}>
-              Goal Details
-            </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {/* Left Column: Goal Details */}
+            <div className="flex flex-col gap-2">
+              {/* Section Title */}
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#1A73E8", marginBottom: "4px" }}>
+                Goal Details
+              </h2>
 
-            {/* Goal Card */}
-            <div style={{ backgroundColor: "#FFFFFF", borderRadius: "6px", padding: "10px", boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", display: "flex", flexDirection: "column", gap: "8px" }}>
+              {/* Goal Card */}
+              <div style={{ backgroundColor: "#FFFFFF", borderRadius: "6px", padding: "10px", boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", display: "flex", flexDirection: "column", gap: "8px" }}>
               {/* Goal Header Row */}
               <div className="flex justify-between items-start gap-2">
                 <div className="flex-1">
@@ -231,53 +239,57 @@ export default function MyPerformance() {
                   <div style={{ width: "60%", height: "5px", backgroundColor: "#3D5AFE", borderRadius: "9999px" }}></div>
                 </div>
               </div>
+              </div>
             </div>
 
-            {/* KPI Card Section */}
-            <div style={{ backgroundColor: "#FFFBEA", borderRadius: "6px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px" }}>
-              {/* KPI Title Row */}
-              <h3 style={{ fontSize: "11px", fontWeight: "600", color: "#111827" }}>Key Performance Indicator (KPI)</h3>
+            {/* Right Column: KPI */}
+            <div className="flex flex-col gap-2">
+              {/* KPI Card Section */}
+              <div style={{ backgroundColor: "#FFFBEA", borderRadius: "6px", padding: "10px", display: "flex", flexDirection: "column", gap: "8px", marginTop: "30px" }}>
+                {/* KPI Title Row */}
+                <h3 style={{ fontSize: "11px", fontWeight: "600", color: "#111827" }}>Key Performance Indicator (KPI)</h3>
 
-              {/* Two Column Grid */}
-              <div className="grid grid-cols-2 gap-3">
-                {/* KPI Title */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Title</p>
-                  <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Monthly Active User (MAU) Growth</p>
-                </div>
+                {/* Two Column Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  {/* KPI Title */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Title</p>
+                    <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Monthly Active User (MAU) Growth</p>
+                  </div>
 
-                {/* KPI Target */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Target</p>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#1DB954" }}>25% (Growth)</p>
-                </div>
+                  {/* KPI Target */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Target</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: "#1DB954" }}>25% (Growth)</p>
+                  </div>
 
-                {/* KPI Unit Type */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Unit Type</p>
-                  <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Percentage (%)</p>
-                </div>
+                  {/* KPI Unit Type */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Unit Type</p>
+                    <p style={{ fontSize: "11px", fontWeight: "500", color: "#111827" }}>Percentage (%)</p>
+                  </div>
 
-                {/* KPI Tags */}
-                <div>
-                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "4px" }}>KPI Tags</p>
-                  <div className="flex gap-1 flex-wrap">
-                    <span style={{ backgroundColor: "#E3F2FD", color: "#1E88E5", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
-                      Lagging & Quantitative
-                    </span>
-                    <span style={{ backgroundColor: "#E8F5E9", color: "#43A047", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
-                      Outcome
-                    </span>
+                  {/* KPI Tags */}
+                  <div>
+                    <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "4px" }}>KPI Tags</p>
+                    <div className="flex gap-1 flex-wrap">
+                      <span style={{ backgroundColor: "#E3F2FD", color: "#1E88E5", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
+                        Lagging & Quantitative
+                      </span>
+                      <span style={{ backgroundColor: "#E8F5E9", color: "#43A047", padding: "2px 8px", borderRadius: "9999px", fontSize: "10px", fontWeight: "500" }}>
+                        Outcome
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* KPI Notes (Full Width) */}
-              <div>
-                <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Notes</p>
-                <p style={{ fontSize: "11px", color: "#374151", lineHeight: "1.4" }}>
-                  KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
-                </p>
+                {/* KPI Notes (Full Width) */}
+                <div>
+                  <p style={{ fontSize: "10px", color: "#6B7280", marginBottom: "2px" }}>KPI Notes</p>
+                  <p style={{ fontSize: "11px", color: "#374151", lineHeight: "1.4" }}>
+                    KPIs provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
