@@ -638,7 +638,7 @@ export default function EmployeeDashboard() {
               <div
                 style={{
                   backgroundColor: "#ffffff",
-                  borderRadius: "24px",
+                  borderRadius: "12px",
                   border: "1px solid #e5e7eb",
                   padding: "16px",
                   boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
@@ -852,7 +852,7 @@ export default function EmployeeDashboard() {
               style={{
                 backgroundColor: "#ffffff",
                 border: "1px solid #e5e7eb",
-                borderRadius: "20px",
+                borderRadius: "12px",
                 boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
                 padding: "16px",
                 display: "flex",
