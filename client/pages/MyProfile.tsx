@@ -4296,8 +4296,8 @@ export default function MyProfile() {
                               <button
                                 className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                                 onClick={() => {
-                                  console.log(`Viewing: ${doc.title}`);
-                                  alert(`Viewing ${doc.title}...`);
+                                  setSelectedDoc(doc);
+                                  setShowDocViewModal(true);
                                   setOpenDocMenu(null);
                                 }}
                               >
@@ -4307,13 +4307,27 @@ export default function MyProfile() {
                               <button
                                 className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                                 onClick={() => {
-                                  console.log(`Downloading: ${doc.title}`);
-                                  alert(`Downloading ${doc.title}...`);
+                                  setNotification({
+                                    message: `Downloading ${doc.title}...`,
+                                    type: "info",
+                                  });
+                                  setTimeout(() => setNotification(null), 3000);
                                   setOpenDocMenu(null);
                                 }}
                               >
                                 <Download className="w-4 h-4" />
                                 Download
+                              </button>
+                              <button
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                                onClick={() => {
+                                  setSelectedDoc(doc);
+                                  setShowDeleteDocModal(true);
+                                  setOpenDocMenu(null);
+                                }}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                                Delete
                               </button>
                             </div>
                           )}
