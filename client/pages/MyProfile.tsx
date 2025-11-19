@@ -1559,29 +1559,45 @@ export default function MyProfile() {
                 }}
               >
                 {/* Header */}
-                <div className="flex items-start gap-2 mb-3">
-                  <Briefcase className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h2
-                      className="text-sm font-bold text-gray-900"
-                      style={{
-                        fontFamily: "Poppins, sans-serif",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                      }}
-                    >
-                      Work Details
-                    </h2>
-                    <p
-                      className="text-xs text-gray-600 mt-0.5"
-                      style={{
-                        fontFamily: "Poppins, sans-serif",
-                        fontSize: "11px",
-                      }}
-                    >
-                      Your current position and work information.
-                    </p>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-start gap-2">
+                    <Briefcase className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h2
+                        className="text-sm font-bold text-gray-900"
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "13px",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Work Details
+                      </h2>
+                      <p
+                        className="text-xs text-gray-600 mt-0.5"
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "11px",
+                        }}
+                      >
+                        Your current position and work information.
+                      </p>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => {
+                      setNotification({
+                        message: "Edit Work Details functionality",
+                        type: "info",
+                      });
+                      setTimeout(() => setNotification(null), 3000);
+                    }}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    <Edit2 className="w-4 h-4" />
+                    Edit
+                  </button>
                 </div>
 
                 {/* Information Grid */}
