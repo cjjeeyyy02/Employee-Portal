@@ -68,6 +68,9 @@ export default function MyProfile() {
   const [selectedLeave, setSelectedLeave] = useState<any>(null);
   const [selectedPayslips, setSelectedPayslips] = useState<number[]>([]);
   const [showPayslipCheckboxes, setShowPayslipCheckboxes] = useState<boolean>(false);
+  const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   const documents = [
     { id: 1, title: "Employment Contract", fileType: "PDF", fileSize: "2.4 MB", uploadDate: "01/15/2023" },
