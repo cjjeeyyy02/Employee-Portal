@@ -122,6 +122,30 @@ export default function EmployeeDashboard() {
     },
   ];
 
+  const pendingRequests = [
+    {
+      id: "REQ-2025-001",
+      title: "Leave Request - Annual Leave",
+      submittedDate: "01/15/2025",
+      priority: "High",
+      status: "Pending",
+    },
+    {
+      id: "REQ-2025-002",
+      title: "Document Request - Certificate",
+      submittedDate: "01/12/2025",
+      priority: "Medium",
+      status: "In Review",
+    },
+    {
+      id: "REQ-2025-003",
+      title: "Schedule Change Request",
+      submittedDate: "01/10/2025",
+      priority: "High",
+      status: "Pending",
+    },
+  ];
+
   return (
     <Layout>
       <div className="max-w-[1400px] mx-auto">
