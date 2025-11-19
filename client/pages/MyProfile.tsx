@@ -378,6 +378,16 @@ export default function MyProfile() {
     setSelectedSkill(null);
   };
 
+  const confirmDeleteDoc = () => {
+    setNotification({
+      message: `Deleted document: ${selectedDoc?.title}`,
+      type: "success",
+    });
+    setTimeout(() => setNotification(null), 3000);
+    setShowDeleteDocModal(false);
+    setSelectedDoc(null);
+  };
+
   // Edit form states
   const [personalForm, setPersonalForm] = useState({
     firstName: "Sarah",
