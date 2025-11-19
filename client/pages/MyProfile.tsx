@@ -3180,6 +3180,17 @@ export default function MyProfile() {
                             >
                               <button
                                 onClick={() => {
+                                  setSelectedSkill(skill);
+                                  setShowSkillViewModal(true);
+                                  setOpenSkillMenu(null);
+                                }}
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                              >
+                                <Eye className="w-4 h-4" />
+                                View
+                              </button>
+                              <button
+                                onClick={() => {
                                   setNotification({
                                     message: `Editing skill: ${skill.name}`,
                                     type: "info",
@@ -3194,11 +3205,8 @@ export default function MyProfile() {
                               </button>
                               <button
                                 onClick={() => {
-                                  setNotification({
-                                    message: `Deleted skill: ${skill.name}`,
-                                    type: "success",
-                                  });
-                                  setTimeout(() => setNotification(null), 3000);
+                                  setSelectedSkill(skill);
+                                  setShowDeleteSkillModal(true);
                                   setOpenSkillMenu(null);
                                 }}
                                 className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
