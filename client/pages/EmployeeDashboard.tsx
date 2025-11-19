@@ -864,10 +864,10 @@ export default function EmployeeDashboard() {
                 <a
                   href="/documents"
                   style={{
-                    fontSize: "13px",
+                    fontSize: "11px",
                     color: "#2563eb",
                     fontWeight: "500",
-                    marginTop: "16px",
+                    marginTop: "12px",
                     display: "inline-block",
                     textDecoration: "none",
                     borderBottom: "2px solid transparent",
