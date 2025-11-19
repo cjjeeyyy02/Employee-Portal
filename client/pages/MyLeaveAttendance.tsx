@@ -11,6 +11,7 @@ import {
   Save,
   Edit,
   Download,
+  X,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
@@ -160,11 +161,27 @@ export default function MyLeaveAttendance() {
 
   // Overtime form state
   const [overtimeForm, setOvertimeForm] = useState({
-    date: "",
+    date: "2025-11-18",
+    startTime: "18:00",
+    endTime: "20:30",
+    totalHours: "2.50",
+    reason: "Completed urgent bug fixes for the production environment database connection that arose late in the evening.",
     requestTo: "",
-    hours: "",
-    reason: "",
   });
+  const [showRequestToSuggestions, setShowRequestToSuggestions] = useState(false);
+  const [requestToInput, setRequestToInput] = useState("");
+
+  const employeeNames = [
+    "Michael Rodriguez",
+    "Sarah Johnson",
+    "Alex Kim",
+    "Lisa Brown",
+    "John Doe",
+  ];
+
+  const filteredEmployees = employeeNames.filter(name =>
+    name.toLowerCase().includes(requestToInput.toLowerCase())
+  );
 
   // Request Correction form state
   const [correctionForm, setCorrectionForm] = useState({
@@ -234,13 +251,32 @@ export default function MyLeaveAttendance() {
   };
 
   const handleOvertimeSubmit = () => {
-    if (overtimeForm.date && overtimeForm.requestTo && overtimeForm.hours && overtimeForm.reason) {
+    if (overtimeForm.date && overtimeForm.startTime && overtimeForm.endTime && overtimeForm.reason && requestToInput) {
       showNotification("Overtime request submitted successfully", "success");
-      setOvertimeForm({ date: "", requestTo: "", hours: "", reason: "" });
+      setOvertimeForm({
+        date: "2025-11-18",
+        startTime: "18:00",
+        endTime: "20:30",
+        totalHours: "2.50",
+        reason: "Completed urgent bug fixes for the production environment database connection that arose late in the evening.",
+        requestTo: ""
+      });
+      setRequestToInput("");
       setShowOvertimeModal(false);
     } else {
-      showNotification("Please fill in all fields", "info");
+      showNotification("Please fill in all required fields", "info");
     }
+  };
+
+  const calculateTotalHours = (start: string, end: string) => {
+    if (!start || !end) return "0.00";
+    const [startHour, startMin] = start.split(':').map(Number);
+    const [endHour, endMin] = end.split(':').map(Number);
+    const startMinutes = startHour * 60 + startMin;
+    const endMinutes = endHour * 60 + endMin;
+    const diffMinutes = endMinutes - startMinutes;
+    const hours = (diffMinutes / 60).toFixed(2);
+    return hours;
   };
 
   const handleDateSelect = (date: string) => {
@@ -1544,84 +1580,168 @@ export default function MyLeaveAttendance() {
       {/* Overtime Request Modal */}
       {showOvertimeModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Request Overtime
-            </h2>
+          <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">
+                Request for Overtime
+              </h2>
+              <button
+                onClick={() => setShowOvertimeModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
             <div className="space-y-4">
+              {/* Date of Overtime */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Date
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Date of Overtime
+                </label>
+                <div className="flex items-center gap-3 bg-gray-50 border border-gray-300 rounded-lg px-4 py-3">
+                  <Calendar className="w-5 h-5 text-gray-500" />
+                  <input
+                    type="date"
+                    value={overtimeForm.date}
+                    onChange={(e) =>
+                      setOvertimeForm({ ...overtimeForm, date: e.target.value })
+                    }
+                    className="flex-1 bg-transparent text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Start Time */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Start Time <span className="text-red-500">*</span>
+                </label>
+                <div className="flex items-center gap-3 bg-gray-50 border border-gray-300 rounded-lg px-4 py-3">
+                  <Clock className="w-5 h-5 text-gray-500" />
+                  <input
+                    type="time"
+                    value={overtimeForm.startTime}
+                    onChange={(e) => {
+                      const newStartTime = e.target.value;
+                      setOvertimeForm({
+                        ...overtimeForm,
+                        startTime: newStartTime,
+                        totalHours: calculateTotalHours(newStartTime, overtimeForm.endTime)
+                      });
+                    }}
+                    className="flex-1 bg-transparent text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* End Time */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  End Time <span className="text-red-500">*</span>
+                </label>
+                <div className="flex items-center gap-3 bg-gray-50 border border-gray-300 rounded-lg px-4 py-3">
+                  <Clock className="w-5 h-5 text-gray-500" />
+                  <input
+                    type="time"
+                    value={overtimeForm.endTime}
+                    onChange={(e) => {
+                      const newEndTime = e.target.value;
+                      setOvertimeForm({
+                        ...overtimeForm,
+                        endTime: newEndTime,
+                        totalHours: calculateTotalHours(overtimeForm.startTime, newEndTime)
+                      });
+                    }}
+                    className="flex-1 bg-transparent text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Total Hours (Disabled) */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Person
+                </label>
+                <div className="bg-gray-100 border border-gray-300 rounded-lg px-4 py-3">
+                  <input
+                    type="text"
+                    value={`Total Hours: ${overtimeForm.totalHours}`}
+                    disabled
+                    className="w-full bg-transparent text-sm text-gray-600 cursor-not-allowed"
+                  />
+                </div>
+              </div>
+
+              {/* Reason for Overtime */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Reason for Overtime
+                </label>
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-3">
+                  <textarea
+                    value={overtimeForm.reason}
+                    onChange={(e) =>
+                      setOvertimeForm({ ...overtimeForm, reason: e.target.value })
+                    }
+                    className="w-full bg-transparent text-sm focus:outline-none resize-none"
+                    rows={4}
+                    placeholder="Enter reason for overtime"
+                  ></textarea>
+                </div>
+              </div>
+
+              {/* Request To (with autocomplete) */}
+              <div className="relative">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Request To
                 </label>
                 <input
-                  type="date"
-                  value={overtimeForm.date}
-                  onChange={(e) =>
-                    setOvertimeForm({ ...overtimeForm, date: e.target.value })
-                  }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  type="text"
+                  value={requestToInput}
+                  onChange={(e) => {
+                    setRequestToInput(e.target.value);
+                    setShowRequestToSuggestions(e.target.value.length > 0);
+                  }}
+                  onFocus={() => setShowRequestToSuggestions(requestToInput.length > 0)}
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Type to search employee name..."
                 />
+                {showRequestToSuggestions && filteredEmployees.length > 0 && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-40 overflow-y-auto">
+                    {filteredEmployees.map((name, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setRequestToInput(name);
+                          setOvertimeForm({ ...overtimeForm, requestTo: name });
+                          setShowRequestToSuggestions(false);
+                        }}
+                        className="w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors"
+                      >
+                        {name}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Request to
-                </label>
-                <select
-                  value={overtimeForm.requestTo}
-                  onChange={(e) =>
-                    setOvertimeForm({ ...overtimeForm, requestTo: e.target.value })
-                  }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
-                >
-                  <option value="">Select approver</option>
-                  <option value="Michael Rodriguez">Michael Rodriguez</option>
-                  <option value="Sarah Johnson">Sarah Johnson</option>
-                  <option value="Alex Kim">Alex Kim</option>
-                  <option value="Manager">Manager</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Hours
-                </label>
-                <input
-                  type="number"
-                  value={overtimeForm.hours}
-                  onChange={(e) =>
-                    setOvertimeForm({ ...overtimeForm, hours: e.target.value })
-                  }
-                  placeholder="e.g., 2"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Reason
-                </label>
-                <textarea
-                  value={overtimeForm.reason}
-                  onChange={(e) =>
-                    setOvertimeForm({ ...overtimeForm, reason: e.target.value })
-                  }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  rows={3}
-                  placeholder="Enter reason for overtime"
-                ></textarea>
-              </div>
-              <div className="flex gap-3 pt-4">
-                <button
-                  onClick={() => setShowOvertimeModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleOvertimeSubmit}
-                  className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors text-sm"
-                >
-                  Submit
-                </button>
-              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center justify-between gap-3 mt-6 pt-4 border-t border-gray-200">
+              <button
+                onClick={() => setShowOvertimeModal(false)}
+                className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleOvertimeSubmit}
+                className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>
