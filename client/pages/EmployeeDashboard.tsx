@@ -1240,6 +1240,150 @@ export default function EmployeeDashboard() {
                 </div>
               </div>
 
+              {/* Upcoming Events Section */}
+              <div
+                style={{
+                  borderTop: "1px solid #e5e7eb",
+                  paddingTop: "12px",
+                  marginTop: "8px",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "600",
+                    color: "#1f2937",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Upcoming Events
+                </h3>
+                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                  {/* Event 1 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "8px",
+                      padding: "6px",
+                      backgroundColor: "#f9fafb",
+                      borderRadius: "6px",
+                      border: "1px solid #e5e7eb",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "3px",
+                        backgroundColor: "#3b82f6",
+                        borderRadius: "2px",
+                      }}
+                    ></div>
+                    <div style={{ flex: 1 }}>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          fontWeight: "500",
+                          color: "#1f2937",
+                          margin: "0 0 2px 0",
+                        }}
+                      >
+                        Team Meeting
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "10px",
+                          color: "#6b7280",
+                          margin: "0",
+                        }}
+                      >
+                        Tomorrow, 10:00 AM
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Event 2 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "8px",
+                      padding: "6px",
+                      backgroundColor: "#f9fafb",
+                      borderRadius: "6px",
+                      border: "1px solid #e5e7eb",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "3px",
+                        backgroundColor: "#10b981",
+                        borderRadius: "2px",
+                      }}
+                    ></div>
+                    <div style={{ flex: 1 }}>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          fontWeight: "500",
+                          color: "#1f2937",
+                          margin: "0 0 2px 0",
+                        }}
+                      >
+                        Project Deadline
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "10px",
+                          color: "#6b7280",
+                          margin: "0",
+                        }}
+                      >
+                        Dec 20, 5:00 PM
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Event 3 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "8px",
+                      padding: "6px",
+                      backgroundColor: "#f9fafb",
+                      borderRadius: "6px",
+                      border: "1px solid #e5e7eb",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "3px",
+                        backgroundColor: "#f59e0b",
+                        borderRadius: "2px",
+                      }}
+                    ></div>
+                    <div style={{ flex: 1 }}>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          fontWeight: "500",
+                          color: "#1f2937",
+                          margin: "0 0 2px 0",
+                        }}
+                      >
+                        Annual Review
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "10px",
+                          color: "#6b7280",
+                          margin: "0",
+                        }}
+                      >
+                        Dec 28, 2:00 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* View Full Calendar Link */}
               <a
                 href="/calendar"
