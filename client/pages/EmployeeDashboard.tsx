@@ -1461,6 +1461,126 @@ export default function EmployeeDashboard() {
               </a>
             </div>
 
+            {/* Announcements Container */}
+            <div className="bg-white border border-gray-300 rounded-lg p-3 shadow-sm">
+              <div className="mb-2">
+                <h2 className="text-sm font-semibold text-gray-900 mb-0.5">
+                  Announcements
+                </h2>
+                <p className="text-xs text-gray-600 mb-2">
+                  List of company-wide announcements
+                </p>
+
+                {/* Tabs */}
+                <div className="flex gap-4 border-b border-gray-200">
+                  <button
+                    onClick={() => setAnnouncementTab("All")}
+                    className={`pb-1.5 text-xs font-medium transition-colors relative ${
+                      announcementTab === "All"
+                        ? "text-blue-600"
+                        : "text-gray-600 hover:text-gray-900"
+                    }`}
+                  >
+                    All
+                    {announcementTab === "All" && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => setAnnouncementTab("News")}
+                    className={`pb-1.5 text-xs font-medium transition-colors relative ${
+                      announcementTab === "News"
+                        ? "text-blue-600"
+                        : "text-gray-600 hover:text-gray-900"
+                    }`}
+                  >
+                    News
+                    {announcementTab === "News" && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => setAnnouncementTab("Activities")}
+                    className={`pb-1.5 text-xs font-medium transition-colors relative ${
+                      announcementTab === "Activities"
+                        ? "text-blue-600"
+                        : "text-gray-600 hover:text-gray-900"
+                    }`}
+                  >
+                    Activities
+                    {announcementTab === "Activities" && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Scrollable Announcement List */}
+              <div className="max-h-[300px] overflow-y-auto">
+                {/* Announcement 1 */}
+                <div className="flex gap-3 py-2 border-b border-gray-200">
+                  <div className="flex-shrink-0 w-12 text-center">
+                    <div className="text-xs font-medium text-gray-900">
+                      Today
+                    </div>
+                    <div className="text-xs text-gray-500">09:00</div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
+                      Welcome to the Era of Zero!
+                    </h3>
+                    <p className="text-xs text-gray-600 line-clamp-2">
+                      Dear Phemex Traders, The day has finally come! Today, we
+                      have officially launched our Membership Spot Trading
+                      services...
+                    </p>
+                  </div>
+                </div>
+
+                {/* Announcement 2 */}
+                <div className="flex gap-3 py-2 border-b border-gray-200">
+                  <div className="flex-shrink-0 w-12 text-center">
+                    <div className="text-xs font-medium text-gray-900">
+                      Jan 20
+                    </div>
+                    <div className="text-xs text-gray-500">2025</div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
+                      Company Holiday Schedule 2025
+                    </h3>
+                    <p className="text-xs text-gray-600 line-clamp-2">
+                      The updated holiday schedule for 2025 has been posted.
+                      Please review and plan accordingly.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Announcement 3 */}
+                <div className="flex gap-3 py-2">
+                  <div className="flex-shrink-0 w-12 text-center">
+                    <div className="text-xs font-medium text-gray-900">
+                      Jan 18
+                    </div>
+                    <div className="text-xs text-gray-500">2025</div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
+                      New Health & Wellness Program
+                    </h3>
+                    <p className="text-xs text-gray-600 line-clamp-2">
+                      Join our new wellness program with fitness classes and
+                      mental health resources. Registration opens next week.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button className="mt-2 text-xs text-blue-600 font-medium hover:text-blue-700 transition-colors">
+                View All Announcements →
+              </button>
+            </div>
+
             {/* Upcoming Events Container */}
             <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
               <div className="flex items-center justify-between mb-4">
@@ -1670,126 +1790,6 @@ export default function EmployeeDashboard() {
               >
                 View All Events →
               </a>
-            </div>
-
-            {/* Announcements Container */}
-            <div className="bg-white border border-gray-300 rounded-lg p-3 shadow-sm">
-              <div className="mb-2">
-                <h2 className="text-sm font-semibold text-gray-900 mb-0.5">
-                  Announcements
-                </h2>
-                <p className="text-xs text-gray-600 mb-2">
-                  List of company-wide announcements
-                </p>
-
-                {/* Tabs */}
-                <div className="flex gap-4 border-b border-gray-200">
-                  <button
-                    onClick={() => setAnnouncementTab("All")}
-                    className={`pb-1.5 text-xs font-medium transition-colors relative ${
-                      announcementTab === "All"
-                        ? "text-blue-600"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    All
-                    {announcementTab === "All" && (
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
-                    )}
-                  </button>
-                  <button
-                    onClick={() => setAnnouncementTab("News")}
-                    className={`pb-1.5 text-xs font-medium transition-colors relative ${
-                      announcementTab === "News"
-                        ? "text-blue-600"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    News
-                    {announcementTab === "News" && (
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
-                    )}
-                  </button>
-                  <button
-                    onClick={() => setAnnouncementTab("Activities")}
-                    className={`pb-1.5 text-xs font-medium transition-colors relative ${
-                      announcementTab === "Activities"
-                        ? "text-blue-600"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    Activities
-                    {announcementTab === "Activities" && (
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"></div>
-                    )}
-                  </button>
-                </div>
-              </div>
-
-              {/* Scrollable Announcement List */}
-              <div className="max-h-[300px] overflow-y-auto">
-                {/* Announcement 1 */}
-                <div className="flex gap-3 py-2 border-b border-gray-200">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">
-                      Today
-                    </div>
-                    <div className="text-xs text-gray-500">09:00</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
-                      Welcome to the Era of Zero!
-                    </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      Dear Phemex Traders, The day has finally come! Today, we
-                      have officially launched our Membership Spot Trading
-                      services...
-                    </p>
-                  </div>
-                </div>
-
-                {/* Announcement 2 */}
-                <div className="flex gap-3 py-2 border-b border-gray-200">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">
-                      Jan 20
-                    </div>
-                    <div className="text-xs text-gray-500">2025</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
-                      Company Holiday Schedule 2025
-                    </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      The updated holiday schedule for 2025 has been posted.
-                      Please review and plan accordingly.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Announcement 3 */}
-                <div className="flex gap-3 py-2">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">
-                      Jan 18
-                    </div>
-                    <div className="text-xs text-gray-500">2025</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
-                      New Health & Wellness Program
-                    </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      Join our new wellness program with fitness classes and
-                      mental health resources. Registration opens next week.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <button className="mt-2 text-xs text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                View All Announcements →
-              </button>
             </div>
 
             {/* Bottom Medium Card - Quick Actions */}
