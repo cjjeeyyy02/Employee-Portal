@@ -10,6 +10,7 @@ import {
   Clock,
   Save,
   Edit,
+  Download,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 
@@ -577,11 +578,11 @@ export default function MyLeaveAttendance() {
                   </p>
                 </div>
                 <button
-                  onClick={() => setShowTimesheetSubmitModal(true)}
+                  onClick={() => showNotification("Downloading timesheet...", "success")}
                   className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-3 rounded-lg transition-colors flex items-center gap-1.5 text-xs"
                 >
-                  <Save className="w-3.5 h-3.5" />
-                  Submit Week
+                  <Download className="w-3.5 h-3.5" />
+                  Download
                 </button>
               </div>
 
