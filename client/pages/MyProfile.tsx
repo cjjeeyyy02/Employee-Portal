@@ -1134,6 +1134,16 @@ export default function MyProfile() {
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
+                      {showPayslipCheckboxes && (
+                        <th className="px-4 py-3 text-center font-semibold text-xs text-gray-900" style={{ width: "40px" }}>
+                          <input
+                            type="checkbox"
+                            checked={selectedPayslips.length === payslips.length && payslips.length > 0}
+                            onChange={toggleSelectAllPayslips}
+                            className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                          />
+                        </th>
+                      )}
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Payroll Date</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Pay Period</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Gross Pay</th>
