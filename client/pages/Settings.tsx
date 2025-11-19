@@ -117,6 +117,7 @@ export default function Settings() {
               return (
                 <div
                   key={section.title}
+                  onClick={() => handleCardClick(section.title)}
                   className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 hover:shadow-md transition-shadow cursor-pointer"
                 >
                   <div className="flex items-start gap-2">
@@ -146,6 +147,7 @@ export default function Settings() {
                 return (
                   <div
                     key={section.title}
+                    onClick={() => handleCardClick(section.title)}
                     className="bg-white rounded-lg shadow-sm border border-gray-200 p-3 hover:shadow-md transition-shadow cursor-pointer"
                   >
                     <div className="flex items-start gap-2">
@@ -184,6 +186,13 @@ export default function Settings() {
               </div>
             </div>
           </>
+        )}
+
+        {/* Notification Toast */}
+        {notification && (
+          <div className="fixed top-4 right-4 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg text-sm font-medium z-50">
+            {notification}
+          </div>
         )}
       </div>
     </Layout>
