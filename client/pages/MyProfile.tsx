@@ -33,7 +33,7 @@ type TabType =
   | "leaveAttendance"
   | "documents"
   | "training";
-type EditModalType = "personal" | "contact" | "training" | "positionHistory" | "workHistory" | null;
+type EditModalType = "personal" | "contact" | "training" | "positionHistory" | "workHistory" | "workDetails" | null;
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
@@ -1586,13 +1586,7 @@ export default function MyProfile() {
                     </div>
                   </div>
                   <button
-                    onClick={() => {
-                      setNotification({
-                        message: "Edit Work Details functionality",
-                        type: "info",
-                      });
-                      setTimeout(() => setNotification(null), 3000);
-                    }}
+                    onClick={() => setEditModalType("workDetails")}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
