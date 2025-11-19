@@ -468,9 +468,9 @@ export default function EmployeeDashboard() {
                       <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
                         <th
                           style={{
-                            padding: "12px 8px",
+                            padding: "8px 6px",
                             textAlign: "left",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             fontWeight: "600",
                             color: "#6b7280",
                             textTransform: "uppercase",
@@ -481,9 +481,9 @@ export default function EmployeeDashboard() {
                         </th>
                         <th
                           style={{
-                            padding: "12px 8px",
+                            padding: "8px 6px",
                             textAlign: "left",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             fontWeight: "600",
                             color: "#6b7280",
                             textTransform: "uppercase",
@@ -494,9 +494,9 @@ export default function EmployeeDashboard() {
                         </th>
                         <th
                           style={{
-                            padding: "12px 8px",
+                            padding: "8px 6px",
                             textAlign: "left",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             fontWeight: "600",
                             color: "#6b7280",
                             textTransform: "uppercase",
@@ -507,9 +507,9 @@ export default function EmployeeDashboard() {
                         </th>
                         <th
                           style={{
-                            padding: "12px 8px",
+                            padding: "8px 6px",
                             textAlign: "left",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             fontWeight: "600",
                             color: "#6b7280",
                             textTransform: "uppercase",
@@ -520,9 +520,9 @@ export default function EmployeeDashboard() {
                         </th>
                         <th
                           style={{
-                            padding: "12px 8px",
+                            padding: "8px 6px",
                             textAlign: "left",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             fontWeight: "600",
                             color: "#6b7280",
                             textTransform: "uppercase",
