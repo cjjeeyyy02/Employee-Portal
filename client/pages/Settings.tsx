@@ -4,6 +4,12 @@ import { useState } from "react";
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState<"settings" | "configuration">("settings");
+  const [notification, setNotification] = useState<string | null>(null);
+
+  const handleCardClick = (title: string) => {
+    setNotification(`Opening ${title}...`);
+    setTimeout(() => setNotification(null), 2000);
+  };
 
   const settingsSections = [
     {
