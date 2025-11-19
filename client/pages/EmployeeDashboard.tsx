@@ -1305,7 +1305,7 @@ export default function EmployeeDashboard() {
 
             {/* Announcements Container */}
             <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
-              <div className="flex justify-between items-center mb-3">
+              <div className="mb-4">
                 <h2 className="text-lg font-semibold text-gray-900">
                   Announcements
                 </h2>
