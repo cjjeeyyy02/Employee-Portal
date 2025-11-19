@@ -22,6 +22,7 @@ type TabType = "myTasks";
 type ViewType = "list" | "calendar";
 type ModalType =
   | "newTask"
+  | "editTask"
   | "filters"
   | "aiAssistant"
   | "viewProject"
@@ -68,6 +69,7 @@ export default function MyTasks() {
   } | null>(null);
   const [tasksList, setTasksList] = useState<Task[]>([]);
   const [taskToDelete, setTaskToDelete] = useState<number | null>(null);
+  const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
   const [actionDropdown, setActionDropdown] = useState<number | null>(null);
 
   // Form states
@@ -77,6 +79,14 @@ export default function MyTasks() {
     dueDate: "",
     category: "",
     priority: "Medium",
+  });
+  const [editTaskForm, setEditTaskForm] = useState({
+    title: "",
+    description: "",
+    dueDate: "",
+    category: "",
+    priority: "Medium" as "High" | "Medium" | "Low",
+    status: "Todo" as "Todo" | "In Progress" | "Review" | "Done",
   });
   const [filterPanel, setFilterPanel] = useState({
     status: "All Status",
@@ -122,7 +132,52 @@ export default function MyTasks() {
   };
 
   const handleMarkComplete = (taskId: number) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, status: "Done", progress: 100 } : task
+      )
+    );
+    setActionDropdown(null);
     showNotification("Task marked as complete", "success");
+  };
+
+  const handleEditTask = (task: Task) => {
+    setTaskToEdit(task);
+    setEditTaskForm({
+      title: task.title,
+      description: task.description,
+      dueDate: task.dueDate,
+      category: task.category,
+      priority: task.priority,
+      status: task.status,
+    });
+    setActionDropdown(null);
+    setActiveModal("editTask");
+  };
+
+  const handleUpdateTask = () => {
+    if (taskToEdit && editTaskForm.title && editTaskForm.dueDate && editTaskForm.category) {
+      setTasks(
+        tasks.map((task) =>
+          task.id === taskToEdit.id
+            ? {
+                ...task,
+                title: editTaskForm.title,
+                description: editTaskForm.description,
+                dueDate: editTaskForm.dueDate,
+                category: editTaskForm.category,
+                priority: editTaskForm.priority,
+                status: editTaskForm.status,
+              }
+            : task
+        )
+      );
+      showNotification("Task updated successfully", "success");
+      setTaskToEdit(null);
+      setActiveModal(null);
+    } else {
+      showNotification("Please fill in all required fields", "info");
+    }
   };
 
   const handleViewProject = (project: Project) => {
@@ -147,7 +202,7 @@ export default function MyTasks() {
     }
   };
 
-  const tasks: Task[] = [
+  const [tasks, setTasks] = useState<Task[]>([
     {
       id: 1,
       title: "Q4 Performance Review",
@@ -268,7 +323,7 @@ export default function MyTasks() {
       progress: 90,
       notes: "Final edits needed",
     },
-  ];
+  ]);
 
   const projects: Project[] = [
     {
@@ -618,7 +673,10 @@ export default function MyTasks() {
                             </button>
                             {actionDropdown === task.id && (
                               <div className="absolute right-0 mt-1 bg-white rounded-lg border border-gray-200 shadow-lg z-10 min-w-[160px]">
-                                <button className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100">
+                                <button
+                                  onClick={() => handleEditTask(task)}
+                                  className="w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 flex items-center gap-2 font-medium border-b border-gray-100"
+                                >
                                   <Edit className="w-3.5 h-3.5" />
                                   Edit
                                 </button>
@@ -1115,6 +1173,163 @@ export default function MyTasks() {
                   className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
                 >
                   View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Task Modal */}
+      {activeModal === "editTask" && taskToEdit && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-semibold text-gray-900">
+                Edit Task
+              </h2>
+              <button
+                onClick={() => {
+                  setActiveModal(null);
+                  setTaskToEdit(null);
+                }}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Task Title
+                </label>
+                <input
+                  type="text"
+                  value={editTaskForm.title}
+                  onChange={(e) =>
+                    setEditTaskForm({ ...editTaskForm, title: e.target.value })
+                  }
+                  placeholder="Enter task title"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Description
+                </label>
+                <textarea
+                  value={editTaskForm.description}
+                  onChange={(e) =>
+                    setEditTaskForm({
+                      ...editTaskForm,
+                      description: e.target.value,
+                    })
+                  }
+                  placeholder="Enter task description"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Category
+                </label>
+                <select
+                  value={editTaskForm.category}
+                  onChange={(e) =>
+                    setEditTaskForm({ ...editTaskForm, category: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select a category</option>
+                  <option value="Documentation">Documentation</option>
+                  <option value="Performance Reviews">
+                    Performance Reviews
+                  </option>
+                  <option value="Team Meetings">Team Meetings</option>
+                  <option value="Administrative">Administrative</option>
+                  <option value="HR">HR</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Development">Development</option>
+                  <option value="Security">Security</option>
+                  <option value="Training">Training</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Meetings">Meetings</option>
+                </select>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Due Date
+                  </label>
+                  <input
+                    type="text"
+                    value={editTaskForm.dueDate}
+                    onChange={(e) =>
+                      setEditTaskForm({
+                        ...editTaskForm,
+                        dueDate: e.target.value,
+                      })
+                    }
+                    placeholder="e.g., Dec 16, 2024"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Priority
+                  </label>
+                  <select
+                    value={editTaskForm.priority}
+                    onChange={(e) =>
+                      setEditTaskForm({
+                        ...editTaskForm,
+                        priority: e.target.value as "High" | "Medium" | "Low",
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Status
+                </label>
+                <select
+                  value={editTaskForm.status}
+                  onChange={(e) =>
+                    setEditTaskForm({
+                      ...editTaskForm,
+                      status: e.target.value as "Todo" | "In Progress" | "Review" | "Done",
+                    })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="Todo">Todo</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Review">Review</option>
+                  <option value="Done">Done</option>
+                </select>
+              </div>
+              <div className="flex gap-3 pt-4">
+                <button
+                  onClick={() => {
+                    setActiveModal(null);
+                    setTaskToEdit(null);
+                  }}
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleUpdateTask}
+                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
+                >
+                  Update Task
                 </button>
               </div>
             </div>
