@@ -938,7 +938,7 @@ export default function EmployeeDashboard() {
                 </span>
               </div>
 
-              {/* Events Grid */}
+              {/* Activities Grid */}
               <div
                 style={{
                   display: "grid",
