@@ -584,40 +584,36 @@ export default function MyLeaveAttendance() {
                 </div>
 
                 {/* Filter Controls Row */}
-                <div className="flex items-center justify-between gap-3 flex-wrap">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    {/* View Mode Dropdown */}
-                    <select
-                      value={timesheetView}
-                      onChange={(e) => setTimesheetView(e.target.value as "daily" | "weekly" | "monthly")}
-                      className="px-3 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-                    >
-                      <option value="daily">Daily</option>
-                      <option value="weekly">Weekly</option>
-                      <option value="monthly">Monthly</option>
-                    </select>
+                <div className="flex items-center justify-end gap-2 flex-wrap">
+                  {/* View Mode Dropdown */}
+                  <select
+                    value={timesheetView}
+                    onChange={(e) => setTimesheetView(e.target.value as "daily" | "weekly" | "monthly")}
+                    className="px-3 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                  >
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
 
-                    {/* Date Range Filter */}
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="date"
-                        value={timesheetDateRange.start}
-                        onChange={(e) =>
-                          setTimesheetDateRange({ ...timesheetDateRange, start: e.target.value })
-                        }
-                        className="px-2 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-                      />
-                      <span className="text-xs text-gray-500">to</span>
-                      <input
-                        type="date"
-                        value={timesheetDateRange.end}
-                        onChange={(e) =>
-                          setTimesheetDateRange({ ...timesheetDateRange, end: e.target.value })
-                        }
-                        className="px-2 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-                      />
-                    </div>
-                  </div>
+                  {/* Date Range Filter */}
+                  <input
+                    type="date"
+                    value={timesheetDateRange.start}
+                    onChange={(e) =>
+                      setTimesheetDateRange({ ...timesheetDateRange, start: e.target.value })
+                    }
+                    className="px-2 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                  />
+                  <span className="text-xs text-gray-500">to</span>
+                  <input
+                    type="date"
+                    value={timesheetDateRange.end}
+                    onChange={(e) =>
+                      setTimesheetDateRange({ ...timesheetDateRange, end: e.target.value })
+                    }
+                    className="px-2 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                  />
 
                   {/* Download Button */}
                   <button
@@ -1052,7 +1048,7 @@ export default function MyLeaveAttendance() {
                         <div className="flex items-center justify-between">
                           <Clock className="w-3 h-3 text-blue-600" />
                           <span className="text-xs font-medium text-gray-900">
-                            9–18
+                            9��18
                           </span>
                         </div>
                       </div>
