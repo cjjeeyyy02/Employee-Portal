@@ -98,6 +98,30 @@ export default function EmployeeDashboard() {
     },
   ];
 
+  const pendingTasks = [
+    {
+      title: "Complete Q4 Performance Review",
+      category: "Performance",
+      priority: "High",
+      dueDate: "01/22/2025",
+      status: "In Progress",
+    },
+    {
+      title: "Submit Travel Expense Report",
+      category: "Finance",
+      priority: "Medium",
+      dueDate: "01/24/2025",
+      status: "Pending",
+    },
+    {
+      title: "Team Meeting Preparation",
+      category: "Meeting",
+      priority: "Low",
+      dueDate: "01/28/2025",
+      status: "Not Started",
+    },
+  ];
+
   return (
     <Layout>
       <div className="max-w-[1400px] mx-auto">
