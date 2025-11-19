@@ -3019,15 +3019,30 @@ export default function MyProfile() {
                       borderBottom: "1px solid #E5E7EB",
                     }}
                   >
-                    <label
-                      className="block text-xs font-medium text-gray-600 mb-1"
-                      style={{
-                        fontFamily: "Poppins, sans-serif",
-                        fontSize: "11px",
-                      }}
-                    >
-                      Next Review
-                    </label>
+                    <div className="flex items-center justify-between mb-1">
+                      <label
+                        className="block text-xs font-medium text-gray-600"
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "11px",
+                        }}
+                      >
+                        Next Review
+                      </label>
+                      <button
+                        onClick={() => {
+                          setNotification({
+                            message: "Edit Next Review functionality",
+                            type: "info",
+                          });
+                          setTimeout(() => setNotification(null), 3000);
+                        }}
+                        className="text-gray-600 hover:text-blue-600 transition-colors"
+                        title="Edit Next Review"
+                      >
+                        <Edit2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
                       <p
