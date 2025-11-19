@@ -121,6 +121,11 @@ export default function MyProfile() {
   const [showDeleteCertModal, setShowDeleteCertModal] = useState(false);
   const [showDeleteSkillModal, setShowDeleteSkillModal] = useState(false);
   const [showDeleteDocModal, setShowDeleteDocModal] = useState(false);
+  const [showPhotoUploadModal, setShowPhotoUploadModal] = useState(false);
+  const [profilePhoto, setProfilePhoto] = useState(
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+  );
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
 
   const documents = [
     {
@@ -677,14 +682,45 @@ export default function MyProfile() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              position: "relative",
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+              src={profilePhoto}
               alt="Profile"
               className="w-16 h-16 rounded-full object-cover border-2 border-gray-200 shadow-sm"
               style={{ flexShrink: 0 }}
             />
+            {/* Edit Photo Button Overlay */}
+            <button
+              onClick={() => setShowPhotoUploadModal(true)}
+              style={{
+                position: "absolute",
+                bottom: "0",
+                right: "0",
+                width: "24px",
+                height: "24px",
+                borderRadius: "50%",
+                backgroundColor: "#2563EB",
+                border: "2px solid #FFFFFF",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "all 0.2s",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#1D4ED8";
+                e.currentTarget.style.transform = "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#2563EB";
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+            >
+              <Camera className="w-3 h-3 text-white" />
+            </button>
           </div>
 
           {/* Employee Details */}
