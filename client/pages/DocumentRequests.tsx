@@ -658,8 +658,8 @@ export default function DocumentRequests() {
                     className="pl-10 pr-4 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
                   />
                 </div>
-                <select className="px-4 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700">
-                  <option>filter by category</option>
+                <select className="px-4 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500">
+                  <option>Category</option>
                   <option>Payslips</option>
                   <option>Contracts</option>
                   <option>Identification</option>
