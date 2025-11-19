@@ -1392,7 +1392,7 @@ export default function EmployeeDashboard() {
                 </div>
 
                 {/* Announcement 3 */}
-                <div className="flex gap-3 py-2 border-b border-gray-200">
+                <div className="flex gap-3 py-2">
                   <div className="flex-shrink-0 w-12 text-center">
                     <div className="text-xs font-medium text-gray-900">Jan 18</div>
                     <div className="text-xs text-gray-500">2025</div>
@@ -1403,38 +1403,6 @@ export default function EmployeeDashboard() {
                     </h3>
                     <p className="text-xs text-gray-600 line-clamp-2">
                       Join our new wellness program with fitness classes and mental health resources. Registration opens next week.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Announcement 4 */}
-                <div className="flex gap-3 py-2 border-b border-gray-200">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">Jan 15</div>
-                    <div className="text-xs text-gray-500">2025</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
-                      IT System Maintenance
-                    </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      Scheduled maintenance on Jan 25th from 2 AM to 4 AM. Services may be temporarily unavailable.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Announcement 5 */}
-                <div className="flex gap-3 py-2">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">Jan 12</div>
-                    <div className="text-xs text-gray-500">2025</div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xs font-semibold text-gray-900 mb-0.5">
-                      Q4 2024 Company Performance
-                    </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2">
-                      Thank you for your hard work! We've achieved record-breaking results in Q4 2024. Full report available in the portal.
                     </p>
                   </div>
                 </div>
