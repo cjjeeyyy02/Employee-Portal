@@ -2242,6 +2242,54 @@ export default function MyProfile() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
+
+              {/* Emergency Contact Section */}
+              <div className="pt-4 border-t border-gray-200">
+                <h3 className="text-sm font-semibold text-gray-900 mb-3">Emergency Contact</h3>
+
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Contact Name</label>
+                      <input
+                        type="text"
+                        value={contactForm.emergencyContactName}
+                        onChange={(e) => setContactForm({...contactForm, emergencyContactName: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Relationship</label>
+                      <input
+                        type="text"
+                        value={contactForm.emergencyRelationship}
+                        onChange={(e) => setContactForm({...contactForm, emergencyRelationship: e.target.value})}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Contact Number</label>
+                    <input
+                      type="text"
+                      value={contactForm.emergencyPhone}
+                      onChange={(e) => setContactForm({...contactForm, emergencyPhone: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Alternate Number</label>
+                    <input
+                      type="text"
+                      value={contactForm.emergencyAlternatePhone}
+                      onChange={(e) => setContactForm({...contactForm, emergencyAlternatePhone: e.target.value})}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="flex gap-3 pt-4">
               <button onClick={() => setEditModalType(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
