@@ -986,7 +986,7 @@ export default function EmployeeDashboard() {
                   </p>
                 </div>
 
-                {/* Event 2 */}
+                {/* Activity 2 */}
                 <div
                   style={{
                     backgroundColor: "#f9fafb",
@@ -1003,7 +1003,7 @@ export default function EmployeeDashboard() {
                       margin: "0",
                     }}
                   >
-                    Data Security Training
+                    Task Completed
                   </p>
                   <p
                     style={{
@@ -1012,7 +1012,7 @@ export default function EmployeeDashboard() {
                       margin: "3px 0 0 0",
                     }}
                   >
-                    Nov 30 (5 days)
+                    Today 11:20 AM
                   </p>
                   <p
                     style={{
@@ -1021,7 +1021,7 @@ export default function EmployeeDashboard() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Complete for new hires…
+                    Monthly report submitted
                   </p>
                 </div>
               </div>
