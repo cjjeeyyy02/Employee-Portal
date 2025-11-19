@@ -265,26 +265,31 @@ export default function EmployeeDashboard() {
               <button
                 style={{
                   padding: "10px 20px",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #e5e7eb",
+                  backgroundColor: "#3b82f6",
+                  border: "none",
                   borderRadius: "10px",
                   fontSize: "14px",
                   fontWeight: "500",
-                  color: "#6b7280",
+                  color: "#ffffff",
                   cursor: "pointer",
                   transition: "all 0.2s ease-in-out",
                   whiteSpace: "nowrap",
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
+                  boxShadow: "0 1px 3px rgba(59, 130, 246, 0.3)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#f9fafb";
-                  e.currentTarget.style.borderColor = "#d1d5db";
+                  e.currentTarget.style.backgroundColor = "#2563eb";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 6px rgba(59, 130, 246, 0.4)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ffffff";
-                  e.currentTarget.style.borderColor = "#e5e7eb";
+                  e.currentTarget.style.backgroundColor = "#3b82f6";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 1px 3px rgba(59, 130, 246, 0.3)";
                 }}
               >
                 <Coffee size={18} />
