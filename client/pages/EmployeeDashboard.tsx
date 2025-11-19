@@ -275,6 +275,7 @@ export default function EmployeeDashboard() {
                 return (
                   <div
                     key={index}
+                    onClick={() => navigate(metric.route)}
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid #e5e7eb",
@@ -817,7 +818,7 @@ export default function EmployeeDashboard() {
               >
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <span style={{ fontSize: "18px", marginRight: "6px" }}>
-                    📅
+                    ���
                   </span>
                   <h3
                     style={{
@@ -974,7 +975,7 @@ export default function EmployeeDashboard() {
                   (e.currentTarget.style.borderBottomColor = "transparent")
                 }
               >
-                🔗 <span>View Calendar →</span>
+                🔗 <span>View Calendar ���</span>
               </a>
             </div>
           </div>
