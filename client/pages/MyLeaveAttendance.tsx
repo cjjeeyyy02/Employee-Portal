@@ -18,11 +18,10 @@ type AttendanceSubTabType = "dailyLogs" | "timesheets" | "scheduledShifts";
 
 interface TimesheetEntry {
   date: string;
-  day: string;
+  taskId: string;
+  taskDescription: string;
   regularHours: string;
   overtimeHours: string;
-  project: string;
-  task: string;
   status: "Draft" | "Submitted" | "Approved";
 }
 
@@ -99,47 +98,42 @@ export default function MyLeaveAttendance() {
   const [timesheetEntries, setTimesheetEntries] = useState<TimesheetEntry[]>([
     {
       date: "2024-12-09",
-      day: "Mon",
+      taskId: "TSK-001",
+      taskDescription: "Frontend UI Updates",
       regularHours: "8",
       overtimeHours: "0",
-      project: "HRIS Development",
-      task: "Frontend UI Updates",
       status: "Submitted",
     },
     {
       date: "2024-12-10",
-      day: "Tue",
+      taskId: "TSK-002",
+      taskDescription: "API Integration",
       regularHours: "8",
       overtimeHours: "1",
-      project: "HRIS Development",
-      task: "API Integration",
       status: "Submitted",
     },
     {
       date: "2024-12-11",
-      day: "Wed",
+      taskId: "TSK-003",
+      taskDescription: "Bug Fixes",
       regularHours: "8",
       overtimeHours: "0",
-      project: "HRIS Development",
-      task: "Bug Fixes",
       status: "Draft",
     },
     {
       date: "2024-12-12",
-      day: "Thu",
+      taskId: "",
+      taskDescription: "",
       regularHours: "0",
       overtimeHours: "0",
-      project: "",
-      task: "",
       status: "Draft",
     },
     {
       date: "2024-12-13",
-      day: "Fri",
+      taskId: "",
+      taskDescription: "",
       regularHours: "0",
       overtimeHours: "0",
-      project: "",
-      task: "",
       status: "Draft",
     },
   ]);
@@ -600,13 +594,10 @@ export default function MyLeaveAttendance() {
                         Date
                       </th>
                       <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
-                        Day
+                        Task ID
                       </th>
                       <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
-                        Project
-                      </th>
-                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
-                        Task
+                        Task Description
                       </th>
                       <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
                         Regular Hours
@@ -654,25 +645,22 @@ export default function MyLeaveAttendance() {
                           <td className="px-2 py-1.5 text-xs text-gray-900">
                             {formatDate(entry.date)}
                           </td>
-                          <td className="px-2 py-1.5 text-xs text-gray-900">
-                            {entry.day}
-                          </td>
                           <td className="px-2 py-1.5">
                             {entry.status === "Draft" ? (
                               <input
                                 type="text"
-                                value={entry.project}
+                                value={entry.taskId}
                                 onChange={(e) => {
                                   const newEntries = [...timesheetEntries];
-                                  newEntries[index].project = e.target.value;
+                                  newEntries[index].taskId = e.target.value;
                                   setTimesheetEntries(newEntries);
                                 }}
                                 className="w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                placeholder="Project name"
+                                placeholder="Task ID"
                               />
                             ) : (
                               <span className="text-xs text-gray-900">
-                                {entry.project || "—"}
+                                {entry.taskId || "—"}
                               </span>
                             )}
                           </td>
@@ -680,10 +668,10 @@ export default function MyLeaveAttendance() {
                             {entry.status === "Draft" ? (
                               <input
                                 type="text"
-                                value={entry.task}
+                                value={entry.taskDescription}
                                 onChange={(e) => {
                                   const newEntries = [...timesheetEntries];
-                                  newEntries[index].task = e.target.value;
+                                  newEntries[index].taskDescription = e.target.value;
                                   setTimesheetEntries(newEntries);
                                 }}
                                 className="w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -691,7 +679,7 @@ export default function MyLeaveAttendance() {
                               />
                             ) : (
                               <span className="text-xs text-gray-900">
-                                {entry.task || "—"}
+                                {entry.taskDescription || "—"}
                               </span>
                             )}
                           </td>
