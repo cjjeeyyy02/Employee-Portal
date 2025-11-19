@@ -898,7 +898,7 @@ export default function EmployeeDashboard() {
                 border: "1px solid #e5e7eb",
                 borderRadius: "12px",
                 boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-                padding: "16px",
+                padding: "12px",
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -909,16 +909,13 @@ export default function EmployeeDashboard() {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  marginBottom: "12px",
+                  marginBottom: "8px",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <span style={{ fontSize: "18px", marginRight: "6px" }}>
-                    ���
-                  </span>
                   <h3
                     style={{
-                      fontSize: "18px",
+                      fontSize: "14px",
                       fontWeight: "500",
                       color: "#1f2937",
                       margin: "0",
@@ -929,11 +926,11 @@ export default function EmployeeDashboard() {
                 </div>
                 <span
                   style={{
-                    fontSize: "11px",
+                    fontSize: "10px",
                     fontWeight: "500",
                     backgroundColor: "#374151",
                     color: "#ffffff",
-                    padding: "4px 10px",
+                    padding: "3px 8px",
                     borderRadius: "9999px",
                   }}
                 >
@@ -945,9 +942,9 @@ export default function EmployeeDashboard() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                  gap: "12px",
-                  marginBottom: "12px",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                  gap: "8px",
+                  marginBottom: "8px",
                 }}
               >
                 {/* Event 1 */}
@@ -955,13 +952,13 @@ export default function EmployeeDashboard() {
                   style={{
                     backgroundColor: "#f9fafb",
                     border: "1px solid #e5e7eb",
-                    borderRadius: "12px",
-                    padding: "12px",
+                    borderRadius: "8px",
+                    padding: "8px",
                   }}
                 >
                   <p
                     style={{
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: "500",
                       color: "#1f2937",
                       margin: "0",
@@ -971,27 +968,21 @@ export default function EmployeeDashboard() {
                   </p>
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "11px",
                       color: "#6b7280",
-                      margin: "4px 0 0 0",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "6px",
+                      margin: "3px 0 0 0",
                     }}
                   >
-                    📅 <span>Nov 14 10:00 AM</span>
+                    Nov 14 10:00 AM
                   </p>
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "11px",
                       color: "#6b7280",
-                      margin: "4px 0 0 0",
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "6px",
+                      margin: "2px 0 0 0",
                     }}
                   >
-                    📌 <span>Mandatory for all staff…</span>
+                    Mandatory for all staff…
                   </p>
                 </div>
 
@@ -1000,13 +991,13 @@ export default function EmployeeDashboard() {
                   style={{
                     backgroundColor: "#f9fafb",
                     border: "1px solid #e5e7eb",
-                    borderRadius: "12px",
-                    padding: "12px",
+                    borderRadius: "8px",
+                    padding: "8px",
                   }}
                 >
                   <p
                     style={{
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: "500",
                       color: "#1f2937",
                       margin: "0",
@@ -1016,27 +1007,21 @@ export default function EmployeeDashboard() {
                   </p>
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "11px",
                       color: "#6b7280",
-                      margin: "4px 0 0 0",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "6px",
+                      margin: "3px 0 0 0",
                     }}
                   >
-                    📅 <span>Nov 30 (5 days)</span>
+                    Nov 30 (5 days)
                   </p>
                   <p
                     style={{
-                      fontSize: "12px",
+                      fontSize: "11px",
                       color: "#6b7280",
-                      margin: "4px 0 0 0",
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "6px",
+                      margin: "2px 0 0 0",
                     }}
                   >
-                    💬 <span>Complete for new hires…</span>
+                    Complete for new hires…
                   </p>
                 </div>
               </div>
@@ -1045,8 +1030,8 @@ export default function EmployeeDashboard() {
               <div
                 style={{
                   borderTop: "1px solid #e5e7eb",
-                  marginTop: "12px",
-                  marginBottom: "8px",
+                  marginTop: "8px",
+                  marginBottom: "6px",
                 }}
               ></div>
 
@@ -1054,13 +1039,13 @@ export default function EmployeeDashboard() {
               <a
                 href="#"
                 style={{
-                  fontSize: "13px",
+                  fontSize: "11px",
                   fontWeight: "500",
                   color: "#2563eb",
                   textDecoration: "none",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "6px",
+                  gap: "4px",
                   borderBottom: "2px solid transparent",
                   transition: "border-color 0.2s",
                 }}
@@ -1071,7 +1056,7 @@ export default function EmployeeDashboard() {
                   (e.currentTarget.style.borderBottomColor = "transparent")
                 }
               >
-                🔗 <span>View Calendar ���</span>
+                View Calendar →
               </a>
             </div>
           </div>
