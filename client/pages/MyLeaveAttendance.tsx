@@ -570,10 +570,357 @@ export default function MyLeaveAttendance() {
 
           {/* Timesheets Tab */}
           {activeSubTab === "timesheets" && (
-            <div className="w-full bg-white rounded-lg p-6 flex items-center justify-center">
-              <p className="text-sm text-gray-500">
-                Timesheets content coming soon
-              </p>
+            <div className="w-full bg-white rounded-lg p-3 sm:p-4">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5">
+                    Weekly Timesheet
+                  </h2>
+                  <p className="text-xs text-gray-600">
+                    Track your daily work hours and projects
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowTimesheetSubmitModal(true)}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-3 rounded-lg transition-colors flex items-center gap-1.5 text-xs"
+                >
+                  <Save className="w-3.5 h-3.5" />
+                  Submit Week
+                </button>
+              </div>
+
+              {/* Timesheet Table */}
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        Date
+                      </th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        Day
+                      </th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        Project
+                      </th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        Task
+                      </th>
+                      <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                        Regular Hours
+                      </th>
+                      <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                        Overtime
+                      </th>
+                      <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                        Total
+                      </th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        Status
+                      </th>
+                      <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {timesheetEntries.map((entry, index) => {
+                      const totalHours =
+                        parseFloat(entry.regularHours || "0") +
+                        parseFloat(entry.overtimeHours || "0");
+
+                      const getStatusStyle = (status: string) => {
+                        switch (status) {
+                          case "Approved":
+                            return { bg: "#27AE60", text: "white" };
+                          case "Submitted":
+                            return { bg: "#2F80ED", text: "white" };
+                          case "Draft":
+                            return { bg: "#E0E0E0", text: "#555555" };
+                          default:
+                            return { bg: "#E0E0E0", text: "#555555" };
+                        }
+                      };
+
+                      const statusStyle = getStatusStyle(entry.status);
+
+                      return (
+                        <tr
+                          key={index}
+                          className="border-b border-gray-200 hover:bg-gray-50"
+                        >
+                          <td className="px-2 py-1.5 text-xs text-gray-900">
+                            {formatDate(entry.date)}
+                          </td>
+                          <td className="px-2 py-1.5 text-xs text-gray-900">
+                            {entry.day}
+                          </td>
+                          <td className="px-2 py-1.5">
+                            {entry.status === "Draft" ? (
+                              <input
+                                type="text"
+                                value={entry.project}
+                                onChange={(e) => {
+                                  const newEntries = [...timesheetEntries];
+                                  newEntries[index].project = e.target.value;
+                                  setTimesheetEntries(newEntries);
+                                }}
+                                className="w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Project name"
+                              />
+                            ) : (
+                              <span className="text-xs text-gray-900">
+                                {entry.project || "—"}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-2 py-1.5">
+                            {entry.status === "Draft" ? (
+                              <input
+                                type="text"
+                                value={entry.task}
+                                onChange={(e) => {
+                                  const newEntries = [...timesheetEntries];
+                                  newEntries[index].task = e.target.value;
+                                  setTimesheetEntries(newEntries);
+                                }}
+                                className="w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                placeholder="Task description"
+                              />
+                            ) : (
+                              <span className="text-xs text-gray-900">
+                                {entry.task || "—"}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-2 py-1.5 text-center">
+                            {entry.status === "Draft" ? (
+                              <input
+                                type="number"
+                                min="0"
+                                max="24"
+                                step="0.5"
+                                value={entry.regularHours}
+                                onChange={(e) => {
+                                  const newEntries = [...timesheetEntries];
+                                  newEntries[index].regularHours =
+                                    e.target.value;
+                                  setTimesheetEntries(newEntries);
+                                }}
+                                className="w-16 px-2 py-1 text-xs text-center border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                              />
+                            ) : (
+                              <span className="text-xs text-gray-900">
+                                {entry.regularHours || "0"}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-2 py-1.5 text-center">
+                            {entry.status === "Draft" ? (
+                              <input
+                                type="number"
+                                min="0"
+                                max="12"
+                                step="0.5"
+                                value={entry.overtimeHours}
+                                onChange={(e) => {
+                                  const newEntries = [...timesheetEntries];
+                                  newEntries[index].overtimeHours =
+                                    e.target.value;
+                                  setTimesheetEntries(newEntries);
+                                }}
+                                className="w-16 px-2 py-1 text-xs text-center border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                              />
+                            ) : (
+                              <span className="text-xs text-gray-900">
+                                {entry.overtimeHours || "0"}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-2 py-1.5 text-center text-xs font-semibold text-gray-900">
+                            {totalHours.toFixed(1)}
+                          </td>
+                          <td className="px-2 py-1.5">
+                            <span
+                              className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium"
+                              style={{
+                                backgroundColor: statusStyle.bg,
+                                color: statusStyle.text,
+                              }}
+                            >
+                              {entry.status}
+                            </span>
+                          </td>
+                          <td className="px-2 py-1.5">
+                            {entry.status !== "Draft" && (
+                              <button
+                                onClick={() => {
+                                  const newEntries = [...timesheetEntries];
+                                  newEntries[index].status = "Draft";
+                                  setTimesheetEntries(newEntries);
+                                  showNotification(
+                                    "Entry unlocked for editing",
+                                    "info",
+                                  );
+                                }}
+                                className="text-blue-600 hover:text-blue-800 text-xs flex items-center gap-1"
+                              >
+                                <Edit className="w-3 h-3" />
+                                Edit
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                  <tfoot>
+                    <tr className="border-t-2 border-gray-300 bg-gray-50">
+                      <td
+                        colSpan={4}
+                        className="px-2 py-1.5 text-xs font-bold text-gray-900 text-right"
+                      >
+                        Weekly Total:
+                      </td>
+                      <td className="px-2 py-1.5 text-xs font-bold text-center text-gray-900">
+                        {timesheetEntries
+                          .reduce(
+                            (sum, entry) =>
+                              sum + parseFloat(entry.regularHours || "0"),
+                            0,
+                          )
+                          .toFixed(1)}{" "}
+                        hrs
+                      </td>
+                      <td className="px-2 py-1.5 text-xs font-bold text-center text-gray-900">
+                        {timesheetEntries
+                          .reduce(
+                            (sum, entry) =>
+                              sum + parseFloat(entry.overtimeHours || "0"),
+                            0,
+                          )
+                          .toFixed(1)}{" "}
+                        hrs
+                      </td>
+                      <td className="px-2 py-1.5 text-xs font-bold text-center text-blue-600">
+                        {timesheetEntries
+                          .reduce(
+                            (sum, entry) =>
+                              sum +
+                              parseFloat(entry.regularHours || "0") +
+                              parseFloat(entry.overtimeHours || "0"),
+                            0,
+                          )
+                          .toFixed(1)}{" "}
+                        hrs
+                      </td>
+                      <td colSpan={2}></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              {/* Previous Timesheets */}
+              <div className="mt-6">
+                <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">
+                  Previous Timesheets
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                          Week Period
+                        </th>
+                        <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                          Total Hours
+                        </th>
+                        <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                          Overtime
+                        </th>
+                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                          Status
+                        </th>
+                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                          Submitted Date
+                        </th>
+                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                          Approver
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          12/02/2024 - 12/06/2024
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                          40.0
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                          2.0
+                        </td>
+                        <td className="px-2 py-1.5">
+                          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">
+                            Approved
+                          </span>
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          12/06/2024
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          Michael Rodriguez
+                        </td>
+                      </tr>
+                      <tr className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          11/25/2024 - 11/29/2024
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                          40.0
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                          0.0
+                        </td>
+                        <td className="px-2 py-1.5">
+                          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">
+                            Approved
+                          </span>
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          11/29/2024
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          Michael Rodriguez
+                        </td>
+                      </tr>
+                      <tr className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          11/18/2024 - 11/22/2024
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                          38.0
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                          1.5
+                        </td>
+                        <td className="px-2 py-1.5">
+                          <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">
+                            Approved
+                          </span>
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          11/22/2024
+                        </td>
+                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                          Michael Rodriguez
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           )}
 
