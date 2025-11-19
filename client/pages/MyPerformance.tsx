@@ -291,18 +291,6 @@ export default function MyPerformance() {
 
             {/* Right Column: KPI */}
             <div className="flex flex-col gap-2">
-              {/* Section Title */}
-              <h2
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  color: "#1A73E8",
-                  marginBottom: "4px",
-                }}
-              >
-                Key Performance Indicator (KPI)
-              </h2>
-
               {/* KPI Card Section */}
               <div
                 style={{
@@ -593,18 +581,6 @@ export default function MyPerformance() {
 
             {/* Right Column: KPI */}
             <div className="flex flex-col gap-2">
-              {/* Section Title */}
-              <h2
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  color: "#1A73E8",
-                  marginBottom: "4px",
-                }}
-              >
-                Key Performance Indicator (KPI)
-              </h2>
-
               {/* KPI Card Section */}
               <div
                 style={{
