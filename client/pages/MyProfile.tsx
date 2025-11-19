@@ -1414,11 +1414,25 @@ export default function MyProfile() {
                               className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
                               style={{ fontFamily: "Poppins, sans-serif" }}
                             >
-                              <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                              <button
+                                onClick={() => {
+                                  setNotification({ message: `Editing skill: ${skill.name}`, type: 'info' });
+                                  setTimeout(() => setNotification(null), 3000);
+                                  setOpenSkillMenu(null);
+                                }}
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                              >
                                 <Edit2 className="w-4 h-4" />
                                 Edit
                               </button>
-                              <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                              <button
+                                onClick={() => {
+                                  setNotification({ message: `Deleted skill: ${skill.name}`, type: 'success' });
+                                  setTimeout(() => setNotification(null), 3000);
+                                  setOpenSkillMenu(null);
+                                }}
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                              >
                                 <Trash2 className="w-4 h-4" />
                                 Delete
                               </button>
