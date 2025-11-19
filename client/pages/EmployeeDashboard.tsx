@@ -1254,48 +1254,6 @@ export default function EmployeeDashboard() {
                 </div>
               </div>
 
-              {/* Upcoming Events */}
-              <div style={{ marginTop: "8px", paddingTop: "12px", borderTop: "1px solid #e5e7eb" }}>
-                <h3 style={{ fontSize: "12px", fontWeight: "600", color: "#6b7280", marginBottom: "8px" }}>
-                  Upcoming Events
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  {sampleEvents.map((event, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        padding: "6px 8px",
-                        backgroundColor: "#f9fafb",
-                        borderRadius: "6px",
-                        border: "1px solid #e5e7eb",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "6px",
-                          height: "6px",
-                          borderRadius: "50%",
-                          backgroundColor: event.color.includes("blue") ? "#3b82f6" :
-                                          event.color.includes("green") ? "#10b981" : "#f97316",
-                          flexShrink: 0,
-                        }}
-                      ></div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <p style={{ fontSize: "11px", fontWeight: "500", color: "#374151", margin: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                          {event.title}
-                        </p>
-                        <p style={{ fontSize: "10px", color: "#9ca3af", margin: 0 }}>
-                          {monthNames[currentDate.getMonth()]} {event.day}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* View Full Calendar Link */}
               <a
                 href="/calendar"
