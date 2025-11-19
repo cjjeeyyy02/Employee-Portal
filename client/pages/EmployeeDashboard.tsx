@@ -947,7 +947,7 @@ export default function EmployeeDashboard() {
                   marginBottom: "8px",
                 }}
               >
-                {/* Event 1 */}
+                {/* Activity 1 */}
                 <div
                   style={{
                     backgroundColor: "#f9fafb",
@@ -964,7 +964,7 @@ export default function EmployeeDashboard() {
                       margin: "0",
                     }}
                   >
-                    Company-Wide Town Hall
+                    Leave Request Approved
                   </p>
                   <p
                     style={{
@@ -973,7 +973,7 @@ export default function EmployeeDashboard() {
                       margin: "3px 0 0 0",
                     }}
                   >
-                    Nov 14 10:00 AM
+                    Today 2:30 PM
                   </p>
                   <p
                     style={{
@@ -982,7 +982,7 @@ export default function EmployeeDashboard() {
                       margin: "2px 0 0 0",
                     }}
                   >
-                    Mandatory for all staff…
+                    Your leave for Dec 15-16 approved
                   </p>
                 </div>
 
