@@ -520,18 +520,18 @@ export default function MyLeaveAttendance() {
           {activeSubTab === "scheduledShifts" && (
             <div className="w-full">
               {/* Top Filters Row */}
-              <div className="flex flex-wrap items-center justify-end gap-3 mb-4">
+              <div className="flex flex-wrap items-center justify-end gap-2 mb-4">
                 {/* Date Range Selector 1 */}
                 <input
                   type="date"
                   defaultValue="2025-10-19"
-                  className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                  className="px-2 py-1 text-xs bg-white border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
                 />
                 {/* Date Range Selector 2 */}
                 <input
                   type="date"
                   defaultValue="2025-10-25"
-                  className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                  className="px-2 py-1 text-xs bg-white border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
                 />
               </div>
 
