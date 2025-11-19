@@ -716,7 +716,7 @@ export default function Settings() {
                   <select
                     value={notificationSettings.weeklyDigest}
                     onChange={(e) => setNotificationSettings({ ...notificationSettings, weeklyDigest: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="enabled">Enabled</option>
                     <option value="disabled">Disabled</option>
