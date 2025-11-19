@@ -809,19 +809,13 @@ export default function MyProfile() {
                   {/* Date Hired */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Date Hired</label>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>01/15/2023</p>
-                    </div>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>01/15/2023</p>
                   </div>
 
                   {/* Probation End Date */}
                   <div style={{ paddingBottom: "8px", borderBottom: "1px solid #E5E7EB" }}>
                     <label className="block text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif", fontSize: "11px" }}>Probation End Date</label>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                      <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>07-15-2023</p>
-                    </div>
+                    <p className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}>07-15-2023</p>
                   </div>
 
                   {/* Work Location / Site */}
