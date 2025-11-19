@@ -921,7 +921,7 @@ export default function EmployeeDashboard() {
                       margin: "0",
                     }}
                   >
-                    Upcoming Events
+                    Recent Activities
                   </h3>
                 </div>
                 <span
