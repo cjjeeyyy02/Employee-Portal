@@ -1793,6 +1793,104 @@ export default function MyLeaveAttendance() {
           </div>
         </div>
       )}
+
+      {/* Timesheet Submit Modal */}
+      {showTimesheetSubmitModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
+            <div className="flex items-center gap-3 mb-4">
+              <Save className="w-5 h-5 text-blue-600" />
+              <h2 className="text-lg font-semibold text-gray-900">
+                Submit Timesheet
+              </h2>
+            </div>
+            <div className="mb-6">
+              <p className="text-sm text-gray-600 mb-3">
+                You are about to submit your timesheet for this week. Please
+                review the details:
+              </p>
+              <div className="bg-gray-50 rounded-lg p-3 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Total Regular Hours:</span>
+                  <span className="font-semibold text-gray-900">
+                    {timesheetEntries
+                      .reduce(
+                        (sum, entry) =>
+                          sum + parseFloat(entry.regularHours || "0"),
+                        0,
+                      )
+                      .toFixed(1)}{" "}
+                    hrs
+                  </span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Total Overtime:</span>
+                  <span className="font-semibold text-gray-900">
+                    {timesheetEntries
+                      .reduce(
+                        (sum, entry) =>
+                          sum + parseFloat(entry.overtimeHours || "0"),
+                        0,
+                      )
+                      .toFixed(1)}{" "}
+                    hrs
+                  </span>
+                </div>
+                <div className="flex justify-between text-sm pt-2 border-t border-gray-200">
+                  <span className="text-gray-900 font-medium">
+                    Grand Total:
+                  </span>
+                  <span className="font-bold text-blue-600">
+                    {timesheetEntries
+                      .reduce(
+                        (sum, entry) =>
+                          sum +
+                          parseFloat(entry.regularHours || "0") +
+                          parseFloat(entry.overtimeHours || "0"),
+                        0,
+                      )
+                      .toFixed(1)}{" "}
+                    hrs
+                  </span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 mt-3">
+                Once submitted, this timesheet will be sent to your manager for
+                approval.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowTimesheetSubmitModal(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  const newEntries = timesheetEntries.map((entry) => ({
+                    ...entry,
+                    status:
+                      parseFloat(entry.regularHours || "0") > 0 ||
+                      parseFloat(entry.overtimeHours || "0") > 0
+                        ? ("Submitted" as const)
+                        : entry.status,
+                  }));
+                  setTimesheetEntries(newEntries);
+                  setShowTimesheetSubmitModal(false);
+                  showNotification(
+                    "Timesheet submitted successfully",
+                    "success",
+                  );
+                }}
+                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
