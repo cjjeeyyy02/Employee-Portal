@@ -898,7 +898,7 @@ export default function EmployeeDashboard() {
                 border: "1px solid #e5e7eb",
                 borderRadius: "12px",
                 boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-                padding: "12px",
+                padding: "16px",
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -909,120 +909,359 @@ export default function EmployeeDashboard() {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  marginBottom: "8px",
+                  marginBottom: "16px",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <h3
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "500",
-                      color: "#1f2937",
-                      margin: "0",
-                    }}
-                  >
-                    Recent Activities
-                  </h3>
-                </div>
-                <span
+                <h3
                   style={{
-                    fontSize: "10px",
-                    fontWeight: "500",
-                    backgroundColor: "#374151",
-                    color: "#ffffff",
-                    padding: "3px 8px",
-                    borderRadius: "9999px",
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    color: "#1f2937",
+                    margin: "0",
                   }}
                 >
-                  Recent
+                  Recent Activities
+                </h3>
+                <span
+                  style={{
+                    fontSize: "11px",
+                    fontWeight: "500",
+                    color: "#6b7280",
+                  }}
+                >
+                  Last 24 hours
                 </span>
               </div>
 
-              {/* Activities Grid */}
+              {/* Timeline Activities List */}
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-                  gap: "8px",
-                  marginBottom: "8px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "12px",
+                  maxHeight: "400px",
+                  overflowY: "auto",
                 }}
               >
-                {/* Activity 1 */}
+                {/* Activity 1 - Leave Approved */}
                 <div
                   style={{
-                    backgroundColor: "#f9fafb",
-                    border: "1px solid #e5e7eb",
-                    borderRadius: "8px",
-                    padding: "8px",
+                    display: "flex",
+                    gap: "12px",
+                    position: "relative",
                   }}
                 >
-                  <p
+                  <div
                     style={{
-                      fontSize: "12px",
-                      fontWeight: "500",
-                      color: "#1f2937",
-                      margin: "0",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      backgroundColor: "#dcfce7",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
-                    Leave Request Approved
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "11px",
-                      color: "#6b7280",
-                      margin: "3px 0 0 0",
-                    }}
-                  >
-                    Today 2:30 PM
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "11px",
-                      color: "#6b7280",
-                      margin: "2px 0 0 0",
-                    }}
-                  >
-                    Your leave for Dec 15-16 approved
-                  </p>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#16a34a"
+                      strokeWidth="2"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "600",
+                        color: "#1f2937",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Leave Request Approved
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Your leave request for Dec 15-16 has been approved by Sarah Johnson
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "0",
+                      }}
+                    >
+                      2 hours ago
+                    </p>
+                  </div>
                 </div>
 
-                {/* Activity 2 */}
+                {/* Activity 2 - Task Completed */}
                 <div
                   style={{
-                    backgroundColor: "#f9fafb",
-                    border: "1px solid #e5e7eb",
-                    borderRadius: "8px",
-                    padding: "8px",
+                    display: "flex",
+                    gap: "12px",
+                    position: "relative",
                   }}
                 >
-                  <p
+                  <div
                     style={{
-                      fontSize: "12px",
-                      fontWeight: "500",
-                      color: "#1f2937",
-                      margin: "0",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      backgroundColor: "#dbeafe",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
-                    Task Completed
-                  </p>
-                  <p
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#2563eb"
+                      strokeWidth="2"
+                    >
+                      <path d="M12 20h9"></path>
+                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "600",
+                        color: "#1f2937",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Task Completed
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Monthly sales report submitted and marked as complete
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "0",
+                      }}
+                    >
+                      5 hours ago
+                    </p>
+                  </div>
+                </div>
+
+                {/* Activity 3 - Document Uploaded */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    position: "relative",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: "11px",
-                      color: "#6b7280",
-                      margin: "3px 0 0 0",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      backgroundColor: "#fef3c7",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
-                    Today 11:20 AM
-                  </p>
-                  <p
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#d97706"
+                      strokeWidth="2"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "600",
+                        color: "#1f2937",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Document Uploaded
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Performance review document uploaded successfully
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "0",
+                      }}
+                    >
+                      Yesterday, 4:30 PM
+                    </p>
+                  </div>
+                </div>
+
+                {/* Activity 4 - Meeting Scheduled */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    position: "relative",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: "11px",
-                      color: "#6b7280",
-                      margin: "2px 0 0 0",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      backgroundColor: "#e0e7ff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
-                    Monthly report submitted
-                  </p>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#4f46e5"
+                      strokeWidth="2"
+                    >
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "600",
+                        color: "#1f2937",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Meeting Scheduled
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Team sync meeting scheduled for tomorrow at 10:00 AM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "0",
+                      }}
+                    >
+                      Yesterday, 2:15 PM
+                    </p>
+                  </div>
+                </div>
+
+                {/* Activity 5 - Feedback Received */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      backgroundColor: "#fce7f3",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#db2777"
+                      strokeWidth="2"
+                    >
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "600",
+                        color: "#1f2937",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      Feedback Received
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      New feedback from Michael Chen on Q4 project presentation
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "0",
+                      }}
+                    >
+                      Yesterday, 11:00 AM
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1030,8 +1269,8 @@ export default function EmployeeDashboard() {
               <div
                 style={{
                   borderTop: "1px solid #e5e7eb",
-                  marginTop: "8px",
-                  marginBottom: "6px",
+                  marginTop: "16px",
+                  marginBottom: "12px",
                 }}
               ></div>
 
@@ -1039,13 +1278,13 @@ export default function EmployeeDashboard() {
               <a
                 href="#"
                 style={{
-                  fontSize: "11px",
+                  fontSize: "13px",
                   fontWeight: "500",
                   color: "#2563eb",
                   textDecoration: "none",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "4px",
+                  gap: "6px",
                   borderBottom: "2px solid transparent",
                   transition: "border-color 0.2s",
                 }}
