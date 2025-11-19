@@ -71,10 +71,7 @@ export default function Settings() {
     <Layout>
       <div className="max-w-[1400px] mx-auto">
         <div className="mb-4">
-          <div className="flex items-center gap-2 mb-1">
-            <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center">
-              <SettingsIcon className="w-4 h-4 text-blue-600" />
-            </div>
+          <div className="mb-1">
             <h1 className="text-lg font-bold text-gray-900">Configuration and settings</h1>
           </div>
           <p className="text-xs text-gray-500">
