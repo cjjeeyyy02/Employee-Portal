@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function EmployeeDashboard() {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const navigate = useNavigate();
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
