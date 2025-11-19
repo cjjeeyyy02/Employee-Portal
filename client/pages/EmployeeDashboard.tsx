@@ -1281,28 +1281,6 @@ export default function EmployeeDashboard() {
               </a>
             </div>
 
-            {/* Bottom Medium Card - Quick Actions */}
-            <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[180px]">
-              <h2 className="text-base font-semibold text-gray-900 mb-2">
-                Quick Actions
-              </h2>
-
-              <div className="flex-1 space-y-1.5">
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
-                  📋 Request Leave
-                </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
-                  ⏱️ Overtime
-                </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
-                  📝 Submit Request
-                </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors">
-                  ✨ New Task
-                </button>
-              </div>
-            </div>
-
             {/* Announcements Container */}
             <div className="bg-white border border-gray-300 rounded-lg p-3 shadow-sm">
               <div className="mb-2">
@@ -1411,6 +1389,28 @@ export default function EmployeeDashboard() {
               <button className="mt-2 text-xs text-blue-600 font-medium hover:text-blue-700 transition-colors">
                 View All Announcements →
               </button>
+            </div>
+
+            {/* Bottom Medium Card - Quick Actions */}
+            <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[180px]">
+              <h2 className="text-base font-semibold text-gray-900 mb-2">
+                Quick Actions
+              </h2>
+
+              <div className="flex-1 space-y-1.5">
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                  📋 Request Leave
+                </button>
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                  ⏱️ Overtime
+                </button>
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                  📝 Submit Request
+                </button>
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors">
+                  ✨ New Task
+                </button>
+              </div>
             </div>
           </div>
         </div>
