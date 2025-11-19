@@ -33,7 +33,7 @@ type TabType =
   | "leaveAttendance"
   | "documents"
   | "training";
-type EditModalType = "personal" | "contact" | "training" | null;
+type EditModalType = "personal" | "contact" | "training" | "positionHistory" | "workHistory" | null;
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
@@ -1850,13 +1850,7 @@ export default function MyProfile() {
                     Position History
                   </h2>
                   <button
-                    onClick={() => {
-                      setNotification({
-                        message: "Edit Position History functionality",
-                        type: "info",
-                      });
-                      setTimeout(() => setNotification(null), 3000);
-                    }}
+                    onClick={() => setEditModalType("positionHistory")}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
@@ -1985,13 +1979,7 @@ export default function MyProfile() {
                     Previous Work History
                   </h2>
                   <button
-                    onClick={() => {
-                      setNotification({
-                        message: "Edit Previous Work History functionality",
-                        type: "info",
-                      });
-                      setTimeout(() => setNotification(null), 3000);
-                    }}
+                    onClick={() => setEditModalType("workHistory")}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all text-xs font-medium"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
