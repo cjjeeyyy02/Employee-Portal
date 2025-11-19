@@ -1083,11 +1083,11 @@ export default function MyProfile() {
                   <tbody>
                     {payslips.map((payslip) => (
                       <tr key={payslip.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
-                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">{payslip.date}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900">{payslip.date}</td>
                         <td className="px-4 py-3 text-sm text-gray-700">{payslip.payPeriod}</td>
-                        <td className="px-4 py-3 text-sm text-gray-900 font-semibold">{payslip.grossPay}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900">{payslip.grossPay}</td>
                         <td className="px-4 py-3 text-sm text-gray-700">{payslip.deduction}</td>
-                        <td className="px-4 py-3 text-sm text-gray-900 font-semibold">{payslip.netPay}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900">{payslip.netPay}</td>
                         <td className="px-4 py-3 text-center">
                           <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs flex items-center gap-1 justify-center mx-auto" title="Download">
                             <Download className="w-3.5 h-3.5" />
