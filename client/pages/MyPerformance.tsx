@@ -1042,216 +1042,278 @@ export default function MyPerformance() {
       {activeTab === "feedback" && (
         <div
           style={{
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "#F9FAFB",
             width: "100%",
-            padding: "12px",
+            padding: "16px",
             display: "flex",
             flexDirection: "column",
-            gap: "12px",
+            gap: "16px",
           }}
         >
-          {/* Header with Button */}
+          {/* CARD 1 – PEER FEEDBACK */}
           <div
             style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              marginBottom: "8px",
+              backgroundColor: "#F5F5F5",
+              borderRadius: "12px",
+              padding: "20px",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.08)",
             }}
           >
-            <button
-              onClick={() => setShowFeedbackModal(true)}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
-              style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px" }}
-            >
-              Give/Request Feedback
-            </button>
-          </div>
-
-          {/* Feedback Card 1 */}
-          <div
-            style={{
-              backgroundColor: "white",
-              border: "1px solid #E5E7EB",
-              borderRadius: "8px",
-              padding: "12px 14px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-            }}
-          >
-            {/* Top Text Block */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "3px",
-              }}
-            >
-              <p
+            {/* Top Section */}
+            <div style={{ marginBottom: "12px" }}>
+              <h3
                 style={{
-                  fontSize: "13px",
+                  fontSize: "15px",
                   fontWeight: "600",
                   color: "#000",
-                  margin: "0",
+                  margin: "0 0 4px 0",
                 }}
               >
                 Sarah Johnson
-              </p>
+              </h3>
               <p
                 style={{
-                  fontSize: "11px",
-                  color: "#555",
+                  fontSize: "12px",
+                  color: "#666",
                   margin: "0",
                 }}
               >
                 Software Analyst | Engineering
               </p>
-              <p
+            </div>
+
+            {/* Feedback Header Row */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "12px",
+              }}
+            >
+              <span
                 style={{
                   fontSize: "11px",
-                  color: "#555",
-                  margin: "0",
+                  fontWeight: "700",
+                  color: "#000",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
                 }}
               >
-                Peer Feedback | Category: Collaboration
-              </p>
-              <p
+                PEER FEEDBACK
+              </span>
+              <span
                 style={{
                   fontSize: "11px",
-                  color: "#444",
-                  margin: "0",
+                  fontWeight: "700",
+                  color: "#000",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
                 }}
               >
-                Rating: 3 - Meets Expectation
-              </p>
-              <p
+                DATE: 11-10-2024
+              </span>
+            </div>
+
+            {/* Rating Section */}
+            <div style={{ marginBottom: "12px" }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "4px" }}>
+                <span
+                  style={{
+                    fontSize: "32px",
+                    fontWeight: "700",
+                    color: "#000",
+                    lineHeight: "1",
+                  }}
+                >
+                  3
+                </span>
+                <span
+                  style={{
+                    fontSize: "14px",
+                    color: "#666",
+                  }}
+                >
+                  /5 Meets Expectation
+                </span>
+              </div>
+            </div>
+
+            {/* Category */}
+            <div style={{ marginBottom: "12px" }}>
+              <span
                 style={{
                   fontSize: "11px",
-                  color: "#666",
-                  margin: "0",
+                  fontWeight: "700",
+                  color: "#000",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
+                  marginRight: "6px",
                 }}
               >
-                Feedback Date: 11-10-2024
-              </p>
+                CATEGORY:
+              </span>
+              <span
+                style={{
+                  fontSize: "12px",
+                  color: "#333",
+                }}
+              >
+                Collaboration
+              </span>
             </div>
 
             {/* Comment Box */}
             <div
               style={{
-                backgroundColor: "#E9F3FF",
-                padding: "10px 12px",
-                borderRadius: "8px",
-                width: "100%",
+                backgroundColor: "#D6E9F8",
+                padding: "14px 16px",
+                borderRadius: "16px",
               }}
             >
               <p
                 style={{
-                  fontSize: "11px",
+                  fontSize: "12px",
                   color: "#333",
-                  lineHeight: "1.4",
+                  lineHeight: "1.5",
                   margin: "0",
                 }}
               >
-                You consistently produce high-quality work, communicate clearly,
-                and collaborate effectively with the team. Your initiative and
-                reliability have positively impacted our workflow, and your
-                ability to deliver results with minimal supervision is highly
-                appreciated
+                You consistently produce high-quality work, communicate and collaborate effectively with your initiative. Your initiative & reliability have positively impacted results with minimal is highly appreciated
               </p>
             </div>
           </div>
 
-          {/* Feedback Card 2 */}
+          {/* CARD 2 – MANAGER FEEDBACK */}
           <div
             style={{
-              backgroundColor: "white",
-              border: "1px solid #E5E7EB",
-              borderRadius: "8px",
-              padding: "12px 14px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
+              backgroundColor: "#F5F5F5",
+              borderRadius: "12px",
+              padding: "20px",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.08)",
             }}
           >
-            {/* Top Text Block */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "3px",
-              }}
-            >
-              <p
+            {/* Top Section */}
+            <div style={{ marginBottom: "12px" }}>
+              <h3
                 style={{
-                  fontSize: "13px",
+                  fontSize: "15px",
                   fontWeight: "600",
                   color: "#000",
-                  margin: "0",
+                  margin: "0 0 4px 0",
                 }}
               >
-                Sarah Johnson
-              </p>
+                Michelle Reyes
+              </h3>
               <p
                 style={{
-                  fontSize: "11px",
-                  color: "#555",
+                  fontSize: "12px",
+                  color: "#666",
                   margin: "0",
                 }}
               >
                 Software Analyst | Engineering
               </p>
-              <p
+            </div>
+
+            {/* Feedback Header Row */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "12px",
+              }}
+            >
+              <span
                 style={{
                   fontSize: "11px",
-                  color: "#555",
-                  margin: "0",
+                  fontWeight: "700",
+                  color: "#000",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
                 }}
               >
-                Peer Feedback | Category: Collaboration
-              </p>
-              <p
+                MANAGER FEEDBACK
+              </span>
+              <span
                 style={{
                   fontSize: "11px",
-                  color: "#444",
-                  margin: "0",
+                  fontWeight: "700",
+                  color: "#000",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
                 }}
               >
-                Rating: 3 - Meets Expectation
-              </p>
-              <p
+                DATE: 11-10-2024
+              </span>
+            </div>
+
+            {/* Rating Section */}
+            <div style={{ marginBottom: "12px" }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "4px" }}>
+                <span
+                  style={{
+                    fontSize: "32px",
+                    fontWeight: "700",
+                    color: "#000",
+                    lineHeight: "1",
+                  }}
+                >
+                  3
+                </span>
+                <span
+                  style={{
+                    fontSize: "14px",
+                    color: "#666",
+                  }}
+                >
+                  /5 Meets Expectation
+                </span>
+              </div>
+            </div>
+
+            {/* Category */}
+            <div style={{ marginBottom: "12px" }}>
+              <span
                 style={{
                   fontSize: "11px",
-                  color: "#666",
-                  margin: "0",
+                  fontWeight: "700",
+                  color: "#000",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
+                  marginRight: "6px",
                 }}
               >
-                Feedback Date: 11-10-2024
-              </p>
+                CATEGORY:
+              </span>
+              <span
+                style={{
+                  fontSize: "12px",
+                  color: "#1A73E8",
+                }}
+              >
+                Leadership
+              </span>
             </div>
 
             {/* Comment Box */}
             <div
               style={{
-                backgroundColor: "#E9F3FF",
-                padding: "10px 12px",
-                borderRadius: "8px",
-                width: "100%",
+                backgroundColor: "#D6E9F8",
+                padding: "14px 16px",
+                borderRadius: "16px",
               }}
             >
               <p
                 style={{
-                  fontSize: "11px",
+                  fontSize: "12px",
                   color: "#333",
-                  lineHeight: "1.4",
+                  lineHeight: "1.5",
                   margin: "0",
                 }}
               >
-                You consistently produce high-quality work, communicate clearly,
-                and collaborate effectively with the team. Your initiative and
-                reliability have positively impacted our workflow, and your
-                ability to deliver results with minimal supervision is highly
-                appreciated
+                You consistently produce high-quality work, communicate and collaborate effectively with Your initiative. Your initiative & reliability have positively impacted results with minimal is highly appreciated
               </p>
             </div>
           </div>
