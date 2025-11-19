@@ -1355,7 +1355,6 @@ export default function EmployeeDashboard() {
                     )}
                   </button>
                 </div>
-                <span className="text-xs text-gray-500">���</span>
               </div>
 
               {/* Scrollable Announcement List */}
