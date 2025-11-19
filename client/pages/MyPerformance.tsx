@@ -1043,6 +1043,233 @@ export default function MyPerformance() {
           </div>
         </div>
       )}
+
+      {/* Feedback Modal */}
+      {showFeedbackModal && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1000,
+          padding: "20px"
+        }}>
+          <div style={{
+            width: "600px",
+            maxWidth: "100%",
+            maxHeight: "90vh",
+            backgroundColor: "#FFFFFF",
+            padding: "24px",
+            borderRadius: "12px",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            overflowY: "auto"
+          }}>
+            {/* Header */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+              <div>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: "0 0 4px 0" }}>
+                  Give/Request Feedback
+                </h2>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0" }}>
+                  Provide or request feedback from your colleagues
+                </p>
+              </div>
+              <button
+                onClick={() => setShowFeedbackModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "4px",
+                  color: "#6C757D",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#222"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#6C757D"; }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Feedback Type */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Feedback Type
+              </label>
+              <div style={{ display: "flex", gap: "12px" }}>
+                <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                  <input
+                    type="radio"
+                    name="feedbackType"
+                    value="give"
+                    checked={feedbackForm.type === "give"}
+                    onChange={(e) => setFeedbackForm({ ...feedbackForm, type: e.target.value })}
+                    style={{ width: "16px", height: "16px", cursor: "pointer" }}
+                  />
+                  <span style={{ fontSize: "12px", color: "#333" }}>Give Feedback</span>
+                </label>
+                <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                  <input
+                    type="radio"
+                    name="feedbackType"
+                    value="request"
+                    checked={feedbackForm.type === "request"}
+                    onChange={(e) => setFeedbackForm({ ...feedbackForm, type: e.target.value })}
+                    style={{ width: "16px", height: "16px", cursor: "pointer" }}
+                  />
+                  <span style={{ fontSize: "12px", color: "#333" }}>Request Feedback</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Recipient */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                {feedbackForm.type === "give" ? "Give Feedback To" : "Request Feedback From"}
+              </label>
+              <select
+                value={feedbackForm.recipient}
+                onChange={(e) => setFeedbackForm({ ...feedbackForm, recipient: e.target.value })}
+                style={{
+                  width: "100%",
+                  padding: "8px 12px",
+                  borderRadius: "8px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "12px",
+                  fontFamily: "inherit"
+                }}
+              >
+                <option value="">Select a person</option>
+                <option value="Sarah Johnson">Sarah Johnson - Software Analyst</option>
+                <option value="Mike Chen">Mike Chen - Engineering Manager</option>
+                <option value="Alex Kim">Alex Kim - Senior Developer</option>
+                <option value="Lisa Brown">Lisa Brown - Product Manager</option>
+              </select>
+            </div>
+
+            {/* Category */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                Category
+              </label>
+              <select
+                value={feedbackForm.category}
+                onChange={(e) => setFeedbackForm({ ...feedbackForm, category: e.target.value })}
+                style={{
+                  width: "100%",
+                  padding: "8px 12px",
+                  borderRadius: "8px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "12px",
+                  fontFamily: "inherit"
+                }}
+              >
+                <option value="Collaboration">Collaboration</option>
+                <option value="Technical Skills">Technical Skills</option>
+                <option value="Leadership">Leadership</option>
+                <option value="Communication">Communication</option>
+                <option value="Problem Solving">Problem Solving</option>
+                <option value="Innovation">Innovation</option>
+              </select>
+            </div>
+
+            {/* Rating (only for Give Feedback) */}
+            {feedbackForm.type === "give" && (
+              <div>
+                <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                  Rating
+                </label>
+                <select
+                  value={feedbackForm.rating}
+                  onChange={(e) => setFeedbackForm({ ...feedbackForm, rating: e.target.value })}
+                  style={{
+                    width: "100%",
+                    padding: "8px 12px",
+                    borderRadius: "8px",
+                    border: "1px solid #E0E0E0",
+                    fontSize: "12px",
+                    fontFamily: "inherit"
+                  }}
+                >
+                  <option value="1">1 - Unacceptable</option>
+                  <option value="2">2 - Below Expectation</option>
+                  <option value="3">3 - Meets Expectation</option>
+                  <option value="4">4 - Exceeds Expectation</option>
+                  <option value="5">5 - Outstanding</option>
+                </select>
+              </div>
+            )}
+
+            {/* Comments */}
+            <div>
+              <label style={{ fontSize: "13px", fontWeight: "600", color: "#222", display: "block", marginBottom: "8px" }}>
+                {feedbackForm.type === "give" ? "Feedback Comments" : "What would you like feedback on?"}
+              </label>
+              <textarea
+                value={feedbackForm.comments}
+                onChange={(e) => setFeedbackForm({ ...feedbackForm, comments: e.target.value })}
+                placeholder={feedbackForm.type === "give"
+                  ? "Provide detailed feedback..."
+                  : "Describe what specific areas you'd like feedback on..."}
+                style={{
+                  width: "100%",
+                  height: "100px",
+                  padding: "8px 12px",
+                  borderRadius: "8px",
+                  border: "1px solid #E0E0E0",
+                  fontSize: "12px",
+                  fontFamily: "inherit",
+                  resize: "vertical"
+                }}
+              />
+            </div>
+
+            {/* Action Buttons */}
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end", marginTop: "8px" }}>
+              <button
+                onClick={() => setShowFeedbackModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSubmitFeedback}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#1A73E8",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                {feedbackForm.type === "give" ? "Submit Feedback" : "Send Request"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
