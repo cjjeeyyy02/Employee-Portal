@@ -294,7 +294,7 @@ export default function MyPerformance() {
               {/* KPI Card Section */}
               <div
                 style={{
-                  backgroundColor: "#FFFBEA",
+                  backgroundColor: "#FFFFFF",
                   borderRadius: "6px",
                   padding: "10px",
                   display: "flex",
@@ -453,17 +453,6 @@ export default function MyPerformance() {
           <div className="grid grid-cols-2 gap-3">
             {/* Left Column: Goal Details */}
             <div className="flex flex-col gap-2">
-              {/* Section Title */}
-              <h2
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  color: "#1A73E8",
-                  marginBottom: "4px",
-                }}
-              >
-                Goal Details
-              </h2>
 
               {/* Goal Card */}
               <div
@@ -607,7 +596,7 @@ export default function MyPerformance() {
               {/* KPI Card Section */}
               <div
                 style={{
-                  backgroundColor: "#FFFBEA",
+                  backgroundColor: "#FFFFFF",
                   borderRadius: "6px",
                   padding: "10px",
                   display: "flex",
