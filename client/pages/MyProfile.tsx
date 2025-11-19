@@ -1108,7 +1108,29 @@ export default function MyProfile() {
                 padding: "10px 12px",
                 overflowX: "auto"
               }}>
-                <h2 className="text-sm font-bold text-gray-900 mb-3" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Payslip History</h2>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <h2 className="text-sm font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px", fontWeight: 600 }}>Payslip History</h2>
+                  <div className="flex items-center gap-2">
+                    {showPayslipCheckboxes && (
+                      <button
+                        onClick={handleCancelPayslipSelection}
+                        className="px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
+                        Cancel
+                      </button>
+                    )}
+                    <button
+                      onClick={handleDownloadPayslips}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: "12px" }}
+                      title={showPayslipCheckboxes ? "Download Selected" : "Select and Download All"}
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      {showPayslipCheckboxes ? `Download (${selectedPayslips.length})` : "Download All"}
+                    </button>
+                  </div>
+                </div>
                 <table className="w-full" style={{ fontFamily: "Poppins, sans-serif" }}>
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
