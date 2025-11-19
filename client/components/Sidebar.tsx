@@ -42,7 +42,11 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         className="hidden max-lg:flex fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
       >
-        {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {isMobileOpen ? (
+          <X className="w-6 h-6" />
+        ) : (
+          <Menu className="w-6 h-6" />
+        )}
       </button>
 
       {/* Sidebar */}
@@ -52,11 +56,17 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
         } ${collapsed ? "lg:w-70" : "lg:w-52"} w-52 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
       >
         {/* Header Section */}
-        <div className={`px-4 py-5 border-b border-gray-100 transition-all duration-300 ${collapsed ? "lg:flex lg:items-center lg:justify-center lg:px-2" : ""}`}>
-          <h1 className={`text-lg font-bold text-gray-900 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}>
+        <div
+          className={`px-4 py-5 border-b border-gray-100 transition-all duration-300 ${collapsed ? "lg:flex lg:items-center lg:justify-center lg:px-2" : ""}`}
+        >
+          <h1
+            className={`text-lg font-bold text-gray-900 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}
+          >
             ESS Portal
           </h1>
-          <div className={`hidden text-blue-600 transition-opacity duration-300 ${collapsed ? "lg:flex" : "lg:hidden"}`}>
+          <div
+            className={`hidden text-blue-600 transition-opacity duration-300 ${collapsed ? "lg:flex" : "lg:hidden"}`}
+          >
             <div className="w-8 h-8 rounded bg-blue-100 flex items-center justify-center">
               <span className="text-sm font-bold">E</span>
             </div>
@@ -85,7 +95,9 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
                         active ? "text-blue-600" : "text-slate-500"
                       }`}
                     />
-                    <span className={`hidden lg:inline transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}>
+                    <span
+                      className={`hidden lg:inline transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}
+                    >
                       {item.label}
                     </span>
                   </Link>
@@ -96,8 +108,12 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
         </nav>
 
         {/* Footer Info */}
-        <div className={`px-4 py-3 border-t border-gray-100 text-center transition-all duration-300 ${collapsed ? "lg:px-2" : ""}`}>
-          <p className={`text-xs text-slate-400 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}>
+        <div
+          className={`px-4 py-3 border-t border-gray-100 text-center transition-all duration-300 ${collapsed ? "lg:px-2" : ""}`}
+        >
+          <p
+            className={`text-xs text-slate-400 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}
+          >
             © 2024 ESS Portal
           </p>
         </div>

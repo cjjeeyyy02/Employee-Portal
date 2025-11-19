@@ -1,4 +1,12 @@
-import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Plus, Clock, MapPin, Users } from "lucide-react";
+import {
+  Calendar as CalendarIcon,
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+  Clock,
+  MapPin,
+  Users,
+} from "lucide-react";
 import Layout from "@/components/Layout";
 import { useState } from "react";
 import {
@@ -29,22 +37,40 @@ export default function Calendar() {
   const daysInMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
-    0
+    0,
   ).getDate();
 
   const firstDayOfMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
-    1
+    1,
   ).getDay();
 
   const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const dayNames = ["S", "M", "T", "W", "T", "F", "S"];
-  const fullDayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const fullDayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const timeSlots = Array.from({ length: 24 }, (_, i) => {
     const hour = i % 12 || 12;
     const period = i < 12 ? "AM" : "PM";
@@ -53,21 +79,49 @@ export default function Calendar() {
 
   const previousPeriod = () => {
     if (viewMode === "day") {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 1));
+      setCurrentDate(
+        new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          currentDate.getDate() - 1,
+        ),
+      );
     } else if (viewMode === "week") {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 7));
+      setCurrentDate(
+        new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          currentDate.getDate() - 7,
+        ),
+      );
     } else {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+      setCurrentDate(
+        new Date(currentDate.getFullYear(), currentDate.getMonth() - 1),
+      );
     }
   };
 
   const nextPeriod = () => {
     if (viewMode === "day") {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1));
+      setCurrentDate(
+        new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          currentDate.getDate() + 1,
+        ),
+      );
     } else if (viewMode === "week") {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 7));
+      setCurrentDate(
+        new Date(
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          currentDate.getDate() + 7,
+        ),
+      );
     } else {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+      setCurrentDate(
+        new Date(currentDate.getFullYear(), currentDate.getMonth() + 1),
+      );
     }
   };
 
@@ -85,23 +139,53 @@ export default function Calendar() {
   };
 
   const sampleEvents = [
-    { day: 15, title: "Team Standup", time: "9:00 AM", hour: 9, color: "bg-blue-500" },
-    { day: 15, title: "Project Review", time: "2:00 PM", hour: 14, color: "bg-purple-500" },
-    { day: 18, title: "Client Meeting", time: "10:30 AM", hour: 10, color: "bg-green-500" },
-    { day: 22, title: "All Hands", time: "3:00 PM", hour: 15, color: "bg-orange-500" },
+    {
+      day: 15,
+      title: "Team Standup",
+      time: "9:00 AM",
+      hour: 9,
+      color: "bg-blue-500",
+    },
+    {
+      day: 15,
+      title: "Project Review",
+      time: "2:00 PM",
+      hour: 14,
+      color: "bg-purple-500",
+    },
+    {
+      day: 18,
+      title: "Client Meeting",
+      time: "10:30 AM",
+      hour: 10,
+      color: "bg-green-500",
+    },
+    {
+      day: 22,
+      title: "All Hands",
+      time: "3:00 PM",
+      hour: 15,
+      color: "bg-orange-500",
+    },
   ];
 
   const getEventsForDay = (day: number) => {
-    return sampleEvents.filter(event => event.day === day);
+    return sampleEvents.filter((event) => event.day === day);
   };
 
   const getEventsForHour = (day: number, hour: number) => {
-    return sampleEvents.filter(event => event.day === day && event.hour === hour);
+    return sampleEvents.filter(
+      (event) => event.day === day && event.hour === hour,
+    );
   };
 
   const handleDateClick = (day: number) => {
-    const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-    const formattedDate = selectedDate.toISOString().split('T')[0];
+    const selectedDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      day,
+    );
+    const formattedDate = selectedDate.toISOString().split("T")[0];
     setEventForm({
       ...eventForm,
       date: formattedDate,
@@ -130,7 +214,9 @@ export default function Calendar() {
     setIsNewEventOpen(false);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setEventForm({
       ...eventForm,
       [e.target.name]: e.target.value,
@@ -141,12 +227,12 @@ export default function Calendar() {
     const curr = new Date(currentDate);
     const first = curr.getDate() - curr.getDay();
     const weekDays = [];
-    
+
     for (let i = 0; i < 7; i++) {
       const date = new Date(curr.setDate(first + i));
       weekDays.push(date);
     }
-    
+
     return weekDays;
   };
 
@@ -169,7 +255,10 @@ export default function Calendar() {
         {timeSlots.map((time, idx) => {
           const events = getEventsForHour(currentDate.getDate(), idx);
           return (
-            <div key={idx} className="flex border-b border-gray-200 min-h-[50px]">
+            <div
+              key={idx}
+              className="flex border-b border-gray-200 min-h-[50px]"
+            >
               <div className="w-20 border-r border-gray-200 bg-gray-50 p-2 text-xs text-gray-600 font-medium">
                 {time}
               </div>
@@ -196,7 +285,7 @@ export default function Calendar() {
 
   const renderWeekView = () => {
     const weekDays = getWeekDays();
-    
+
     return (
       <div className="border-l border-t border-gray-200">
         <div className="grid grid-cols-8 sticky top-0 bg-white z-10">
@@ -210,17 +299,23 @@ export default function Calendar() {
                   isCurrentDay ? "bg-blue-50" : ""
                 }`}
               >
-                <div className="text-xs font-semibold text-gray-700">{fullDayNames[day.getDay()].slice(0, 3)}</div>
-                <div className={`text-xs mt-1 ${
-                  isCurrentDay ? "bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center mx-auto" : "text-gray-600"
-                }`}>
+                <div className="text-xs font-semibold text-gray-700">
+                  {fullDayNames[day.getDay()].slice(0, 3)}
+                </div>
+                <div
+                  className={`text-xs mt-1 ${
+                    isCurrentDay
+                      ? "bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center mx-auto"
+                      : "text-gray-600"
+                  }`}
+                >
                   {day.getDate()}
                 </div>
               </div>
             );
           })}
         </div>
-        
+
         {timeSlots.map((time, timeIdx) => (
           <div key={timeIdx} className="grid grid-cols-8 min-h-[50px]">
             <div className="border-r border-b border-gray-200 bg-gray-50 p-2 text-xs text-gray-600 font-medium">
@@ -257,8 +352,10 @@ export default function Calendar() {
 
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(
-        <div key={`empty-${i}`} className="bg-gray-50 border-r border-b border-gray-200 min-h-[70px]">
-        </div>
+        <div
+          key={`empty-${i}`}
+          className="bg-gray-50 border-r border-b border-gray-200 min-h-[70px]"
+        ></div>,
       );
     }
 
@@ -278,7 +375,9 @@ export default function Calendar() {
             <div className="flex items-center justify-between mb-0.5">
               <span
                 className={`text-xs font-semibold ${
-                  todayCell ? "bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px]" : "text-gray-700"
+                  todayCell
+                    ? "bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px]"
+                    : "text-gray-700"
                 }`}
               >
                 {day}
@@ -296,7 +395,7 @@ export default function Calendar() {
               ))}
             </div>
           </div>
-        </div>
+        </div>,
       );
     }
 
@@ -406,8 +505,12 @@ export default function Calendar() {
                   <Clock className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-900">Upcoming Today</h3>
-                  <p className="text-[10px] text-gray-600">2 meetings scheduled</p>
+                  <h3 className="text-xs font-semibold text-gray-900">
+                    Upcoming Today
+                  </h3>
+                  <p className="text-[10px] text-gray-600">
+                    2 meetings scheduled
+                  </p>
                 </div>
               </div>
             </div>
@@ -418,7 +521,9 @@ export default function Calendar() {
                   <Users className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-900">Team Events</h3>
+                  <h3 className="text-xs font-semibold text-gray-900">
+                    Team Events
+                  </h3>
                   <p className="text-[10px] text-gray-600">4 this week</p>
                 </div>
               </div>
@@ -430,8 +535,12 @@ export default function Calendar() {
                   <MapPin className="w-3.5 h-3.5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-gray-900">In-Person</h3>
-                  <p className="text-[10px] text-gray-600">1 meeting this week</p>
+                  <h3 className="text-xs font-semibold text-gray-900">
+                    In-Person
+                  </h3>
+                  <p className="text-[10px] text-gray-600">
+                    1 meeting this week
+                  </p>
                 </div>
               </div>
             </div>
@@ -447,7 +556,10 @@ export default function Calendar() {
           <form onSubmit={handleCreateEvent}>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <label htmlFor="title" className="text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="title"
+                  className="text-sm font-medium text-gray-900"
+                >
                   Event Title <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -464,7 +576,10 @@ export default function Calendar() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="date" className="text-sm font-medium text-gray-900">
+                  <label
+                    htmlFor="date"
+                    className="text-sm font-medium text-gray-900"
+                  >
                     Date <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -479,7 +594,10 @@ export default function Calendar() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="startTime" className="text-sm font-medium text-gray-900">
+                  <label
+                    htmlFor="startTime"
+                    className="text-sm font-medium text-gray-900"
+                  >
                     Start Time
                   </label>
                   <input
@@ -494,7 +612,10 @@ export default function Calendar() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="endTime" className="text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="endTime"
+                  className="text-sm font-medium text-gray-900"
+                >
                   End Time
                 </label>
                 <input
@@ -508,7 +629,10 @@ export default function Calendar() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="location" className="text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="location"
+                  className="text-sm font-medium text-gray-900"
+                >
                   Location
                 </label>
                 <input
@@ -523,7 +647,10 @@ export default function Calendar() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="description" className="text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="description"
+                  className="text-sm font-medium text-gray-900"
+                >
                   Description
                 </label>
                 <textarea

@@ -17,33 +17,49 @@ import { useNavigate } from "react-router-dom";
 export default function EmployeeDashboard() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const navigate = useNavigate();
-  const [announcementTab, setAnnouncementTab] = useState<"All" | "News" | "Activities">("All");
+  const [announcementTab, setAnnouncementTab] = useState<
+    "All" | "News" | "Activities"
+  >("All");
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
-    0
+    0,
   ).getDate();
 
   const firstDayOfMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
-    1
+    1,
   ).getDay();
 
   const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const dayNames = ["S", "M", "T", "W", "T", "F", "S"];
 
   const previousMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1),
+    );
   };
 
   const nextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1),
+    );
   };
 
   const today = new Date();
@@ -62,7 +78,7 @@ export default function EmployeeDashboard() {
   ];
 
   const getEventsForDay = (day: number) => {
-    return sampleEvents.filter(event => event.day === day);
+    return sampleEvents.filter((event) => event.day === day);
   };
   const metrics = [
     {
@@ -609,7 +625,10 @@ export default function EmployeeDashboard() {
                           <tr
                             key={index}
                             style={{
-                              borderBottom: index !== pendingTasks.length - 1 ? "1px solid #e5e7eb" : "none",
+                              borderBottom:
+                                index !== pendingTasks.length - 1
+                                  ? "1px solid #e5e7eb"
+                                  : "none",
                             }}
                           >
                             <td
@@ -828,14 +847,19 @@ export default function EmployeeDashboard() {
                           }
                         };
 
-                        const priorityStyle = getPriorityStyle(request.priority);
+                        const priorityStyle = getPriorityStyle(
+                          request.priority,
+                        );
                         const statusStyle = getStatusStyle(request.status);
 
                         return (
                           <tr
                             key={index}
                             style={{
-                              borderBottom: index !== pendingRequests.length - 1 ? "1px solid #e5e7eb" : "none",
+                              borderBottom:
+                                index !== pendingRequests.length - 1
+                                  ? "1px solid #e5e7eb"
+                                  : "none",
                             }}
                           >
                             <td
@@ -1027,7 +1051,8 @@ export default function EmployeeDashboard() {
                         margin: "0 0 4px 0",
                       }}
                     >
-                      Your leave request for Dec 15-16 has been approved by Sarah Johnson
+                      Your leave request for Dec 15-16 has been approved by
+                      Sarah Johnson
                     </p>
                     <p
                       style={{
@@ -1225,7 +1250,13 @@ export default function EmployeeDashboard() {
               }}
             >
               {/* Header Section with Navigation */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
                 <div>
                   <h2
                     style={{
@@ -1235,7 +1266,8 @@ export default function EmployeeDashboard() {
                       margin: "0",
                     }}
                   >
-                    {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
+                    {monthNames[currentDate.getMonth()]}{" "}
+                    {currentDate.getFullYear()}
                   </h2>
                 </div>
                 <div style={{ display: "flex", gap: "4px" }}>
@@ -1291,7 +1323,14 @@ export default function EmployeeDashboard() {
               {/* Calendar Grid */}
               <div>
                 {/* Day Names */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px", marginBottom: "4px" }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(7, 1fr)",
+                    gap: "4px",
+                    marginBottom: "4px",
+                  }}
+                >
                   {dayNames.map((day, idx) => (
                     <div
                       key={idx}
@@ -1309,7 +1348,13 @@ export default function EmployeeDashboard() {
                 </div>
 
                 {/* Calendar Days */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "2px" }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(7, 1fr)",
+                    gap: "2px",
+                  }}
+                >
                   {/* Empty cells for days before month starts */}
                   {Array.from({ length: firstDayOfMonth }).map((_, i) => (
                     <div key={`empty-${i}`} style={{ height: "32px" }}></div>
@@ -1333,7 +1378,9 @@ export default function EmployeeDashboard() {
                           borderRadius: "6px",
                           cursor: "pointer",
                           transition: "all 0.2s",
-                          backgroundColor: todayCell ? "#3b82f6" : "transparent",
+                          backgroundColor: todayCell
+                            ? "#3b82f6"
+                            : "transparent",
                         }}
                         onMouseEnter={(e) => {
                           if (!todayCell) {
@@ -1342,7 +1389,8 @@ export default function EmployeeDashboard() {
                         }}
                         onMouseLeave={(e) => {
                           if (!todayCell) {
-                            e.currentTarget.style.backgroundColor = "transparent";
+                            e.currentTarget.style.backgroundColor =
+                              "transparent";
                           }
                         }}
                       >
@@ -1373,7 +1421,9 @@ export default function EmployeeDashboard() {
                                   width: "3px",
                                   height: "3px",
                                   borderRadius: "50%",
-                                  backgroundColor: todayCell ? "#ffffff" : "#3b82f6",
+                                  backgroundColor: todayCell
+                                    ? "#ffffff"
+                                    : "#3b82f6",
                                 }}
                               ></div>
                             ))}
@@ -1403,7 +1453,13 @@ export default function EmployeeDashboard() {
                 >
                   Upcoming Events
                 </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "6px",
+                  }}
+                >
                   {/* Event 1 */}
                   <div
                     style={{
@@ -1614,7 +1670,9 @@ export default function EmployeeDashboard() {
                 {/* Announcement 1 */}
                 <div className="flex gap-3 py-2 border-b border-gray-200">
                   <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">Today</div>
+                    <div className="text-xs font-medium text-gray-900">
+                      Today
+                    </div>
                     <div className="text-xs text-gray-500">09:00</div>
                   </div>
                   <div className="flex-1 min-w-0">
@@ -1622,7 +1680,9 @@ export default function EmployeeDashboard() {
                       Welcome to the Era of Zero!
                     </h3>
                     <p className="text-xs text-gray-600 line-clamp-2">
-                      Dear Phemex Traders, The day has finally come! Today, we have officially launched our Membership Spot Trading services...
+                      Dear Phemex Traders, The day has finally come! Today, we
+                      have officially launched our Membership Spot Trading
+                      services...
                     </p>
                   </div>
                 </div>
@@ -1630,7 +1690,9 @@ export default function EmployeeDashboard() {
                 {/* Announcement 2 */}
                 <div className="flex gap-3 py-2 border-b border-gray-200">
                   <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">Jan 20</div>
+                    <div className="text-xs font-medium text-gray-900">
+                      Jan 20
+                    </div>
                     <div className="text-xs text-gray-500">2025</div>
                   </div>
                   <div className="flex-1 min-w-0">
@@ -1638,7 +1700,8 @@ export default function EmployeeDashboard() {
                       Company Holiday Schedule 2025
                     </h3>
                     <p className="text-xs text-gray-600 line-clamp-2">
-                      The updated holiday schedule for 2025 has been posted. Please review and plan accordingly.
+                      The updated holiday schedule for 2025 has been posted.
+                      Please review and plan accordingly.
                     </p>
                   </div>
                 </div>
@@ -1646,7 +1709,9 @@ export default function EmployeeDashboard() {
                 {/* Announcement 3 */}
                 <div className="flex gap-3 py-2">
                   <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs font-medium text-gray-900">Jan 18</div>
+                    <div className="text-xs font-medium text-gray-900">
+                      Jan 18
+                    </div>
                     <div className="text-xs text-gray-500">2025</div>
                   </div>
                   <div className="flex-1 min-w-0">
@@ -1654,7 +1719,8 @@ export default function EmployeeDashboard() {
                       New Health & Wellness Program
                     </h3>
                     <p className="text-xs text-gray-600 line-clamp-2">
-                      Join our new wellness program with fitness classes and mental health resources. Registration opens next week.
+                      Join our new wellness program with fitness classes and
+                      mental health resources. Registration opens next week.
                     </p>
                   </div>
                 </div>
