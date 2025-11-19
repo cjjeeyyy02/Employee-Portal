@@ -482,14 +482,23 @@ export default function MyLeaveAttendance() {
                     Your recent attendance history
                   </p>
                 </div>
-                {selectedDate && (
+                <div className="flex items-center gap-2">
                   <button
-                    onClick={clearDateFilter}
-                    className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors"
+                    onClick={() => setShowDatePicker(true)}
+                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                   >
-                    Clear Filter ({selectedDate})
+                    <Calendar className="w-3.5 h-3.5" />
+                    Select Date
                   </button>
-                )}
+                  {selectedDate && (
+                    <button
+                      onClick={clearDateFilter}
+                      className="text-xs px-3 py-1.5 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors font-medium"
+                    >
+                      Clear Filter ({formatDate(selectedDate)})
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Table */}
