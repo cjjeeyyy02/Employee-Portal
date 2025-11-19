@@ -1539,11 +1539,17 @@ export default function MyProfile() {
                             className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
                             style={{ fontFamily: "Poppins, sans-serif" }}
                           >
-                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                            <button
+                              onClick={() => handleViewLeaveDetails(leaveHistory[3])}
+                              className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                            >
                               <Eye className="w-4 h-4" />
                               View Details
                             </button>
-                            <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                            <button
+                              onClick={() => handleDeleteLeave(leaveHistory[3])}
+                              className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                            >
                               <Trash2 className="w-4 h-4" />
                               Delete
                             </button>
