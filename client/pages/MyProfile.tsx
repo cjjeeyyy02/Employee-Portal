@@ -218,6 +218,42 @@ export default function MyProfile() {
     setSelectedPayslips([]);
   };
 
+  const handleViewTraining = (training: Training) => {
+    setNotification({ message: `Viewing training: ${training.name}`, type: 'info' });
+    setTimeout(() => setNotification(null), 3000);
+    setOpenTrainingMenu(null);
+  };
+
+  const handleEditTraining = (training: Training) => {
+    setNotification({ message: `Editing training: ${training.name}`, type: 'info' });
+    setTimeout(() => setNotification(null), 3000);
+    setOpenTrainingMenu(null);
+  };
+
+  const handleDeleteTraining = (training: Training) => {
+    setNotification({ message: `Deleted training: ${training.name}`, type: 'success' });
+    setTimeout(() => setNotification(null), 3000);
+    setOpenTrainingMenu(null);
+  };
+
+  const handleViewCertification = (cert: Training) => {
+    setNotification({ message: `Viewing certification: ${cert.name}`, type: 'info' });
+    setTimeout(() => setNotification(null), 3000);
+    setOpenCertificationMenu(null);
+  };
+
+  const handleEditCertification = (cert: Training) => {
+    setNotification({ message: `Editing certification: ${cert.name}`, type: 'info' });
+    setTimeout(() => setNotification(null), 3000);
+    setOpenCertificationMenu(null);
+  };
+
+  const handleDeleteCertification = (cert: Training) => {
+    setNotification({ message: `Deleted certification: ${cert.name}`, type: 'success' });
+    setTimeout(() => setNotification(null), 3000);
+    setOpenCertificationMenu(null);
+  };
+
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
   const [contactForm, setContactForm] = useState({ phone: "+1 234 567 890", personalEmail: "sarah.mitchell@email.com", workEmail: "sarah.m@company.com", street: "123 Main Street", city: "Los Angeles", state: "California", zipCode: "90001" });
