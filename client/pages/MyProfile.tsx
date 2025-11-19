@@ -2127,15 +2127,31 @@ export default function MyProfile() {
 
       {/* Edit Personal Modal */}
       {editModalType === "personal" && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4">
-            <div className="flex items-center justify-between gap-2 mb-4">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onMouseMove={handleModalMouseMove}
+          onMouseUp={handleModalMouseUp}
+        >
+          <div
+            className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full mx-4"
+            style={{
+              position: 'fixed',
+              left: modalPosition.x ? `${modalPosition.x}px` : '50%',
+              top: modalPosition.y ? `${modalPosition.y}px` : '50%',
+              transform: modalPosition.x ? 'none' : 'translate(-50%, -50%)',
+              cursor: isDragging ? 'grabbing' : 'auto'
+            }}
+          >
+            <div
+              className="flex items-center justify-between gap-2 mb-4 cursor-grab active:cursor-grabbing"
+              onMouseDown={handleModalMouseDown}
+            >
               <h2 className="text-lg font-semibold text-gray-900">Edit Personal Information</h2>
               <button onClick={() => setEditModalType(null)} className="text-gray-500 hover:text-gray-700">
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 max-h-96 overflow-y-auto">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                 <input
@@ -2175,14 +2191,36 @@ export default function MyProfile() {
                   <option>Other</option>
                 </select>
               </div>
-              <div className="flex gap-3 pt-4">
-                <button onClick={() => setEditModalType(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
-                  Cancel
-                </button>
-                <button onClick={() => handleEditSubmit("personal")} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
-                  Save Changes
-                </button>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Marital Status</label>
+                <select
+                  value={personalForm.maritalStatus}
+                  onChange={(e) => setPersonalForm({...personalForm, maritalStatus: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Divorced</option>
+                  <option>Widowed</option>
+                </select>
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Nationality</label>
+                <input
+                  type="text"
+                  value={personalForm.nationality}
+                  onChange={(e) => setPersonalForm({...personalForm, nationality: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            <div className="flex gap-3 pt-4">
+              <button onClick={() => setEditModalType(null)} className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm">
+                Cancel
+              </button>
+              <button onClick={() => handleEditSubmit("personal")} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                Save Changes
+              </button>
             </div>
           </div>
         </div>
