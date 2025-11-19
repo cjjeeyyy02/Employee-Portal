@@ -8,8 +8,16 @@ export default function MyPerformance() {
   const [activeTab, setActiveTab] = useState<TabType>("goals");
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [selectedReview, setSelectedReview] = useState<string | null>(null);
   const [performanceRating, setPerformanceRating] = useState("1");
+  const [feedbackForm, setFeedbackForm] = useState({
+    type: "give",
+    recipient: "",
+    category: "Collaboration",
+    rating: "3",
+    comments: ""
+  });
 
   const reviewDetails: Record<string, any> = {
     "Q3 2024": {
@@ -43,6 +51,19 @@ export default function MyPerformance() {
   const handleViewDetails = (reviewTitle: string) => {
     setSelectedReview(reviewTitle);
     setShowDetailsModal(true);
+  };
+
+  const handleSubmitFeedback = () => {
+    // Here you would submit the feedback to your backend
+    console.log("Submitting feedback:", feedbackForm);
+    setShowFeedbackModal(false);
+    setFeedbackForm({
+      type: "give",
+      recipient: "",
+      category: "Collaboration",
+      rating: "3",
+      comments: ""
+    });
   };
 
   return (
@@ -507,6 +528,7 @@ export default function MyPerformance() {
             marginBottom: "8px"
           }}>
             <button
+              onClick={() => setShowFeedbackModal(true)}
               className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
               style={{ fontFamily: "Poppins, sans-serif", fontSize: "13px" }}
             >
