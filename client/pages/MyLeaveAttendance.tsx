@@ -586,28 +586,16 @@ export default function MyLeaveAttendance() {
                 {/* Filter Controls Row */}
                 <div className="flex items-center justify-between gap-3 flex-wrap">
                   <div className="flex items-center gap-3 flex-wrap">
-                    {/* View Mode Toggle */}
-                    <div className="inline-flex border border-gray-300 rounded-lg overflow-hidden">
-                      {[
-                        { id: "daily", label: "Daily" },
-                        { id: "weekly", label: "Weekly" },
-                        { id: "monthly", label: "Monthly" },
-                      ].map((view, index) => (
-                        <button
-                          key={view.id}
-                          onClick={() => setTimesheetView(view.id as "daily" | "weekly" | "monthly")}
-                          className={`px-3 py-1.5 font-medium text-xs transition-all ${
-                            index > 0 ? "border-l border-gray-300" : ""
-                          } ${
-                            timesheetView === view.id
-                              ? "bg-blue-600 text-white"
-                              : "bg-white text-gray-600 hover:bg-gray-50"
-                          }`}
-                        >
-                          {view.label}
-                        </button>
-                      ))}
-                    </div>
+                    {/* View Mode Dropdown */}
+                    <select
+                      value={timesheetView}
+                      onChange={(e) => setTimesheetView(e.target.value as "daily" | "weekly" | "monthly")}
+                      className="px-3 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                    >
+                      <option value="daily">Daily</option>
+                      <option value="weekly">Weekly</option>
+                      <option value="monthly">Monthly</option>
+                    </select>
 
                     {/* Date Range Filter */}
                     <div className="flex items-center gap-2">
