@@ -109,6 +109,18 @@ export default function MyProfile() {
   const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [showTrainingViewModal, setShowTrainingViewModal] = useState(false);
+  const [showCertificationViewModal, setShowCertificationViewModal] = useState(false);
+  const [showSkillViewModal, setShowSkillViewModal] = useState(false);
+  const [showDocViewModal, setShowDocViewModal] = useState(false);
+  const [selectedTraining, setSelectedTraining] = useState<Training | null>(null);
+  const [selectedCertification, setSelectedCertification] = useState<Training | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [selectedDoc, setSelectedDoc] = useState<any>(null);
+  const [showDeleteTrainingModal, setShowDeleteTrainingModal] = useState(false);
+  const [showDeleteCertModal, setShowDeleteCertModal] = useState(false);
+  const [showDeleteSkillModal, setShowDeleteSkillModal] = useState(false);
+  const [showDeleteDocModal, setShowDeleteDocModal] = useState(false);
 
   const documents = [
     {
@@ -301,57 +313,59 @@ export default function MyProfile() {
   };
 
   const handleViewTraining = (training: Training) => {
-    setNotification({
-      message: `Viewing training: ${training.name}`,
-      type: "info",
-    });
-    setTimeout(() => setNotification(null), 3000);
+    setSelectedTraining(training);
+    setShowTrainingViewModal(true);
     setOpenTrainingMenu(null);
   };
 
   const handleEditTraining = (training: Training) => {
-    setNotification({
-      message: `Editing training: ${training.name}`,
-      type: "info",
-    });
-    setTimeout(() => setNotification(null), 3000);
+    setSelectedTraining(training);
+    setEditModalType("training");
     setOpenTrainingMenu(null);
   };
 
   const handleDeleteTraining = (training: Training) => {
-    setNotification({
-      message: `Deleted training: ${training.name}`,
-      type: "success",
-    });
-    setTimeout(() => setNotification(null), 3000);
+    setSelectedTraining(training);
+    setShowDeleteTrainingModal(true);
     setOpenTrainingMenu(null);
   };
 
-  const handleViewCertification = (cert: Training) => {
+  const confirmDeleteTraining = () => {
     setNotification({
-      message: `Viewing certification: ${cert.name}`,
-      type: "info",
+      message: `Deleted training: ${selectedTraining?.name}`,
+      type: "success",
     });
     setTimeout(() => setNotification(null), 3000);
+    setShowDeleteTrainingModal(false);
+    setSelectedTraining(null);
+  };
+
+  const handleViewCertification = (cert: Training) => {
+    setSelectedCertification(cert);
+    setShowCertificationViewModal(true);
     setOpenCertificationMenu(null);
   };
 
   const handleEditCertification = (cert: Training) => {
-    setNotification({
-      message: `Editing certification: ${cert.name}`,
-      type: "info",
-    });
-    setTimeout(() => setNotification(null), 3000);
+    setSelectedCertification(cert);
+    setEditModalType("training");
     setOpenCertificationMenu(null);
   };
 
   const handleDeleteCertification = (cert: Training) => {
+    setSelectedCertification(cert);
+    setShowDeleteCertModal(true);
+    setOpenCertificationMenu(null);
+  };
+
+  const confirmDeleteCertification = () => {
     setNotification({
-      message: `Deleted certification: ${cert.name}`,
+      message: `Deleted certification: ${selectedCertification?.name}`,
       type: "success",
     });
     setTimeout(() => setNotification(null), 3000);
-    setOpenCertificationMenu(null);
+    setShowDeleteCertModal(false);
+    setSelectedCertification(null);
   };
 
   // Edit form states
