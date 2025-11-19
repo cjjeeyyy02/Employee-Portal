@@ -1411,30 +1411,27 @@ export default function MyProfile() {
                   padding: "10px 12px",
                 }}
               >
-                <div className="flex items-start gap-2 mb-3">
-                  <Shield className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h2
-                      className="text-sm font-bold text-gray-900"
-                      style={{
-                        fontFamily: "Poppins, sans-serif",
-                        fontSize: "13px",
-                        fontWeight: 600,
-                      }}
-                    >
-                      Emergency Contact
-                    </h2>
-                    <p
-                      className="text-xs text-gray-600 mt-0.5"
-                      style={{
-                        fontFamily: "Poppins, sans-serif",
-                        fontSize: "11px",
-                      }}
-                    >
-                      Provide emergency contact information for urgent
-                      situations.
-                    </p>
-                  </div>
+                <div className="mb-3">
+                  <h2
+                    className="text-sm font-bold text-gray-900"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "13px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Emergency Contact
+                  </h2>
+                  <p
+                    className="text-xs text-gray-600 mt-0.5"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "11px",
+                    }}
+                  >
+                    Provide emergency contact information for urgent
+                    situations.
+                  </p>
                 </div>
 
                 <div className="space-y-2" style={{ marginTop: "12px" }}>
@@ -1489,49 +1486,49 @@ export default function MyProfile() {
 
                   {/* Contact Number */}
                   <div
-                    className="flex items-start gap-3 pb-3"
-                    style={{ borderBottom: "1px solid #E5E7EB" }}
+                    style={{
+                      paddingBottom: "8px",
+                      borderBottom: "1px solid #E5E7EB",
+                    }}
                   >
-                    <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <div className="flex-1">
-                      <label
-                        className="block text-xs font-medium text-gray-600 mb-1"
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                      >
-                        Contact Number
-                      </label>
-                      <p
-                        className="text-sm font-bold text-gray-900"
-                        style={{
-                          fontFamily: "Poppins, sans-serif",
-                          fontSize: "12px",
-                        }}
-                      >
-                        +1 456 789 123
-                      </p>
-                    </div>
+                    <label
+                      className="block text-xs font-medium text-gray-600 mb-1"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Contact Number
+                    </label>
+                    <p
+                      className="text-sm font-bold text-gray-900"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "12px",
+                      }}
+                    >
+                      +1 456 789 123
+                    </p>
                   </div>
 
                   {/* Alternate Number */}
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <div className="flex-1">
-                      <label
-                        className="block text-xs font-medium text-gray-600 mb-1"
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                      >
-                        Alternate Number
-                      </label>
-                      <p
-                        className="text-sm font-bold text-gray-900"
-                        style={{
-                          fontFamily: "Poppins, sans-serif",
-                          fontSize: "12px",
-                        }}
-                      >
-                        +1 321 654 987
-                      </p>
-                    </div>
+                  <div
+                    style={{
+                      paddingBottom: "8px",
+                    }}
+                  >
+                    <label
+                      className="block text-xs font-medium text-gray-600 mb-1"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Alternate Number
+                    </label>
+                    <p
+                      className="text-sm font-bold text-gray-900"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "12px",
+                      }}
+                    >
+                      +1 321 654 987
+                    </p>
                   </div>
                 </div>
               </div>
