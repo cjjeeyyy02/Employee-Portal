@@ -1191,7 +1191,7 @@ export default function MyProfile() {
                     {skills.map((skill) => (
                       <tr key={skill.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                         <td className="px-3 py-2" style={{ fontSize: "11px", fontWeight: 500, color: "#111827" }}>{skill.name}</td>
-                        <td className="px-3 py-2 text-center" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.experience}</td>
+                        <td className="px-3 py-2 text-center TEMP_MARKER" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.experience}</td>
                         <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>
                           <span className={
                             skill.level === "Expert" ? "px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" :
