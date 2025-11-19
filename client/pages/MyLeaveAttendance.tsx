@@ -289,7 +289,7 @@ export default function MyLeaveAttendance() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-white text-xs font-medium transition-colors ${
                   isClockedIn
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-[#2F80ED] hover:bg-blue-700"
+                    : "bg-blue-600 hover:bg-blue-700"
                 }`}
               >
                 <CheckCircle className="w-3.5 h-3.5" />
@@ -303,7 +303,7 @@ export default function MyLeaveAttendance() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-white text-xs font-medium transition-colors ${
                   !isClockedIn || isOnBreak
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-[#DC2626] hover:bg-red-700"
+                    : "bg-blue-600 hover:bg-blue-700"
                 }`}
               >
                 <LogOut className="w-3.5 h-3.5" />
@@ -317,9 +317,7 @@ export default function MyLeaveAttendance() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
                   !isClockedIn
                     ? "bg-[#F2F2F2] text-[#B3B3B3] cursor-not-allowed"
-                    : isOnBreak
-                      ? "bg-orange-500 text-white hover:bg-orange-600"
-                      : "bg-orange-500 text-white hover:bg-orange-600"
+                    : "bg-blue-600 text-white hover:bg-blue-700"
                 }`}
               >
                 <Coffee className="w-3.5 h-3.5" />
@@ -333,7 +331,7 @@ export default function MyLeaveAttendance() {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
                   !isClockedIn
                     ? "bg-[#F2F2F2] text-[#B3B3B3] cursor-not-allowed"
-                    : "bg-purple-500 text-white hover:bg-purple-600"
+                    : "bg-blue-600 text-white hover:bg-blue-700"
                 }`}
               >
                 <Clock className="w-3.5 h-3.5" />
