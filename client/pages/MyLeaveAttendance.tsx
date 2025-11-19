@@ -164,6 +164,7 @@ export default function MyLeaveAttendance() {
   // Overtime form state
   const [overtimeForm, setOvertimeForm] = useState({
     date: "",
+    requestTo: "",
     hours: "",
     reason: "",
   });
@@ -236,9 +237,9 @@ export default function MyLeaveAttendance() {
   };
 
   const handleOvertimeSubmit = () => {
-    if (overtimeForm.date && overtimeForm.hours && overtimeForm.reason) {
+    if (overtimeForm.date && overtimeForm.requestTo && overtimeForm.hours && overtimeForm.reason) {
       showNotification("Overtime request submitted successfully", "success");
-      setOvertimeForm({ date: "", hours: "", reason: "" });
+      setOvertimeForm({ date: "", requestTo: "", hours: "", reason: "" });
       setShowOvertimeModal(false);
     } else {
       showNotification("Please fill in all fields", "info");
@@ -1531,6 +1532,24 @@ export default function MyLeaveAttendance() {
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Request to
+                </label>
+                <select
+                  value={overtimeForm.requestTo}
+                  onChange={(e) =>
+                    setOvertimeForm({ ...overtimeForm, requestTo: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                >
+                  <option value="">Select approver</option>
+                  <option value="Michael Rodriguez">Michael Rodriguez</option>
+                  <option value="Sarah Johnson">Sarah Johnson</option>
+                  <option value="Alex Kim">Alex Kim</option>
+                  <option value="Manager">Manager</option>
+                </select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
