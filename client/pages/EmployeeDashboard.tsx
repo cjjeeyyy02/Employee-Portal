@@ -1581,6 +1581,28 @@ export default function EmployeeDashboard() {
               </button>
             </div>
 
+            {/* Bottom Medium Card - Quick Actions */}
+            <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[180px]">
+              <h2 className="text-base font-semibold text-gray-900 mb-2">
+                Quick Actions
+              </h2>
+
+              <div className="flex-1 space-y-1.5">
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                  📋 Request Leave
+                </button>
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                  ⏱️ Overtime
+                </button>
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                  📝 Submit Request
+                </button>
+                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors">
+                  ✨ New Task
+                </button>
+              </div>
+            </div>
+
             {/* Upcoming Events Container */}
             <div className="bg-white border border-gray-300 rounded-lg p-3 shadow-sm">
               <div className="flex items-center justify-between mb-2">
@@ -1790,28 +1812,6 @@ export default function EmployeeDashboard() {
               >
                 View All Events →
               </a>
-            </div>
-
-            {/* Bottom Medium Card - Quick Actions */}
-            <div className="bg-white border border-gray-300 rounded-lg p-3 flex flex-col h-[180px]">
-              <h2 className="text-base font-semibold text-gray-900 mb-2">
-                Quick Actions
-              </h2>
-
-              <div className="flex-1 space-y-1.5">
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
-                  📋 Request Leave
-                </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
-                  ⏱️ Overtime
-                </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
-                  📝 Submit Request
-                </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors">
-                  ✨ New Task
-                </button>
-              </div>
             </div>
           </div>
         </div>
