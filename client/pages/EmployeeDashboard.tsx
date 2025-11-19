@@ -444,19 +444,19 @@ export default function EmployeeDashboard() {
               >
                 <h3
                   style={{
-                    fontSize: "18px",
+                    fontSize: "14px",
                     fontWeight: "500",
                     color: "#1f2937",
-                    marginBottom: "4px",
+                    marginBottom: "2px",
                   }}
                 >
                   Pending Tasks
                 </h3>
                 <p
                   style={{
-                    fontSize: "13px",
+                    fontSize: "11px",
                     color: "#6b7280",
-                    marginBottom: "12px",
+                    marginBottom: "8px",
                   }}
                 >
                   Tasks that require your attention
