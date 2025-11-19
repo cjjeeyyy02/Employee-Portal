@@ -544,7 +544,8 @@ export default function DocumentRequests() {
 
           {/* Date Range Filter */}
           <input
-            type="date"
+            type="text"
+            pattern="\d{2}/\d{2}/\d{4}"
             className="px-3 py-1.5 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
             placeholder="mm/dd/yyyy"
           />
