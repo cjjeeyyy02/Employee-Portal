@@ -2148,6 +2148,204 @@ export default function MyProfile() {
         </div>
       )}
 
+      {/* Leave Details Modal */}
+      {showLeaveDetailsModal && selectedLeave && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1000
+        }}>
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            borderRadius: "12px",
+            padding: "24px",
+            maxWidth: "500px",
+            width: "90%",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)"
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Leave Details</h2>
+              <button
+                onClick={() => setShowLeaveDetailsModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "4px",
+                  color: "#6C757D"
+                }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Leave Type</p>
+                <p style={{ fontSize: "14px", fontWeight: "600", color: "#222", margin: 0 }}>{selectedLeave.leaveType}</p>
+              </div>
+
+              <div>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Duration</p>
+                <p style={{ fontSize: "14px", color: "#222", margin: 0 }}>{selectedLeave.duration}</p>
+              </div>
+
+              <div>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Total Days</p>
+                <p style={{ fontSize: "14px", color: "#222", margin: 0 }}>{selectedLeave.totalDays} day{selectedLeave.totalDays !== 1 ? 's' : ''}</p>
+              </div>
+
+              <div>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Request Date</p>
+                <p style={{ fontSize: "14px", color: "#222", margin: 0 }}>{selectedLeave.requestDate}</p>
+              </div>
+
+              {selectedLeave.approvedBy && (
+                <div>
+                  <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Approved By</p>
+                  <p style={{ fontSize: "14px", color: "#222", margin: 0 }}>{selectedLeave.approvedBy}</p>
+                </div>
+              )}
+
+              <div>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Status</p>
+                <span style={{
+                  display: "inline-block",
+                  padding: "4px 12px",
+                  borderRadius: "8px",
+                  fontSize: "12px",
+                  fontWeight: "600",
+                  backgroundColor: selectedLeave.status === "Approved" ? "#d4edda" : selectedLeave.status === "Rejected" ? "#f8d7da" : "#fff3cd",
+                  color: selectedLeave.status === "Approved" ? "#155724" : selectedLeave.status === "Rejected" ? "#721c24" : "#856404"
+                }}>
+                  {selectedLeave.status}
+                </span>
+              </div>
+
+              <div>
+                <p style={{ fontSize: "12px", color: "#6C757D", margin: "0 0 4px 0" }}>Reason</p>
+                <p style={{ fontSize: "14px", color: "#222", margin: 0 }}>{selectedLeave.reason}</p>
+              </div>
+
+              {selectedLeave.rejectionReason && (
+                <div style={{
+                  backgroundColor: "#f8d7da",
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: "1px solid #f5c6cb"
+                }}>
+                  <p style={{ fontSize: "12px", fontWeight: "600", color: "#721c24", margin: "0 0 4px 0" }}>Rejection Reason</p>
+                  <p style={{ fontSize: "13px", color: "#721c24", margin: 0 }}>{selectedLeave.rejectionReason}</p>
+                </div>
+              )}
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "20px" }}>
+              <button
+                onClick={() => setShowLeaveDetailsModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#1A73E8",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirmModal && selectedLeave && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1000
+        }}>
+          <div style={{
+            backgroundColor: "#FFFFFF",
+            borderRadius: "12px",
+            padding: "24px",
+            maxWidth: "400px",
+            width: "90%",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)"
+          }}>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+              <div style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                backgroundColor: "#FEE2E2",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginRight: "12px"
+              }}>
+                <Trash2 size={24} color="#DC2626" />
+              </div>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Leave Request</h2>
+            </div>
+
+            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>
+              Are you sure you want to delete this {selectedLeave.leaveType} request for {selectedLeave.duration}? This action cannot be undone.
+            </p>
+
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
+              <button
+                onClick={() => setShowDeleteConfirmModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteLeave}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#DC2626",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer"
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes fadeIn {
           from {
