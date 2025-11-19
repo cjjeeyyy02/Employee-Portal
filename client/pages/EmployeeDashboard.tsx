@@ -438,153 +438,181 @@ export default function EmployeeDashboard() {
                   Tasks that require your attention
                 </p>
 
-                <div
-                  style={{ display: "flex", flexDirection: "column", gap: "0" }}
-                >
-                  {/* Task 1 */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      gap: "8px",
-                      paddingBottom: "12px",
-                      borderBottom: "1px solid #e5e7eb",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <div>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          fontWeight: "500",
-                          color: "#1f2937",
-                          margin: "0",
-                        }}
-                      >
-                        Complete Q4 Performance Review
-                      </p>
-                      <p
-                        style={{
-                          fontSize: "12px",
-                          color: "#6b7280",
-                          margin: "4px 0 0 0",
-                        }}
-                      >
-                        Due: Tomorrow
-                      </p>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "11px",
-                        backgroundColor: "#fee2e2",
-                        color: "#dc2626",
-                        padding: "2px 8px",
-                        borderRadius: "9999px",
-                        whiteSpace: "nowrap",
-                        fontWeight: "600",
-                      }}
-                    >
-                      High
-                    </span>
-                  </div>
+                <div style={{ overflowX: "auto" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                    <thead>
+                      <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Task Title
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Category
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Priority
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Due Date
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {pendingTasks.map((task, index) => {
+                        const getPriorityStyle = (priority: string) => {
+                          switch (priority) {
+                            case "High":
+                              return { bg: "#fee2e2", color: "#dc2626" };
+                            case "Medium":
+                              return { bg: "#fef3c7", color: "#b45309" };
+                            case "Low":
+                              return { bg: "#d1fae5", color: "#047857" };
+                            default:
+                              return { bg: "#f3f4f6", color: "#6b7280" };
+                          }
+                        };
 
-                  {/* Task 2 */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      gap: "8px",
-                      paddingBottom: "12px",
-                      borderBottom: "1px solid #e5e7eb",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <div>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          fontWeight: "500",
-                          color: "#1f2937",
-                          margin: "0",
-                        }}
-                      >
-                        Submit Travel Expense Report
-                      </p>
-                      <p
-                        style={{
-                          fontSize: "12px",
-                          color: "#6b7280",
-                          margin: "4px 0 0 0",
-                        }}
-                      >
-                        Due: Friday
-                      </p>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "11px",
-                        backgroundColor: "#fef3c7",
-                        color: "#b45309",
-                        padding: "2px 8px",
-                        borderRadius: "9999px",
-                        whiteSpace: "nowrap",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Med
-                    </span>
-                  </div>
+                        const getStatusStyle = (status: string) => {
+                          switch (status) {
+                            case "In Progress":
+                              return { bg: "#dbeafe", color: "#1d4ed8" };
+                            case "Pending":
+                              return { bg: "#fef3c7", color: "#b45309" };
+                            case "Not Started":
+                              return { bg: "#f3f4f6", color: "#6b7280" };
+                            default:
+                              return { bg: "#f3f4f6", color: "#6b7280" };
+                          }
+                        };
 
-                  {/* Task 3 */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      gap: "8px",
-                    }}
-                  >
-                    <div>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          fontWeight: "500",
-                          color: "#1f2937",
-                          margin: "0",
-                        }}
-                      >
-                        Team Meeting Preparation
-                      </p>
-                      <p
-                        style={{
-                          fontSize: "12px",
-                          color: "#6b7280",
-                          margin: "4px 0 0 0",
-                        }}
-                      >
-                        Due: Next Week
-                      </p>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "11px",
-                        backgroundColor: "#d1fae5",
-                        color: "#047857",
-                        padding: "2px 8px",
-                        borderRadius: "9999px",
-                        whiteSpace: "nowrap",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Low
-                    </span>
-                  </div>
+                        const priorityStyle = getPriorityStyle(task.priority);
+                        const statusStyle = getStatusStyle(task.status);
+
+                        return (
+                          <tr
+                            key={index}
+                            style={{
+                              borderBottom: index !== pendingTasks.length - 1 ? "1px solid #e5e7eb" : "none",
+                            }}
+                          >
+                            <td
+                              style={{
+                                padding: "12px 8px",
+                                fontSize: "14px",
+                                color: "#1f2937",
+                              }}
+                            >
+                              {task.title}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 8px",
+                                fontSize: "13px",
+                                color: "#6b7280",
+                              }}
+                            >
+                              {task.category}
+                            </td>
+                            <td style={{ padding: "12px 8px" }}>
+                              <span
+                                style={{
+                                  fontSize: "11px",
+                                  backgroundColor: priorityStyle.bg,
+                                  color: priorityStyle.color,
+                                  padding: "4px 10px",
+                                  borderRadius: "9999px",
+                                  fontWeight: "600",
+                                  display: "inline-block",
+                                }}
+                              >
+                                {task.priority}
+                              </span>
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 8px",
+                                fontSize: "13px",
+                                color: "#6b7280",
+                              }}
+                            >
+                              {task.dueDate}
+                            </td>
+                            <td style={{ padding: "12px 8px" }}>
+                              <span
+                                style={{
+                                  fontSize: "11px",
+                                  backgroundColor: statusStyle.bg,
+                                  color: statusStyle.color,
+                                  padding: "4px 10px",
+                                  borderRadius: "9999px",
+                                  fontWeight: "600",
+                                  display: "inline-block",
+                                }}
+                              >
+                                {task.status}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
 
                 <a
-                  href="#"
+                  href="/my-tasks"
                   style={{
                     fontSize: "13px",
                     color: "#2563eb",
