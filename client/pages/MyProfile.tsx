@@ -1202,6 +1202,7 @@ export default function MyProfile() {
                             {skill.level}
                           </span>
                         </td>
+                        <td className="px-3 py-2 text-center" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.experience}</td>
                         <td className="px-3 py-2" style={{ fontSize: "11px", color: "#4B5563" }}>{skill.lastUpdated}</td>
                         <td className="px-3 py-2 text-center relative">
                           <button
