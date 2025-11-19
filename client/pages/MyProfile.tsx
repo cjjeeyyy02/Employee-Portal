@@ -1240,57 +1240,6 @@ export default function MyProfile() {
         {activeTab === "leaveAttendance" && (
           <div style={{ paddingTop: "12px", paddingBottom: "12px", paddingLeft: "16px", paddingRight: "16px", backgroundColor: "#FFFFFF" }}>
             <div className="space-y-3">
-              {/* Top 4 Metrics Cards Grid */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
-                {/* Total Present Today */}
-                <div style={{
-                  borderRadius: "8px",
-                  border: "1px solid #E5E7EB",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                  padding: "12px"
-                }}>
-                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Total Present Today</p>
-                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>86</p>
-                </div>
-
-                {/* On Leave */}
-                <div style={{
-                  borderRadius: "8px",
-                  border: "1px solid #E5E7EB",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                  padding: "12px"
-                }}>
-                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>On Leave</p>
-                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>12</p>
-                </div>
-
-                {/* Pending Leave Request */}
-                <div style={{
-                  borderRadius: "8px",
-                  border: "1px solid #E5E7EB",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                  padding: "12px"
-                }}>
-                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Pending Leave Request</p>
-                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>5</p>
-                </div>
-
-                {/* Today's Late Arrival */}
-                <div style={{
-                  borderRadius: "8px",
-                  border: "1px solid #E5E7EB",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                  padding: "12px"
-                }}>
-                  <p className="text-xs font-medium text-gray-600 mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>Today's Late Arrival</p>
-                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>7</p>
-                </div>
-              </div>
-
               {/* Attendance Rate and Punctuality Rate - Single Row */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 {/* Attendance Rate */}
@@ -1348,6 +1297,7 @@ export default function MyProfile() {
                   <thead>
                     <tr style={{ backgroundColor: "#F3F4F6", borderBottom: "1px solid #E5E7EB" }}>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Type</th>
+                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Entitlement (Days)</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Taken</th>
                       <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">Leave Balance</th>
                     </tr>
@@ -1355,16 +1305,19 @@ export default function MyProfile() {
                   <tbody>
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Annual Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">20</td>
                       <td className="px-4 py-3 text-sm text-gray-700">7</td>
                       <td className="px-4 py-3 text-sm text-gray-900">13</td>
                     </tr>
                     <tr style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Sick Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">10</td>
                       <td className="px-4 py-3 text-sm text-gray-700">3</td>
                       <td className="px-4 py-3 text-sm text-gray-900">7</td>
                     </tr>
                     <tr onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
                       <td className="px-4 py-3 text-sm text-gray-700">Personal Leave</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">6</td>
                       <td className="px-4 py-3 text-sm text-gray-700">2</td>
                       <td className="px-4 py-3 text-sm text-gray-900">4</td>
                     </tr>
