@@ -1035,7 +1035,7 @@ export default function EmployeeDashboard() {
                 }}
               ></div>
 
-              {/* View Calendar Link */}
+              {/* View All Activities Link */}
               <a
                 href="#"
                 style={{
@@ -1056,7 +1056,7 @@ export default function EmployeeDashboard() {
                   (e.currentTarget.style.borderBottomColor = "transparent")
                 }
               >
-                View Calendar →
+                View All Activities →
               </a>
             </div>
           </div>
