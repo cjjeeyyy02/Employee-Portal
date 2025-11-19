@@ -1155,6 +1155,16 @@ export default function MyProfile() {
                   <tbody>
                     {payslips.map((payslip) => (
                       <tr key={payslip.id} style={{ borderBottom: "1px solid #E5E7EB" }} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F9FAFB")} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}>
+                        {showPayslipCheckboxes && (
+                          <td className="px-4 py-3 text-center">
+                            <input
+                              type="checkbox"
+                              checked={selectedPayslips.includes(payslip.id)}
+                              onChange={() => togglePayslipSelection(payslip.id)}
+                              className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                            />
+                          </td>
+                        )}
                         <td className="px-4 py-3 text-sm text-gray-900">{payslip.date}</td>
                         <td className="px-4 py-3 text-sm text-gray-700">{payslip.payPeriod}</td>
                         <td className="px-4 py-3 text-sm text-gray-900">{payslip.grossPay}</td>
