@@ -5800,6 +5800,46 @@ export default function MyProfile() {
         </div>
       )}
 
+      {/* View Skill Modal */}
+      {showSkillViewModal && selectedSkill && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Skill Details</h2>
+              <button onClick={() => setShowSkillViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+                <X size={24} color="#6b7280" />
+              </button>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div><strong>Name:</strong> {selectedSkill.name}</div>
+              <div><strong>Experience:</strong> {selectedSkill.experience} years</div>
+              <div><strong>Level:</strong> <span className={selectedSkill.level === "Expert" ? "px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" : selectedSkill.level === "Advanced" ? "px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800" : selectedSkill.level === "Intermediate" ? "px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" : "px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"}>{selectedSkill.level}</span></div>
+              <div><strong>Last Updated:</strong> {selectedSkill.lastUpdated}</div>
+            </div>
+            <button onClick={() => setShowSkillViewModal(false)} style={{ marginTop: "20px", padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer", width: "100%" }}>Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Skill Confirmation Modal */}
+      {showDeleteSkillModal && selectedSkill && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
+              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+                <Trash2 size={24} color="#DC2626" />
+              </div>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Skill</h2>
+            </div>
+            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedSkill.name}"? This action cannot be undone.</p>
+            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
+              <button onClick={() => setShowDeleteSkillModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
+              <button onClick={confirmDeleteSkill} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes fadeIn {
           from {
