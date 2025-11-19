@@ -69,6 +69,7 @@ export default function EmployeeDashboard() {
       icon: Briefcase,
       iconColor: "text-blue-600",
       bgColor: "bg-blue-50",
+      route: "/my-tasks",
     },
     {
       label: "Pending Requests",
@@ -76,6 +77,7 @@ export default function EmployeeDashboard() {
       icon: AlertCircle,
       iconColor: "text-green-600",
       bgColor: "bg-green-50",
+      route: "/documents",
     },
     {
       label: "KPI Score",
@@ -84,6 +86,7 @@ export default function EmployeeDashboard() {
       icon: TrendingUp,
       iconColor: "text-purple-600",
       bgColor: "bg-purple-50",
+      route: "/my-performance",
     },
     {
       label: "# of Meetings Today",
@@ -91,6 +94,7 @@ export default function EmployeeDashboard() {
       icon: Calendar,
       iconColor: "text-orange-600",
       bgColor: "bg-orange-50",
+      route: "/calendar",
     },
   ];
 
