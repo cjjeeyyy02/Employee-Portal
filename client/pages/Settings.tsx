@@ -85,16 +85,6 @@ export default function Settings() {
         <div className="border-b border-gray-200 mb-3 bg-white">
           <div className="flex gap-0 px-3">
             <button
-              onClick={() => setActiveTab("settings")}
-              className={`px-4 py-3 font-medium text-sm border-b-2 transition-all ${
-                activeTab === "settings"
-                  ? "text-blue-600 border-b-blue-600"
-                  : "text-gray-600 border-b-transparent hover:text-gray-900"
-              }`}
-            >
-              Settings
-            </button>
-            <button
               onClick={() => setActiveTab("configuration")}
               className={`px-4 py-3 font-medium text-sm border-b-2 transition-all ${
                 activeTab === "configuration"
@@ -103,6 +93,16 @@ export default function Settings() {
               }`}
             >
               Configuration
+            </button>
+            <button
+              onClick={() => setActiveTab("settings")}
+              className={`px-4 py-3 font-medium text-sm border-b-2 transition-all ${
+                activeTab === "settings"
+                  ? "text-blue-600 border-b-blue-600"
+                  : "text-gray-600 border-b-transparent hover:text-gray-900"
+              }`}
+            >
+              Settings
             </button>
           </div>
         </div>
