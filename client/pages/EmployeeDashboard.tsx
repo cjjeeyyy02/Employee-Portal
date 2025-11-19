@@ -668,206 +668,220 @@ export default function EmployeeDashboard() {
                   boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                <div
+                <h3
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
+                    fontSize: "18px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    marginBottom: "4px",
+                  }}
+                >
+                  Pending Request
+                </h3>
+                <p
+                  style={{
+                    fontSize: "13px",
+                    color: "#6b7280",
                     marginBottom: "12px",
                   }}
                 >
-                  <h3
-                    style={{
-                      fontSize: "18px",
-                      fontWeight: "500",
-                      color: "#1f2937",
-                      margin: "0",
-                    }}
-                  >
-                    Pending Request
-                  </h3>
-                  <span
-                    style={{
-                      fontSize: "11px",
-                      backgroundColor: "#e5e7eb",
-                      color: "#4b5563",
-                      padding: "2px 8px",
-                      borderRadius: "9999px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    3
-                  </span>
+                  Requests awaiting approval
+                </p>
+
+                <div style={{ overflowX: "auto" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                    <thead>
+                      <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Request ID
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Request Title
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Submitted Date
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Priority
+                        </th>
+                        <th
+                          style={{
+                            padding: "12px 8px",
+                            textAlign: "left",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            color: "#6b7280",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.5px",
+                          }}
+                        >
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {pendingRequests.map((request, index) => {
+                        const getPriorityStyle = (priority: string) => {
+                          switch (priority) {
+                            case "High":
+                              return { bg: "#fee2e2", color: "#dc2626" };
+                            case "Medium":
+                              return { bg: "#fef3c7", color: "#b45309" };
+                            case "Low":
+                              return { bg: "#d1fae5", color: "#047857" };
+                            default:
+                              return { bg: "#f3f4f6", color: "#6b7280" };
+                          }
+                        };
+
+                        const getStatusStyle = (status: string) => {
+                          switch (status) {
+                            case "Pending":
+                              return { bg: "#fee2e2", color: "#dc2626" };
+                            case "In Review":
+                              return { bg: "#fef3c7", color: "#b45309" };
+                            case "Approved":
+                              return { bg: "#d1fae5", color: "#047857" };
+                            default:
+                              return { bg: "#f3f4f6", color: "#6b7280" };
+                          }
+                        };
+
+                        const priorityStyle = getPriorityStyle(request.priority);
+                        const statusStyle = getStatusStyle(request.status);
+
+                        return (
+                          <tr
+                            key={index}
+                            style={{
+                              borderBottom: index !== pendingRequests.length - 1 ? "1px solid #e5e7eb" : "none",
+                            }}
+                          >
+                            <td
+                              style={{
+                                padding: "12px 8px",
+                                fontSize: "13px",
+                                color: "#6b7280",
+                              }}
+                            >
+                              {request.id}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 8px",
+                                fontSize: "14px",
+                                color: "#1f2937",
+                              }}
+                            >
+                              {request.title}
+                            </td>
+                            <td
+                              style={{
+                                padding: "12px 8px",
+                                fontSize: "13px",
+                                color: "#6b7280",
+                              }}
+                            >
+                              {request.submittedDate}
+                            </td>
+                            <td style={{ padding: "12px 8px" }}>
+                              <span
+                                style={{
+                                  fontSize: "11px",
+                                  backgroundColor: priorityStyle.bg,
+                                  color: priorityStyle.color,
+                                  padding: "4px 10px",
+                                  borderRadius: "9999px",
+                                  fontWeight: "600",
+                                  display: "inline-block",
+                                }}
+                              >
+                                {request.priority}
+                              </span>
+                            </td>
+                            <td style={{ padding: "12px 8px" }}>
+                              <span
+                                style={{
+                                  fontSize: "11px",
+                                  backgroundColor: statusStyle.bg,
+                                  color: statusStyle.color,
+                                  padding: "4px 10px",
+                                  borderRadius: "9999px",
+                                  fontWeight: "600",
+                                  display: "inline-block",
+                                }}
+                              >
+                                {request.status}
+                              </span>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
 
-                <div
-                  style={{ display: "flex", flexDirection: "column", gap: "0" }}
+                <a
+                  href="/documents"
+                  style={{
+                    fontSize: "13px",
+                    color: "#2563eb",
+                    fontWeight: "500",
+                    marginTop: "16px",
+                    display: "inline-block",
+                    textDecoration: "none",
+                    borderBottom: "2px solid transparent",
+                    transition: "border-color 0.2s",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.borderBottomColor = "#2563eb")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.borderBottomColor = "transparent")
+                  }
                 >
-                  {/* Card 1 */}
-                  <div
-                    style={{
-                      paddingBottom: "12px",
-                      borderBottom: "1px solid #e5e7eb",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        color: "#1f2937",
-                        margin: "0",
-                      }}
-                    >
-                      Leave Request - Annual Leave
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6b7280",
-                        margin: "4px 0 0 0",
-                      }}
-                    >
-                      Jan 15, 2025
-                    </p>
-                    <div
-                      style={{ display: "flex", gap: "6px", marginTop: "4px" }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          backgroundColor: "#fee2e2",
-                          color: "#dc2626",
-                          padding: "2px 8px",
-                          borderRadius: "9999px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        Pending
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          backgroundColor: "#fee2e2",
-                          color: "#dc2626",
-                          padding: "2px 8px",
-                          borderRadius: "9999px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        High
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card 2 */}
-                  <div
-                    style={{
-                      paddingBottom: "12px",
-                      borderBottom: "1px solid #e5e7eb",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        color: "#1f2937",
-                        margin: "0",
-                      }}
-                    >
-                      Document Request - Certificate
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6b7280",
-                        margin: "4px 0 0 0",
-                      }}
-                    >
-                      Jan 12, 2025
-                    </p>
-                    <div
-                      style={{ display: "flex", gap: "6px", marginTop: "4px" }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          backgroundColor: "#fef3c7",
-                          color: "#b45309",
-                          padding: "2px 8px",
-                          borderRadius: "9999px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        In Review
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          backgroundColor: "#fef3c7",
-                          color: "#b45309",
-                          padding: "2px 8px",
-                          borderRadius: "9999px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        Med
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card 3 */}
-                  <div>
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        color: "#1f2937",
-                        margin: "0",
-                      }}
-                    >
-                      Schedule Change Request
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6b7280",
-                        margin: "4px 0 0 0",
-                      }}
-                    >
-                      Jan 10, 2025
-                    </p>
-                    <div
-                      style={{ display: "flex", gap: "6px", marginTop: "4px" }}
-                    >
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          backgroundColor: "#fee2e2",
-                          color: "#dc2626",
-                          padding: "2px 8px",
-                          borderRadius: "9999px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        Pending
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          backgroundColor: "#fee2e2",
-                          color: "#dc2626",
-                          padding: "2px 8px",
-                          borderRadius: "9999px",
-                          fontWeight: "600",
-                        }}
-                      >
-                        High
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  View All Requests →
+                </a>
               </div>
             </div>
 
