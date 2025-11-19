@@ -99,6 +99,16 @@ export default function Calendar() {
     return sampleEvents.filter(event => event.day === day && event.hour === hour);
   };
 
+  const handleDateClick = (day: number) => {
+    const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    setEventForm({
+      ...eventForm,
+      date: formattedDate,
+    });
+    setIsNewEventOpen(true);
+  };
+
   const handleCreateEvent = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -163,7 +173,10 @@ export default function Calendar() {
               <div className="w-20 border-r border-gray-200 bg-gray-50 p-2 text-xs text-gray-600 font-medium">
                 {time}
               </div>
-              <div className="flex-1 p-1 bg-white hover:bg-gray-50 transition-colors cursor-pointer">
+              <div
+                onClick={() => handleDateClick(currentDate.getDate())}
+                className="flex-1 p-1 bg-white hover:bg-gray-50 transition-colors cursor-pointer"
+              >
                 {events.map((event, eventIdx) => (
                   <div
                     key={eventIdx}
@@ -218,6 +231,7 @@ export default function Calendar() {
               return (
                 <div
                   key={dayIdx}
+                  onClick={() => handleDateClick(day.getDate())}
                   className="border-r border-b border-gray-200 p-1 bg-white hover:bg-gray-50 transition-colors cursor-pointer"
                 >
                   {events.map((event, eventIdx) => (
@@ -255,6 +269,7 @@ export default function Calendar() {
       days.push(
         <div
           key={day}
+          onClick={() => handleDateClick(day)}
           className={`border-r border-b border-gray-200 min-h-[70px] p-1.5 hover:bg-gray-50 transition-colors cursor-pointer ${
             todayCell ? "bg-blue-50" : "bg-white"
           }`}
