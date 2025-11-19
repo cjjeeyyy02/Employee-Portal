@@ -293,6 +293,14 @@ export default function MyProfile() {
     setIsDragging(false);
   };
 
+  // Reset modal position when opening
+  useEffect(() => {
+    if (editModalType === "personal") {
+      setModalPosition({ x: 0, y: 0 });
+      setIsDragging(false);
+    }
+  }, [editModalType]);
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
