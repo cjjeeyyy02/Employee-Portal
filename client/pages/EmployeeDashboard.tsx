@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function EmployeeDashboard() {
   const [currentDate, setCurrentDate] = useState(new Date());
