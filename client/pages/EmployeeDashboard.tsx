@@ -20,6 +20,7 @@ export default function EmployeeDashboard() {
   const [announcementTab, setAnnouncementTab] = useState<
     "All" | "News" | "Activities"
   >("All");
+  const [showKPIDetailedView, setShowKPIDetailedView] = useState(false);
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
@@ -104,6 +105,7 @@ export default function EmployeeDashboard() {
       icon: TrendingUp,
       iconColor: "text-purple-600",
       bgColor: "bg-purple-50",
+      action: "kpi-detail",
     },
     {
       label: "# of Meetings Today",
@@ -379,7 +381,13 @@ export default function EmployeeDashboard() {
                 return (
                   <div
                     key={index}
-                    onClick={metric.route ? () => navigate(metric.route) : undefined}
+                    onClick={
+                      metric.route
+                        ? () => navigate(metric.route)
+                        : metric.action === "kpi-detail"
+                        ? () => setShowKPIDetailedView(true)
+                        : undefined
+                    }
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid #e5e7eb",
@@ -391,16 +399,16 @@ export default function EmployeeDashboard() {
                       justifyContent: "space-between",
                       gap: "8px",
                       transition: "all 0.25s ease-in-out",
-                      cursor: metric.route ? "pointer" : "default",
+                      cursor: metric.route || metric.action ? "pointer" : "default",
                       minHeight: "auto",
                     }}
-                    onMouseEnter={metric.route ? (e) => {
+                    onMouseEnter={metric.route || metric.action ? (e) => {
                       e.currentTarget.style.transform = "scale(1.02)";
                       e.currentTarget.style.boxShadow =
                         "0 4px 12px rgba(0, 0, 0, 0.1)";
                       e.currentTarget.style.borderColor = "#d1d5db";
                     } : undefined}
-                    onMouseLeave={metric.route ? (e) => {
+                    onMouseLeave={metric.route || metric.action ? (e) => {
                       e.currentTarget.style.transform = "scale(1)";
                       e.currentTarget.style.boxShadow =
                         "0 1px 3px rgba(0, 0, 0, 0.05)";
