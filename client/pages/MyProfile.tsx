@@ -64,6 +64,8 @@ export default function MyProfile() {
   const [showLeaveDetailsModal, setShowLeaveDetailsModal] = useState<boolean>(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState<boolean>(false);
   const [selectedLeave, setSelectedLeave] = useState<any>(null);
+  const [selectedPayslips, setSelectedPayslips] = useState<number[]>([]);
+  const [showPayslipCheckboxes, setShowPayslipCheckboxes] = useState<boolean>(false);
 
   const documents = [
     { id: 1, title: "Employment Contract", fileType: "PDF", fileSize: "2.4 MB", uploadDate: "01/15/2023" },
