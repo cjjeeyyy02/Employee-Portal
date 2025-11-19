@@ -6287,6 +6287,224 @@ export default function MyProfile() {
         </div>
       )}
 
+      {/* Photo Upload Modal */}
+      {showPhotoUploadModal && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+          onClick={() => {
+            setShowPhotoUploadModal(false);
+            setPhotoPreview(null);
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              maxWidth: "450px",
+              width: "90%",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginBottom: "20px",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "600",
+                  color: "#111827",
+                  fontFamily: "Poppins, sans-serif",
+                  margin: 0,
+                }}
+              >
+                Update Profile Photo
+              </h3>
+              <button
+                onClick={() => {
+                  setShowPhotoUploadModal(false);
+                  setPhotoPreview(null);
+                }}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "4px",
+                }}
+              >
+                <X className="w-5 h-5 text-gray-500 hover:text-gray-700" />
+              </button>
+            </div>
+
+            {/* Photo Preview */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "16px",
+                marginBottom: "24px",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  width: "120px",
+                  height: "120px",
+                }}
+              >
+                <img
+                  src={photoPreview || profilePhoto}
+                  alt="Profile Preview"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    border: "3px solid #E5E7EB",
+                  }}
+                />
+              </div>
+
+              {/* Upload Button */}
+              <label
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "10px 20px",
+                  backgroundColor: "#2563EB",
+                  color: "#FFFFFF",
+                  borderRadius: "8px",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  fontFamily: "Poppins, sans-serif",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#1D4ED8";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#2563EB";
+                }}
+              >
+                <Upload className="w-4 h-4" />
+                Choose Photo
+                <input
+                  type="file"
+                  accept="image/*"
+                  style={{ display: "none" }}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setPhotoPreview(reader.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+              </label>
+
+              <p
+                style={{
+                  fontSize: "12px",
+                  color: "#6B7280",
+                  fontFamily: "Poppins, sans-serif",
+                  textAlign: "center",
+                  margin: 0,
+                }}
+              >
+                Accepted formats: JPG, PNG, GIF (Max 5MB)
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div
+              style={{
+                display: "flex",
+                gap: "12px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <button
+                onClick={() => {
+                  setShowPhotoUploadModal(false);
+                  setPhotoPreview(null);
+                }}
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "8px",
+                  border: "1px solid #D1D5DB",
+                  backgroundColor: "#FFFFFF",
+                  color: "#374151",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  fontFamily: "Poppins, sans-serif",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#F3F4F6";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#FFFFFF";
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  if (photoPreview) {
+                    setProfilePhoto(photoPreview);
+                    showNotification("Profile photo updated successfully", "success");
+                  }
+                  setShowPhotoUploadModal(false);
+                  setPhotoPreview(null);
+                }}
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "8px",
+                  border: "none",
+                  backgroundColor: "#2563EB",
+                  color: "#FFFFFF",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  fontFamily: "Poppins, sans-serif",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#1D4ED8";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#2563EB";
+                }}
+              >
+                Save Photo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes fadeIn {
           from {
