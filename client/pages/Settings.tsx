@@ -551,13 +551,8 @@ export default function Settings() {
                   <input
                     type="text"
                     value={databaseSettings.host}
-                    onChange={(e) =>
-                      setDatabaseSettings({
-                        ...databaseSettings,
-                        host: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 text-gray-600 cursor-not-allowed"
                     placeholder="localhost"
                   />
                 </div>
@@ -568,13 +563,8 @@ export default function Settings() {
                   <input
                     type="text"
                     value={databaseSettings.port}
-                    onChange={(e) =>
-                      setDatabaseSettings({
-                        ...databaseSettings,
-                        port: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 text-gray-600 cursor-not-allowed"
                     placeholder="5432"
                   />
                 </div>
@@ -585,13 +575,8 @@ export default function Settings() {
                   <input
                     type="text"
                     value={databaseSettings.database}
-                    onChange={(e) =>
-                      setDatabaseSettings({
-                        ...databaseSettings,
-                        database: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 text-gray-600 cursor-not-allowed"
                     placeholder="ess_portal"
                   />
                 </div>
@@ -602,34 +587,22 @@ export default function Settings() {
                   <input
                     type="number"
                     value={databaseSettings.connectionPool}
-                    onChange={(e) =>
-                      setDatabaseSettings({
-                        ...databaseSettings,
-                        connectionPool: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm bg-gray-50 text-gray-600 cursor-not-allowed"
                   />
                 </div>
-                <div className="bg-yellow-50 border border-yellow-200 p-3 rounded-lg text-sm text-yellow-800">
-                  <p className="font-medium">Warning</p>
+                <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg text-sm text-blue-800">
+                  <p className="font-medium">Information</p>
                   <p className="text-xs mt-1">
-                    Changing database settings requires system restart
+                    Database settings are view-only and managed by system administrators
                   </p>
                 </div>
-                <div className="flex gap-3 pt-4">
+                <div className="flex justify-end pt-4">
                   <button
                     onClick={() => setActiveModal(null)}
-                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors text-sm"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm"
                   >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={handleSaveSettings}
-                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm flex items-center justify-center gap-2"
-                  >
-                    <Save className="w-4 h-4" />
-                    Save Changes
+                    Close
                   </button>
                 </div>
               </div>
