@@ -75,7 +75,7 @@ export default function Settings() {
             <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center">
               <SettingsIcon className="w-4 h-4 text-blue-600" />
             </div>
-            <h1 className="text-lg font-bold text-gray-900">Settings and Configuration</h1>
+            <h1 className="text-lg font-bold text-gray-900">Configuration and settings</h1>
           </div>
           <p className="text-xs text-gray-500">
             Manage your account settings and system configurations
