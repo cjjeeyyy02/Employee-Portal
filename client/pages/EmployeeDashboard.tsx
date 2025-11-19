@@ -573,8 +573,8 @@ export default function EmployeeDashboard() {
                           >
                             <td
                               style={{
-                                padding: "12px 8px",
-                                fontSize: "14px",
+                                padding: "8px 6px",
+                                fontSize: "12px",
                                 color: "#1f2937",
                               }}
                             >
@@ -582,20 +582,20 @@ export default function EmployeeDashboard() {
                             </td>
                             <td
                               style={{
-                                padding: "12px 8px",
-                                fontSize: "13px",
+                                padding: "8px 6px",
+                                fontSize: "11px",
                                 color: "#6b7280",
                               }}
                             >
                               {task.category}
                             </td>
-                            <td style={{ padding: "12px 8px" }}>
+                            <td style={{ padding: "8px 6px" }}>
                               <span
                                 style={{
-                                  fontSize: "11px",
+                                  fontSize: "10px",
                                   backgroundColor: priorityStyle.bg,
                                   color: priorityStyle.color,
-                                  padding: "4px 10px",
+                                  padding: "3px 8px",
                                   borderRadius: "9999px",
                                   fontWeight: "600",
                                   display: "inline-block",
@@ -606,20 +606,20 @@ export default function EmployeeDashboard() {
                             </td>
                             <td
                               style={{
-                                padding: "12px 8px",
-                                fontSize: "13px",
+                                padding: "8px 6px",
+                                fontSize: "11px",
                                 color: "#6b7280",
                               }}
                             >
                               {task.dueDate}
                             </td>
-                            <td style={{ padding: "12px 8px" }}>
+                            <td style={{ padding: "8px 6px" }}>
                               <span
                                 style={{
-                                  fontSize: "11px",
+                                  fontSize: "10px",
                                   backgroundColor: statusStyle.bg,
                                   color: statusStyle.color,
-                                  padding: "4px 10px",
+                                  padding: "3px 8px",
                                   borderRadius: "9999px",
                                   fontWeight: "600",
                                   display: "inline-block",
