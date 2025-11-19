@@ -96,6 +96,8 @@ export default function MyLeaveAttendance() {
   // Timesheet state
   const [currentWeekStart, setCurrentWeekStart] = useState<Date>(new Date());
   const [showTimesheetSubmitModal, setShowTimesheetSubmitModal] = useState(false);
+  const [timesheetView, setTimesheetView] = useState<"daily" | "weekly" | "monthly">("weekly");
+  const [timesheetDateRange, setTimesheetDateRange] = useState({ start: "", end: "" });
   const [timesheetEntries, setTimesheetEntries] = useState<TimesheetEntry[]>([
     {
       date: "2024-12-09",
@@ -568,22 +570,76 @@ export default function MyLeaveAttendance() {
           {activeSubTab === "timesheets" && (
             <div className="w-full bg-white rounded-lg p-3 sm:p-4">
               {/* Header */}
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5">
-                    Weekly Timesheet
-                  </h2>
-                  <p className="text-xs text-gray-600">
-                    Track your daily work hours and projects
-                  </p>
+              <div className="mb-3">
+                {/* Header Row */}
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <h2 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5">
+                      Weekly Timesheet
+                    </h2>
+                    <p className="text-xs text-gray-600">
+                      Track your daily work hours and projects
+                    </p>
+                  </div>
                 </div>
-                <button
-                  onClick={() => showNotification("Downloading timesheet...", "success")}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-3 rounded-lg transition-colors flex items-center gap-1.5 text-xs"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  Download
-                </button>
+
+                {/* Filter Controls Row */}
+                <div className="flex items-center justify-between gap-3 flex-wrap">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    {/* View Mode Toggle */}
+                    <div className="inline-flex border border-gray-300 rounded-lg overflow-hidden">
+                      {[
+                        { id: "daily", label: "Daily" },
+                        { id: "weekly", label: "Weekly" },
+                        { id: "monthly", label: "Monthly" },
+                      ].map((view, index) => (
+                        <button
+                          key={view.id}
+                          onClick={() => setTimesheetView(view.id as "daily" | "weekly" | "monthly")}
+                          className={`px-3 py-1.5 font-medium text-xs transition-all ${
+                            index > 0 ? "border-l border-gray-300" : ""
+                          } ${
+                            timesheetView === view.id
+                              ? "bg-blue-600 text-white"
+                              : "bg-white text-gray-600 hover:bg-gray-50"
+                          }`}
+                        >
+                          {view.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Date Range Filter */}
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="date"
+                        value={timesheetDateRange.start}
+                        onChange={(e) =>
+                          setTimesheetDateRange({ ...timesheetDateRange, start: e.target.value })
+                        }
+                        className="px-2 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                      />
+                      <span className="text-xs text-gray-500">to</span>
+                      <input
+                        type="date"
+                        value={timesheetDateRange.end}
+                        onChange={(e) =>
+                          setTimesheetDateRange({ ...timesheetDateRange, end: e.target.value })
+                        }
+                        className="px-2 py-1.5 text-xs bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Download Button */}
+                  <button
+                    onClick={() => showNotification("Downloading timesheet...", "success")}
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-3 rounded-lg transition-colors flex items-center gap-1.5 text-xs"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    Download
+                  </button>
+                </div>
               </div>
 
               {/* Timesheet Table */}
