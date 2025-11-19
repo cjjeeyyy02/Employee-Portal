@@ -1461,6 +1461,217 @@ export default function EmployeeDashboard() {
               </a>
             </div>
 
+            {/* Upcoming Events Container */}
+            <div className="bg-white border border-gray-300 rounded-lg p-4 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-base font-semibold text-gray-900">
+                  Upcoming Events
+                </h2>
+                <span className="text-xs text-gray-500">This Week</span>
+              </div>
+
+              <div className="space-y-3">
+                {/* Event 1 */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    padding: "12px",
+                    backgroundColor: "#f9fafb",
+                    borderRadius: "8px",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "4px",
+                      backgroundColor: "#3b82f6",
+                      borderRadius: "2px",
+                    }}
+                  ></div>
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-start justify-between mb-2">
+                      <h3
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: 0,
+                        }}
+                      >
+                        Team Meeting
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "10px",
+                          padding: "2px 8px",
+                          backgroundColor: "#dbeafe",
+                          color: "#1e40af",
+                          borderRadius: "12px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Meeting
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: 0,
+                      }}
+                    >
+                      📅 Tomorrow, 10:00 AM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "4px 0 0 0",
+                      }}
+                    >
+                      Weekly team sync and project updates
+                    </p>
+                  </div>
+                </div>
+
+                {/* Event 2 */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    padding: "12px",
+                    backgroundColor: "#f9fafb",
+                    borderRadius: "8px",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "4px",
+                      backgroundColor: "#10b981",
+                      borderRadius: "2px",
+                    }}
+                  ></div>
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-start justify-between mb-2">
+                      <h3
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: 0,
+                        }}
+                      >
+                        Project Deadline
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "10px",
+                          padding: "2px 8px",
+                          backgroundColor: "#d1fae5",
+                          color: "#065f46",
+                          borderRadius: "12px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Deadline
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: 0,
+                      }}
+                    >
+                      📅 Dec 20, 5:00 PM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "4px 0 0 0",
+                      }}
+                    >
+                      Q4 project final submission
+                    </p>
+                  </div>
+                </div>
+
+                {/* Event 3 */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    padding: "12px",
+                    backgroundColor: "#f9fafb",
+                    borderRadius: "8px",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "4px",
+                      backgroundColor: "#f59e0b",
+                      borderRadius: "2px",
+                    }}
+                  ></div>
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-start justify-between mb-2">
+                      <h3
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: 0,
+                        }}
+                      >
+                        Annual Review
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "10px",
+                          padding: "2px 8px",
+                          backgroundColor: "#fef3c7",
+                          color: "#92400e",
+                          borderRadius: "12px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Review
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6b7280",
+                        margin: 0,
+                      }}
+                    >
+                      📅 Dec 28, 2:00 PM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#9ca3af",
+                        margin: "4px 0 0 0",
+                      }}
+                    >
+                      Annual performance review with manager
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="/calendar"
+                className="mt-4 text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors inline-flex items-center gap-2"
+              >
+                View All Events →
+              </a>
+            </div>
+
             {/* Announcements Container */}
             <div className="bg-white border border-gray-300 rounded-lg p-3 shadow-sm">
               <div className="mb-2">
