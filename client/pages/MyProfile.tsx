@@ -50,6 +50,8 @@ export default function MyProfile() {
   const [openLeaveMenu, setOpenLeaveMenu] = useState<number | null>(null);
   const [openSkillMenu, setOpenSkillMenu] = useState<number | null>(null);
   const [openDocMenu, setOpenDocMenu] = useState<number | null>(null);
+  const [openTrainingMenu, setOpenTrainingMenu] = useState<number | null>(null);
+  const [openCertificationMenu, setOpenCertificationMenu] = useState<number | null>(null);
   const [showLeaveModal, setShowLeaveModal] = useState<boolean>(false);
   const [leaveForm, setLeaveForm] = useState({
     leaveType: "Annual Leave",
