@@ -256,7 +256,19 @@ export default function MyProfile() {
 
   // Edit form states
   const [personalForm, setPersonalForm] = useState({ firstName: "Sarah", lastName: "Mitchell", dateOfBirth: "03-15-1990", gender: "Female", maritalStatus: "Single", nationality: "United States" });
-  const [contactForm, setContactForm] = useState({ phone: "+1 234 567 890", personalEmail: "sarah.mitchell@email.com", workEmail: "sarah.m@company.com", street: "123 Main Street", city: "Los Angeles", state: "California", zipCode: "90001" });
+  const [contactForm, setContactForm] = useState({
+    phone: "+1 234 567 890",
+    personalEmail: "sarah.mitchell@email.com",
+    workEmail: "sarah.m@company.com",
+    street: "123 Main Street",
+    city: "Los Angeles",
+    state: "California",
+    zipCode: "90001",
+    emergencyContactName: "John Mitchell",
+    emergencyRelationship: "Brother",
+    emergencyPhone: "+1 456 789 123",
+    emergencyAlternatePhone: "+1 321 654 987"
+  });
   const [trainingForm, setTrainingForm] = useState({ name: "", issuer: "", issueDate: "", expiryDate: "" });
 
   // Close dropdown when clicking outside
