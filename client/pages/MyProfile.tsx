@@ -368,6 +368,16 @@ export default function MyProfile() {
     setSelectedCertification(null);
   };
 
+  const confirmDeleteSkill = () => {
+    setNotification({
+      message: `Deleted skill: ${selectedSkill?.name}`,
+      type: "success",
+    });
+    setTimeout(() => setNotification(null), 3000);
+    setShowDeleteSkillModal(false);
+    setSelectedSkill(null);
+  };
+
   // Edit form states
   const [personalForm, setPersonalForm] = useState({
     firstName: "Sarah",
