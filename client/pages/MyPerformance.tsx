@@ -93,7 +93,7 @@ export default function MyPerformance() {
       {activeTab === "goals" && (
         <div className="flex flex-col gap-3" style={{ padding: "12px", backgroundColor: "#FFFFFF", borderRadius: "8px", boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)" }}>
           {/* Goal Block 1 */}
-          <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-2 gap-3">
             {/* Section Title */}
             <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#1A73E8", marginBottom: "4px" }}>
               Goal Details
