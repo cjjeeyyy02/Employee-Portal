@@ -300,7 +300,6 @@ export default function MyPerformance() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "8px",
-                  marginTop: "30px",
                 }}
               >
                 {/* KPI Title Row */}
@@ -602,7 +601,6 @@ export default function MyPerformance() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "8px",
-                  marginTop: "30px",
                 }}
               >
                 {/* KPI Title Row */}
