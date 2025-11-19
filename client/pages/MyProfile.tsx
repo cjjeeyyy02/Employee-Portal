@@ -1012,8 +1012,42 @@ export default function MyProfile() {
                             {training.status}
                           </span>
                         </td>
-                        <td className="px-4 py-2 text-xs text-gray-700">
-                          <button className="text-blue-600 hover:text-blue-800 transition-colors text-xs">View</button>
+                        <td className="px-4 py-2 text-xs relative">
+                          <button
+                            onClick={() => setOpenTrainingMenu(openTrainingMenu === training.id ? null : training.id)}
+                            className="text-gray-600 hover:text-gray-900 transition-colors"
+                            title="Actions"
+                          >
+                            <MoreVertical className="w-4 h-4" />
+                          </button>
+                          {openTrainingMenu === training.id && (
+                            <div
+                              className="absolute right-0 mt-1 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-10"
+                              style={{ fontFamily: "Poppins, sans-serif" }}
+                            >
+                              <button
+                                onClick={() => handleViewTraining(training)}
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                              >
+                                <Eye className="w-4 h-4" />
+                                View
+                              </button>
+                              <button
+                                onClick={() => handleEditTraining(training)}
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                              >
+                                <Edit2 className="w-4 h-4" />
+                                Edit
+                              </button>
+                              <button
+                                onClick={() => handleDeleteTraining(training)}
+                                className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                                Delete
+                              </button>
+                            </div>
+                          )}
                         </td>
                       </tr>
                     ))}
