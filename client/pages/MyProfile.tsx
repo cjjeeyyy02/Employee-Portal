@@ -2427,7 +2427,7 @@ export default function MyProfile() {
                   Cancel
                 </button>
                 <button onClick={() => handleEditSubmit("training")} className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
-                  Add Training
+                  Add
                 </button>
               </div>
             </div>
