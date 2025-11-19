@@ -767,7 +767,7 @@ export default function MyLeaveAttendance() {
                   <tfoot>
                     <tr className="border-t-2 border-gray-300 bg-gray-50">
                       <td
-                        colSpan={4}
+                        colSpan={3}
                         className="px-2 py-1.5 text-xs font-bold text-gray-900 text-right"
                       >
                         Weekly Total:
