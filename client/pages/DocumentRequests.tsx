@@ -26,6 +26,7 @@ type ModalType = "upload" | "newRequest" | "moreFilters" | null;
 interface Request {
   id: string;
   requestType: string;
+  requestTitle: string;
   submittedDate: string;
   status: string;
   approver: string;
@@ -150,6 +151,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1234",
       requestType: "Leave",
+      requestTitle: "Annual Leave Request",
       submittedDate: "01/15/2025",
       status: "Pending",
       approver: "A. Smith",
@@ -157,6 +159,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1235",
       requestType: "Schedule Change",
+      requestTitle: "Shift Swap Request",
       submittedDate: "01/12/2025",
       status: "Approved",
       approver: "A. Johnson",
@@ -164,6 +167,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1236",
       requestType: "HR Inquiry",
+      requestTitle: "Benefits Information",
       submittedDate: "01/10/2025",
       status: "In Review",
       approver: "A. Brown",
@@ -171,6 +175,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1237",
       requestType: "Overtime",
+      requestTitle: "Weekend Overtime Approval",
       submittedDate: "01/08/2025",
       status: "Rejected",
       approver: "A. Smith",
@@ -178,6 +183,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1238",
       requestType: "Leave",
+      requestTitle: "Sick Leave Request",
       submittedDate: "01/05/2025",
       status: "Approved",
       approver: "A. Johnson",
@@ -185,6 +191,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1239",
       requestType: "HR Inquiry",
+      requestTitle: "Payroll Question",
       submittedDate: "01/03/2025",
       status: "Pending",
       approver: "A. Brown",
@@ -192,6 +199,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1240",
       requestType: "Schedule Change",
+      requestTitle: "Work From Home Request",
       submittedDate: "12/28/2024",
       status: "Approved",
       approver: "A. Smith",
@@ -199,6 +207,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1241",
       requestType: "Overtime",
+      requestTitle: "Project Overtime Authorization",
       submittedDate: "12/22/2024",
       status: "In Review",
       approver: "A. Johnson",
@@ -206,6 +215,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1242",
       requestType: "Leave",
+      requestTitle: "Vacation Leave",
       submittedDate: "12/18/2024",
       status: "Approved",
       approver: "A. Brown",
@@ -213,6 +223,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1243",
       requestType: "HR Inquiry",
+      requestTitle: "Policy Clarification",
       submittedDate: "12/15/2024",
       status: "Rejected",
       approver: "A. Smith",
@@ -220,6 +231,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1244",
       requestType: "Schedule Change",
+      requestTitle: "Early Departure Request",
       submittedDate: "12/10/2024",
       status: "In Review",
       approver: "A. Johnson",
@@ -227,6 +239,7 @@ export default function DocumentRequests() {
     {
       id: "REQ-2025-1245",
       requestType: "Overtime",
+      requestTitle: "Emergency Coverage",
       submittedDate: "12/05/2024",
       status: "Approved",
       approver: "A. Brown",
@@ -552,6 +565,9 @@ export default function DocumentRequests() {
                     Request Type
                   </th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">
+                    Request Title
+                  </th>
+                  <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">
                     Submitted Date
                   </th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-gray-700 whitespace-nowrap">
@@ -576,6 +592,9 @@ export default function DocumentRequests() {
                     </td>
                     <td className="px-4 py-3 text-xs text-gray-700">
                       {request.requestType}
+                    </td>
+                    <td className="px-4 py-3 text-xs text-gray-900">
+                      {request.requestTitle}
                     </td>
                     <td className="px-4 py-3 text-xs text-gray-600">
                       {request.submittedDate}
