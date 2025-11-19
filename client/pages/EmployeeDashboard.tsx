@@ -5,6 +5,7 @@ import {
   Calendar,
   ArrowUpRight,
   CheckCircle,
+  XCircle,
   Coffee,
   ChevronLeft,
   ChevronRight,
@@ -261,6 +262,40 @@ export default function EmployeeDashboard() {
               >
                 <CheckCircle size={18} />
                 Clock In
+              </button>
+
+              <button
+                style={{
+                  padding: "10px 20px",
+                  backgroundColor: "#3b82f6",
+                  border: "none",
+                  borderRadius: "10px",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#ffffff",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease-in-out",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  boxShadow: "0 1px 3px rgba(59, 130, 246, 0.3)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#2563eb";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 6px rgba(59, 130, 246, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#3b82f6";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 1px 3px rgba(59, 130, 246, 0.3)";
+                }}
+              >
+                <XCircle size={18} />
+                Clock Out
               </button>
 
               <button
