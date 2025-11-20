@@ -3414,19 +3414,20 @@ export default function MyProfile() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                  gap: "16px",
+                  gridTemplateColumns: "55% 15% 15% 15%",
+                  gap: "24px",
                   marginBottom: "16px",
+                  alignItems: "center",
                 }}
               >
                 {/* Leave Balance Card */}
                 <div
                   style={{
-                    borderRadius: "12px",
-                    border: "2px solid #DC2626",
+                    borderRadius: "16px",
+                    border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
+                    padding: "20px",
                   }}
                 >
                   <div className="flex items-center justify-between gap-2 mb-3">
