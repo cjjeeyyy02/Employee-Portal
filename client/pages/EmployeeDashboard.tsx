@@ -3838,6 +3838,199 @@ export default function EmployeeDashboard() {
         />
       )}
 
+      {/* Forum Detail Sidesheet */}
+      {showForumDetailSidesheet && selectedForumTopic && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            width: "500px",
+            height: "100vh",
+            backgroundColor: "#ffffff",
+            boxShadow: "-4px 0 12px rgba(0, 0, 0, 0.15)",
+            zIndex: 50,
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              padding: "20px",
+              borderBottom: "1px solid #e5e7eb",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+            }}
+          >
+            <div style={{ flex: 1 }}>
+              <h2
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  color: "#111827",
+                  margin: "0 0 4px 0",
+                }}
+              >
+                {forumTopics.find(t => t.id === selectedForumTopic)?.title}
+              </h2>
+              <p
+                style={{
+                  fontSize: "12px",
+                  color: "#6B7280",
+                  margin: "0",
+                }}
+              >
+                Started by {forumTopics.find(t => t.id === selectedForumTopic)?.author}
+              </p>
+            </div>
+            <button
+              onClick={() => setShowForumDetailSidesheet(false)}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "24px",
+                cursor: "pointer",
+                color: "#6B7280",
+                padding: 0,
+                marginLeft: "12px",
+              }}
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Scrollable Messages */}
+          <div
+            style={{
+              flex: 1,
+              overflowY: "auto",
+              padding: "20px",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {forumTopics.find(t => t.id === selectedForumTopic)?.messages.map((msg, idx) => (
+                <div key={idx} style={{ display: "flex", gap: "12px" }}>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "50%",
+                      backgroundColor: "#2563eb",
+                      color: "#ffffff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {msg.avatar}
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "4px",
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontSize: "13px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: "0",
+                        }}
+                      >
+                        {msg.author}
+                      </p>
+                      <span
+                        style={{
+                          fontSize: "11px",
+                          color: "#9ca3af",
+                        }}
+                      >
+                        {msg.time}
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "13px",
+                        color: "#6b7280",
+                        margin: "0",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      {msg.content}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Reply Input */}
+          <div
+            style={{
+              padding: "20px",
+              borderTop: "1px solid #e5e7eb",
+              display: "flex",
+              gap: "8px",
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Write a reply..."
+              style={{
+                flex: 1,
+                padding: "10px 12px",
+                border: "1px solid #e5e7eb",
+                borderRadius: "8px",
+                fontSize: "13px",
+                outline: "none",
+              }}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "#2563eb")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "#e5e7eb")}
+            />
+            <button
+              style={{
+                padding: "10px 16px",
+                backgroundColor: "#2563eb",
+                color: "#ffffff",
+                border: "none",
+                borderRadius: "8px",
+                fontSize: "13px",
+                fontWeight: "500",
+                cursor: "pointer",
+              }}
+            >
+              Reply
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Forum Detail Backdrop */}
+      {showForumDetailSidesheet && (
+        <div
+          onClick={() => setShowForumDetailSidesheet(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            zIndex: 40,
+          }}
+        />
+      )}
+
       {/* Leave Request Modal */}
       {showLeaveModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
