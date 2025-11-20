@@ -3714,7 +3714,7 @@ export default function MyProfile() {
                     border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
+                    padding: "20px",
                   }}
                 >
                   <h2
