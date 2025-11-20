@@ -980,15 +980,15 @@ export default function MyLeaveAttendance() {
                         <td className="px-3 py-2 text-xs text-center text-gray-900">
                           1.5
                         </td>
-                        <td className="px-2 py-1.5">
+                        <td className="px-3 py-2">
                           <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">
                             Approved
                           </span>
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           11/22/2024
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           Michael Rodriguez
                         </td>
                       </tr>
