@@ -927,57 +927,57 @@ export default function MyLeaveAttendance() {
                     </thead>
                     <tbody>
                       <tr className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           12/02/2024 - 12/06/2024
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                        <td className="px-3 py-2 text-xs text-center text-gray-900">
                           40.0
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                        <td className="px-3 py-2 text-xs text-center text-gray-900">
                           2.0
                         </td>
-                        <td className="px-2 py-1.5">
+                        <td className="px-3 py-2">
                           <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">
                             Approved
                           </span>
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           12/06/2024
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           Michael Rodriguez
                         </td>
                       </tr>
                       <tr className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           11/25/2024 - 11/29/2024
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                        <td className="px-3 py-2 text-xs text-center text-gray-900">
                           40.0
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                        <td className="px-3 py-2 text-xs text-center text-gray-900">
                           0.0
                         </td>
-                        <td className="px-2 py-1.5">
+                        <td className="px-3 py-2">
                           <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white bg-green-500">
                             Approved
                           </span>
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           11/29/2024
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           Michael Rodriguez
                         </td>
                       </tr>
                       <tr className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="px-2 py-1.5 text-xs text-gray-900">
+                        <td className="px-3 py-2 text-xs text-gray-900">
                           11/18/2024 - 11/22/2024
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                        <td className="px-3 py-2 text-xs text-center text-gray-900">
                           38.0
                         </td>
-                        <td className="px-2 py-1.5 text-xs text-center text-gray-900">
+                        <td className="px-3 py-2 text-xs text-center text-gray-900">
                           1.5
                         </td>
                         <td className="px-2 py-1.5">
