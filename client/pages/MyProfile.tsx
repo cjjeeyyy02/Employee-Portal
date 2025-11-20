@@ -3578,15 +3578,15 @@ export default function MyProfile() {
                     border: "2px solid #DC2626",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "12px",
+                    padding: "8px",
                     display: "flex",
-                    gap: "16px",
+                    gap: "12px",
                   }}
                 >
                   {/* Attendance Rate */}
                   <div style={{ flex: 1 }}>
                     <h2
-                      className="text-sm font-bold text-gray-900 mb-2"
+                      className="text-sm font-bold text-gray-900 mb-1"
                       style={{
                         fontFamily: "Poppins, sans-serif",
                         fontSize: "11px",
@@ -3601,7 +3601,7 @@ export default function MyProfile() {
                         fontWeight: 700,
                         color: "#111827",
                         fontFamily: "Poppins, sans-serif",
-                        marginBottom: "6px",
+                        marginBottom: "4px",
                       }}
                     >
                       90.9%
@@ -3612,7 +3612,7 @@ export default function MyProfile() {
                         height: "3px",
                         backgroundColor: "#2563EB",
                         borderRadius: "2px",
-                        marginBottom: "8px",
+                        marginBottom: "4px",
                       }}
                     ></div>
                     <button
@@ -3640,7 +3640,7 @@ export default function MyProfile() {
                   {/* Punctuality Rate */}
                   <div style={{ flex: 1 }}>
                     <h2
-                      className="text-sm font-bold text-gray-900 mb-2"
+                      className="text-sm font-bold text-gray-900 mb-1"
                       style={{
                         fontFamily: "Poppins, sans-serif",
                         fontSize: "11px",
@@ -3655,7 +3655,7 @@ export default function MyProfile() {
                         fontWeight: 700,
                         color: "#111827",
                         fontFamily: "Poppins, sans-serif",
-                        marginBottom: "6px",
+                        marginBottom: "4px",
                       }}
                     >
                       95.5%
@@ -3666,7 +3666,7 @@ export default function MyProfile() {
                         height: "3px",
                         backgroundColor: "#2563EB",
                         borderRadius: "2px",
-                        marginBottom: "8px",
+                        marginBottom: "4px",
                       }}
                     ></div>
                     <button
