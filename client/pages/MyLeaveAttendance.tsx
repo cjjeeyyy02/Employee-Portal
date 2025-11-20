@@ -728,10 +728,10 @@ export default function MyLeaveAttendance() {
                           key={index}
                           className="border-b border-gray-200 hover:bg-gray-50"
                         >
-                          <td className="px-2 py-1.5 text-xs text-gray-900">
+                          <td className="px-3 py-2 text-xs text-gray-900">
                             {formatDate(entry.date)}
                           </td>
-                          <td className="px-2 py-1.5">
+                          <td className="px-3 py-2">
                             {entry.status === "Draft" ? (
                               <input
                                 type="text"
@@ -750,7 +750,7 @@ export default function MyLeaveAttendance() {
                               </span>
                             )}
                           </td>
-                          <td className="px-2 py-1.5">
+                          <td className="px-3 py-2">
                             {entry.status === "Draft" ? (
                               <input
                                 type="text"
@@ -769,7 +769,7 @@ export default function MyLeaveAttendance() {
                               </span>
                             )}
                           </td>
-                          <td className="px-2 py-1.5 text-center">
+                          <td className="px-3 py-2 text-center">
                             {entry.status === "Draft" ? (
                               <input
                                 type="number"
@@ -791,7 +791,7 @@ export default function MyLeaveAttendance() {
                               </span>
                             )}
                           </td>
-                          <td className="px-2 py-1.5 text-center">
+                          <td className="px-3 py-2 text-center">
                             {entry.status === "Draft" ? (
                               <input
                                 type="number"
@@ -813,10 +813,10 @@ export default function MyLeaveAttendance() {
                               </span>
                             )}
                           </td>
-                          <td className="px-2 py-1.5 text-center text-xs font-semibold text-gray-900">
+                          <td className="px-3 py-2 text-center text-xs font-semibold text-gray-900">
                             {totalHours.toFixed(1)}
                           </td>
-                          <td className="px-2 py-1.5">
+                          <td className="px-3 py-2">
                             <span
                               className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium"
                               style={{
@@ -827,7 +827,7 @@ export default function MyLeaveAttendance() {
                               {entry.status}
                             </span>
                           </td>
-                          <td className="px-2 py-1.5">
+                          <td className="px-3 py-2">
                             {entry.status !== "Draft" && (
                               <button
                                 onClick={() => {
