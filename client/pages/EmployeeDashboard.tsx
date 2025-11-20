@@ -23,6 +23,7 @@ export default function EmployeeDashboard() {
   const [showKPIDetailedView, setShowKPIDetailedView] = useState(false);
   const [showAnnouncementsSidesheet, setShowAnnouncementsSidesheet] = useState(false);
   const [showLeaveModal, setShowLeaveModal] = useState(false);
+  const [showActivitiesSidesheet, setShowActivitiesSidesheet] = useState(false);
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
