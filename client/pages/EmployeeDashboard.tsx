@@ -2017,16 +2017,28 @@ export default function EmployeeDashboard() {
               </h2>
 
               <div className="flex-1 space-y-1.5">
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                <button
+                  onClick={() => navigate("/my-leave-attendance")}
+                  className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none"
+                >
                   📋 Request Leave
                 </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                <button
+                  onClick={() => navigate("/my-leave-attendance")}
+                  className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none"
+                >
                   ⏱️ Overtime
                 </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none">
+                <button
+                  onClick={() => navigate("/requests-documents")}
+                  className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors border-none"
+                >
                   📝 Submit Request
                 </button>
-                <button className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors">
+                <button
+                  onClick={() => navigate("/tasks")}
+                  className="w-full px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors"
+                >
                   ✨ New Task
                 </button>
               </div>
