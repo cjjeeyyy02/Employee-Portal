@@ -1688,6 +1688,247 @@ export default function EmployeeDashboard() {
             </button>
           </div>
             )}
+
+            {/* Forum Container */}
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                border: "1px solid #e5e7eb",
+                borderRadius: "12px",
+                boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
+                padding: "16px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              {/* Header */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "16px",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    color: "#1f2937",
+                    margin: "0",
+                  }}
+                >
+                  💬 Forum
+                </h3>
+                <span
+                  style={{
+                    fontSize: "11px",
+                    fontWeight: "500",
+                    color: "#6b7280",
+                  }}
+                >
+                  Latest discussions
+                </span>
+              </div>
+
+              {/* Forum Posts List */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "12px",
+                }}
+              >
+                {/* Post 1 */}
+                <div
+                  style={{
+                    backgroundColor: "#f9fafb",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "8px",
+                    padding: "12px",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#f3f4f6";
+                    e.currentTarget.style.borderColor = "#d1d5db";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#f9fafb";
+                    e.currentTarget.style.borderColor = "#e5e7eb";
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "500",
+                      color: "#1f2937",
+                      margin: "0 0 6px 0",
+                    }}
+                  >
+                    How to prepare for annual reviews?
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 6px 0",
+                    }}
+                  >
+                    Started by John Doe
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                    }}
+                  >
+                    <span>👥 5 replies</span>
+                    <span>🕐 2 hours ago</span>
+                  </div>
+                </div>
+
+                {/* Post 2 */}
+                <div
+                  style={{
+                    backgroundColor: "#f9fafb",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "8px",
+                    padding: "12px",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#f3f4f6";
+                    e.currentTarget.style.borderColor = "#d1d5db";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#f9fafb";
+                    e.currentTarget.style.borderColor = "#e5e7eb";
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "500",
+                      color: "#1f2937",
+                      margin: "0 0 6px 0",
+                    }}
+                  >
+                    Best practices for remote collaboration
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 6px 0",
+                    }}
+                  >
+                    Started by Sarah Smith
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                    }}
+                  >
+                    <span>👥 8 replies</span>
+                    <span>🕐 1 day ago</span>
+                  </div>
+                </div>
+
+                {/* Post 3 */}
+                <div
+                  style={{
+                    backgroundColor: "#f9fafb",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "8px",
+                    padding: "12px",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#f3f4f6";
+                    e.currentTarget.style.borderColor = "#d1d5db";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#f9fafb";
+                    e.currentTarget.style.borderColor = "#e5e7eb";
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "500",
+                      color: "#1f2937",
+                      margin: "0 0 6px 0",
+                    }}
+                  >
+                    Tips for skill development in 2025
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 6px 0",
+                    }}
+                  >
+                    Started by Mike Johnson
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                    }}
+                  >
+                    <span>👥 12 replies</span>
+                    <span>🕐 3 days ago</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div
+                style={{
+                  borderTop: "1px solid #e5e7eb",
+                  marginTop: "16px",
+                  marginBottom: "12px",
+                }}
+              ></div>
+
+              {/* View All Forum Link */}
+              <button
+                style={{
+                  fontSize: "13px",
+                  fontWeight: "500",
+                  color: "#2563eb",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  borderBottom: "2px solid transparent",
+                  transition: "border-color 0.2s",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "0",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.borderBottomColor = "#2563eb")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.borderBottomColor = "transparent")
+                }
+              >
+                View All Forum Topics →
+              </button>
+            </div>
         </div>
 
           {/* Right Section - 30% */}
