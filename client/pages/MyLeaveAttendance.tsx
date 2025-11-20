@@ -1703,12 +1703,141 @@ export default function MyLeaveAttendance() {
                       </div>
                     </div>
                     <span
-                      className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white flex-shrink-0"
-                      style={{ backgroundColor: "#27AE60" }}
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "11px",
+                        fontWeight: 500,
+                        backgroundColor: "#C9F3D5",
+                        color: "#1E9B57",
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        flexShrink: 0,
+                      }}
                     >
                       Approved
                     </span>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* COLUMN 3 — UPCOMING HOLIDAYS */}
+            <div
+              style={{
+                borderRadius: "16px",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)",
+                padding: "24px",
+              }}
+            >
+              {/* Section Title */}
+              <div style={{ marginBottom: "16px" }}>
+                <h2
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: "#333",
+                  }}
+                >
+                  Upcoming Holidays
+                </h2>
+                <div
+                  style={{
+                    height: "1px",
+                    backgroundColor: "#E6E6E6",
+                    marginTop: "12px",
+                  }}
+                ></div>
+              </div>
+
+              {/* Holiday Items */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                {/* Holiday 1 */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 700,
+                      color: "#000",
+                    }}
+                  >
+                    Sept 02
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "13px",
+                      color: "#666",
+                    }}
+                  >
+                    Labor
+                  </span>
+                </div>
+
+                {/* Holiday 2 */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 700,
+                      color: "#000",
+                    }}
+                  >
+                    Oct 11
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "13px",
+                      color: "#666",
+                    }}
+                  >
+                    Labor Day
+                  </span>
+                </div>
+
+                {/* Holiday 3 */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 700,
+                      color: "#000",
+                    }}
+                  >
+                    Oct 14
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "13px",
+                      color: "#666",
+                    }}
+                  >
+                    Indigenous Peoples' Day
+                  </span>
                 </div>
               </div>
             </div>
