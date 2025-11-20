@@ -3410,19 +3410,24 @@ export default function MyProfile() {
                 </div>
               </div>
 
-              {/* Leave Balance Section - 3 Cards Grid */}
+              {/* Leave Balance Section - 3 Cards Flex */}
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "55% 25% 20%",
-                  gap: "16px",
-                  marginBottom: "16px",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                   alignItems: "stretch",
+                  gap: "20px",
+                  marginBottom: "16px",
+                  maxWidth: "100%",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
                 }}
               >
                 {/* Leave Balance Card */}
                 <div
                   style={{
+                    width: "55%",
                     borderRadius: "16px",
                     border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
@@ -3575,6 +3580,7 @@ export default function MyProfile() {
                 {/* Attendance & Punctuality Container */}
                 <div
                   style={{
+                    width: "25%",
                     borderRadius: "16px",
                     border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
@@ -3583,13 +3589,13 @@ export default function MyProfile() {
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    gap: "24px",
+                    gap: "20px",
                   }}
                 >
                   {/* Attendance Rate Block */}
                   <div
                     style={{
-                      width: "50%",
+                      width: "40%",
                       display: "flex",
                       flexDirection: "column",
                       gap: "6px",
@@ -3649,7 +3655,7 @@ export default function MyProfile() {
                   {/* Punctuality Rate Block */}
                   <div
                     style={{
-                      width: "50%",
+                      width: "40%",
                       display: "flex",
                       flexDirection: "column",
                       gap: "6px",
@@ -3710,11 +3716,16 @@ export default function MyProfile() {
                 {/* Upcoming Holidays Card */}
                 <div
                   style={{
+                    width: "20%",
                     borderRadius: "16px",
                     border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
                     padding: "20px",
+                    paddingLeft: "20px",
+                    paddingRight: "20px",
+                    marginLeft: "auto",
+                    marginRight: "0",
                   }}
                 >
                   <h2
