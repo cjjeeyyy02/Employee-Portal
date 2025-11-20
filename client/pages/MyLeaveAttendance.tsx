@@ -1343,15 +1343,15 @@ export default function MyLeaveAttendance() {
 
                 {/* Personal Leave */}
                 <div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "4px" }}>
                     <div>
                       <h3
                         style={{
                           fontFamily: "Poppins, sans-serif",
-                          fontSize: "14px",
+                          fontSize: "12px",
                           fontWeight: 500,
                           color: "#000",
-                          marginBottom: "4px",
+                          marginBottom: "2px",
                         }}
                       >
                         Personal Leave
@@ -1359,7 +1359,7 @@ export default function MyLeaveAttendance() {
                       <p
                         style={{
                           fontFamily: "Poppins, sans-serif",
-                          fontSize: "12px",
+                          fontSize: "11px",
                           color: "#666",
                         }}
                       >
@@ -1370,7 +1370,7 @@ export default function MyLeaveAttendance() {
                       <p
                         style={{
                           fontFamily: "Poppins, sans-serif",
-                          fontSize: "14px",
+                          fontSize: "12px",
                           fontWeight: 700,
                           color: "#000",
                         }}
@@ -1382,7 +1382,7 @@ export default function MyLeaveAttendance() {
                   <div
                     style={{
                       width: "100%",
-                      height: "8px",
+                      height: "6px",
                       backgroundColor: "#F3D2D2",
                       borderRadius: "4px",
                       overflow: "hidden",
@@ -1400,10 +1400,10 @@ export default function MyLeaveAttendance() {
                   <p
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "11px",
+                      fontSize: "10px",
                       color: "#666",
                       textAlign: "right",
-                      marginTop: "4px",
+                      marginTop: "2px",
                     }}
                   >
                     Total: 5 days
