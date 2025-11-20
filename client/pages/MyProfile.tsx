@@ -3420,8 +3420,6 @@ export default function MyProfile() {
                   gap: "20px",
                   marginBottom: "16px",
                   maxWidth: "100%",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
                 }}
               >
                 {/* Leave Balance Card */}
@@ -3429,7 +3427,7 @@ export default function MyProfile() {
                   style={{
                     width: "55%",
                     borderRadius: "16px",
-                    border: "2px solid #D93C3C",
+                    border: "1px solid #E5E7EB",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
                     padding: "20px",
@@ -3582,7 +3580,7 @@ export default function MyProfile() {
                   style={{
                     width: "25%",
                     borderRadius: "16px",
-                    border: "2px solid #D93C3C",
+                    border: "1px solid #E5E7EB",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
                     padding: "20px",
