@@ -3319,6 +3319,198 @@ export default function EmployeeDashboard() {
                     </p>
                   </div>
                 </div>
+
+                {/* Event 4 */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "8px",
+                    padding: "8px",
+                    backgroundColor: "#f9fafb",
+                    borderRadius: "6px",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "3px",
+                      backgroundColor: "#ec4899",
+                      borderRadius: "2px",
+                    }}
+                  ></div>
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-start justify-between mb-1">
+                      <h3
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: 0,
+                        }}
+                      >
+                        Product Launch
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "9px",
+                          padding: "2px 6px",
+                          backgroundColor: "#fbcfe8",
+                          color: "#9d174d",
+                          borderRadius: "10px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Launch
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#6b7280",
+                        margin: 0,
+                      }}
+                    >
+                      📅 Jan 5, 11:00 AM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "10px",
+                        color: "#9ca3af",
+                        margin: "2px 0 0 0",
+                      }}
+                    >
+                      New feature release and announcement event
+                    </p>
+                  </div>
+                </div>
+
+                {/* Event 5 */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "8px",
+                    padding: "8px",
+                    backgroundColor: "#f9fafb",
+                    borderRadius: "6px",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "3px",
+                      backgroundColor: "#8b5cf6",
+                      borderRadius: "2px",
+                    }}
+                  ></div>
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-start justify-between mb-1">
+                      <h3
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: 0,
+                        }}
+                      >
+                        Training Session
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "9px",
+                          padding: "2px 6px",
+                          backgroundColor: "#ede9fe",
+                          color: "#5b21b6",
+                          borderRadius: "10px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Training
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#6b7280",
+                        margin: 0,
+                      }}
+                    >
+                      📅 Jan 8, 3:00 PM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "10px",
+                        color: "#9ca3af",
+                        margin: "2px 0 0 0",
+                      }}
+                    >
+                      Professional development and skill enhancement
+                    </p>
+                  </div>
+                </div>
+
+                {/* Event 6 */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "8px",
+                    padding: "8px",
+                    backgroundColor: "#f9fafb",
+                    borderRadius: "6px",
+                    border: "1px solid #e5e7eb",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "3px",
+                      backgroundColor: "#06b6d4",
+                      borderRadius: "2px",
+                    }}
+                  ></div>
+                  <div style={{ flex: 1 }}>
+                    <div className="flex items-start justify-between mb-1">
+                      <h3
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: 0,
+                        }}
+                      >
+                        Team Offsite
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "9px",
+                          padding: "2px 6px",
+                          backgroundColor: "#cffafe",
+                          color: "#0c4a6e",
+                          borderRadius: "10px",
+                          fontWeight: "500",
+                        }}
+                      >
+                        Offsite
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        color: "#6b7280",
+                        margin: 0,
+                      }}
+                    >
+                      📅 Jan 12, 9:00 AM
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "10px",
+                        color: "#9ca3af",
+                        margin: "2px 0 0 0",
+                      }}
+                    >
+                      Two-day team building and strategy planning
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <a
