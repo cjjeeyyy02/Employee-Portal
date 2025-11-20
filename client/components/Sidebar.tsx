@@ -19,7 +19,7 @@ const employeeNavigationItems = [
   { icon: Calendar, label: "Leave & Attendance", path: "/my-leave-attendance" },
   { icon: Target, label: "Performance", path: "/my-performance" },
   { icon: CheckSquare, label: "Tasks", path: "/my-tasks" },
-  { icon: FileText, label: "Request and Documents", path: "/documents" },
+  { icon: FileText, label: "Request & Documents", path: "/documents" },
   { icon: Calendar, label: "Calendar", path: "/calendar" },
   { icon: Settings, label: "Configurations & Settings", path: "/settings" },
   { icon: MessageCircle, label: "AI Assistant", path: "/ai-chat" },
