@@ -1905,6 +1905,7 @@ export default function EmployeeDashboard() {
 
               {/* View All Forum Link */}
               <button
+                onClick={() => setShowForumSidesheet(true)}
                 style={{
                   fontSize: "13px",
                   fontWeight: "500",
