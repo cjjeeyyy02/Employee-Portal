@@ -2261,6 +2261,346 @@ export default function EmployeeDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Announcements Sidesheet */}
+      {showAnnouncementsSidesheet && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            width: "400px",
+            height: "100vh",
+            backgroundColor: "#FFFFFF",
+            boxShadow: "-4px 0 12px rgba(0, 0, 0, 0.15)",
+            zIndex: 50,
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Sidesheet Header */}
+          <div
+            style={{
+              padding: "20px",
+              borderBottom: "1px solid #E5E7EB",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "18px",
+                fontWeight: 600,
+                color: "#111827",
+                margin: 0,
+              }}
+            >
+              All Announcements
+            </h2>
+            <button
+              onClick={() => setShowAnnouncementsSidesheet(false)}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "24px",
+                cursor: "pointer",
+                color: "#6B7280",
+                padding: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Tabs */}
+          <div
+            style={{
+              padding: "12px 20px 0 20px",
+              borderBottom: "1px solid #E5E7EB",
+              display: "flex",
+              gap: "20px",
+            }}
+          >
+            <button
+              onClick={() => setAnnouncementTab("All")}
+              style={{
+                paddingBottom: "12px",
+                fontSize: "13px",
+                fontWeight: 500,
+                color: announcementTab === "All" ? "#2563EB" : "#6B7280",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                borderBottom: announcementTab === "All" ? "2px solid #2563EB" : "none",
+              }}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setAnnouncementTab("News")}
+              style={{
+                paddingBottom: "12px",
+                fontSize: "13px",
+                fontWeight: 500,
+                color: announcementTab === "News" ? "#2563EB" : "#6B7280",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                borderBottom: announcementTab === "News" ? "2px solid #2563EB" : "none",
+              }}
+            >
+              News
+            </button>
+            <button
+              onClick={() => setAnnouncementTab("Activities")}
+              style={{
+                paddingBottom: "12px",
+                fontSize: "13px",
+                fontWeight: 500,
+                color: announcementTab === "Activities" ? "#2563EB" : "#6B7280",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                borderBottom: announcementTab === "Activities" ? "2px solid #2563EB" : "none",
+              }}
+            >
+              Activities
+            </button>
+          </div>
+
+          {/* Announcement List */}
+          <div
+            style={{
+              flex: 1,
+              overflowY: "auto",
+              padding: "16px 20px",
+            }}
+          >
+            {/* Announcement 1 */}
+            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#111827",
+                    minWidth: "50px",
+                  }}
+                >
+                  <div>Today</div>
+                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                    09:00
+                  </div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#111827",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Welcome to the Era of Zero!
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6B7280",
+                      margin: 0,
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    Dear Phemex Traders, The day has finally come! Today, we have officially launched our Membership Spot Trading services...
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Announcement 2 */}
+            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#111827",
+                    minWidth: "50px",
+                  }}
+                >
+                  <div>Jan 20</div>
+                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                    2025
+                  </div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#111827",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Company Holiday Schedule 2025
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6B7280",
+                      margin: 0,
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    The updated holiday schedule for 2025 has been posted. Please review and plan accordingly.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Announcement 3 */}
+            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#111827",
+                    minWidth: "50px",
+                  }}
+                >
+                  <div>Jan 18</div>
+                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                    2025
+                  </div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#111827",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    New Health & Wellness Program
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6B7280",
+                      margin: 0,
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    Join our new wellness program with fitness classes and mental health resources. Registration opens next week.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Announcement 4 */}
+            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#111827",
+                    minWidth: "50px",
+                  }}
+                >
+                  <div>Jan 15</div>
+                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                    2025
+                  </div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#111827",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Office Renovations Complete
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6B7280",
+                      margin: 0,
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    Our office has been successfully renovated with new workspaces and collaborative areas. Come visit!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Announcement 5 */}
+            <div style={{ marginBottom: "20px" }}>
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#111827",
+                    minWidth: "50px",
+                  }}
+                >
+                  <div>Jan 10</div>
+                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                    2025
+                  </div>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#111827",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Q1 All-Hands Meeting
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6B7280",
+                      margin: 0,
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    Join us for our quarterly company-wide meeting on January 22 at 2:00 PM in the main conference room.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Backdrop */}
+      {showAnnouncementsSidesheet && (
+        <div
+          onClick={() => setShowAnnouncementsSidesheet(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            zIndex: 40,
+          }}
+        />
+      )}
     </Layout>
   );
 }
