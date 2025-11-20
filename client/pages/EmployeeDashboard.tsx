@@ -1718,7 +1718,7 @@ export default function EmployeeDashboard() {
                     margin: "0",
                   }}
                 >
-                  💬 Forum
+                  Forum
                 </h3>
                 <span
                   style={{
