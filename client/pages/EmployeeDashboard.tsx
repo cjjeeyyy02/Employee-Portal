@@ -3490,6 +3490,10 @@ export default function EmployeeDashboard() {
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {/* Topic 1 */}
               <div
+                onClick={() => {
+                  setSelectedForumTopic(1);
+                  setShowForumDetailSidesheet(true);
+                }}
                 style={{
                   backgroundColor: "#f9fafb",
                   border: "1px solid #e5e7eb",
@@ -3541,6 +3545,10 @@ export default function EmployeeDashboard() {
 
               {/* Topic 2 */}
               <div
+                onClick={() => {
+                  setSelectedForumTopic(2);
+                  setShowForumDetailSidesheet(true);
+                }}
                 style={{
                   backgroundColor: "#f9fafb",
                   border: "1px solid #e5e7eb",
@@ -3592,6 +3600,10 @@ export default function EmployeeDashboard() {
 
               {/* Topic 3 */}
               <div
+                onClick={() => {
+                  setSelectedForumTopic(3);
+                  setShowForumDetailSidesheet(true);
+                }}
                 style={{
                   backgroundColor: "#f9fafb",
                   border: "1px solid #e5e7eb",
@@ -3643,6 +3655,10 @@ export default function EmployeeDashboard() {
 
               {/* Topic 4 */}
               <div
+                onClick={() => {
+                  setSelectedForumTopic(4);
+                  setShowForumDetailSidesheet(true);
+                }}
                 style={{
                   backgroundColor: "#f9fafb",
                   border: "1px solid #e5e7eb",
