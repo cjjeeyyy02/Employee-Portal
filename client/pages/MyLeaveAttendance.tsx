@@ -116,30 +116,6 @@ export default function MyLeaveAttendance() {
       overtimeHours: "1",
       status: "Submitted",
     },
-    {
-      date: "2024-12-11",
-      taskId: "TSK-003",
-      taskDescription: "Bug Fixes",
-      regularHours: "8",
-      overtimeHours: "0",
-      status: "Draft",
-    },
-    {
-      date: "2024-12-12",
-      taskId: "",
-      taskDescription: "",
-      regularHours: "0",
-      overtimeHours: "0",
-      status: "Draft",
-    },
-    {
-      date: "2024-12-13",
-      taskId: "",
-      taskDescription: "",
-      regularHours: "0",
-      overtimeHours: "0",
-      status: "Draft",
-    },
   ]);
 
   // Attendance state
