@@ -548,15 +548,15 @@ export default function EmployeeDashboard() {
                     padding: "20px",
                   }}
                 >
-                {/* Two Column Grid */}
+                {/* Two Row Grid */}
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "35% 65%",
-                    gap: "32px",
+                    gridTemplateColumns: "1fr",
+                    gap: "24px",
                   }}
                 >
-                  {/* Left Column - Circular Progress */}
+                  {/* Row 1 - Circular Progress */}
                   <div
                     style={{
                       display: "flex",
