@@ -27,6 +27,48 @@ export default function EmployeeDashboard() {
   const [showForumSidesheet, setShowForumSidesheet] = useState(false);
   const [selectedForumTopic, setSelectedForumTopic] = useState<number | null>(null);
   const [showForumDetailSidesheet, setShowForumDetailSidesheet] = useState(false);
+  const [topicReactions, setTopicReactions] = useState<{ [key: number]: string | null }>({});
+  const [showReactionMenu, setShowReactionMenu] = useState<{ [key: number]: boolean }>({});
+  const [showShareMenu, setShowShareMenu] = useState<{ [key: number]: boolean }>({});
+
+  const handleReaction = (topicId: number, reaction: string) => {
+    setTopicReactions((prev) => ({
+      ...prev,
+      [topicId]: prev[topicId] === reaction ? null : reaction,
+    }));
+    setShowReactionMenu((prev) => ({
+      ...prev,
+      [topicId]: false,
+    }));
+  };
+
+  const handleShare = (topicId: number, platform: string) => {
+    const topic = forumTopics.find((t) => t.id === topicId);
+    if (!topic) return;
+
+    const shareUrl = window.location.href;
+    const shareText = `Check out this forum discussion: "${topic.title}"`;
+    const encodedUrl = encodeURIComponent(shareUrl);
+    const encodedText = encodeURIComponent(shareText);
+
+    const platformUrls: { [key: string]: string } = {
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`,
+      instagram: `https://www.instagram.com/`,
+      indeed: `https://www.indeed.com`,
+      email: `mailto:?subject=${encodeURIComponent("Check out this forum discussion")}&body=${encodeURIComponent(shareText + "\n\n" + shareUrl)}`,
+    };
+
+    if (platformUrls[platform]) {
+      window.open(platformUrls[platform], "_blank");
+    }
+
+    setShowShareMenu((prev) => ({
+      ...prev,
+      [topicId]: false,
+    }));
+  };
 
   const forumTopics = [
     {
