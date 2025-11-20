@@ -2631,6 +2631,463 @@ export default function EmployeeDashboard() {
         />
       )}
 
+      {/* Activities Sidesheet */}
+      {showActivitiesSidesheet && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            width: "450px",
+            height: "100vh",
+            backgroundColor: "#ffffff",
+            boxShadow: "-4px 0 12px rgba(0, 0, 0, 0.15)",
+            zIndex: 50,
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              padding: "20px",
+              borderBottom: "1px solid #e5e7eb",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "18px",
+                fontWeight: "600",
+                color: "#111827",
+                margin: 0,
+              }}
+            >
+              All Activities
+            </h2>
+            <button
+              onClick={() => setShowActivitiesSidesheet(false)}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "24px",
+                cursor: "pointer",
+                color: "#6B7280",
+                padding: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Scrollable Content */}
+          <div
+            style={{
+              flex: 1,
+              overflowY: "auto",
+              padding: "20px",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {/* Activity 1 - Leave Approved */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#dcfce7",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#16a34a"
+                    strokeWidth="2"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Leave Request Approved
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Your leave request for Dec 15-16 has been approved by Sarah Johnson
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                      margin: "0",
+                    }}
+                  >
+                    2 hours ago
+                  </p>
+                </div>
+              </div>
+
+              {/* Activity 2 - Task Completed */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#dbeafe",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2563eb"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Task Completed
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Monthly sales report submitted and marked as complete
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                      margin: "0",
+                    }}
+                  >
+                    5 hours ago
+                  </p>
+                </div>
+              </div>
+
+              {/* Activity 3 - Document Uploaded */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#fef3c7",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#d97706"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Document Uploaded
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Performance review document uploaded successfully
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                      margin: "0",
+                    }}
+                  >
+                    Yesterday, 4:30 PM
+                  </p>
+                </div>
+              </div>
+
+              {/* Activity 4 - Announcement Posted */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#e0e7ff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#4f46e5"
+                    strokeWidth="2"
+                  >
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Announcement Posted
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    New company policy on flexible working hours has been announced
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                      margin: "0",
+                    }}
+                  >
+                    Dec 10, 10:00 AM
+                  </p>
+                </div>
+              </div>
+
+              {/* Activity 5 - Request Submitted */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#fce7f3",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ec4899"
+                    strokeWidth="2"
+                  >
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Request Submitted
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Training course request submitted for approval
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                      margin: "0",
+                    }}
+                  >
+                    Dec 8, 2:15 PM
+                  </p>
+                </div>
+              </div>
+
+              {/* Activity 6 - Certification Earned */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#fef08a",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ca8a04"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 15l-8.5 4.5 1.6-9.3L.5 6.5h9.3L12 0l2.2 6.5h9.3l-7.6 5.7 1.6 9.3z"></path>
+                  </svg>
+                </div>
+                <div style={{ flex: 1 }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Certification Earned
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      margin: "0 0 4px 0",
+                    }}
+                  >
+                    Successfully completed AWS Cloud Practitioner certification
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#9ca3af",
+                      margin: "0",
+                    }}
+                  >
+                    Dec 5, 9:00 AM
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Activities Backdrop */}
+      {showActivitiesSidesheet && (
+        <div
+          onClick={() => setShowActivitiesSidesheet(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            zIndex: 40,
+          }}
+        />
+      )}
+
       {/* Leave Request Modal */}
       {showLeaveModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
