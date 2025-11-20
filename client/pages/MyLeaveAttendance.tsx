@@ -1160,202 +1160,544 @@ export default function MyLeaveAttendance() {
       {/* ===== LEAVE TAB ===== */}
       {activeTab === "leave" && (
         <div className="flex flex-col w-full gap-6">
-          {/* Available Leave & Recent Activities Container */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-3 sm:p-4">
-            {/* Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
-              {/* LEFT PANEL — Available Leave */}
-              <div
-                className="flex flex-col gap-2"
-                style={{ padding: "12px 16px" }}
-              >
-                {/* Section Title */}
-                <div>
-                  <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">
-                    Available Leave
-                  </h2>
-                  <p className="text-xs text-[#7A7A7A]">
-                    Your current leave entitlements and usage
-                  </p>
-                </div>
-
-                {/* Leave Cards */}
-                <div className="flex flex-col gap-2 sm:gap-2.5">
-                  {/* Annual Leave */}
-                  <div>
-                    <div className="flex justify-between items-start gap-2 mb-1.5">
-                      <div>
-                        <h3 className="text-xs text-gray-900 mb-0.5">
-                          Annual Leave
-                        </h3>
-                        <p className="text-xs text-gray-600">Used: 8 days</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-gray-900">
-                          17 available
-                        </p>
-                        <p className="text-xs text-gray-600">Total: 25 days</p>
-                      </div>
-                    </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
-                      <div
-                        className="bg-red-500 h-2 rounded-full"
-                        style={{ width: "32%" }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  {/* Sick Leave */}
-                  <div>
-                    <div className="flex justify-between items-start gap-2 mb-1.5">
-                      <div>
-                        <h3 className="text-xs text-gray-900 mb-0.5">
-                          Sick Leave
-                        </h3>
-                        <p className="text-xs text-gray-600">Used: 3 days</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-gray-900">
-                          7 available
-                        </p>
-                        <p className="text-xs text-gray-600">Total: 10 days</p>
-                      </div>
-                    </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
-                      <div
-                        className="bg-red-500 h-2 rounded-full"
-                        style={{ width: "30%" }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  {/* Personal Leave */}
-                  <div>
-                    <div className="flex justify-between items-start gap-2 mb-1.5">
-                      <div>
-                        <h3 className="text-xs text-gray-900 mb-0.5">
-                          Personal Leave
-                        </h3>
-                        <p className="text-xs text-gray-600">Used: 2 days</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-gray-900">
-                          3 available
-                        </p>
-                        <p className="text-xs text-gray-600">Total: 5 days</p>
-                      </div>
-                    </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
-                      <div
-                        className="bg-red-500 h-2 rounded-full"
-                        style={{ width: "40%" }}
-                      ></div>
-                    </div>
-                  </div>
-
-                  {/* Maternity Leave */}
-                  <div>
-                    <div className="flex justify-between items-start gap-2 mb-1.5">
-                      <div>
-                        <h3 className="text-xs text-gray-900 mb-0.5">
-                          Maternity Leave
-                        </h3>
-                        <p className="text-xs text-gray-600">Used: 0 days</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-gray-900">
-                          90 available
-                        </p>
-                        <p className="text-xs text-gray-600">Total: 90 days</p>
-                      </div>
-                    </div>
-                    <div className="w-full bg-[#E8EBF0] rounded-full h-2">
-                      <div
-                        className="bg-red-500 h-2 rounded-full"
-                        style={{ width: "0%" }}
-                      ></div>
-                    </div>
-                  </div>
-                </div>
+          {/* 3-Column Layout: Available Leave, Recent Activities, Upcoming Holidays */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "20px",
+            }}
+          >
+            {/* COLUMN 1 — AVAILABLE LEAVE */}
+            <div
+              style={{
+                borderRadius: "16px",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)",
+                padding: "24px",
+              }}
+            >
+              {/* Section Title */}
+              <div style={{ marginBottom: "20px" }}>
+                <h2
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: "#333",
+                    marginBottom: "4px",
+                  }}
+                >
+                  Available Leave
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "12px",
+                    color: "#888",
+                  }}
+                >
+                  Your current leave entitlements and usage
+                </p>
               </div>
 
-              {/* RIGHT PANEL — Recent Activities */}
-              <div
-                className="flex flex-col gap-2"
-                style={{ padding: "12px 16px" }}
-              >
-                {/* Section Title */}
+              {/* Leave Items */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                {/* Annual Leave */}
                 <div>
-                  <h2 className="text-xs sm:text-sm font-semibold text-[#1A1A1A] mb-0.5">
-                    Recent Activities
-                  </h2>
-                  <p className="text-xs text-[#7A7A7A]">
-                    Latest leave-related updates
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                    <div>
+                      <h3
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#000",
+                          marginBottom: "4px",
+                        }}
+                      >
+                        Annual Leave
+                      </h3>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "12px",
+                          color: "#666",
+                        }}
+                      >
+                        Used: 8 days
+                      </p>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          color: "#000",
+                        }}
+                      >
+                        17 available
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "8px",
+                      backgroundColor: "#F3D2D2",
+                      borderRadius: "4px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "32%",
+                        height: "100%",
+                        backgroundColor: "#D9534F",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "11px",
+                      color: "#666",
+                      textAlign: "right",
+                      marginTop: "4px",
+                    }}
+                  >
+                    Total: 25 days
                   </p>
                 </div>
 
-                {/* Activity Cards */}
-                <div className="flex flex-col gap-2">
-                  {/* Activity 1 */}
-                  <div className="bg-white border border-[#E8EBF0] rounded-lg p-2 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                {/* Sick Leave */}
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                    <div>
+                      <h3
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#000",
+                          marginBottom: "4px",
+                        }}
+                      >
+                        Sick Leave
+                      </h3>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "12px",
+                          color: "#666",
+                        }}
+                      >
+                        Used: 3 days
+                      </p>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          color: "#000",
+                        }}
+                      >
+                        7 available
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "8px",
+                      backgroundColor: "#F3D2D2",
+                      borderRadius: "4px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "30%",
+                        height: "100%",
+                        backgroundColor: "#D9534F",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "11px",
+                      color: "#666",
+                      textAlign: "right",
+                      marginTop: "4px",
+                    }}
+                  >
+                    Total: 10 days
+                  </p>
+                </div>
+
+                {/* Personal Leave */}
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                    <div>
+                      <h3
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#000",
+                          marginBottom: "4px",
+                        }}
+                      >
+                        Personal Leave
+                      </h3>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "12px",
+                          color: "#666",
+                        }}
+                      >
+                        Used: 2 days
+                      </p>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          color: "#000",
+                        }}
+                      >
+                        3 available
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "8px",
+                      backgroundColor: "#F3D2D2",
+                      borderRadius: "4px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "40%",
+                        height: "100%",
+                        backgroundColor: "#D9534F",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "11px",
+                      color: "#666",
+                      textAlign: "right",
+                      marginTop: "4px",
+                    }}
+                  >
+                    Total: 5 days
+                  </p>
+                </div>
+
+                {/* Maternity Leave */}
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                    <div>
+                      <h3
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#000",
+                          marginBottom: "4px",
+                        }}
+                      >
+                        Maternity Leave
+                      </h3>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "12px",
+                          color: "#666",
+                        }}
+                      >
+                        Used: 0 days
+                      </p>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <p
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          color: "#000",
+                        }}
+                      >
+                        90 available
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "8px",
+                      backgroundColor: "#F3D2D2",
+                      borderRadius: "4px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "0%",
+                        height: "100%",
+                        backgroundColor: "#D9534F",
+                        borderRadius: "4px",
+                      }}
+                    ></div>
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "11px",
+                      color: "#666",
+                      textAlign: "right",
+                      marginTop: "4px",
+                    }}
+                  >
+                    Total: 90 days
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* COLUMN 2 — RECENT ACTIVITIES */}
+            <div
+              style={{
+                borderRadius: "16px",
+                backgroundColor: "#FFFFFF",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)",
+                padding: "24px",
+              }}
+            >
+              {/* Section Title */}
+              <div style={{ marginBottom: "20px" }}>
+                <h2
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: "#333",
+                    marginBottom: "4px",
+                  }}
+                >
+                  Recent Activities
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "12px",
+                    color: "#888",
+                  }}
+                >
+                  Latest leave-related updates
+                </p>
+              </div>
+
+              {/* Activity Items */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                {/* Activity 1 - Pending */}
+                <div>
+                  <div
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid #EEEEEE",
+                      borderRadius: "8px",
+                      padding: "12px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <div
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: "#FF9800" }}
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          backgroundColor: "#F8A23B",
+                          flexShrink: 0,
+                        }}
                       ></div>
                       <div>
-                        <p className="text-xs text-gray-900">
+                        <p
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#000",
+                            marginBottom: "4px",
+                          }}
+                        >
                           Leave request submitted
                         </p>
-                        <p className="text-xs text-gray-600 mt-0.5">
-                          Dec 20-30 Annual Leave
+                        <p
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "12px",
+                            color: "#666",
+                          }}
+                        >
+                          Dec 20–30 • Annual Leave
                         </p>
                       </div>
                     </div>
                     <span
-                      className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white flex-shrink-0"
-                      style={{ backgroundColor: "#FFA726" }}
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "11px",
+                        fontWeight: 500,
+                        backgroundColor: "#FFE7C2",
+                        color: "#D98B2B",
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        flexShrink: 0,
+                      }}
                     >
                       Pending
                     </span>
                   </div>
+                  <div
+                    style={{
+                      height: "1px",
+                      backgroundColor: "#E6E6E6",
+                      marginTop: "16px",
+                    }}
+                  ></div>
+                </div>
 
-                  {/* Activity 2 */}
-                  <div className="bg-white border border-[#E8EBF0] rounded-lg p-2 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                {/* Activity 2 - Approved */}
+                <div>
+                  <div
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid #EEEEEE",
+                      borderRadius: "8px",
+                      padding: "12px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <div
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: "#27AE60" }}
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          backgroundColor: "#28A745",
+                          flexShrink: 0,
+                        }}
                       ></div>
                       <div>
-                        <p className="text-xs text-gray-900">
+                        <p
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#000",
+                            marginBottom: "4px",
+                          }}
+                        >
                           Sick leave approved
                         </p>
-                        <p className="text-xs text-gray-600 mt-0.5">
+                        <p
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "12px",
+                            color: "#666",
+                          }}
+                        >
                           Nov 15 • Medical appointment
                         </p>
                       </div>
                     </div>
                     <span
-                      className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium text-white flex-shrink-0"
-                      style={{ backgroundColor: "#27AE60" }}
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "11px",
+                        fontWeight: 500,
+                        backgroundColor: "#C9F3D5",
+                        color: "#1E9B57",
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        flexShrink: 0,
+                      }}
                     >
                       Approved
                     </span>
                   </div>
+                  <div
+                    style={{
+                      height: "1px",
+                      backgroundColor: "#E6E6E6",
+                      marginTop: "16px",
+                    }}
+                  ></div>
+                </div>
 
-                  {/* Activity 3 */}
-                  <div className="bg-white border border-[#E8EBF0] rounded-lg p-2 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                {/* Activity 3 - Approved */}
+                <div>
+                  <div
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid #EEEEEE",
+                      borderRadius: "8px",
+                      padding: "12px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <div
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: "#27AE60" }}
+                        style={{
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          backgroundColor: "#28A745",
+                          flexShrink: 0,
+                        }}
                       ></div>
                       <div>
-                        <p className="text-xs text-gray-900">
+                        <p
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "13px",
+                            fontWeight: 500,
+                            color: "#000",
+                            marginBottom: "4px",
+                          }}
+                        >
                           Personal leave approved
                         </p>
-                        <p className="text-xs text-gray-600 mt-0.5">
+                        <p
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "12px",
+                            color: "#666",
+                          }}
+                        >
                           Oct 22 • Family emergency
                         </p>
                       </div>
