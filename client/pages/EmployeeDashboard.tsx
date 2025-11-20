@@ -2006,7 +2006,10 @@ export default function EmployeeDashboard() {
                 </div>
               </div>
 
-              <button className="mt-2 text-xs text-blue-600 font-medium hover:text-blue-700 transition-colors">
+              <button
+                onClick={() => setShowAnnouncementsSidesheet(true)}
+                className="mt-2 text-xs text-blue-600 font-medium hover:text-blue-700 transition-colors"
+              >
                 View All Announcements →
               </button>
             </div>
