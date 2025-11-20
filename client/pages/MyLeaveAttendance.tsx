@@ -1730,15 +1730,15 @@ export default function MyLeaveAttendance() {
                 borderRadius: "16px",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)",
-                padding: "24px",
+                padding: "16px",
               }}
             >
               {/* Section Title */}
-              <div style={{ marginBottom: "16px" }}>
+              <div style={{ marginBottom: "10px" }}>
                 <h2
                   style={{
                     fontFamily: "Poppins, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "14px",
                     fontWeight: 600,
                     color: "#333",
                   }}
@@ -1749,13 +1749,13 @@ export default function MyLeaveAttendance() {
                   style={{
                     height: "1px",
                     backgroundColor: "#E6E6E6",
-                    marginTop: "12px",
+                    marginTop: "8px",
                   }}
                 ></div>
               </div>
 
               {/* Holiday Items */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 {/* Holiday 1 */}
                 <div
                   style={{
