@@ -1523,17 +1523,18 @@ export default function MyLeaveAttendance() {
                       backgroundColor: "#FFFFFF",
                       border: "1px solid #EEEEEE",
                       borderRadius: "8px",
-                      padding: "12px",
+                      padding: "8px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
+                      gap: "8px",
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                       <div
                         style={{
-                          width: "8px",
-                          height: "8px",
+                          width: "6px",
+                          height: "6px",
                           borderRadius: "50%",
                           backgroundColor: "#F8A23B",
                           flexShrink: 0,
@@ -1543,10 +1544,10 @@ export default function MyLeaveAttendance() {
                         <p
                           style={{
                             fontFamily: "Poppins, sans-serif",
-                            fontSize: "13px",
+                            fontSize: "11px",
                             fontWeight: 500,
                             color: "#000",
-                            marginBottom: "4px",
+                            marginBottom: "1px",
                           }}
                         >
                           Leave request submitted
@@ -1554,7 +1555,7 @@ export default function MyLeaveAttendance() {
                         <p
                           style={{
                             fontFamily: "Poppins, sans-serif",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             color: "#666",
                           }}
                         >
@@ -1565,11 +1566,11 @@ export default function MyLeaveAttendance() {
                     <span
                       style={{
                         fontFamily: "Poppins, sans-serif",
-                        fontSize: "11px",
+                        fontSize: "9px",
                         fontWeight: 500,
                         backgroundColor: "#FFE7C2",
                         color: "#D98B2B",
-                        padding: "4px 12px",
+                        padding: "3px 8px",
                         borderRadius: "20px",
                         flexShrink: 0,
                       }}
@@ -1581,7 +1582,7 @@ export default function MyLeaveAttendance() {
                     style={{
                       height: "1px",
                       backgroundColor: "#E6E6E6",
-                      marginTop: "16px",
+                      marginTop: "8px",
                     }}
                   ></div>
                 </div>
