@@ -3571,25 +3571,25 @@ export default function MyProfile() {
                   </table>
                 </div>
 
-                {/* Attendance Rate Card */}
+                {/* Attendance & Punctuality Rate Card - Combined */}
                 <div
                   style={{
                     borderRadius: "12px",
                     border: "2px solid #DC2626",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
+                    padding: "12px",
                     display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
+                    gap: "16px",
                   }}
                 >
-                  <div>
+                  {/* Attendance Rate */}
+                  <div style={{ flex: 1 }}>
                     <h2
-                      className="text-sm font-bold text-gray-900 mb-4"
+                      className="text-sm font-bold text-gray-900 mb-2"
                       style={{
                         fontFamily: "Poppins, sans-serif",
-                        fontSize: "14px",
+                        fontSize: "11px",
                         fontWeight: 600,
                       }}
                     >
@@ -3597,66 +3597,53 @@ export default function MyProfile() {
                     </h2>
                     <div
                       style={{
-                        fontSize: "48px",
+                        fontSize: "24px",
                         fontWeight: 700,
                         color: "#111827",
                         fontFamily: "Poppins, sans-serif",
-                        marginBottom: "8px",
+                        marginBottom: "6px",
                       }}
                     >
                       90.9%
                     </div>
                     <div
                       style={{
-                        width: "60px",
-                        height: "4px",
+                        width: "40px",
+                        height: "3px",
                         backgroundColor: "#2563EB",
                         borderRadius: "2px",
-                        marginBottom: "16px",
+                        marginBottom: "8px",
                       }}
                     ></div>
-                  </div>
-                  <button
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "12px",
-                      color: "#6B7280",
-                      textAlign: "left",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: 0,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#2563EB";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#6B7280";
-                    }}
-                  >
-                    View Calendar
-                  </button>
-                </div>
-
-                {/* Punctuality Rate Card */}
-                <div
-                  style={{
-                    borderRadius: "12px",
-                    border: "2px solid #DC2626",
-                    backgroundColor: "#FFFFFF",
-                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div>
-                    <h2
-                      className="text-sm font-bold text-gray-900 mb-4"
+                    <button
                       style={{
                         fontFamily: "Poppins, sans-serif",
-                        fontSize: "14px",
+                        fontSize: "10px",
+                        color: "#6B7280",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: 0,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#2563EB";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#6B7280";
+                      }}
+                    >
+                      View Calendar
+                    </button>
+                  </div>
+
+                  {/* Punctuality Rate */}
+                  <div style={{ flex: 1 }}>
+                    <h2
+                      className="text-sm font-bold text-gray-900 mb-2"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "11px",
                         fontWeight: 600,
                       }}
                     >
@@ -3664,45 +3651,45 @@ export default function MyProfile() {
                     </h2>
                     <div
                       style={{
-                        fontSize: "48px",
+                        fontSize: "24px",
                         fontWeight: 700,
                         color: "#111827",
                         fontFamily: "Poppins, sans-serif",
-                        marginBottom: "8px",
+                        marginBottom: "6px",
                       }}
                     >
                       95.5%
                     </div>
                     <div
                       style={{
-                        width: "60px",
-                        height: "4px",
+                        width: "40px",
+                        height: "3px",
                         backgroundColor: "#2563EB",
                         borderRadius: "2px",
-                        marginBottom: "16px",
+                        marginBottom: "8px",
                       }}
                     ></div>
+                    <button
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "10px",
+                        color: "#6B7280",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: 0,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#2563EB";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#6B7280";
+                      }}
+                    >
+                      View History
+                    </button>
                   </div>
-                  <button
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "12px",
-                      color: "#6B7280",
-                      textAlign: "left",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: 0,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#2563EB";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#6B7280";
-                    }}
-                  >
-                    View History
-                  </button>
                 </div>
 
                 {/* Upcoming Holidays Card */}
