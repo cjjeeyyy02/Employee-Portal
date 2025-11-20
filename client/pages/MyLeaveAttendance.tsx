@@ -854,11 +854,11 @@ export default function MyLeaveAttendance() {
                     <tr className="border-t-2 border-gray-300 bg-gray-50">
                       <td
                         colSpan={3}
-                        className="px-2 py-1.5 text-xs font-bold text-gray-900 text-right"
+                        className="px-3 py-2 text-xs font-semibold text-gray-900 text-right"
                       >
                         Weekly Total:
                       </td>
-                      <td className="px-2 py-1.5 text-xs font-bold text-center text-gray-900">
+                      <td className="px-3 py-2 text-xs font-semibold text-center text-gray-900">
                         {timesheetEntries
                           .reduce(
                             (sum, entry) =>
@@ -868,7 +868,7 @@ export default function MyLeaveAttendance() {
                           .toFixed(1)}{" "}
                         hrs
                       </td>
-                      <td className="px-2 py-1.5 text-xs font-bold text-center text-gray-900">
+                      <td className="px-3 py-2 text-xs font-semibold text-center text-gray-900">
                         {timesheetEntries
                           .reduce(
                             (sum, entry) =>
@@ -878,7 +878,7 @@ export default function MyLeaveAttendance() {
                           .toFixed(1)}{" "}
                         hrs
                       </td>
-                      <td className="px-2 py-1.5 text-xs font-bold text-center text-blue-600">
+                      <td className="px-3 py-2 text-xs font-semibold text-center text-blue-600">
                         {timesheetEntries
                           .reduce(
                             (sum, entry) =>
