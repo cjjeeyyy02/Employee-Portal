@@ -2066,8 +2066,50 @@ export default function EmployeeDashboard() {
                       gap: "12px",
                       fontSize: "11px",
                       color: "#9ca3af",
+                      alignItems: "center",
                     }}
+                    onClick={(e) => e.stopPropagation()}
                   >
+                    <button
+                      onClick={() => console.log("Liked!")}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        fontSize: "11px",
+                        color: "#6B7280",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "4px 8px",
+                        borderRadius: "4px",
+                        transition: "background-color 0.2s",
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    >
+                      👍 React
+                    </button>
+                    <button
+                      onClick={() => console.log("Shared!")}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        fontSize: "11px",
+                        color: "#6B7280",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "4px 8px",
+                        borderRadius: "4px",
+                        transition: "background-color 0.2s",
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    >
+                      🔗 Share
+                    </button>
                     <span>👥 12 replies</span>
                     <span>🕐 3 days ago</span>
                   </div>
