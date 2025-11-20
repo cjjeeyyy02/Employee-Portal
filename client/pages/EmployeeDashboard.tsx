@@ -1660,8 +1660,8 @@ export default function EmployeeDashboard() {
               ></div>
 
               {/* View All Activities Link */}
-              <a
-                href="#"
+              <button
+                onClick={() => setShowActivitiesSidesheet(true)}
                 style={{
                   fontSize: "13px",
                   fontWeight: "500",
@@ -1672,6 +1672,10 @@ export default function EmployeeDashboard() {
                   gap: "6px",
                   borderBottom: "2px solid transparent",
                   transition: "border-color 0.2s",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: "0",
                 }}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.borderBottomColor = "#2563eb")
@@ -1681,7 +1685,7 @@ export default function EmployeeDashboard() {
                 }
               >
                 View All Activities →
-            </a>
+            </button>
           </div>
             )}
         </div>
