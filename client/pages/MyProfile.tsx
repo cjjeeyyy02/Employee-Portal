@@ -3716,14 +3716,10 @@ export default function MyProfile() {
                   style={{
                     width: "20%",
                     borderRadius: "16px",
-                    border: "2px solid #D93C3C",
+                    border: "1px solid #E5E7EB",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
                     padding: "20px",
-                    paddingLeft: "20px",
-                    paddingRight: "20px",
-                    marginLeft: "auto",
-                    marginRight: "0",
                   }}
                 >
                   <h2
