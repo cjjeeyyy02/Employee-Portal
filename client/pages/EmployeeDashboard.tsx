@@ -675,7 +675,7 @@ export default function EmployeeDashboard() {
                     </div>
                   </div>
 
-                  {/* Right Column - KPI Table */}
+                  {/* Row 2 - KPI Table */}
                   <div>
                     <h3
                       style={{
