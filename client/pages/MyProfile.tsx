@@ -3410,14 +3410,14 @@ export default function MyProfile() {
                 </div>
               </div>
 
-              {/* Leave Balance Section - 4 Cards Grid */}
+              {/* Leave Balance Section - 3 Cards Grid */}
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "55% 15% 15% 15%",
-                  gap: "24px",
+                  gridTemplateColumns: "55% 25% 20%",
+                  gap: "16px",
                   marginBottom: "16px",
-                  alignItems: "center",
+                  alignItems: "stretch",
                 }}
               >
                 {/* Leave Balance Card */}
