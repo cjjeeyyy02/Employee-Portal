@@ -488,32 +488,39 @@ export default function EmployeeDashboard() {
               })}
             </div>
 
-            {/* KPI Detailed View */}
+            {/* KPI Detailed View - Sidesheet */}
             {showKPIDetailedView && (
               <div
                 style={{
+                  position: "fixed",
+                  top: 0,
+                  right: 0,
+                  width: "450px",
+                  height: "100vh",
                   backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  border: "1px solid #e5e7eb",
-                  padding: "20px",
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.06)",
+                  boxShadow: "-4px 0 12px rgba(0, 0, 0, 0.15)",
+                  zIndex: 50,
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                {/* Header with Back Button */}
+                {/* Header */}
                 <div
                   style={{
+                    padding: "20px",
+                    borderBottom: "1px solid #e5e7eb",
                     display: "flex",
-                    alignItems: "center",
                     justifyContent: "space-between",
-                    marginBottom: "20px",
+                    alignItems: "center",
                   }}
                 >
                   <h2
                     style={{
                       fontSize: "18px",
                       fontWeight: "600",
-                      color: "#1f2937",
-                      margin: "0",
+                      color: "#111827",
+                      margin: 0,
                     }}
                   >
                     KPI Detailed View
@@ -521,27 +528,26 @@ export default function EmployeeDashboard() {
                   <button
                     onClick={() => setShowKPIDetailedView(false)}
                     style={{
-                      padding: "8px 16px",
-                      backgroundColor: "#f3f4f6",
-                      border: "1px solid #e5e7eb",
-                      borderRadius: "8px",
-                      fontSize: "13px",
-                      fontWeight: "500",
-                      color: "#374151",
+                      background: "none",
+                      border: "none",
+                      fontSize: "24px",
                       cursor: "pointer",
-                      transition: "all 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#e5e7eb";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#f3f4f6";
+                      color: "#6B7280",
+                      padding: 0,
                     }}
                   >
-                    ← Back to Dashboard
+                    ×
                   </button>
                 </div>
 
+                {/* Scrollable Content */}
+                <div
+                  style={{
+                    flex: 1,
+                    overflowY: "auto",
+                    padding: "20px",
+                  }}
+                >
                 {/* Two Column Grid */}
                 <div
                   style={{
@@ -903,7 +909,24 @@ export default function EmployeeDashboard() {
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
+            )}
+
+            {/* Backdrop */}
+            {showKPIDetailedView && (
+              <div
+                onClick={() => setShowKPIDetailedView(false)}
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  zIndex: 40,
+                }}
+              />
             )}
 
             {/* Middle Row - Stacked Layout: Pending Tasks then Pending Request */}
