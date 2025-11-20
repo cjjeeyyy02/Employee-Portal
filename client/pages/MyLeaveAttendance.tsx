@@ -905,22 +905,22 @@ export default function MyLeaveAttendance() {
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-gray-200">
-                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">
                           Week Period
                         </th>
-                        <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                        <th className="px-3 py-2 text-center text-xs font-semibold text-gray-900">
                           Total Hours
                         </th>
-                        <th className="px-2 py-1.5 text-center text-xs font-bold text-gray-900">
+                        <th className="px-3 py-2 text-center text-xs font-semibold text-gray-900">
                           Overtime
                         </th>
-                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">
                           Status
                         </th>
-                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">
                           Submitted Date
                         </th>
-                        <th className="px-2 py-1.5 text-left text-xs font-bold text-gray-900">
+                        <th className="px-3 py-2 text-left text-xs font-semibold text-gray-900">
                           Approver
                         </th>
                       </tr>
