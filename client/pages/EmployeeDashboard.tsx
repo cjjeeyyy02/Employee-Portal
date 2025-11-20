@@ -3710,6 +3710,10 @@ export default function EmployeeDashboard() {
 
               {/* Topic 5 */}
               <div
+                onClick={() => {
+                  setSelectedForumTopic(5);
+                  setShowForumDetailSidesheet(true);
+                }}
                 style={{
                   backgroundColor: "#f9fafb",
                   border: "1px solid #e5e7eb",
@@ -3761,6 +3765,10 @@ export default function EmployeeDashboard() {
 
               {/* Topic 6 */}
               <div
+                onClick={() => {
+                  setSelectedForumTopic(6);
+                  setShowForumDetailSidesheet(true);
+                }}
                 style={{
                   backgroundColor: "#f9fafb",
                   border: "1px solid #e5e7eb",
