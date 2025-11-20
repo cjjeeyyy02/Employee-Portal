@@ -2190,49 +2190,227 @@ export default function EmployeeDashboard() {
                       fontSize: "11px",
                       color: "#9ca3af",
                       alignItems: "center",
+                      position: "relative",
                     }}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <button
-                      onClick={() => console.log("Liked!")}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        fontSize: "11px",
-                        color: "#6B7280",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        padding: "4px 8px",
-                        borderRadius: "4px",
-                        transition: "background-color 0.2s",
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                    >
-                      👍 React
-                    </button>
-                    <button
-                      onClick={() => console.log("Shared!")}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        fontSize: "11px",
-                        color: "#6B7280",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        padding: "4px 8px",
-                        borderRadius: "4px",
-                        transition: "background-color 0.2s",
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                    >
-                      🔗 Share
-                    </button>
+                    <div style={{ position: "relative" }}>
+                      <button
+                        onClick={() => setShowReactionMenu((prev) => ({ ...prev, 2: !prev[2] }))}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "4px",
+                          fontSize: "11px",
+                          color: "#6B7280",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: "4px 8px",
+                          borderRadius: "4px",
+                          transition: "background-color 0.2s",
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                      >
+                        {topicReactions[2] || "👍"} React
+                      </button>
+                      {showReactionMenu[2] && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "100%",
+                            left: 0,
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #e5e7eb",
+                            borderRadius: "8px",
+                            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                            padding: "8px",
+                            marginTop: "4px",
+                            zIndex: 1000,
+                            display: "flex",
+                            gap: "8px",
+                          }}
+                        >
+                          <button
+                            onClick={() => handleReaction(2, "👍")}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              fontSize: "20px",
+                              cursor: "pointer",
+                              padding: "4px",
+                              borderRadius: "4px",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            👍
+                          </button>
+                          <button
+                            onClick={() => handleReaction(2, "❤️")}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              fontSize: "20px",
+                              cursor: "pointer",
+                              padding: "4px",
+                              borderRadius: "4px",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            ❤️
+                          </button>
+                          <button
+                            onClick={() => handleReaction(2, "😢")}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              fontSize: "20px",
+                              cursor: "pointer",
+                              padding: "4px",
+                              borderRadius: "4px",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            😢
+                          </button>
+                          <button
+                            onClick={() => handleReaction(2, "😠")}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              fontSize: "20px",
+                              cursor: "pointer",
+                              padding: "4px",
+                              borderRadius: "4px",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            😠
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <div style={{ position: "relative" }}>
+                      <button
+                        onClick={() => setShowShareMenu((prev) => ({ ...prev, 2: !prev[2] }))}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "4px",
+                          fontSize: "11px",
+                          color: "#6B7280",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: "4px 8px",
+                          borderRadius: "4px",
+                          transition: "background-color 0.2s",
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                      >
+                        🔗 Share
+                      </button>
+                      {showShareMenu[2] && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "100%",
+                            left: 0,
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #e5e7eb",
+                            borderRadius: "8px",
+                            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                            padding: "8px 0",
+                            marginTop: "4px",
+                            zIndex: 1000,
+                            minWidth: "150px",
+                          }}
+                        >
+                          <button
+                            onClick={() => handleShare(2, "linkedin")}
+                            style={{
+                              width: "100%",
+                              textAlign: "left",
+                              padding: "8px 12px",
+                              background: "none",
+                              border: "none",
+                              fontSize: "11px",
+                              color: "#374151",
+                              cursor: "pointer",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            LinkedIn
+                          </button>
+                          <button
+                            onClick={() => handleShare(2, "facebook")}
+                            style={{
+                              width: "100%",
+                              textAlign: "left",
+                              padding: "8px 12px",
+                              background: "none",
+                              border: "none",
+                              fontSize: "11px",
+                              color: "#374151",
+                              cursor: "pointer",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            Facebook
+                          </button>
+                          <button
+                            onClick={() => handleShare(2, "twitter")}
+                            style={{
+                              width: "100%",
+                              textAlign: "left",
+                              padding: "8px 12px",
+                              background: "none",
+                              border: "none",
+                              fontSize: "11px",
+                              color: "#374151",
+                              cursor: "pointer",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            Twitter
+                          </button>
+                          <button
+                            onClick={() => handleShare(2, "email")}
+                            style={{
+                              width: "100%",
+                              textAlign: "left",
+                              padding: "8px 12px",
+                              background: "none",
+                              border: "none",
+                              fontSize: "11px",
+                              color: "#374151",
+                              cursor: "pointer",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                          >
+                            Email
+                          </button>
+                        </div>
+                      )}
+                    </div>
                     <span>👥 8 replies</span>
                     <span>🕐 1 day ago</span>
                   </div>
