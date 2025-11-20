@@ -25,6 +25,90 @@ export default function EmployeeDashboard() {
   const [showLeaveModal, setShowLeaveModal] = useState(false);
   const [showActivitiesSidesheet, setShowActivitiesSidesheet] = useState(false);
   const [showForumSidesheet, setShowForumSidesheet] = useState(false);
+  const [selectedForumTopic, setSelectedForumTopic] = useState<number | null>(null);
+  const [showForumDetailSidesheet, setShowForumDetailSidesheet] = useState(false);
+
+  const forumTopics = [
+    {
+      id: 1,
+      title: "How to prepare for annual reviews?",
+      author: "John Doe",
+      replies: 5,
+      timestamp: "2 hours ago",
+      description: "Looking for tips and best practices to prepare for my upcoming annual review. Any advice would be appreciated!",
+      messages: [
+        { author: "John Doe", content: "Looking for tips and best practices to prepare for my upcoming annual review. Any advice would be appreciated!", time: "2 hours ago", avatar: "JD" },
+        { author: "Sarah Smith", content: "Great question! I usually start by documenting my key achievements and contributions from the past year.", time: "1 hour ago", avatar: "SS" },
+        { author: "Mike Johnson", content: "Don't forget to mention challenges you overcame and how you've grown professionally.", time: "45 minutes ago", avatar: "MJ" },
+        { author: "Emily Brown", content: "I also prepare some questions about my career development and advancement opportunities.", time: "30 minutes ago", avatar: "EB" },
+        { author: "Alex Chen", content: "It's important to be specific with examples and metrics. Quantify your impact when possible.", time: "15 minutes ago", avatar: "AC" },
+      ]
+    },
+    {
+      id: 2,
+      title: "Best practices for remote collaboration",
+      author: "Sarah Smith",
+      replies: 8,
+      timestamp: "1 day ago",
+      description: "Share your experiences and tips for effective remote team collaboration.",
+      messages: [
+        { author: "Sarah Smith", content: "Share your experiences and tips for effective remote team collaboration.", time: "1 day ago", avatar: "SS" },
+        { author: "Mike Johnson", content: "Regular video calls and clear communication channels are essential.", time: "23 hours ago", avatar: "MJ" },
+        { author: "Emily Brown", content: "I recommend using collaborative tools like Slack and shared documents.", time: "22 hours ago", avatar: "EB" },
+        { author: "Alex Chen", content: "Time zone awareness is crucial. Try to have core collaboration hours.", time: "20 hours ago", avatar: "AC" },
+        { author: "John Doe", content: "Asynchronous updates are key - document decisions and share progress regularly.", time: "18 hours ago", avatar: "JD" },
+      ]
+    },
+    {
+      id: 3,
+      title: "Tips for skill development in 2025",
+      author: "Mike Johnson",
+      replies: 12,
+      timestamp: "3 days ago",
+      description: "What skills are you planning to develop this year? Share your learning goals.",
+      messages: [
+        { author: "Mike Johnson", content: "What skills are you planning to develop this year? Share your learning goals.", time: "3 days ago", avatar: "MJ" },
+        { author: "Emily Brown", content: "I'm focusing on advanced data analysis and machine learning.", time: "2 days ago", avatar: "EB" },
+        { author: "Alex Chen", content: "Cloud architecture and DevOps are on my list.", time: "2 days ago", avatar: "AC" },
+      ]
+    },
+    {
+      id: 4,
+      title: "Work-life balance during busy seasons",
+      author: "Emily Brown",
+      replies: 15,
+      timestamp: "1 week ago",
+      description: "Tips for maintaining work-life balance when projects get intense.",
+      messages: [
+        { author: "Emily Brown", content: "Tips for maintaining work-life balance when projects get intense.", time: "1 week ago", avatar: "EB" },
+        { author: "Alex Chen", content: "Setting boundaries and communicating them clearly is essential.", time: "6 days ago", avatar: "AC" },
+      ]
+    },
+    {
+      id: 5,
+      title: "New tools and technologies worth learning",
+      author: "Alex Chen",
+      replies: 22,
+      timestamp: "2 weeks ago",
+      description: "Discuss emerging technologies that could be valuable for our team.",
+      messages: [
+        { author: "Alex Chen", content: "Discuss emerging technologies that could be valuable for our team.", time: "2 weeks ago", avatar: "AC" },
+        { author: "John Doe", content: "AI and automation tools are definitely game-changers.", time: "13 days ago", avatar: "JD" },
+      ]
+    },
+    {
+      id: 6,
+      title: "Feedback on the new office space design",
+      author: "Lisa Davis",
+      replies: 18,
+      timestamp: "3 weeks ago",
+      description: "Share your thoughts on the recent office renovation.",
+      messages: [
+        { author: "Lisa Davis", content: "Share your thoughts on the recent office renovation.", time: "3 weeks ago", avatar: "LD" },
+        { author: "Sarah Smith", content: "Love the new collaborative spaces and natural lighting!", time: "20 days ago", avatar: "SS" },
+      ]
+    }
+  ];
 
   const daysInMonth = new Date(
     currentDate.getFullYear(),
