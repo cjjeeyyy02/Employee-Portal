@@ -3331,6 +3331,393 @@ export default function EmployeeDashboard() {
         />
       )}
 
+      {/* Forum Topics Sidesheet */}
+      {showForumSidesheet && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            width: "450px",
+            height: "100vh",
+            backgroundColor: "#ffffff",
+            boxShadow: "-4px 0 12px rgba(0, 0, 0, 0.15)",
+            zIndex: 50,
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              padding: "20px",
+              borderBottom: "1px solid #e5e7eb",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "18px",
+                fontWeight: "600",
+                color: "#111827",
+                margin: 0,
+              }}
+            >
+              Forum Topics
+            </h2>
+            <button
+              onClick={() => setShowForumSidesheet(false)}
+              style={{
+                background: "none",
+                border: "none",
+                fontSize: "24px",
+                cursor: "pointer",
+                color: "#6B7280",
+                padding: 0,
+              }}
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Scrollable Content */}
+          <div
+            style={{
+              flex: 1,
+              overflowY: "auto",
+              padding: "20px",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {/* Topic 1 */}
+              <div
+                style={{
+                  backgroundColor: "#f9fafb",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f3f4f6";
+                  e.currentTarget.style.borderColor = "#d1d5db";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f9fafb";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  How to prepare for annual reviews?
+                </p>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b7280",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Started by John Doe
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    fontSize: "11px",
+                    color: "#9ca3af",
+                  }}
+                >
+                  <span>👥 5 replies</span>
+                  <span>🕐 2 hours ago</span>
+                </div>
+              </div>
+
+              {/* Topic 2 */}
+              <div
+                style={{
+                  backgroundColor: "#f9fafb",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f3f4f6";
+                  e.currentTarget.style.borderColor = "#d1d5db";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f9fafb";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Best practices for remote collaboration
+                </p>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b7280",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Started by Sarah Smith
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    fontSize: "11px",
+                    color: "#9ca3af",
+                  }}
+                >
+                  <span>👥 8 replies</span>
+                  <span>🕐 1 day ago</span>
+                </div>
+              </div>
+
+              {/* Topic 3 */}
+              <div
+                style={{
+                  backgroundColor: "#f9fafb",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f3f4f6";
+                  e.currentTarget.style.borderColor = "#d1d5db";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f9fafb";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Tips for skill development in 2025
+                </p>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b7280",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Started by Mike Johnson
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    fontSize: "11px",
+                    color: "#9ca3af",
+                  }}
+                >
+                  <span>👥 12 replies</span>
+                  <span>🕐 3 days ago</span>
+                </div>
+              </div>
+
+              {/* Topic 4 */}
+              <div
+                style={{
+                  backgroundColor: "#f9fafb",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f3f4f6";
+                  e.currentTarget.style.borderColor = "#d1d5db";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f9fafb";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Work-life balance during busy seasons
+                </p>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b7280",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Started by Emily Brown
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    fontSize: "11px",
+                    color: "#9ca3af",
+                  }}
+                >
+                  <span>👥 15 replies</span>
+                  <span>🕐 1 week ago</span>
+                </div>
+              </div>
+
+              {/* Topic 5 */}
+              <div
+                style={{
+                  backgroundColor: "#f9fafb",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f3f4f6";
+                  e.currentTarget.style.borderColor = "#d1d5db";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f9fafb";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  New tools and technologies worth learning
+                </p>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b7280",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Started by Alex Chen
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    fontSize: "11px",
+                    color: "#9ca3af",
+                  }}
+                >
+                  <span>👥 22 replies</span>
+                  <span>🕐 2 weeks ago</span>
+                </div>
+              </div>
+
+              {/* Topic 6 */}
+              <div
+                style={{
+                  backgroundColor: "#f9fafb",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f3f4f6";
+                  e.currentTarget.style.borderColor = "#d1d5db";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f9fafb";
+                  e.currentTarget.style.borderColor = "#e5e7eb";
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#1f2937",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Feedback on the new office space design
+                </p>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#6b7280",
+                    margin: "0 0 6px 0",
+                  }}
+                >
+                  Started by Lisa Davis
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "12px",
+                    fontSize: "11px",
+                    color: "#9ca3af",
+                  }}
+                >
+                  <span>👥 18 replies</span>
+                  <span>🕐 3 weeks ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Forum Sidesheet Backdrop */}
+      {showForumSidesheet && (
+        <div
+          onClick={() => setShowForumSidesheet(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            zIndex: 40,
+          }}
+        />
+      )}
+
       {/* Leave Request Modal */}
       {showLeaveModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
