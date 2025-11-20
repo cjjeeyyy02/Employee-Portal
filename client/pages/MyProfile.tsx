@@ -3572,140 +3572,139 @@ export default function MyProfile() {
                   </table>
                 </div>
 
-                {/* Attendance Rate Card */}
+                {/* Attendance & Punctuality Container */}
                 <div
                   style={{
                     borderRadius: "16px",
                     border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
+                    padding: "20px",
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
                     justifyContent: "space-between",
+                    gap: "24px",
                   }}
                 >
-                  <div>
+                  {/* Attendance Rate Block */}
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "6px",
+                    }}
+                  >
                     <h2
-                      className="text-sm font-bold text-gray-900"
                       style={{
                         fontFamily: "Poppins, sans-serif",
-                        fontSize: "11px",
-                        fontWeight: 600,
-                        marginBottom: "4px",
+                        fontSize: "16px",
+                        fontWeight: 700,
+                        color: "#111827",
                       }}
                     >
                       Attendance Rate
                     </h2>
                     <div
                       style={{
-                        fontSize: "24px",
+                        fontSize: "32px",
                         fontWeight: 700,
                         color: "#111827",
                         fontFamily: "Poppins, sans-serif",
-                        marginBottom: "2px",
                       }}
                     >
                       90.9%
                     </div>
                     <div
                       style={{
-                        width: "40px",
-                        height: "3px",
+                        width: "60px",
+                        height: "4px",
                         backgroundColor: "#2563EB",
                         borderRadius: "2px",
                       }}
                     ></div>
-                  </div>
-                  <button
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "10px",
-                      color: "#6B7280",
-                      textAlign: "left",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: 0,
-                      marginTop: "4px",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#2563EB";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#6B7280";
-                    }}
-                  >
-                    View Calendar
-                  </button>
-                </div>
-
-                {/* Punctuality Rate Card */}
-                <div
-                  style={{
-                    borderRadius: "16px",
-                    border: "2px solid #D93C3C",
-                    backgroundColor: "#FFFFFF",
-                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
-                    padding: "16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div>
-                    <h2
-                      className="text-sm font-bold text-gray-900"
+                    <button
                       style={{
                         fontFamily: "Poppins, sans-serif",
-                        fontSize: "11px",
-                        fontWeight: 600,
-                        marginBottom: "4px",
+                        fontSize: "14px",
+                        color: "#6A6A6A",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: 0,
+                        marginTop: "4px",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#2563EB";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#6A6A6A";
+                      }}
+                    >
+                      View Calendar
+                    </button>
+                  </div>
+
+                  {/* Punctuality Rate Block */}
+                  <div
+                    style={{
+                      width: "50%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "6px",
+                    }}
+                  >
+                    <h2
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "16px",
+                        fontWeight: 700,
+                        color: "#111827",
                       }}
                     >
                       Punctuality Rate
                     </h2>
                     <div
                       style={{
-                        fontSize: "24px",
+                        fontSize: "32px",
                         fontWeight: 700,
                         color: "#111827",
                         fontFamily: "Poppins, sans-serif",
-                        marginBottom: "2px",
                       }}
                     >
                       95.5%
                     </div>
                     <div
                       style={{
-                        width: "40px",
-                        height: "3px",
+                        width: "60px",
+                        height: "4px",
                         backgroundColor: "#2563EB",
                         borderRadius: "2px",
                       }}
                     ></div>
+                    <button
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "14px",
+                        color: "#6A6A6A",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: 0,
+                        marginTop: "4px",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#2563EB";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#6A6A6A";
+                      }}
+                    >
+                      View History
+                    </button>
                   </div>
-                  <button
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "10px",
-                      color: "#6B7280",
-                      textAlign: "left",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: 0,
-                      marginTop: "4px",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#2563EB";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#6B7280";
-                    }}
-                  >
-                    View History
-                  </button>
                 </div>
 
                 {/* Upcoming Holidays Card */}
