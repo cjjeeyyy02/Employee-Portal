@@ -1174,18 +1174,18 @@ export default function MyLeaveAttendance() {
                 borderRadius: "16px",
                 backgroundColor: "#FFFFFF",
                 boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.08)",
-                padding: "24px",
+                padding: "16px",
               }}
             >
               {/* Section Title */}
-              <div style={{ marginBottom: "20px" }}>
+              <div style={{ marginBottom: "12px" }}>
                 <h2
                   style={{
                     fontFamily: "Poppins, sans-serif",
-                    fontSize: "16px",
+                    fontSize: "14px",
                     fontWeight: 600,
                     color: "#333",
-                    marginBottom: "4px",
+                    marginBottom: "2px",
                   }}
                 >
                   Available Leave
@@ -1193,7 +1193,7 @@ export default function MyLeaveAttendance() {
                 <p
                   style={{
                     fontFamily: "Poppins, sans-serif",
-                    fontSize: "12px",
+                    fontSize: "10px",
                     color: "#888",
                   }}
                 >
@@ -1202,7 +1202,7 @@ export default function MyLeaveAttendance() {
               </div>
 
               {/* Leave Items */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 {/* Annual Leave */}
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
