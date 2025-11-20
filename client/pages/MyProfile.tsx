@@ -3711,8 +3711,8 @@ export default function MyProfile() {
                 {/* Upcoming Holidays Card */}
                 <div
                   style={{
-                    borderRadius: "12px",
-                    border: "2px solid #DC2626",
+                    borderRadius: "16px",
+                    border: "2px solid #D93C3C",
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
                     padding: "16px",
@@ -3728,7 +3728,7 @@ export default function MyProfile() {
                   >
                     Upcoming Holidays
                   </h2>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <div
                       style={{
                         display: "flex",
