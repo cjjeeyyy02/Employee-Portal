@@ -1826,6 +1826,10 @@ export default function EmployeeDashboard() {
               >
                 {/* Post 1 */}
                 <div
+                  onClick={() => {
+                    setSelectedForumTopic(1);
+                    setShowForumDetailSidesheet(true);
+                  }}
                   style={{
                     backgroundColor: "#f9fafb",
                     border: "1px solid #e5e7eb",
@@ -1877,6 +1881,10 @@ export default function EmployeeDashboard() {
 
                 {/* Post 2 */}
                 <div
+                  onClick={() => {
+                    setSelectedForumTopic(2);
+                    setShowForumDetailSidesheet(true);
+                  }}
                   style={{
                     backgroundColor: "#f9fafb",
                     border: "1px solid #e5e7eb",
@@ -1928,6 +1936,10 @@ export default function EmployeeDashboard() {
 
                 {/* Post 3 */}
                 <div
+                  onClick={() => {
+                    setSelectedForumTopic(3);
+                    setShowForumDetailSidesheet(true);
+                  }}
                   style={{
                     backgroundColor: "#f9fafb",
                     border: "1px solid #e5e7eb",
