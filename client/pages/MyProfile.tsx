@@ -3410,115 +3410,416 @@ export default function MyProfile() {
                 </div>
               </div>
 
-              {/* Leave Balance */}
+              {/* Leave Balance Section - 4 Cards Grid */}
               <div
                 style={{
-                  borderRadius: "8px",
-                  border: "1px solid #E5E7EB",
-                  backgroundColor: "#FFFFFF",
-                  boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                  padding: "10px 12px",
-                  overflowX: "auto",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gap: "16px",
+                  marginBottom: "16px",
                 }}
               >
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <h2
-                    className="text-sm font-bold text-gray-900"
-                    style={{
-                      fontFamily: "Poppins, sans-serif",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                    }}
+                {/* Leave Balance Card */}
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    border: "2px solid #DC2626",
+                    backgroundColor: "#FFFFFF",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
+                    padding: "16px",
+                  }}
+                >
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <h2
+                      className="text-sm font-bold text-gray-900"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Leave Balance
+                    </h2>
+                    <button
+                      onClick={() => setShowLeaveModal(true)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "11px",
+                      }}
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      Apply for Leave
+                    </button>
+                  </div>
+                  <table
+                    className="w-full"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Leave Balance
-                  </h2>
+                    <thead>
+                      <tr
+                        style={{
+                          borderBottom: "1px solid #E5E7EB",
+                        }}
+                      >
+                        <th
+                          className="px-2 py-2 text-left font-semibold text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Leave Type
+                        </th>
+                        <th
+                          className="px-2 py-2 text-left font-semibold text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Entitlement (Days)
+                        </th>
+                        <th
+                          className="px-2 py-2 text-left font-semibold text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Leave Taken
+                        </th>
+                        <th
+                          className="px-2 py-2 text-left font-semibold text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Leave Balance
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style={{ borderBottom: "1px solid #F3F4F6" }}>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Annual Leave
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          20
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          7
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-900 font-semibold"
+                          style={{ fontSize: "11px" }}
+                        >
+                          13
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: "1px solid #F3F4F6" }}>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Sick Leave
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          10
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          3
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-900 font-semibold"
+                          style={{ fontSize: "11px" }}
+                        >
+                          7
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          Personal Leave
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          6
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-700"
+                          style={{ fontSize: "11px" }}
+                        >
+                          2
+                        </td>
+                        <td
+                          className="px-2 py-2 text-gray-900 font-semibold"
+                          style={{ fontSize: "11px" }}
+                        >
+                          4
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Attendance Rate Card */}
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    border: "2px solid #DC2626",
+                    backgroundColor: "#FFFFFF",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
+                    padding: "16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <h2
+                      className="text-sm font-bold text-gray-900 mb-4"
+                      style={{
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Attendance Rate
+                    </h2>
+                    <div
+                      style={{
+                        fontSize: "48px",
+                        fontWeight: 700,
+                        color: "#111827",
+                        fontFamily: "Poppins, sans-serif",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      90.9%
+                    </div>
+                    <div
+                      style={{
+                        width: "60px",
+                        height: "4px",
+                        backgroundColor: "#2563EB",
+                        borderRadius: "2px",
+                        marginBottom: "16px",
+                      }}
+                    ></div>
+                  </div>
                   <button
-                    onClick={() => setShowLeaveModal(true)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors font-medium"
                     style={{
                       fontFamily: "Poppins, sans-serif",
                       fontSize: "12px",
+                      color: "#6B7280",
+                      textAlign: "left",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#2563EB";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#6B7280";
                     }}
                   >
-                    <Plus className="w-3.5 h-3.5" />
-                    Apply for Leave
+                    View Calendar
                   </button>
                 </div>
-                <table
-                  className="w-full"
-                  style={{ fontFamily: "Poppins, sans-serif" }}
+
+                {/* Punctuality Rate Card */}
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    border: "2px solid #DC2626",
+                    backgroundColor: "#FFFFFF",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
+                    padding: "16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
                 >
-                  <thead>
-                    <tr
+                  <div>
+                    <h2
+                      className="text-sm font-bold text-gray-900 mb-4"
                       style={{
-                        backgroundColor: "#F3F4F6",
-                        borderBottom: "1px solid #E5E7EB",
+                        fontFamily: "Poppins, sans-serif",
+                        fontSize: "14px",
+                        fontWeight: 600,
                       }}
                     >
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">
-                        Leave Type
-                      </th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">
-                        Entitlement (Days)
-                      </th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">
-                        Leave Taken
-                      </th>
-                      <th className="px-4 py-3 text-left font-semibold text-xs text-gray-900">
-                        Leave Balance
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      style={{ borderBottom: "1px solid #E5E7EB" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#F9FAFB")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#FFFFFF")
-                      }
+                      Punctuality Rate
+                    </h2>
+                    <div
+                      style={{
+                        fontSize: "48px",
+                        fontWeight: 700,
+                        color: "#111827",
+                        fontFamily: "Poppins, sans-serif",
+                        marginBottom: "8px",
+                      }}
                     >
-                      <td className="px-4 py-3 text-sm text-gray-700">
-                        Annual Leave
-                      </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">20</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">7</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">13</td>
-                    </tr>
-                    <tr
-                      style={{ borderBottom: "1px solid #E5E7EB" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#F9FAFB")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#FFFFFF")
-                      }
+                      95.5%
+                    </div>
+                    <div
+                      style={{
+                        width: "60px",
+                        height: "4px",
+                        backgroundColor: "#2563EB",
+                        borderRadius: "2px",
+                        marginBottom: "16px",
+                      }}
+                    ></div>
+                  </div>
+                  <button
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "12px",
+                      color: "#6B7280",
+                      textAlign: "left",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "#2563EB";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "#6B7280";
+                    }}
+                  >
+                    View History
+                  </button>
+                </div>
+
+                {/* Upcoming Holidays Card */}
+                <div
+                  style={{
+                    borderRadius: "12px",
+                    border: "2px solid #DC2626",
+                    backgroundColor: "#FFFFFF",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.08)",
+                    padding: "16px",
+                  }}
+                >
+                  <h2
+                    className="text-sm font-bold text-gray-900 mb-3"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Upcoming Holidays
+                  </h2>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                        paddingBottom: "10px",
+                        borderBottom: "1px solid #F3F4F6",
+                      }}
                     >
-                      <td className="px-4 py-3 text-sm text-gray-700">
-                        Sick Leave
-                      </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">10</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">3</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">7</td>
-                    </tr>
-                    <tr
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#F9FAFB")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.backgroundColor = "#FFFFFF")
-                      }
+                      <div>
+                        <div
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "11px",
+                            fontWeight: 600,
+                            color: "#111827",
+                          }}
+                        >
+                          Sept 02
+                        </div>
+                        <div
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "10px",
+                            color: "#6B7280",
+                            marginTop: "2px",
+                          }}
+                        >
+                          Labor Day
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                      }}
                     >
-                      <td className="px-4 py-3 text-sm text-gray-700">
-                        Personal Leave
-                      </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">6</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">2</td>
-                      <td className="px-4 py-3 text-sm text-gray-900">4</td>
-                    </tr>
-                  </tbody>
-                </table>
+                      <div>
+                        <div
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "11px",
+                            fontWeight: 600,
+                            color: "#111827",
+                          }}
+                        >
+                          Oct 11
+                        </div>
+                        <div
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "10px",
+                            color: "#6B7280",
+                            marginTop: "2px",
+                          }}
+                        >
+                          Labor Day
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <div>
+                        <div
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "11px",
+                            fontWeight: 600,
+                            color: "#111827",
+                          }}
+                        >
+                          Oct 14
+                        </div>
+                        <div
+                          style={{
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "10px",
+                            color: "#6B7280",
+                            marginTop: "2px",
+                          }}
+                        >
+                          Indigenous Peoples' Day
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Leave History */}
