@@ -1767,7 +1767,7 @@ export default function MyLeaveAttendance() {
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 700,
                       color: "#000",
                     }}
@@ -1777,7 +1777,7 @@ export default function MyLeaveAttendance() {
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "13px",
+                      fontSize: "11px",
                       color: "#666",
                     }}
                   >
@@ -1796,7 +1796,7 @@ export default function MyLeaveAttendance() {
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 700,
                       color: "#000",
                     }}
@@ -1806,7 +1806,7 @@ export default function MyLeaveAttendance() {
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "13px",
+                      fontSize: "11px",
                       color: "#666",
                     }}
                   >
@@ -1825,7 +1825,7 @@ export default function MyLeaveAttendance() {
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       fontWeight: 700,
                       color: "#000",
                     }}
@@ -1835,7 +1835,7 @@ export default function MyLeaveAttendance() {
                   <span
                     style={{
                       fontFamily: "Poppins, sans-serif",
-                      fontSize: "13px",
+                      fontSize: "11px",
                       color: "#666",
                     }}
                   >
