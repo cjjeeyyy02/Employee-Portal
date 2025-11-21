@@ -68,7 +68,7 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
       <div
         className={`fixed lg:static top-0 left-0 h-screen transition-all duration-300 ease-in-out z-40 ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-        } ${collapsed ? "lg:w-16" : "lg:w-40"} w-40 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
+        } ${collapsed ? "lg:w-20" : "lg:w-64"} w-64 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
       >
         {/* Header Section */}
         <div
