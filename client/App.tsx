@@ -41,6 +41,11 @@ export default function App() {
             <Route path="/requests" element={<Placeholder title="Requests & Documents" />} />
             <Route path="/communications" element={<Placeholder title="Communications" />} />
             <Route path="/team-management" element={<Placeholder title="Team Management" />} />
+            <Route path="/team-attendance" element={<Placeholder title="Team Attendance" />} />
+            <Route path="/team-task-management" element={<Placeholder title="Team Task Management" />} />
+            <Route path="/performance-reviews" element={<Placeholder title="Performance Reviews" />} />
+            <Route path="/request-approvals" element={<Placeholder title="Request Approvals" />} />
+            <Route path="/reports-analytics" element={<Placeholder title="Reports & Analytics" />} />
 
             {/* Employee View Routes */}
             <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
