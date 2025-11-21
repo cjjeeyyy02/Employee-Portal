@@ -53,29 +53,29 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
       <div
         className={`fixed lg:static top-0 left-0 h-screen transition-all duration-300 ease-in-out z-40 ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-        } ${collapsed ? "lg:w-70" : "lg:w-52"} w-52 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
+        } ${collapsed ? "lg:w-16" : "lg:w-40"} w-40 bg-white flex flex-col border-r border-gray-200 shadow-sm`}
       >
         {/* Header Section */}
         <div
-          className={`px-4 py-5 border-b border-gray-100 transition-all duration-300 ${collapsed ? "lg:flex lg:items-center lg:justify-center lg:px-2" : ""}`}
+          className={`px-2 py-2 border-b border-gray-100 transition-all duration-300 ${collapsed ? "lg:flex lg:items-center lg:justify-center lg:px-1" : ""}`}
         >
           <h1
-            className={`text-lg font-bold text-gray-900 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}
+            className={`text-sm font-bold text-gray-900 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}
           >
             ESS Portal
           </h1>
           <div
             className={`hidden text-blue-600 transition-opacity duration-300 ${collapsed ? "lg:flex" : "lg:hidden"}`}
           >
-            <div className="w-8 h-8 rounded bg-blue-100 flex items-center justify-center">
-              <span className="text-sm font-bold">E</span>
+            <div className="w-6 h-6 rounded bg-blue-100 flex items-center justify-center">
+              <span className="text-xs font-bold">E</span>
             </div>
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-3 py-4 overflow-y-auto">
-          <ul className="space-y-1.5">
+        <nav className="flex-1 px-1.5 py-2 overflow-y-auto">
+          <ul className="space-y-0.5">
             {employeeNavigationItems.map((item) => {
               const Icon = item.icon;
               const active = isActive(item.path);
@@ -84,14 +84,14 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
                 <li key={item.path} title={collapsed ? item.label : ""}>
                   <Link
                     to={item.path}
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded transition-all duration-300 font-medium text-sm ${
+                    className={`flex items-center gap-2 px-2 py-1.5 rounded transition-all duration-300 font-medium text-xs ${
                       active
                         ? "bg-blue-50 text-blue-600 border-l-3 border-blue-600"
                         : "text-slate-700 hover:bg-gray-50"
-                    } ${collapsed ? "lg:justify-center lg:px-2" : ""}`}
+                    } ${collapsed ? "lg:justify-center lg:px-1" : ""}`}
                   >
                     <Icon
-                      className={`w-5 h-5 flex-shrink-0 transition-colors ${
+                      className={`w-4 h-4 flex-shrink-0 transition-colors ${
                         active ? "text-blue-600" : "text-slate-500"
                       }`}
                     />
@@ -109,12 +109,12 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
 
         {/* Footer Info */}
         <div
-          className={`px-4 py-3 border-t border-gray-100 text-center transition-all duration-300 ${collapsed ? "lg:px-2" : ""}`}
+          className={`px-2 py-2 border-t border-gray-100 text-center transition-all duration-300 ${collapsed ? "lg:px-1" : ""}`}
         >
           <p
             className={`text-xs text-slate-400 transition-opacity duration-300 ${collapsed ? "lg:hidden" : ""}`}
           >
-            © 2024 ESS Portal
+            © 2024 ESS
           </p>
         </div>
       </div>
