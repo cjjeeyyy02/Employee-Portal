@@ -21,15 +21,25 @@ export default function EmployeeDashboard() {
     "All" | "News" | "Activities"
   >("All");
   const [showKPIDetailedView, setShowKPIDetailedView] = useState(false);
-  const [showAnnouncementsSidesheet, setShowAnnouncementsSidesheet] = useState(false);
+  const [showAnnouncementsSidesheet, setShowAnnouncementsSidesheet] =
+    useState(false);
   const [showLeaveModal, setShowLeaveModal] = useState(false);
   const [showActivitiesSidesheet, setShowActivitiesSidesheet] = useState(false);
   const [showForumSidesheet, setShowForumSidesheet] = useState(false);
-  const [selectedForumTopic, setSelectedForumTopic] = useState<number | null>(null);
-  const [showForumDetailSidesheet, setShowForumDetailSidesheet] = useState(false);
-  const [topicReactions, setTopicReactions] = useState<{ [key: number]: string | null }>({});
-  const [showReactionMenu, setShowReactionMenu] = useState<{ [key: number]: boolean }>({});
-  const [showShareMenu, setShowShareMenu] = useState<{ [key: number]: boolean }>({});
+  const [selectedForumTopic, setSelectedForumTopic] = useState<number | null>(
+    null,
+  );
+  const [showForumDetailSidesheet, setShowForumDetailSidesheet] =
+    useState(false);
+  const [topicReactions, setTopicReactions] = useState<{
+    [key: number]: string | null;
+  }>({});
+  const [showReactionMenu, setShowReactionMenu] = useState<{
+    [key: number]: boolean;
+  }>({});
+  const [showShareMenu, setShowShareMenu] = useState<{
+    [key: number]: boolean;
+  }>({});
 
   const handleReaction = (topicId: number, reaction: string) => {
     setTopicReactions((prev) => ({
@@ -77,14 +87,45 @@ export default function EmployeeDashboard() {
       author: "John Doe",
       replies: 5,
       timestamp: "2 hours ago",
-      description: "Looking for tips and best practices to prepare for my upcoming annual review. Any advice would be appreciated!",
+      description:
+        "Looking for tips and best practices to prepare for my upcoming annual review. Any advice would be appreciated!",
       messages: [
-        { author: "John Doe", content: "Looking for tips and best practices to prepare for my upcoming annual review. Any advice would be appreciated!", time: "2 hours ago", avatar: "JD" },
-        { author: "Sarah Smith", content: "Great question! I usually start by documenting my key achievements and contributions from the past year.", time: "1 hour ago", avatar: "SS" },
-        { author: "Mike Johnson", content: "Don't forget to mention challenges you overcame and how you've grown professionally.", time: "45 minutes ago", avatar: "MJ" },
-        { author: "Emily Brown", content: "I also prepare some questions about my career development and advancement opportunities.", time: "30 minutes ago", avatar: "EB" },
-        { author: "Alex Chen", content: "It's important to be specific with examples and metrics. Quantify your impact when possible.", time: "15 minutes ago", avatar: "AC" },
-      ]
+        {
+          author: "John Doe",
+          content:
+            "Looking for tips and best practices to prepare for my upcoming annual review. Any advice would be appreciated!",
+          time: "2 hours ago",
+          avatar: "JD",
+        },
+        {
+          author: "Sarah Smith",
+          content:
+            "Great question! I usually start by documenting my key achievements and contributions from the past year.",
+          time: "1 hour ago",
+          avatar: "SS",
+        },
+        {
+          author: "Mike Johnson",
+          content:
+            "Don't forget to mention challenges you overcame and how you've grown professionally.",
+          time: "45 minutes ago",
+          avatar: "MJ",
+        },
+        {
+          author: "Emily Brown",
+          content:
+            "I also prepare some questions about my career development and advancement opportunities.",
+          time: "30 minutes ago",
+          avatar: "EB",
+        },
+        {
+          author: "Alex Chen",
+          content:
+            "It's important to be specific with examples and metrics. Quantify your impact when possible.",
+          time: "15 minutes ago",
+          avatar: "AC",
+        },
+      ],
     },
     {
       id: 2,
@@ -92,14 +133,45 @@ export default function EmployeeDashboard() {
       author: "Sarah Smith",
       replies: 8,
       timestamp: "1 day ago",
-      description: "Share your experiences and tips for effective remote team collaboration.",
+      description:
+        "Share your experiences and tips for effective remote team collaboration.",
       messages: [
-        { author: "Sarah Smith", content: "Share your experiences and tips for effective remote team collaboration.", time: "1 day ago", avatar: "SS" },
-        { author: "Mike Johnson", content: "Regular video calls and clear communication channels are essential.", time: "23 hours ago", avatar: "MJ" },
-        { author: "Emily Brown", content: "I recommend using collaborative tools like Slack and shared documents.", time: "22 hours ago", avatar: "EB" },
-        { author: "Alex Chen", content: "Time zone awareness is crucial. Try to have core collaboration hours.", time: "20 hours ago", avatar: "AC" },
-        { author: "John Doe", content: "Asynchronous updates are key - document decisions and share progress regularly.", time: "18 hours ago", avatar: "JD" },
-      ]
+        {
+          author: "Sarah Smith",
+          content:
+            "Share your experiences and tips for effective remote team collaboration.",
+          time: "1 day ago",
+          avatar: "SS",
+        },
+        {
+          author: "Mike Johnson",
+          content:
+            "Regular video calls and clear communication channels are essential.",
+          time: "23 hours ago",
+          avatar: "MJ",
+        },
+        {
+          author: "Emily Brown",
+          content:
+            "I recommend using collaborative tools like Slack and shared documents.",
+          time: "22 hours ago",
+          avatar: "EB",
+        },
+        {
+          author: "Alex Chen",
+          content:
+            "Time zone awareness is crucial. Try to have core collaboration hours.",
+          time: "20 hours ago",
+          avatar: "AC",
+        },
+        {
+          author: "John Doe",
+          content:
+            "Asynchronous updates are key - document decisions and share progress regularly.",
+          time: "18 hours ago",
+          avatar: "JD",
+        },
+      ],
     },
     {
       id: 3,
@@ -107,12 +179,30 @@ export default function EmployeeDashboard() {
       author: "Mike Johnson",
       replies: 12,
       timestamp: "3 days ago",
-      description: "What skills are you planning to develop this year? Share your learning goals.",
+      description:
+        "What skills are you planning to develop this year? Share your learning goals.",
       messages: [
-        { author: "Mike Johnson", content: "What skills are you planning to develop this year? Share your learning goals.", time: "3 days ago", avatar: "MJ" },
-        { author: "Emily Brown", content: "I'm focusing on advanced data analysis and machine learning.", time: "2 days ago", avatar: "EB" },
-        { author: "Alex Chen", content: "Cloud architecture and DevOps are on my list.", time: "2 days ago", avatar: "AC" },
-      ]
+        {
+          author: "Mike Johnson",
+          content:
+            "What skills are you planning to develop this year? Share your learning goals.",
+          time: "3 days ago",
+          avatar: "MJ",
+        },
+        {
+          author: "Emily Brown",
+          content:
+            "I'm focusing on advanced data analysis and machine learning.",
+          time: "2 days ago",
+          avatar: "EB",
+        },
+        {
+          author: "Alex Chen",
+          content: "Cloud architecture and DevOps are on my list.",
+          time: "2 days ago",
+          avatar: "AC",
+        },
+      ],
     },
     {
       id: 4,
@@ -120,11 +210,24 @@ export default function EmployeeDashboard() {
       author: "Emily Brown",
       replies: 15,
       timestamp: "1 week ago",
-      description: "Tips for maintaining work-life balance when projects get intense.",
+      description:
+        "Tips for maintaining work-life balance when projects get intense.",
       messages: [
-        { author: "Emily Brown", content: "Tips for maintaining work-life balance when projects get intense.", time: "1 week ago", avatar: "EB" },
-        { author: "Alex Chen", content: "Setting boundaries and communicating them clearly is essential.", time: "6 days ago", avatar: "AC" },
-      ]
+        {
+          author: "Emily Brown",
+          content:
+            "Tips for maintaining work-life balance when projects get intense.",
+          time: "1 week ago",
+          avatar: "EB",
+        },
+        {
+          author: "Alex Chen",
+          content:
+            "Setting boundaries and communicating them clearly is essential.",
+          time: "6 days ago",
+          avatar: "AC",
+        },
+      ],
     },
     {
       id: 5,
@@ -132,11 +235,23 @@ export default function EmployeeDashboard() {
       author: "Alex Chen",
       replies: 22,
       timestamp: "2 weeks ago",
-      description: "Discuss emerging technologies that could be valuable for our team.",
+      description:
+        "Discuss emerging technologies that could be valuable for our team.",
       messages: [
-        { author: "Alex Chen", content: "Discuss emerging technologies that could be valuable for our team.", time: "2 weeks ago", avatar: "AC" },
-        { author: "John Doe", content: "AI and automation tools are definitely game-changers.", time: "13 days ago", avatar: "JD" },
-      ]
+        {
+          author: "Alex Chen",
+          content:
+            "Discuss emerging technologies that could be valuable for our team.",
+          time: "2 weeks ago",
+          avatar: "AC",
+        },
+        {
+          author: "John Doe",
+          content: "AI and automation tools are definitely game-changers.",
+          time: "13 days ago",
+          avatar: "JD",
+        },
+      ],
     },
     {
       id: 6,
@@ -146,10 +261,20 @@ export default function EmployeeDashboard() {
       timestamp: "3 weeks ago",
       description: "Share your thoughts on the recent office renovation.",
       messages: [
-        { author: "Lisa Davis", content: "Share your thoughts on the recent office renovation.", time: "3 weeks ago", avatar: "LD" },
-        { author: "Sarah Smith", content: "Love the new collaborative spaces and natural lighting!", time: "20 days ago", avatar: "SS" },
-      ]
-    }
+        {
+          author: "Lisa Davis",
+          content: "Share your thoughts on the recent office renovation.",
+          time: "3 weeks ago",
+          avatar: "LD",
+        },
+        {
+          author: "Sarah Smith",
+          content: "Love the new collaborative spaces and natural lighting!",
+          time: "20 days ago",
+          avatar: "SS",
+        },
+      ],
+    },
   ];
 
   const daysInMonth = new Date(
@@ -511,7 +636,12 @@ export default function EmployeeDashboard() {
                   "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)",
                   "linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%)",
                 ];
-                const borderColors = ["#bfdbfe", "#a7f3d0", "#c4b5fd", "#fdba74"];
+                const borderColors = [
+                  "#bfdbfe",
+                  "#a7f3d0",
+                  "#c4b5fd",
+                  "#fdba74",
+                ];
                 const isPositive =
                   metric.subtext && metric.subtext.includes("+");
 
@@ -522,8 +652,8 @@ export default function EmployeeDashboard() {
                       metric.route
                         ? () => navigate(metric.route)
                         : metric.action === "kpi-detail"
-                        ? () => setShowKPIDetailedView(true)
-                        : undefined
+                          ? () => setShowKPIDetailedView(true)
+                          : undefined
                     }
                     style={{
                       background: gradients[index],
@@ -536,21 +666,32 @@ export default function EmployeeDashboard() {
                       justifyContent: "space-between",
                       gap: "8px",
                       transition: "all 0.25s ease-in-out",
-                      cursor: metric.route || metric.action ? "pointer" : "default",
+                      cursor:
+                        metric.route || metric.action ? "pointer" : "default",
                       minHeight: "auto",
                     }}
-                    onMouseEnter={metric.route || metric.action ? (e) => {
-                      e.currentTarget.style.transform = "scale(1.02)";
-                      e.currentTarget.style.boxShadow =
-                        "0 4px 12px rgba(0, 0, 0, 0.1)";
-                      e.currentTarget.style.borderColor = borderColors[index];
-                    } : undefined}
-                    onMouseLeave={metric.route || metric.action ? (e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.boxShadow =
-                        "0 1px 3px rgba(0, 0, 0, 0.05)";
-                      e.currentTarget.style.borderColor = borderColors[index];
-                    } : undefined}
+                    onMouseEnter={
+                      metric.route || metric.action
+                        ? (e) => {
+                            e.currentTarget.style.transform = "scale(1.02)";
+                            e.currentTarget.style.boxShadow =
+                              "0 4px 12px rgba(0, 0, 0, 0.1)";
+                            e.currentTarget.style.borderColor =
+                              borderColors[index];
+                          }
+                        : undefined
+                    }
+                    onMouseLeave={
+                      metric.route || metric.action
+                        ? (e) => {
+                            e.currentTarget.style.transform = "scale(1)";
+                            e.currentTarget.style.boxShadow =
+                              "0 1px 3px rgba(0, 0, 0, 0.05)";
+                            e.currentTarget.style.borderColor =
+                              borderColors[index];
+                          }
+                        : undefined
+                    }
                   >
                     {/* Left Content */}
                     <div
@@ -684,367 +825,375 @@ export default function EmployeeDashboard() {
                     padding: "20px",
                   }}
                 >
-                {/* Two Row Grid */}
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr",
-                    gap: "24px",
-                  }}
-                >
-                  {/* Row 1 - Circular Progress */}
+                  {/* Two Row Grid */}
                   <div
                     style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "16px",
+                      display: "grid",
+                      gridTemplateColumns: "1fr",
+                      gap: "24px",
                     }}
                   >
-                    {/* Circular Progress Chart */}
+                    {/* Row 1 - Circular Progress */}
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "center",
-                        gap: "12px",
+                        gap: "16px",
                       }}
                     >
-                      <div style={{ position: "relative", width: "140px", height: "140px" }}>
-                        <svg
-                          width="140"
-                          height="140"
-                          viewBox="0 0 140 140"
-                          style={{ transform: "rotate(-90deg)" }}
-                        >
-                          <circle
-                            cx="70"
-                            cy="70"
-                            r="60"
-                            fill="none"
-                            stroke="#E8F3EF"
-                            strokeWidth="12"
-                          />
-                          <circle
-                            cx="70"
-                            cy="70"
-                            r="60"
-                            fill="none"
-                            stroke="#2CB585"
-                            strokeWidth="12"
-                            strokeDasharray={`${2 * Math.PI * 60}`}
-                            strokeDashoffset={`${2 * Math.PI * 60 * (1 - 0.9)}`}
-                            strokeLinecap="round"
-                          />
-                        </svg>
+                      {/* Circular Progress Chart */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
                         <div
                           style={{
-                            position: "absolute",
-                            top: "50%",
-                            left: "50%",
-                            transform: "translate(-50%, -50%)",
+                            position: "relative",
+                            width: "140px",
+                            height: "140px",
+                          }}
+                        >
+                          <svg
+                            width="140"
+                            height="140"
+                            viewBox="0 0 140 140"
+                            style={{ transform: "rotate(-90deg)" }}
+                          >
+                            <circle
+                              cx="70"
+                              cy="70"
+                              r="60"
+                              fill="none"
+                              stroke="#E8F3EF"
+                              strokeWidth="12"
+                            />
+                            <circle
+                              cx="70"
+                              cy="70"
+                              r="60"
+                              fill="none"
+                              stroke="#2CB585"
+                              strokeWidth="12"
+                              strokeDasharray={`${2 * Math.PI * 60}`}
+                              strokeDashoffset={`${2 * Math.PI * 60 * (1 - 0.9)}`}
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "50%",
+                              left: "50%",
+                              transform: "translate(-50%, -50%)",
+                              textAlign: "center",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontSize: "32px",
+                                fontWeight: "700",
+                                color: "#2CB585",
+                              }}
+                            >
+                              90%
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          style={{
                             textAlign: "center",
                           }}
                         >
-                          <div
+                          <p
                             style={{
-                              fontSize: "32px",
-                              fontWeight: "700",
-                              color: "#2CB585",
+                              fontSize: "12px",
+                              color: "#6b7280",
+                              margin: "0 0 4px 0",
                             }}
                           >
-                            90%
-                          </div>
+                            Total Assigned Tasks
+                          </p>
+                          <p
+                            style={{
+                              fontSize: "20px",
+                              fontWeight: "600",
+                              color: "#1f2937",
+                              margin: "0",
+                            }}
+                          >
+                            20
+                          </p>
                         </div>
-                      </div>
 
-                      <div
-                        style={{
-                          textAlign: "center",
-                        }}
-                      >
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            color: "#6b7280",
-                            margin: "0 0 4px 0",
-                          }}
-                        >
-                          Total Assigned Tasks
-                        </p>
-                        <p
-                          style={{
-                            fontSize: "20px",
-                            fontWeight: "600",
-                            color: "#1f2937",
-                            margin: "0",
-                          }}
-                        >
-                          20
-                        </p>
-                      </div>
-
-                      <div
-                        style={{
-                          width: "100%",
-                          marginTop: "8px",
-                        }}
-                      >
                         <div
                           style={{
                             width: "100%",
-                            height: "8px",
-                            backgroundColor: "#D9E7E2",
-                            borderRadius: "9999px",
-                            overflow: "hidden",
+                            marginTop: "8px",
                           }}
                         >
                           <div
                             style={{
-                              width: "90%",
-                              height: "100%",
-                              backgroundColor: "#2CB585",
+                              width: "100%",
+                              height: "8px",
+                              backgroundColor: "#D9E7E2",
                               borderRadius: "9999px",
+                              overflow: "hidden",
                             }}
-                          ></div>
+                          >
+                            <div
+                              style={{
+                                width: "90%",
+                                height: "100%",
+                                backgroundColor: "#2CB585",
+                                borderRadius: "9999px",
+                              }}
+                            ></div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Row 2 - KPI Table */}
-                  <div>
-                    <h3
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: "700",
-                        color: "#1f2937",
-                        marginBottom: "16px",
-                      }}
-                    >
-                      My KPI Score
-                    </h3>
-
-                    <div
-                      style={{
-                        border: "1px solid #e5e7eb",
-                        borderRadius: "8px",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                        <thead>
-                          <tr style={{ backgroundColor: "#f9fafb" }}>
-                            <th
-                              style={{
-                                padding: "12px 16px",
-                                textAlign: "left",
-                                fontSize: "12px",
-                                fontWeight: "600",
-                                color: "#6b7280",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              Label
-                            </th>
-                            <th
-                              style={{
-                                padding: "12px 16px",
-                                textAlign: "center",
-                                fontSize: "12px",
-                                fontWeight: "600",
-                                color: "#6b7280",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              # of Tasks
-                            </th>
-                            <th
-                              style={{
-                                padding: "12px 16px",
-                                textAlign: "center",
-                                fontSize: "12px",
-                                fontWeight: "600",
-                                color: "#6b7280",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              Weight
-                            </th>
-                            <th
-                              style={{
-                                padding: "12px 16px",
-                                textAlign: "right",
-                                fontSize: "12px",
-                                fontWeight: "600",
-                                color: "#6b7280",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              Weighted Score
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              Completion Rate
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                textAlign: "center",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              18
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                textAlign: "center",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              40%
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                fontWeight: "600",
-                                color: "#1f2937",
-                                textAlign: "right",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              36.00
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              On-Time Completion Rate
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                textAlign: "center",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              15
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                textAlign: "center",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              40%
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                fontWeight: "600",
-                                color: "#1f2937",
-                                textAlign: "right",
-                                borderBottom: "1px solid #e5e7eb",
-                              }}
-                            >
-                              37.00
-                            </td>
-                          </tr>
-                          <tr>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                              }}
-                            >
-                              Overdue Task Penalty
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                textAlign: "center",
-                              }}
-                            >
-                              3
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                color: "#374151",
-                                textAlign: "center",
-                              }}
-                            >
-                              20%
-                            </td>
-                            <td
-                              style={{
-                                padding: "12px 16px",
-                                fontSize: "13px",
-                                fontWeight: "600",
-                                color: "#1f2937",
-                                textAlign: "right",
-                              }}
-                            >
-                              17.00
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <div
-                      style={{
-                        marginTop: "20px",
-                        padding: "16px",
-                        backgroundColor: "#f9fafb",
-                        borderRadius: "8px",
-                        border: "1px solid #e5e7eb",
-                      }}
-                    >
-                      <p
+                    {/* Row 2 - KPI Table */}
+                    <div>
+                      <h3
                         style={{
                           fontSize: "16px",
                           fontWeight: "700",
                           color: "#1f2937",
-                          margin: "0",
+                          marginBottom: "16px",
                         }}
                       >
-                        My KPI Score for the month: 90.00
-                      </p>
+                        My KPI Score
+                      </h3>
+
+                      <div
+                        style={{
+                          border: "1px solid #e5e7eb",
+                          borderRadius: "8px",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <table
+                          style={{ width: "100%", borderCollapse: "collapse" }}
+                        >
+                          <thead>
+                            <tr style={{ backgroundColor: "#f9fafb" }}>
+                              <th
+                                style={{
+                                  padding: "12px 16px",
+                                  textAlign: "left",
+                                  fontSize: "12px",
+                                  fontWeight: "600",
+                                  color: "#6b7280",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                Label
+                              </th>
+                              <th
+                                style={{
+                                  padding: "12px 16px",
+                                  textAlign: "center",
+                                  fontSize: "12px",
+                                  fontWeight: "600",
+                                  color: "#6b7280",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                # of Tasks
+                              </th>
+                              <th
+                                style={{
+                                  padding: "12px 16px",
+                                  textAlign: "center",
+                                  fontSize: "12px",
+                                  fontWeight: "600",
+                                  color: "#6b7280",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                Weight
+                              </th>
+                              <th
+                                style={{
+                                  padding: "12px 16px",
+                                  textAlign: "right",
+                                  fontSize: "12px",
+                                  fontWeight: "600",
+                                  color: "#6b7280",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                Weighted Score
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                Completion Rate
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  textAlign: "center",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                18
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  textAlign: "center",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                40%
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  fontWeight: "600",
+                                  color: "#1f2937",
+                                  textAlign: "right",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                36.00
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                On-Time Completion Rate
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  textAlign: "center",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                15
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  textAlign: "center",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                40%
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  fontWeight: "600",
+                                  color: "#1f2937",
+                                  textAlign: "right",
+                                  borderBottom: "1px solid #e5e7eb",
+                                }}
+                              >
+                                37.00
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                }}
+                              >
+                                Overdue Task Penalty
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  textAlign: "center",
+                                }}
+                              >
+                                3
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  color: "#374151",
+                                  textAlign: "center",
+                                }}
+                              >
+                                20%
+                              </td>
+                              <td
+                                style={{
+                                  padding: "12px 16px",
+                                  fontSize: "13px",
+                                  fontWeight: "600",
+                                  color: "#1f2937",
+                                  textAlign: "right",
+                                }}
+                              >
+                                17.00
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div
+                        style={{
+                          marginTop: "20px",
+                          padding: "16px",
+                          backgroundColor: "#f9fafb",
+                          borderRadius: "8px",
+                          border: "1px solid #e5e7eb",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontSize: "16px",
+                            fontWeight: "700",
+                            color: "#1f2937",
+                            margin: "0",
+                          }}
+                        >
+                          My KPI Score for the month: 90.00
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </div>
               </div>
             )}
@@ -1067,760 +1216,764 @@ export default function EmployeeDashboard() {
 
             {/* Middle Row - Stacked Layout: Pending Tasks then Pending Request */}
             {!showKPIDetailedView && (
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gap: "16px",
-                width: "100%",
-              }}
-            >
-              {/* Row 1 - Pending Tasks */}
               <div
                 style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  border: "1px solid #e5e7eb",
-                  padding: "16px",
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                  display: "grid",
+                  gridTemplateColumns: "1fr",
+                  gap: "16px",
+                  width: "100%",
                 }}
               >
-                <h3
+                {/* Row 1 - Pending Tasks */}
+                <div
                   style={{
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    color: "#1f2937",
-                    marginBottom: "2px",
+                    backgroundColor: "#ffffff",
+                    borderRadius: "12px",
+                    border: "1px solid #e5e7eb",
+                    padding: "16px",
+                    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                   }}
                 >
-                  Pending Tasks
-                </h3>
-                <p
-                  style={{
-                    fontSize: "11px",
-                    color: "#6b7280",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Tasks that require your attention
-                </p>
+                  <h3
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      color: "#1f2937",
+                      marginBottom: "2px",
+                    }}
+                  >
+                    Pending Tasks
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#6b7280",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Tasks that require your attention
+                  </p>
 
-                <div style={{ overflowX: "auto" }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                    <thead>
-                      <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Task Title
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Category
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Priority
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Due Date
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Status
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pendingTasks.map((task, index) => {
-                        const getPriorityStyle = (priority: string) => {
-                          switch (priority) {
-                            case "High":
-                              return { bg: "#fee2e2", color: "#dc2626" };
-                            case "Medium":
-                              return { bg: "#fef3c7", color: "#b45309" };
-                            case "Low":
-                              return { bg: "#d1fae5", color: "#047857" };
-                            default:
-                              return { bg: "#f3f4f6", color: "#6b7280" };
-                          }
-                        };
-
-                        const getStatusStyle = (status: string) => {
-                          switch (status) {
-                            case "In Progress":
-                              return { bg: "#dbeafe", color: "#1d4ed8" };
-                            case "Pending":
-                              return { bg: "#fef3c7", color: "#b45309" };
-                            case "Not Started":
-                              return { bg: "#f3f4f6", color: "#6b7280" };
-                            default:
-                              return { bg: "#f3f4f6", color: "#6b7280" };
-                          }
-                        };
-
-                        const priorityStyle = getPriorityStyle(task.priority);
-                        const statusStyle = getStatusStyle(task.status);
-
-                        return (
-                          <tr
-                            key={index}
+                  <div style={{ overflowX: "auto" }}>
+                    <table
+                      style={{ width: "100%", borderCollapse: "collapse" }}
+                    >
+                      <thead>
+                        <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                          <th
                             style={{
-                              borderBottom:
-                                index !== pendingTasks.length - 1
-                                  ? "1px solid #e5e7eb"
-                                  : "none",
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
                             }}
                           >
-                            <td
+                            Task Title
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Category
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Priority
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Due Date
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {pendingTasks.map((task, index) => {
+                          const getPriorityStyle = (priority: string) => {
+                            switch (priority) {
+                              case "High":
+                                return { bg: "#fee2e2", color: "#dc2626" };
+                              case "Medium":
+                                return { bg: "#fef3c7", color: "#b45309" };
+                              case "Low":
+                                return { bg: "#d1fae5", color: "#047857" };
+                              default:
+                                return { bg: "#f3f4f6", color: "#6b7280" };
+                            }
+                          };
+
+                          const getStatusStyle = (status: string) => {
+                            switch (status) {
+                              case "In Progress":
+                                return { bg: "#dbeafe", color: "#1d4ed8" };
+                              case "Pending":
+                                return { bg: "#fef3c7", color: "#b45309" };
+                              case "Not Started":
+                                return { bg: "#f3f4f6", color: "#6b7280" };
+                              default:
+                                return { bg: "#f3f4f6", color: "#6b7280" };
+                            }
+                          };
+
+                          const priorityStyle = getPriorityStyle(task.priority);
+                          const statusStyle = getStatusStyle(task.status);
+
+                          return (
+                            <tr
+                              key={index}
                               style={{
-                                padding: "8px 6px",
-                                fontSize: "12px",
-                                color: "#1f2937",
+                                borderBottom:
+                                  index !== pendingTasks.length - 1
+                                    ? "1px solid #e5e7eb"
+                                    : "none",
                               }}
                             >
-                              {task.title}
-                            </td>
-                            <td
-                              style={{
-                                padding: "8px 6px",
-                                fontSize: "11px",
-                                color: "#6b7280",
-                              }}
-                            >
-                              {task.category}
-                            </td>
-                            <td style={{ padding: "8px 6px" }}>
-                              <span
+                              <td
                                 style={{
-                                  fontSize: "10px",
-                                  backgroundColor: priorityStyle.bg,
-                                  color: priorityStyle.color,
-                                  padding: "3px 8px",
-                                  borderRadius: "9999px",
-                                  fontWeight: "600",
-                                  display: "inline-block",
+                                  padding: "8px 6px",
+                                  fontSize: "12px",
+                                  color: "#1f2937",
                                 }}
                               >
-                                {task.priority}
-                              </span>
-                            </td>
-                            <td
-                              style={{
-                                padding: "8px 6px",
-                                fontSize: "11px",
-                                color: "#6b7280",
-                              }}
-                            >
-                              {task.dueDate}
-                            </td>
-                            <td style={{ padding: "8px 6px" }}>
-                              <span
+                                {task.title}
+                              </td>
+                              <td
                                 style={{
-                                  fontSize: "10px",
-                                  backgroundColor: statusStyle.bg,
-                                  color: statusStyle.color,
-                                  padding: "3px 8px",
-                                  borderRadius: "9999px",
-                                  fontWeight: "600",
-                                  display: "inline-block",
+                                  padding: "8px 6px",
+                                  fontSize: "11px",
+                                  color: "#6b7280",
                                 }}
                               >
-                                {task.status}
-                              </span>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
+                                {task.category}
+                              </td>
+                              <td style={{ padding: "8px 6px" }}>
+                                <span
+                                  style={{
+                                    fontSize: "10px",
+                                    backgroundColor: priorityStyle.bg,
+                                    color: priorityStyle.color,
+                                    padding: "3px 8px",
+                                    borderRadius: "9999px",
+                                    fontWeight: "600",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  {task.priority}
+                                </span>
+                              </td>
+                              <td
+                                style={{
+                                  padding: "8px 6px",
+                                  fontSize: "11px",
+                                  color: "#6b7280",
+                                }}
+                              >
+                                {task.dueDate}
+                              </td>
+                              <td style={{ padding: "8px 6px" }}>
+                                <span
+                                  style={{
+                                    fontSize: "10px",
+                                    backgroundColor: statusStyle.bg,
+                                    color: statusStyle.color,
+                                    padding: "3px 8px",
+                                    borderRadius: "9999px",
+                                    fontWeight: "600",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  {task.status}
+                                </span>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <a
+                    href="/my-tasks"
+                    style={{
+                      fontSize: "11px",
+                      color: "#2563eb",
+                      fontWeight: "500",
+                      marginTop: "12px",
+                      display: "inline-block",
+                      textDecoration: "none",
+                      borderBottom: "2px solid transparent",
+                      transition: "border-color 0.2s",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.borderBottomColor = "#2563eb")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.borderBottomColor = "transparent")
+                    }
+                  >
+                    View All Tasks →
+                  </a>
                 </div>
 
-                <a
-                  href="/my-tasks"
+                {/* Row 2 - Pending Request List */}
+                <div
                   style={{
-                    fontSize: "11px",
-                    color: "#2563eb",
-                    fontWeight: "500",
-                    marginTop: "12px",
-                    display: "inline-block",
-                    textDecoration: "none",
-                    borderBottom: "2px solid transparent",
-                    transition: "border-color 0.2s",
+                    backgroundColor: "#ffffff",
+                    borderRadius: "12px",
+                    border: "1px solid #e5e7eb",
+                    padding: "16px",
+                    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.borderBottomColor = "#2563eb")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.borderBottomColor = "transparent")
-                  }
                 >
-                  View All Tasks →
-                </a>
+                  <h3
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      color: "#1f2937",
+                      marginBottom: "2px",
+                    }}
+                  >
+                    Pending Request
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#6b7280",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Requests awaiting approval
+                  </p>
+
+                  <div style={{ overflowX: "auto" }}>
+                    <table
+                      style={{ width: "100%", borderCollapse: "collapse" }}
+                    >
+                      <thead>
+                        <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Request ID
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Request Title
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Submitted Date
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Priority
+                          </th>
+                          <th
+                            style={{
+                              padding: "8px 6px",
+                              textAlign: "left",
+                              fontSize: "10px",
+                              fontWeight: "600",
+                              color: "#6b7280",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {pendingRequests.map((request, index) => {
+                          const getPriorityStyle = (priority: string) => {
+                            switch (priority) {
+                              case "High":
+                                return { bg: "#fee2e2", color: "#dc2626" };
+                              case "Medium":
+                                return { bg: "#fef3c7", color: "#b45309" };
+                              case "Low":
+                                return { bg: "#d1fae5", color: "#047857" };
+                              default:
+                                return { bg: "#f3f4f6", color: "#6b7280" };
+                            }
+                          };
+
+                          const getStatusStyle = (status: string) => {
+                            switch (status) {
+                              case "Pending":
+                                return { bg: "#fee2e2", color: "#dc2626" };
+                              case "In Review":
+                                return { bg: "#fef3c7", color: "#b45309" };
+                              case "Approved":
+                                return { bg: "#d1fae5", color: "#047857" };
+                              default:
+                                return { bg: "#f3f4f6", color: "#6b7280" };
+                            }
+                          };
+
+                          const priorityStyle = getPriorityStyle(
+                            request.priority,
+                          );
+                          const statusStyle = getStatusStyle(request.status);
+
+                          return (
+                            <tr
+                              key={index}
+                              style={{
+                                borderBottom:
+                                  index !== pendingRequests.length - 1
+                                    ? "1px solid #e5e7eb"
+                                    : "none",
+                              }}
+                            >
+                              <td
+                                style={{
+                                  padding: "8px 6px",
+                                  fontSize: "11px",
+                                  color: "#6b7280",
+                                }}
+                              >
+                                {request.id}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "8px 6px",
+                                  fontSize: "12px",
+                                  color: "#1f2937",
+                                }}
+                              >
+                                {request.title}
+                              </td>
+                              <td
+                                style={{
+                                  padding: "8px 6px",
+                                  fontSize: "11px",
+                                  color: "#6b7280",
+                                }}
+                              >
+                                {request.submittedDate}
+                              </td>
+                              <td style={{ padding: "8px 6px" }}>
+                                <span
+                                  style={{
+                                    fontSize: "10px",
+                                    backgroundColor: priorityStyle.bg,
+                                    color: priorityStyle.color,
+                                    padding: "3px 8px",
+                                    borderRadius: "9999px",
+                                    fontWeight: "600",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  {request.priority}
+                                </span>
+                              </td>
+                              <td style={{ padding: "8px 6px" }}>
+                                <span
+                                  style={{
+                                    fontSize: "10px",
+                                    backgroundColor: statusStyle.bg,
+                                    color: statusStyle.color,
+                                    padding: "3px 8px",
+                                    borderRadius: "9999px",
+                                    fontWeight: "600",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  {request.status}
+                                </span>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <a
+                    href="/documents"
+                    style={{
+                      fontSize: "11px",
+                      color: "#2563eb",
+                      fontWeight: "500",
+                      marginTop: "12px",
+                      display: "inline-block",
+                      textDecoration: "none",
+                      borderBottom: "2px solid transparent",
+                      transition: "border-color 0.2s",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.borderBottomColor = "#2563eb")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.borderBottomColor = "transparent")
+                    }
+                  >
+                    View All Requests →
+                  </a>
+                </div>
               </div>
-
-              {/* Row 2 - Pending Request List */}
-              <div
-                style={{
-                  backgroundColor: "#ffffff",
-                  borderRadius: "12px",
-                  border: "1px solid #e5e7eb",
-                  padding: "16px",
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    color: "#1f2937",
-                    marginBottom: "2px",
-                  }}
-                >
-                  Pending Request
-                </h3>
-                <p
-                  style={{
-                    fontSize: "11px",
-                    color: "#6b7280",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Requests awaiting approval
-                </p>
-
-                <div style={{ overflowX: "auto" }}>
-                  <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                    <thead>
-                      <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Request ID
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Request Title
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Submitted Date
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Priority
-                        </th>
-                        <th
-                          style={{
-                            padding: "8px 6px",
-                            textAlign: "left",
-                            fontSize: "10px",
-                            fontWeight: "600",
-                            color: "#6b7280",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Status
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pendingRequests.map((request, index) => {
-                        const getPriorityStyle = (priority: string) => {
-                          switch (priority) {
-                            case "High":
-                              return { bg: "#fee2e2", color: "#dc2626" };
-                            case "Medium":
-                              return { bg: "#fef3c7", color: "#b45309" };
-                            case "Low":
-                              return { bg: "#d1fae5", color: "#047857" };
-                            default:
-                              return { bg: "#f3f4f6", color: "#6b7280" };
-                          }
-                        };
-
-                        const getStatusStyle = (status: string) => {
-                          switch (status) {
-                            case "Pending":
-                              return { bg: "#fee2e2", color: "#dc2626" };
-                            case "In Review":
-                              return { bg: "#fef3c7", color: "#b45309" };
-                            case "Approved":
-                              return { bg: "#d1fae5", color: "#047857" };
-                            default:
-                              return { bg: "#f3f4f6", color: "#6b7280" };
-                          }
-                        };
-
-                        const priorityStyle = getPriorityStyle(
-                          request.priority,
-                        );
-                        const statusStyle = getStatusStyle(request.status);
-
-                        return (
-                          <tr
-                            key={index}
-                            style={{
-                              borderBottom:
-                                index !== pendingRequests.length - 1
-                                  ? "1px solid #e5e7eb"
-                                  : "none",
-                            }}
-                          >
-                            <td
-                              style={{
-                                padding: "8px 6px",
-                                fontSize: "11px",
-                                color: "#6b7280",
-                              }}
-                            >
-                              {request.id}
-                            </td>
-                            <td
-                              style={{
-                                padding: "8px 6px",
-                                fontSize: "12px",
-                                color: "#1f2937",
-                              }}
-                            >
-                              {request.title}
-                            </td>
-                            <td
-                              style={{
-                                padding: "8px 6px",
-                                fontSize: "11px",
-                                color: "#6b7280",
-                              }}
-                            >
-                              {request.submittedDate}
-                            </td>
-                            <td style={{ padding: "8px 6px" }}>
-                              <span
-                                style={{
-                                  fontSize: "10px",
-                                  backgroundColor: priorityStyle.bg,
-                                  color: priorityStyle.color,
-                                  padding: "3px 8px",
-                                  borderRadius: "9999px",
-                                  fontWeight: "600",
-                                  display: "inline-block",
-                                }}
-                              >
-                                {request.priority}
-                              </span>
-                            </td>
-                            <td style={{ padding: "8px 6px" }}>
-                              <span
-                                style={{
-                                  fontSize: "10px",
-                                  backgroundColor: statusStyle.bg,
-                                  color: statusStyle.color,
-                                  padding: "3px 8px",
-                                  borderRadius: "9999px",
-                                  fontWeight: "600",
-                                  display: "inline-block",
-                                }}
-                              >
-                                {request.status}
-                              </span>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-
-                <a
-                  href="/documents"
-                  style={{
-                    fontSize: "11px",
-                    color: "#2563eb",
-                    fontWeight: "500",
-                    marginTop: "12px",
-                    display: "inline-block",
-                    textDecoration: "none",
-                    borderBottom: "2px solid transparent",
-                    transition: "border-color 0.2s",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.borderBottomColor = "#2563eb")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.borderBottomColor = "transparent")
-                  }
-                >
-                  View All Requests →
-              </a>
-            </div>
-            </div>
             )}
 
             {/* Bottom Row - Recent Activities Container */}
             {!showKPIDetailedView && (
-            <div
-              style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid #e5e7eb",
-                borderRadius: "12px",
-                boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-                padding: "16px",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              {/* Header */}
               <div
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "16px",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "600",
-                    color: "#1f2937",
-                    margin: "0",
-                  }}
-                >
-                  Recent Activities
-                </h3>
-                <span
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "500",
-                    color: "#6b7280",
-                  }}
-                >
-                  Last 24 hours
-                </span>
-              </div>
-
-              {/* Timeline Activities List */}
-              <div
-                style={{
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "12px",
+                  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
+                  padding: "16px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "12px",
-                  maxHeight: "400px",
-                  overflowY: "auto",
                 }}
               >
-                {/* Activity 1 - Leave Approved */}
+                {/* Header */}
                 <div
                   style={{
                     display: "flex",
-                    gap: "12px",
-                    position: "relative",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "16px",
                   }}
                 >
-                  <div
+                  <h3
                     style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      backgroundColor: "#dcfce7",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
+                      fontSize: "16px",
+                      fontWeight: "600",
+                      color: "#1f2937",
+                      margin: "0",
                     }}
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#16a34a"
-                      strokeWidth="2"
+                    Recent Activities
+                  </h3>
+                  <span
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: "500",
+                      color: "#6b7280",
+                    }}
+                  >
+                    Last 24 hours
+                  </span>
+                </div>
+
+                {/* Timeline Activities List */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "12px",
+                    maxHeight: "400px",
+                    overflowY: "auto",
+                  }}
+                >
+                  {/* Activity 1 - Leave Approved */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        backgroundColor: "#dcfce7",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                      }}
                     >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#16a34a"
+                        strokeWidth="2"
+                      >
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p
+                        style={{
+                          fontSize: "13px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: "0 0 4px 0",
+                        }}
+                      >
+                        Leave Request Approved
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "12px",
+                          color: "#6b7280",
+                          margin: "0 0 4px 0",
+                        }}
+                      >
+                        Your leave request for Dec 15-16 has been approved by
+                        Sarah Johnson
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          color: "#9ca3af",
+                          margin: "0",
+                        }}
+                      >
+                        2 hours ago
+                      </p>
+                    </div>
                   </div>
-                  <div style={{ flex: 1 }}>
-                    <p
+
+                  {/* Activity 2 - Task Completed */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
                       style={{
-                        fontSize: "13px",
-                        fontWeight: "600",
-                        color: "#1f2937",
-                        margin: "0 0 4px 0",
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        backgroundColor: "#dbeafe",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
                       }}
                     >
-                      Leave Request Approved
-                    </p>
-                    <p
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#2563eb"
+                        strokeWidth="2"
+                      >
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                      </svg>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p
+                        style={{
+                          fontSize: "13px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: "0 0 4px 0",
+                        }}
+                      >
+                        Task Completed
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "12px",
+                          color: "#6b7280",
+                          margin: "0 0 4px 0",
+                        }}
+                      >
+                        Monthly sales report submitted and marked as complete
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          color: "#9ca3af",
+                          margin: "0",
+                        }}
+                      >
+                        5 hours ago
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Activity 3 - Document Uploaded */}
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "12px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
                       style={{
-                        fontSize: "12px",
-                        color: "#6b7280",
-                        margin: "0 0 4px 0",
+                        width: "32px",
+                        height: "32px",
+                        borderRadius: "50%",
+                        backgroundColor: "#fef3c7",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
                       }}
                     >
-                      Your leave request for Dec 15-16 has been approved by
-                      Sarah Johnson
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "11px",
-                        color: "#9ca3af",
-                        margin: "0",
-                      }}
-                    >
-                      2 hours ago
-                    </p>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#d97706"
+                        strokeWidth="2"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p
+                        style={{
+                          fontSize: "13px",
+                          fontWeight: "600",
+                          color: "#1f2937",
+                          margin: "0 0 4px 0",
+                        }}
+                      >
+                        Document Uploaded
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "12px",
+                          color: "#6b7280",
+                          margin: "0 0 4px 0",
+                        }}
+                      >
+                        Performance review document uploaded successfully
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "11px",
+                          color: "#9ca3af",
+                          margin: "0",
+                        }}
+                      >
+                        Yesterday, 4:30 PM
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Activity 2 - Task Completed */}
+                {/* Divider */}
                 <div
                   style={{
-                    display: "flex",
-                    gap: "12px",
-                    position: "relative",
+                    borderTop: "1px solid #e5e7eb",
+                    marginTop: "16px",
+                    marginBottom: "12px",
                   }}
-                >
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      backgroundColor: "#dbeafe",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#2563eb"
-                      strokeWidth="2"
-                    >
-                      <path d="M12 20h9"></path>
-                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                    </svg>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <p
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "600",
-                        color: "#1f2937",
-                        margin: "0 0 4px 0",
-                      }}
-                    >
-                      Task Completed
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6b7280",
-                        margin: "0 0 4px 0",
-                      }}
-                    >
-                      Monthly sales report submitted and marked as complete
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "11px",
-                        color: "#9ca3af",
-                        margin: "0",
-                      }}
-                    >
-                      5 hours ago
-                    </p>
-                  </div>
-                </div>
+                ></div>
 
-                {/* Activity 3 - Document Uploaded */}
-                <div
+                {/* View All Activities Link */}
+                <button
+                  onClick={() => setShowActivitiesSidesheet(true)}
                   style={{
-                    display: "flex",
-                    gap: "12px",
-                    position: "relative",
+                    fontSize: "13px",
+                    fontWeight: "500",
+                    color: "#2563eb",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    borderBottom: "2px solid transparent",
+                    transition: "border-color 0.2s",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: "0",
                   }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.borderBottomColor = "#2563eb")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.borderBottomColor = "transparent")
+                  }
                 >
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      backgroundColor: "#fef3c7",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#d97706"
-                      strokeWidth="2"
-                    >
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="17 8 12 3 7 8"></polyline>
-                      <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <p
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "600",
-                        color: "#1f2937",
-                        margin: "0 0 4px 0",
-                      }}
-                    >
-                      Document Uploaded
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6b7280",
-                        margin: "0 0 4px 0",
-                      }}
-                    >
-                      Performance review document uploaded successfully
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "11px",
-                        color: "#9ca3af",
-                        margin: "0",
-                      }}
-                    >
-                      Yesterday, 4:30 PM
-                    </p>
-                  </div>
-                </div>
+                  View All Activities →
+                </button>
               </div>
-
-              {/* Divider */}
-              <div
-                style={{
-                  borderTop: "1px solid #e5e7eb",
-                  marginTop: "16px",
-                  marginBottom: "12px",
-                }}
-              ></div>
-
-              {/* View All Activities Link */}
-              <button
-                onClick={() => setShowActivitiesSidesheet(true)}
-                style={{
-                  fontSize: "13px",
-                  fontWeight: "500",
-                  color: "#2563eb",
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  borderBottom: "2px solid transparent",
-                  transition: "border-color 0.2s",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "0",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.borderBottomColor = "#2563eb")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.borderBottomColor = "transparent")
-                }
-              >
-                View All Activities →
-            </button>
-          </div>
             )}
 
             {/* Forum Container */}
@@ -1928,7 +2081,12 @@ export default function EmployeeDashboard() {
                   >
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setShowReactionMenu((prev) => ({ ...prev, 1: !prev[1] }))}
+                        onClick={() =>
+                          setShowReactionMenu((prev) => ({
+                            ...prev,
+                            1: !prev[1],
+                          }))
+                        }
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -1942,8 +2100,13 @@ export default function EmployeeDashboard() {
                           borderRadius: "4px",
                           transition: "background-color 0.2s",
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.backgroundColor =
+                            "transparent")
+                        }
                       >
                         {topicReactions[1] || "👍"} React
                       </button>
@@ -1975,8 +2138,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             👍
                           </button>
@@ -1991,8 +2160,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             ❤️
                           </button>
@@ -2007,8 +2182,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             😢
                           </button>
@@ -2023,8 +2204,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             😠
                           </button>
@@ -2033,7 +2220,9 @@ export default function EmployeeDashboard() {
                     </div>
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setShowShareMenu((prev) => ({ ...prev, 1: !prev[1] }))}
+                        onClick={() =>
+                          setShowShareMenu((prev) => ({ ...prev, 1: !prev[1] }))
+                        }
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -2047,8 +2236,13 @@ export default function EmployeeDashboard() {
                           borderRadius: "4px",
                           transition: "background-color 0.2s",
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.backgroundColor =
+                            "transparent")
+                        }
                       >
                         🔗 Share
                       </button>
@@ -2081,8 +2275,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             LinkedIn
                           </button>
@@ -2099,8 +2299,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Facebook
                           </button>
@@ -2117,8 +2323,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Twitter
                           </button>
@@ -2135,8 +2347,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Email
                           </button>
@@ -2203,7 +2421,12 @@ export default function EmployeeDashboard() {
                   >
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setShowReactionMenu((prev) => ({ ...prev, 2: !prev[2] }))}
+                        onClick={() =>
+                          setShowReactionMenu((prev) => ({
+                            ...prev,
+                            2: !prev[2],
+                          }))
+                        }
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -2217,8 +2440,13 @@ export default function EmployeeDashboard() {
                           borderRadius: "4px",
                           transition: "background-color 0.2s",
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.backgroundColor =
+                            "transparent")
+                        }
                       >
                         {topicReactions[2] || "👍"} React
                       </button>
@@ -2250,8 +2478,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             👍
                           </button>
@@ -2266,8 +2500,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             ❤️
                           </button>
@@ -2282,8 +2522,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             😢
                           </button>
@@ -2298,8 +2544,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             😠
                           </button>
@@ -2308,7 +2560,9 @@ export default function EmployeeDashboard() {
                     </div>
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setShowShareMenu((prev) => ({ ...prev, 2: !prev[2] }))}
+                        onClick={() =>
+                          setShowShareMenu((prev) => ({ ...prev, 2: !prev[2] }))
+                        }
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -2322,8 +2576,13 @@ export default function EmployeeDashboard() {
                           borderRadius: "4px",
                           transition: "background-color 0.2s",
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.backgroundColor =
+                            "transparent")
+                        }
                       >
                         🔗 Share
                       </button>
@@ -2356,8 +2615,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             LinkedIn
                           </button>
@@ -2374,8 +2639,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Facebook
                           </button>
@@ -2392,8 +2663,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Twitter
                           </button>
@@ -2410,8 +2687,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Email
                           </button>
@@ -2478,7 +2761,12 @@ export default function EmployeeDashboard() {
                   >
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setShowReactionMenu((prev) => ({ ...prev, 3: !prev[3] }))}
+                        onClick={() =>
+                          setShowReactionMenu((prev) => ({
+                            ...prev,
+                            3: !prev[3],
+                          }))
+                        }
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -2492,8 +2780,13 @@ export default function EmployeeDashboard() {
                           borderRadius: "4px",
                           transition: "background-color 0.2s",
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.backgroundColor =
+                            "transparent")
+                        }
                       >
                         {topicReactions[3] || "👍"} React
                       </button>
@@ -2525,8 +2818,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             👍
                           </button>
@@ -2541,8 +2840,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             ❤️
                           </button>
@@ -2557,8 +2862,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             ��
                           </button>
@@ -2573,8 +2884,14 @@ export default function EmployeeDashboard() {
                               borderRadius: "4px",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             😠
                           </button>
@@ -2583,7 +2900,9 @@ export default function EmployeeDashboard() {
                     </div>
                     <div style={{ position: "relative" }}>
                       <button
-                        onClick={() => setShowShareMenu((prev) => ({ ...prev, 3: !prev[3] }))}
+                        onClick={() =>
+                          setShowShareMenu((prev) => ({ ...prev, 3: !prev[3] }))
+                        }
                         style={{
                           display: "flex",
                           alignItems: "center",
@@ -2597,8 +2916,13 @@ export default function EmployeeDashboard() {
                           borderRadius: "4px",
                           transition: "background-color 0.2s",
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.backgroundColor =
+                            "transparent")
+                        }
                       >
                         🔗 Share
                       </button>
@@ -2631,8 +2955,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             LinkedIn
                           </button>
@@ -2649,8 +2979,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Facebook
                           </button>
@@ -2667,8 +3003,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Twitter
                           </button>
@@ -2685,8 +3027,14 @@ export default function EmployeeDashboard() {
                               cursor: "pointer",
                               transition: "background-color 0.2s",
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f3f4f6")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "transparent")
+                            }
                           >
                             Email
                           </button>
@@ -2736,7 +3084,7 @@ export default function EmployeeDashboard() {
                 View All Forum Topics →
               </button>
             </div>
-        </div>
+          </div>
 
           {/* Right Section - 30% */}
           <div className="lg:col-span-4 space-y-4">
@@ -3602,7 +3950,8 @@ export default function EmployeeDashboard() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                borderBottom: announcementTab === "All" ? "2px solid #2563EB" : "none",
+                borderBottom:
+                  announcementTab === "All" ? "2px solid #2563EB" : "none",
               }}
             >
               All
@@ -3617,7 +3966,8 @@ export default function EmployeeDashboard() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                borderBottom: announcementTab === "News" ? "2px solid #2563EB" : "none",
+                borderBottom:
+                  announcementTab === "News" ? "2px solid #2563EB" : "none",
               }}
             >
               News
@@ -3632,7 +3982,10 @@ export default function EmployeeDashboard() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                borderBottom: announcementTab === "Activities" ? "2px solid #2563EB" : "none",
+                borderBottom:
+                  announcementTab === "Activities"
+                    ? "2px solid #2563EB"
+                    : "none",
               }}
             >
               Activities
@@ -3648,7 +4001,13 @@ export default function EmployeeDashboard() {
             }}
           >
             {/* Announcement 1 */}
-            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+            <div
+              style={{
+                marginBottom: "20px",
+                paddingBottom: "16px",
+                borderBottom: "1px solid #E5E7EB",
+              }}
+            >
               <div style={{ display: "flex", gap: "12px" }}>
                 <div
                   style={{
@@ -3659,7 +4018,13 @@ export default function EmployeeDashboard() {
                   }}
                 >
                   <div>Today</div>
-                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "#6B7280",
+                      fontWeight: 400,
+                    }}
+                  >
                     09:00
                   </div>
                 </div>
@@ -3682,14 +4047,22 @@ export default function EmployeeDashboard() {
                       lineHeight: "1.4",
                     }}
                   >
-                    Dear Phemex Traders, The day has finally come! Today, we have officially launched our Membership Spot Trading services...
+                    Dear Phemex Traders, The day has finally come! Today, we
+                    have officially launched our Membership Spot Trading
+                    services...
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Announcement 2 */}
-            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+            <div
+              style={{
+                marginBottom: "20px",
+                paddingBottom: "16px",
+                borderBottom: "1px solid #E5E7EB",
+              }}
+            >
               <div style={{ display: "flex", gap: "12px" }}>
                 <div
                   style={{
@@ -3700,7 +4073,13 @@ export default function EmployeeDashboard() {
                   }}
                 >
                   <div>Jan 20</div>
-                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "#6B7280",
+                      fontWeight: 400,
+                    }}
+                  >
                     2025
                   </div>
                 </div>
@@ -3723,14 +4102,21 @@ export default function EmployeeDashboard() {
                       lineHeight: "1.4",
                     }}
                   >
-                    The updated holiday schedule for 2025 has been posted. Please review and plan accordingly.
+                    The updated holiday schedule for 2025 has been posted.
+                    Please review and plan accordingly.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Announcement 3 */}
-            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+            <div
+              style={{
+                marginBottom: "20px",
+                paddingBottom: "16px",
+                borderBottom: "1px solid #E5E7EB",
+              }}
+            >
               <div style={{ display: "flex", gap: "12px" }}>
                 <div
                   style={{
@@ -3741,7 +4127,13 @@ export default function EmployeeDashboard() {
                   }}
                 >
                   <div>Jan 18</div>
-                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "#6B7280",
+                      fontWeight: 400,
+                    }}
+                  >
                     2025
                   </div>
                 </div>
@@ -3764,14 +4156,21 @@ export default function EmployeeDashboard() {
                       lineHeight: "1.4",
                     }}
                   >
-                    Join our new wellness program with fitness classes and mental health resources. Registration opens next week.
+                    Join our new wellness program with fitness classes and
+                    mental health resources. Registration opens next week.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Announcement 4 */}
-            <div style={{ marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #E5E7EB" }}>
+            <div
+              style={{
+                marginBottom: "20px",
+                paddingBottom: "16px",
+                borderBottom: "1px solid #E5E7EB",
+              }}
+            >
               <div style={{ display: "flex", gap: "12px" }}>
                 <div
                   style={{
@@ -3782,7 +4181,13 @@ export default function EmployeeDashboard() {
                   }}
                 >
                   <div>Jan 15</div>
-                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "#6B7280",
+                      fontWeight: 400,
+                    }}
+                  >
                     2025
                   </div>
                 </div>
@@ -3805,7 +4210,8 @@ export default function EmployeeDashboard() {
                       lineHeight: "1.4",
                     }}
                   >
-                    Our office has been successfully renovated with new workspaces and collaborative areas. Come visit!
+                    Our office has been successfully renovated with new
+                    workspaces and collaborative areas. Come visit!
                   </p>
                 </div>
               </div>
@@ -3823,7 +4229,13 @@ export default function EmployeeDashboard() {
                   }}
                 >
                   <div>Jan 10</div>
-                  <div style={{ fontSize: "11px", color: "#6B7280", fontWeight: 400 }}>
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "#6B7280",
+                      fontWeight: 400,
+                    }}
+                  >
                     2025
                   </div>
                 </div>
@@ -3846,7 +4258,8 @@ export default function EmployeeDashboard() {
                       lineHeight: "1.4",
                     }}
                   >
-                    Join us for our quarterly company-wide meeting on January 22 at 2:00 PM in the main conference room.
+                    Join us for our quarterly company-wide meeting on January 22
+                    at 2:00 PM in the main conference room.
                   </p>
                 </div>
               </div>
@@ -3931,7 +4344,9 @@ export default function EmployeeDashboard() {
               padding: "20px",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+            >
               {/* Activity 1 - Leave Approved */}
               <div
                 style={{
@@ -3980,7 +4395,8 @@ export default function EmployeeDashboard() {
                       margin: "0 0 4px 0",
                     }}
                   >
-                    Your leave request for Dec 15-16 has been approved by Sarah Johnson
+                    Your leave request for Dec 15-16 has been approved by Sarah
+                    Johnson
                   </p>
                   <p
                     style={{
@@ -4169,7 +4585,8 @@ export default function EmployeeDashboard() {
                       margin: "0 0 4px 0",
                     }}
                   >
-                    New company policy on flexible working hours has been announced
+                    New company policy on flexible working hours has been
+                    announced
                   </p>
                   <p
                     style={{
@@ -4388,7 +4805,9 @@ export default function EmployeeDashboard() {
               padding: "20px",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
               {/* Topic 1 */}
               <div
                 onClick={() => {
@@ -4444,7 +4863,12 @@ export default function EmployeeDashboard() {
                 >
                   <div style={{ position: "relative" }}>
                     <button
-                      onClick={() => setShowReactionMenu((prev) => ({ ...prev, 1: !prev[1] }))}
+                      onClick={() =>
+                        setShowReactionMenu((prev) => ({
+                          ...prev,
+                          1: !prev[1],
+                        }))
+                      }
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -4458,8 +4882,12 @@ export default function EmployeeDashboard() {
                         borderRadius: "4px",
                         transition: "background-color 0.2s",
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.backgroundColor = "transparent")
+                      }
                     >
                       {topicReactions[1] || "👍"} React
                     </button>
@@ -4480,16 +4908,101 @@ export default function EmployeeDashboard() {
                           gap: "8px",
                         }}
                       >
-                        <button onClick={() => handleReaction(1, "👍")} style={{ background: "none", border: "none", fontSize: "20px", cursor: "pointer", padding: "4px", borderRadius: "4px", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}>👍</button>
-                        <button onClick={() => handleReaction(1, "❤️")} style={{ background: "none", border: "none", fontSize: "20px", cursor: "pointer", padding: "4px", borderRadius: "4px", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}> ❤️</button>
-                        <button onClick={() => handleReaction(1, "😢")} style={{ background: "none", border: "none", fontSize: "20px", cursor: "pointer", padding: "4px", borderRadius: "4px", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}> 😢</button>
-                        <button onClick={() => handleReaction(1, "😠")} style={{ background: "none", border: "none", fontSize: "20px", cursor: "pointer", padding: "4px", borderRadius: "4px", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}> 😠</button>
+                        <button
+                          onClick={() => handleReaction(1, "👍")}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            fontSize: "20px",
+                            cursor: "pointer",
+                            padding: "4px",
+                            borderRadius: "4px",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          👍
+                        </button>
+                        <button
+                          onClick={() => handleReaction(1, "❤️")}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            fontSize: "20px",
+                            cursor: "pointer",
+                            padding: "4px",
+                            borderRadius: "4px",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          {" "}
+                          ❤️
+                        </button>
+                        <button
+                          onClick={() => handleReaction(1, "😢")}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            fontSize: "20px",
+                            cursor: "pointer",
+                            padding: "4px",
+                            borderRadius: "4px",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          {" "}
+                          😢
+                        </button>
+                        <button
+                          onClick={() => handleReaction(1, "😠")}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            fontSize: "20px",
+                            cursor: "pointer",
+                            padding: "4px",
+                            borderRadius: "4px",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          {" "}
+                          😠
+                        </button>
                       </div>
                     )}
                   </div>
                   <div style={{ position: "relative" }}>
                     <button
-                      onClick={() => setShowShareMenu((prev) => ({ ...prev, 1: !prev[1] }))}
+                      onClick={() =>
+                        setShowShareMenu((prev) => ({ ...prev, 1: !prev[1] }))
+                      }
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -4503,17 +5016,126 @@ export default function EmployeeDashboard() {
                         borderRadius: "4px",
                         transition: "background-color 0.2s",
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.backgroundColor = "transparent")
+                      }
                     >
                       🔗 Share
                     </button>
                     {showShareMenu[1] && (
-                      <div style={{ position: "absolute", top: "100%", left: 0, backgroundColor: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "8px", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)", padding: "8px 0", marginTop: "4px", zIndex: 1000, minWidth: "150px" }}>
-                        <button onClick={() => handleShare(1, "linkedin")} style={{ width: "100%", textAlign: "left", padding: "8px 12px", background: "none", border: "none", fontSize: "11px", color: "#374151", cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}>LinkedIn</button>
-                        <button onClick={() => handleShare(1, "facebook")} style={{ width: "100%", textAlign: "left", padding: "8px 12px", background: "none", border: "none", fontSize: "11px", color: "#374151", cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}> Facebook</button>
-                        <button onClick={() => handleShare(1, "twitter")} style={{ width: "100%", textAlign: "left", padding: "8px 12px", background: "none", border: "none", fontSize: "11px", color: "#374151", cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}> Twitter</button>
-                        <button onClick={() => handleShare(1, "email")} style={{ width: "100%", textAlign: "left", padding: "8px 12px", background: "none", border: "none", fontSize: "11px", color: "#374151", cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}> Email</button>
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          left: 0,
+                          backgroundColor: "#ffffff",
+                          border: "1px solid #e5e7eb",
+                          borderRadius: "8px",
+                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                          padding: "8px 0",
+                          marginTop: "4px",
+                          zIndex: 1000,
+                          minWidth: "150px",
+                        }}
+                      >
+                        <button
+                          onClick={() => handleShare(1, "linkedin")}
+                          style={{
+                            width: "100%",
+                            textAlign: "left",
+                            padding: "8px 12px",
+                            background: "none",
+                            border: "none",
+                            fontSize: "11px",
+                            color: "#374151",
+                            cursor: "pointer",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          LinkedIn
+                        </button>
+                        <button
+                          onClick={() => handleShare(1, "facebook")}
+                          style={{
+                            width: "100%",
+                            textAlign: "left",
+                            padding: "8px 12px",
+                            background: "none",
+                            border: "none",
+                            fontSize: "11px",
+                            color: "#374151",
+                            cursor: "pointer",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          {" "}
+                          Facebook
+                        </button>
+                        <button
+                          onClick={() => handleShare(1, "twitter")}
+                          style={{
+                            width: "100%",
+                            textAlign: "left",
+                            padding: "8px 12px",
+                            background: "none",
+                            border: "none",
+                            fontSize: "11px",
+                            color: "#374151",
+                            cursor: "pointer",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          {" "}
+                          Twitter
+                        </button>
+                        <button
+                          onClick={() => handleShare(1, "email")}
+                          style={{
+                            width: "100%",
+                            textAlign: "left",
+                            padding: "8px 12px",
+                            background: "none",
+                            border: "none",
+                            fontSize: "11px",
+                            color: "#374151",
+                            cursor: "pointer",
+                            transition: "background-color 0.2s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.backgroundColor =
+                              "transparent")
+                          }
+                        >
+                          {" "}
+                          Email
+                        </button>
                       </div>
                     )}
                   </div>
@@ -4589,8 +5211,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     👍 React
                   </button>
@@ -4609,8 +5235,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     🔗 Share
                   </button>
@@ -4686,8 +5316,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     👍 React
                   </button>
@@ -4706,8 +5340,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     🔗 Share
                   </button>
@@ -4783,8 +5421,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     👍 React
                   </button>
@@ -4803,8 +5445,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     🔗 Share
                   </button>
@@ -4880,8 +5526,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     👍 React
                   </button>
@@ -4900,8 +5550,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     🔗 Share
                   </button>
@@ -4977,8 +5631,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     👍 React
                   </button>
@@ -4997,8 +5655,12 @@ export default function EmployeeDashboard() {
                       borderRadius: "4px",
                       transition: "background-color 0.2s",
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f3f4f6"}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#f3f4f6")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     🔗 Share
                   </button>
@@ -5063,7 +5725,7 @@ export default function EmployeeDashboard() {
                   margin: "0 0 4px 0",
                 }}
               >
-                {forumTopics.find(t => t.id === selectedForumTopic)?.title}
+                {forumTopics.find((t) => t.id === selectedForumTopic)?.title}
               </h2>
               <p
                 style={{
@@ -5072,7 +5734,8 @@ export default function EmployeeDashboard() {
                   margin: "0",
                 }}
               >
-                Started by {forumTopics.find(t => t.id === selectedForumTopic)?.author}
+                Started by{" "}
+                {forumTopics.find((t) => t.id === selectedForumTopic)?.author}
               </p>
             </div>
             <button
@@ -5099,67 +5762,71 @@ export default function EmployeeDashboard() {
               padding: "20px",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {forumTopics.find(t => t.id === selectedForumTopic)?.messages.map((msg, idx) => (
-                <div key={idx} style={{ display: "flex", gap: "12px" }}>
-                  <div
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "50%",
-                      backgroundColor: "#2563eb",
-                      color: "#ffffff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {msg.avatar}
-                  </div>
-                  <div style={{ flex: 1 }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+            >
+              {forumTopics
+                .find((t) => t.id === selectedForumTopic)
+                ?.messages.map((msg, idx) => (
+                  <div key={idx} style={{ display: "flex", gap: "12px" }}>
                     <div
                       style={{
+                        width: "36px",
+                        height: "36px",
+                        borderRadius: "50%",
+                        backgroundColor: "#2563eb",
+                        color: "#ffffff",
                         display: "flex",
-                        justifyContent: "space-between",
                         alignItems: "center",
-                        marginBottom: "4px",
+                        justifyContent: "center",
+                        fontSize: "12px",
+                        fontWeight: "600",
+                        flexShrink: 0,
                       }}
                     >
+                      {msg.avatar}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          marginBottom: "4px",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontSize: "13px",
+                            fontWeight: "600",
+                            color: "#1f2937",
+                            margin: "0",
+                          }}
+                        >
+                          {msg.author}
+                        </p>
+                        <span
+                          style={{
+                            fontSize: "11px",
+                            color: "#9ca3af",
+                          }}
+                        >
+                          {msg.time}
+                        </span>
+                      </div>
                       <p
                         style={{
                           fontSize: "13px",
-                          fontWeight: "600",
-                          color: "#1f2937",
+                          color: "#6b7280",
                           margin: "0",
+                          lineHeight: "1.5",
                         }}
                       >
-                        {msg.author}
+                        {msg.content}
                       </p>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          color: "#9ca3af",
-                        }}
-                      >
-                        {msg.time}
-                      </span>
                     </div>
-                    <p
-                      style={{
-                        fontSize: "13px",
-                        color: "#6b7280",
-                        margin: "0",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      {msg.content}
-                    </p>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
 

@@ -594,7 +594,8 @@ export default function Settings() {
                 <div className="bg-blue-50 border border-blue-200 p-3 rounded-lg text-sm text-blue-800">
                   <p className="font-medium">Information</p>
                   <p className="text-xs mt-1">
-                    Database settings are view-only and managed by system administrators
+                    Database settings are view-only and managed by system
+                    administrators
                   </p>
                 </div>
                 <div className="flex justify-end pt-4">
