@@ -11,17 +11,11 @@ import {
   MessageCircle,
   MoreVertical,
   Clock,
+  ChevronDown,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface TeamMember {
   id: number;
