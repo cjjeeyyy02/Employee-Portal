@@ -123,9 +123,9 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
             {/* Manager Section */}
             {!collapsed && (
               <>
-                <li className="border-t border-gray-100 my-1.5" />
-                <li className="px-2 py-1.5">
-                  <span className="font-semibold text-xs text-slate-600">Manager Function</span>
+                <li className="border-t border-gray-200 my-3" />
+                <li className="px-3 py-3">
+                  <span className="font-bold text-sm text-slate-700">Manager Function</span>
                 </li>
 
                 {managerNavigationItems.map((item) => {
