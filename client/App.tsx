@@ -41,7 +41,7 @@ export default function App() {
             <Route path="/performance" element={<Placeholder title="Performance" />} />
             <Route path="/requests" element={<Placeholder title="Requests & Documents" />} />
             <Route path="/communications" element={<Placeholder title="Communications" />} />
-            <Route path="/team-management" element={<Placeholder title="Team Management" />} />
+            <Route path="/team-management" element={<TeamManagement />} />
             <Route path="/team-attendance" element={<Placeholder title="Team Attendance" />} />
             <Route path="/team-task-management" element={<Placeholder title="Team Task Management" />} />
             <Route path="/performance-reviews" element={<Placeholder title="Performance Reviews" />} />
