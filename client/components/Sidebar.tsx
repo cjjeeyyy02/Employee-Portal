@@ -9,6 +9,13 @@ import {
   X,
   MessageCircle,
   Settings,
+  Users,
+  UserCheck,
+  ClipboardList,
+  BarChart3,
+  CheckCircle,
+  PieChart,
+  ChevronDown,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -25,6 +32,15 @@ const employeeNavigationItems = [
   { icon: MessageCircle, label: "AI Assistant", path: "/ai-chat" },
 ];
 
+const managerNavigationItems = [
+  { icon: Users, label: "Team Management", path: "/team-management" },
+  { icon: UserCheck, label: "Team Attendance", path: "/team-attendance" },
+  { icon: ClipboardList, label: "Team Task Management", path: "/team-task-management" },
+  { icon: BarChart3, label: "Performance Reviews", path: "/performance-reviews" },
+  { icon: CheckCircle, label: "Request Approvals", path: "/request-approvals" },
+  { icon: PieChart, label: "Reports & Analytics", path: "/reports-analytics" },
+];
+
 interface SidebarProps {
   collapsed?: boolean;
 }
@@ -32,6 +48,7 @@ interface SidebarProps {
 export default function Sidebar({ collapsed = false }: SidebarProps) {
   const location = useLocation();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isManagerExpanded, setIsManagerExpanded] = useState(true);
 
   const isActive = (path: string) => location.pathname === path;
 
