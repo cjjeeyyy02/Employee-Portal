@@ -89,8 +89,8 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-1.5 py-2 overflow-y-auto">
-          <ul className="space-y-0.5">
+        <nav className="flex-1 px-3 py-4 overflow-y-auto">
+          <ul className="space-y-1">
             {employeeNavigationItems.map((item) => {
               const Icon = item.icon;
               const active = isActive(item.path);
