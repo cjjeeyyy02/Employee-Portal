@@ -124,50 +124,36 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
             {!collapsed && (
               <>
                 <li className="border-t border-gray-100 my-1.5" />
-                <li>
-                  <button
-                    onClick={() => setIsManagerExpanded(!isManagerExpanded)}
-                    className="w-full flex items-center gap-2 px-2 py-1.5 rounded transition-all duration-300 font-medium text-xs text-slate-700 hover:bg-gray-50"
-                  >
-                    <span className="font-semibold">Manager Function</span>
-                    <ChevronDown
-                      className={`w-3 h-3 ml-auto flex-shrink-0 transition-transform duration-300 ${
-                        isManagerExpanded ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
+                <li className="px-2 py-1.5">
+                  <span className="font-semibold text-xs text-slate-600">Manager Function</span>
                 </li>
 
-                {isManagerExpanded && (
-                  <>
-                    {managerNavigationItems.map((item) => {
-                      const Icon = item.icon;
-                      const active = isActive(item.path);
+                {managerNavigationItems.map((item) => {
+                  const Icon = item.icon;
+                  const active = isActive(item.path);
 
-                      return (
-                        <li key={item.path} title={item.label} className="pl-2">
-                          <Link
-                            to={item.path}
-                            className={`flex items-center gap-2 px-2 py-1.5 rounded transition-all duration-300 font-medium text-xs ${
-                              active
-                                ? "bg-blue-50 text-blue-600 border-l-3 border-blue-600"
-                                : "text-slate-700 hover:bg-gray-50"
-                            }`}
-                          >
-                            <Icon
-                              className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                                active ? "text-blue-600" : "text-slate-500"
-                              }`}
-                            />
-                            <span className="lg:inline">
-                              {item.label}
-                            </span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </>
-                )}
+                  return (
+                    <li key={item.path} title={item.label} className="pl-2">
+                      <Link
+                        to={item.path}
+                        className={`flex items-center gap-2 px-2 py-1.5 rounded transition-all duration-300 font-medium text-xs ${
+                          active
+                            ? "bg-blue-50 text-blue-600 border-l-3 border-blue-600"
+                            : "text-slate-700 hover:bg-gray-50"
+                        }`}
+                      >
+                        <Icon
+                          className={`w-4 h-4 flex-shrink-0 transition-colors ${
+                            active ? "text-blue-600" : "text-slate-500"
+                          }`}
+                        />
+                        <span className="lg:inline">
+                          {item.label}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </>
             )}
           </ul>
