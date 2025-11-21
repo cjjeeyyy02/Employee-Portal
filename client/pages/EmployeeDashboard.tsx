@@ -543,13 +543,13 @@ export default function EmployeeDashboard() {
                       e.currentTarget.style.transform = "scale(1.02)";
                       e.currentTarget.style.boxShadow =
                         "0 4px 12px rgba(0, 0, 0, 0.1)";
-                      e.currentTarget.style.borderColor = "#d1d5db";
+                      e.currentTarget.style.borderColor = borderColors[index];
                     } : undefined}
                     onMouseLeave={metric.route || metric.action ? (e) => {
                       e.currentTarget.style.transform = "scale(1)";
                       e.currentTarget.style.boxShadow =
                         "0 1px 3px rgba(0, 0, 0, 0.05)";
-                      e.currentTarget.style.borderColor = "#e5e7eb";
+                      e.currentTarget.style.borderColor = borderColors[index];
                     } : undefined}
                   >
                     {/* Left Content */}
