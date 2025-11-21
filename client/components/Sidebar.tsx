@@ -47,7 +47,6 @@ interface SidebarProps {
 export default function Sidebar({ collapsed = false }: SidebarProps) {
   const location = useLocation();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isManagerExpanded, setIsManagerExpanded] = useState(true);
 
   const isActive = (path: string) => location.pathname === path;
 
