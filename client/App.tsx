@@ -14,6 +14,7 @@ import DocumentRequests from "./pages/DocumentRequests";
 import Calendar from "./pages/Calendar";
 import AIChat from "./pages/AIChat";
 import Settings from "./pages/Settings";
+import TeamManagement from "./pages/TeamManagement";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
