@@ -99,11 +99,11 @@ export default function Sidebar({ collapsed = false }: SidebarProps) {
                 <li key={item.path} title={collapsed ? item.label : ""}>
                   <Link
                     to={item.path}
-                    className={`flex items-center gap-2 px-2 py-1.5 rounded transition-all duration-300 font-medium text-xs ${
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded transition-all duration-300 font-medium text-sm ${
                       active
                         ? "bg-blue-50 text-blue-600 border-l-3 border-blue-600"
                         : "text-slate-700 hover:bg-gray-50"
-                    } ${collapsed ? "lg:justify-center lg:px-1" : ""}`}
+                    } ${collapsed ? "lg:justify-center lg:px-2" : ""}`}
                   >
                     <Icon
                       className={`w-4 h-4 flex-shrink-0 transition-colors ${
