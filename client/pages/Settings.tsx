@@ -27,7 +27,7 @@ type ModalType =
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState<"settings" | "configuration">(
-    "settings",
+    "configuration",
   );
   const [notification, setNotification] = useState<string | null>(null);
   const [activeModal, setActiveModal] = useState<ModalType>(null);
