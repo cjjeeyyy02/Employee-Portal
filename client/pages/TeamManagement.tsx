@@ -141,29 +141,24 @@ export default function TeamManagement() {
                 />
               </div>
 
-              <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
-                <SelectTrigger className="w-40">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Departments</SelectItem>
-                  <SelectItem value="engineering">Engineering</SelectItem>
-                  <SelectItem value="design">Design</SelectItem>
-                  <SelectItem value="product">Product</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="relative">
+                <button className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                  {selectedDepartment === "all"
+                    ? "All Departments"
+                    : selectedDepartment.charAt(0).toUpperCase() +
+                      selectedDepartment.slice(1)}
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </div>
 
-              <Select value={selectedStatus} onValueChange={setSelectedStatus}>
-                <SelectTrigger className="w-40">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="inactive">Inactive</SelectItem>
-                  <SelectItem value="leave">On Leave</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="relative">
+                <button className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                  {selectedStatus === "all"
+                    ? "All Status"
+                    : selectedStatus.charAt(0).toUpperCase() + selectedStatus.slice(1)}
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </div>
 
               <Button variant="outline" size="sm">
                 More Filters
