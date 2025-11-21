@@ -505,6 +505,13 @@ export default function EmployeeDashboard() {
                   "#fff7ed",
                 ];
                 const iconColors = ["#2563eb", "#16a34a", "#7c3aed", "#f97316"];
+                const gradients = [
+                  "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)",
+                  "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
+                  "linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)",
+                  "linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%)",
+                ];
+                const borderColors = ["#bfdbfe", "#a7f3d0", "#c4b5fd", "#fdba74"];
                 const isPositive =
                   metric.subtext && metric.subtext.includes("+");
 
@@ -519,8 +526,8 @@ export default function EmployeeDashboard() {
                         : undefined
                     }
                     style={{
-                      backgroundColor: "#ffffff",
-                      border: "1px solid #e5e7eb",
+                      background: gradients[index],
+                      border: `1px solid ${borderColors[index]}`,
                       borderRadius: "16px",
                       boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
                       padding: "12px",
