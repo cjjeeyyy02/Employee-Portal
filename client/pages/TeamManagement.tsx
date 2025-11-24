@@ -198,35 +198,38 @@ export default function TeamManagement() {
           </div>
 
           {/* View Toggle */}
-          <div className="flex gap-2 mb-4">
-            <Button
-              variant={viewMode === "grid" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("grid")}
-              className="gap-2 h-8 text-xs px-2"
-            >
-              <Grid3x3 className="w-3 h-3" />
-              Grid View
-            </Button>
-            <Button
-              variant={viewMode === "list" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("list")}
-              className="gap-2 h-8 text-xs px-2"
-            >
-              <List className="w-3 h-3" />
-              List View
-            </Button>
-          </div>
-
           {/* Team Members Section */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-            <h2 className="text-lg font-bold text-gray-900 mb-1">
-              Team Members
-            </h2>
-            <p className="text-xs text-gray-500 mb-4">
-              Detailed list view of your team
-            </p>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Team Members
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Detailed list view of your team
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant={viewMode === "grid" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setViewMode("grid")}
+                  className="gap-2 h-8 text-xs px-2"
+                >
+                  <Grid3x3 className="w-3 h-3" />
+                  Grid View
+                </Button>
+                <Button
+                  variant={viewMode === "list" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setViewMode("list")}
+                  className="gap-2 h-8 text-xs px-2"
+                >
+                  <List className="w-3 h-3" />
+                  List View
+                </Button>
+              </div>
+            </div>
 
             {viewMode === "list" && (
               <div className="space-y-3">
