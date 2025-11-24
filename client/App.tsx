@@ -47,7 +47,7 @@ export default function App() {
             <Route path="/team-management" element={<TeamManagement />} />
             <Route path="/team-attendance" element={<TeamAttendance />} />
             <Route path="/team-task-management" element={<TeamTaskManagement />} />
-            <Route path="/performance-reviews" element={<Placeholder title="Performance Reviews" />} />
+            <Route path="/performance-reviews" element={<PerformanceReviews />} />
             <Route path="/request-approvals" element={<Placeholder title="Request Approvals" />} />
             <Route path="/reports-analytics" element={<Placeholder title="Reports & Analytics" />} />
 
