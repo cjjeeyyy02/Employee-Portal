@@ -220,11 +220,11 @@ export default function TeamManagement() {
           </div>
 
           {/* Team Members Section */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-1">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+            <h2 className="text-lg font-bold text-gray-900 mb-1">
               Team Members
             </h2>
-            <p className="text-sm text-gray-500 mb-6">
+            <p className="text-xs text-gray-500 mb-4">
               Detailed list view of your team
             </p>
 
