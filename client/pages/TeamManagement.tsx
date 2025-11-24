@@ -198,23 +198,23 @@ export default function TeamManagement() {
           </div>
 
           {/* View Toggle */}
-          <div className="flex gap-2 mb-6">
+          <div className="flex gap-2 mb-4">
             <Button
               variant={viewMode === "grid" ? "default" : "outline"}
               size="sm"
               onClick={() => setViewMode("grid")}
-              className="gap-2"
+              className="gap-2 h-8 text-xs px-2"
             >
-              <Grid3x3 className="w-4 h-4" />
+              <Grid3x3 className="w-3 h-3" />
               Grid View
             </Button>
             <Button
               variant={viewMode === "list" ? "default" : "outline"}
               size="sm"
               onClick={() => setViewMode("list")}
-              className="gap-2"
+              className="gap-2 h-8 text-xs px-2"
             >
-              <List className="w-4 h-4" />
+              <List className="w-3 h-3" />
               List View
             </Button>
           </div>
