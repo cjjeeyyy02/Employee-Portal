@@ -314,64 +314,64 @@ export default function TeamManagement() {
             )}
 
             {viewMode === "grid" && (
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-3 gap-4">
                 {teamMembers.map((member) => (
                   <div
                     key={member.id}
-                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                    className="border border-gray-200 rounded-md p-3 hover:shadow-md transition-shadow"
                   >
-                    <div className="flex flex-col items-center text-center mb-4">
+                    <div className="flex flex-col items-center text-center mb-3">
                       <img
                         src={member.avatar}
                         alt={member.name}
-                        className="w-16 h-16 rounded-full object-cover mb-3"
+                        className="w-12 h-12 rounded-full object-cover mb-2"
                       />
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-sm text-gray-900">
                         {member.name}
                       </h3>
-                      <p className="text-sm text-gray-600">{member.role}</p>
-                      <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium mt-2">
+                      <p className="text-xs text-gray-600">{member.role}</p>
+                      <span className="inline-block px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-medium mt-1">
                         {member.status}
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 mb-4 py-4 border-t border-b border-gray-200">
+                    <div className="grid grid-cols-3 gap-2 mb-3 py-2 border-t border-b border-gray-200">
                       <div className="text-center">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-xs font-semibold text-gray-900">
                           {member.performance}
                         </p>
                         <p className="text-xs text-gray-600">Performance</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-xs font-semibold text-gray-900">
                           {member.completed}
                         </p>
                         <p className="text-xs text-gray-600">Completed</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-xs font-semibold text-gray-900">
                           {member.active}
                         </p>
                         <p className="text-xs text-gray-600">Active</p>
                       </div>
                     </div>
 
-                    <div className="flex gap-2">
+                    <div className="flex gap-1">
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="flex-1 gap-2"
+                        className="flex-1 gap-1 h-7 text-xs"
                       >
-                        <Mail className="w-4 h-4" />
+                        <Mail className="w-3 h-3" />
                       </Button>
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="flex-1 gap-2"
+                        className="flex-1 gap-1 h-7 text-xs"
                       >
-                        <MessageCircle className="w-4 h-4" />
+                        <MessageCircle className="w-3 h-3" />
                       </Button>
-                      <Button className="flex-1 gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                      <Button className="flex-1 gap-1 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium">
                         Profile
                       </Button>
                     </div>
