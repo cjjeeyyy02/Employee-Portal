@@ -49,7 +49,7 @@ export default function App() {
             <Route path="/team-attendance" element={<TeamAttendance />} />
             <Route path="/team-task-management" element={<TeamTaskManagement />} />
             <Route path="/performance-reviews" element={<PerformanceReviews />} />
-            <Route path="/request-approvals" element={<Placeholder title="Request Approvals" />} />
+            <Route path="/request-approvals" element={<RequestApprovals />} />
             <Route path="/reports-analytics" element={<Placeholder title="Reports & Analytics" />} />
 
             {/* Employee View Routes */}
