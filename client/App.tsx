@@ -16,6 +16,7 @@ import AIChat from "./pages/AIChat";
 import Settings from "./pages/Settings";
 import TeamManagement from "./pages/TeamManagement";
 import TeamAttendance from "./pages/TeamAttendance";
+import TeamTaskManagement from "./pages/TeamTaskManagement";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
