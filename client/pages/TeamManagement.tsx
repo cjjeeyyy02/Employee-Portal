@@ -168,8 +168,8 @@ export default function TeamManagement() {
         </div>
 
         {/* Metric Cards */}
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="grid grid-cols-4 gap-4 mb-8">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="grid grid-cols-4 gap-3 mb-5">
             <MetricCard
               icon={Users}
               title="Total Team Members"
