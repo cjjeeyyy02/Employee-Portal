@@ -229,27 +229,27 @@ export default function TeamManagement() {
             </p>
 
             {viewMode === "list" && (
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {teamMembers.map((member) => (
                   <div
                     key={member.id}
-                    className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg border border-gray-100 transition-colors"
+                    className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-md border border-gray-100 transition-colors"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       <img
                         src={member.avatar}
                         alt={member.name}
-                        className="w-12 h-12 rounded-full object-cover"
+                        className="w-10 h-10 rounded-full object-cover"
                       />
                       <div>
-                        <h3 className="font-semibold text-gray-900">
+                        <h3 className="font-semibold text-sm text-gray-900">
                           {member.name}
                         </h3>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-xs text-gray-600">
                           {member.role} · {member.department}
                         </p>
-                        <div className="flex gap-2 mt-2">
-                          <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                        <div className="flex gap-2 mt-1">
+                          <span className="inline-block px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-medium">
                             {member.status}
                           </span>
                           <span className="text-xs text-gray-500">
@@ -259,32 +259,32 @@ export default function TeamManagement() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-8 mr-6">
+                    <div className="flex items-center gap-6 mr-4">
                       <div className="text-center">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-xs font-semibold text-gray-900">
                           {member.performance}
                         </p>
                         <p className="text-xs text-gray-600">Performance</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-xs font-semibold text-gray-900">
                           {member.completed}
                         </p>
                         <p className="text-xs text-gray-600">Completed</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-xs font-semibold text-gray-900">
                           {member.active}
                         </p>
                         <p className="text-xs text-gray-600">Active</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1">
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-9 w-9"
+                        className="h-8 w-8"
                         title="Send Email"
                       >
                         <Mail className="w-4 h-4 text-gray-600" />
@@ -292,18 +292,18 @@ export default function TeamManagement() {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-9 w-9"
+                        className="h-8 w-8"
                         title="Send Message"
                       >
                         <MessageCircle className="w-4 h-4 text-gray-600" />
                       </Button>
-                      <Button className="px-4 h-9 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium">
+                      <Button className="px-3 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium">
                         View Profile
                       </Button>
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-9 w-9"
+                        className="h-8 w-8"
                       >
                         <MoreVertical className="w-4 h-4 text-gray-600" />
                       </Button>
