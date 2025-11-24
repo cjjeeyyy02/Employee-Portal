@@ -107,22 +107,22 @@ export default function TeamManagement() {
       <div className="bg-gray-50 min-h-screen">
         {/* Header Section */}
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 py-6">
-            <div className="flex items-start justify-between mb-6">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex items-start justify-between mb-4">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 mb-1">
+                <h1 className="text-2xl font-bold text-gray-900 mb-1">
                   Team Member Management
                 </h1>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs text-gray-600">
                   View and manage your team members
                 </p>
               </div>
-              <div className="flex gap-3">
-                <Button variant="ghost" className="gap-2">
+              <div className="flex gap-2">
+                <Button variant="ghost" className="gap-2 h-8 text-sm px-3">
                   <Download className="w-4 h-4" />
                   Export Team Data
                 </Button>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700">
+                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3">
                   <Users className="w-4 h-4" />
                   Team Report
                 </Button>
