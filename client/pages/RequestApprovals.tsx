@@ -550,13 +550,74 @@ export default function RequestApprovals() {
 
           {/* Escalation Management Tab */}
           {activeTab === "escalation-management" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Escalation Management
-              </h2>
-              <p className="text-xs text-gray-600">
-                Track and manage escalated requests
-              </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Escalation Management
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Handle requests that require higher-level approval
+                </p>
+              </div>
+
+              {escalatedRequests.map((escalation) => (
+                <div
+                  key={escalation.id}
+                  className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex-1">
+                      <div className="mb-2">
+                        <h3 className="font-semibold text-sm text-gray-900">
+                          {escalation.requesterName}
+                        </h3>
+                        <p className="text-xs text-gray-600">
+                          {escalation.type}
+                        </p>
+                      </div>
+
+                      <span
+                        className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(escalation.status)}`}
+                      >
+                        {getStatusLabel(escalation.status)}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mb-3 p-3 bg-gray-50 rounded-lg space-y-2">
+                    <div>
+                      <p className="text-xs text-gray-600 mb-1">
+                        From: {escalation.requesterName}
+                      </p>
+                      <p className="text-xs text-gray-600">
+                        {escalation.description}
+                      </p>
+                    </div>
+
+                    <div className="border-t border-gray-200 pt-2">
+                      <p className="text-xs text-gray-600 font-medium mb-1">
+                        Escalation Reason:
+                      </p>
+                      <p className="text-xs text-gray-600">
+                        {escalation.escalationReason}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-500 mb-4">
+                    Requested: {escalation.requestedDate}
+                  </p>
+
+                  <div className="flex gap-2">
+                    <Button className="flex-1 h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white">
+                      Contact Senior Manager
+                    </Button>
+                    <Button variant="outline" className="flex-1 h-8 text-xs px-3">
+                      View Details
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
