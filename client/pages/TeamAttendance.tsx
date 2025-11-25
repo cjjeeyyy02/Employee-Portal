@@ -216,20 +216,20 @@ export default function TeamAttendance() {
           <div className="max-w-7xl mx-auto px-5 py-3">
             <div className="flex items-start justify-between mb-3">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                <h1 className="text-lg font-semibold text-gray-900 mb-0">
                   Attendance & Leave Management
                 </h1>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-gray-600 mt-0.5">
                   Approve leave requests and monitor team attendance
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button variant="ghost" className="gap-2 h-8 text-sm px-3">
-                  <Download className="w-4 h-4" />
+                <Button variant="ghost" className="gap-2 h-7 text-xs px-2">
+                  <Download className="w-3 h-3" />
                   Export Reports
                 </Button>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3">
-                  <Calendar className="w-4 h-4" />
+                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2">
+                  <Calendar className="w-3 h-3" />
                   Team Calendar
                 </Button>
               </div>
