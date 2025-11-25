@@ -229,8 +229,8 @@ export default function RequestApprovals() {
       <div className="bg-white min-h-screen">
         {/* Header Section */}
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <div className="flex items-start justify-between mb-4">
+          <div className="max-w-7xl mx-auto px-5 py-3">
+            <div className="flex items-start justify-between mb-3">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900 mb-1">
                   Request Management
