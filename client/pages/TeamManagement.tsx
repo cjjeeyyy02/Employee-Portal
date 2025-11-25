@@ -110,20 +110,20 @@ export default function TeamManagement() {
           <div className="max-w-7xl mx-auto px-5 py-3">
             <div className="flex items-start justify-between mb-3">
               <div>
-                <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+                <h1 className="text-lg font-semibold text-gray-900 mb-0">
                   Team Member Management
                 </h1>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs text-gray-600 mt-0.5">
                   View and manage your team members
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button variant="ghost" className="gap-2 h-8 text-sm px-3">
-                  <Download className="w-4 h-4" />
+                <Button variant="ghost" className="gap-2 h-7 text-xs px-2">
+                  <Download className="w-3 h-3" />
                   Export Team Data
                 </Button>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3">
-                  <Users className="w-4 h-4" />
+                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2">
+                  <Users className="w-3 h-3" />
                   Team Report
                 </Button>
               </div>
@@ -142,7 +142,7 @@ export default function TeamManagement() {
               </div>
 
               <div className="relative">
-                <button className="flex items-center gap-2 px-2 py-1 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-8">
+                <button className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7">
                   {selectedDepartment === "all"
                     ? "All Departments"
                     : selectedDepartment.charAt(0).toUpperCase() +
@@ -152,7 +152,7 @@ export default function TeamManagement() {
               </div>
 
               <div className="relative">
-                <button className="flex items-center gap-2 px-2 py-1 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-8">
+                <button className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7">
                   {selectedStatus === "all"
                     ? "All Status"
                     : selectedStatus.charAt(0).toUpperCase() + selectedStatus.slice(1)}
@@ -160,7 +160,7 @@ export default function TeamManagement() {
                 </button>
               </div>
 
-              <Button variant="outline" size="sm" className="h-8 text-xs px-2">
+              <Button variant="outline" size="sm" className="h-7 text-xs px-2">
                 More Filters
               </Button>
             </div>
@@ -202,10 +202,10 @@ export default function TeamManagement() {
           <div className="bg-white rounded-md border border-gray-200 p-3">
             <div className="flex items-center justify-between mb-2">
               <div>
-                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                <h2 className="text-sm font-medium text-gray-900 mb-1">
                   Team Members
                 </h2>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-600">
                   Detailed list view of your team
                 </p>
               </div>
