@@ -23,26 +23,26 @@ export const layoutStyles = {
 };
 
 // ============================================================================
-// TYPOGRAPHY STYLES
+// TYPOGRAPHY STYLES (COMPACT)
 // ============================================================================
 
 export const typographyStyles = {
-  // Page title - 20-22px, semibold
-  pageTitle: "text-xl md:text-2xl font-semibold text-gray-900",
-  pageSubtitle: "text-sm text-gray-600 mt-2",
-  
-  // Section title - 16-18px, medium
-  sectionTitle: "text-lg md:text-xl font-medium text-gray-900 mb-2",
-  sectionSubtitle: "text-xs md:text-sm text-gray-600",
-  
+  // Page title - 20-22px, semibold (COMPACT spacing)
+  pageTitle: "text-xl md:text-2xl font-semibold text-gray-900 mb-0",
+  pageSubtitle: "text-sm text-gray-600 mt-1",
+
+  // Section title - 16-18px, medium (COMPACT spacing)
+  sectionTitle: "text-lg font-medium text-gray-900 mb-1",
+  sectionSubtitle: "text-xs text-gray-600",
+
   // Body text - 14-15px, regular
   bodyText: "text-sm text-gray-700",
-  bodySmall: "text-xs md:text-sm text-gray-600",
-  labelText: "text-xs md:text-sm font-medium text-gray-900",
-  
+  bodySmall: "text-xs text-gray-600",
+  labelText: "text-xs font-medium text-gray-900",
+
   // Card titles
   cardTitle: "font-semibold text-sm text-gray-900",
-  cardText: "text-xs md:text-sm text-gray-600",
+  cardText: "text-xs text-gray-600",
 };
 
 // ============================================================================
