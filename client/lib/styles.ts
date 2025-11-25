@@ -163,19 +163,19 @@ export const iconStyles = {
 };
 
 // ============================================================================
-// GRID & FLEX LAYOUTS
+// GRID & FLEX LAYOUTS (COMPACT)
 // ============================================================================
 
 export const gridStyles = {
-  // 4-column metric grid
-  metricGrid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4",
-  
-  // 2-column grid (cards, items)
-  twoColGrid: "grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5",
-  
-  // 3-column grid
-  threeColGrid: "grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5",
-  
+  // 4-column metric grid (COMPACT gaps)
+  metricGrid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-3",
+
+  // 2-column grid (cards, items) (COMPACT gaps)
+  twoColGrid: "grid grid-cols-1 md:grid-cols-2 gap-3",
+
+  // 3-column grid (COMPACT gaps)
+  threeColGrid: "grid grid-cols-1 md:grid-cols-3 gap-3",
+
   // Flex row with gap
   flexRow: "flex items-center gap-2",
   flexRowSpaced: "flex items-center justify-between",
