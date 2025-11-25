@@ -126,6 +126,79 @@ const leaveBalances: LeaveBalance[] = [
   },
 ];
 
+interface AttendanceReport {
+  id: string;
+  name: string;
+  department: string;
+  attendanceRate: number;
+  hoursThisWeek: number;
+  avgClockIn: string;
+  lateCount: number;
+  status: "excellent" | "good" | "warning" | "critical";
+}
+
+const attendanceReports: AttendanceReport[] = [
+  {
+    id: "1",
+    name: "Mike Chen",
+    department: "Engineering",
+    attendanceRate: 96.8,
+    hoursThisWeek: 40,
+    avgClockIn: "09:05",
+    lateCount: 2,
+    status: "good",
+  },
+  {
+    id: "2",
+    name: "Lisa Park",
+    department: "Design",
+    attendanceRate: 94.2,
+    hoursThisWeek: 38,
+    avgClockIn: "09:15",
+    lateCount: 5,
+    status: "warning",
+  },
+  {
+    id: "3",
+    name: "Alex Kim",
+    department: "Engineering",
+    attendanceRate: 98.5,
+    hoursThisWeek: 42,
+    avgClockIn: "08:55",
+    lateCount: 0,
+    status: "excellent",
+  },
+  {
+    id: "4",
+    name: "Emma Wilson",
+    department: "Engineering",
+    attendanceRate: 97.3,
+    hoursThisWeek: 39,
+    avgClockIn: "09:00",
+    lateCount: 1,
+    status: "good",
+  },
+];
+
+const getStatusBadgeColor = (status: string) => {
+  switch (status) {
+    case "excellent":
+      return "bg-green-100 text-green-800";
+    case "good":
+      return "bg-blue-100 text-blue-800";
+    case "warning":
+      return "bg-yellow-100 text-yellow-800";
+    case "critical":
+      return "bg-red-100 text-red-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
+
+const getStatusLabel = (status: string) => {
+  return status.charAt(0).toUpperCase() + status.slice(1);
+};
+
 export default function TeamAttendance() {
   const [activeTab, setActiveTab] = useState("leave-requests");
 
