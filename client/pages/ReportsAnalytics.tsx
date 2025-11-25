@@ -617,13 +617,119 @@ export default function ReportsAnalytics() {
 
           {/* Forecasting Tab */}
           {activeTab === "forecasting" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 pb-8">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Forecasting
-              </h2>
-              <p className="text-xs text-gray-600">
-                AI-powered forecasting and predictions
-              </p>
+            <div className="space-y-6 pb-8">
+              {/* Predictive Analytics */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Predictive Analytics
+                </h2>
+                <p className="text-xs text-gray-500 mb-4">
+                  AI-powered predictions for team management
+                </p>
+
+                <div className="space-y-3">
+                  {predictions.map((pred) => (
+                    <div
+                      key={pred.id}
+                      className="p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-blue-200 transition-colors"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h3 className="font-semibold text-sm text-gray-900">
+                            {pred.title}
+                          </h3>
+                          <p className="text-xs text-gray-600 mt-1">
+                            {pred.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 mb-3">
+                        <span
+                          className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getProbabilityColor(pred.probability)}`}
+                        >
+                          {pred.probability.charAt(0).toUpperCase() + pred.probability.slice(1)} Probability
+                        </span>
+                        <span
+                          className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getImpactColor(pred.impact)}`}
+                        >
+                          {pred.impact.charAt(0).toUpperCase() + pred.impact.slice(1)} Impact
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <p className="text-xs text-gray-600">
+                          {pred.expected}
+                        </p>
+                        <button className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded">
+                          Take Action
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Capacity Forecast */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Capacity Forecast
+                </h2>
+                <p className="text-xs text-gray-500 mb-4">
+                  Projected team availability next 30 days
+                </p>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {capacityForecast.map((forecast, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 bg-gray-50 rounded-lg border border-gray-100"
+                    >
+                      <p className="text-xs font-semibold text-gray-900 mb-1">
+                        {forecast.week}
+                      </p>
+                      <p className="text-xs text-gray-600 mb-2">
+                        {forecast.dateRange}
+                      </p>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mb-1">
+                        <div
+                          className="bg-blue-600 h-2 rounded-full"
+                          style={{ width: `${forecast.availability}%` }}
+                        />
+                      </div>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {forecast.availability}% available
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Performance Forecast */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Performance Forecast
+                </h2>
+                <p className="text-xs text-gray-500 mb-4">
+                  Predicted team performance trends
+                </p>
+
+                <div className="space-y-3">
+                  {performanceForecast.map((forecast, idx) => (
+                    <div
+                      key={idx}
+                      className={`p-3 rounded-lg border-2 ${getForecastColor(forecast.type)}`}
+                    >
+                      <p className="text-xs font-semibold text-gray-900 mb-1">
+                        {forecast.title}
+                      </p>
+                      <p className="text-xs text-gray-600">
+                        {forecast.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
