@@ -163,21 +163,21 @@ export const iconStyles = {
 };
 
 // ============================================================================
-// GRID & FLEX LAYOUTS (COMPACT)
+// GRID & FLEX LAYOUTS (ULTRA-COMPACT - MINIMIZED)
 // ============================================================================
 
 export const gridStyles = {
-  // 4-column metric grid (COMPACT gaps)
-  metricGrid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-3",
+  // 4-column metric grid (MINIMIZED gaps)
+  metricGrid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-2",
 
-  // 2-column grid (cards, items) (COMPACT gaps)
-  twoColGrid: "grid grid-cols-1 md:grid-cols-2 gap-3",
+  // 2-column grid (cards, items) (MINIMIZED gaps)
+  twoColGrid: "grid grid-cols-1 md:grid-cols-2 gap-2",
 
-  // 3-column grid (COMPACT gaps)
-  threeColGrid: "grid grid-cols-1 md:grid-cols-3 gap-3",
+  // 3-column grid (MINIMIZED gaps)
+  threeColGrid: "grid grid-cols-1 md:grid-cols-3 gap-2",
 
   // Flex row with gap
-  flexRow: "flex items-center gap-2",
+  flexRow: "flex items-center gap-1.5",
   flexRowSpaced: "flex items-center justify-between",
 };
 
