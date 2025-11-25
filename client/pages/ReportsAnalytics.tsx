@@ -418,13 +418,88 @@ export default function ReportsAnalytics() {
 
           {/* Performance Analytics Tab */}
           {activeTab === "performance-analytics" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 pb-8">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Performance Analytics
-              </h2>
-              <p className="text-xs text-gray-600">
-                Detailed performance analytics and trends
-              </p>
+            <div className="space-y-6 pb-8">
+              {/* Individual Performance Ranking */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Individual Performance Ranking
+                </h2>
+                <p className="text-xs text-gray-500 mb-4">
+                  Team members ranked by overall performance
+                </p>
+
+                <div className="space-y-3">
+                  {performanceRanking.map((member) => (
+                    <div
+                      key={member.rank}
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-blue-200 transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm">
+                          {member.rank}
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-900">
+                            {member.name}
+                          </p>
+                          <p className="text-xs text-gray-600">
+                            {member.tasks} tasks • {member.efficiency}% efficiency
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-blue-600">
+                          {member.score}
+                        </p>
+                        <p className="text-xs text-gray-600">
+                          Performance Score
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Performance Distribution */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Performance Distribution
+                </h2>
+                <p className="text-xs text-gray-500 mb-4">
+                  Team performance score breakdown
+                </p>
+
+                <div className="space-y-3">
+                  {performanceDistribution.map((dist, idx) => (
+                    <div key={idx} className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-gray-900">
+                            {dist.range}
+                          </span>
+                          <span className="text-xs text-gray-600">
+                            ({dist.minScore}-{dist.maxScore})
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-semibold text-gray-900">
+                            {dist.percentage}%
+                          </p>
+                          <p className="text-xs text-gray-600">
+                            ({dist.count} members)
+                          </p>
+                        </div>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className="bg-blue-600 h-2 rounded-full"
+                          style={{ width: `${dist.percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
