@@ -291,8 +291,8 @@ export default function TeamTaskManagement() {
         </div>
 
         {/* Metric Cards */}
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="grid grid-cols-4 gap-3 mb-5">
+        <div className="max-w-7xl mx-auto px-5 py-2">
+          <div className="grid grid-cols-4 gap-3 mb-3">
             <MetricCard
               icon={CheckCircle2}
               title="Total Tasks"
