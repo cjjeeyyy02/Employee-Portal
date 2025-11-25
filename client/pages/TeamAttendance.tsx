@@ -91,6 +91,41 @@ const leaveRequests: LeaveRequest[] = [
   },
 ];
 
+const leaveBalances: LeaveBalance[] = [
+  {
+    id: "1",
+    name: "Mike Chen",
+    department: "Engineering",
+    annualLeave: { used: 8, total: 25, remaining: 17 },
+    sickLeave: { used: 2, total: 10, remaining: 8 },
+    personalLeave: { used: 1, total: 5, remaining: 4 },
+  },
+  {
+    id: "2",
+    name: "Lisa Park",
+    department: "Design",
+    annualLeave: { used: 12, total: 25, remaining: 13 },
+    sickLeave: { used: 5, total: 10, remaining: 5 },
+    personalLeave: { used: 2, total: 5, remaining: 3 },
+  },
+  {
+    id: "3",
+    name: "Alex Kim",
+    department: "Engineering",
+    annualLeave: { used: 5, total: 25, remaining: 20 },
+    sickLeave: { used: 1, total: 10, remaining: 9 },
+    personalLeave: { used: 0, total: 5, remaining: 5 },
+  },
+  {
+    id: "4",
+    name: "Emma Wilson",
+    department: "Engineering",
+    annualLeave: { used: 15, total: 25, remaining: 10 },
+    sickLeave: { used: 3, total: 10, remaining: 7 },
+    personalLeave: { used: 1, total: 5, remaining: 4 },
+  },
+];
+
 export default function TeamAttendance() {
   const [activeTab, setActiveTab] = useState("leave-requests");
 
