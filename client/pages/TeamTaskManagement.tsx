@@ -183,6 +183,70 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
+interface Project {
+  id: string;
+  name: string;
+  totalTasks: number;
+  completedTasks: number;
+  progress: number;
+  mainTask: string;
+  mainTaskStatus: "todo" | "in-progress" | "review" | "completed";
+}
+
+const projects: Project[] = [
+  {
+    id: "1",
+    name: "Project Alpha",
+    totalTasks: 1,
+    completedTasks: 0,
+    progress: 0,
+    mainTask: "Implement User Authentication System",
+    mainTaskStatus: "in-progress",
+  },
+  {
+    id: "2",
+    name: "Mobile App",
+    totalTasks: 1,
+    completedTasks: 0,
+    progress: 0,
+    mainTask: "Design Mobile App Interface",
+    mainTaskStatus: "review",
+  },
+  {
+    id: "3",
+    name: "Performance",
+    totalTasks: 1,
+    completedTasks: 0,
+    progress: 0,
+    mainTask: "Database Performance Optimization",
+    mainTaskStatus: "todo",
+  },
+  {
+    id: "4",
+    name: "Documentation",
+    totalTasks: 1,
+    completedTasks: 1,
+    progress: 100,
+    mainTask: "Write API Documentation",
+    mainTaskStatus: "completed",
+  },
+];
+
+const getProjectStatusColor = (status: string) => {
+  switch (status) {
+    case "completed":
+      return "bg-green-100 text-green-800";
+    case "review":
+      return "bg-blue-100 text-blue-800";
+    case "in-progress":
+      return "bg-orange-100 text-orange-800";
+    case "todo":
+      return "bg-gray-100 text-gray-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
+
 export default function TeamTaskManagement() {
   const [activeTab, setActiveTab] = useState("all-tasks");
   const [searchQuery, setSearchQuery] = useState("");
