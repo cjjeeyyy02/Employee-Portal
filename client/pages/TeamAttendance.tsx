@@ -485,13 +485,105 @@ export default function TeamAttendance() {
 
           {/* Attendance Reports Tab Content */}
           {activeTab === "attendance-reports" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Attendance Reports
-              </h2>
-              <p className="text-xs text-gray-600">
-                Generate and view attendance reports
-              </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Team Attendance Reports
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Monitor team attendance patterns and performance
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50 border-b border-gray-200">
+                      <tr>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Employee
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Attendance Rate
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Hours This Week
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Avg Clock In
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Late Count
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Status
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {attendanceReports.map((report) => (
+                        <tr
+                          key={report.id}
+                          className="hover:bg-gray-50 transition-colors"
+                        >
+                          <td className="px-4 py-3">
+                            <div>
+                              <p className="text-xs font-semibold text-gray-900">
+                                {report.name}
+                              </p>
+                              <p className="text-xs text-gray-600">
+                                {report.department}
+                              </p>
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-xs text-gray-900">
+                            {report.attendanceRate}%
+                          </td>
+                          <td className="px-4 py-3 text-xs text-gray-900">
+                            {report.hoursThisWeek}h
+                          </td>
+                          <td className="px-4 py-3 text-xs text-gray-900">
+                            {report.avgClockIn}
+                          </td>
+                          <td className="px-4 py-3 text-xs text-gray-900">
+                            {report.lateCount}
+                          </td>
+                          <td className="px-4 py-3">
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusBadgeColor(report.status)}`}
+                            >
+                              {getStatusLabel(report.status)}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">
+                            <div className="flex gap-2">
+                              <Button
+                                variant="outline"
+                                className="h-7 text-xs px-2"
+                                title="View details"
+                              >
+                                View Details
+                              </Button>
+                              {report.status === "warning" && (
+                                <Button
+                                  variant="outline"
+                                  className="h-7 text-xs px-2"
+                                  title="Correct attendance"
+                                >
+                                  Correct
+                                </Button>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           )}
         </div>
