@@ -142,6 +142,118 @@ const performanceDistribution: PerformanceDistribution[] = [
   },
 ];
 
+interface Prediction {
+  id: string;
+  title: string;
+  probability: "high" | "medium" | "low";
+  impact: "high" | "medium" | "low";
+  description: string;
+  expected: string;
+}
+
+interface CapacityForecast {
+  week: string;
+  dateRange: string;
+  availability: number;
+}
+
+interface PerformanceForecast {
+  type: "positive" | "watch" | "opportunity";
+  title: string;
+  description: string;
+}
+
+const predictions: Prediction[] = [
+  {
+    id: "1",
+    title: "Leave Conflict",
+    probability: "high",
+    impact: "high",
+    description: "3 team members likely to request leave during holiday season",
+    expected: "Expected: Dec 20-30, 2024",
+  },
+  {
+    id: "2",
+    title: "Task Overload",
+    probability: "medium",
+    impact: "medium",
+    description: "Mike Chen approaching capacity limit",
+    expected: "Expected: Next 2 weeks",
+  },
+  {
+    id: "3",
+    title: "Performance Dip",
+    probability: "low",
+    impact: "medium",
+    description: "Team performance may decrease due to year-end pressure",
+    expected: "Expected: End of Q4",
+  },
+];
+
+const capacityForecast: CapacityForecast[] = [
+  { week: "Week 1", dateRange: "Dec 16-22", availability: 75 },
+  { week: "Week 2", dateRange: "Dec 23-29", availability: 45 },
+  { week: "Week 3", dateRange: "Dec 30-Jan 5", availability: 30 },
+  { week: "Week 4", dateRange: "Jan 6-12", availability: 95 },
+];
+
+const performanceForecast: PerformanceForecast[] = [
+  {
+    type: "positive",
+    title: "Positive Trend",
+    description: "Team performance likely to improve by 5% next quarter based on current trajectory",
+  },
+  {
+    type: "watch",
+    title: "Watch Item",
+    description: "Holiday season may temporarily impact task completion rates",
+  },
+  {
+    type: "opportunity",
+    title: "Opportunity",
+    description: "Q1 2025 ideal time for skill development initiatives",
+  },
+];
+
+const getProbabilityColor = (probability: string) => {
+  switch (probability) {
+    case "high":
+      return "bg-red-100 text-red-800";
+    case "medium":
+      return "bg-yellow-100 text-yellow-800";
+    case "low":
+      return "bg-green-100 text-green-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
+
+const getImpactColor = (impact: string) => {
+  switch (impact) {
+    case "high":
+      return "bg-red-100 text-red-800";
+    case "medium":
+      return "bg-orange-100 text-orange-800";
+    case "low":
+      return "bg-green-100 text-green-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
+
+const getForecastColor = (type: string) => {
+  switch (type) {
+    case "positive":
+      return "bg-green-100 text-green-800 border-green-200";
+    case "watch":
+      return "bg-yellow-100 text-yellow-800 border-yellow-200";
+    case "opportunity":
+      return "bg-blue-100 text-blue-800 border-blue-200";
+    default:
+      return "bg-gray-100 text-gray-800 border-gray-200";
+  }
+};
+
 export default function ReportsAnalytics() {
   const [activeTab, setActiveTab] = useState("overview");
 
