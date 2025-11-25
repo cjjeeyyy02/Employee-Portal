@@ -43,6 +43,18 @@ interface PerformanceReview {
   overallRating?: number;
 }
 
+interface TeamGoal {
+  id: string;
+  employeeName: string;
+  goalTitle: string;
+  goalStatus: "on-track" | "at-risk" | "completed";
+  description: string;
+  category: string;
+  dueDate: string;
+  target: string;
+  progress: number;
+}
+
 const reviews: PerformanceReview[] = [
   {
     id: "1",
