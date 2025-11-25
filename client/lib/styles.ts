@@ -106,15 +106,15 @@ export const componentStyles = {
 };
 
 // ============================================================================
-// TABLE & LIST STYLES (COMPACT)
+// TABLE & LIST STYLES (ULTRA-COMPACT - MINIMIZED)
 // ============================================================================
 
 export const tableStyles = {
   tableWrapper: "bg-white rounded-md border border-gray-200 overflow-hidden",
   tableHeader: "bg-gray-50 border-b border-gray-200",
-  tableHeaderCell: "px-3 py-2 text-left text-xs font-semibold text-gray-900",
+  tableHeaderCell: "px-2 py-1.5 text-left text-xs font-semibold text-gray-900",
   tableRow: "border-b border-gray-100 hover:bg-gray-50 transition-colors",
-  tableCell: "px-3 py-2 text-xs text-gray-700",
+  tableCell: "px-2 py-1.5 text-xs text-gray-700",
   tableCellSmall: "text-xs text-gray-600",
 };
 
