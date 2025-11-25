@@ -144,6 +144,45 @@ const getStatusLabel = (status: string) => {
   }
 };
 
+interface TeamMember {
+  id: string;
+  name: string;
+  activeTasks: number;
+  completedTasks: number;
+  capacity: number;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    id: "1",
+    name: "Mike Chen",
+    activeTasks: 3,
+    completedTasks: 12,
+    capacity: 85,
+  },
+  {
+    id: "2",
+    name: "Lisa Park",
+    activeTasks: 2,
+    completedTasks: 8,
+    capacity: 60,
+  },
+  {
+    id: "3",
+    name: "Alex Kim",
+    activeTasks: 4,
+    completedTasks: 6,
+    capacity: 95,
+  },
+  {
+    id: "4",
+    name: "Emma Wilson",
+    activeTasks: 2,
+    completedTasks: 15,
+    capacity: 70,
+  },
+];
+
 export default function TeamTaskManagement() {
   const [activeTab, setActiveTab] = useState("all-tasks");
   const [searchQuery, setSearchQuery] = useState("");
