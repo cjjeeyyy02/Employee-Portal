@@ -23,25 +23,25 @@ export const layoutStyles = {
 };
 
 // ============================================================================
-// TYPOGRAPHY STYLES (COMPACT)
+// TYPOGRAPHY STYLES (ULTRA-COMPACT - MINIMIZED)
 // ============================================================================
 
 export const typographyStyles = {
-  // Page title - 20-22px, semibold (COMPACT spacing)
-  pageTitle: "text-xl md:text-2xl font-semibold text-gray-900 mb-0",
-  pageSubtitle: "text-sm text-gray-600 mt-1",
+  // Page title - MINIMIZED to 18px
+  pageTitle: "text-lg font-semibold text-gray-900 mb-0",
+  pageSubtitle: "text-xs text-gray-600 mt-0.5",
 
-  // Section title - 16-18px, medium (COMPACT spacing)
-  sectionTitle: "text-lg font-medium text-gray-900 mb-1",
+  // Section title - MINIMIZED to 14px
+  sectionTitle: "text-sm font-medium text-gray-900 mb-1",
   sectionSubtitle: "text-xs text-gray-600",
 
-  // Body text - 14-15px, regular
-  bodyText: "text-sm text-gray-700",
+  // Body text - MINIMIZED
+  bodyText: "text-xs text-gray-700",
   bodySmall: "text-xs text-gray-600",
   labelText: "text-xs font-medium text-gray-900",
 
-  // Card titles
-  cardTitle: "font-semibold text-sm text-gray-900",
+  // Card titles - MINIMIZED
+  cardTitle: "font-semibold text-xs text-gray-900",
   cardText: "text-xs text-gray-600",
 };
 
