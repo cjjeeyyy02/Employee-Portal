@@ -46,25 +46,25 @@ export const typographyStyles = {
 };
 
 // ============================================================================
-// SPACING CONSTANTS (COMPACT)
+// SPACING CONSTANTS (ULTRA-COMPACT - MINIMIZED)
 // ============================================================================
 
 export const spacingStyles = {
-  // Page level spacing (COMPACT)
-  pageGap: "gap-3",
-  pageMB: "mb-3",
+  // Page level spacing (ULTRA-COMPACT)
+  pageGap: "gap-2",
+  pageMB: "mb-2",
 
-  // Section level spacing (COMPACT)
-  sectionGap: "gap-3",
-  sectionMB: "mb-3",
+  // Section level spacing (ULTRA-COMPACT)
+  sectionGap: "gap-2",
+  sectionMB: "mb-2",
 
-  // Card/row spacing (COMPACT)
-  itemGap: "gap-2",
-  itemMB: "mb-2",
+  // Card/row spacing (ULTRA-COMPACT)
+  itemGap: "gap-1.5",
+  itemMB: "mb-1.5",
 
-  // Tab spacing (COMPACT)
-  tabGap: "gap-4",
-  tabPadding: "px-3 py-2",
+  // Tab spacing (ULTRA-COMPACT)
+  tabGap: "gap-3",
+  tabPadding: "px-2 py-1.5",
 };
 
 // ============================================================================
