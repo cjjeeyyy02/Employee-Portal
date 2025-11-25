@@ -263,7 +263,7 @@ export default function TeamTaskManagement() {
 
   return (
     <Layout>
-      <div className="bg-gray-50 min-h-screen">
+      <div className="bg-white min-h-screen">
         {/* Header Section */}
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-6 py-4">
