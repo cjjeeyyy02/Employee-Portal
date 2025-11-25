@@ -254,6 +254,50 @@ const getForecastColor = (type: string) => {
   }
 };
 
+interface AIInsight {
+  id: string;
+  category: string;
+  recommendation: string;
+  details: string;
+  actionLabel: string;
+  actionType: "primary" | "secondary";
+}
+
+const aiInsights: AIInsight[] = [
+  {
+    id: "1",
+    category: "Performance Optimization",
+    recommendation: "Emma Wilson shows potential for leadership roles based on recent performance metrics and peer feedback.",
+    details: "Emma Wilson (rank #1) with consistent 4.6 performance score",
+    actionLabel: "View Details",
+    actionType: "primary",
+  },
+  {
+    id: "2",
+    category: "Workload Balance",
+    recommendation: "Consider redistributing tasks from Mike Chen (95% capacity) to Lisa Park (60% capacity).",
+    details: "Optimize team productivity and prevent burnout",
+    actionLabel: "Auto-Assign",
+    actionType: "primary",
+  },
+  {
+    id: "3",
+    category: "Goal Achievement",
+    recommendation: "Team is on track to exceed Q4 targets by 12%. Consider setting stretch goals for Q1 2025.",
+    details: "Current trajectory shows strong positive momentum",
+    actionLabel: "Set Goals",
+    actionType: "primary",
+  },
+  {
+    id: "4",
+    category: "Team Development",
+    recommendation: "Cross-training opportunities identified between Alex Kim and Lisa Park for skill diversification.",
+    details: "Enhance team capabilities and reduce knowledge silos",
+    actionLabel: "Plan Training",
+    actionType: "primary",
+  },
+];
+
 export default function ReportsAnalytics() {
   const [activeTab, setActiveTab] = useState("overview");
 
