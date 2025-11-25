@@ -95,6 +95,42 @@ const reviews: PerformanceReview[] = [
   },
 ];
 
+const teamGoals: TeamGoal[] = [
+  {
+    id: "1",
+    employeeName: "Mike Chen",
+    goalTitle: "Improve Code Quality",
+    goalStatus: "on-track",
+    description: "Increase code review approval rate to 95%",
+    category: "Technical Excellence",
+    dueDate: "2024-12-31",
+    target: "95% approval rate",
+    progress: 78,
+  },
+  {
+    id: "2",
+    employeeName: "Lisa Park",
+    goalTitle: "Complete Design Certification",
+    goalStatus: "at-risk",
+    description: "Finish UX Design certification program",
+    category: "Professional Development",
+    dueDate: "2025-01-15",
+    target: "Complete certification",
+    progress: 45,
+  },
+  {
+    id: "3",
+    employeeName: "Alex Kim",
+    goalTitle: "Mentor Junior Developers",
+    goalStatus: "completed",
+    description: "Successfully mentor 2 junior developers",
+    category: "Leadership",
+    dueDate: "2024-11-30",
+    target: "2 junior developers",
+    progress: 100,
+  },
+];
+
 const getStatusColor = (status: string) => {
   switch (status) {
     case "completed":
