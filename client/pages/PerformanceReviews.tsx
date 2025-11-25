@@ -150,6 +150,30 @@ const getStatusLabel = (status: string) => {
   return status.charAt(0).toUpperCase() + status.slice(1);
 };
 
+const getGoalStatusColor = (status: string) => {
+  switch (status) {
+    case "completed":
+      return "bg-green-100 text-green-800";
+    case "on-track":
+      return "bg-blue-100 text-blue-800";
+    case "at-risk":
+      return "bg-red-100 text-red-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
+
+const getGoalStatusLabel = (status: string) => {
+  switch (status) {
+    case "on-track":
+      return "On Track";
+    case "at-risk":
+      return "At Risk";
+    default:
+      return status.charAt(0).toUpperCase() + status.slice(1);
+  }
+};
+
 export default function PerformanceReviews() {
   const [activeTab, setActiveTab] = useState("performance-reviews");
 
