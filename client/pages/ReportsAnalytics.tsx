@@ -316,26 +316,26 @@ export default function ReportsAnalytics() {
           <div className="max-w-7xl mx-auto px-5 py-3">
             <div className="flex items-start justify-between mb-3">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                <h1 className="text-lg font-semibold text-gray-900 mb-0">
                   Reports & Insights
                 </h1>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-gray-600 mt-0.5">
                   Analytics and forecasting for your team
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button variant="outline" className="gap-2 h-8 text-xs px-2">
+                <Button variant="outline" className="gap-2 h-7 text-xs px-2">
                   Last Month
                 </Button>
-                <Button variant="outline" className="gap-2 h-8 text-xs px-2">
+                <Button variant="outline" className="gap-2 h-7 text-xs px-2">
                   <Settings className="w-3 h-3" />
                   Filters
                 </Button>
-                <Button variant="outline" className="gap-2 h-8 text-xs px-2">
+                <Button variant="outline" className="gap-2 h-7 text-xs px-2">
                   <RotateCcw className="w-3 h-3" />
                   Refresh
                 </Button>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-xs px-2">
+                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2">
                   <Download className="w-3 h-3" />
                   Export Report
                 </Button>
