@@ -12,14 +12,14 @@
 export const layoutStyles = {
   // Main page container
   pageWrapper: "bg-white min-h-screen",
-  
-  // Content container with padding
-  pageContainer: "max-w-7xl mx-auto px-6 py-6",
-  contentContainer: "max-w-7xl mx-auto px-6 pb-8",
-  
-  // Section containers
-  sectionPadding: "p-4 md:p-5",
-  cardPadding: "p-4 md:p-5",
+
+  // Content container with minimal padding (COMPACT)
+  pageContainer: "max-w-7xl mx-auto px-5 py-3",
+  contentContainer: "max-w-7xl mx-auto px-5 pb-4",
+
+  // Section containers (COMPACT)
+  sectionPadding: "p-3",
+  cardPadding: "p-3",
 };
 
 // ============================================================================
