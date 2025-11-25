@@ -107,13 +107,13 @@ export default function TeamManagement() {
       <div className="bg-white min-h-screen">
         {/* Header Section */}
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <div className="flex items-start justify-between mb-4">
+          <div className="max-w-7xl mx-auto px-6 py-6">
+            <div className="flex items-start justify-between mb-6">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                <h1 className="text-2xl font-semibold text-gray-900 mb-2">
                   Team Member Management
                 </h1>
-                <p className="text-xs text-gray-600">
+                <p className="text-sm text-gray-600">
                   View and manage your team members
                 </p>
               </div>
