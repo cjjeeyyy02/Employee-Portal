@@ -779,13 +779,50 @@ export default function ReportsAnalytics() {
 
           {/* AI Insights Tab */}
           {activeTab === "ai-insights" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 pb-8">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                AI Insights
-              </h2>
-              <p className="text-xs text-gray-600">
-                AI-generated insights and recommendations
-              </p>
+            <div className="space-y-4 pb-8">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  AI-Powered Insights
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Smart recommendations for team management
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {aiInsights.map((insight) => (
+                  <div
+                    key={insight.id}
+                    className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-sm text-gray-900 mb-2">
+                          {insight.category}
+                        </h3>
+                        <p className="text-xs text-gray-600 mb-2">
+                          {insight.recommendation}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {insight.details}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="pt-3 border-t border-gray-100">
+                      {insight.actionType === "primary" ? (
+                        <button className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded">
+                          {insight.actionLabel}
+                        </button>
+                      ) : (
+                        <Button variant="outline" className="h-8 text-xs px-3">
+                          {insight.actionLabel}
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
