@@ -44,6 +44,15 @@ interface LeaveRequest {
   conflictMessage?: string;
 }
 
+interface LeaveBalance {
+  id: string;
+  name: string;
+  department: string;
+  annualLeave: { used: number; total: number; remaining: number };
+  sickLeave: { used: number; total: number; remaining: number };
+  personalLeave: { used: number; total: number; remaining: number };
+}
+
 const leaveRequests: LeaveRequest[] = [
   {
     id: "1",
