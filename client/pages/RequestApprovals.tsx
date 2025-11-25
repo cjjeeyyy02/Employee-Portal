@@ -319,47 +319,103 @@ export default function RequestApprovals() {
             <div className="space-y-4">
               <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">
-                  All Requests
+                  All Team Requests
                 </h2>
                 <p className="text-xs text-gray-500">
-                  View all submitted requests
+                  Complete history of team requests and their status
                 </p>
               </div>
 
-              {requests.map((request) => (
-                <div
-                  key={request.id}
-                  className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="mb-2">
-                        <h3 className="font-semibold text-sm text-gray-900">
-                          {request.requesterName}
-                        </h3>
-                        <p className="text-xs text-gray-600">
-                          {request.type}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(request.priority)}`}>
-                          {request.priority.charAt(0).toUpperCase() + request.priority.slice(1)}
-                        </span>
-                        <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}>
-                          {getStatusLabel(request.status)}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-600">
-                        {request.description}
-                      </p>
-                    </div>
-                    <div className="text-right text-xs text-gray-600 ml-4">
-                      <p>Requested: {request.requestedDate}</p>
-                      <p>Due: {request.dueDate}</p>
-                    </div>
-                  </div>
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50 border-b border-gray-200">
+                      <tr>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Request
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Employee
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Category
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Priority
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Status
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Date
+                        </th>
+                        <th className="px-4 py-2 text-left text-xs font-semibold text-gray-900">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {requests.map((request) => (
+                        <tr
+                          key={request.id}
+                          className="hover:bg-gray-50 transition-colors"
+                        >
+                          <td className="px-4 py-3">
+                            <div>
+                              <p className="text-xs font-semibold text-gray-900">
+                                {request.type}
+                              </p>
+                              <p className="text-xs text-gray-600 mt-0.5">
+                                {request.description}
+                              </p>
+                            </div>
+                          </td>
+                          <td className="px-4 py-3">
+                            <p className="text-xs text-gray-900">
+                              {request.requesterName}
+                            </p>
+                          </td>
+                          <td className="px-4 py-3">
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getCategoryColor(request.category)}`}
+                            >
+                              {request.category.toUpperCase()}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(request.priority)}`}
+                            >
+                              {request.priority.charAt(0).toUpperCase() + request.priority.slice(1)}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}
+                            >
+                              {getStatusLabel(request.status)}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-xs text-gray-600">
+                            {request.requestedDate}
+                          </td>
+                          <td className="px-4 py-3">
+                            <div className="flex gap-1">
+                              <Button
+                                variant="outline"
+                                className="h-7 text-xs px-2"
+                                title="View details"
+                              >
+                                View
+                              </Button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-              ))}
+              </div>
             </div>
           )}
 
