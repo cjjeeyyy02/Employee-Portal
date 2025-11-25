@@ -46,25 +46,25 @@ export const typographyStyles = {
 };
 
 // ============================================================================
-// SPACING CONSTANTS
+// SPACING CONSTANTS (COMPACT)
 // ============================================================================
 
 export const spacingStyles = {
-  // Page level spacing
-  pageGap: "gap-6",
-  pageMB: "mb-6",
-  
-  // Section level spacing
-  sectionGap: "gap-4 md:gap-5",
-  sectionMB: "mb-5 md:mb-6",
-  
-  // Card/row spacing
-  itemGap: "gap-3 md:gap-4",
-  itemMB: "mb-3 md:mb-4",
-  
-  // Tab spacing
-  tabGap: "gap-6",
-  tabPadding: "px-4 md:px-6 py-4",
+  // Page level spacing (COMPACT)
+  pageGap: "gap-3",
+  pageMB: "mb-3",
+
+  // Section level spacing (COMPACT)
+  sectionGap: "gap-3",
+  sectionMB: "mb-3",
+
+  // Card/row spacing (COMPACT)
+  itemGap: "gap-2",
+  itemMB: "mb-2",
+
+  // Tab spacing (COMPACT)
+  tabGap: "gap-4",
+  tabPadding: "px-3 py-2",
 };
 
 // ============================================================================
