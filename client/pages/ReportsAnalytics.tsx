@@ -59,6 +59,89 @@ const topPerformers = [
   { rank: 3, name: "Mike Chen", rating: 4.3 },
 ];
 
+interface PerformanceRanking {
+  rank: number;
+  name: string;
+  tasks: number;
+  efficiency: number;
+  score: number;
+}
+
+const performanceRanking: PerformanceRanking[] = [
+  {
+    rank: 1,
+    name: "Emma Wilson",
+    tasks: 23,
+    efficiency: 95,
+    score: 4.6,
+  },
+  {
+    rank: 2,
+    name: "Alex Kim",
+    tasks: 19,
+    efficiency: 92,
+    score: 4.5,
+  },
+  {
+    rank: 3,
+    name: "Mike Chen",
+    tasks: 27,
+    efficiency: 88,
+    score: 4.3,
+  },
+  {
+    rank: 4,
+    name: "Lisa Park",
+    tasks: 15,
+    efficiency: 85,
+    score: 4.2,
+  },
+];
+
+interface PerformanceDistribution {
+  range: string;
+  minScore: number;
+  maxScore: number;
+  percentage: number;
+  count: number;
+  color: string;
+}
+
+const performanceDistribution: PerformanceDistribution[] = [
+  {
+    range: "Excellent",
+    minScore: 4.5,
+    maxScore: 5.0,
+    percentage: 25,
+    count: 2,
+    color: "bg-green-100 text-green-800",
+  },
+  {
+    range: "Good",
+    minScore: 4.0,
+    maxScore: 4.4,
+    percentage: 50,
+    count: 4,
+    color: "bg-blue-100 text-blue-800",
+  },
+  {
+    range: "Satisfactory",
+    minScore: 3.5,
+    maxScore: 3.9,
+    percentage: 25,
+    count: 2,
+    color: "bg-yellow-100 text-yellow-800",
+  },
+  {
+    range: "Needs Improvement",
+    minScore: 0,
+    maxScore: 3.4,
+    percentage: 0,
+    count: 0,
+    color: "bg-red-100 text-red-800",
+  },
+];
+
 export default function ReportsAnalytics() {
   const [activeTab, setActiveTab] = useState("overview");
 
