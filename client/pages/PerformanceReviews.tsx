@@ -361,13 +361,81 @@ export default function PerformanceReviews() {
 
           {/* Goal Monitoring Tab */}
           {activeTab === "goal-monitoring" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Goal Monitoring
-              </h2>
-              <p className="text-xs text-gray-600">
-                Track team goals and their progress
-              </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Team Goal Progress
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Monitor and approve team member goals
+                </p>
+              </div>
+
+              {teamGoals.map((goal) => (
+                <div
+                  key={goal.id}
+                  className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
+                >
+                  <div className="mb-3">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h3 className="font-semibold text-sm text-gray-900">
+                          {goal.employeeName}
+                        </h3>
+                        <p className="text-xs text-gray-600 mt-0.5">
+                          {goal.goalTitle}
+                        </p>
+                      </div>
+                      <span
+                        className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getGoalStatusColor(goal.goalStatus)}`}
+                      >
+                        {getGoalStatusLabel(goal.goalStatus)}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600">
+                      {goal.description}
+                    </p>
+                  </div>
+
+                  <div className="mb-3 p-3 bg-gray-50 rounded-lg text-xs text-gray-600 space-y-1">
+                    <div>
+                      <span className="font-medium text-gray-900">
+                        {goal.employeeName}
+                      </span>
+                      <span> • {goal.category} • Due: {goal.dueDate}</span>
+                    </div>
+                    <div>
+                      Target: {goal.target}
+                    </div>
+                  </div>
+
+                  <div className="mb-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-medium text-gray-900">
+                        Progress
+                      </span>
+                      <span className="text-xs font-semibold text-gray-900">
+                        {goal.progress}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-blue-600 h-2 rounded-full"
+                        style={{ width: `${goal.progress}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <Button variant="outline" className="flex-1 h-8 text-xs px-2">
+                      Feedback
+                    </Button>
+                    <Button variant="outline" className="flex-1 h-8 text-xs px-2">
+                      Adjust
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
 
