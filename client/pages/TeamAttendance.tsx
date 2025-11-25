@@ -311,13 +311,102 @@ export default function TeamAttendance() {
 
           {/* Leave Balances Tab Content */}
           {activeTab === "leave-balances" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Leave Balances
-              </h2>
-              <p className="text-xs text-gray-600">
-                View team member leave balance information
-              </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Team Leave Balances
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Monitor your team's leave entitlements and usage
+                </p>
+              </div>
+
+              {leaveBalances.map((member) => (
+                <div
+                  key={member.id}
+                  className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
+                >
+                  <div className="mb-4">
+                    <h3 className="font-semibold text-sm text-gray-900">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs text-gray-600">
+                      {member.department}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-4">
+                    {/* Annual Leave */}
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-gray-900">
+                          Annual Leave
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        {member.annualLeave.used}/{member.annualLeave.total} days
+                      </p>
+                      <div className="w-full bg-gray-200 rounded-full h-1.5">
+                        <div
+                          className="bg-blue-600 h-1.5 rounded-full"
+                          style={{
+                            width: `${(member.annualLeave.used / member.annualLeave.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        {member.annualLeave.remaining} days remaining
+                      </p>
+                    </div>
+
+                    {/* Sick Leave */}
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-gray-900">
+                          Sick Leave
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        {member.sickLeave.used}/{member.sickLeave.total} days
+                      </p>
+                      <div className="w-full bg-gray-200 rounded-full h-1.5">
+                        <div
+                          className="bg-orange-600 h-1.5 rounded-full"
+                          style={{
+                            width: `${(member.sickLeave.used / member.sickLeave.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        {member.sickLeave.remaining} days remaining
+                      </p>
+                    </div>
+
+                    {/* Personal Leave */}
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-gray-900">
+                          Personal Leave
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        {member.personalLeave.used}/{member.personalLeave.total} days
+                      </p>
+                      <div className="w-full bg-gray-200 rounded-full h-1.5">
+                        <div
+                          className="bg-green-600 h-1.5 rounded-full"
+                          style={{
+                            width: `${(member.personalLeave.used / member.personalLeave.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                      <p className="text-xs text-gray-600">
+                        {member.personalLeave.remaining} days remaining
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
 
