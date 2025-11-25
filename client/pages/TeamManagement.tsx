@@ -199,8 +199,8 @@ export default function TeamManagement() {
 
           {/* View Toggle */}
           {/* Team Members Section */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-            <div className="flex items-center justify-between mb-4">
+          <div className="bg-white rounded-md border border-gray-200 p-3">
+            <div className="flex items-center justify-between mb-2">
               <div>
                 <h2 className="text-lg font-bold text-gray-900 mb-1">
                   Team Members
