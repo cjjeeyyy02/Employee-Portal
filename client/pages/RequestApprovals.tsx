@@ -459,13 +459,70 @@ export default function RequestApprovals() {
 
           {/* Document Library Tab */}
           {activeTab === "document-library" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Document Library
-              </h2>
-              <p className="text-xs text-gray-600">
-                Manage and store all request documents
-              </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Document Library
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Manage templates, policies, and uploaded documents
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {documents.map((doc) => (
+                  <div
+                    key={doc.id}
+                    className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="mb-2">
+                          <p className="text-sm font-semibold text-gray-900">
+                            {doc.filename}
+                          </p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                              {doc.category}
+                            </span>
+                            <span className="text-xs text-gray-600">
+                              {doc.fileSize}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="text-xs text-gray-600 space-y-1">
+                          <p>
+                            Uploaded by {doc.uploadedBy} on {doc.uploadedDate}
+                          </p>
+                          {doc.relatedRequest && (
+                            <p className="text-xs text-gray-500">
+                              Related to {doc.relatedRequest}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2 ml-4">
+                        <Button
+                          variant="outline"
+                          className="h-8 text-xs px-3"
+                          title="View document"
+                        >
+                          View
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="h-8 text-xs px-3"
+                          title="Download document"
+                        >
+                          Download
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
