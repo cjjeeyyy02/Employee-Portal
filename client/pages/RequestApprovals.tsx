@@ -145,6 +145,44 @@ const getCategoryColor = (category: string) => {
   }
 };
 
+interface Document {
+  id: string;
+  filename: string;
+  category: string;
+  fileSize: string;
+  uploadedBy: string;
+  uploadedDate: string;
+  relatedRequest?: string;
+}
+
+const documents: Document[] = [
+  {
+    id: "1",
+    filename: "employment_certificate_template.docx",
+    category: "HR Templates",
+    fileSize: "45 KB",
+    uploadedBy: "HR Department",
+    uploadedDate: "2024-11-01",
+  },
+  {
+    id: "2",
+    filename: "expense_receipt_mike_chen.pdf",
+    category: "Finance",
+    fileSize: "230 KB",
+    uploadedBy: "Mike Chen",
+    uploadedDate: "2024-12-05",
+    relatedRequest: "Request #3",
+  },
+  {
+    id: "3",
+    filename: "it_equipment_policy.pdf",
+    category: "IT Policies",
+    fileSize: "1.2 MB",
+    uploadedBy: "IT Department",
+    uploadedDate: "2024-10-15",
+  },
+];
+
 const getStatusLabel = (status: string) => {
   switch (status) {
     case "in-progress":
