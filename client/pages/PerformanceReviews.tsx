@@ -174,6 +174,61 @@ const getGoalStatusLabel = (status: string) => {
   }
 };
 
+interface KPI {
+  id: string;
+  name: string;
+  status: "above" | "below";
+  description: string;
+  target: string;
+  actual: string;
+  assignee: string;
+  period: string;
+}
+
+const kpis: KPI[] = [
+  {
+    id: "1",
+    name: "Sprint Velocity",
+    status: "above",
+    description: "Story points completed per sprint",
+    target: "40 points",
+    actual: "45 points",
+    assignee: "Mike Chen",
+    period: "December 2024",
+  },
+  {
+    id: "2",
+    name: "Design Quality Score",
+    status: "below",
+    description: "Average design approval rating",
+    target: "4.5/5",
+    actual: "4.3/5",
+    assignee: "Lisa Park",
+    period: "December 2024",
+  },
+  {
+    id: "3",
+    name: "Bug Resolution Time",
+    status: "above",
+    description: "Average time to resolve bugs",
+    target: "24 hours",
+    actual: "18 hours",
+    assignee: "Alex Kim",
+    period: "December 2024",
+  },
+];
+
+const getKPIStatusColor = (status: string) => {
+  switch (status) {
+    case "above":
+      return "bg-green-100 text-green-800";
+    case "below":
+      return "bg-red-100 text-red-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+};
+
 export default function PerformanceReviews() {
   const [activeTab, setActiveTab] = useState("performance-reviews");
 
