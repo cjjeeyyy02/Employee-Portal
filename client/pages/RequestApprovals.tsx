@@ -34,11 +34,12 @@ interface Request {
   id: string;
   requesterName: string;
   type: string;
+  category: string;
   priority: "low" | "medium" | "high" | "urgent";
-  status: "pending" | "in-progress" | "escalated" | "completed" | "rejected";
+  status: "pending" | "in-progress" | "escalated" | "completed" | "rejected" | "approved";
   description: string;
   requestedDate: string;
-  dueDate: string;
+  dueDate?: string;
 }
 
 const requests: Request[] = [
@@ -46,6 +47,7 @@ const requests: Request[] = [
     id: "1",
     requesterName: "Mike Chen",
     type: "Certificate of Employment",
+    category: "hr",
     priority: "high",
     status: "pending",
     description: "Certificate of employment needed for visa application",
@@ -55,22 +57,43 @@ const requests: Request[] = [
   {
     id: "2",
     requesterName: "Lisa Park",
-    type: "Leave Request",
+    type: "Laptop Replacement",
+    category: "it",
     priority: "medium",
     status: "in-progress",
-    description: "Annual leave request for holiday period",
+    description: "Current laptop having performance issues, need replacement",
     requestedDate: "2024-12-08",
     dueDate: "2024-12-12",
   },
   {
     id: "3",
     requesterName: "Alex Kim",
-    type: "Salary Advance",
-    priority: "urgent",
+    type: "Expense Reimbursement",
+    category: "finance",
+    priority: "low",
+    status: "approved",
+    description: "Conference travel expenses reimbursement",
+    requestedDate: "2024-12-05",
+  },
+  {
+    id: "4",
+    requesterName: "Emma Wilson",
+    type: "Office Space Change",
+    category: "facilities",
+    priority: "medium",
     status: "escalated",
-    description: "Emergency salary advance request",
-    requestedDate: "2024-12-11",
-    dueDate: "2024-12-13",
+    description: "Request for desk relocation due to noise issues",
+    requestedDate: "2024-12-01",
+  },
+  {
+    id: "5",
+    requesterName: "Mike Chen",
+    type: "Training Budget Approval",
+    category: "hr",
+    priority: "low",
+    status: "rejected",
+    description: "AWS certification training course approval",
+    requestedDate: "2024-11-28",
   },
 ];
 
