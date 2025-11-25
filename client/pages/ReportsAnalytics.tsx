@@ -365,7 +365,7 @@ export default function ReportsAnalytics() {
 
           {/* Overview Tab */}
           {activeTab === "overview" && (
-            <div className="space-y-6 pb-8">
+            <div className="space-y-3 pb-4">
               {/* Key Metrics */}
               <div className="grid grid-cols-6 gap-3">
                 <MetricCard
