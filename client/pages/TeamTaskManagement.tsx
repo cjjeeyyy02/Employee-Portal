@@ -412,13 +412,65 @@ export default function TeamTaskManagement() {
 
           {/* Team Workload Tab */}
           {activeTab === "team-workload" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Team Workload
-              </h2>
-              <p className="text-xs text-gray-600">
-                View team member workload and capacity
-              </p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Team Workload Overview
+                </h2>
+                <p className="text-xs text-gray-500">
+                  Monitor team capacity and task distribution
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {teamMembers.map((member) => (
+                  <div
+                    key={member.id}
+                    className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
+                  >
+                    <div className="mb-4">
+                      <h3 className="font-semibold text-sm text-gray-900">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs text-gray-600 mt-1">
+                        {member.activeTasks} active • {member.completedTasks} completed
+                      </p>
+                    </div>
+
+                    <div className="mb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-medium text-gray-900">
+                          {member.capacity}% capacity
+                        </span>
+                      </div>
+                      <div className="text-xs text-gray-600 mb-2">
+                        Current workload
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className={`h-2 rounded-full ${
+                            member.capacity >= 90
+                              ? "bg-red-600"
+                              : member.capacity >= 75
+                              ? "bg-orange-600"
+                              : "bg-green-600"
+                          }`}
+                          style={{ width: `${member.capacity}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex gap-2">
+                      <Button variant="outline" className="flex-1 h-8 text-xs px-2">
+                        Assign Task
+                      </Button>
+                      <Button variant="outline" className="flex-1 h-8 text-xs px-2">
+                        Message
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
