@@ -6,20 +6,20 @@
  */
 
 // ============================================================================
-// LAYOUT & CONTAINER STYLES
+// LAYOUT & CONTAINER STYLES (ULTRA-COMPACT - MINIMIZED)
 // ============================================================================
 
 export const layoutStyles = {
   // Main page container
   pageWrapper: "bg-white min-h-screen",
 
-  // Content container with minimal padding (COMPACT)
-  pageContainer: "max-w-7xl mx-auto px-5 py-3",
-  contentContainer: "max-w-7xl mx-auto px-5 pb-4",
+  // Content container with minimal padding (ULTRA-COMPACT)
+  pageContainer: "max-w-7xl mx-auto px-4 py-2",
+  contentContainer: "max-w-7xl mx-auto px-4 pb-2",
 
-  // Section containers (COMPACT)
-  sectionPadding: "p-3",
-  cardPadding: "p-3",
+  // Section containers (ULTRA-COMPACT)
+  sectionPadding: "p-2",
+  cardPadding: "p-2",
 };
 
 // ============================================================================
