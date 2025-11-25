@@ -661,7 +661,7 @@ export default function ReportsAnalytics() {
 
           {/* Forecasting Tab */}
           {activeTab === "forecasting" && (
-            <div className="space-y-6 pb-8">
+            <div className="space-y-3 pb-4">
               {/* Predictive Analytics */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">
