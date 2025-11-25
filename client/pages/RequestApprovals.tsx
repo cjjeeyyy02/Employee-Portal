@@ -183,6 +183,28 @@ const documents: Document[] = [
   },
 ];
 
+interface EscalatedRequest {
+  id: string;
+  requesterName: string;
+  type: string;
+  status: "escalated";
+  description: string;
+  escalationReason: string;
+  requestedDate: string;
+}
+
+const escalatedRequests: EscalatedRequest[] = [
+  {
+    id: "1",
+    requesterName: "Emma Wilson",
+    type: "Office Space Change",
+    status: "escalated",
+    description: "Request for desk relocation due to noise issues",
+    escalationReason: "Requires facilities team approval and space availability check",
+    requestedDate: "2024-12-01",
+  },
+];
+
 const getStatusLabel = (status: string) => {
   switch (status) {
     case "in-progress":
