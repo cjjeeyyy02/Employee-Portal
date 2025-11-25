@@ -779,7 +779,7 @@ export default function ReportsAnalytics() {
 
           {/* AI Insights Tab */}
           {activeTab === "ai-insights" && (
-            <div className="space-y-4 pb-8">
+            <div className="space-y-3 pb-4">
               <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">
                   AI-Powered Insights
