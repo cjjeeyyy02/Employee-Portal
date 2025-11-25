@@ -68,29 +68,29 @@ export const spacingStyles = {
 };
 
 // ============================================================================
-// COMPONENT STYLES
+// COMPONENT STYLES (COMPACT)
 // ============================================================================
 
 export const componentStyles = {
-  // Headers with border
+  // Headers with border (COMPACT padding)
   headerSection: "bg-white border-b border-gray-200",
-  headerContainer: "max-w-7xl mx-auto px-6 py-6",
-  
-  // Tab styles - clean design with bottom border
-  tabContainer: "flex gap-6 mb-6 border-b border-gray-200",
-  tabButton: "pb-4 text-sm font-medium transition-colors",
+  headerContainer: "max-w-7xl mx-auto px-5 py-3",
+
+  // Tab styles - clean design with bottom border (COMPACT)
+  tabContainer: "flex gap-4 mb-3 border-b border-gray-200",
+  tabButton: "pb-2 text-sm font-medium transition-colors",
   tabActive: "border-b-2 border-blue-600 text-gray-900",
   tabInactive: "border-b-2 border-transparent text-gray-600 hover:text-gray-900",
-  
-  // Cards - white background with subtle border, no shadow
-  card: "bg-white rounded-md p-4 md:p-5 border border-gray-200",
+
+  // Cards - white background with subtle border, no shadow (COMPACT)
+  card: "bg-white rounded-md p-3 border border-gray-200",
   cardHover: "hover:border-gray-300 transition-colors",
-  
-  // Metric cards
-  metricCard: "bg-white rounded-md p-4 border border-gray-200",
-  metricLabel: "text-sm font-medium text-gray-700",
-  metricValue: "text-3xl font-bold text-gray-900 my-3",
-  metricSubtext: "text-sm text-gray-600",
+
+  // Metric cards (COMPACT)
+  metricCard: "bg-white rounded-md p-3 border border-gray-200",
+  metricLabel: "text-xs font-medium text-gray-700",
+  metricValue: "text-2xl font-bold text-gray-900 my-2",
+  metricSubtext: "text-xs text-gray-600",
   
   // Badge/Status styles
   badge: "inline-block px-3 py-1 rounded-md text-xs font-medium",
