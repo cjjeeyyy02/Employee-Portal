@@ -366,7 +366,7 @@ export default function TeamManagement() {
                       </Button>
                       <Button
                         className="px-2 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium"
-                        onClick={() => handleViewProfile(member.name)}
+                        onClick={() => handleViewProfile(member.id)}
                       >
                         View Profile
                       </Button>
@@ -448,7 +448,7 @@ export default function TeamManagement() {
                       </Button>
                       <Button
                         className="flex-1 gap-1 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium"
-                        onClick={() => handleViewProfile(member.name)}
+                        onClick={() => handleViewProfile(member.id)}
                       >
                         Profile
                       </Button>
