@@ -362,7 +362,7 @@ export default function TeamManagement() {
                         size="icon"
                         className="h-7 w-7"
                         title="Send Email"
-                        onClick={() => handleSendEmail(member.name)}
+                        onClick={() => handleSendEmail(member.id)}
                       >
                         <Mail className="w-3.5 h-3.5 text-gray-600" />
                       </Button>
@@ -371,7 +371,7 @@ export default function TeamManagement() {
                         size="icon"
                         className="h-7 w-7"
                         title="Send Message"
-                        onClick={() => handleSendMessage(member.name)}
+                        onClick={() => handleSendMessage(member.id)}
                       >
                         <MessageCircle className="w-3.5 h-3.5 text-gray-600" />
                       </Button>
@@ -444,7 +444,7 @@ export default function TeamManagement() {
                         size="sm"
                         className="flex-1 gap-1 h-7 text-xs"
                         title="Send Email"
-                        onClick={() => handleSendEmail(member.name)}
+                        onClick={() => handleSendEmail(member.id)}
                       >
                         <Mail className="w-3 h-3" />
                       </Button>
@@ -453,7 +453,7 @@ export default function TeamManagement() {
                         size="sm"
                         className="flex-1 gap-1 h-7 text-xs"
                         title="Send Message"
-                        onClick={() => handleSendMessage(member.name)}
+                        onClick={() => handleSendMessage(member.id)}
                       >
                         <MessageCircle className="w-3 h-3" />
                       </Button>
