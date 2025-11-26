@@ -669,7 +669,11 @@ export default function TeamTaskManagement() {
                       </span>
                     </div>
 
-                    <Button variant="outline" className="w-full h-8 text-xs">
+                    <Button
+                      variant="outline"
+                      className="w-full h-8 text-xs"
+                      onClick={() => handleViewProjectDetails(project.name)}
+                    >
                       View Project Details
                     </Button>
                   </div>
