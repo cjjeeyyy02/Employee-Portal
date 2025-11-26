@@ -244,8 +244,8 @@ export default function PerformanceReviews() {
       <div className="bg-white min-h-screen">
         {/* Header Section */}
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-5 py-3">
-            <div className="flex items-start justify-between mb-3">
+          <div className="mx-auto px-3 py-1.5">
+            <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
                   Performance Management
@@ -269,8 +269,8 @@ export default function PerformanceReviews() {
         </div>
 
         {/* Metric Cards */}
-        <div className="max-w-7xl mx-auto px-5 py-2">
-          <div className="grid grid-cols-4 gap-3 mb-3">
+        <div className="mx-auto px-3 py-1">
+          <div className="grid grid-cols-4 gap-2 mb-2">
             <MetricCard
               icon={Star}
               title="Avg Team Rating"
