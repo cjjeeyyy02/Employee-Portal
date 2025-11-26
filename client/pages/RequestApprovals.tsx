@@ -702,10 +702,17 @@ export default function RequestApprovals() {
                   </p>
 
                   <div className="flex gap-2">
-                    <Button className="flex-1 h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button
+                      className="flex-1 h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => handleContactSeniorManager(escalation.requesterName, escalation.type)}
+                    >
                       Contact Senior Manager
                     </Button>
-                    <Button variant="outline" className="flex-1 h-8 text-xs px-3">
+                    <Button
+                      variant="outline"
+                      className="flex-1 h-8 text-xs px-3"
+                      onClick={() => handleViewEscalationDetails(escalation.requesterName)}
+                    >
                       View Details
                     </Button>
                   </div>
