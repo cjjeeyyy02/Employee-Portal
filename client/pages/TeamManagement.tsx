@@ -159,11 +159,14 @@ export default function TeamManagement() {
     }
   };
 
-  const handleMoreOptions = (memberName: string) => {
-    toast({
-      title: "More Options",
-      description: `More options for ${memberName} coming soon.`,
-    });
+  const handleMoreOptions = (memberId: number) => {
+    const member = teamMembers.find(m => m.id === memberId);
+    if (member) {
+      toast({
+        title: "More Options",
+        description: `More options for ${member.name} coming soon.`,
+      });
+    }
   };
 
   return (
@@ -389,7 +392,7 @@ export default function TeamManagement() {
                         variant="ghost"
                         size="icon"
                         className="h-7 w-7"
-                        onClick={() => handleMoreOptions(member.name)}
+                        onClick={() => handleMoreOptions(member.id)}
                       >
                         <MoreVertical className="w-3.5 h-3.5 text-gray-600" />
                       </Button>
