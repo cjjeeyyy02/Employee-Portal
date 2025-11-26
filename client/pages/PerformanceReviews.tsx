@@ -599,7 +599,10 @@ export default function PerformanceReviews() {
                     Track key performance indicators
                   </p>
                 </div>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3">
+                <Button
+                  className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3"
+                  onClick={handleAddKPI}
+                >
                   <Plus className="w-4 h-4" />
                   Add KPI
                 </Button>
