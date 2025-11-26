@@ -300,7 +300,50 @@ const aiInsights: AIInsight[] = [
 ];
 
 export default function ReportsAnalytics() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("overview");
+
+  const handleLastMonth = () => {
+    toast({
+      title: "Filter Applied",
+      description: "Showing data for last month...",
+    });
+  };
+
+  const handleFilters = () => {
+    toast({
+      title: "Advanced Filters",
+      description: "Opening filter options...",
+    });
+  };
+
+  const handleRefresh = () => {
+    toast({
+      title: "Refreshing",
+      description: "Updating all data and reports...",
+    });
+  };
+
+  const handleExportReport = () => {
+    toast({
+      title: "Export Started",
+      description: "Downloading complete reports as PDF/CSV...",
+    });
+  };
+
+  const handleTakeAction = (predictionTitle: string) => {
+    toast({
+      title: "Take Action",
+      description: `Opening action items for "${predictionTitle}"...`,
+    });
+  };
+
+  const handleInsightAction = (actionLabel: string, category: string) => {
+    toast({
+      title: actionLabel,
+      description: `Executing action for "${category}"...`,
+    });
+  };
 
   const tabs = [
     { id: "overview", label: "Overview" },
