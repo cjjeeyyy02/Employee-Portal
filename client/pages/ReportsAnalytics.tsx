@@ -764,7 +764,10 @@ export default function ReportsAnalytics() {
                         <p className="text-xs text-gray-600">
                           {pred.expected}
                         </p>
-                        <button className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded">
+                        <button
+                          onClick={() => handleTakeAction(pred.title)}
+                          className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded"
+                        >
                           Take Action
                         </button>
                       </div>
@@ -870,11 +873,18 @@ export default function ReportsAnalytics() {
 
                     <div className="pt-3 border-t border-gray-100">
                       {insight.actionType === "primary" ? (
-                        <button className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded">
+                        <button
+                          onClick={() => handleInsightAction(insight.actionLabel, insight.category)}
+                          className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded"
+                        >
                           {insight.actionLabel}
                         </button>
                       ) : (
-                        <Button variant="outline" className="h-8 text-xs px-3">
+                        <Button
+                          variant="outline"
+                          className="h-8 text-xs px-3"
+                          onClick={() => handleInsightAction(insight.actionLabel, insight.category)}
+                        >
                           {insight.actionLabel}
                         </Button>
                       )}
