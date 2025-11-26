@@ -313,8 +313,8 @@ export default function ReportsAnalytics() {
       <div className="bg-white min-h-screen">
         {/* Header Section */}
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-5 py-3">
-            <div className="flex items-start justify-between mb-3">
+          <div className="mx-auto px-3 py-1.5">
+            <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
                   Reports & Insights
@@ -345,9 +345,9 @@ export default function ReportsAnalytics() {
         </div>
 
         {/* Content Section */}
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="mx-auto px-3 py-2">
           {/* Tabs */}
-          <div className="flex gap-1 mb-4 border-b border-gray-200">
+          <div className="flex gap-1 mb-2 border-b border-gray-200">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
