@@ -98,10 +98,60 @@ const MetricCard = ({
 );
 
 export default function TeamManagement() {
+  const { toast } = useToast();
   const [viewMode, setViewMode] = useState<"grid" | "list">("list");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
+
+  const handleExportTeamData = () => {
+    toast({
+      title: "Export Started",
+      description: "Downloading team member data as CSV...",
+    });
+  };
+
+  const handleTeamReport = () => {
+    toast({
+      title: "Report Generated",
+      description: "Team report is being prepared and will download shortly.",
+    });
+  };
+
+  const handleMoreFilters = () => {
+    toast({
+      title: "Advanced Filters",
+      description: "Advanced filter options coming soon.",
+    });
+  };
+
+  const handleViewProfile = (memberName: string) => {
+    toast({
+      title: "View Profile",
+      description: `Opening profile for ${memberName}...`,
+    });
+  };
+
+  const handleSendEmail = (memberName: string) => {
+    toast({
+      title: "Email",
+      description: `Opening email compose for ${memberName}...`,
+    });
+  };
+
+  const handleSendMessage = (memberName: string) => {
+    toast({
+      title: "Message",
+      description: `Starting conversation with ${memberName}...`,
+    });
+  };
+
+  const handleMoreOptions = (memberName: string) => {
+    toast({
+      title: "More Options",
+      description: `More options for ${memberName} coming soon.`,
+    });
+  };
 
   return (
     <Layout>
