@@ -312,11 +312,18 @@ export default function RequestApprovals() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button variant="ghost" className="gap-2 h-7 text-xs px-2">
+                <Button
+                  variant="ghost"
+                  className="gap-2 h-7 text-xs px-2"
+                  onClick={handleUploadDocument}
+                >
                   <Upload className="w-3 h-3" />
                   Upload Document
                 </Button>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2">
+                <Button
+                  className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2"
+                  onClick={handleExportReports}
+                >
                   <Download className="w-3 h-3" />
                   Export Reports
                 </Button>
