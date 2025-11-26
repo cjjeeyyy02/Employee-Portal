@@ -352,6 +352,7 @@ export default function TeamManagement() {
                         size="icon"
                         className="h-7 w-7"
                         title="Send Email"
+                        onClick={() => handleSendEmail(member.name)}
                       >
                         <Mail className="w-3.5 h-3.5 text-gray-600" />
                       </Button>
@@ -360,16 +361,21 @@ export default function TeamManagement() {
                         size="icon"
                         className="h-7 w-7"
                         title="Send Message"
+                        onClick={() => handleSendMessage(member.name)}
                       >
                         <MessageCircle className="w-3.5 h-3.5 text-gray-600" />
                       </Button>
-                      <Button className="px-2 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium">
+                      <Button
+                        className="px-2 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium"
+                        onClick={() => handleViewProfile(member.name)}
+                      >
                         View Profile
                       </Button>
                       <Button
                         variant="ghost"
                         size="icon"
                         className="h-7 w-7"
+                        onClick={() => handleMoreOptions(member.name)}
                       >
                         <MoreVertical className="w-3.5 h-3.5 text-gray-600" />
                       </Button>
