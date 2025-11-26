@@ -56,6 +56,7 @@ export default function App() {
             {/* Employee View Routes */}
             <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
             <Route path="/my-profile" element={<MyProfile />} />
+            <Route path="/team-member/:id" element={<MyProfile />} />
             <Route path="/my-leave-attendance" element={<MyLeaveAttendance />} />
             <Route path="/my-performance" element={<MyPerformance />} />
             <Route path="/my-tasks" element={<MyTasks />} />
