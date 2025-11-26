@@ -231,7 +231,71 @@ const getKPIStatusColor = (status: string) => {
 };
 
 export default function PerformanceReviews() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("performance-reviews");
+
+  const handlePerformanceAnalytics = () => {
+    toast({
+      title: "Performance Analytics",
+      description: "Opening performance analytics dashboard...",
+    });
+  };
+
+  const handleNewReview = () => {
+    toast({
+      title: "New Review",
+      description: "Opening new performance review form...",
+    });
+  };
+
+  const handleStartReview = (name: string) => {
+    toast({
+      title: "Start Review",
+      description: `Starting performance review for ${name}...`,
+    });
+  };
+
+  const handleContinueReview = (name: string) => {
+    toast({
+      title: "Continue Review",
+      description: `Continuing review for ${name}...`,
+    });
+  };
+
+  const handleViewReviewDetails = (name: string) => {
+    toast({
+      title: "View Review Details",
+      description: `Opening review details for ${name}...`,
+    });
+  };
+
+  const handleCompleteReview = (name: string) => {
+    toast({
+      title: "Complete Review",
+      description: `Completing review for ${name}...`,
+    });
+  };
+
+  const handleFeedback = (goalTitle: string) => {
+    toast({
+      title: "Feedback",
+      description: `Opening feedback form for "${goalTitle}"...`,
+    });
+  };
+
+  const handleAdjustGoal = (goalTitle: string) => {
+    toast({
+      title: "Adjust Goal",
+      description: `Opening adjustment form for "${goalTitle}"...`,
+    });
+  };
+
+  const handleAddKPI = () => {
+    toast({
+      title: "Add KPI",
+      description: "Opening new KPI creation form...",
+    });
+  };
 
   const tabs = [
     { id: "performance-reviews", label: "Performance Reviews" },
