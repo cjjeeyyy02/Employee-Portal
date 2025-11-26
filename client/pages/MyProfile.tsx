@@ -797,7 +797,7 @@ export default function MyProfile() {
                 margin: 0,
               }}
             >
-              Sarah Mitchell
+              {displayName}
             </p>
             <p
               style={{
@@ -807,7 +807,7 @@ export default function MyProfile() {
                 margin: 0,
               }}
             >
-              sarah.mitchell@company.com
+              {displayEmail}
             </p>
             <p
               style={{
@@ -817,7 +817,7 @@ export default function MyProfile() {
                 margin: 0,
               }}
             >
-              +1 (555) 010–1200
+              {displayPhone}
             </p>
             <p
               style={{
@@ -827,7 +827,7 @@ export default function MyProfile() {
                 margin: 0,
               }}
             >
-              Engineering • San Francisco, CA, USA
+              {displayRole} • {displayDepartment}
             </p>
           </div>
         </div>
@@ -862,7 +862,7 @@ export default function MyProfile() {
                 fontSize: "14px",
               }}
             >
-              EMP001
+              {displayEmployeeId}
             </span>
           </div>
 
@@ -883,7 +883,7 @@ export default function MyProfile() {
                 fontSize: "14px",
               }}
             >
-              Joined Date: 01–15–2023
+              Joined Date: {displayJoinedDate}
             </span>
           </div>
 
@@ -903,7 +903,8 @@ export default function MyProfile() {
             Active
           </span>
 
-          {/* Profile Completion */}
+          {/* Profile Completion - Only show for current user */}
+          {!isTeamMemberProfile && (
           <div style={{ width: "100%", marginTop: "8px" }}>
             <div
               style={{
@@ -955,6 +956,7 @@ export default function MyProfile() {
               ></div>
             </div>
           </div>
+          )}
         </div>
       </div>
 
