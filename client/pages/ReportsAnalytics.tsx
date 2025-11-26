@@ -1,5 +1,15 @@
 import { useState } from "react";
-import { BarChart3, Download, Settings, RotateCcw, TrendingUp, Users, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import {
+  BarChart3,
+  Download,
+  Settings,
+  RotateCcw,
+  TrendingUp,
+  Users,
+  CheckCircle2,
+  Clock,
+  AlertCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
@@ -21,8 +31,8 @@ const MetricCard = ({
     changeType === "increase"
       ? "text-green-600"
       : changeType === "decrease"
-      ? "text-red-600"
-      : "text-gray-600";
+        ? "text-red-600"
+        : "text-gray-600";
 
   return (
     <div className="bg-white rounded-md p-2 border border-gray-200">
@@ -202,7 +212,8 @@ const performanceForecast: PerformanceForecast[] = [
   {
     type: "positive",
     title: "Positive Trend",
-    description: "Team performance likely to improve by 5% next quarter based on current trajectory",
+    description:
+      "Team performance likely to improve by 5% next quarter based on current trajectory",
   },
   {
     type: "watch",
@@ -268,7 +279,8 @@ const aiInsights: AIInsight[] = [
   {
     id: "1",
     category: "Performance Optimization",
-    recommendation: "Emma Wilson shows potential for leadership roles based on recent performance metrics and peer feedback.",
+    recommendation:
+      "Emma Wilson shows potential for leadership roles based on recent performance metrics and peer feedback.",
     details: "Emma Wilson (rank #1) with consistent 4.6 performance score",
     actionLabel: "View Details",
     actionType: "primary",
@@ -276,7 +288,8 @@ const aiInsights: AIInsight[] = [
   {
     id: "2",
     category: "Workload Balance",
-    recommendation: "Consider redistributing tasks from Mike Chen (95% capacity) to Lisa Park (60% capacity).",
+    recommendation:
+      "Consider redistributing tasks from Mike Chen (95% capacity) to Lisa Park (60% capacity).",
     details: "Optimize team productivity and prevent burnout",
     actionLabel: "Auto-Assign",
     actionType: "primary",
@@ -284,7 +297,8 @@ const aiInsights: AIInsight[] = [
   {
     id: "3",
     category: "Goal Achievement",
-    recommendation: "Team is on track to exceed Q4 targets by 12%. Consider setting stretch goals for Q1 2025.",
+    recommendation:
+      "Team is on track to exceed Q4 targets by 12%. Consider setting stretch goals for Q1 2025.",
     details: "Current trajectory shows strong positive momentum",
     actionLabel: "Set Goals",
     actionType: "primary",
@@ -292,7 +306,8 @@ const aiInsights: AIInsight[] = [
   {
     id: "4",
     category: "Team Development",
-    recommendation: "Cross-training opportunities identified between Alex Kim and Lisa Park for skill diversification.",
+    recommendation:
+      "Cross-training opportunities identified between Alex Kim and Lisa Park for skill diversification.",
     details: "Enhance team capabilities and reduce knowledge silos",
     actionLabel: "Plan Training",
     actionType: "primary",
@@ -597,7 +612,9 @@ export default function ReportsAnalytics() {
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-600">On-Time Delivery</span>
+                          <span className="text-gray-600">
+                            On-Time Delivery
+                          </span>
                           <span className="font-semibold text-gray-900">
                             89%
                           </span>
@@ -658,7 +675,8 @@ export default function ReportsAnalytics() {
                             {member.name}
                           </p>
                           <p className="text-xs text-gray-600">
-                            {member.tasks} tasks • {member.efficiency}% efficiency
+                            {member.tasks} tasks • {member.efficiency}%
+                            efficiency
                           </p>
                         </div>
                       </div>
@@ -751,19 +769,21 @@ export default function ReportsAnalytics() {
                         <span
                           className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getProbabilityColor(pred.probability)}`}
                         >
-                          {pred.probability.charAt(0).toUpperCase() + pred.probability.slice(1)} Probability
+                          {pred.probability.charAt(0).toUpperCase() +
+                            pred.probability.slice(1)}{" "}
+                          Probability
                         </span>
                         <span
                           className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getImpactColor(pred.impact)}`}
                         >
-                          {pred.impact.charAt(0).toUpperCase() + pred.impact.slice(1)} Impact
+                          {pred.impact.charAt(0).toUpperCase() +
+                            pred.impact.slice(1)}{" "}
+                          Impact
                         </span>
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <p className="text-xs text-gray-600">
-                          {pred.expected}
-                        </p>
+                        <p className="text-xs text-gray-600">{pred.expected}</p>
                         <button
                           onClick={() => handleTakeAction(pred.title)}
                           className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded"
@@ -874,7 +894,12 @@ export default function ReportsAnalytics() {
                     <div className="pt-3 border-t border-gray-100">
                       {insight.actionType === "primary" ? (
                         <button
-                          onClick={() => handleInsightAction(insight.actionLabel, insight.category)}
+                          onClick={() =>
+                            handleInsightAction(
+                              insight.actionLabel,
+                              insight.category,
+                            )
+                          }
                           className="px-3 py-1.5 h-8 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded"
                         >
                           {insight.actionLabel}
@@ -883,7 +908,12 @@ export default function ReportsAnalytics() {
                         <Button
                           variant="outline"
                           className="h-8 text-xs px-3"
-                          onClick={() => handleInsightAction(insight.actionLabel, insight.category)}
+                          onClick={() =>
+                            handleInsightAction(
+                              insight.actionLabel,
+                              insight.category,
+                            )
+                          }
                         >
                           {insight.actionLabel}
                         </Button>

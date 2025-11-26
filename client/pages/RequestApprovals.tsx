@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Upload, Download, AlertCircle, CheckCircle2, Clock, TrendingUp } from "lucide-react";
+import {
+  Upload,
+  Download,
+  AlertCircle,
+  CheckCircle2,
+  Clock,
+  TrendingUp,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
@@ -37,7 +44,13 @@ interface Request {
   type: string;
   category: string;
   priority: "low" | "medium" | "high" | "urgent";
-  status: "pending" | "in-progress" | "escalated" | "completed" | "rejected" | "approved";
+  status:
+    | "pending"
+    | "in-progress"
+    | "escalated"
+    | "completed"
+    | "rejected"
+    | "approved";
   description: string;
   requestedDate: string;
   dueDate?: string;
@@ -201,7 +214,8 @@ const escalatedRequests: EscalatedRequest[] = [
     type: "Office Space Change",
     status: "escalated",
     description: "Request for desk relocation due to noise issues",
-    escalationReason: "Requires facilities team approval and space availability check",
+    escalationReason:
+      "Requires facilities team approval and space availability check",
     requestedDate: "2024-12-01",
   },
 ];
@@ -247,7 +261,10 @@ export default function RequestApprovals() {
     });
   };
 
-  const handleEscalateRequest = (requesterName: string, requestType: string) => {
+  const handleEscalateRequest = (
+    requesterName: string,
+    requestType: string,
+  ) => {
     toast({
       title: "Request Escalated",
       description: `${requesterName}'s "${requestType}" has been escalated.`,
@@ -275,7 +292,10 @@ export default function RequestApprovals() {
     });
   };
 
-  const handleContactSeniorManager = (requesterName: string, requestType: string) => {
+  const handleContactSeniorManager = (
+    requesterName: string,
+    requestType: string,
+  ) => {
     toast({
       title: "Contact Senior Manager",
       description: `Contacting senior manager regarding ${requesterName}'s escalated "${requestType}"...`,
@@ -398,7 +418,10 @@ export default function RequestApprovals() {
               </div>
 
               {requests
-                .filter((req) => req.status === "pending" || req.status === "escalated")
+                .filter(
+                  (req) =>
+                    req.status === "pending" || req.status === "escalated",
+                )
                 .map((request) => (
                   <div
                     key={request.id}
@@ -414,10 +437,15 @@ export default function RequestApprovals() {
                             {request.type}
                           </p>
                           <div className="flex items-center gap-2">
-                            <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(request.priority)}`}>
-                              {request.priority.charAt(0).toUpperCase() + request.priority.slice(1)}
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(request.priority)}`}
+                            >
+                              {request.priority.charAt(0).toUpperCase() +
+                                request.priority.slice(1)}
                             </span>
-                            <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}>
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}
+                            >
                               {getStatusLabel(request.status)}
                             </span>
                           </div>
@@ -439,21 +467,36 @@ export default function RequestApprovals() {
                       <div className="flex flex-col gap-2 ml-4">
                         <Button
                           className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
-                          onClick={() => handleApproveRequest(request.requesterName, request.type)}
+                          onClick={() =>
+                            handleApproveRequest(
+                              request.requesterName,
+                              request.type,
+                            )
+                          }
                         >
                           Approve
                         </Button>
                         <Button
                           variant="outline"
                           className="h-8 text-xs px-3"
-                          onClick={() => handleRejectRequest(request.requesterName, request.type)}
+                          onClick={() =>
+                            handleRejectRequest(
+                              request.requesterName,
+                              request.type,
+                            )
+                          }
                         >
                           Reject
                         </Button>
                         <Button
                           variant="outline"
                           className="h-8 text-xs px-3"
-                          onClick={() => handleEscalateRequest(request.requesterName, request.type)}
+                          onClick={() =>
+                            handleEscalateRequest(
+                              request.requesterName,
+                              request.type,
+                            )
+                          }
                         >
                           Escalate
                         </Button>
@@ -536,7 +579,8 @@ export default function RequestApprovals() {
                             <span
                               className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(request.priority)}`}
                             >
-                              {request.priority.charAt(0).toUpperCase() + request.priority.slice(1)}
+                              {request.priority.charAt(0).toUpperCase() +
+                                request.priority.slice(1)}
                             </span>
                           </td>
                           <td className="px-4 py-3">
@@ -704,14 +748,21 @@ export default function RequestApprovals() {
                   <div className="flex gap-2">
                     <Button
                       className="flex-1 h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white"
-                      onClick={() => handleContactSeniorManager(escalation.requesterName, escalation.type)}
+                      onClick={() =>
+                        handleContactSeniorManager(
+                          escalation.requesterName,
+                          escalation.type,
+                        )
+                      }
                     >
                       Contact Senior Manager
                     </Button>
                     <Button
                       variant="outline"
                       className="flex-1 h-8 text-xs px-3"
-                      onClick={() => handleViewEscalationDetails(escalation.requesterName)}
+                      onClick={() =>
+                        handleViewEscalationDetails(escalation.requesterName)
+                      }
                     >
                       View Details
                     </Button>

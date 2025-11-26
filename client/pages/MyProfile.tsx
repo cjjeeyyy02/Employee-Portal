@@ -35,7 +35,14 @@ type TabType =
   | "leaveAttendance"
   | "documents"
   | "training";
-type EditModalType = "personal" | "contact" | "training" | "positionHistory" | "workHistory" | "workDetails" | null;
+type EditModalType =
+  | "personal"
+  | "contact"
+  | "training"
+  | "positionHistory"
+  | "workHistory"
+  | "workDetails"
+  | null;
 
 const tabs: { id: TabType; label: string }[] = [
   { id: "personal", label: "Personal" },
@@ -79,14 +86,27 @@ export default function MyProfile() {
   const navigate = useNavigate();
   const isTeamMemberProfile = !!id;
 
-  const teamMemberData: Record<string, { name: string; email: string; phone: string; department: string; role: string; avatar: string; employeeId: string; joinedDate: string }> = {
+  const teamMemberData: Record<
+    string,
+    {
+      name: string;
+      email: string;
+      phone: string;
+      department: string;
+      role: string;
+      avatar: string;
+      employeeId: string;
+      joinedDate: string;
+    }
+  > = {
     "1": {
       name: "Mike Chen",
       email: "mike.chen@company.com",
       phone: "+1 (555) 234-5678",
       department: "Product + Engineering",
       role: "Senior Designer",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
       employeeId: "EMP002",
       joinedDate: "03-10-2022",
     },
@@ -96,7 +116,8 @@ export default function MyProfile() {
       phone: "+1 (555) 345-6789",
       department: "UX Design + Design",
       role: "UX Designer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
       employeeId: "EMP003",
       joinedDate: "05-15-2022",
     },
@@ -106,7 +127,8 @@ export default function MyProfile() {
       phone: "+1 (555) 456-7890",
       department: "Junior Developer + Engineering",
       role: "Junior Developer",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
       employeeId: "EMP004",
       joinedDate: "08-20-2023",
     },
@@ -118,10 +140,14 @@ export default function MyProfile() {
   const displayPhone = memberData?.phone || "+1 (555) 010–1200";
   const displayDepartment = memberData?.department || "Engineering";
   const displayRole = memberData?.role || "Senior Designer";
-  const displayAvatar = memberData?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop";
+  const displayAvatar =
+    memberData?.avatar ||
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop";
   const displayEmployeeId = memberData?.employeeId || "EMP001";
   const displayJoinedDate = memberData?.joinedDate || "01–15–2023";
-  const displayLocation = memberData ? "San Francisco, CA, USA" : "San Francisco, CA, USA";
+  const displayLocation = memberData
+    ? "San Francisco, CA, USA"
+    : "San Francisco, CA, USA";
 
   const [activeTab, setActiveTab] = useState<TabType>("personal");
   const [editModalType, setEditModalType] = useState<EditModalType>(null);
@@ -160,11 +186,15 @@ export default function MyProfile() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [showTrainingViewModal, setShowTrainingViewModal] = useState(false);
-  const [showCertificationViewModal, setShowCertificationViewModal] = useState(false);
+  const [showCertificationViewModal, setShowCertificationViewModal] =
+    useState(false);
   const [showSkillViewModal, setShowSkillViewModal] = useState(false);
   const [showDocViewModal, setShowDocViewModal] = useState(false);
-  const [selectedTraining, setSelectedTraining] = useState<Training | null>(null);
-  const [selectedCertification, setSelectedCertification] = useState<Training | null>(null);
+  const [selectedTraining, setSelectedTraining] = useState<Training | null>(
+    null,
+  );
+  const [selectedCertification, setSelectedCertification] =
+    useState<Training | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [selectedDoc, setSelectedDoc] = useState<any>(null);
   const [showDeleteTrainingModal, setShowDeleteTrainingModal] = useState(false);
@@ -173,7 +203,7 @@ export default function MyProfile() {
   const [showDeleteDocModal, setShowDeleteDocModal] = useState(false);
   const [showPhotoUploadModal, setShowPhotoUploadModal] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState(
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop"
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
   );
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
 
@@ -709,7 +739,9 @@ export default function MyProfile() {
               className="text-xs text-gray-600"
               style={{ fontFamily: "Poppins, sans-serif" }}
             >
-              {isTeamMemberProfile ? "View team member profile information" : "View and manage your profile information"}
+              {isTeamMemberProfile
+                ? "View team member profile information"
+                : "View and manage your profile information"}
             </p>
           </div>
         </div>
@@ -907,57 +939,57 @@ export default function MyProfile() {
 
           {/* Profile Completion - Only show for current user */}
           {!isTeamMemberProfile && (
-          <div style={{ width: "100%", marginTop: "8px" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: "4px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  color: "#6B7280",
-                }}
-              >
-                Profile Completion
-              </span>
-              <span
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  color: "#2563EB",
-                }}
-              >
-                85%
-              </span>
-            </div>
-            {/* Progress Bar */}
-            <div
-              style={{
-                width: "100%",
-                height: "8px",
-                backgroundColor: "#E5E7EB",
-                borderRadius: "9999px",
-                overflow: "hidden",
-              }}
-            >
+            <div style={{ width: "100%", marginTop: "8px" }}>
               <div
                 style={{
-                  width: "85%",
-                  height: "100%",
-                  backgroundColor: "#2563EB",
-                  borderRadius: "9999px",
-                  transition: "width 0.3s ease-in-out",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "4px",
                 }}
-              ></div>
+              >
+                <span
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#6B7280",
+                  }}
+                >
+                  Profile Completion
+                </span>
+                <span
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    color: "#2563EB",
+                  }}
+                >
+                  85%
+                </span>
+              </div>
+              {/* Progress Bar */}
+              <div
+                style={{
+                  width: "100%",
+                  height: "8px",
+                  backgroundColor: "#E5E7EB",
+                  borderRadius: "9999px",
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    width: "85%",
+                    height: "100%",
+                    backgroundColor: "#2563EB",
+                    borderRadius: "9999px",
+                    transition: "width 0.3s ease-in-out",
+                  }}
+                ></div>
+              </div>
             </div>
-          </div>
           )}
         </div>
       </div>
@@ -1533,8 +1565,7 @@ export default function MyProfile() {
                       fontSize: "11px",
                     }}
                   >
-                    Provide emergency contact information for urgent
-                    situations.
+                    Provide emergency contact information for urgent situations.
                   </p>
                 </div>
 
@@ -3706,7 +3737,13 @@ export default function MyProfile() {
                   >
                     Upcoming Holidays
                   </h2>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "8px",
+                    }}
+                  >
                     <div
                       style={{
                         display: "flex",
@@ -5108,7 +5145,11 @@ export default function MyProfile() {
                   onChange={(e) =>
                     setTrainingForm({ ...trainingForm, name: e.target.value })
                   }
-                  placeholder={trainingForm.type === "Certification Name" ? "e.g., AWS Solutions Architect" : "e.g., Advanced JavaScript Workshop"}
+                  placeholder={
+                    trainingForm.type === "Certification Name"
+                      ? "e.g., AWS Solutions Architect"
+                      : "e.g., Advanced JavaScript Workshop"
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
@@ -5587,7 +5628,9 @@ export default function MyProfile() {
               </button>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+            >
               <div>
                 <label
                   style={{
@@ -5613,7 +5656,13 @@ export default function MyProfile() {
                 />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "16px",
+                }}
+              >
                 <div>
                   <label
                     style={{
@@ -5865,7 +5914,9 @@ export default function MyProfile() {
               </button>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+            >
               <div>
                 <label
                   style={{
@@ -5916,7 +5967,13 @@ export default function MyProfile() {
                 />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "16px",
+                }}
+              >
                 <div>
                   <label
                     style={{
@@ -6144,7 +6201,9 @@ export default function MyProfile() {
               </button>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+            >
               <div>
                 <label
                   style={{
@@ -6278,7 +6337,13 @@ export default function MyProfile() {
                 </select>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "16px",
+                }}
+              >
                 <div>
                   <label
                     style={{
@@ -6383,21 +6448,85 @@ export default function MyProfile() {
       {/* View Training Modal */}
       {showTrainingViewModal && selectedTraining && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Training Details</h2>
-              <button onClick={() => setShowTrainingViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "500px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  color: "#1f2937",
+                  margin: 0,
+                }}
+              >
+                Training Details
+              </h2>
+              <button
+                onClick={() => setShowTrainingViewModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
                 <X size={24} color="#6b7280" />
               </button>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              <div><strong>Name:</strong> {selectedTraining.name}</div>
-              <div><strong>Issuer:</strong> {selectedTraining.issuer}</div>
-              <div><strong>Issue Date:</strong> {selectedTraining.issueDate}</div>
-              <div><strong>Expiry Date:</strong> {selectedTraining.expiryDate}</div>
-              <div><strong>Status:</strong> <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${selectedTraining.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}>{selectedTraining.status}</span></div>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
+              <div>
+                <strong>Name:</strong> {selectedTraining.name}
+              </div>
+              <div>
+                <strong>Issuer:</strong> {selectedTraining.issuer}
+              </div>
+              <div>
+                <strong>Issue Date:</strong> {selectedTraining.issueDate}
+              </div>
+              <div>
+                <strong>Expiry Date:</strong> {selectedTraining.expiryDate}
+              </div>
+              <div>
+                <strong>Status:</strong>{" "}
+                <span
+                  className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${selectedTraining.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}
+                >
+                  {selectedTraining.status}
+                </span>
+              </div>
             </div>
-            <button onClick={() => setShowTrainingViewModal(false)} style={{ marginTop: "20px", padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer", width: "100%" }}>Close</button>
+            <button
+              onClick={() => setShowTrainingViewModal(false)}
+              style={{
+                marginTop: "20px",
+                padding: "10px 20px",
+                borderRadius: "8px",
+                border: "none",
+                backgroundColor: "#3b82f6",
+                color: "#ffffff",
+                fontSize: "14px",
+                fontWeight: "500",
+                cursor: "pointer",
+                width: "100%",
+              }}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
@@ -6405,21 +6534,85 @@ export default function MyProfile() {
       {/* View Certification Modal */}
       {showCertificationViewModal && selectedCertification && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Certification Details</h2>
-              <button onClick={() => setShowCertificationViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "500px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  color: "#1f2937",
+                  margin: 0,
+                }}
+              >
+                Certification Details
+              </h2>
+              <button
+                onClick={() => setShowCertificationViewModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
                 <X size={24} color="#6b7280" />
               </button>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              <div><strong>Name:</strong> {selectedCertification.name}</div>
-              <div><strong>Issuer:</strong> {selectedCertification.issuer}</div>
-              <div><strong>Issue Date:</strong> {selectedCertification.issueDate}</div>
-              <div><strong>Expiry Date:</strong> {selectedCertification.expiryDate}</div>
-              <div><strong>Status:</strong> <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${selectedCertification.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}>{selectedCertification.status}</span></div>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
+              <div>
+                <strong>Name:</strong> {selectedCertification.name}
+              </div>
+              <div>
+                <strong>Issuer:</strong> {selectedCertification.issuer}
+              </div>
+              <div>
+                <strong>Issue Date:</strong> {selectedCertification.issueDate}
+              </div>
+              <div>
+                <strong>Expiry Date:</strong> {selectedCertification.expiryDate}
+              </div>
+              <div>
+                <strong>Status:</strong>{" "}
+                <span
+                  className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-medium ${selectedCertification.status === "Active" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"}`}
+                >
+                  {selectedCertification.status}
+                </span>
+              </div>
             </div>
-            <button onClick={() => setShowCertificationViewModal(false)} style={{ marginTop: "20px", padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer", width: "100%" }}>Close</button>
+            <button
+              onClick={() => setShowCertificationViewModal(false)}
+              style={{
+                marginTop: "20px",
+                padding: "10px 20px",
+                borderRadius: "8px",
+                border: "none",
+                backgroundColor: "#3b82f6",
+                color: "#ffffff",
+                fontSize: "14px",
+                fontWeight: "500",
+                cursor: "pointer",
+                width: "100%",
+              }}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
@@ -6427,17 +6620,94 @@ export default function MyProfile() {
       {/* Delete Training Confirmation Modal */}
       {showDeleteTrainingModal && selectedTraining && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "450px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "16px",
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  backgroundColor: "#FEE2E2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "12px",
+                }}
+              >
                 <Trash2 size={24} color="#DC2626" />
               </div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Training</h2>
+              <h2
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                  color: "#222",
+                  margin: 0,
+                }}
+              >
+                Delete Training
+              </h2>
             </div>
-            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedTraining.name}"? This action cannot be undone.</p>
-            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
-              <button onClick={() => setShowDeleteTrainingModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
-              <button onClick={confirmDeleteTraining} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#6C757D",
+                marginBottom: "20px",
+              }}
+            >
+              Are you sure you want to delete "{selectedTraining.name}"? This
+              action cannot be undone.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <button
+                onClick={() => setShowDeleteTrainingModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteTraining}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#DC2626",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -6446,17 +6716,94 @@ export default function MyProfile() {
       {/* Delete Certification Confirmation Modal */}
       {showDeleteCertModal && selectedCertification && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "450px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "16px",
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  backgroundColor: "#FEE2E2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "12px",
+                }}
+              >
                 <Trash2 size={24} color="#DC2626" />
               </div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Certification</h2>
+              <h2
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                  color: "#222",
+                  margin: 0,
+                }}
+              >
+                Delete Certification
+              </h2>
             </div>
-            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedCertification.name}"? This action cannot be undone.</p>
-            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
-              <button onClick={() => setShowDeleteCertModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
-              <button onClick={confirmDeleteCertification} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#6C757D",
+                marginBottom: "20px",
+              }}
+            >
+              Are you sure you want to delete "{selectedCertification.name}"?
+              This action cannot be undone.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <button
+                onClick={() => setShowDeleteCertModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteCertification}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#DC2626",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -6465,20 +6812,90 @@ export default function MyProfile() {
       {/* View Skill Modal */}
       {showSkillViewModal && selectedSkill && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Skill Details</h2>
-              <button onClick={() => setShowSkillViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "500px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  color: "#1f2937",
+                  margin: 0,
+                }}
+              >
+                Skill Details
+              </h2>
+              <button
+                onClick={() => setShowSkillViewModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
                 <X size={24} color="#6b7280" />
               </button>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-              <div><strong>Name:</strong> {selectedSkill.name}</div>
-              <div><strong>Experience:</strong> {selectedSkill.experience} years</div>
-              <div><strong>Level:</strong> <span className={selectedSkill.level === "Expert" ? "px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800" : selectedSkill.level === "Advanced" ? "px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800" : selectedSkill.level === "Intermediate" ? "px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" : "px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"}>{selectedSkill.level}</span></div>
-              <div><strong>Last Updated:</strong> {selectedSkill.lastUpdated}</div>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
+              <div>
+                <strong>Name:</strong> {selectedSkill.name}
+              </div>
+              <div>
+                <strong>Experience:</strong> {selectedSkill.experience} years
+              </div>
+              <div>
+                <strong>Level:</strong>{" "}
+                <span
+                  className={
+                    selectedSkill.level === "Expert"
+                      ? "px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                      : selectedSkill.level === "Advanced"
+                        ? "px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                        : selectedSkill.level === "Intermediate"
+                          ? "px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
+                          : "px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                  }
+                >
+                  {selectedSkill.level}
+                </span>
+              </div>
+              <div>
+                <strong>Last Updated:</strong> {selectedSkill.lastUpdated}
+              </div>
             </div>
-            <button onClick={() => setShowSkillViewModal(false)} style={{ marginTop: "20px", padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer", width: "100%" }}>Close</button>
+            <button
+              onClick={() => setShowSkillViewModal(false)}
+              style={{
+                marginTop: "20px",
+                padding: "10px 20px",
+                borderRadius: "8px",
+                border: "none",
+                backgroundColor: "#3b82f6",
+                color: "#ffffff",
+                fontSize: "14px",
+                fontWeight: "500",
+                cursor: "pointer",
+                width: "100%",
+              }}
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
@@ -6486,17 +6903,94 @@ export default function MyProfile() {
       {/* Delete Skill Confirmation Modal */}
       {showDeleteSkillModal && selectedSkill && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "450px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "16px",
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  backgroundColor: "#FEE2E2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "12px",
+                }}
+              >
                 <Trash2 size={24} color="#DC2626" />
               </div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Skill</h2>
+              <h2
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                  color: "#222",
+                  margin: 0,
+                }}
+              >
+                Delete Skill
+              </h2>
             </div>
-            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedSkill.name}"? This action cannot be undone.</p>
-            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
-              <button onClick={() => setShowDeleteSkillModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
-              <button onClick={confirmDeleteSkill} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#6C757D",
+                marginBottom: "20px",
+              }}
+            >
+              Are you sure you want to delete "{selectedSkill.name}"? This
+              action cannot be undone.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <button
+                onClick={() => setShowDeleteSkillModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteSkill}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#DC2626",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -6505,46 +6999,178 @@ export default function MyProfile() {
       {/* View Document Modal */}
       {showDocViewModal && selectedDoc && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "500px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-              <h2 style={{ fontSize: "20px", fontWeight: "600", color: "#1f2937", margin: 0 }}>Document Details</h2>
-              <button onClick={() => setShowDocViewModal(false)} style={{ background: "none", border: "none", cursor: "pointer" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "500px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <h2
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  color: "#1f2937",
+                  margin: 0,
+                }}
+              >
+                Document Details
+              </h2>
+              <button
+                onClick={() => setShowDocViewModal(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
                 <X size={24} color="#6b7280" />
               </button>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ padding: "16px", backgroundColor: "#f9fafb", borderRadius: "8px", border: "1px solid #e5e7eb" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+            >
+              <div
+                style={{
+                  padding: "16px",
+                  backgroundColor: "#f9fafb",
+                  borderRadius: "8px",
+                  border: "1px solid #e5e7eb",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    marginBottom: "12px",
+                  }}
+                >
                   <FileText size={32} color="#3b82f6" />
                   <div>
-                    <h3 style={{ fontSize: "16px", fontWeight: "600", color: "#1f2937", margin: "0 0 4px 0" }}>{selectedDoc.title}</h3>
-                    <p style={{ fontSize: "12px", color: "#6b7280", margin: 0 }}>{selectedDoc.fileType} • {selectedDoc.fileSize}</p>
+                    <h3
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: "600",
+                        color: "#1f2937",
+                        margin: "0 0 4px 0",
+                      }}
+                    >
+                      {selectedDoc.title}
+                    </h3>
+                    <p
+                      style={{ fontSize: "12px", color: "#6b7280", margin: 0 }}
+                    >
+                      {selectedDoc.fileType} • {selectedDoc.fileSize}
+                    </p>
                   </div>
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "12px",
+                }}
+              >
                 <div>
-                  <p style={{ fontSize: "12px", color: "#6b7280", marginBottom: "4px" }}>Upload Date</p>
-                  <p style={{ fontSize: "14px", color: "#1f2937", fontWeight: "500", margin: 0 }}>{selectedDoc.uploadDate}</p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    Upload Date
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "14px",
+                      color: "#1f2937",
+                      fontWeight: "500",
+                      margin: 0,
+                    }}
+                  >
+                    {selectedDoc.uploadDate}
+                  </p>
                 </div>
                 <div>
-                  <p style={{ fontSize: "12px", color: "#6b7280", marginBottom: "4px" }}>File Type</p>
-                  <p style={{ fontSize: "14px", color: "#1f2937", fontWeight: "500", margin: 0 }}>{selectedDoc.fileType}</p>
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#6b7280",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    File Type
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "14px",
+                      color: "#1f2937",
+                      fontWeight: "500",
+                      margin: 0,
+                    }}
+                  >
+                    {selectedDoc.fileType}
+                  </p>
                 </div>
               </div>
             </div>
             <div style={{ display: "flex", gap: "12px", marginTop: "24px" }}>
               <button
                 onClick={() => {
-                  setNotification({ message: `Downloading ${selectedDoc.title}...`, type: "info" });
+                  setNotification({
+                    message: `Downloading ${selectedDoc.title}...`,
+                    type: "info",
+                  });
                   setTimeout(() => setNotification(null), 3000);
                 }}
-                style={{ flex: 1, padding: "10px 20px", borderRadius: "8px", border: "1px solid #d1d5db", backgroundColor: "#ffffff", color: "#374151", fontSize: "14px", fontWeight: "500", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
+                style={{
+                  flex: 1,
+                  padding: "10px 20px",
+                  borderRadius: "8px",
+                  border: "1px solid #d1d5db",
+                  backgroundColor: "#ffffff",
+                  color: "#374151",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                }}
               >
                 <Download size={16} />
                 Download
               </button>
-              <button onClick={() => setShowDocViewModal(false)} style={{ flex: 1, padding: "10px 20px", borderRadius: "8px", border: "none", backgroundColor: "#3b82f6", color: "#ffffff", fontSize: "14px", fontWeight: "500", cursor: "pointer" }}>Close</button>
+              <button
+                onClick={() => setShowDocViewModal(false)}
+                style={{
+                  flex: 1,
+                  padding: "10px 20px",
+                  borderRadius: "8px",
+                  border: "none",
+                  backgroundColor: "#3b82f6",
+                  color: "#ffffff",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -6553,17 +7179,94 @@ export default function MyProfile() {
       {/* Delete Document Confirmation Modal */}
       {showDeleteDocModal && selectedDoc && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div style={{ backgroundColor: "#FFFFFF", borderRadius: "12px", padding: "24px", width: "450px", maxWidth: "90vw" }}>
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-              <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: "#FEE2E2", display: "flex", alignItems: "center", justifyContent: "center", marginRight: "12px" }}>
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "12px",
+              padding: "24px",
+              width: "450px",
+              maxWidth: "90vw",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "16px",
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  backgroundColor: "#FEE2E2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginRight: "12px",
+                }}
+              >
                 <Trash2 size={24} color="#DC2626" />
               </div>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#222", margin: 0 }}>Delete Document</h2>
+              <h2
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "700",
+                  color: "#222",
+                  margin: 0,
+                }}
+              >
+                Delete Document
+              </h2>
             </div>
-            <p style={{ fontSize: "14px", color: "#6C757D", marginBottom: "20px" }}>Are you sure you want to delete "{selectedDoc.title}"? This action cannot be undone.</p>
-            <div style={{ display: "flex", gap: "10px", justifyContent: "flex-end" }}>
-              <button onClick={() => setShowDeleteDocModal(false)} style={{ padding: "8px 18px", borderRadius: "6px", border: "1px solid #D0D0D0", backgroundColor: "#FFFFFF", color: "#333", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Cancel</button>
-              <button onClick={confirmDeleteDoc} style={{ padding: "8px 18px", borderRadius: "6px", border: "none", backgroundColor: "#DC2626", color: "#FFFFFF", fontSize: "12px", fontWeight: "500", cursor: "pointer" }}>Delete</button>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#6C757D",
+                marginBottom: "20px",
+              }}
+            >
+              Are you sure you want to delete "{selectedDoc.title}"? This action
+              cannot be undone.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <button
+                onClick={() => setShowDeleteDocModal(false)}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "1px solid #D0D0D0",
+                  backgroundColor: "#FFFFFF",
+                  color: "#333",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteDoc}
+                style={{
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                  border: "none",
+                  backgroundColor: "#DC2626",
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -6756,7 +7459,10 @@ export default function MyProfile() {
                 onClick={() => {
                   if (photoPreview) {
                     setProfilePhoto(photoPreview);
-                    showNotification("Profile photo updated successfully", "success");
+                    showNotification(
+                      "Profile photo updated successfully",
+                      "success",
+                    );
                   }
                   setShowPhotoUploadModal(false);
                   setPhotoPreview(null);

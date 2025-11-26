@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { TrendingUp, Plus, Star, AlertCircle, CheckCircle2, Clock } from "lucide-react";
+import {
+  TrendingUp,
+  Plus,
+  Star,
+  AlertCircle,
+  CheckCircle2,
+  Clock,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
@@ -417,11 +424,14 @@ export default function PerformanceReviews() {
                           {review.name}
                         </h3>
                         <div className="flex items-center gap-2 mt-1">
-                          <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(review.status)}`}>
+                          <span
+                            className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(review.status)}`}
+                          >
                             {getStatusLabel(review.status)}
                           </span>
                           <span className="text-xs text-gray-600">
-                            {review.reviewType.charAt(0).toUpperCase() + review.reviewType.slice(1)}
+                            {review.reviewType.charAt(0).toUpperCase() +
+                              review.reviewType.slice(1)}
                           </span>
                           <span className="text-xs text-gray-600">
                             {review.reviewCycle}
@@ -431,27 +441,40 @@ export default function PerformanceReviews() {
 
                       <p className="text-xs text-gray-600 mb-2">
                         Due: {review.dueDate}
-                        {review.completedDate && ` • Completed: ${review.completedDate}`}
+                        {review.completedDate &&
+                          ` • Completed: ${review.completedDate}`}
                       </p>
 
                       {review.selfRating && (
                         <div className="flex items-center gap-4 text-xs">
                           {review.selfRating && (
                             <div>
-                              <span className="text-gray-600">Self Rating: </span>
-                              <span className="font-semibold text-gray-900">{review.selfRating}</span>
+                              <span className="text-gray-600">
+                                Self Rating:{" "}
+                              </span>
+                              <span className="font-semibold text-gray-900">
+                                {review.selfRating}
+                              </span>
                             </div>
                           )}
                           {review.managerRating && (
                             <div>
-                              <span className="text-gray-600">Manager Rating: </span>
-                              <span className="font-semibold text-gray-900">{review.managerRating}</span>
+                              <span className="text-gray-600">
+                                Manager Rating:{" "}
+                              </span>
+                              <span className="font-semibold text-gray-900">
+                                {review.managerRating}
+                              </span>
                             </div>
                           )}
                           {review.overallRating && (
                             <div>
-                              <span className="text-gray-600">Overall Rating: </span>
-                              <span className="font-semibold text-gray-900">{review.overallRating}</span>
+                              <span className="text-gray-600">
+                                Overall Rating:{" "}
+                              </span>
+                              <span className="font-semibold text-gray-900">
+                                {review.overallRating}
+                              </span>
                             </div>
                           )}
                         </div>
@@ -475,7 +498,8 @@ export default function PerformanceReviews() {
                           Continue Review
                         </Button>
                       )}
-                      {(review.status === "completed" || review.status === "in-progress") && (
+                      {(review.status === "completed" ||
+                        review.status === "in-progress") && (
                         <Button
                           variant="outline"
                           className="h-8 text-xs px-3"
@@ -532,9 +556,7 @@ export default function PerformanceReviews() {
                         {getGoalStatusLabel(goal.goalStatus)}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-600">
-                      {goal.description}
-                    </p>
+                    <p className="text-xs text-gray-600">{goal.description}</p>
                   </div>
 
                   <div className="mb-3 p-3 bg-gray-50 rounded-lg text-xs text-gray-600 space-y-1">
@@ -542,11 +564,12 @@ export default function PerformanceReviews() {
                       <span className="font-medium text-gray-900">
                         {goal.employeeName}
                       </span>
-                      <span> • {goal.category} • Due: {goal.dueDate}</span>
+                      <span>
+                        {" "}
+                        • {goal.category} • Due: {goal.dueDate}
+                      </span>
                     </div>
-                    <div>
-                      Target: {goal.target}
-                    </div>
+                    <div>Target: {goal.target}</div>
                   </div>
 
                   <div className="mb-3">
@@ -623,7 +646,8 @@ export default function PerformanceReviews() {
                           <span
                             className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getKPIStatusColor(kpi.status)}`}
                           >
-                            {kpi.status.charAt(0).toUpperCase() + kpi.status.slice(1)}
+                            {kpi.status.charAt(0).toUpperCase() +
+                              kpi.status.slice(1)}
                           </span>
                         </div>
                         <p className="text-xs text-gray-600">
@@ -663,9 +687,7 @@ export default function PerformanceReviews() {
               <h2 className="text-lg font-bold text-gray-900 mb-2">
                 Feedback Hub
               </h2>
-              <p className="text-xs text-gray-600">
-                Manage and share feedback
-              </p>
+              <p className="text-xs text-gray-600">Manage and share feedback</p>
             </div>
           )}
         </div>

@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Download, Calendar, AlertCircle, CheckCircle2, XCircle } from "lucide-react";
+import {
+  Download,
+  Calendar,
+  AlertCircle,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
@@ -457,9 +463,7 @@ export default function TeamAttendance() {
                     <h3 className="font-semibold text-sm text-gray-900">
                       {member.name}
                     </h3>
-                    <p className="text-xs text-gray-600">
-                      {member.department}
-                    </p>
+                    <p className="text-xs text-gray-600">{member.department}</p>
                   </div>
 
                   <div className="grid grid-cols-3 gap-4">
@@ -471,7 +475,8 @@ export default function TeamAttendance() {
                         </span>
                       </div>
                       <p className="text-xs text-gray-600">
-                        {member.annualLeave.used}/{member.annualLeave.total} days
+                        {member.annualLeave.used}/{member.annualLeave.total}{" "}
+                        days
                       </p>
                       <div className="w-full bg-gray-200 rounded-full h-1.5">
                         <div
@@ -517,7 +522,8 @@ export default function TeamAttendance() {
                         </span>
                       </div>
                       <p className="text-xs text-gray-600">
-                        {member.personalLeave.used}/{member.personalLeave.total} days
+                        {member.personalLeave.used}/{member.personalLeave.total}{" "}
+                        days
                       </p>
                       <div className="w-full bg-gray-200 rounded-full h-1.5">
                         <div
@@ -627,7 +633,9 @@ export default function TeamAttendance() {
                                   variant="outline"
                                   className="h-7 text-xs px-2"
                                   title="Correct attendance"
-                                  onClick={() => handleCorrectAttendance(report.name)}
+                                  onClick={() =>
+                                    handleCorrectAttendance(report.name)
+                                  }
                                 >
                                   Correct
                                 </Button>

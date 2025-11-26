@@ -36,7 +36,8 @@ const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Mike Chen",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     department: "Product + Engineering",
     role: "Senior Designer",
     status: "Active",
@@ -48,7 +49,8 @@ const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: "Lisa Park",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     department: "UX Design + Design",
     role: "UX Designer",
     status: "Active",
@@ -60,7 +62,8 @@ const teamMembers: TeamMember[] = [
   {
     id: 3,
     name: "Alex Kim",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
     department: "Junior Developer + Engineering",
     role: "Junior Developer",
     status: "Active",
@@ -212,7 +215,8 @@ export default function TeamManagement() {
                 <button className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7">
                   {selectedStatus === "all"
                     ? "All Status"
-                    : selectedStatus.charAt(0).toUpperCase() + selectedStatus.slice(1)}
+                    : selectedStatus.charAt(0).toUpperCase() +
+                      selectedStatus.slice(1)}
                   <ChevronDown className="w-3 h-3" />
                 </button>
               </div>

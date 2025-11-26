@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Search, Plus, TrendingUp, AlertCircle, CheckCircle2, Clock } from "lucide-react";
+import {
+  Search,
+  Plus,
+  TrendingUp,
+  AlertCircle,
+  CheckCircle2,
+  Clock,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/Layout";
@@ -51,7 +58,8 @@ const tasks: Task[] = [
   {
     id: "1",
     title: "Implement User Authentication System",
-    description: "Build secure login/logout functionality with JWT tokens and password encryption",
+    description:
+      "Build secure login/logout functionality with JWT tokens and password encryption",
     progress: 65,
     dueDate: "2024-12-20",
     priority: "high",
@@ -65,7 +73,8 @@ const tasks: Task[] = [
   {
     id: "2",
     title: "Design Mobile App Interface",
-    description: "Create responsive mobile UI/UX designs for the new employee portal",
+    description:
+      "Create responsive mobile UI/UX designs for the new employee portal",
     progress: 90,
     dueDate: "2024-12-18",
     priority: "medium",
@@ -309,7 +318,7 @@ export default function TeamTaskManagement() {
   ];
 
   const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(searchQuery.toLowerCase())
+    task.title.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -399,8 +408,18 @@ export default function TeamTaskManagement() {
             <div className="relative">
               <button className="flex items-center gap-2 px-2 py-1 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-8">
                 All Status
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <svg
+                  className="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
                 </svg>
               </button>
             </div>
@@ -408,8 +427,18 @@ export default function TeamTaskManagement() {
             <div className="relative">
               <button className="flex items-center gap-2 px-2 py-1 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-8">
                 All Assignees
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <svg
+                  className="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
                 </svg>
               </button>
             </div>
@@ -461,8 +490,12 @@ export default function TeamTaskManagement() {
                       <div className="flex items-center gap-2 mb-3">
                         <div className="flex-1 max-w-xs">
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-gray-600">Progress</span>
-                            <span className="text-xs font-medium text-gray-900">{task.progress}%</span>
+                            <span className="text-xs text-gray-600">
+                              Progress
+                            </span>
+                            <span className="text-xs font-medium text-gray-900">
+                              {task.progress}%
+                            </span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-1.5">
                             <div
@@ -477,18 +510,24 @@ export default function TeamTaskManagement() {
                         Due {task.dueDate}
                       </p>
                       <p className="text-xs text-gray-600">
-                        {task.estimated} estimated {task.actual && `/ ${task.actual} actual`}
+                        {task.estimated} estimated{" "}
+                        {task.actual && `/ ${task.actual} actual`}
                       </p>
                     </div>
 
                     <div className="ml-4 flex-shrink-0">
                       <div className="text-right">
                         <div className="mb-2">
-                          <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(task.priority)}`}>
-                            {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                          <span
+                            className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(task.priority)}`}
+                          >
+                            {task.priority.charAt(0).toUpperCase() +
+                              task.priority.slice(1)}
                           </span>
                         </div>
-                        <p className={`text-xs font-medium ${getStatusColor(task.status)}`}>
+                        <p
+                          className={`text-xs font-medium ${getStatusColor(task.status)}`}
+                        >
                           {getStatusLabel(task.status)}
                         </p>
                         <p className="text-xs text-gray-600 mt-1">
@@ -565,7 +604,8 @@ export default function TeamTaskManagement() {
                         {member.name}
                       </h3>
                       <p className="text-xs text-gray-600 mt-1">
-                        {member.activeTasks} active • {member.completedTasks} completed
+                        {member.activeTasks} active • {member.completedTasks}{" "}
+                        completed
                       </p>
                     </div>
 
@@ -584,8 +624,8 @@ export default function TeamTaskManagement() {
                             member.capacity >= 90
                               ? "bg-red-600"
                               : member.capacity >= 75
-                              ? "bg-orange-600"
-                              : "bg-green-600"
+                                ? "bg-orange-600"
+                                : "bg-green-600"
                           }`}
                           style={{ width: `${member.capacity}%` }}
                         />
@@ -637,7 +677,8 @@ export default function TeamTaskManagement() {
                         {project.name}
                       </h3>
                       <p className="text-xs text-gray-600">
-                        {project.totalTasks} tasks • {project.completedTasks} completed
+                        {project.totalTasks} tasks • {project.completedTasks}{" "}
+                        completed
                       </p>
                     </div>
 
