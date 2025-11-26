@@ -593,10 +593,18 @@ export default function TeamTaskManagement() {
                     </div>
 
                     <div className="flex gap-2">
-                      <Button variant="outline" className="flex-1 h-8 text-xs px-2">
+                      <Button
+                        variant="outline"
+                        className="flex-1 h-8 text-xs px-2"
+                        onClick={() => handleAssignTask(member.name)}
+                      >
                         Assign Task
                       </Button>
-                      <Button variant="outline" className="flex-1 h-8 text-xs px-2">
+                      <Button
+                        variant="outline"
+                        className="flex-1 h-8 text-xs px-2"
+                        onClick={() => handleMessageMember(member.name)}
+                      >
                         Message
                       </Button>
                     </div>
