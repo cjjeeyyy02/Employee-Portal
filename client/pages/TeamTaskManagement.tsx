@@ -249,8 +249,58 @@ const getProjectStatusColor = (status: string) => {
 };
 
 export default function TeamTaskManagement() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("all-tasks");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const handleTaskAnalytics = () => {
+    toast({
+      title: "Task Analytics",
+      description: "Opening task analytics dashboard...",
+    });
+  };
+
+  const handleNewTask = () => {
+    toast({
+      title: "New Task",
+      description: "Opening new task creation form...",
+    });
+  };
+
+  const handleMoreFilters = () => {
+    toast({
+      title: "More Filters",
+      description: "Advanced filter options coming soon...",
+    });
+  };
+
+  const handleReassignTask = (taskTitle: string) => {
+    toast({
+      title: "Reassign Task",
+      description: `Opening reassignment dialog for "${taskTitle}"...`,
+    });
+  };
+
+  const handleAssignTask = (memberName: string) => {
+    toast({
+      title: "Assign Task",
+      description: `Opening task assignment for ${memberName}...`,
+    });
+  };
+
+  const handleMessageMember = (memberName: string) => {
+    toast({
+      title: "Message",
+      description: `Starting conversation with ${memberName}...`,
+    });
+  };
+
+  const handleViewProjectDetails = (projectName: string) => {
+    toast({
+      title: "Project Details",
+      description: `Opening details for "${projectName}"...`,
+    });
+  };
 
   const tabs = [
     { id: "all-tasks", label: "All Tasks" },
