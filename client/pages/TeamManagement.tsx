@@ -37,6 +37,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Mike Chen",
+    email: "mike.chen@company.com",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     department: "Product + Engineering",
@@ -50,6 +51,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: "Lisa Park",
+    email: "lisa.park@company.com",
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     department: "UX Design + Design",
@@ -63,6 +65,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 3,
     name: "Alex Kim",
+    email: "alex.kim@company.com",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
     department: "Junior Developer + Engineering",
