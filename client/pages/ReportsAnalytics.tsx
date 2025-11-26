@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BarChart3, Download, Settings, RotateCcw, TrendingUp, Users, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import { useToast } from "@/hooks/use-toast";
 
 const MetricCard = ({
   icon: Icon,
