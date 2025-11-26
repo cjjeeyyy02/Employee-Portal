@@ -3,6 +3,7 @@ import { Search, Plus, TrendingUp, AlertCircle, CheckCircle2, Clock } from "luci
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/Layout";
+import { useToast } from "@/hooks/use-toast";
 
 const MetricCard = ({
   icon: Icon,
