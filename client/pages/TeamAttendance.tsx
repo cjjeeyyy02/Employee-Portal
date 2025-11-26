@@ -618,6 +618,7 @@ export default function TeamAttendance() {
                                 variant="outline"
                                 className="h-7 text-xs px-2"
                                 title="View details"
+                                onClick={() => handleViewDetails(report.name)}
                               >
                                 View Details
                               </Button>
@@ -626,6 +627,7 @@ export default function TeamAttendance() {
                                   variant="outline"
                                   className="h-7 text-xs px-2"
                                   title="Correct attendance"
+                                  onClick={() => handleCorrectAttendance(report.name)}
                                 >
                                   Correct
                                 </Button>
