@@ -367,7 +367,7 @@ export default function ReportsAnalytics() {
           {activeTab === "overview" && (
             <div className="space-y-3 pb-4">
               {/* Key Metrics */}
-              <div className="grid grid-cols-6 gap-3">
+              <div className="grid grid-cols-6 gap-2">
                 <MetricCard
                   icon={Users}
                   title="Team Size"
