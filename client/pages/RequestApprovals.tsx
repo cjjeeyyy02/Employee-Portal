@@ -621,6 +621,7 @@ export default function RequestApprovals() {
                           variant="outline"
                           className="h-8 text-xs px-3"
                           title="View document"
+                          onClick={() => handleViewDocument(doc.filename)}
                         >
                           View
                         </Button>
@@ -628,6 +629,7 @@ export default function RequestApprovals() {
                           variant="outline"
                           className="h-8 text-xs px-3"
                           title="Download document"
+                          onClick={() => handleDownloadDocument(doc.filename)}
                         >
                           Download
                         </Button>
