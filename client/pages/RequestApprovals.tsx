@@ -288,9 +288,9 @@ export default function RequestApprovals() {
         </div>
 
         {/* Content Section */}
-        <div className="max-w-7xl mx-auto px-6 pb-8">
+        <div className="mx-auto px-3 pb-3">
           {/* Tabs */}
-          <div className="flex gap-1 mb-4 border-b border-gray-200">
+          <div className="flex gap-1 mb-2 border-b border-gray-200">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
