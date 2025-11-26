@@ -24,12 +24,12 @@ const MetricCard = ({
       : "text-gray-600";
 
   return (
-    <div className="bg-white rounded-lg p-3 shadow-sm border border-gray-100">
-      <div className="flex items-start justify-between mb-2">
-        <h3 className="text-xs font-medium text-slate-600">{title}</h3>
-        <Icon className="w-4 h-4 text-slate-400" />
+    <div className="bg-white rounded-md p-2 border border-gray-200">
+      <div className="flex items-start justify-between mb-1.5">
+        <h3 className="text-xs font-medium text-gray-700">{title}</h3>
+        <Icon className="w-4 h-4 text-gray-400" />
       </div>
-      <div className="mb-2">
+      <div className="mb-1.5">
         <p className="text-2xl font-bold text-gray-900">{value}</p>
       </div>
       <p className={`text-xs font-medium ${changeColor}`}>{change}</p>
