@@ -407,6 +407,7 @@ export default function TeamAttendance() {
                       <Button
                         className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
                         title="Approve leave"
+                        onClick={() => handleApproveLeave(request.name)}
                       >
                         <CheckCircle2 className="w-3 h-3 mr-1" />
                         Approve
@@ -415,6 +416,7 @@ export default function TeamAttendance() {
                         variant="outline"
                         className="h-8 text-xs px-3"
                         title="Deny leave"
+                        onClick={() => handleDenyLeave(request.name)}
                       >
                         <XCircle className="w-3 h-3 mr-1" />
                         Deny
@@ -423,6 +425,7 @@ export default function TeamAttendance() {
                         variant="outline"
                         className="h-8 text-xs px-3"
                         title="View details"
+                        onClick={() => handleViewDetails(request.name)}
                       >
                         Details
                       </Button>
