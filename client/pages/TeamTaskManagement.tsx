@@ -328,11 +328,18 @@ export default function TeamTaskManagement() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button variant="ghost" className="gap-2 h-7 text-xs px-2">
+                <Button
+                  variant="ghost"
+                  className="gap-2 h-7 text-xs px-2"
+                  onClick={handleTaskAnalytics}
+                >
                   <TrendingUp className="w-3 h-3" />
                   Task Analytics
                 </Button>
-                <Button className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2">
+                <Button
+                  className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2"
+                  onClick={handleNewTask}
+                >
                   <Plus className="w-3 h-3" />
                   New Task
                 </Button>
