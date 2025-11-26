@@ -437,13 +437,24 @@ export default function RequestApprovals() {
                       </div>
 
                       <div className="flex flex-col gap-2 ml-4">
-                        <Button className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white">
+                        <Button
+                          className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
+                          onClick={() => handleApproveRequest(request.requesterName, request.type)}
+                        >
                           Approve
                         </Button>
-                        <Button variant="outline" className="h-8 text-xs px-3">
+                        <Button
+                          variant="outline"
+                          className="h-8 text-xs px-3"
+                          onClick={() => handleRejectRequest(request.requesterName, request.type)}
+                        >
                           Reject
                         </Button>
-                        <Button variant="outline" className="h-8 text-xs px-3">
+                        <Button
+                          variant="outline"
+                          className="h-8 text-xs px-3"
+                          onClick={() => handleEscalateRequest(request.requesterName, request.type)}
+                        >
                           Escalate
                         </Button>
                       </div>
