@@ -414,7 +414,12 @@ export default function TeamTaskManagement() {
               </button>
             </div>
 
-            <Button variant="outline" size="sm" className="h-8 text-xs px-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-8 text-xs px-2"
+              onClick={handleMoreFilters}
+            >
               More Filters
             </Button>
           </div>
