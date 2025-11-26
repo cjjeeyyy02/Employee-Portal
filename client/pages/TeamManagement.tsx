@@ -317,19 +317,19 @@ export default function TeamManagement() {
             )}
 
             {viewMode === "grid" && (
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2">
                 {teamMembers.map((member) => (
                   <div
                     key={member.id}
-                    className="border border-gray-200 rounded-md p-3 hover:shadow-md transition-shadow"
+                    className="border border-gray-200 rounded-md p-2 hover:shadow-md transition-shadow"
                   >
-                    <div className="flex flex-col items-center text-center mb-3">
+                    <div className="flex flex-col items-center text-center mb-2">
                       <img
                         src={member.avatar}
                         alt={member.name}
-                        className="w-12 h-12 rounded-full object-cover mb-2"
+                        className="w-10 h-10 rounded-full object-cover mb-1.5"
                       />
-                      <h3 className="font-semibold text-sm text-gray-900">
+                      <h3 className="font-semibold text-xs text-gray-900">
                         {member.name}
                       </h3>
                       <p className="text-xs text-gray-600">{member.role}</p>
@@ -338,7 +338,7 @@ export default function TeamManagement() {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 mb-3 py-2 border-t border-b border-gray-200">
+                    <div className="grid grid-cols-3 gap-2 mb-2 py-1.5 border-t border-b border-gray-200">
                       <div className="text-center">
                         <p className="text-xs font-semibold text-gray-900">
                           {member.performance}
