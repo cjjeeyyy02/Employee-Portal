@@ -100,6 +100,7 @@ const MetricCard = ({
 
 export default function TeamManagement() {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [viewMode, setViewMode] = useState<"grid" | "list">("list");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("all");
@@ -126,11 +127,8 @@ export default function TeamManagement() {
     });
   };
 
-  const handleViewProfile = (memberName: string) => {
-    toast({
-      title: "View Profile",
-      description: `Opening profile for ${memberName}...`,
-    });
+  const handleViewProfile = (memberId: number) => {
+    navigate(`/team-member/${memberId}`);
   };
 
   const handleSendEmail = (memberName: string) => {
