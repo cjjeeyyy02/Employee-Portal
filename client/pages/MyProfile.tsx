@@ -688,18 +688,31 @@ export default function MyProfile() {
     <Layout>
       {/* Header Section */}
       <div className="mb-4 animate-fadeIn">
-        <h1
-          className="text-lg font-bold text-gray-900 mb-0.5"
-          style={{ fontFamily: "Poppins, sans-serif" }}
-        >
-          My Profile
-        </h1>
-        <p
-          className="text-xs text-gray-600"
-          style={{ fontFamily: "Poppins, sans-serif" }}
-        >
-          View and manage your profile information
-        </p>
+        <div className="flex items-center gap-3 mb-2">
+          {isTeamMemberProfile && (
+            <button
+              onClick={() => navigate("/team-management")}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              title="Go back"
+            >
+              <ArrowLeft className="w-5 h-5 text-gray-600" />
+            </button>
+          )}
+          <div>
+            <h1
+              className="text-lg font-bold text-gray-900 mb-0.5"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              {isTeamMemberProfile ? `${displayName}'s Profile` : "My Profile"}
+            </h1>
+            <p
+              className="text-xs text-gray-600"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              {isTeamMemberProfile ? "View team member profile information" : "View and manage your profile information"}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Employee Profile Card */}
