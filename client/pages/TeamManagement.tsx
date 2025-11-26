@@ -82,17 +82,17 @@ const MetricCard = ({
   subtitle: string;
   valueColor?: string;
 }) => (
-  <div className="bg-white rounded-md p-4 border border-gray-200">
-    <div className="flex items-start justify-between mb-3">
-      <h3 className="text-sm font-medium text-gray-700">{title}</h3>
-      <Icon className="w-5 h-5 text-gray-400" />
+  <div className="bg-white rounded-md p-2 border border-gray-200">
+    <div className="flex items-start justify-between mb-1.5">
+      <h3 className="text-xs font-medium text-gray-700">{title}</h3>
+      <Icon className="w-4 h-4 text-gray-400" />
     </div>
-    <div className="mb-3">
-      <p className={`text-3xl font-bold ${valueColor || "text-gray-900"}`}>
+    <div className="mb-1.5">
+      <p className={`text-2xl font-bold ${valueColor || "text-gray-900"}`}>
         {value}
       </p>
     </div>
-    <p className="text-sm text-gray-600">{subtitle}</p>
+    <p className="text-xs text-gray-600">{subtitle}</p>
   </div>
 );
 
