@@ -75,6 +75,54 @@ interface Training {
 }
 
 export default function MyProfile() {
+  const { id } = useParams<{ id?: string }>();
+  const navigate = useNavigate();
+  const isTeamMemberProfile = !!id;
+
+  const teamMemberData: Record<string, { name: string; email: string; phone: string; department: string; role: string; avatar: string; employeeId: string; joinedDate: string }> = {
+    "1": {
+      name: "Mike Chen",
+      email: "mike.chen@company.com",
+      phone: "+1 (555) 234-5678",
+      department: "Product + Engineering",
+      role: "Senior Designer",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+      employeeId: "EMP002",
+      joinedDate: "03-10-2022",
+    },
+    "2": {
+      name: "Lisa Park",
+      email: "lisa.park@company.com",
+      phone: "+1 (555) 345-6789",
+      department: "UX Design + Design",
+      role: "UX Designer",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+      employeeId: "EMP003",
+      joinedDate: "05-15-2022",
+    },
+    "3": {
+      name: "Alex Kim",
+      email: "alex.kim@company.com",
+      phone: "+1 (555) 456-7890",
+      department: "Junior Developer + Engineering",
+      role: "Junior Developer",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+      employeeId: "EMP004",
+      joinedDate: "08-20-2023",
+    },
+  };
+
+  const memberData = isTeamMemberProfile ? teamMemberData[id] : null;
+  const displayName = memberData?.name || "Sarah Mitchell";
+  const displayEmail = memberData?.email || "sarah.mitchell@company.com";
+  const displayPhone = memberData?.phone || "+1 (555) 010–1200";
+  const displayDepartment = memberData?.department || "Engineering";
+  const displayRole = memberData?.role || "Senior Designer";
+  const displayAvatar = memberData?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop";
+  const displayEmployeeId = memberData?.employeeId || "EMP001";
+  const displayJoinedDate = memberData?.joinedDate || "01–15–2023";
+  const displayLocation = memberData ? "San Francisco, CA, USA" : "San Francisco, CA, USA";
+
   const [activeTab, setActiveTab] = useState<TabType>("personal");
   const [editModalType, setEditModalType] = useState<EditModalType>(null);
   const [notification, setNotification] = useState<{
