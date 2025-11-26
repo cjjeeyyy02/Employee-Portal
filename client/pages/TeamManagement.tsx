@@ -433,6 +433,8 @@ export default function TeamManagement() {
                         variant="ghost"
                         size="sm"
                         className="flex-1 gap-1 h-7 text-xs"
+                        title="Send Email"
+                        onClick={() => handleSendEmail(member.name)}
                       >
                         <Mail className="w-3 h-3" />
                       </Button>
@@ -440,10 +442,15 @@ export default function TeamManagement() {
                         variant="ghost"
                         size="sm"
                         className="flex-1 gap-1 h-7 text-xs"
+                        title="Send Message"
+                        onClick={() => handleSendMessage(member.name)}
                       >
                         <MessageCircle className="w-3 h-3" />
                       </Button>
-                      <Button className="flex-1 gap-1 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium">
+                      <Button
+                        className="flex-1 gap-1 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium"
+                        onClick={() => handleViewProfile(member.name)}
+                      >
                         Profile
                       </Button>
                     </div>
