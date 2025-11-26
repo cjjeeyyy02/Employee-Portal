@@ -199,8 +199,8 @@ export default function TeamManagement() {
 
           {/* View Toggle */}
           {/* Team Members Section */}
-          <div className="bg-white rounded-md border border-gray-200 p-3">
-            <div className="flex items-center justify-between mb-2">
+          <div className="bg-white rounded-md border border-gray-200 p-2">
+            <div className="flex items-center justify-between mb-1.5">
               <div>
                 <h2 className="text-sm font-medium text-gray-900 mb-1">
                   Team Members
@@ -232,7 +232,7 @@ export default function TeamManagement() {
             </div>
 
             {viewMode === "list" && (
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {teamMembers.map((member) => (
                   <div
                     key={member.id}
