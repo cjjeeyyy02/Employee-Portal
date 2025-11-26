@@ -22,6 +22,7 @@ import { useToast } from "@/hooks/use-toast";
 interface TeamMember {
   id: number;
   name: string;
+  email: string;
   avatar: string;
   department: string;
   role: string;
