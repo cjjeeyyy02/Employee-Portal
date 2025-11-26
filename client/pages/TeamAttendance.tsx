@@ -201,7 +201,50 @@ const getStatusLabel = (status: string) => {
 };
 
 export default function TeamAttendance() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("leave-requests");
+
+  const handleExportReports = () => {
+    toast({
+      title: "Export Started",
+      description: "Downloading attendance and leave reports as CSV...",
+    });
+  };
+
+  const handleTeamCalendar = () => {
+    toast({
+      title: "Team Calendar",
+      description: "Opening team calendar view...",
+    });
+  };
+
+  const handleApproveLeave = (name: string) => {
+    toast({
+      title: "Leave Approved",
+      description: `${name}'s leave request has been approved.`,
+    });
+  };
+
+  const handleDenyLeave = (name: string) => {
+    toast({
+      title: "Leave Rejected",
+      description: `${name}'s leave request has been rejected.`,
+    });
+  };
+
+  const handleViewDetails = (name: string) => {
+    toast({
+      title: "View Details",
+      description: `Opening details for ${name}...`,
+    });
+  };
+
+  const handleCorrectAttendance = (name: string) => {
+    toast({
+      title: "Correct Attendance",
+      description: `Opening correction form for ${name}...`,
+    });
+  };
 
   const tabs = [
     { id: "leave-requests", label: "Leave Requests" },
