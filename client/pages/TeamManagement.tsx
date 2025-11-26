@@ -134,18 +134,25 @@ export default function TeamManagement() {
     navigate(`/team-member/${memberId}`);
   };
 
-  const handleSendEmail = (memberName: string) => {
-    toast({
-      title: "Email",
-      description: `Opening email compose for ${memberName}...`,
-    });
+  const handleSendEmail = (memberId: number) => {
+    const member = teamMembers.find(m => m.id === memberId);
+    if (member) {
+      window.location.href = `mailto:${member.email}`;
+      toast({
+        title: "Email",
+        description: `Opening email for ${member.name}...`,
+      });
+    }
   };
 
-  const handleSendMessage = (memberName: string) => {
-    toast({
-      title: "Message",
-      description: `Starting conversation with ${memberName}...`,
-    });
+  const handleSendMessage = (memberId: number) => {
+    const member = teamMembers.find(m => m.id === memberId);
+    if (member) {
+      toast({
+        title: "Message",
+        description: `Starting conversation with ${member.name}...`,
+      });
+    }
   };
 
   const handleMoreOptions = (memberName: string) => {
