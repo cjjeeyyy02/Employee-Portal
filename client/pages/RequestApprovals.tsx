@@ -216,7 +216,78 @@ const getStatusLabel = (status: string) => {
 };
 
 export default function RequestApprovals() {
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("pending-approval");
+
+  const handleUploadDocument = () => {
+    toast({
+      title: "Upload Document",
+      description: "Opening document upload dialog...",
+    });
+  };
+
+  const handleExportReports = () => {
+    toast({
+      title: "Export Reports",
+      description: "Downloading request reports as CSV...",
+    });
+  };
+
+  const handleApproveRequest = (requesterName: string, requestType: string) => {
+    toast({
+      title: "Request Approved",
+      description: `${requesterName}'s "${requestType}" has been approved.`,
+    });
+  };
+
+  const handleRejectRequest = (requesterName: string, requestType: string) => {
+    toast({
+      title: "Request Rejected",
+      description: `${requesterName}'s "${requestType}" has been rejected.`,
+    });
+  };
+
+  const handleEscalateRequest = (requesterName: string, requestType: string) => {
+    toast({
+      title: "Request Escalated",
+      description: `${requesterName}'s "${requestType}" has been escalated.`,
+    });
+  };
+
+  const handleViewRequest = (requestType: string) => {
+    toast({
+      title: "View Request",
+      description: `Opening details for "${requestType}"...`,
+    });
+  };
+
+  const handleViewDocument = (filename: string) => {
+    toast({
+      title: "View Document",
+      description: `Opening ${filename}...`,
+    });
+  };
+
+  const handleDownloadDocument = (filename: string) => {
+    toast({
+      title: "Download",
+      description: `Downloading ${filename}...`,
+    });
+  };
+
+  const handleContactSeniorManager = (requesterName: string, requestType: string) => {
+    toast({
+      title: "Contact Senior Manager",
+      description: `Contacting senior manager regarding ${requesterName}'s escalated "${requestType}"...`,
+    });
+  };
+
+  const handleViewEscalationDetails = (requesterName: string) => {
+    toast({
+      title: "View Details",
+      description: `Opening escalation details for ${requesterName}...`,
+    });
+  };
 
   const tabs = [
     { id: "pending-approval", label: "Pending Approval" },
