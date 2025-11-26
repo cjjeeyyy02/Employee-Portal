@@ -460,22 +460,35 @@ export default function PerformanceReviews() {
 
                     <div className="flex gap-2 ml-4">
                       {review.status === "pending" && (
-                        <Button className="h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white">
+                        <Button
+                          className="h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white"
+                          onClick={() => handleStartReview(review.name)}
+                        >
                           Start Review
                         </Button>
                       )}
                       {review.status === "in-progress" && (
-                        <Button className="h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white">
+                        <Button
+                          className="h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white"
+                          onClick={() => handleContinueReview(review.name)}
+                        >
                           Continue Review
                         </Button>
                       )}
                       {(review.status === "completed" || review.status === "in-progress") && (
-                        <Button variant="outline" className="h-8 text-xs px-3">
+                        <Button
+                          variant="outline"
+                          className="h-8 text-xs px-3"
+                          onClick={() => handleViewReviewDetails(review.name)}
+                        >
                           View Details
                         </Button>
                       )}
                       {review.status === "overdue" && (
-                        <Button className="h-8 text-xs px-3 bg-red-600 hover:bg-red-700 text-white">
+                        <Button
+                          className="h-8 text-xs px-3 bg-red-600 hover:bg-red-700 text-white"
+                          onClick={() => handleCompleteReview(review.name)}
+                        >
                           Complete Review
                         </Button>
                       )}
