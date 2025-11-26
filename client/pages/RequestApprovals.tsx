@@ -555,6 +555,7 @@ export default function RequestApprovals() {
                                 variant="outline"
                                 className="h-7 text-xs px-2"
                                 title="View details"
+                                onClick={() => handleViewRequest(request.type)}
                               >
                                 View
                               </Button>
