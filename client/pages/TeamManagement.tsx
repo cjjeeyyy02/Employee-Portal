@@ -218,7 +218,12 @@ export default function TeamManagement() {
                 </button>
               </div>
 
-              <Button variant="outline" size="sm" className="h-7 text-xs px-2">
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-7 text-xs px-2"
+                onClick={handleMoreFilters}
+              >
                 More Filters
               </Button>
             </div>
