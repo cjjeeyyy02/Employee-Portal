@@ -32,7 +32,7 @@ const employeeNavigationItems = [
 ];
 
 const managerNavigationItems = [
-  { icon: Users, label: "Team Management", path: "/team-management" },
+  { icon: Users, label: "Workforce Management", path: "/team-management" },
   { icon: UserCheck, label: "Team Attendance", path: "/team-attendance" },
   { icon: ClipboardList, label: "Team Task Management", path: "/team-task-management" },
   { icon: BarChart3, label: "Performance Reviews", path: "/performance-reviews" },
