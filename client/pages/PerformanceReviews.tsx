@@ -1202,6 +1202,279 @@ export default function PerformanceReviews() {
             </div>
           </div>
         )}
+
+        {/* Feedback Modal */}
+        {showFeedbackModal && selectedGoal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Provide Feedback
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {selectedGoal.goalTitle}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowFeedbackModal(false);
+                    setSelectedGoal(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {/* Goal Info */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 space-y-2">
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Employee:</span> {selectedGoal.employeeName}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Category:</span> {selectedGoal.category}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Current Progress:</span> {selectedGoal.progress}%
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Status:</span> {getGoalStatusLabel(selectedGoal.goalStatus)}
+                  </p>
+                </div>
+
+                {/* Rating */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Performance Rating *
+                  </label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((rating) => (
+                      <button
+                        key={rating}
+                        onClick={() =>
+                          setFeedbackForm({ ...feedbackForm, ratingGiven: rating })
+                        }
+                        className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all ${
+                          feedbackForm.ratingGiven === rating
+                            ? "border-blue-600 bg-blue-50"
+                            : "border-gray-300 bg-white hover:border-gray-400"
+                        }`}
+                      >
+                        <span className="text-xl">
+                          {feedbackForm.ratingGiven >= rating ? "★" : "☆"}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Feedback Text */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Feedback Comments *
+                  </label>
+                  <textarea
+                    value={feedbackForm.feedbackText}
+                    onChange={(e) =>
+                      setFeedbackForm({ ...feedbackForm, feedbackText: e.target.value })
+                    }
+                    placeholder="Provide specific feedback on the goal progress and achievement..."
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Suggestions */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Suggestions for Improvement
+                  </label>
+                  <textarea
+                    value={feedbackForm.suggestions}
+                    onChange={(e) =>
+                      setFeedbackForm({ ...feedbackForm, suggestions: e.target.value })
+                    }
+                    placeholder="Share suggestions to help achieve this goal..."
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => {
+                    setShowFeedbackModal(false);
+                    setSelectedGoal(null);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleSubmitFeedback}
+                >
+                  Submit Feedback
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Adjust Goal Modal */}
+        {showAdjustGoalModal && selectedGoal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Adjust Goal
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {selectedGoal.goalTitle}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowAdjustGoalModal(false);
+                    setSelectedGoal(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {/* Goal Info */}
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 space-y-2">
+                  <p className="text-xs text-gray-900">
+                    <span className="font-semibold">Employee:</span> {selectedGoal.employeeName}
+                  </p>
+                  <p className="text-xs text-gray-900">
+                    <span className="font-semibold">Category:</span> {selectedGoal.category}
+                  </p>
+                  <p className="text-xs text-gray-900">
+                    <span className="font-semibold">Description:</span> {selectedGoal.description}
+                  </p>
+                  <p className="text-xs text-gray-900">
+                    <span className="font-semibold">Current Progress:</span> {selectedGoal.progress}%
+                  </p>
+                </div>
+
+                {/* Current Target */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Original Target:</span> {selectedGoal.target}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Original Due Date:</span> {selectedGoal.dueDate}
+                  </p>
+                </div>
+
+                {/* New Target */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    New Target *
+                  </label>
+                  <input
+                    type="text"
+                    value={adjustGoalForm.newTarget}
+                    onChange={(e) =>
+                      setAdjustGoalForm({ ...adjustGoalForm, newTarget: e.target.value })
+                    }
+                    placeholder="Enter new target"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* New Due Date */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    New Due Date *
+                  </label>
+                  <input
+                    type="date"
+                    value={adjustGoalForm.newDueDate}
+                    onChange={(e) =>
+                      setAdjustGoalForm({
+                        ...adjustGoalForm,
+                        newDueDate: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Goal Status */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Goal Status
+                  </label>
+                  <select
+                    value={adjustGoalForm.statusUpdate}
+                    onChange={(e) =>
+                      setAdjustGoalForm({
+                        ...adjustGoalForm,
+                        statusUpdate: e.target.value as any,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  >
+                    <option value="on-track">On Track</option>
+                    <option value="at-risk">At Risk</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </div>
+
+                {/* Reason for Adjustment */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Reason for Adjustment *
+                  </label>
+                  <textarea
+                    value={adjustGoalForm.reason}
+                    onChange={(e) =>
+                      setAdjustGoalForm({ ...adjustGoalForm, reason: e.target.value })
+                    }
+                    placeholder="Explain why this goal is being adjusted..."
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => {
+                    setShowAdjustGoalModal(false);
+                    setSelectedGoal(null);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleSubmitAdjustment}
+                >
+                  Save Changes
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
