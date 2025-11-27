@@ -261,28 +261,46 @@ export default function RequestApprovals() {
     });
   };
 
-  const handleApproveRequest = (requesterName: string, requestType: string) => {
-    toast({
-      title: "Request Approved",
-      description: `${requesterName}'s "${requestType}" has been approved.`,
-    });
+  const handleApproveRequest = (request: Request) => {
+    setConfirmAction({ action: "approve", request });
   };
 
-  const handleRejectRequest = (requesterName: string, requestType: string) => {
-    toast({
-      title: "Request Rejected",
-      description: `${requesterName}'s "${requestType}" has been rejected.`,
-    });
+  const handleConfirmApprove = () => {
+    if (confirmAction?.request) {
+      toast({
+        title: "Request Approved",
+        description: `${confirmAction.request.requesterName}'s "${confirmAction.request.type}" has been approved.`,
+      });
+      setConfirmAction(null);
+    }
   };
 
-  const handleEscalateRequest = (
-    requesterName: string,
-    requestType: string,
-  ) => {
-    toast({
-      title: "Request Escalated",
-      description: `${requesterName}'s "${requestType}" has been escalated.`,
-    });
+  const handleRejectRequest = (request: Request) => {
+    setConfirmAction({ action: "reject", request });
+  };
+
+  const handleConfirmReject = () => {
+    if (confirmAction?.request) {
+      toast({
+        title: "Request Rejected",
+        description: `${confirmAction.request.requesterName}'s "${confirmAction.request.type}" has been rejected.`,
+      });
+      setConfirmAction(null);
+    }
+  };
+
+  const handleEscalateRequest = (request: Request) => {
+    setConfirmAction({ action: "escalate", request });
+  };
+
+  const handleConfirmEscalate = () => {
+    if (confirmAction?.request) {
+      toast({
+        title: "Request Escalated",
+        description: `${confirmAction.request.requesterName}'s "${confirmAction.request.type}" has been escalated.`,
+      });
+      setConfirmAction(null);
+    }
   };
 
   const handleViewRequest = (requestType: string) => {
