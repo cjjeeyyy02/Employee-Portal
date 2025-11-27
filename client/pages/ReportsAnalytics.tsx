@@ -361,10 +361,69 @@ export default function ReportsAnalytics() {
   };
 
   const handleInsightAction = (actionLabel: string, category: string) => {
-    toast({
-      title: actionLabel,
-      description: `Executing action for "${category}"...`,
-    });
+    setExecutingAction(actionLabel);
+
+    setTimeout(() => {
+      let result: any = {
+        action: actionLabel,
+        category,
+        success: false,
+        message: "",
+      };
+
+      if (category === "Performance Optimization" && actionLabel === "View Details") {
+        result = {
+          ...result,
+          success: true,
+          message:
+            "Emma Wilson's performance profile has been opened. She shows strong leadership potential with a 4.6 performance score and consistent positive feedback from peers. Recommended actions: 1) Schedule mentorship conversations, 2) Identify leadership development programs, 3) Plan career progression discussion.",
+        };
+        toast({
+          title: "Performance Details Opened",
+          description: "Emma Wilson's profile loaded successfully.",
+        });
+      } else if (category === "Workload Balance" && actionLabel === "Auto-Assign") {
+        result = {
+          ...result,
+          success: true,
+          message:
+            "Auto-assignment in progress: 2 tasks (worth 18 hours) have been reassigned from Mike Chen to Lisa Park. Mike Chen's capacity reduced from 95% to 78%. Lisa Park's capacity increased from 60% to 75%. All team members have been notified of the changes.",
+        };
+        toast({
+          title: "Tasks Auto-Assigned",
+          description:
+            "2 tasks moved from Mike Chen to Lisa Park. Workload balanced successfully.",
+        });
+      } else if (category === "Goal Achievement" && actionLabel === "Set Goals") {
+        result = {
+          ...result,
+          success: true,
+          message:
+            "New Q1 2025 stretch goals have been created and assigned to the team: 1) Increase customer satisfaction by 15%, 2) Reduce project delivery time by 20%, 3) Improve code quality score to 95%. Goals are now visible in each team member's dashboard.",
+        };
+        toast({
+          title: "Stretch Goals Created",
+          description: "Q1 2025 goals have been set and distributed to team members.",
+        });
+      } else if (
+        category === "Team Development" &&
+        actionLabel === "Plan Training"
+      ) {
+        result = {
+          ...result,
+          success: true,
+          message:
+            "Cross-training program has been scheduled: Alex Kim will teach database optimization to Lisa Park (8 sessions), and Lisa Park will mentor Alex Kim on frontend technologies (6 sessions). Training starts next month with weekly sessions.",
+        };
+        toast({
+          title: "Training Program Scheduled",
+          description: "Cross-training between Alex Kim and Lisa Park is now scheduled.",
+        });
+      }
+
+      setActionResult(result);
+      setExecutingAction(null);
+    }, 1500);
   };
 
   const tabs = [
