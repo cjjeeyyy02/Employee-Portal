@@ -317,6 +317,13 @@ const aiInsights: AIInsight[] = [
 export default function ReportsAnalytics() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("overview");
+  const [executingAction, setExecutingAction] = useState<string | null>(null);
+  const [actionResult, setActionResult] = useState<{
+    action: string;
+    category: string;
+    success: boolean;
+    message: string;
+  } | null>(null);
 
   const handleLastMonth = () => {
     toast({
