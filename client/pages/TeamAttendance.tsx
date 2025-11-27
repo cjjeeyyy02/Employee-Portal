@@ -1113,38 +1113,15 @@ export default function TeamAttendance() {
                             </span>
                           </td>
                           <td className="px-4 py-3">
-                            <div className="flex gap-2">
-                              <Button
-                                variant="outline"
-                                className="h-7 text-xs px-2"
-                                title="View details"
-                                onClick={() => handleViewDetails({
-                                  id: report.id,
-                                  name: report.name,
-                                  department: report.department,
-                                  leaveType: "Attendance Correction",
-                                  startDate: new Date().toISOString().split('T')[0],
-                                  endDate: new Date().toISOString().split('T')[0],
-                                  days: 0,
-                                  reason: `Attendance adjustment - Current rate: ${report.attendanceRate}%`,
-                                  appliedDate: new Date().toISOString().split('T')[0],
-                                })}
-                              >
-                                View Details
-                              </Button>
-                              {report.status === "warning" && (
-                                <Button
-                                  variant="outline"
-                                  className="h-7 text-xs px-2"
-                                  title="Correct attendance"
-                                  onClick={() =>
-                                    handleCorrectAttendance(report.name)
-                                  }
-                                >
-                                  Correct
-                                </Button>
-                              )}
-                            </div>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8"
+                              title="More options"
+                              onClick={() => setSelectedAttendanceReport(report)}
+                            >
+                              <MoreVertical className="w-4 h-4 text-gray-600" />
+                            </Button>
                           </td>
                         </tr>
                       ))}
