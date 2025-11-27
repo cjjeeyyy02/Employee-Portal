@@ -222,7 +222,7 @@ export default function DocumentCenter() {
                   Document Center
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  Manage templates, policies, guides, and organizational documents
+                  Manage and securely store employee and compliance documents.
                 </p>
               </div>
               <div className="flex gap-2">
