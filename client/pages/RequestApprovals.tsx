@@ -313,9 +313,9 @@ export default function RequestApprovals() {
   };
 
   const handleViewDocument = (filename: string) => {
-    const document = documents.find((doc) => doc.filename === filename);
-    if (document) {
-      setSelectedDocument(document);
+    const docItem = documents.find((doc) => doc.filename === filename);
+    if (docItem) {
+      setSelectedDocument(docItem);
       setShowDocumentModal(true);
     }
   };
