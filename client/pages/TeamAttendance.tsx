@@ -213,6 +213,10 @@ export default function TeamAttendance() {
   const [approvedRequests, setApprovedRequests] = useState<LeaveRequest[]>([]);
   const [deniedRequests, setDeniedRequests] = useState<LeaveRequest[]>([]);
   const [selectedDetail, setSelectedDetail] = useState<LeaveRequest | null>(null);
+  const [confirmModal, setConfirmModal] = useState<{
+    type: "approve" | "deny";
+    request: LeaveRequest;
+  } | null>(null);
 
   const handleExportReports = () => {
     try {
