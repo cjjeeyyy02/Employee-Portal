@@ -236,6 +236,36 @@ const kpis: KPI[] = [
   },
 ];
 
+const feedbacks: Feedback[] = [
+  {
+    id: "1",
+    from: "Manager",
+    to: "Mike Chen",
+    content: "Excellent work on the recent project. Your attention to detail and proactive approach were commendable.",
+    rating: 5,
+    category: "Strengths",
+    date: "2024-12-10",
+  },
+  {
+    id: "2",
+    from: "Peer",
+    to: "Lisa Park",
+    content: "Great collaboration on the design review. Would appreciate more detailed feedback on the UX aspects.",
+    rating: 4,
+    category: "Collaboration",
+    date: "2024-12-08",
+  },
+  {
+    id: "3",
+    from: "Manager",
+    to: "Alex Kim",
+    content: "Good progress on skill development. Consider taking the advanced training course next quarter.",
+    rating: 4,
+    category: "Development",
+    date: "2024-12-05",
+  },
+];
+
 const getKPIStatusColor = (status: string) => {
   switch (status) {
     case "above":
