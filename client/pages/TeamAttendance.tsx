@@ -1379,6 +1379,140 @@ export default function TeamAttendance() {
             </div>
           )}
 
+          {/* Attendance Report Details Modal */}
+          {selectedAttendanceReport && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+              <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                {/* Header */}
+                <div className="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-start justify-between">
+                  <div>
+                    <h2 className="text-lg font-bold text-gray-900">
+                      Attendance Details
+                    </h2>
+                    <p className="text-xs text-gray-600 mt-1">
+                      {selectedAttendanceReport.name} - {selectedAttendanceReport.department}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedAttendanceReport(null)}
+                    className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 space-y-6">
+                  {/* Status Section */}
+                  <div>
+                    <label className="text-xs font-semibold text-gray-600 uppercase block mb-3">
+                      Current Status
+                    </label>
+                    <div className={`inline-block px-3 py-1.5 rounded-full text-sm font-medium ${getStatusBadgeColor(selectedAttendanceReport.status)}`}>
+                      {getStatusLabel(selectedAttendanceReport.status)}
+                    </div>
+                  </div>
+
+                  {/* Metrics Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <label className="text-xs font-semibold text-gray-600 uppercase block mb-2">
+                        Attendance Rate
+                      </label>
+                      <p className="text-2xl font-bold text-gray-900">
+                        {selectedAttendanceReport.attendanceRate}%
+                      </p>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <label className="text-xs font-semibold text-gray-600 uppercase block mb-2">
+                        Hours This Week
+                      </label>
+                      <p className="text-2xl font-bold text-gray-900">
+                        {selectedAttendanceReport.hoursThisWeek}h
+                      </p>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <label className="text-xs font-semibold text-gray-600 uppercase block mb-2">
+                        Average Clock In
+                      </label>
+                      <p className="text-2xl font-bold text-gray-900">
+                        {selectedAttendanceReport.avgClockIn}
+                      </p>
+                    </div>
+                    <div className="bg-gray-50 rounded-lg p-4">
+                      <label className="text-xs font-semibold text-gray-600 uppercase block mb-2">
+                        Late Count (This Month)
+                      </label>
+                      <p className="text-2xl font-bold text-gray-900">
+                        {selectedAttendanceReport.lateCount}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Analysis Section */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h3 className="font-semibold text-sm text-blue-900 mb-2">
+                      Analysis
+                    </h3>
+                    <ul className="space-y-2 text-sm text-blue-800">
+                      <li>• Attendance rate of {selectedAttendanceReport.attendanceRate}% is {selectedAttendanceReport.attendanceRate >= 95 ? "excellent" : selectedAttendanceReport.attendanceRate >= 90 ? "good" : "below target"}</li>
+                      <li>• Working {selectedAttendanceReport.hoursThisWeek} hours per week (Target: 40 hours)</li>
+                      <li>• Average clock-in time: {selectedAttendanceReport.avgClockIn}</li>
+                      <li>• {selectedAttendanceReport.lateCount} late arrivals this month</li>
+                    </ul>
+                  </div>
+
+                  {/* Recommendations */}
+                  {selectedAttendanceReport.status === "warning" && (
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                      <h3 className="font-semibold text-sm text-yellow-900 mb-2">
+                        ⚠️ Recommended Actions
+                      </h3>
+                      <ul className="space-y-2 text-sm text-yellow-800">
+                        <li>• Schedule a meeting to discuss attendance concerns</li>
+                        <li>• Create an improvement plan if needed</li>
+                        <li>• Monitor attendance closely over the next 2 weeks</li>
+                      </ul>
+                    </div>
+                  )}
+
+                  {selectedAttendanceReport.status === "critical" && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <h3 className="font-semibold text-sm text-red-900 mb-2">
+                        🔴 Urgent Actions Required
+                      </h3>
+                      <ul className="space-y-2 text-sm text-red-800">
+                        <li>• Immediate discussion with employee required</li>
+                        <li>• Formal attendance improvement plan needed</li>
+                        <li>• Consider escalation to HR if no improvement</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                  <Button
+                    className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                    onClick={() => {
+                      handleCorrectAttendance(selectedAttendanceReport.name);
+                      setSelectedAttendanceReport(null);
+                    }}
+                  >
+                    Correct Attendance
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-10 px-4 text-sm font-medium"
+                    onClick={() => setSelectedAttendanceReport(null)}
+                  >
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Full-Screen Team Calendar Modal */}
           {showCalendar && (
             <div className="fixed inset-0 bg-white z-50 overflow-y-auto">
