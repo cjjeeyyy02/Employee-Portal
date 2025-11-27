@@ -663,10 +663,10 @@ export default function TeamAttendance() {
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
-                  Attendance & Leave Management
+                  Attendance & Leave Oversight
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  Approve leave requests and monitor team attendance
+                  Monitor attendance logs, leave requests, shift schedules, and daily time records
                 </p>
               </div>
               <div className="flex gap-2">
