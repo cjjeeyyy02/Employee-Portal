@@ -909,6 +909,122 @@ export default function RequestApprovals() {
           </AlertDialogContent>
         </AlertDialog>
       )}
+
+      {/* Document View Modal */}
+      {showDocumentModal && selectedDocument && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+              <div>
+                <h2 className="text-lg font-bold text-gray-900">
+                  View Document
+                </h2>
+                <p className="text-xs text-gray-600 mt-1">
+                  {selectedDocument.filename}
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setShowDocumentModal(false);
+                  setSelectedDocument(null);
+                }}
+                className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 space-y-4">
+              {/* Document Info */}
+              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 space-y-3">
+                <div>
+                  <p className="text-xs text-gray-600 font-medium mb-1">
+                    File Name
+                  </p>
+                  <p className="text-sm text-gray-900">
+                    {selectedDocument.filename}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      File Size
+                    </p>
+                    <p className="text-sm text-gray-900">
+                      {selectedDocument.fileSize}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Category
+                    </p>
+                    <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                      {selectedDocument.category}
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs text-gray-600 font-medium mb-1">
+                    Uploaded By
+                  </p>
+                  <p className="text-sm text-gray-900">
+                    {selectedDocument.uploadedBy} on {selectedDocument.uploadedDate}
+                  </p>
+                </div>
+
+                {selectedDocument.relatedRequest && (
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Related Request
+                    </p>
+                    <p className="text-sm text-gray-900">
+                      {selectedDocument.relatedRequest}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Document Preview */}
+              <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 text-center">
+                <p className="text-sm text-blue-900 font-medium mb-2">
+                  Document Preview
+                </p>
+                <p className="text-xs text-blue-800">
+                  This is a sample document. The actual document content would be displayed here.
+                </p>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+              <Button
+                variant="outline"
+                className="flex-1 h-10 text-sm font-medium"
+                onClick={() => {
+                  setShowDocumentModal(false);
+                  setSelectedDocument(null);
+                }}
+              >
+                Close
+              </Button>
+              <Button
+                className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                onClick={() => {
+                  handleDownloadDocument(selectedDocument.filename);
+                  setShowDocumentModal(false);
+                  setSelectedDocument(null);
+                }}
+              >
+                Download
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
