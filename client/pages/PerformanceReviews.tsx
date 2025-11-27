@@ -245,8 +245,10 @@ export default function PerformanceReviews() {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [showAdjustGoalModal, setShowAdjustGoalModal] = useState(false);
   const [showAddKPIModal, setShowAddKPIModal] = useState(false);
+  const [showGiveFeedbackModal, setShowGiveFeedbackModal] = useState(false);
   const [selectedReview, setSelectedReview] = useState<PerformanceReview | null>(null);
   const [selectedGoal, setSelectedGoal] = useState<TeamGoal | null>(null);
+  const [selectedFeedbackRecipient, setSelectedFeedbackRecipient] = useState<string | null>(null);
   const [reviewModalMode, setReviewModalMode] = useState<"start" | "continue">("start");
   const [allReviews, setAllReviews] = useState<PerformanceReview[]>(reviews);
   const [allGoals, setAllGoals] = useState<TeamGoal[]>(teamGoals);
