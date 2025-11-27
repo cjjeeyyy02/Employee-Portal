@@ -498,10 +498,10 @@ export default function TeamTaskManagement() {
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
-                  Task Management
+                  Task & Workflow Management
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  Assign, monitor, and track team tasks and projects
+                  Assign tasks, track progress, and oversee team deliverables and workload.
                 </p>
               </div>
               <div className="flex gap-2">
