@@ -268,27 +268,39 @@ export default function TeamAttendance() {
     });
   };
 
-  const handleApproveLeave = (requestId: string, name: string) => {
-    const request = pendingRequests.find(r => r.id === requestId);
-    if (request) {
-      setPendingRequests(pendingRequests.filter(r => r.id !== requestId));
+  const handleApproveLeave = (request: LeaveRequest) => {
+    setConfirmModal({ type: "approve", request });
+  };
+
+  const confirmApprove = () => {
+    if (confirmModal && confirmModal.type === "approve") {
+      const request = confirmModal.request;
+      setPendingRequests(pendingRequests.filter(r => r.id !== request.id));
       setApprovedRequests([...approvedRequests, request]);
       toast({
         title: "✓ Leave Approved",
-        description: `${name}'s ${request.leaveType} from ${request.startDate} to ${request.endDate} has been approved.`,
+        description: `${request.name}'s ${request.leaveType} from ${request.startDate} to ${request.endDate} has been approved.`,
       });
+      setConfirmModal(null);
+      setSelectedDetail(null);
     }
   };
 
-  const handleDenyLeave = (requestId: string, name: string) => {
-    const request = pendingRequests.find(r => r.id === requestId);
-    if (request) {
-      setPendingRequests(pendingRequests.filter(r => r.id !== requestId));
+  const handleDenyLeave = (request: LeaveRequest) => {
+    setConfirmModal({ type: "deny", request });
+  };
+
+  const confirmDeny = () => {
+    if (confirmModal && confirmModal.type === "deny") {
+      const request = confirmModal.request;
+      setPendingRequests(pendingRequests.filter(r => r.id !== request.id));
       setDeniedRequests([...deniedRequests, request]);
       toast({
         title: "✗ Leave Rejected",
-        description: `${name}'s ${request.leaveType} request has been rejected.`,
+        description: `${request.name}'s ${request.leaveType} request has been rejected.`,
       });
+      setConfirmModal(null);
+      setSelectedDetail(null);
     }
   };
 
