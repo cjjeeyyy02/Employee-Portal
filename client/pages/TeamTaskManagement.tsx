@@ -363,7 +363,7 @@ export default function TeamTaskManagement() {
     { id: "project-view", label: "Project View" },
   ];
 
-  const filteredTasks = tasks.filter((task) =>
+  const filteredTasks = allTasks.filter((task) =>
     task.title.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
