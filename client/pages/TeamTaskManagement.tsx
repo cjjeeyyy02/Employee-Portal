@@ -332,10 +332,35 @@ export default function TeamTaskManagement() {
     });
   };
 
-  const handleReassignTask = (taskTitle: string) => {
+  const handleReassignTask = (task: Task) => {
+    setReassignTask(task);
+    setReassignees(task.assignees);
+    setShowReassignModal(true);
+  };
+
+  const handleConfirmReassign = () => {
+    if (!reassignTask || reassignees.length === 0) {
+      toast({
+        title: "Error",
+        description: "Please assign the task to at least one employee.",
+      });
+      return;
+    }
+
+    const updatedTasks = allTasks.map((task) =>
+      task.id === reassignTask.id
+        ? { ...task, assignees: reassignees }
+        : task
+    );
+
+    setAllTasks(updatedTasks);
+    setShowReassignModal(false);
+    setReassignTask(null);
+    setReassignees([]);
+
     toast({
-      title: "Reassign Task",
-      description: `Opening reassignment dialog for "${taskTitle}"...`,
+      title: "Task Reassigned",
+      description: `"${reassignTask.title}" has been reassigned to ${reassignees.join(", ")}.`,
     });
   };
 
