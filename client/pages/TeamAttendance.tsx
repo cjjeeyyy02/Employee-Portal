@@ -304,9 +304,11 @@ export default function TeamAttendance() {
   };
 
   const tabs = [
-    { id: "leave-requests", label: "Leave Requests" },
+    { id: "leave-requests", label: `Leave Requests (${pendingRequests.length})` },
     { id: "leave-balances", label: "Leave Balances" },
     { id: "attendance-reports", label: "Attendance Reports" },
+    { id: "approved", label: `Approved (${approvedRequests.length})` },
+    { id: "denied", label: `Rejected (${deniedRequests.length})` },
   ];
 
   return (
