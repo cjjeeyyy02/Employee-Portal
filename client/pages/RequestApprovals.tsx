@@ -246,6 +246,8 @@ export default function RequestApprovals() {
     action: "approve" | "reject" | "escalate";
     request: Request | null;
   } | null>(null);
+  const [showDocumentModal, setShowDocumentModal] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState<any>(null);
 
   const handleUploadDocument = () => {
     toast({
