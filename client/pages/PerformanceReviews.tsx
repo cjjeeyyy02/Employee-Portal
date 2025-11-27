@@ -293,6 +293,7 @@ export default function PerformanceReviews() {
   const [allReviews, setAllReviews] = useState<PerformanceReview[]>(reviews);
   const [allGoals, setAllGoals] = useState<TeamGoal[]>(teamGoals);
   const [allKPIs, setAllKPIs] = useState<KPI[]>(kpis);
+  const [allFeedbacks, setAllFeedbacks] = useState<Feedback[]>(feedbacks);
   const [reviewForm, setReviewForm] = useState({
     selfRating: 0,
     strengths: "",
