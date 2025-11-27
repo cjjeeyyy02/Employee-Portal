@@ -937,10 +937,7 @@ export default function TeamAttendance() {
                   <div className="flex gap-3 pt-4 border-t border-gray-200">
                     <Button
                       className="flex-1 h-10 bg-green-600 hover:bg-green-700 text-white text-sm font-medium"
-                      onClick={() => {
-                        handleApproveLeave(selectedDetail.id, selectedDetail.name);
-                        setSelectedDetail(null);
-                      }}
+                      onClick={() => handleApproveLeave(selectedDetail)}
                     >
                       <CheckCircle2 className="w-4 h-4 mr-2" />
                       Approve Request
@@ -948,10 +945,7 @@ export default function TeamAttendance() {
                     <Button
                       variant="outline"
                       className="flex-1 h-10 text-sm font-medium"
-                      onClick={() => {
-                        handleDenyLeave(selectedDetail.id, selectedDetail.name);
-                        setSelectedDetail(null);
-                      }}
+                      onClick={() => handleDenyLeave(selectedDetail)}
                     >
                       <XCircle className="w-4 h-4 mr-2" />
                       Deny Request
