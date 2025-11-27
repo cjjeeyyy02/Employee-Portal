@@ -1400,143 +1400,174 @@ export default function TeamAttendance() {
             </div>
           )}
 
-          {/* Team Calendar View */}
+          {/* Full-Screen Team Calendar Modal */}
           {showCalendar && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-bold text-gray-900">
-                  Team Leave Calendar - {calendarMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-                </h2>
-                <div className="flex gap-2">
+            <div className="fixed inset-0 bg-white z-50 overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    Team Leave Calendar
+                  </h1>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {calendarMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                  </p>
+                </div>
+                <div className="flex gap-3">
                   <Button
                     variant="outline"
-                    className="h-8 text-xs px-2"
+                    className="h-10 text-sm px-4"
                     onClick={() => {
                       const newDate = new Date(calendarMonth);
                       newDate.setMonth(newDate.getMonth() - 1);
                       setCalendarMonth(newDate);
                     }}
                   >
-                    ← Previous
+                    ← Previous Month
                   </Button>
                   <Button
                     variant="outline"
-                    className="h-8 text-xs px-2"
+                    className="h-10 text-sm px-4"
                     onClick={() => setCalendarMonth(new Date())}
                   >
                     Today
                   </Button>
                   <Button
                     variant="outline"
-                    className="h-8 text-xs px-2"
+                    className="h-10 text-sm px-4"
                     onClick={() => {
                       const newDate = new Date(calendarMonth);
                       newDate.setMonth(newDate.getMonth() + 1);
                       setCalendarMonth(newDate);
                     }}
                   >
-                    Next →
+                    Next Month →
+                  </Button>
+                  <Button
+                    className="h-10 text-sm px-4 bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={() => setShowCalendar(false)}
+                  >
+                    Close
                   </Button>
                 </div>
               </div>
 
-              {/* Calendar Grid */}
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr>
-                      {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-                        <th
-                          key={day}
-                          className="border border-gray-200 bg-gray-50 p-2 text-center text-xs font-semibold text-gray-900 w-24"
-                        >
-                          {day}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {(() => {
-                      const daysInMonth = getDaysInMonth(calendarMonth);
-                      const firstDay = getFirstDayOfMonth(calendarMonth);
-                      const weeks = [];
-                      let week = Array(firstDay).fill(null);
+              {/* Calendar Content */}
+              <div className="p-6 max-w-7xl mx-auto">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  {/* Calendar Grid */}
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr>
+                        {["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => (
+                          <th
+                            key={day}
+                            className="border-2 border-gray-200 bg-blue-50 p-4 text-center text-sm font-bold text-gray-900"
+                          >
+                            {day}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(() => {
+                        const daysInMonth = getDaysInMonth(calendarMonth);
+                        const firstDay = getFirstDayOfMonth(calendarMonth);
+                        const weeks = [];
+                        let week = Array(firstDay).fill(null);
 
-                      for (let i = 1; i <= daysInMonth; i++) {
-                        const currentDate = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), i);
-                        const leave = getLeaveOnDate(currentDate);
+                        for (let i = 1; i <= daysInMonth; i++) {
+                          const currentDate = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), i);
+                          const leave = getLeaveOnDate(currentDate);
 
-                        week.push({
-                          date: i,
-                          currentDate,
-                          leave,
-                        });
+                          week.push({
+                            date: i,
+                            currentDate,
+                            leave,
+                          });
 
-                        if (week.length === 7) {
+                          if (week.length === 7) {
+                            weeks.push(week);
+                            week = [];
+                          }
+                        }
+
+                        if (week.length > 0) {
+                          while (week.length < 7) {
+                            week.push(null);
+                          }
                           weeks.push(week);
-                          week = [];
                         }
-                      }
 
-                      if (week.length > 0) {
-                        while (week.length < 7) {
-                          week.push(null);
-                        }
-                        weeks.push(week);
-                      }
-
-                      return weeks.map((weekDays, weekIdx) => (
-                        <tr key={weekIdx}>
-                          {weekDays.map((day, dayIdx) => (
-                            <td
-                              key={dayIdx}
-                              className="border border-gray-200 p-2 h-24 align-top bg-gray-50 hover:bg-gray-100 transition-colors"
-                            >
-                              {day ? (
-                                <div className="h-full flex flex-col">
-                                  <div className="text-xs font-semibold text-gray-900 mb-1">
-                                    {day.date}
+                        return weeks.map((weekDays, weekIdx) => (
+                          <tr key={weekIdx}>
+                            {weekDays.map((day, dayIdx) => (
+                              <td
+                                key={dayIdx}
+                                className="border-2 border-gray-200 p-4 min-h-40 align-top bg-gray-50 hover:bg-blue-50 transition-colors"
+                              >
+                                {day ? (
+                                  <div className="h-full flex flex-col">
+                                    <div className="text-lg font-bold text-gray-900 mb-3">
+                                      {day.date}
+                                    </div>
+                                    <div className="flex-1 space-y-2 overflow-y-auto">
+                                      {day.leave.approved.length > 0 && (
+                                        <div>
+                                          {day.leave.approved.map((req) => (
+                                            <div
+                                              key={req.id}
+                                              className="bg-green-100 border-l-4 border-green-500 rounded p-2 text-xs text-green-800 font-medium mb-2"
+                                              title={`${req.name} - ${req.leaveType}`}
+                                            >
+                                              <p className="font-bold">{req.name}</p>
+                                              <p>{req.leaveType}</p>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {day.leave.pending.length > 0 && (
+                                        <div>
+                                          {day.leave.pending.map((req) => (
+                                            <div
+                                              key={req.id}
+                                              className="bg-yellow-100 border-l-4 border-yellow-500 rounded p-2 text-xs text-yellow-800 font-medium mb-2"
+                                              title={`${req.name} - ${req.leaveType} (Pending)`}
+                                            >
+                                              <p className="font-bold">{req.name}</p>
+                                              <p>{req.leaveType} (Pending)</p>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </div>
                                   </div>
-                                  <div className="flex-1 space-y-1 overflow-y-auto">
-                                    {day.leave.approved.map((req) => (
-                                      <div
-                                        key={req.id}
-                                        className="bg-green-100 border border-green-300 rounded px-1 py-0.5 text-xs text-green-800 font-medium truncate"
-                                        title={`${req.name} - ${req.leaveType}`}
-                                      >
-                                        {req.name.split(" ")[0]}
-                                      </div>
-                                    ))}
-                                    {day.leave.pending.map((req) => (
-                                      <div
-                                        key={req.id}
-                                        className="bg-yellow-100 border border-yellow-300 rounded px-1 py-0.5 text-xs text-yellow-800 font-medium truncate"
-                                        title={`${req.name} - ${req.leaveType} (Pending)`}
-                                      >
-                                        {req.name.split(" ")[0]} (?)
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              ) : null}
-                            </td>
-                          ))}
-                        </tr>
-                      ));
-                    })()}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Legend */}
-              <div className="flex gap-6 mt-4 pt-4 border-t border-gray-200">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-green-100 border border-green-300 rounded"></div>
-                  <span className="text-xs text-gray-600">Approved Leave</span>
+                                ) : null}
+                              </td>
+                            ))}
+                          </tr>
+                        ));
+                      })()}
+                    </tbody>
+                  </table>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-yellow-100 border border-yellow-300 rounded"></div>
-                  <span className="text-xs text-gray-600">Pending Leave</span>
+
+                {/* Legend */}
+                <div className="mt-6 flex gap-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-green-100 border-l-4 border-green-500 rounded"></div>
+                    <div>
+                      <p className="font-semibold text-sm text-gray-900">Approved Leave</p>
+                      <p className="text-xs text-gray-600">Leave request has been approved</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-yellow-100 border-l-4 border-yellow-500 rounded"></div>
+                    <div>
+                      <p className="font-semibold text-sm text-gray-900">Pending Leave</p>
+                      <p className="text-xs text-gray-600">Leave request awaiting approval</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
