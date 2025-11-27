@@ -263,7 +263,10 @@ export default function TeamTaskManagement() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showNewTaskModal, setShowNewTaskModal] = useState(false);
   const [showTaskAnalytics, setShowTaskAnalytics] = useState(false);
+  const [showReassignModal, setShowReassignModal] = useState(false);
   const [allTasks, setAllTasks] = useState<Task[]>(tasks);
+  const [reassignTask, setReassignTask] = useState<Task | null>(null);
+  const [reassignees, setReassignees] = useState<string[]>([]);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
