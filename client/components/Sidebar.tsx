@@ -38,6 +38,7 @@ const managerNavigationItems = [
   { icon: BarChart3, label: "Performance & Evaluations", path: "/performance-reviews" },
   { icon: CheckCircle, label: "Requests & Approvals", path: "/request-approvals" },
   { icon: PieChart, label: "Insights & Analytics", path: "/reports-analytics" },
+  { icon: FileText, label: "Document Center", path: "/document-center" },
 ];
 
 interface SidebarProps {
