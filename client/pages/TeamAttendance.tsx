@@ -410,7 +410,7 @@ export default function TeamAttendance() {
                 </p>
               </div>
 
-              {leaveRequests.map((request) => (
+              {pendingRequests.map((request) => (
                 <div
                   key={request.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
@@ -464,7 +464,7 @@ export default function TeamAttendance() {
                       <Button
                         className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
                         title="Approve leave"
-                        onClick={() => handleApproveLeave(request.name)}
+                        onClick={() => handleApproveLeave(request.id, request.name)}
                       >
                         <CheckCircle2 className="w-3 h-3 mr-1" />
                         Approve
@@ -473,7 +473,7 @@ export default function TeamAttendance() {
                         variant="outline"
                         className="h-8 text-xs px-3"
                         title="Deny leave"
-                        onClick={() => handleDenyLeave(request.name)}
+                        onClick={() => handleDenyLeave(request.id, request.name)}
                       >
                         <XCircle className="w-3 h-3 mr-1" />
                         Deny
@@ -482,7 +482,7 @@ export default function TeamAttendance() {
                         variant="outline"
                         className="h-8 text-xs px-3"
                         title="View details"
-                        onClick={() => handleViewDetails(request.name)}
+                        onClick={() => handleViewDetails(request)}
                       >
                         Details
                       </Button>
@@ -675,7 +675,17 @@ export default function TeamAttendance() {
                                 variant="outline"
                                 className="h-7 text-xs px-2"
                                 title="View details"
-                                onClick={() => handleViewDetails(report.name)}
+                                onClick={() => handleViewDetails({
+                                  id: report.id,
+                                  name: report.name,
+                                  department: report.department,
+                                  leaveType: "Attendance Correction",
+                                  startDate: new Date().toISOString().split('T')[0],
+                                  endDate: new Date().toISOString().split('T')[0],
+                                  days: 0,
+                                  reason: `Attendance adjustment - Current rate: ${report.attendanceRate}%`,
+                                  appliedDate: new Date().toISOString().split('T')[0],
+                                })}
                               >
                                 View Details
                               </Button>
