@@ -114,17 +114,296 @@ export default function TeamManagement() {
   const [selectedStatus, setSelectedStatus] = useState("all");
 
   const handleExportTeamData = () => {
-    toast({
-      title: "Export Started",
-      description: "Downloading team member data as CSV...",
-    });
+    try {
+      // Prepare CSV headers
+      const headers = ["ID", "Name", "Email", "Department", "Role", "Status", "Performance", "Tasks Completed"];
+
+      // Prepare CSV rows
+      const rows = teamMembers.map(member => [
+        member.id,
+        member.name,
+        member.email,
+        member.department,
+        member.role,
+        member.status,
+        member.performance,
+        member.completed,
+      ]);
+
+      // Create CSV content
+      const csvContent = [
+        headers.join(","),
+        ...rows.map(row => row.map(cell => `"${cell}"`).join(",")),
+      ].join("\n");
+
+      // Create blob and download
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+
+      link.setAttribute("href", url);
+      link.setAttribute("download", `team_data_${new Date().toISOString().split('T')[0]}.csv`);
+      link.style.visibility = "hidden";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      toast({
+        title: "Export Successful",
+        description: "Team data exported as CSV file.",
+      });
+    } catch (error) {
+      toast({
+        title: "Export Failed",
+        description: "Error exporting team data. Please try again.",
+      });
+    }
   };
 
   const handleTeamReport = () => {
-    toast({
-      title: "Report Generated",
-      description: "Team report is being prepared and will download shortly.",
-    });
+    try {
+      // Create HTML report content
+      const reportDate = new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+
+      const totalMembers = teamMembers.length;
+      const activeMembers = teamMembers.filter(m => m.status === "Active").length;
+      const avgPerformance = (
+        teamMembers.reduce((sum, m) => sum + m.performance, 0) / teamMembers.length
+      ).toFixed(2);
+      const totalTasksCompleted = teamMembers.reduce((sum, m) => sum + m.completed, 0);
+
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Team Report</title>
+          <style>
+            body {
+              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+              margin: 0;
+              padding: 20px;
+              color: #1F2937;
+              background-color: #F9FAFB;
+            }
+            .container {
+              max-width: 900px;
+              margin: 0 auto;
+              background-color: white;
+              padding: 40px;
+              border-radius: 8px;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+              color: #111827;
+              margin: 0 0 10px 0;
+              font-size: 28px;
+            }
+            .report-date {
+              color: #6B7280;
+              font-size: 14px;
+              margin-bottom: 30px;
+              border-bottom: 1px solid #E5E7EB;
+              padding-bottom: 20px;
+            }
+            .summary-section {
+              margin-bottom: 30px;
+            }
+            .summary-section h2 {
+              color: #374151;
+              font-size: 16px;
+              font-weight: 600;
+              margin-bottom: 15px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            .metrics-grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 15px;
+              margin-bottom: 20px;
+            }
+            .metric-card {
+              background-color: #F3F4F6;
+              padding: 15px;
+              border-radius: 6px;
+              border: 1px solid #E5E7EB;
+            }
+            .metric-label {
+              color: #6B7280;
+              font-size: 12px;
+              font-weight: 600;
+              margin-bottom: 5px;
+              text-transform: uppercase;
+            }
+            .metric-value {
+              color: #1F2937;
+              font-size: 24px;
+              font-weight: 700;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 20px;
+            }
+            thead {
+              background-color: #F3F4F6;
+              border-bottom: 2px solid #E5E7EB;
+            }
+            th {
+              padding: 12px;
+              text-align: left;
+              font-weight: 600;
+              color: #374151;
+              font-size: 13px;
+            }
+            td {
+              padding: 12px;
+              border-bottom: 1px solid #E5E7EB;
+              font-size: 13px;
+            }
+            tr:hover {
+              background-color: #F9FAFB;
+            }
+            .status-badge {
+              display: inline-block;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 12px;
+              font-weight: 600;
+            }
+            .status-active {
+              background-color: #D1FAE5;
+              color: #065F46;
+            }
+            .status-inactive {
+              background-color: #FEE2E2;
+              color: #991B1B;
+            }
+            .status-leave {
+              background-color: #FEF3C7;
+              color: #92400E;
+            }
+            .footer {
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 1px solid #E5E7EB;
+              color: #6B7280;
+              font-size: 12px;
+              text-align: center;
+            }
+            @media print {
+              body {
+                background-color: white;
+              }
+              .container {
+                box-shadow: none;
+                padding: 0;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Team Report</h1>
+            <div class="report-date">Generated on ${reportDate}</div>
+
+            <div class="summary-section">
+              <h2>Team Summary</h2>
+              <div class="metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-label">Total Members</div>
+                  <div class="metric-value">${totalMembers}</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Active Members</div>
+                  <div class="metric-value">${activeMembers}</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Avg Performance</div>
+                  <div class="metric-value">${avgPerformance}/5</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Tasks Completed</div>
+                  <div class="metric-value">${totalTasksCompleted}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="summary-section">
+              <h2>Team Members Details</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Performance</th>
+                    <th>Tasks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${teamMembers
+                    .map(
+                      (member) => `
+                    <tr>
+                      <td><strong>${member.name}</strong></td>
+                      <td>${member.email}</td>
+                      <td>${member.department}</td>
+                      <td>${member.role}</td>
+                      <td>
+                        <span class="status-badge status-${member.status.toLowerCase().replace(" ", "-")}">
+                          ${member.status}
+                        </span>
+                      </td>
+                      <td>${member.performance}/5</td>
+                      <td>${member.completed}</td>
+                    </tr>
+                  `
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="footer">
+              <p>This is an automatically generated report. For more details, please visit the Team Management dashboard.</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `;
+
+      // Create blob and download
+      const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8;" });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+
+      link.setAttribute("href", url);
+      link.setAttribute("download", `team_report_${new Date().toISOString().split('T')[0]}.html`);
+      link.style.visibility = "hidden";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      toast({
+        title: "Report Generated",
+        description: "Team report downloaded successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Report Failed",
+        description: "Error generating team report. Please try again.",
+      });
+    }
   };
 
   const handleMoreFilters = () => {
