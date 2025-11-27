@@ -856,7 +856,7 @@ export default function PerformanceReviews() {
               </div>
 
               <div className="space-y-4">
-                {kpis.map((kpi) => (
+                {allKPIs.map((kpi) => (
                   <div
                     key={kpi.id}
                     className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
