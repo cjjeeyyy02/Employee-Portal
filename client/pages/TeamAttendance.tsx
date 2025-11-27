@@ -596,6 +596,104 @@ export default function TeamAttendance() {
             </div>
           )}
 
+          {/* Approved Requests Tab */}
+          {activeTab === "approved" && (
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-6">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Approved Leave Requests
+                </h2>
+                <p className="text-xs text-gray-500">
+                  History of approved leave requests
+                </p>
+              </div>
+
+              {approvedRequests.length === 0 ? (
+                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 text-center">
+                  <CheckCircle2 className="w-12 h-12 text-green-600 mx-auto mb-2 opacity-50" />
+                  <p className="text-sm text-gray-600">No approved requests yet</p>
+                </div>
+              ) : (
+                approvedRequests.map((request) => (
+                  <div
+                    key={request.id}
+                    className="bg-white rounded-lg shadow-sm border border-green-200 bg-green-50 p-4"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-sm text-gray-900">
+                          {request.name}
+                        </h3>
+                        <p className="text-xs text-gray-600">
+                          {request.department}
+                        </p>
+                        <div className="mt-2 inline-block px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                          {request.leaveType}
+                        </div>
+                        <p className="text-xs text-gray-600 mt-2">
+                          {request.startDate} to {request.endDate} ({request.days} days)
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2 ml-4">
+                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <span className="text-xs font-medium text-green-600">Approved</span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          )}
+
+          {/* Denied Requests Tab */}
+          {activeTab === "denied" && (
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-6">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">
+                  Rejected Leave Requests
+                </h2>
+                <p className="text-xs text-gray-500">
+                  History of rejected leave requests
+                </p>
+              </div>
+
+              {deniedRequests.length === 0 ? (
+                <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 text-center">
+                  <XCircle className="w-12 h-12 text-red-600 mx-auto mb-2 opacity-50" />
+                  <p className="text-sm text-gray-600">No rejected requests yet</p>
+                </div>
+              ) : (
+                deniedRequests.map((request) => (
+                  <div
+                    key={request.id}
+                    className="bg-white rounded-lg shadow-sm border border-red-200 bg-red-50 p-4"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-sm text-gray-900">
+                          {request.name}
+                        </h3>
+                        <p className="text-xs text-gray-600">
+                          {request.department}
+                        </p>
+                        <div className="mt-2 inline-block px-2 py-0.5 bg-red-100 text-red-800 rounded-full text-xs font-medium">
+                          {request.leaveType}
+                        </div>
+                        <p className="text-xs text-gray-600 mt-2">
+                          {request.startDate} to {request.endDate} ({request.days} days)
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2 ml-4">
+                        <XCircle className="w-5 h-5 text-red-600" />
+                        <span className="text-xs font-medium text-red-600">Rejected</span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          )}
+
           {/* Attendance Reports Tab Content */}
           {activeTab === "attendance-reports" && (
             <div className="space-y-4">
