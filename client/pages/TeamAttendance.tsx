@@ -711,6 +711,147 @@ export default function TeamAttendance() {
               </div>
             </div>
           )}
+
+          {/* Details Panel */}
+          {selectedDetail && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+              <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                {/* Header */}
+                <div className="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-start justify-between">
+                  <div>
+                    <h2 className="text-lg font-bold text-gray-900">
+                      Request Details
+                    </h2>
+                    <p className="text-xs text-gray-600 mt-1">
+                      {selectedDetail.name} - {selectedDetail.department}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedDetail(null)}
+                    className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                  >
+                    ×
+                  </button>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 space-y-6">
+                  {/* Type and Status */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 uppercase">
+                        Leave Type
+                      </label>
+                      <div className="mt-2 inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                        {selectedDetail.leaveType}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 uppercase">
+                        Duration
+                      </label>
+                      <p className="mt-2 text-sm font-medium text-gray-900">
+                        {selectedDetail.days} days
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Date Range */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 uppercase">
+                        Start Date
+                      </label>
+                      <p className="mt-2 text-sm text-gray-900">
+                        {new Date(selectedDetail.startDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </p>
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 uppercase">
+                        End Date
+                      </label>
+                      <p className="mt-2 text-sm text-gray-900">
+                        {new Date(selectedDetail.endDate).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Reason */}
+                  <div>
+                    <label className="text-xs font-semibold text-gray-600 uppercase block mb-2">
+                      Reason
+                    </label>
+                    <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-md">
+                      {selectedDetail.reason}
+                    </p>
+                  </div>
+
+                  {/* Applied Date */}
+                  <div>
+                    <label className="text-xs font-semibold text-gray-600 uppercase">
+                      Applied Date
+                    </label>
+                    <p className="mt-2 text-sm text-gray-600">
+                      {new Date(selectedDetail.appliedDate).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
+                  </div>
+
+                  {/* Conflict Warning */}
+                  {selectedDetail.hasConflict && (
+                    <div className="p-4 bg-amber-50 border border-amber-200 rounded-md">
+                      <p className="text-sm text-amber-900 font-medium">
+                        ⚠️ {selectedDetail.conflictMessage}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Actions */}
+                  <div className="flex gap-3 pt-4 border-t border-gray-200">
+                    <Button
+                      className="flex-1 h-10 bg-green-600 hover:bg-green-700 text-white text-sm font-medium"
+                      onClick={() => {
+                        handleApproveLeave(selectedDetail.id, selectedDetail.name);
+                        setSelectedDetail(null);
+                      }}
+                    >
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                      Approve Request
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex-1 h-10 text-sm font-medium"
+                      onClick={() => {
+                        handleDenyLeave(selectedDetail.id, selectedDetail.name);
+                        setSelectedDetail(null);
+                      }}
+                    >
+                      <XCircle className="w-4 h-4 mr-2" />
+                      Deny Request
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="h-10 px-4 text-sm font-medium"
+                      onClick={() => setSelectedDetail(null)}
+                    >
+                      Close
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
