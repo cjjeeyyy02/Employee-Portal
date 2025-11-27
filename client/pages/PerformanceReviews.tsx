@@ -487,9 +487,44 @@ export default function PerformanceReviews() {
   };
 
   const handleAddKPI = () => {
+    setKpiForm({
+      name: "",
+      description: "",
+      target: "",
+      actual: "",
+      assignee: "",
+      period: "",
+      status: "above",
+    });
+    setShowAddKPIModal(true);
+  };
+
+  const handleCreateKPI = () => {
+    if (!kpiForm.name || !kpiForm.target || !kpiForm.actual || !kpiForm.assignee) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    const newKPI: KPI = {
+      id: (allKPIs.length + 1).toString(),
+      name: kpiForm.name,
+      status: kpiForm.status,
+      description: kpiForm.description,
+      target: kpiForm.target,
+      actual: kpiForm.actual,
+      assignee: kpiForm.assignee,
+      period: kpiForm.period || new Date().toLocaleString("default", { month: "long", year: "numeric" }),
+    };
+
+    setAllKPIs([...allKPIs, newKPI]);
+    setShowAddKPIModal(false);
+
     toast({
-      title: "Add KPI",
-      description: "Opening new KPI creation form...",
+      title: "KPI Created",
+      description: `"${kpiForm.name}" has been added successfully.`,
     });
   };
 
