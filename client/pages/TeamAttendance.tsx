@@ -1399,6 +1399,148 @@ export default function TeamAttendance() {
               </div>
             </div>
           )}
+
+          {/* Team Calendar View */}
+          {showCalendar && (
+            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-lg font-bold text-gray-900">
+                  Team Leave Calendar - {calendarMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                </h2>
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    className="h-8 text-xs px-2"
+                    onClick={() => {
+                      const newDate = new Date(calendarMonth);
+                      newDate.setMonth(newDate.getMonth() - 1);
+                      setCalendarMonth(newDate);
+                    }}
+                  >
+                    ← Previous
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-8 text-xs px-2"
+                    onClick={() => setCalendarMonth(new Date())}
+                  >
+                    Today
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="h-8 text-xs px-2"
+                    onClick={() => {
+                      const newDate = new Date(calendarMonth);
+                      newDate.setMonth(newDate.getMonth() + 1);
+                      setCalendarMonth(newDate);
+                    }}
+                  >
+                    Next →
+                  </Button>
+                </div>
+              </div>
+
+              {/* Calendar Grid */}
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr>
+                      {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+                        <th
+                          key={day}
+                          className="border border-gray-200 bg-gray-50 p-2 text-center text-xs font-semibold text-gray-900 w-24"
+                        >
+                          {day}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(() => {
+                      const daysInMonth = getDaysInMonth(calendarMonth);
+                      const firstDay = getFirstDayOfMonth(calendarMonth);
+                      const weeks = [];
+                      let week = Array(firstDay).fill(null);
+
+                      for (let i = 1; i <= daysInMonth; i++) {
+                        const currentDate = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), i);
+                        const leave = getLeaveOnDate(currentDate);
+
+                        week.push({
+                          date: i,
+                          currentDate,
+                          leave,
+                        });
+
+                        if (week.length === 7) {
+                          weeks.push(week);
+                          week = [];
+                        }
+                      }
+
+                      if (week.length > 0) {
+                        while (week.length < 7) {
+                          week.push(null);
+                        }
+                        weeks.push(week);
+                      }
+
+                      return weeks.map((weekDays, weekIdx) => (
+                        <tr key={weekIdx}>
+                          {weekDays.map((day, dayIdx) => (
+                            <td
+                              key={dayIdx}
+                              className="border border-gray-200 p-2 h-24 align-top bg-gray-50 hover:bg-gray-100 transition-colors"
+                            >
+                              {day ? (
+                                <div className="h-full flex flex-col">
+                                  <div className="text-xs font-semibold text-gray-900 mb-1">
+                                    {day.date}
+                                  </div>
+                                  <div className="flex-1 space-y-1 overflow-y-auto">
+                                    {day.leave.approved.map((req) => (
+                                      <div
+                                        key={req.id}
+                                        className="bg-green-100 border border-green-300 rounded px-1 py-0.5 text-xs text-green-800 font-medium truncate"
+                                        title={`${req.name} - ${req.leaveType}`}
+                                      >
+                                        {req.name.split(" ")[0]}
+                                      </div>
+                                    ))}
+                                    {day.leave.pending.map((req) => (
+                                      <div
+                                        key={req.id}
+                                        className="bg-yellow-100 border border-yellow-300 rounded px-1 py-0.5 text-xs text-yellow-800 font-medium truncate"
+                                        title={`${req.name} - ${req.leaveType} (Pending)`}
+                                      >
+                                        {req.name.split(" ")[0]} (?)
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ) : null}
+                            </td>
+                          ))}
+                        </tr>
+                      ));
+                    })()}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Legend */}
+              <div className="flex gap-6 mt-4 pt-4 border-t border-gray-200">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-green-100 border border-green-300 rounded"></div>
+                  <span className="text-xs text-gray-600">Approved Leave</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-yellow-100 border border-yellow-300 rounded"></div>
+                  <span className="text-xs text-gray-600">Pending Leave</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
