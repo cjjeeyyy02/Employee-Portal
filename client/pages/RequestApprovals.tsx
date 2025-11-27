@@ -321,15 +321,15 @@ export default function RequestApprovals() {
   };
 
   const handleDownloadDocument = (filename: string) => {
-    const document = documents.find((doc) => doc.filename === filename);
-    if (document) {
-      const element = document.createElement("a");
-      element.setAttribute("href", `data:text/plain;charset=utf-8,${encodeURIComponent(`Document: ${filename}\n\nThis is a sample document preview.\n\nCategory: ${document.category}\nFile Size: ${document.fileSize}\nUploaded by: ${document.uploadedBy} on ${document.uploadedDate}`)}`);
+    const docItem = documents.find((doc) => doc.filename === filename);
+    if (docItem) {
+      const element = window.document.createElement("a");
+      element.setAttribute("href", `data:text/plain;charset=utf-8,${encodeURIComponent(`Document: ${filename}\n\nThis is a sample document preview.\n\nCategory: ${docItem.category}\nFile Size: ${docItem.fileSize}\nUploaded by: ${docItem.uploadedBy} on ${docItem.uploadedDate}`)}`);
       element.setAttribute("download", filename);
       element.style.display = "none";
-      document.body.appendChild(element);
+      window.document.body.appendChild(element);
       element.click();
-      document.body.removeChild(element);
+      window.document.body.removeChild(element);
 
       toast({
         title: "Download Started",
