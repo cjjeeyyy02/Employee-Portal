@@ -219,6 +219,7 @@ export default function TeamAttendance() {
   } | null>(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [calendarMonth, setCalendarMonth] = useState(new Date());
+  const [selectedAttendanceReport, setSelectedAttendanceReport] = useState<AttendanceReport | null>(null);
 
   const handleExportReports = () => {
     try {
