@@ -313,17 +313,29 @@ export default function RequestApprovals() {
   };
 
   const handleViewDocument = (filename: string) => {
-    toast({
-      title: "View Document",
-      description: `Opening ${filename}...`,
-    });
+    const document = documents.find((doc) => doc.filename === filename);
+    if (document) {
+      setSelectedDocument(document);
+      setShowDocumentModal(true);
+    }
   };
 
   const handleDownloadDocument = (filename: string) => {
-    toast({
-      title: "Download",
-      description: `Downloading ${filename}...`,
-    });
+    const document = documents.find((doc) => doc.filename === filename);
+    if (document) {
+      const element = document.createElement("a");
+      element.setAttribute("href", `data:text/plain;charset=utf-8,${encodeURIComponent(`Document: ${filename}\n\nThis is a sample document preview.\n\nCategory: ${document.category}\nFile Size: ${document.fileSize}\nUploaded by: ${document.uploadedBy} on ${document.uploadedDate}`)}`);
+      element.setAttribute("download", filename);
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+
+      toast({
+        title: "Download Started",
+        description: `${filename} is being downloaded...`,
+      });
+    }
   };
 
   const handleContactSeniorManager = (
