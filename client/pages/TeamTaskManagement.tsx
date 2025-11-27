@@ -1362,6 +1362,237 @@ export default function TeamTaskManagement() {
             </div>
           </div>
         )}
+
+        {/* Assign Task Modal */}
+        {showAssignTaskModal && selectedMember && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Assign Task to {selectedMember.name}
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Create and assign a new task to this team member
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowAssignTaskModal(false);
+                    setSelectedMember(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {/* Member Info */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 space-y-2">
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Team Member:</span> {selectedMember.name}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Active Tasks:</span> {selectedMember.activeTasks}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Current Capacity:</span> {selectedMember.capacity}%
+                  </p>
+                </div>
+
+                {/* Task Title */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Task Title *
+                  </label>
+                  <input
+                    type="text"
+                    value={newTask.title}
+                    onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+                    placeholder="Enter task title"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    value={newTask.description}
+                    onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
+                    placeholder="Enter task description (optional)"
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Project */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Project
+                  </label>
+                  <select
+                    value={newTask.project}
+                    onChange={(e) => setNewTask({ ...newTask, project: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  >
+                    <option value="">Select a project</option>
+                    {projects.map((p) => (
+                      <option key={p.id} value={p.name}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Priority */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Priority *
+                  </label>
+                  <div className="flex gap-2">
+                    {["low", "medium", "high", "urgent"].map((p) => (
+                      <button
+                        key={p}
+                        onClick={() => setNewTask({ ...newTask, priority: p as any })}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                          newTask.priority === p
+                            ? `${getPriorityColor(p)}`
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        }`}
+                      >
+                        {p.charAt(0).toUpperCase() + p.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Due Date */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Due Date
+                  </label>
+                  <input
+                    type="date"
+                    value={newTask.dueDate}
+                    onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => {
+                    setShowAssignTaskModal(false);
+                    setSelectedMember(null);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleCreateAssignedTask}
+                >
+                  Create & Assign
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Message Modal */}
+        {showMessageModal && messagingMember && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] flex flex-col">
+              {/* Header */}
+              <div className="bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Chat with {messagingMember.name}
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Online • Last seen just now
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowMessageModal(false);
+                    setMessagingMember(null);
+                    setMessages([]);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Messages Area */}
+              <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50 min-h-[400px]">
+                {messages.length === 0 ? (
+                  <div className="flex items-center justify-center h-full text-center">
+                    <p className="text-sm text-gray-600">
+                      No messages yet. Start a conversation!
+                    </p>
+                  </div>
+                ) : (
+                  messages.map((msg) => (
+                    <div
+                      key={msg.id}
+                      className={`flex ${msg.sender === "You" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-xs px-4 py-2 rounded-lg ${
+                          msg.sender === "You"
+                            ? "bg-blue-600 text-white"
+                            : "bg-white text-gray-900 border border-gray-200"
+                        }`}
+                      >
+                        <p className="text-sm">{msg.content}</p>
+                        <p className={`text-xs mt-1 ${msg.sender === "You" ? "text-blue-100" : "text-gray-600"}`}>
+                          {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Input Area */}
+              <div className="bg-white border-t border-gray-200 p-4">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={messageInput}
+                    onChange={(e) => setMessageInput(e.target.value)}
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        handleSendMessage();
+                      }
+                    }}
+                    placeholder="Type your message..."
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                  <Button
+                    className="bg-blue-600 hover:bg-blue-700 text-white h-9 px-4"
+                    onClick={handleSendMessage}
+                    disabled={!messageInput.trim()}
+                  >
+                    Send
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
