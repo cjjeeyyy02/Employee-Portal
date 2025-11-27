@@ -513,7 +513,7 @@ export default function PerformanceReviews() {
                 </p>
               </div>
 
-              {reviews.map((review) => (
+              {allReviews.map((review) => (
                 <div
                   key={review.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
