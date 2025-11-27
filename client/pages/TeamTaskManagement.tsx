@@ -1596,6 +1596,257 @@ export default function TeamTaskManagement() {
             </div>
           </div>
         )}
+
+        {/* Project Details Modal */}
+        {showProjectDetailsModal && selectedProject && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    {selectedProject.name}
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Project details and task breakdown
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowProjectDetailsModal(false);
+                    setSelectedProject(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Overview Section */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                    <p className="text-xs text-blue-600 font-medium mb-1">
+                      Total Tasks
+                    </p>
+                    <p className="text-3xl font-bold text-blue-900">
+                      {selectedProject.totalTasks}
+                    </p>
+                  </div>
+                  <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <p className="text-xs text-green-600 font-medium mb-1">
+                      Completed
+                    </p>
+                    <p className="text-3xl font-bold text-green-900">
+                      {selectedProject.completedTasks}
+                    </p>
+                  </div>
+                  <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                    <p className="text-xs text-orange-600 font-medium mb-1">
+                      In Progress
+                    </p>
+                    <p className="text-3xl font-bold text-orange-900">
+                      {selectedProject.totalTasks - selectedProject.completedTasks}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Progress Section */}
+                <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-4">
+                    Overall Progress
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-700">
+                        Completion Rate
+                      </span>
+                      <span className="text-sm font-bold text-gray-900">
+                        {selectedProject.progress}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-300 rounded-full h-3">
+                      <div
+                        className={`h-3 rounded-full transition-all ${
+                          selectedProject.progress >= 80
+                            ? "bg-green-600"
+                            : selectedProject.progress >= 50
+                              ? "bg-orange-600"
+                              : "bg-blue-600"
+                        }`}
+                        style={{ width: `${selectedProject.progress}%` }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main Task Section */}
+                <div className="bg-white rounded-lg p-6 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-4">
+                    Main Task
+                  </h3>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-sm font-medium text-gray-900 mb-2">
+                        {selectedProject.mainTask}
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getProjectStatusColor(selectedProject.mainTaskStatus)}`}
+                        >
+                          {getStatusLabel(selectedProject.mainTaskStatus)}
+                        </span>
+                        <span className="text-xs text-gray-600">
+                          Current Status
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Related Tasks Section */}
+                <div className="bg-white rounded-lg p-6 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-4">
+                    Related Tasks in Project
+                  </h3>
+                  <div className="space-y-3">
+                    {allTasks
+                      .filter((t) => t.project === selectedProject.name)
+                      .map((task) => (
+                        <div
+                          key={task.id}
+                          className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
+                        >
+                          <div className="flex items-start justify-between mb-2">
+                            <h4 className="text-sm font-medium text-gray-900">
+                              {task.title}
+                            </h4>
+                            <span
+                              className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${getPriorityColor(task.priority)}`}
+                            >
+                              {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex-1 mr-3">
+                              <div className="flex items-center justify-between mb-1">
+                                <span className="text-xs text-gray-600">
+                                  Progress
+                                </span>
+                                <span className="text-xs font-medium text-gray-900">
+                                  {task.progress}%
+                                </span>
+                              </div>
+                              <div className="w-full bg-gray-300 rounded-full h-1.5">
+                                <div
+                                  className="bg-blue-600 h-1.5 rounded-full"
+                                  style={{ width: `${task.progress}%` }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-between text-xs text-gray-600">
+                            <span>{getStatusLabel(task.status)}</span>
+                            <span>Due {task.dueDate}</span>
+                          </div>
+                        </div>
+                      ))}
+                    {allTasks.filter((t) => t.project === selectedProject.name).length === 0 && (
+                      <p className="text-xs text-gray-600 text-center py-4">
+                        No tasks found for this project
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Team Section */}
+                <div className="bg-white rounded-lg p-6 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-4">
+                    Team Members Involved
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {Array.from(
+                      new Set(
+                        allTasks
+                          .filter((t) => t.project === selectedProject.name)
+                          .flatMap((t) => t.assignees)
+                      )
+                    ).map((memberName) => {
+                      const member = teamMembers.find((m) => m.name === memberName);
+                      return member ? (
+                        <div
+                          key={member.id}
+                          className="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                        >
+                          <p className="text-sm font-medium text-gray-900">
+                            {member.name}
+                          </p>
+                          <p className="text-xs text-gray-600 mt-1">
+                            {member.activeTasks} active tasks
+                          </p>
+                        </div>
+                      ) : null;
+                    })}
+                    {Array.from(
+                      new Set(
+                        allTasks
+                          .filter((t) => t.project === selectedProject.name)
+                          .flatMap((t) => t.assignees)
+                      )
+                    ).length === 0 && (
+                      <p className="text-xs text-gray-600 col-span-2 text-center py-4">
+                        No team members assigned
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Project Statistics */}
+                <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                  <h3 className="text-sm font-semibold text-blue-900 mb-3">
+                    📊 Project Statistics
+                  </h3>
+                  <ul className="space-y-2 text-sm text-blue-800">
+                    <li>
+                      • Completion rate: <span className="font-semibold">{selectedProject.progress}%</span>
+                    </li>
+                    <li>
+                      • Tasks completed: <span className="font-semibold">{selectedProject.completedTasks}/{selectedProject.totalTasks}</span>
+                    </li>
+                    <li>
+                      • Team members: <span className="font-semibold">
+                        {Array.from(
+                          new Set(
+                            allTasks
+                              .filter((t) => t.project === selectedProject.name)
+                              .flatMap((t) => t.assignees)
+                          )
+                        ).length}
+                      </span>
+                    </li>
+                    <li>
+                      • Main task status: <span className="font-semibold">{getStatusLabel(selectedProject.mainTaskStatus)}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={() => {
+                    setShowProjectDetailsModal(false);
+                    setSelectedProject(null);
+                  }}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
