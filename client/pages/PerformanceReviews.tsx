@@ -792,6 +792,339 @@ export default function PerformanceReviews() {
             </div>
           )}
         </div>
+
+        {/* Review Modal */}
+        {showReviewModal && selectedReview && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    {reviewModalMode === "start" ? "Start" : "Continue"} Performance Review
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {selectedReview.name} • {selectedReview.reviewCycle}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowReviewModal(false);
+                    setSelectedReview(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Review Info */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 space-y-2">
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Review Type:</span>{" "}
+                    {selectedReview.reviewType.charAt(0).toUpperCase() +
+                      selectedReview.reviewType.slice(1)}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Status:</span> {getStatusLabel(selectedReview.status)}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Due Date:</span> {selectedReview.dueDate}
+                  </p>
+                </div>
+
+                {/* Self Rating */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Self Rating *
+                  </label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((rating) => (
+                      <button
+                        key={rating}
+                        onClick={() => setReviewForm({ ...reviewForm, selfRating: rating })}
+                        className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all ${
+                          reviewForm.selfRating === rating
+                            ? "border-blue-600 bg-blue-50"
+                            : "border-gray-300 bg-white hover:border-gray-400"
+                        }`}
+                      >
+                        <span className="text-lg font-bold text-gray-900">
+                          {rating}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Strengths */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Key Strengths
+                  </label>
+                  <textarea
+                    value={reviewForm.strengths}
+                    onChange={(e) =>
+                      setReviewForm({ ...reviewForm, strengths: e.target.value })
+                    }
+                    placeholder="Describe the employee's key strengths..."
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Areas for Improvement */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Areas for Improvement
+                  </label>
+                  <textarea
+                    value={reviewForm.improvements}
+                    onChange={(e) =>
+                      setReviewForm({ ...reviewForm, improvements: e.target.value })
+                    }
+                    placeholder="Describe areas where improvement is needed..."
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Additional Feedback */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Additional Feedback
+                  </label>
+                  <textarea
+                    value={reviewForm.feedback}
+                    onChange={(e) =>
+                      setReviewForm({ ...reviewForm, feedback: e.target.value })
+                    }
+                    placeholder="Any additional comments or observations..."
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => {
+                    setShowReviewModal(false);
+                    setSelectedReview(null);
+                  }}
+                >
+                  Cancel
+                </Button>
+                {reviewModalMode === "continue" && (
+                  <Button
+                    variant="outline"
+                    className="flex-1 h-10 text-sm font-medium"
+                    onClick={handleSaveProgress}
+                  >
+                    Save Progress
+                  </Button>
+                )}
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleSubmitReview}
+                >
+                  {reviewModalMode === "start" ? "Submit Review" : "Update Review"}
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Review Details Modal */}
+        {showReviewDetailsModal && selectedReview && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Review Details
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {selectedReview.name} • {selectedReview.reviewCycle}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowReviewDetailsModal(false);
+                    setSelectedReview(null);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Review Status */}
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">
+                    Review Status
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-xs text-gray-600 mb-1">Status</p>
+                      <span
+                        className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(selectedReview.status)}`}
+                      >
+                        {getStatusLabel(selectedReview.status)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-600 mb-1">Type</p>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {selectedReview.reviewType.charAt(0).toUpperCase() +
+                          selectedReview.reviewType.slice(1)}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-600 mb-1">Due Date</p>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {selectedReview.dueDate}
+                      </p>
+                    </div>
+                    {selectedReview.completedDate && (
+                      <div>
+                        <p className="text-xs text-gray-600 mb-1">
+                          Completed Date
+                        </p>
+                        <p className="text-sm font-semibold text-gray-900">
+                          {selectedReview.completedDate}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Ratings */}
+                {selectedReview.selfRating && (
+                  <div className="bg-white rounded-lg p-4 border border-gray-200">
+                    <h3 className="text-sm font-semibold text-gray-900 mb-4">
+                      Performance Ratings
+                    </h3>
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-200">
+                        <p className="text-xs text-blue-600 font-medium mb-2">
+                          Self Rating
+                        </p>
+                        <div className="flex justify-center gap-1 mb-2">
+                          {Array.from({ length: 5 }).map((_, idx) => (
+                            <span
+                              key={idx}
+                              className={`text-lg ${
+                                idx < Math.floor(selectedReview.selfRating || 0)
+                                  ? "text-yellow-400"
+                                  : "text-gray-300"
+                              }`}
+                            >
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                        <p className="text-sm font-bold text-blue-900">
+                          {selectedReview.selfRating}
+                        </p>
+                      </div>
+
+                      {selectedReview.managerRating && (
+                        <div className="bg-green-50 rounded-lg p-4 text-center border border-green-200">
+                          <p className="text-xs text-green-600 font-medium mb-2">
+                            Manager Rating
+                          </p>
+                          <div className="flex justify-center gap-1 mb-2">
+                            {Array.from({ length: 5 }).map((_, idx) => (
+                              <span
+                                key={idx}
+                                className={`text-lg ${
+                                  idx < Math.floor(selectedReview.managerRating || 0)
+                                    ? "text-yellow-400"
+                                    : "text-gray-300"
+                                }`}
+                              >
+                                ★
+                              </span>
+                            ))}
+                          </div>
+                          <p className="text-sm font-bold text-green-900">
+                            {selectedReview.managerRating}
+                          </p>
+                        </div>
+                      )}
+
+                      {selectedReview.overallRating && (
+                        <div className="bg-orange-50 rounded-lg p-4 text-center border border-orange-200">
+                          <p className="text-xs text-orange-600 font-medium mb-2">
+                            Overall Rating
+                          </p>
+                          <div className="flex justify-center gap-1 mb-2">
+                            {Array.from({ length: 5 }).map((_, idx) => (
+                              <span
+                                key={idx}
+                                className={`text-lg ${
+                                  idx < Math.floor(selectedReview.overallRating || 0)
+                                    ? "text-yellow-400"
+                                    : "text-gray-300"
+                                }`}
+                              >
+                                ★
+                              </span>
+                            ))}
+                          </div>
+                          <p className="text-sm font-bold text-orange-900">
+                            {selectedReview.overallRating}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Recommendations */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <h3 className="text-sm font-semibold text-blue-900 mb-2">
+                    💡 Recommendations
+                  </h3>
+                  <ul className="space-y-2 text-sm text-blue-800">
+                    <li>
+                      • Continue focusing on technical excellence and code
+                      quality improvements
+                    </li>
+                    <li>
+                      • Consider taking advanced training in leadership skills
+                    </li>
+                    <li>
+                      • Maintain current pace of goal achievement and milestones
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={() => {
+                    setShowReviewDetailsModal(false);
+                    setSelectedReview(null);
+                  }}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
