@@ -34,10 +34,10 @@ const employeeNavigationItems = [
 const managerNavigationItems = [
   { icon: Users, label: "Workforce Management", path: "/team-management" },
   { icon: UserCheck, label: "Attendance & Leave Oversight", path: "/team-attendance" },
-  { icon: ClipboardList, label: "Team Task Management", path: "/team-task-management" },
-  { icon: BarChart3, label: "Performance Reviews", path: "/performance-reviews" },
-  { icon: CheckCircle, label: "Request Approvals", path: "/request-approvals" },
-  { icon: PieChart, label: "Reports & Analytics", path: "/reports-analytics" },
+  { icon: ClipboardList, label: "Task & Workflow Management", path: "/team-task-management" },
+  { icon: BarChart3, label: "Performance & Evaluations", path: "/performance-reviews" },
+  { icon: CheckCircle, label: "Requests & Approvals", path: "/request-approvals" },
+  { icon: PieChart, label: "Insights & Analytics", path: "/reports-analytics" },
 ];
 
 interface SidebarProps {
