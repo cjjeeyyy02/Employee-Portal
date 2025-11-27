@@ -268,6 +268,15 @@ export default function PerformanceReviews() {
     reason: "",
     statusUpdate: "on-track" as const,
   });
+  const [kpiForm, setKpiForm] = useState({
+    name: "",
+    description: "",
+    target: "",
+    actual: "",
+    assignee: "",
+    period: "",
+    status: "above" as const,
+  });
 
   const handlePerformanceAnalytics = () => {
     toast({
