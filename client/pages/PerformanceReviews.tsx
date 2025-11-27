@@ -244,11 +244,13 @@ export default function PerformanceReviews() {
   const [showReviewDetailsModal, setShowReviewDetailsModal] = useState(false);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [showAdjustGoalModal, setShowAdjustGoalModal] = useState(false);
+  const [showAddKPIModal, setShowAddKPIModal] = useState(false);
   const [selectedReview, setSelectedReview] = useState<PerformanceReview | null>(null);
   const [selectedGoal, setSelectedGoal] = useState<TeamGoal | null>(null);
   const [reviewModalMode, setReviewModalMode] = useState<"start" | "continue">("start");
   const [allReviews, setAllReviews] = useState<PerformanceReview[]>(reviews);
   const [allGoals, setAllGoals] = useState<TeamGoal[]>(teamGoals);
+  const [allKPIs, setAllKPIs] = useState<KPI[]>(kpis);
   const [reviewForm, setReviewForm] = useState({
     selfRating: 0,
     strengths: "",
