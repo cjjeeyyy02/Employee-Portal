@@ -1133,6 +1133,144 @@ export default function TeamTaskManagement() {
             </div>
           </div>
         )}
+
+        {/* Reassign Task Modal */}
+        {showReassignModal && reassignTask && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Reassign Task
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {reassignTask.title}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowReassignModal(false);
+                    setReassignTask(null);
+                    setReassignees([]);
+                  }}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {/* Current Task Info */}
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">
+                    Current Assignment
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {reassignTask.assignees.map((assignee) => (
+                      <div
+                        key={assignee}
+                        className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-xs font-medium"
+                      >
+                        {assignee}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Task Details */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 space-y-2">
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Project:</span> {reassignTask.project}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Status:</span> {getStatusLabel(reassignTask.status)}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Priority:</span> {reassignTask.priority.charAt(0).toUpperCase() + reassignTask.priority.slice(1)}
+                  </p>
+                  <p className="text-xs text-blue-900">
+                    <span className="font-semibold">Due Date:</span> {reassignTask.dueDate}
+                  </p>
+                </div>
+
+                {/* Reassign To Employees */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Reassign To *
+                  </label>
+                  <div className="space-y-2">
+                    {teamMembers.map((member) => (
+                      <div key={member.id} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id={`reassign-${member.id}`}
+                          checked={reassignees.includes(member.name)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setReassignees([...reassignees, member.name]);
+                            } else {
+                              setReassignees(reassignees.filter(a => a !== member.name));
+                            }
+                          }}
+                          className="w-4 h-4 rounded border-gray-300 cursor-pointer"
+                        />
+                        <label htmlFor={`reassign-${member.id}`} className="ml-3 text-sm text-gray-700 cursor-pointer">
+                          {member.name}
+                          <span className="text-xs text-gray-600 ml-2">
+                            ({member.activeTasks} active, {member.capacity}% capacity)
+                          </span>
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                  {reassignees.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {reassignees.map((assignee) => (
+                        <div
+                          key={assignee}
+                          className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-2"
+                        >
+                          {assignee}
+                          <button
+                            onClick={() =>
+                              setReassignees(reassignees.filter(a => a !== assignee))
+                            }
+                            className="hover:text-blue-600"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => {
+                    setShowReassignModal(false);
+                    setReassignTask(null);
+                    setReassignees([]);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleConfirmReassign}
+                >
+                  Confirm Reassignment
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
