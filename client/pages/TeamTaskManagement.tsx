@@ -257,6 +257,13 @@ const getProjectStatusColor = (status: string) => {
   }
 };
 
+interface Message {
+  id: string;
+  sender: string;
+  content: string;
+  timestamp: Date;
+}
+
 export default function TeamTaskManagement() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("all-tasks");
@@ -264,9 +271,15 @@ export default function TeamTaskManagement() {
   const [showNewTaskModal, setShowNewTaskModal] = useState(false);
   const [showTaskAnalytics, setShowTaskAnalytics] = useState(false);
   const [showReassignModal, setShowReassignModal] = useState(false);
+  const [showAssignTaskModal, setShowAssignTaskModal] = useState(false);
+  const [showMessageModal, setShowMessageModal] = useState(false);
   const [allTasks, setAllTasks] = useState<Task[]>(tasks);
   const [reassignTask, setReassignTask] = useState<Task | null>(null);
   const [reassignees, setReassignees] = useState<string[]>([]);
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [messagingMember, setMessagingMember] = useState<TeamMember | null>(null);
+  const [messageInput, setMessageInput] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
