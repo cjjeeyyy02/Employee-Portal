@@ -769,6 +769,342 @@ export default function TeamTaskManagement() {
             </div>
           )}
         </div>
+
+        {/* Task Analytics Modal */}
+        {showTaskAnalytics && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Task Analytics
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Detailed analytics and insights on task performance
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowTaskAnalytics(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Summary Stats */}
+                <div className="grid grid-cols-4 gap-4">
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Total Tasks
+                    </p>
+                    <p className="text-3xl font-bold text-blue-600">
+                      {allTasks.length}
+                    </p>
+                  </div>
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Completed
+                    </p>
+                    <p className="text-3xl font-bold text-green-600">
+                      {allTasks.filter(t => t.status === "completed").length}
+                    </p>
+                  </div>
+                  <div className="bg-orange-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      In Progress
+                    </p>
+                    <p className="text-3xl font-bold text-orange-600">
+                      {allTasks.filter(t => t.status === "in-progress").length}
+                    </p>
+                  </div>
+                  <div className="bg-red-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Overdue
+                    </p>
+                    <p className="text-3xl font-bold text-red-600">
+                      {allTasks.filter(t => new Date(t.dueDate) < new Date() && t.status !== "completed").length}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Task Status Breakdown */}
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h3 className="font-semibold text-sm text-gray-900 mb-4">
+                    Task Status Distribution
+                  </h3>
+                  <div className="space-y-3">
+                    {["completed", "in-progress", "review", "todo"].map((status) => {
+                      const count = allTasks.filter(t => t.status === status).length;
+                      const percentage = allTasks.length > 0 ? Math.round((count / allTasks.length) * 100) : 0;
+                      return (
+                        <div key={status}>
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-sm text-gray-700">
+                              {getStatusLabel(status)}
+                            </span>
+                            <span className="text-sm font-semibold text-gray-900">
+                              {count} ({percentage}%)
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div
+                              className={`h-2 rounded-full ${
+                                status === "completed" ? "bg-green-600" :
+                                status === "in-progress" ? "bg-orange-600" :
+                                status === "review" ? "bg-blue-600" :
+                                "bg-gray-600"
+                              }`}
+                              style={{ width: `${percentage}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Priority Breakdown */}
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h3 className="font-semibold text-sm text-gray-900 mb-4">
+                    Tasks by Priority
+                  </h3>
+                  <div className="space-y-3">
+                    {["urgent", "high", "medium", "low"].map((priority) => {
+                      const count = allTasks.filter(t => t.priority === priority).length;
+                      return (
+                        <div key={priority} className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(priority)}`}>
+                              {priority.charAt(0).toUpperCase() + priority.slice(1)}
+                            </span>
+                            <span className="text-sm text-gray-600">{count} task{count !== 1 ? "s" : ""}</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Team Insights */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <h3 className="font-semibold text-sm text-blue-900 mb-2">
+                    📊 Team Insights
+                  </h3>
+                  <ul className="space-y-2 text-sm text-blue-800">
+                    <li>• Average task completion rate: {Math.round((allTasks.filter(t => t.status === "completed").length / allTasks.length) * 100)}%</li>
+                    <li>• Most common priority: {["urgent", "high", "medium", "low"].reduce((acc, p) => {
+                      const count = allTasks.filter(t => t.priority === p).length;
+                      const accCount = allTasks.filter(t => t.priority === acc).length;
+                      return count > accCount ? p : acc;
+                    })}</li>
+                    <li>• Tasks assigned to {new Set(allTasks.flatMap(t => t.assignees)).size} team members</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={() => setShowTaskAnalytics(false)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* New Task Modal */}
+        {showNewTaskModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Create New Task
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Assign a new task to team members
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowNewTaskModal(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {/* Task Title */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Task Title *
+                  </label>
+                  <input
+                    type="text"
+                    value={newTask.title}
+                    onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+                    placeholder="Enter task title"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    value={newTask.description}
+                    onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
+                    placeholder="Enter task description (optional)"
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Project */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Project
+                  </label>
+                  <select
+                    value={newTask.project}
+                    onChange={(e) => setNewTask({ ...newTask, project: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  >
+                    <option value="">Select a project</option>
+                    {projects.map((p) => (
+                      <option key={p.id} value={p.name}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Priority */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Priority *
+                  </label>
+                  <div className="flex gap-2">
+                    {["low", "medium", "high", "urgent"].map((p) => (
+                      <button
+                        key={p}
+                        onClick={() => setNewTask({ ...newTask, priority: p as any })}
+                        className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                          newTask.priority === p
+                            ? `${getPriorityColor(p)}`
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        }`}
+                      >
+                        {p.charAt(0).toUpperCase() + p.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Due Date */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Due Date
+                  </label>
+                  <input
+                    type="date"
+                    value={newTask.dueDate}
+                    onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Assign To Employee */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Assign To *
+                  </label>
+                  <div className="space-y-2">
+                    {teamMembers.map((member) => (
+                      <div key={member.id} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id={`assignee-${member.id}`}
+                          checked={newTask.assignees.includes(member.name)}
+                          onChange={(e) => {
+                            if (e.target.checked) {
+                              setNewTask({
+                                ...newTask,
+                                assignees: [...newTask.assignees, member.name],
+                              });
+                            } else {
+                              setNewTask({
+                                ...newTask,
+                                assignees: newTask.assignees.filter(a => a !== member.name),
+                              });
+                            }
+                          }}
+                          className="w-4 h-4 rounded border-gray-300 cursor-pointer"
+                        />
+                        <label htmlFor={`assignee-${member.id}`} className="ml-3 text-sm text-gray-700 cursor-pointer">
+                          {member.name}
+                          <span className="text-xs text-gray-600 ml-2">
+                            ({member.activeTasks} active, {member.capacity}% capacity)
+                          </span>
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                  {newTask.assignees.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {newTask.assignees.map((assignee) => (
+                        <div
+                          key={assignee}
+                          className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-2"
+                        >
+                          {assignee}
+                          <button
+                            onClick={() =>
+                              setNewTask({
+                                ...newTask,
+                                assignees: newTask.assignees.filter(a => a !== assignee),
+                              })
+                            }
+                            className="hover:text-blue-600"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => setShowNewTaskModal(false)}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleCreateTask}
+                >
+                  Create Task
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
