@@ -273,6 +273,7 @@ export default function TeamTaskManagement() {
   const [showReassignModal, setShowReassignModal] = useState(false);
   const [showAssignTaskModal, setShowAssignTaskModal] = useState(false);
   const [showMessageModal, setShowMessageModal] = useState(false);
+  const [showProjectDetailsModal, setShowProjectDetailsModal] = useState(false);
   const [allTasks, setAllTasks] = useState<Task[]>(tasks);
   const [reassignTask, setReassignTask] = useState<Task | null>(null);
   const [reassignees, setReassignees] = useState<string[]>([]);
@@ -280,6 +281,7 @@ export default function TeamTaskManagement() {
   const [messagingMember, setMessagingMember] = useState<TeamMember | null>(null);
   const [messageInput, setMessageInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
