@@ -991,6 +991,131 @@ export default function ReportsAnalytics() {
             </div>
           )}
         </div>
+
+        {/* Action Executing Overlay */}
+        {executingAction && (
+          <div className="fixed inset-0 bg-black/30 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+              <div className="flex flex-col items-center justify-center gap-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center animate-spin">
+                  <div className="w-10 h-10 bg-white rounded-full"></div>
+                </div>
+                <div className="text-center">
+                  <p className="text-sm font-semibold text-gray-900">
+                    {executingAction}
+                  </p>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Processing your request...
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Action Result Modal */}
+        {actionResult && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <div className="flex items-center gap-2">
+                    {actionResult.success ? (
+                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-4 h-4 text-green-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    ) : (
+                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-4 h-4 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                    <h2 className="text-lg font-bold text-gray-900">
+                      {actionResult.action}
+                    </h2>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {actionResult.category}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setActionResult(null)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {actionResult.success ? (
+                  <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <p className="text-sm text-gray-900 leading-relaxed">
+                      {actionResult.message}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="bg-red-50 rounded-lg p-4 border border-red-200">
+                    <p className="text-sm text-red-900">{actionResult.message}</p>
+                  </div>
+                )}
+
+                {actionResult.success && (
+                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                    <p className="text-xs text-blue-900 font-medium mb-2">
+                      ✓ Action Completed Successfully
+                    </p>
+                    <ul className="text-xs text-blue-800 space-y-1">
+                      <li>
+                        • All affected team members have been notified
+                      </li>
+                      <li>
+                        • Changes are reflected in real-time across the system
+                      </li>
+                      <li>
+                        • You can view detailed reports in the respective section
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={() => setActionResult(null)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
