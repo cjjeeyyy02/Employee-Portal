@@ -644,7 +644,7 @@ export default function TeamTaskManagement() {
                         variant="outline"
                         className="h-7 text-xs px-2"
                         title="Reassign task"
-                        onClick={() => handleReassignTask(task.title)}
+                        onClick={() => handleReassignTask(task)}
                       >
                         Reassign
                       </Button>
