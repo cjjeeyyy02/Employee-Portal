@@ -325,10 +325,10 @@ export default function RequestApprovals() {
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
-                  Request Management
+                  Requests & Approvals
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  Review, approve, and manage team requests
+                  Review, approve, and manage team requests.
                 </p>
               </div>
               <div className="flex gap-2">
