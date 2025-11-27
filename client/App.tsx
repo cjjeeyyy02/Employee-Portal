@@ -20,6 +20,7 @@ import TeamTaskManagement from "./pages/TeamTaskManagement";
 import PerformanceReviews from "./pages/PerformanceReviews";
 import RequestApprovals from "./pages/RequestApprovals";
 import ReportsAnalytics from "./pages/ReportsAnalytics";
+import DocumentCenter from "./pages/DocumentCenter";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
 
