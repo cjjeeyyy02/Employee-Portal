@@ -77,6 +77,7 @@ export default function App() {
               />
               <Route path="/request-approvals" element={<RequestApprovals />} />
               <Route path="/reports-analytics" element={<ReportsAnalytics />} />
+              <Route path="/document-center" element={<DocumentCenter />} />
 
               {/* Employee View Routes */}
               <Route
