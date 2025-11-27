@@ -378,16 +378,94 @@ export default function TeamTaskManagement() {
   };
 
   const handleAssignTask = (memberName: string) => {
-    toast({
-      title: "Assign Task",
-      description: `Opening task assignment for ${memberName}...`,
-    });
+    const member = teamMembers.find((m) => m.name === memberName);
+    if (member) {
+      setSelectedMember(member);
+      setNewTask({
+        title: "",
+        description: "",
+        priority: "medium",
+        assignees: [member.name],
+        dueDate: "",
+        project: "",
+      });
+      setShowAssignTaskModal(true);
+    }
   };
 
   const handleMessageMember = (memberName: string) => {
+    const member = teamMembers.find((m) => m.name === memberName);
+    if (member) {
+      setMessagingMember(member);
+      setMessages([]);
+      setMessageInput("");
+      setShowMessageModal(true);
+    }
+  };
+
+  const handleSendMessage = () => {
+    if (!messageInput.trim() || !messagingMember) return;
+
+    const newMessage: Message = {
+      id: Date.now().toString(),
+      sender: "You",
+      content: messageInput,
+      timestamp: new Date(),
+    };
+
+    setMessages([...messages, newMessage]);
+    setMessageInput("");
+
+    setTimeout(() => {
+      const replyMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        sender: messagingMember.name,
+        content: `Thanks for your message! I'll get back to you soon.`,
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, replyMessage]);
+    }, 500);
+  };
+
+  const handleCreateAssignedTask = () => {
+    if (!newTask.title || !selectedMember) {
+      toast({
+        title: "Error",
+        description: "Please fill in the task title.",
+      });
+      return;
+    }
+
+    const task: Task = {
+      id: (allTasks.length + 1).toString(),
+      title: newTask.title,
+      description: newTask.description,
+      progress: 0,
+      dueDate: newTask.dueDate || new Date().toISOString().split('T')[0],
+      priority: newTask.priority,
+      status: "todo",
+      project: newTask.project || "Unassigned",
+      estimated: "8h",
+      actual: "",
+      tags: [],
+      assignees: newTask.assignees,
+    };
+
+    setAllTasks([...allTasks, task]);
+    setShowAssignTaskModal(false);
+    setSelectedMember(null);
+    setNewTask({
+      title: "",
+      description: "",
+      priority: "medium",
+      assignees: [],
+      dueDate: "",
+      project: "",
+    });
+
     toast({
-      title: "Message",
-      description: `Starting conversation with ${memberName}...`,
+      title: "Task Created",
+      description: `Task "${newTask.title}" has been assigned to ${newTask.assignees.join(", ")}.`,
     });
   };
 
