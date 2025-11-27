@@ -713,7 +713,7 @@ export default function PerformanceReviews() {
                 </p>
               </div>
 
-              {teamGoals.map((goal) => (
+              {allGoals.map((goal) => (
                 <div
                   key={goal.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
