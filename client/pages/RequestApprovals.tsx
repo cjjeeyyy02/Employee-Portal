@@ -500,10 +500,7 @@ export default function RequestApprovals() {
                         <Button
                           className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
                           onClick={() =>
-                            handleApproveRequest(
-                              request.requesterName,
-                              request.type,
-                            )
+                            handleApproveRequest(request)
                           }
                         >
                           Approve
@@ -512,10 +509,7 @@ export default function RequestApprovals() {
                           variant="outline"
                           className="h-8 text-xs px-3"
                           onClick={() =>
-                            handleRejectRequest(
-                              request.requesterName,
-                              request.type,
-                            )
+                            handleRejectRequest(request)
                           }
                         >
                           Reject
@@ -524,10 +518,7 @@ export default function RequestApprovals() {
                           variant="outline"
                           className="h-8 text-xs px-3"
                           onClick={() =>
-                            handleEscalateRequest(
-                              request.requesterName,
-                              request.type,
-                            )
+                            handleEscalateRequest(request)
                           }
                         >
                           Escalate
