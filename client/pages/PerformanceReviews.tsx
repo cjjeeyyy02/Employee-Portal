@@ -320,6 +320,12 @@ export default function PerformanceReviews() {
     period: "",
     status: "above" as const,
   });
+  const [giveFeedbackForm, setGiveFeedbackForm] = useState({
+    recipient: "",
+    content: "",
+    rating: 0,
+    category: "Strengths",
+  });
 
   const handlePerformanceAnalytics = () => {
     toast({
