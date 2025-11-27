@@ -400,17 +400,79 @@ export default function PerformanceReviews() {
   };
 
   const handleFeedback = (goalTitle: string) => {
-    toast({
-      title: "Feedback",
-      description: `Opening feedback form for "${goalTitle}"...`,
-    });
+    const goal = allGoals.find((g) => g.goalTitle === goalTitle);
+    if (goal) {
+      setSelectedGoal(goal);
+      setFeedbackForm({
+        feedbackText: "",
+        ratingGiven: 0,
+        suggestions: "",
+      });
+      setShowFeedbackModal(true);
+    }
   };
 
   const handleAdjustGoal = (goalTitle: string) => {
+    const goal = allGoals.find((g) => g.goalTitle === goalTitle);
+    if (goal) {
+      setSelectedGoal(goal);
+      setAdjustGoalForm({
+        newTarget: goal.target,
+        newDueDate: goal.dueDate,
+        reason: "",
+        statusUpdate: goal.goalStatus,
+      });
+      setShowAdjustGoalModal(true);
+    }
+  };
+
+  const handleSubmitFeedback = () => {
+    if (!selectedGoal || feedbackForm.ratingGiven === 0) {
+      toast({
+        title: "Error",
+        description: "Please provide a rating for the feedback.",
+      });
+      return;
+    }
+
     toast({
-      title: "Adjust Goal",
-      description: `Opening adjustment form for "${goalTitle}"...`,
+      title: "Feedback Submitted",
+      description: `Feedback for "${selectedGoal.goalTitle}" has been recorded.`,
     });
+
+    setShowFeedbackModal(false);
+    setSelectedGoal(null);
+  };
+
+  const handleSubmitAdjustment = () => {
+    if (!selectedGoal || !adjustGoalForm.newTarget || !adjustGoalForm.newDueDate) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    const updatedGoals = allGoals.map((goal) =>
+      goal.id === selectedGoal.id
+        ? {
+            ...goal,
+            target: adjustGoalForm.newTarget,
+            dueDate: adjustGoalForm.newDueDate,
+            goalStatus: adjustGoalForm.statusUpdate,
+          }
+        : goal
+    );
+
+    setAllGoals(updatedGoals);
+
+    toast({
+      title: "Goal Adjusted",
+      description: `"${selectedGoal.goalTitle}" has been updated successfully.`,
+    });
+
+    setShowAdjustGoalModal(false);
+    setSelectedGoal(null);
   };
 
   const handleAddKPI = () => {
