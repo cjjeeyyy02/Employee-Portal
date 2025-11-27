@@ -261,18 +261,64 @@ export default function TeamTaskManagement() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("all-tasks");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showNewTaskModal, setShowNewTaskModal] = useState(false);
+  const [showTaskAnalytics, setShowTaskAnalytics] = useState(false);
+  const [allTasks, setAllTasks] = useState<Task[]>(tasks);
+  const [newTask, setNewTask] = useState({
+    title: "",
+    description: "",
+    priority: "medium" as const,
+    assignees: [] as string[],
+    dueDate: "",
+    project: "",
+  });
 
   const handleTaskAnalytics = () => {
-    toast({
-      title: "Task Analytics",
-      description: "Opening task analytics dashboard...",
-    });
+    setShowTaskAnalytics(!showTaskAnalytics);
   };
 
   const handleNewTask = () => {
+    setShowNewTaskModal(true);
+  };
+
+  const handleCreateTask = () => {
+    if (!newTask.title || !newTask.assignees.length) {
+      toast({
+        title: "Error",
+        description: "Please fill in title and assign to at least one employee.",
+      });
+      return;
+    }
+
+    const task: Task = {
+      id: (allTasks.length + 1).toString(),
+      title: newTask.title,
+      description: newTask.description,
+      progress: 0,
+      dueDate: newTask.dueDate || new Date().toISOString().split('T')[0],
+      priority: newTask.priority,
+      status: "todo",
+      project: newTask.project || "Unassigned",
+      estimated: "8h",
+      actual: "",
+      tags: [],
+      assignees: newTask.assignees,
+    };
+
+    setAllTasks([...allTasks, task]);
+    setShowNewTaskModal(false);
+    setNewTask({
+      title: "",
+      description: "",
+      priority: "medium",
+      assignees: [],
+      dueDate: "",
+      project: "",
+    });
+
     toast({
-      title: "New Task",
-      description: "Opening new task creation form...",
+      title: "Task Created",
+      description: `Task "${newTask.title}" has been assigned to ${newTask.assignees.join(", ")}.`,
     });
   };
 
