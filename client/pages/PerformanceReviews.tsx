@@ -577,6 +577,45 @@ export default function PerformanceReviews() {
     });
   };
 
+  const handleGiveFeedback = (recipient: string) => {
+    setSelectedFeedbackRecipient(recipient);
+    setGiveFeedbackForm({
+      recipient,
+      content: "",
+      rating: 0,
+      category: "Strengths",
+    });
+    setShowGiveFeedbackModal(true);
+  };
+
+  const handleSubmitGiveFeedback = () => {
+    if (!giveFeedbackForm.content || giveFeedbackForm.rating === 0) {
+      toast({
+        title: "Error",
+        description: "Please provide feedback content and a rating.",
+      });
+      return;
+    }
+
+    const newFeedback: Feedback = {
+      id: (allFeedbacks.length + 1).toString(),
+      from: "You",
+      to: giveFeedbackForm.recipient,
+      content: giveFeedbackForm.content,
+      rating: giveFeedbackForm.rating,
+      category: giveFeedbackForm.category,
+      date: new Date().toISOString().split("T")[0],
+    };
+
+    setAllFeedbacks([...allFeedbacks, newFeedback]);
+    setShowGiveFeedbackModal(false);
+
+    toast({
+      title: "Feedback Sent",
+      description: `Feedback for ${giveFeedbackForm.recipient} has been submitted.`,
+    });
+  };
+
   const tabs = [
     { id: "performance-reviews", label: "Performance Reviews" },
     { id: "goal-monitoring", label: "Goal Monitoring" },
