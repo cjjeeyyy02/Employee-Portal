@@ -472,10 +472,11 @@ export default function TeamTaskManagement() {
   };
 
   const handleViewProjectDetails = (projectName: string) => {
-    toast({
-      title: "Project Details",
-      description: `Opening details for "${projectName}"...`,
-    });
+    const project = projects.find((p) => p.name === projectName);
+    if (project) {
+      setSelectedProject(project);
+      setShowProjectDetailsModal(true);
+    }
   };
 
   const tabs = [
