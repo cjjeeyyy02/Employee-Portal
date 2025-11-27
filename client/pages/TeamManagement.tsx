@@ -457,10 +457,10 @@ export default function TeamManagement() {
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
-                  Team Member Management
+                  Workforce Management
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  View and manage your team members
+                  Manage employee profiles, roles, departments, and team structures
                 </p>
               </div>
               <div className="flex gap-2">
