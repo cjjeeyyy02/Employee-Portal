@@ -560,68 +560,37 @@ export default function TeamAttendance() {
   };
 
   const handleTeamCalendar = () => {
-    try {
-      // Create an iCalendar file with all team leave dates
-      let icalContent = `BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Team Attendance//Team Calendar//EN
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-X-WR-CALNAME:Team Leave Calendar
-X-WR-TIMEZONE:UTC
-X-WR-CALDESC:Team member leave and availability
-
-`;
-
-      // Add all pending and approved leave requests to calendar
-      const allRequests = [...pendingRequests, ...approvedRequests];
-
-      allRequests.forEach((request, index) => {
-        const startDate = request.startDate.replace(/-/g, "");
-        const endDate = new Date(request.endDate);
-        endDate.setDate(endDate.getDate() + 1);
-        const endDateStr = endDate.toISOString().split('T')[0].replace(/-/g, "");
-
-        icalContent += `BEGIN:VEVENT
-UID:leave-${request.id}@company.com
-DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split('.')[0]}Z
-DTSTART;VALUE=DATE:${startDate}
-DTEND;VALUE=DATE:${endDateStr}
-SUMMARY:${request.name} - ${request.leaveType}
-DESCRIPTION:${request.reason}
-LOCATION:Out of Office
-STATUS:CONFIRMED
-CATEGORIES:Team Leave
-END:VEVENT
-
-`;
-      });
-
-      icalContent += `END:VCALENDAR`;
-
-      // Create blob and download
-      const blob = new Blob([icalContent], { type: "text/calendar;charset=utf-8;" });
-      const link = document.createElement("a");
-      const url = URL.createObjectURL(blob);
-
-      link.setAttribute("href", url);
-      link.setAttribute("download", `team_calendar_${new Date().toISOString().split('T')[0]}.ics`);
-      link.style.visibility = "hidden";
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
+    setShowCalendar(!showCalendar);
+    if (!showCalendar) {
       toast({
-        title: "Calendar Downloaded",
-        description: "Team calendar file (.ics) downloaded. You can import it into your calendar app.",
-      });
-    } catch (error) {
-      toast({
-        title: "Download Failed",
-        description: "Error creating calendar file. Please try again.",
+        title: "Team Calendar",
+        description: "Showing team leave calendar for the month...",
       });
     }
+  };
+
+  const getDaysInMonth = (date: Date) => {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  };
+
+  const getFirstDayOfMonth = (date: Date) => {
+    return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+  };
+
+  const isDateInRange = (date: Date, startStr: string, endStr: string) => {
+    const start = new Date(startStr);
+    const end = new Date(endStr);
+    return date >= start && date <= end;
+  };
+
+  const getLeaveOnDate = (date: Date) => {
+    const approvedOnDate = approvedRequests.filter(
+      req => isDateInRange(date, req.startDate, req.endDate)
+    );
+    const pendingOnDate = pendingRequests.filter(
+      req => isDateInRange(date, req.startDate, req.endDate)
+    );
+    return { approved: approvedOnDate, pending: pendingOnDate };
   };
 
   const handleApproveLeave = (request: LeaveRequest) => {
