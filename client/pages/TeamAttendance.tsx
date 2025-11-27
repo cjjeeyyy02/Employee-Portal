@@ -828,6 +828,118 @@ export default function TeamAttendance() {
             </div>
           )}
 
+          {/* Confirmation Modal */}
+          {confirmModal && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+              <div className="bg-white rounded-lg shadow-lg max-w-md w-full">
+                {/* Icon */}
+                <div className="flex justify-center pt-6">
+                  {confirmModal.type === "approve" ? (
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100">
+                      <CheckCircle2 className="w-8 h-8 text-green-600" />
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-red-100">
+                      <XCircle className="w-8 h-8 text-red-600" />
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="text-center px-6 py-6">
+                  <h2 className="text-lg font-bold text-gray-900 mb-2">
+                    {confirmModal.type === "approve"
+                      ? "Approve Leave Request?"
+                      : "Reject Leave Request?"}
+                  </h2>
+
+                  <p className="text-sm text-gray-600 mb-4">
+                    {confirmModal.type === "approve"
+                      ? "You are about to approve the leave request for"
+                      : "You are about to reject the leave request for"}
+                  </p>
+
+                  {/* Request Details */}
+                  <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                    <p className="font-semibold text-sm text-gray-900 mb-1">
+                      {confirmModal.request.name}
+                    </p>
+                    <p className="text-xs text-gray-600 mb-3">
+                      {confirmModal.request.department}
+                    </p>
+
+                    <div className="space-y-2 text-xs">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Leave Type:</span>
+                        <span className="font-medium text-gray-900">
+                          {confirmModal.request.leaveType}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Duration:</span>
+                        <span className="font-medium text-gray-900">
+                          {confirmModal.request.days} days
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Period:</span>
+                        <span className="font-medium text-gray-900">
+                          {confirmModal.request.startDate} to {confirmModal.request.endDate}
+                        </span>
+                      </div>
+                    </div>
+
+                    {confirmModal.request.hasConflict && (
+                      <div className="mt-3 p-2 bg-amber-100 border border-amber-200 rounded-md">
+                        <p className="text-xs text-amber-800 font-medium">
+                          ⚠️ Conflict warning: {confirmModal.request.conflictMessage}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {confirmModal.type === "approve" ? (
+                    <p className="text-sm text-gray-600">
+                      This will approve the leave and adjust the team schedule accordingly.
+                    </p>
+                  ) : (
+                    <p className="text-sm text-gray-600">
+                      This action cannot be undone. The employee will be notified of the rejection.
+                    </p>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                  <Button
+                    variant="outline"
+                    className="flex-1 h-10 text-sm font-medium"
+                    onClick={() => setConfirmModal(null)}
+                  >
+                    Cancel
+                  </Button>
+                  {confirmModal.type === "approve" ? (
+                    <Button
+                      className="flex-1 h-10 bg-green-600 hover:bg-green-700 text-white text-sm font-medium"
+                      onClick={confirmApprove}
+                    >
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                      Approve
+                    </Button>
+                  ) : (
+                    <Button
+                      className="flex-1 h-10 bg-red-600 hover:bg-red-700 text-white text-sm font-medium"
+                      onClick={confirmDeny}
+                    >
+                      <XCircle className="w-4 h-4 mr-2" />
+                      Reject
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Details Panel */}
           {selectedDetail && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
