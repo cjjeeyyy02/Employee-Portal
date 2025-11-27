@@ -38,6 +38,16 @@ const MetricCard = ({
   </div>
 );
 
+interface Feedback {
+  id: string;
+  from: string;
+  to: string;
+  content: string;
+  rating: number;
+  category: string;
+  date: string;
+}
+
 interface PerformanceReview {
   id: string;
   name: string;
