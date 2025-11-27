@@ -995,11 +995,149 @@ export default function PerformanceReviews() {
 
           {/* Feedback Hub Tab */}
           {activeTab === "feedback-hub" && (
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
-                Feedback Hub
-              </h2>
-              <p className="text-xs text-gray-600">Manage and share feedback</p>
+            <div className="space-y-4">
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900 mb-1">
+                    Feedback Hub
+                  </h2>
+                  <p className="text-xs text-gray-500">
+                    Send and receive feedback from team members
+                  </p>
+                </div>
+                <Button
+                  className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3"
+                  onClick={() => setShowGiveFeedbackModal(true)}
+                >
+                  <Plus className="w-4 h-4" />
+                  Give Feedback
+                </Button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {/* Received Feedback */}
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                    <h3 className="text-sm font-bold text-gray-900 mb-4">
+                      Feedback Received
+                    </h3>
+                    <div className="space-y-3">
+                      {allFeedbacks.map((feedback) => (
+                        <div
+                          key={feedback.id}
+                          className="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                        >
+                          <div className="flex items-start justify-between mb-2">
+                            <div>
+                              <p className="text-xs font-semibold text-gray-900">
+                                From: {feedback.from}
+                              </p>
+                              <p className="text-xs text-gray-600 mt-0.5">
+                                {feedback.date}
+                              </p>
+                            </div>
+                            <div className="flex gap-0.5">
+                              {Array.from({ length: 5 }).map((_, idx) => (
+                                <span
+                                  key={idx}
+                                  className={`text-sm ${
+                                    idx < feedback.rating
+                                      ? "text-yellow-400"
+                                      : "text-gray-300"
+                                  }`}
+                                >
+                                  ★
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <p className="text-xs text-gray-700 mb-2">
+                            {feedback.content}
+                          </p>
+                          <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-800 rounded text-xs font-medium">
+                            {feedback.category}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Send Feedback */}
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4">
+                    <h3 className="text-sm font-bold text-gray-900 mb-4">
+                      Give Feedback to Team
+                    </h3>
+                    <div className="space-y-3">
+                      {["Mike Chen", "Lisa Park", "Alex Kim", "Emma Wilson"].map(
+                        (member) => (
+                          <div
+                            key={member}
+                            className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
+                          >
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <p className="text-xs font-semibold text-gray-900">
+                                  {member}
+                                </p>
+                                <p className="text-xs text-gray-600 mt-0.5">
+                                  Share your feedback
+                                </p>
+                              </div>
+                              <Button
+                                variant="outline"
+                                className="h-7 text-xs px-2"
+                                onClick={() => handleGiveFeedback(member)}
+                              >
+                                Send
+                              </Button>
+                            </div>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feedback Statistics */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <p className="text-xs text-blue-600 font-medium mb-1">
+                    Total Feedback Received
+                  </p>
+                  <p className="text-2xl font-bold text-blue-900">
+                    {allFeedbacks.length}
+                  </p>
+                </div>
+                <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                  <p className="text-xs text-green-600 font-medium mb-1">
+                    Average Rating
+                  </p>
+                  <p className="text-2xl font-bold text-green-900">
+                    {(
+                      allFeedbacks.reduce((sum, f) => sum + f.rating, 0) /
+                      allFeedbacks.length
+                    ).toFixed(1)}
+                  </p>
+                </div>
+                <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                  <p className="text-xs text-orange-600 font-medium mb-1">
+                    Most Common Category
+                  </p>
+                  <p className="text-sm font-bold text-orange-900">
+                    {
+                      Object.entries(
+                        allFeedbacks.reduce((acc, f) => {
+                          acc[f.category] = (acc[f.category] || 0) + 1;
+                          return acc;
+                        }, {} as Record<string, number>)
+                      ).sort((a, b) => b[1] - a[1])[0]?.[0]
+                    }
+                  </p>
+                </div>
+              </div>
             </div>
           )}
         </div>
