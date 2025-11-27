@@ -376,10 +376,10 @@ export default function ReportsAnalytics() {
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
-                  Reports & Insights
+                  Insights & Analytics
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  Analytics and forecasting for your team
+                  Access dashboards, KPI reports, workforce trends, and operational metrics.
                 </p>
               </div>
               <div className="flex gap-2">
