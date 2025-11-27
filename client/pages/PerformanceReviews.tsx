@@ -632,10 +632,10 @@ export default function PerformanceReviews() {
             <div className="flex items-start justify-between mb-2">
               <div>
                 <h1 className="text-lg font-semibold text-gray-900 mb-0">
-                  Performance Management
+                  Performance & Evaluations
                 </h1>
                 <p className="text-xs text-gray-600 mt-0.5">
-                  Monitor team performance, conduct reviews, and track goals
+                  Conduct reviews, set goals and manage appraisal cycles.
                 </p>
               </div>
               <div className="flex gap-2">
