@@ -220,29 +220,325 @@ export default function TeamAttendance() {
 
   const handleExportReports = () => {
     try {
-      const headers = ["Name", "Department", "Attendance Rate", "Hours/Week", "Avg Clock In", "Late Count", "Status"];
+      // Create comprehensive HTML report
+      const reportDate = new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
 
-      const rows = attendanceReports.map(report => [
-        report.name,
-        report.department,
-        `${report.attendanceRate}%`,
-        `${report.hoursThisWeek}h`,
-        report.avgClockIn,
-        report.lateCount,
-        getStatusLabel(report.status),
-      ]);
+      const totalPending = pendingRequests.length;
+      const totalApproved = approvedRequests.length;
+      const totalDenied = deniedRequests.length;
+      const totalLeaveRequests = totalPending + totalApproved + totalDenied;
 
-      const csvContent = [
-        headers.join(","),
-        ...rows.map(row => row.map(cell => `"${cell}"`).join(",")),
-      ].join("\n");
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Attendance & Leave Report</title>
+          <style>
+            body {
+              font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+              margin: 0;
+              padding: 20px;
+              color: #1F2937;
+              background-color: #F9FAFB;
+            }
+            .container {
+              max-width: 1200px;
+              margin: 0 auto;
+              background-color: white;
+              padding: 40px;
+              border-radius: 8px;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+              color: #111827;
+              margin: 0 0 10px 0;
+              font-size: 28px;
+            }
+            .report-date {
+              color: #6B7280;
+              font-size: 14px;
+              margin-bottom: 30px;
+              border-bottom: 1px solid #E5E7EB;
+              padding-bottom: 20px;
+            }
+            .section {
+              margin-bottom: 40px;
+            }
+            .section h2 {
+              color: #374151;
+              font-size: 16px;
+              font-weight: 600;
+              margin-bottom: 15px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-bottom: 2px solid #E5E7EB;
+              padding-bottom: 10px;
+            }
+            .metrics-grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 15px;
+              margin-bottom: 20px;
+            }
+            .metric-card {
+              background-color: #F3F4F6;
+              padding: 15px;
+              border-radius: 6px;
+              border: 1px solid #E5E7EB;
+            }
+            .metric-label {
+              color: #6B7280;
+              font-size: 12px;
+              font-weight: 600;
+              margin-bottom: 5px;
+              text-transform: uppercase;
+            }
+            .metric-value {
+              color: #1F2937;
+              font-size: 24px;
+              font-weight: 700;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-top: 15px;
+            }
+            thead {
+              background-color: #F3F4F6;
+              border-bottom: 2px solid #E5E7EB;
+            }
+            th {
+              padding: 12px;
+              text-align: left;
+              font-weight: 600;
+              color: #374151;
+              font-size: 13px;
+            }
+            td {
+              padding: 12px;
+              border-bottom: 1px solid #E5E7EB;
+              font-size: 13px;
+            }
+            tr:hover {
+              background-color: #F9FAFB;
+            }
+            .status-badge {
+              display: inline-block;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 12px;
+              font-weight: 600;
+            }
+            .status-approved {
+              background-color: #D1FAE5;
+              color: #065F46;
+            }
+            .status-rejected {
+              background-color: #FEE2E2;
+              color: #991B1B;
+            }
+            .status-pending {
+              background-color: #FEF3C7;
+              color: #92400E;
+            }
+            .status-excellent {
+              background-color: #D1FAE5;
+              color: #065F46;
+            }
+            .status-good {
+              background-color: #DBEAFE;
+              color: #1E40AF;
+            }
+            .status-warning {
+              background-color: #FEF3C7;
+              color: #92400E;
+            }
+            .status-critical {
+              background-color: #FEE2E2;
+              color: #991B1B;
+            }
+            .footer {
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 1px solid #E5E7EB;
+              color: #6B7280;
+              font-size: 12px;
+              text-align: center;
+            }
+            @media print {
+              body {
+                background-color: white;
+              }
+              .container {
+                box-shadow: none;
+                padding: 0;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>Attendance & Leave Management Report</h1>
+            <div class="report-date">Generated on ${reportDate}</div>
 
-      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            <!-- Summary Section -->
+            <div class="section">
+              <h2>Executive Summary</h2>
+              <div class="metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-label">Total Leave Requests</div>
+                  <div class="metric-value">${totalLeaveRequests}</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Approved</div>
+                  <div class="metric-value">${totalApproved}</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Pending</div>
+                  <div class="metric-value">${totalPending}</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Rejected</div>
+                  <div class="metric-value">${totalDenied}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Attendance Reports Section -->
+            <div class="section">
+              <h2>Team Attendance Reports</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Employee</th>
+                    <th>Department</th>
+                    <th>Attendance Rate</th>
+                    <th>Hours/Week</th>
+                    <th>Avg Clock In</th>
+                    <th>Late Count</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${attendanceReports
+                    .map(
+                      (report) => `
+                    <tr>
+                      <td><strong>${report.name}</strong></td>
+                      <td>${report.department}</td>
+                      <td>${report.attendanceRate}%</td>
+                      <td>${report.hoursThisWeek}h</td>
+                      <td>${report.avgClockIn}</td>
+                      <td>${report.lateCount}</td>
+                      <td>
+                        <span class="status-badge status-${report.status}">
+                          ${getStatusLabel(report.status)}
+                        </span>
+                      </td>
+                    </tr>
+                  `
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Leave Requests Section -->
+            <div class="section">
+              <h2>Leave Requests Summary</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Employee</th>
+                    <th>Department</th>
+                    <th>Leave Type</th>
+                    <th>Duration</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${[...pendingRequests, ...approvedRequests, ...deniedRequests]
+                    .map(
+                      (request) => {
+                        let status = "pending";
+                        if (approvedRequests.find(r => r.id === request.id)) {
+                          status = "approved";
+                        } else if (deniedRequests.find(r => r.id === request.id)) {
+                          status = "rejected";
+                        }
+                        return `
+                    <tr>
+                      <td><strong>${request.name}</strong></td>
+                      <td>${request.department}</td>
+                      <td>${request.leaveType}</td>
+                      <td>${request.days} days</td>
+                      <td>${request.startDate}</td>
+                      <td>${request.endDate}</td>
+                      <td>
+                        <span class="status-badge status-${status}">
+                          ${status.charAt(0).toUpperCase() + status.slice(1)}
+                        </span>
+                      </td>
+                    </tr>
+                  `;
+                      }
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Leave Balances Section -->
+            <div class="section">
+              <h2>Leave Balance Summary</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Employee</th>
+                    <th>Annual Leave</th>
+                    <th>Sick Leave</th>
+                    <th>Personal Leave</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${leaveBalances
+                    .map(
+                      (member) => `
+                    <tr>
+                      <td><strong>${member.name}</strong></td>
+                      <td>${member.annualLeave.remaining}/${member.annualLeave.total} days</td>
+                      <td>${member.sickLeave.remaining}/${member.sickLeave.total} days</td>
+                      <td>${member.personalLeave.remaining}/${member.personalLeave.total} days</td>
+                    </tr>
+                  `
+                    )
+                    .join("")}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="footer">
+              <p>This is an automatically generated report from the Attendance & Leave Management system.</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `;
+
+      // Create blob and download
+      const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8;" });
       const link = document.createElement("a");
       const url = URL.createObjectURL(blob);
 
       link.setAttribute("href", url);
-      link.setAttribute("download", `attendance_reports_${new Date().toISOString().split('T')[0]}.csv`);
+      link.setAttribute("download", `attendance_leave_report_${new Date().toISOString().split('T')[0]}.html`);
       link.style.visibility = "hidden";
 
       document.body.appendChild(link);
@@ -250,13 +546,13 @@ export default function TeamAttendance() {
       document.body.removeChild(link);
 
       toast({
-        title: "Export Successful",
-        description: "Attendance reports exported as CSV file.",
+        title: "Report Exported",
+        description: "Comprehensive attendance and leave report generated successfully.",
       });
     } catch (error) {
       toast({
         title: "Export Failed",
-        description: "Error exporting reports. Please try again.",
+        description: "Error exporting report. Please try again.",
       });
     }
   };
