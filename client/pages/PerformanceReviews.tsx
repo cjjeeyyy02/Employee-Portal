@@ -1521,6 +1521,164 @@ export default function PerformanceReviews() {
             </div>
           </div>
         )}
+
+        {/* Add KPI Modal */}
+        {showAddKPIModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Create New KPI
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Add a new key performance indicator
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowAddKPIModal(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                {/* KPI Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    KPI Name *
+                  </label>
+                  <input
+                    type="text"
+                    value={kpiForm.name}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, name: e.target.value })
+                    }
+                    placeholder="e.g., Sprint Velocity, Customer Satisfaction"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    value={kpiForm.description}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, description: e.target.value })
+                    }
+                    placeholder="Describe what this KPI measures..."
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Target */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Target *
+                  </label>
+                  <input
+                    type="text"
+                    value={kpiForm.target}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, target: e.target.value })
+                    }
+                    placeholder="e.g., 40 points, 4.5/5, 95%"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Actual */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Actual *
+                  </label>
+                  <input
+                    type="text"
+                    value={kpiForm.actual}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, actual: e.target.value })
+                    }
+                    placeholder="e.g., 45 points, 4.3/5, 92%"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Assignee */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Assigned To *
+                  </label>
+                  <input
+                    type="text"
+                    value={kpiForm.assignee}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, assignee: e.target.value })
+                    }
+                    placeholder="Employee name"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Period */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Period
+                  </label>
+                  <input
+                    type="text"
+                    value={kpiForm.period}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, period: e.target.value })
+                    }
+                    placeholder="e.g., December 2024, Q4 2024"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* Status */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Status
+                  </label>
+                  <select
+                    value={kpiForm.status}
+                    onChange={(e) =>
+                      setKpiForm({ ...kpiForm, status: e.target.value as any })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  >
+                    <option value="above">Above Target</option>
+                    <option value="below">Below Target</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
+                  onClick={() => setShowAddKPIModal(false)}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={handleCreateKPI}
+                >
+                  Create KPI
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
