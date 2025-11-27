@@ -209,12 +209,52 @@ const getStatusLabel = (status: string) => {
 export default function TeamAttendance() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("leave-requests");
+  const [pendingRequests, setPendingRequests] = useState<LeaveRequest[]>(leaveRequests);
+  const [approvedRequests, setApprovedRequests] = useState<LeaveRequest[]>([]);
+  const [deniedRequests, setDeniedRequests] = useState<LeaveRequest[]>([]);
+  const [selectedDetail, setSelectedDetail] = useState<LeaveRequest | null>(null);
 
   const handleExportReports = () => {
-    toast({
-      title: "Export Started",
-      description: "Downloading attendance and leave reports as CSV...",
-    });
+    try {
+      const headers = ["Name", "Department", "Attendance Rate", "Hours/Week", "Avg Clock In", "Late Count", "Status"];
+
+      const rows = attendanceReports.map(report => [
+        report.name,
+        report.department,
+        `${report.attendanceRate}%`,
+        `${report.hoursThisWeek}h`,
+        report.avgClockIn,
+        report.lateCount,
+        getStatusLabel(report.status),
+      ]);
+
+      const csvContent = [
+        headers.join(","),
+        ...rows.map(row => row.map(cell => `"${cell}"`).join(",")),
+      ].join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
+      const url = URL.createObjectURL(blob);
+
+      link.setAttribute("href", url);
+      link.setAttribute("download", `attendance_reports_${new Date().toISOString().split('T')[0]}.csv`);
+      link.style.visibility = "hidden";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      toast({
+        title: "Export Successful",
+        description: "Attendance reports exported as CSV file.",
+      });
+    } catch (error) {
+      toast({
+        title: "Export Failed",
+        description: "Error exporting reports. Please try again.",
+      });
+    }
   };
 
   const handleTeamCalendar = () => {
@@ -224,24 +264,35 @@ export default function TeamAttendance() {
     });
   };
 
-  const handleApproveLeave = (name: string) => {
-    toast({
-      title: "Leave Approved",
-      description: `${name}'s leave request has been approved.`,
-    });
+  const handleApproveLeave = (requestId: string, name: string) => {
+    const request = pendingRequests.find(r => r.id === requestId);
+    if (request) {
+      setPendingRequests(pendingRequests.filter(r => r.id !== requestId));
+      setApprovedRequests([...approvedRequests, request]);
+      toast({
+        title: "✓ Leave Approved",
+        description: `${name}'s ${request.leaveType} from ${request.startDate} to ${request.endDate} has been approved.`,
+      });
+    }
   };
 
-  const handleDenyLeave = (name: string) => {
-    toast({
-      title: "Leave Rejected",
-      description: `${name}'s leave request has been rejected.`,
-    });
+  const handleDenyLeave = (requestId: string, name: string) => {
+    const request = pendingRequests.find(r => r.id === requestId);
+    if (request) {
+      setPendingRequests(pendingRequests.filter(r => r.id !== requestId));
+      setDeniedRequests([...deniedRequests, request]);
+      toast({
+        title: "✗ Leave Rejected",
+        description: `${name}'s ${request.leaveType} request has been rejected.`,
+      });
+    }
   };
 
-  const handleViewDetails = (name: string) => {
+  const handleViewDetails = (request: LeaveRequest) => {
+    setSelectedDetail(request);
     toast({
-      title: "View Details",
-      description: `Opening details for ${name}...`,
+      title: "Details",
+      description: `Viewing ${request.name}'s leave request details...`,
     });
   };
 
