@@ -240,6 +240,17 @@ const getKPIStatusColor = (status: string) => {
 export default function PerformanceReviews() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("performance-reviews");
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showReviewDetailsModal, setShowReviewDetailsModal] = useState(false);
+  const [selectedReview, setSelectedReview] = useState<PerformanceReview | null>(null);
+  const [reviewModalMode, setReviewModalMode] = useState<"start" | "continue">("start");
+  const [allReviews, setAllReviews] = useState<PerformanceReview[]>(reviews);
+  const [reviewForm, setReviewForm] = useState({
+    selfRating: 0,
+    strengths: "",
+    improvements: "",
+    feedback: "",
+  });
 
   const handlePerformanceAnalytics = () => {
     toast({
@@ -256,31 +267,121 @@ export default function PerformanceReviews() {
   };
 
   const handleStartReview = (name: string) => {
-    toast({
-      title: "Start Review",
-      description: `Starting performance review for ${name}...`,
-    });
+    const review = allReviews.find((r) => r.name === name);
+    if (review) {
+      setSelectedReview(review);
+      setReviewModalMode("start");
+      setReviewForm({
+        selfRating: 0,
+        strengths: "",
+        improvements: "",
+        feedback: "",
+      });
+      setShowReviewModal(true);
+    }
   };
 
   const handleContinueReview = (name: string) => {
-    toast({
-      title: "Continue Review",
-      description: `Continuing review for ${name}...`,
-    });
+    const review = allReviews.find((r) => r.name === name);
+    if (review) {
+      setSelectedReview(review);
+      setReviewModalMode("continue");
+      setReviewForm({
+        selfRating: review.selfRating || 0,
+        strengths: "",
+        improvements: "",
+        feedback: "",
+      });
+      setShowReviewModal(true);
+    }
   };
 
   const handleViewReviewDetails = (name: string) => {
+    const review = allReviews.find((r) => r.name === name);
+    if (review) {
+      setSelectedReview(review);
+      setShowReviewDetailsModal(true);
+    }
+  };
+
+  const handleSubmitReview = () => {
+    if (!selectedReview || reviewForm.selfRating === 0) {
+      toast({
+        title: "Error",
+        description: "Please provide a self rating.",
+      });
+      return;
+    }
+
+    const updatedReviews = allReviews.map((review) =>
+      review.id === selectedReview.id
+        ? {
+            ...review,
+            status: "completed" as const,
+            selfRating: reviewForm.selfRating,
+            managerRating: 4.2,
+            overallRating: (reviewForm.selfRating + 4.2) / 2,
+            completedDate: new Date().toISOString().split("T")[0],
+          }
+        : review
+    );
+
+    setAllReviews(updatedReviews);
+    setShowReviewModal(false);
+    setSelectedReview(null);
+
     toast({
-      title: "View Review Details",
-      description: `Opening review details for ${name}...`,
+      title: "Review Submitted",
+      description: `Performance review for ${selectedReview.name} has been submitted.`,
+    });
+  };
+
+  const handleSaveProgress = () => {
+    if (!selectedReview) return;
+
+    const updatedReviews = allReviews.map((review) =>
+      review.id === selectedReview.id
+        ? {
+            ...review,
+            status: "in-progress" as const,
+            selfRating: reviewForm.selfRating || review.selfRating,
+          }
+        : review
+    );
+
+    setAllReviews(updatedReviews);
+    setShowReviewModal(false);
+    setSelectedReview(null);
+
+    toast({
+      title: "Progress Saved",
+      description: `Review for ${selectedReview.name} has been saved.`,
     });
   };
 
   const handleCompleteReview = (name: string) => {
-    toast({
-      title: "Complete Review",
-      description: `Completing review for ${name}...`,
-    });
+    const review = allReviews.find((r) => r.name === name);
+    if (review) {
+      const updatedReviews = allReviews.map((r) =>
+        r.id === review.id
+          ? {
+              ...r,
+              status: "completed" as const,
+              completedDate: new Date().toISOString().split("T")[0],
+              selfRating: r.selfRating || 3.5,
+              managerRating: 4.0,
+              overallRating: 3.75,
+            }
+          : r
+      );
+
+      setAllReviews(updatedReviews);
+
+      toast({
+        title: "Review Completed",
+        description: `Overdue review for ${name} has been marked as completed.`,
+      });
+    }
   };
 
   const handleFeedback = (goalTitle: string) => {
