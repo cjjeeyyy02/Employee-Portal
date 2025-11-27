@@ -796,6 +796,93 @@ export default function RequestApprovals() {
           )}
         </div>
       </div>
+
+      {/* Approve Confirmation Dialog */}
+      <AlertDialog open={confirmAction?.action === "approve"} onOpenChange={() => setConfirmAction(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Approve Request?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to approve{" "}
+              <span className="font-semibold text-gray-900">
+                {confirmAction?.request?.requesterName}
+              </span>
+              's request for{" "}
+              <span className="font-semibold text-gray-900">
+                {confirmAction?.request?.type}
+              </span>
+              ? This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleConfirmApprove}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              Approve
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Reject Confirmation Dialog */}
+      <AlertDialog open={confirmAction?.action === "reject"} onOpenChange={() => setConfirmAction(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Reject Request?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to reject{" "}
+              <span className="font-semibold text-gray-900">
+                {confirmAction?.request?.requesterName}
+              </span>
+              's request for{" "}
+              <span className="font-semibold text-gray-900">
+                {confirmAction?.request?.type}
+              </span>
+              ? This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleConfirmReject}
+              className="bg-red-600 hover:bg-red-700"
+            >
+              Reject
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Escalate Confirmation Dialog */}
+      <AlertDialog open={confirmAction?.action === "escalate"} onOpenChange={() => setConfirmAction(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Escalate Request?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to escalate{" "}
+              <span className="font-semibold text-gray-900">
+                {confirmAction?.request?.requesterName}
+              </span>
+              's request for{" "}
+              <span className="font-semibold text-gray-900">
+                {confirmAction?.request?.type}
+              </span>
+              ? This will send it for higher-level approval.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleConfirmEscalate}
+              className="bg-blue-600 hover:bg-blue-700"
+            >
+              Escalate
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Layout>
   );
 }
