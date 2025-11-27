@@ -217,6 +217,8 @@ export default function TeamAttendance() {
     type: "approve" | "deny";
     request: LeaveRequest;
   } | null>(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [calendarMonth, setCalendarMonth] = useState(new Date());
 
   const handleExportReports = () => {
     try {
