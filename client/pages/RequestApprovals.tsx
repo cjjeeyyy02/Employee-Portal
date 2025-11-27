@@ -242,6 +242,10 @@ const getStatusLabel = (status: string) => {
 export default function RequestApprovals() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("pending-approval");
+  const [confirmAction, setConfirmAction] = useState<{
+    action: "approve" | "reject" | "escalate";
+    request: Request | null;
+  } | null>(null);
 
   const handleUploadDocument = () => {
     toast({
