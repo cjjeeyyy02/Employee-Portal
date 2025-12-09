@@ -41,6 +41,22 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
+    id: 4,
+    name: "Sarah Johnson",
+    email: "sarah.johnson@company.com",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+    department: "Product + Engineering",
+    position: "Product Manager",
+    status: "Active",
+    joinedDate: "Sep 05, 2020",
+    skills: ["Product Strategy", "Analytics", "Leadership"],
+    lastSeen: "30 min ago",
+    performance: 4.7,
+    completed: 92,
+    active: 6,
+  },
+  {
     id: 1,
     name: "Mike Chen",
     email: "mike.chen@company.com",
@@ -55,6 +71,7 @@ const teamMembers: TeamMember[] = [
     performance: 4.5,
     completed: 87,
     active: 5,
+    managerId: 4,
   },
   {
     id: 2,
@@ -71,6 +88,7 @@ const teamMembers: TeamMember[] = [
     performance: 4.2,
     completed: 64,
     active: 3,
+    managerId: 4,
   },
   {
     id: 3,
@@ -87,22 +105,7 @@ const teamMembers: TeamMember[] = [
     performance: 4,
     completed: 43,
     active: 2,
-  },
-  {
-    id: 4,
-    name: "Sarah Johnson",
-    email: "sarah.johnson@company.com",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-    department: "Product + Engineering",
-    position: "Product Manager",
-    status: "Active",
-    joinedDate: "Sep 05, 2020",
-    skills: ["Product Strategy", "Analytics", "Leadership"],
-    lastSeen: "30 min ago",
-    performance: 4.7,
-    completed: 92,
-    active: 6,
+    managerId: 4,
   },
 ];
 
