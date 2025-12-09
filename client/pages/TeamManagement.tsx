@@ -293,6 +293,7 @@ const ActionMenu = ({
 export default function TeamManagement() {
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { sidebarCollapsed } = useView();
   const [viewMode, setViewMode] = useState<"grid" | "list">("list");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("all");
