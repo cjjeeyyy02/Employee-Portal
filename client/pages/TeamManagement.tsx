@@ -140,18 +140,17 @@ export default function TeamManagement() {
   const handleExportTeamData = () => {
     try {
       // Prepare CSV headers
-      const headers = ["ID", "Name", "Email", "Department", "Role", "Status", "Performance", "Tasks Completed"];
+      const headers = ["Employee ID", "Employee Name", "Position", "Department", "Skills", "Status", "Joined Date"];
 
       // Prepare CSV rows
       const rows = teamMembers.map(member => [
         member.id,
         member.name,
-        member.email,
+        member.position,
         member.department,
-        member.role,
+        member.skills.join("; "),
         member.status,
-        member.performance,
-        member.completed,
+        member.joinedDate,
       ]);
 
       // Create CSV content
