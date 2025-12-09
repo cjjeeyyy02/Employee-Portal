@@ -826,7 +826,10 @@ export default function TeamManagement() {
                           {member.department}
                         </td>
                         <td className="px-3 py-2 text-xs text-gray-700">
-                          <SkillsTooltip skills={member.skills} />
+                          <SkillsTooltip
+                            skills={member.skills}
+                            sidebarCollapsed={sidebarCollapsed}
+                          />
                         </td>
                         <td className="px-3 py-2 text-xs">
                           <span
