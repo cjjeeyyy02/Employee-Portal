@@ -874,6 +874,44 @@ export default function TeamManagement() {
           </div>
         </div>
       )}
+
+      {/* Organizational Chart Modal */}
+      {showOrgChart && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-5xl w-full max-h-[85vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-gray-900">
+                Organizational Chart
+              </h2>
+              <button
+                onClick={() => setShowOrgChart(false)}
+                className="text-gray-500 hover:text-gray-700 text-2xl font-bold leading-none"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="p-8 bg-gray-50 flex justify-center">
+              <div className="bg-white rounded-lg p-8 overflow-x-auto">
+                <OrgChartNode
+                  member={teamMembers.find((m) => !m.managerId)!}
+                  allMembers={teamMembers}
+                />
+              </div>
+            </div>
+
+            <div className="border-t border-gray-200 p-6 flex justify-end gap-2 bg-white">
+              <Button
+                variant="outline"
+                onClick={() => setShowOrgChart(false)}
+                className="px-6"
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
