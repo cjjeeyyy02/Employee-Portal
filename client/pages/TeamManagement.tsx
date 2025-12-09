@@ -837,36 +837,12 @@ export default function TeamManagement() {
                     </div>
 
                     <div className="flex gap-1 justify-center">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="flex-1 h-7 text-xs"
-                          >
-                            <MoreVertical className="w-3.5 h-3.5" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem
-                            onClick={() => handleSendEmail(member.id)}
-                          >
-                            <Mail className="w-3.5 h-3.5 mr-2" />
-                            Send Email
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => handleSendMessage(member.id)}
-                          >
-                            <MessageCircle className="w-3.5 h-3.5 mr-2" />
-                            Send Message
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => handleViewProfile(member.id)}
-                          >
-                            View Profile
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      <ActionMenu
+                        memberId={member.id}
+                        onSendEmail={handleSendEmail}
+                        onSendMessage={handleSendMessage}
+                        onViewProfile={handleViewProfile}
+                      />
                     </div>
                   </div>
                 ))}
