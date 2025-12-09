@@ -236,6 +236,7 @@ export default function TeamAttendance() {
   const [selectedAttendanceReport, setSelectedAttendanceReport] = useState<AttendanceReport | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
+  const [selectedLeaveBalance, setSelectedLeaveBalance] = useState<LeaveBalance | null>(null);
 
   const handleExportReports = () => {
     try {
@@ -972,10 +973,7 @@ export default function TeamAttendance() {
                     <Button
                       variant="outline"
                       className="h-8 text-xs px-4"
-                      onClick={() => toast({
-                        title: "Details",
-                        description: `Viewing leave details for ${member.name}...`,
-                      })}
+                      onClick={() => setSelectedLeaveBalance(member)}
                     >
                       View Details
                     </Button>
