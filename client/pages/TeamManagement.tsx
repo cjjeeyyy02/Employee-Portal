@@ -25,8 +25,10 @@ interface TeamMember {
   email: string;
   avatar: string;
   department: string;
-  role: string;
+  position: string;
   status: "Active" | "Inactive" | "On Leave";
+  joinedDate: string;
+  skills: string[];
   lastSeen: string;
   performance: number;
   completed: number;
@@ -41,8 +43,10 @@ const teamMembers: TeamMember[] = [
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     department: "Product + Engineering",
-    role: "Senior Designer",
+    position: "Senior Designer",
     status: "Active",
+    joinedDate: "Jan 15, 2022",
+    skills: ["UI Design", "Prototyping", "Figma"],
     lastSeen: "2 hours ago",
     performance: 4.5,
     completed: 87,
@@ -55,8 +59,10 @@ const teamMembers: TeamMember[] = [
     avatar:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     department: "UX Design + Design",
-    role: "UX Designer",
+    position: "UX Designer",
     status: "Active",
+    joinedDate: "Mar 22, 2021",
+    skills: ["UX Research", "Wireframing", "Accessibility"],
     lastSeen: "1 hour ago",
     performance: 4.2,
     completed: 64,
@@ -69,12 +75,30 @@ const teamMembers: TeamMember[] = [
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
     department: "Junior Developer + Engineering",
-    role: "Junior Developer",
+    position: "Junior Developer",
     status: "Active",
+    joinedDate: "Jul 10, 2023",
+    skills: ["React", "TypeScript", "CSS"],
     lastSeen: "1 day ago",
     performance: 4,
     completed: 43,
     active: 2,
+  },
+  {
+    id: 4,
+    name: "Sarah Johnson",
+    email: "sarah.johnson@company.com",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+    department: "Product + Engineering",
+    position: "Product Manager",
+    status: "Active",
+    joinedDate: "Sep 05, 2020",
+    skills: ["Product Strategy", "Analytics", "Leadership"],
+    lastSeen: "30 min ago",
+    performance: 4.7,
+    completed: 92,
+    active: 6,
   },
 ];
 
