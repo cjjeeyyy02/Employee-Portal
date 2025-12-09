@@ -19,6 +19,7 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useView } from "@/context/ViewContext";
 
 interface TeamMember {
   id: number;
