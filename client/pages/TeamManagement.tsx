@@ -897,7 +897,10 @@ export default function TeamManagement() {
                       <div className="mb-2">
                         <p className="text-xs text-gray-600 mb-1">Skills</p>
                         <div className="flex justify-center">
-                          <SkillsTooltip skills={member.skills} />
+                          <SkillsTooltip
+                            skills={member.skills}
+                            sidebarCollapsed={sidebarCollapsed}
+                          />
                         </div>
                       </div>
                       <p className="text-xs text-gray-600">
