@@ -308,6 +308,33 @@ const ActionMenu = ({
   );
 };
 
+const WDBModalData = [
+  {
+    name: "Alice Smith",
+    completedTasks: 50,
+    balance: "90.90%",
+    remarks: "Met WDB",
+  },
+  {
+    name: "Bob Marley",
+    completedTasks: 45,
+    balance: "81.80%",
+    remarks: "Below WDB",
+  },
+  {
+    name: "Carol Reyes",
+    completedTasks: 55,
+    balance: "100%",
+    remarks: "Above WDB",
+  },
+  {
+    name: "Dave Cruz",
+    completedTasks: 50,
+    balance: "90.90%",
+    remarks: "Met WDB",
+  },
+];
+
 export default function TeamManagement() {
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -316,6 +343,7 @@ export default function TeamManagement() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
+  const [showWDBModal, setShowWDBModal] = useState(false);
 
   const handleExportTeamData = () => {
     try {
