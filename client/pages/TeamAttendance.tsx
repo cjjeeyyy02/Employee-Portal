@@ -1731,6 +1731,229 @@ export default function TeamAttendance() {
           )}
         </div>
       </div>
+
+      {/* Leave Balance Details Modal */}
+      {selectedLeaveBalance && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Leave Balance Details
+                </h2>
+                <p className="text-sm text-gray-600 mt-1">
+                  {selectedLeaveBalance.name} - {selectedLeaveBalance.department}
+                </p>
+              </div>
+              <button
+                onClick={() => setSelectedLeaveBalance(null)}
+                className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 space-y-6">
+              {/* Annual Leave */}
+              <div className="border border-blue-200 rounded-lg p-4 bg-blue-50">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-blue-900">Annual Leave</h3>
+                    <p className="text-sm text-blue-700 mt-1">
+                      {selectedLeaveBalance.annualLeave.remaining} days remaining out of {selectedLeaveBalance.annualLeave.total} days
+                    </p>
+                  </div>
+                  <span className="text-3xl font-bold text-blue-600">{selectedLeaveBalance.annualLeave.remaining}</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-blue-700">Days Used</span>
+                    <span className="font-semibold text-blue-900">{selectedLeaveBalance.annualLeave.used} days</span>
+                  </div>
+                  <div className="w-full bg-blue-200 rounded-full h-2">
+                    <div
+                      className="bg-blue-600 h-2 rounded-full"
+                      style={{
+                        width: `${(selectedLeaveBalance.annualLeave.used / selectedLeaveBalance.annualLeave.total) * 100}%`,
+                      }}
+                    />
+                  </div>
+                  <div className="text-xs text-blue-600 text-right">
+                    {((selectedLeaveBalance.annualLeave.used / selectedLeaveBalance.annualLeave.total) * 100).toFixed(1)}% used
+                  </div>
+                </div>
+              </div>
+
+              {/* Sick Leave */}
+              <div className="border border-orange-200 rounded-lg p-4 bg-orange-50">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-orange-900">Sick Leave</h3>
+                    <p className="text-sm text-orange-700 mt-1">
+                      {selectedLeaveBalance.sickLeave.remaining} days remaining out of {selectedLeaveBalance.sickLeave.total} days
+                    </p>
+                  </div>
+                  <span className="text-3xl font-bold text-orange-600">{selectedLeaveBalance.sickLeave.remaining}</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-orange-700">Days Used</span>
+                    <span className="font-semibold text-orange-900">{selectedLeaveBalance.sickLeave.used} days</span>
+                  </div>
+                  <div className="w-full bg-orange-200 rounded-full h-2">
+                    <div
+                      className="bg-orange-600 h-2 rounded-full"
+                      style={{
+                        width: `${(selectedLeaveBalance.sickLeave.used / selectedLeaveBalance.sickLeave.total) * 100}%`,
+                      }}
+                    />
+                  </div>
+                  <div className="text-xs text-orange-600 text-right">
+                    {((selectedLeaveBalance.sickLeave.used / selectedLeaveBalance.sickLeave.total) * 100).toFixed(1)}% used
+                  </div>
+                </div>
+              </div>
+
+              {/* Personal Leave */}
+              <div className="border border-green-200 rounded-lg p-4 bg-green-50">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-green-900">Personal Leave</h3>
+                    <p className="text-sm text-green-700 mt-1">
+                      {selectedLeaveBalance.personalLeave.remaining} days remaining out of {selectedLeaveBalance.personalLeave.total} days
+                    </p>
+                  </div>
+                  <span className="text-3xl font-bold text-green-600">{selectedLeaveBalance.personalLeave.remaining}</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-green-700">Days Used</span>
+                    <span className="font-semibold text-green-900">{selectedLeaveBalance.personalLeave.used} days</span>
+                  </div>
+                  <div className="w-full bg-green-200 rounded-full h-2">
+                    <div
+                      className="bg-green-600 h-2 rounded-full"
+                      style={{
+                        width: `${(selectedLeaveBalance.personalLeave.used / selectedLeaveBalance.personalLeave.total) * 100}%`,
+                      }}
+                    />
+                  </div>
+                  <div className="text-xs text-green-600 text-right">
+                    {((selectedLeaveBalance.personalLeave.used / selectedLeaveBalance.personalLeave.total) * 100).toFixed(1)}% used
+                  </div>
+                </div>
+              </div>
+
+              {/* Maternity Leave */}
+              <div className="border border-pink-200 rounded-lg p-4 bg-pink-50">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-pink-900">Maternity Leave</h3>
+                    <p className="text-sm text-pink-700 mt-1">
+                      {selectedLeaveBalance.maternityLeave.remaining} days remaining out of {selectedLeaveBalance.maternityLeave.total} days
+                    </p>
+                  </div>
+                  <span className="text-3xl font-bold text-pink-600">{selectedLeaveBalance.maternityLeave.remaining}</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-pink-700">Days Used</span>
+                    <span className="font-semibold text-pink-900">{selectedLeaveBalance.maternityLeave.used} days</span>
+                  </div>
+                  <div className="w-full bg-pink-200 rounded-full h-2">
+                    <div
+                      className="bg-pink-600 h-2 rounded-full"
+                      style={{
+                        width: `${(selectedLeaveBalance.maternityLeave.used / selectedLeaveBalance.maternityLeave.total) * 100}%`,
+                      }}
+                    />
+                  </div>
+                  <div className="text-xs text-pink-600 text-right">
+                    {((selectedLeaveBalance.maternityLeave.used / selectedLeaveBalance.maternityLeave.total) * 100).toFixed(1)}% used
+                  </div>
+                </div>
+              </div>
+
+              {/* Sabbatical Leave */}
+              <div className="border border-purple-200 rounded-lg p-4 bg-purple-50">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-purple-900">Sabbatical Leave</h3>
+                    <p className="text-sm text-purple-700 mt-1">
+                      {selectedLeaveBalance.sabbaticalLeave.remaining} days remaining out of {selectedLeaveBalance.sabbaticalLeave.total} days
+                    </p>
+                  </div>
+                  <span className="text-3xl font-bold text-purple-600">{selectedLeaveBalance.sabbaticalLeave.remaining}</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-purple-700">Days Used</span>
+                    <span className="font-semibold text-purple-900">{selectedLeaveBalance.sabbaticalLeave.used} days</span>
+                  </div>
+                  <div className="w-full bg-purple-200 rounded-full h-2">
+                    <div
+                      className="bg-purple-600 h-2 rounded-full"
+                      style={{
+                        width: `${(selectedLeaveBalance.sabbaticalLeave.used / selectedLeaveBalance.sabbaticalLeave.total) * 100}%`,
+                      }}
+                    />
+                  </div>
+                  <div className="text-xs text-purple-600 text-right">
+                    {((selectedLeaveBalance.sabbaticalLeave.used / selectedLeaveBalance.sabbaticalLeave.total) * 100).toFixed(1)}% used
+                  </div>
+                </div>
+              </div>
+
+              {/* Summary */}
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h4 className="font-semibold text-gray-900 mb-3">Summary</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-gray-600">Total Days Allocated</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {selectedLeaveBalance.annualLeave.total + selectedLeaveBalance.sickLeave.total + selectedLeaveBalance.personalLeave.total + selectedLeaveBalance.maternityLeave.total + selectedLeaveBalance.sabbaticalLeave.total}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Total Days Used</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {selectedLeaveBalance.annualLeave.used + selectedLeaveBalance.sickLeave.used + selectedLeaveBalance.personalLeave.used + selectedLeaveBalance.maternityLeave.used + selectedLeaveBalance.sabbaticalLeave.used}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Total Days Remaining</p>
+                    <p className="text-2xl font-bold text-green-600">
+                      {selectedLeaveBalance.annualLeave.remaining + selectedLeaveBalance.sickLeave.remaining + selectedLeaveBalance.personalLeave.remaining + selectedLeaveBalance.maternityLeave.remaining + selectedLeaveBalance.sabbaticalLeave.remaining}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Overall Usage</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {(
+                        ((selectedLeaveBalance.annualLeave.used + selectedLeaveBalance.sickLeave.used + selectedLeaveBalance.personalLeave.used + selectedLeaveBalance.maternityLeave.used + selectedLeaveBalance.sabbaticalLeave.used) /
+                        (selectedLeaveBalance.annualLeave.total + selectedLeaveBalance.sickLeave.total + selectedLeaveBalance.personalLeave.total + selectedLeaveBalance.maternityLeave.total + selectedLeaveBalance.sabbaticalLeave.total)) * 100
+                      ).toFixed(1)}%
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-t border-gray-200 p-6 flex justify-end gap-2 bg-white">
+              <Button
+                variant="outline"
+                onClick={() => setSelectedLeaveBalance(null)}
+                className="px-6"
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
