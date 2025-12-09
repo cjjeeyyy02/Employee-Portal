@@ -715,21 +715,21 @@ export default function TeamManagement() {
               <div className="flex gap-2">
                 <Button
                   variant="outline"
-                  size="sm"
+                  size="icon"
                   onClick={() => setViewMode("list")}
-                  className="gap-2 h-8 text-xs px-2"
+                  className="h-8 w-8"
+                  title="List View"
                 >
-                  <List className="w-3 h-3" />
-                  List View
+                  <List className="w-4 h-4" />
                 </Button>
                 <Button
                   variant="outline"
-                  size="sm"
+                  size="icon"
                   onClick={() => setViewMode("grid")}
-                  className="gap-2 h-8 text-xs px-2"
+                  className="h-8 w-8"
+                  title="Grid View"
                 >
-                  <Grid3x3 className="w-3 h-3" />
-                  Grid View
+                  <Grid3x3 className="w-4 h-4" />
                 </Button>
                 <Button
                   variant="outline"
