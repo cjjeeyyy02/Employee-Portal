@@ -869,20 +869,8 @@ export default function TeamManagement() {
                     <div className="mb-2 py-1.5 border-t border-b border-gray-200">
                       <div className="mb-2">
                         <p className="text-xs text-gray-600 mb-1">Skills</p>
-                        <div className="flex flex-wrap gap-1 justify-center">
-                          {member.skills.slice(0, 2).map((skill, idx) => (
-                            <span
-                              key={idx}
-                              className="inline-block px-1.5 py-0.5 bg-blue-100 text-blue-800 rounded text-xs"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                          {member.skills.length > 2 && (
-                            <span className="text-xs text-gray-600">
-                              +{member.skills.length - 2}
-                            </span>
-                          )}
+                        <div className="flex justify-center">
+                          <SkillsTooltip skills={member.skills} />
                         </div>
                       </div>
                       <p className="text-xs text-gray-600">
