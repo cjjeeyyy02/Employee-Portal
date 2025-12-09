@@ -976,6 +976,94 @@ export default function TeamManagement() {
           </div>
         </div>
       </div>
+
+      {/* WDB Modal */}
+      {showWDBModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-gray-900">
+                Workload Distribution Balance (WDB %) Details
+              </h2>
+              <button
+                onClick={() => setShowWDBModal(false)}
+                className="text-gray-500 hover:text-gray-700 text-xl font-bold"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="p-4">
+              <div className="mb-4 flex items-center gap-2">
+                <span className="text-sm text-gray-600">Current WDB:</span>
+                <span className="text-2xl font-bold text-gray-900">91%</span>
+                <span className="text-sm text-red-600 font-medium">-4.6% vs last month</span>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-gray-200 bg-gray-50">
+                      <th className="px-4 py-3 text-left font-medium text-gray-700 text-xs">
+                        Team Member
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700 text-xs">
+                        Completed Tasks
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700 text-xs">
+                        Work Distribution Balance %
+                      </th>
+                      <th className="px-4 py-3 text-left font-medium text-gray-700 text-xs">
+                        Remarks
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {WDBModalData.map((row, idx) => (
+                      <tr
+                        key={idx}
+                        className="border-b border-gray-200 hover:bg-gray-50 transition-colors"
+                      >
+                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">
+                          {row.name}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-700">
+                          {row.completedTasks}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-700 font-medium">
+                          {row.balance}
+                        </td>
+                        <td className="px-4 py-3 text-sm">
+                          <span
+                            className={`inline-block px-2 py-1 rounded text-xs font-medium ${
+                              row.remarks === "Above WDB"
+                                ? "bg-green-100 text-green-800"
+                                : row.remarks === "Below WDB"
+                                  ? "bg-red-100 text-red-800"
+                                  : "bg-blue-100 text-blue-800"
+                            }`}
+                          >
+                            {row.remarks}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-4 flex justify-end gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => setShowWDBModal(false)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }
