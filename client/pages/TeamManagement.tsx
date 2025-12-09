@@ -364,12 +364,11 @@ export default function TeamManagement() {
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Email</th>
+                    <th>Position</th>
                     <th>Department</th>
-                    <th>Role</th>
+                    <th>Skills</th>
                     <th>Status</th>
-                    <th>Performance</th>
-                    <th>Tasks</th>
+                    <th>Joined Date</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -378,16 +377,15 @@ export default function TeamManagement() {
                       (member) => `
                     <tr>
                       <td><strong>${member.name}</strong></td>
-                      <td>${member.email}</td>
+                      <td>${member.position}</td>
                       <td>${member.department}</td>
-                      <td>${member.role}</td>
+                      <td>${member.skills.join(", ")}</td>
                       <td>
                         <span class="status-badge status-${member.status.toLowerCase().replace(" ", "-")}">
                           ${member.status}
                         </span>
                       </td>
-                      <td>${member.performance}/5</td>
-                      <td>${member.completed}</td>
+                      <td>${member.joinedDate}</td>
                     </tr>
                   `
                     )
