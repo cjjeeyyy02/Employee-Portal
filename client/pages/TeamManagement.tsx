@@ -767,36 +767,12 @@ export default function TeamManagement() {
                           {member.joinedDate}
                         </td>
                         <td className="px-3 py-2 text-xs">
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                className="h-6 w-6"
-                              >
-                                <MoreVertical className="w-4 h-4 text-gray-600" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem
-                                onClick={() => handleSendEmail(member.id)}
-                              >
-                                <Mail className="w-3.5 h-3.5 mr-2" />
-                                Send Email
-                              </DropdownMenuItem>
-                              <DropdownMenuItem
-                                onClick={() => handleSendMessage(member.id)}
-                              >
-                                <MessageCircle className="w-3.5 h-3.5 mr-2" />
-                                Send Message
-                              </DropdownMenuItem>
-                              <DropdownMenuItem
-                                onClick={() => handleViewProfile(member.id)}
-                              >
-                                View Profile
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                          <ActionMenu
+                            memberId={member.id}
+                            onSendEmail={handleSendEmail}
+                            onSendMessage={handleSendMessage}
+                            onViewProfile={handleViewProfile}
+                          />
                         </td>
                       </tr>
                     ))}
