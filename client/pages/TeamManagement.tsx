@@ -154,6 +154,57 @@ const MetricCard = ({
   </div>
 );
 
+const OrgChartNode = ({
+  member,
+  allMembers,
+}: {
+  member: TeamMember;
+  allMembers: TeamMember[];
+}) => {
+  const subordinates = allMembers.filter((m) => m.managerId === member.id);
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className="bg-white border-2 border-blue-400 rounded-lg p-3 w-52 text-center shadow-md hover:shadow-lg transition-shadow">
+        <img
+          src={member.avatar}
+          alt={member.name}
+          className="w-12 h-12 rounded-full object-cover mx-auto mb-2"
+        />
+        <h3 className="font-semibold text-sm text-gray-900">{member.name}</h3>
+        <p className="text-xs text-blue-600 font-medium">{member.position}</p>
+        <p className="text-xs text-gray-600">{member.department}</p>
+        <span
+          className={`inline-block mt-1.5 px-2 py-0.5 rounded text-xs font-medium ${
+            member.status === "Active"
+              ? "bg-green-100 text-green-800"
+              : member.status === "On Leave"
+                ? "bg-yellow-100 text-yellow-800"
+                : "bg-red-100 text-red-800"
+          }`}
+        >
+          {member.status}
+        </span>
+      </div>
+
+      {subordinates.length > 0 && (
+        <div className="mt-6 flex flex-col items-center">
+          <div className="h-6 border-l-2 border-gray-400"></div>
+          <div className="flex gap-8">
+            {subordinates.map((sub) => (
+              <div key={sub.id} className="flex flex-col items-center">
+                <div className="h-4 border-b-2 border-gray-400 w-24"></div>
+                <div className="h-4 border-l-2 border-gray-400"></div>
+                <OrgChartNode member={sub} allMembers={allMembers} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const SkillsTooltip = ({
   skills,
   sidebarCollapsed,
