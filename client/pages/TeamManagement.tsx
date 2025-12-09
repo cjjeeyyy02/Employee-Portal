@@ -554,6 +554,39 @@ export default function TeamManagement() {
             />
           </div>
 
+          {/* Filter Bar */}
+          <div className="flex items-center gap-2 mb-2">
+            <div className="relative flex-1 max-w-sm">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Input
+                placeholder="Search team members…"
+                className="pl-10 rounded-full h-8 text-sm"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+
+            <div className="relative">
+              <button className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7">
+                {selectedDepartment === "all"
+                  ? "All Departments"
+                  : selectedDepartment.charAt(0).toUpperCase() +
+                    selectedDepartment.slice(1)}
+                <ChevronDown className="w-3 h-3" />
+              </button>
+            </div>
+
+            <div className="relative">
+              <button className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7">
+                {selectedStatus === "all"
+                  ? "All Status"
+                  : selectedStatus.charAt(0).toUpperCase() +
+                    selectedStatus.slice(1)}
+                <ChevronDown className="w-3 h-3" />
+              </button>
+            </div>
+          </div>
+
           {/* Team Members Section */}
           <div className="bg-white rounded-md border border-gray-200 p-2">
             <div className="flex items-center justify-between mb-1.5">
