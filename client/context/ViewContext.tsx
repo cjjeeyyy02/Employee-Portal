@@ -3,6 +3,8 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 interface ViewContextType {
   isManagerView: boolean;
   setIsManagerView: (value: boolean) => void;
+  sidebarCollapsed: boolean;
+  setSidebarCollapsed: (value: boolean) => void;
 }
 
 const ViewContext = createContext<ViewContextType | undefined>(undefined);
@@ -13,12 +15,21 @@ export function ViewProvider({ children }: { children: ReactNode }) {
     return stored ? JSON.parse(stored) : true;
   });
 
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("isManagerView", JSON.stringify(isManagerView));
   }, [isManagerView]);
 
   return (
-    <ViewContext.Provider value={{ isManagerView, setIsManagerView }}>
+    <ViewContext.Provider
+      value={{
+        isManagerView,
+        setIsManagerView,
+        sidebarCollapsed,
+        setSidebarCollapsed,
+      }}
+    >
       {children}
     </ViewContext.Provider>
   );
