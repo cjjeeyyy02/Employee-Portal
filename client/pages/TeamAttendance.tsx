@@ -62,6 +62,8 @@ interface LeaveBalance {
   annualLeave: { used: number; total: number; remaining: number };
   sickLeave: { used: number; total: number; remaining: number };
   personalLeave: { used: number; total: number; remaining: number };
+  maternityLeave: { used: number; total: number; remaining: number };
+  sabbaticalLeave: { used: number; total: number; remaining: number };
 }
 
 const leaveRequests: LeaveRequest[] = [
@@ -110,6 +112,8 @@ const leaveBalances: LeaveBalance[] = [
     annualLeave: { used: 8, total: 25, remaining: 17 },
     sickLeave: { used: 2, total: 10, remaining: 8 },
     personalLeave: { used: 1, total: 5, remaining: 4 },
+    maternityLeave: { used: 0, total: 3, remaining: 3 },
+    sabbaticalLeave: { used: 0, total: 1, remaining: 1 },
   },
   {
     id: "2",
@@ -118,6 +122,8 @@ const leaveBalances: LeaveBalance[] = [
     annualLeave: { used: 12, total: 25, remaining: 13 },
     sickLeave: { used: 5, total: 10, remaining: 5 },
     personalLeave: { used: 2, total: 5, remaining: 3 },
+    maternityLeave: { used: 0, total: 3, remaining: 3 },
+    sabbaticalLeave: { used: 0, total: 1, remaining: 1 },
   },
   {
     id: "3",
@@ -126,6 +132,8 @@ const leaveBalances: LeaveBalance[] = [
     annualLeave: { used: 5, total: 25, remaining: 20 },
     sickLeave: { used: 1, total: 10, remaining: 9 },
     personalLeave: { used: 0, total: 5, remaining: 5 },
+    maternityLeave: { used: 0, total: 3, remaining: 3 },
+    sabbaticalLeave: { used: 0, total: 1, remaining: 1 },
   },
   {
     id: "4",
@@ -134,6 +142,8 @@ const leaveBalances: LeaveBalance[] = [
     annualLeave: { used: 15, total: 25, remaining: 10 },
     sickLeave: { used: 3, total: 10, remaining: 7 },
     personalLeave: { used: 1, total: 5, remaining: 4 },
+    maternityLeave: { used: 1, total: 3, remaining: 2 },
+    sabbaticalLeave: { used: 0, total: 1, remaining: 1 },
   },
 ];
 
@@ -881,76 +891,80 @@ export default function TeamAttendance() {
                     <p className="text-xs text-gray-600">{member.department}</p>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
-                    {/* Annual Leave */}
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-medium text-gray-900">
-                          Annual Leave
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-600">
-                        {member.annualLeave.used}/{member.annualLeave.total}{" "}
-                        days
-                      </p>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
+                  <div className="grid grid-cols-5 gap-2">
+                    {/* Annual Leave Card */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-2">
+                      <p className="text-xs font-semibold text-blue-900 mb-1">Annual</p>
+                      <p className="text-lg font-bold text-blue-600">{member.annualLeave.remaining}</p>
+                      <p className="text-xs text-blue-700">{member.annualLeave.used}/{member.annualLeave.total}</p>
+                      <div className="w-full bg-blue-200 rounded-full h-1 mt-1">
                         <div
-                          className="bg-blue-600 h-1.5 rounded-full"
+                          className="bg-blue-600 h-1 rounded-full"
                           style={{
                             width: `${(member.annualLeave.used / member.annualLeave.total) * 100}%`,
                           }}
                         />
                       </div>
-                      <p className="text-xs text-gray-600">
-                        {member.annualLeave.remaining} days remaining
-                      </p>
                     </div>
 
-                    {/* Sick Leave */}
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-medium text-gray-900">
-                          Sick Leave
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-600">
-                        {member.sickLeave.used}/{member.sickLeave.total} days
-                      </p>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
+                    {/* Sick Leave Card */}
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-2">
+                      <p className="text-xs font-semibold text-orange-900 mb-1">Sick</p>
+                      <p className="text-lg font-bold text-orange-600">{member.sickLeave.remaining}</p>
+                      <p className="text-xs text-orange-700">{member.sickLeave.used}/{member.sickLeave.total}</p>
+                      <div className="w-full bg-orange-200 rounded-full h-1 mt-1">
                         <div
-                          className="bg-orange-600 h-1.5 rounded-full"
+                          className="bg-orange-600 h-1 rounded-full"
                           style={{
                             width: `${(member.sickLeave.used / member.sickLeave.total) * 100}%`,
                           }}
                         />
                       </div>
-                      <p className="text-xs text-gray-600">
-                        {member.sickLeave.remaining} days remaining
-                      </p>
                     </div>
 
-                    {/* Personal Leave */}
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-medium text-gray-900">
-                          Personal Leave
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-600">
-                        {member.personalLeave.used}/{member.personalLeave.total}{" "}
-                        days
-                      </p>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5">
+                    {/* Personal Leave Card */}
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-2">
+                      <p className="text-xs font-semibold text-green-900 mb-1">Personal</p>
+                      <p className="text-lg font-bold text-green-600">{member.personalLeave.remaining}</p>
+                      <p className="text-xs text-green-700">{member.personalLeave.used}/{member.personalLeave.total}</p>
+                      <div className="w-full bg-green-200 rounded-full h-1 mt-1">
                         <div
-                          className="bg-green-600 h-1.5 rounded-full"
+                          className="bg-green-600 h-1 rounded-full"
                           style={{
                             width: `${(member.personalLeave.used / member.personalLeave.total) * 100}%`,
                           }}
                         />
                       </div>
-                      <p className="text-xs text-gray-600">
-                        {member.personalLeave.remaining} days remaining
-                      </p>
+                    </div>
+
+                    {/* Maternity Leave Card */}
+                    <div className="bg-pink-50 border border-pink-200 rounded-lg p-2">
+                      <p className="text-xs font-semibold text-pink-900 mb-1">Maternity</p>
+                      <p className="text-lg font-bold text-pink-600">{member.maternityLeave.remaining}</p>
+                      <p className="text-xs text-pink-700">{member.maternityLeave.used}/{member.maternityLeave.total}</p>
+                      <div className="w-full bg-pink-200 rounded-full h-1 mt-1">
+                        <div
+                          className="bg-pink-600 h-1 rounded-full"
+                          style={{
+                            width: `${(member.maternityLeave.used / member.maternityLeave.total) * 100}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Sabbatical Leave Card */}
+                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-2">
+                      <p className="text-xs font-semibold text-purple-900 mb-1">Sabbatical</p>
+                      <p className="text-lg font-bold text-purple-600">{member.sabbaticalLeave.remaining}</p>
+                      <p className="text-xs text-purple-700">{member.sabbaticalLeave.used}/{member.sabbaticalLeave.total}</p>
+                      <div className="w-full bg-purple-200 rounded-full h-1 mt-1">
+                        <div
+                          className="bg-purple-600 h-1 rounded-full"
+                          style={{
+                            width: `${(member.sabbaticalLeave.used / member.sabbaticalLeave.total) * 100}%`,
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
