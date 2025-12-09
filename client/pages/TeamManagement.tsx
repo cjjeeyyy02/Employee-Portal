@@ -36,6 +36,7 @@ interface TeamMember {
   performance: number;
   completed: number;
   active: number;
+  managerId?: number;
 }
 
 const teamMembers: TeamMember[] = [
