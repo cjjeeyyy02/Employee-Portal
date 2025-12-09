@@ -109,15 +109,28 @@ const MetricCard = ({
   title,
   value,
   subtitle,
+  indicator,
+  indicatorColor,
   valueColor,
+  onClick,
+  clickable,
 }: {
   icon: React.ElementType;
   title: string;
   value: string | number;
   subtitle: string;
+  indicator?: string;
+  indicatorColor?: string;
   valueColor?: string;
+  onClick?: () => void;
+  clickable?: boolean;
 }) => (
-  <div className="bg-white rounded-md p-2 border border-gray-200">
+  <div
+    className={`bg-white rounded-md p-2 border border-gray-200 ${
+      clickable ? "cursor-pointer hover:shadow-md hover:border-blue-300" : ""
+    }`}
+    onClick={onClick}
+  >
     <div className="flex items-start justify-between mb-1.5">
       <h3 className="text-xs font-medium text-gray-700">{title}</h3>
       <Icon className="w-4 h-4 text-gray-400" />
@@ -126,6 +139,11 @@ const MetricCard = ({
       <p className={`text-2xl font-bold ${valueColor || "text-gray-900"}`}>
         {value}
       </p>
+      {indicator && (
+        <p className={`text-xs font-medium mt-0.5 ${indicatorColor || "text-gray-600"}`}>
+          {indicator}
+        </p>
+      )}
     </div>
     <p className="text-xs text-gray-600">{subtitle}</p>
   </div>
