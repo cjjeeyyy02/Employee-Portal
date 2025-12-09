@@ -751,23 +751,30 @@ export default function TeamManagement() {
               subtitle="Across 2 departments"
             />
             <MetricCard
-              icon={CheckCircle}
-              title="Present Today"
-              value="3"
-              subtitle="75% attendance rate"
-              valueColor="text-green-600"
+              icon={TrendingUp}
+              title="Team Utilization Rate"
+              value="85%"
+              subtitle="Active projects"
+              indicator="+5.4% vs last month"
+              indicatorColor="text-green-600"
             />
             <MetricCard
-              icon={TrendingUp}
-              title="Avg Performance"
-              value="4.3/5"
-              subtitle="of last 30 days"
+              icon={CheckCircle}
+              title="Workload Distribution Balance (WDB %)"
+              value="91%"
+              subtitle="Team balance"
+              indicator="-4.6% vs last month"
+              indicatorColor="text-red-600"
+              clickable={true}
+              onClick={() => setShowWDBModal(true)}
             />
             <MetricCard
               icon={Clock}
-              title="Tasks Completed"
-              value="289"
-              subtitle="This Month"
+              title="Employee Availability Rate"
+              value="92%"
+              subtitle="Available team"
+              indicator="-3.7% vs last month"
+              indicatorColor="text-red-600"
             />
           </div>
 
