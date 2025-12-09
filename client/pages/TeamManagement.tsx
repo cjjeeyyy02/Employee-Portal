@@ -427,12 +427,6 @@ export default function TeamManagement() {
     }
   };
 
-  const handleMoreFilters = () => {
-    toast({
-      title: "Advanced Filters",
-      description: "Advanced filter options coming soon.",
-    });
-  };
 
   const handleViewProfile = (memberId: number) => {
     navigate(`/team-member/${memberId}`);
