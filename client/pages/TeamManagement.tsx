@@ -349,6 +349,7 @@ export default function TeamManagement() {
   const [selectedDepartment, setSelectedDepartment] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [showWDBModal, setShowWDBModal] = useState(false);
+  const [showOrgChart, setShowOrgChart] = useState(false);
 
   const handleExportTeamData = () => {
     try {
