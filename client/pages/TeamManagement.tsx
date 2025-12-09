@@ -748,31 +748,43 @@ export default function TeamManagement() {
                       <h3 className="font-semibold text-xs text-gray-900">
                         {member.name}
                       </h3>
-                      <p className="text-xs text-gray-600">{member.role}</p>
-                      <span className="inline-block px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs font-medium mt-1">
+                      <p className="text-xs text-gray-600">{member.position}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{member.department}</p>
+                      <span
+                        className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium mt-1 ${
+                          member.status === "Active"
+                            ? "bg-green-100 text-green-800"
+                            : member.status === "On Leave"
+                              ? "bg-yellow-100 text-yellow-800"
+                              : "bg-red-100 text-red-800"
+                        }`}
+                      >
                         {member.status}
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 mb-2 py-1.5 border-t border-b border-gray-200">
-                      <div className="text-center">
-                        <p className="text-xs font-semibold text-gray-900">
-                          {member.performance}
-                        </p>
-                        <p className="text-xs text-gray-600">Performance</p>
+                    <div className="mb-2 py-1.5 border-t border-b border-gray-200">
+                      <div className="mb-2">
+                        <p className="text-xs text-gray-600 mb-1">Skills</p>
+                        <div className="flex flex-wrap gap-1 justify-center">
+                          {member.skills.slice(0, 2).map((skill, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-block px-1.5 py-0.5 bg-blue-100 text-blue-800 rounded text-xs"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                          {member.skills.length > 2 && (
+                            <span className="text-xs text-gray-600">
+                              +{member.skills.length - 2}
+                            </span>
+                          )}
+                        </div>
                       </div>
-                      <div className="text-center">
-                        <p className="text-xs font-semibold text-gray-900">
-                          {member.completed}
-                        </p>
-                        <p className="text-xs text-gray-600">Completed</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs font-semibold text-gray-900">
-                          {member.active}
-                        </p>
-                        <p className="text-xs text-gray-600">Active</p>
-                      </div>
+                      <p className="text-xs text-gray-600">
+                        Joined: {member.joinedDate}
+                      </p>
                     </div>
 
                     <div className="flex gap-1">
