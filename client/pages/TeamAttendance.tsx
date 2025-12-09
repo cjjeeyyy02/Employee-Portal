@@ -6,7 +6,10 @@ import {
   CheckCircle2,
   XCircle,
   MoreVertical,
+  Search,
+  ChevronDown,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
@@ -221,6 +224,8 @@ export default function TeamAttendance() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [calendarMonth, setCalendarMonth] = useState(new Date());
   const [selectedAttendanceReport, setSelectedAttendanceReport] = useState<AttendanceReport | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
 
   const handleExportReports = () => {
     try {
@@ -671,14 +676,6 @@ export default function TeamAttendance() {
               </div>
               <div className="flex gap-2">
                 <Button
-                  variant="ghost"
-                  className="gap-2 h-7 text-xs px-2"
-                  onClick={handleExportReports}
-                >
-                  <Download className="w-3 h-3" />
-                  Export Reports
-                </Button>
-                <Button
                   className="gap-2 bg-blue-600 hover:bg-blue-700 h-7 text-xs px-2"
                   onClick={handleTeamCalendar}
                 >
@@ -721,6 +718,30 @@ export default function TeamAttendance() {
               subtitle="Within target range"
               valueColor="text-purple-600"
             />
+          </div>
+
+          {/* Search and Filter Bar */}
+          <div className="flex items-center gap-2 mb-2">
+            <div className="relative flex-1 max-w-sm">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Input
+                placeholder="Search leave requests…"
+                className="pl-10 rounded-full h-8 text-sm"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+
+            <div className="relative">
+              <button className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7">
+                {statusFilter === "all"
+                  ? "All Status"
+                  : statusFilter === "approved"
+                    ? "Approved"
+                    : "Rejected"}
+                <ChevronDown className="w-3 h-3" />
+              </button>
+            </div>
           </div>
         </div>
 
