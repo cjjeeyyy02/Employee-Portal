@@ -130,6 +130,68 @@ const MetricCard = ({
   </div>
 );
 
+const SkillsTooltip = ({ skills }: { skills: string[] }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const tooltipRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        tooltipRef.current &&
+        !tooltipRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  if (!skills || skills.length === 0) {
+    return <span className="text-gray-700">-</span>;
+  }
+
+  return (
+    <div className="relative inline-block" ref={tooltipRef}>
+      <div
+        className="flex items-center gap-1 cursor-pointer"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
+          {skills[0]}
+        </span>
+        {skills.length > 1 && (
+          <span className="text-blue-600 text-xs font-bold cursor-help">…</span>
+        )}
+      </div>
+      {skills.length > 1 && isOpen && (
+        <div className="absolute left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10 p-2">
+          <p className="text-xs font-semibold text-gray-700 mb-2 px-1">
+            All Skills ({skills.length})
+          </p>
+          <div className="flex flex-wrap gap-1">
+            {skills.map((skill, idx) => (
+              <span
+                key={idx}
+                className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ActionMenu = ({
   memberId,
   onSendEmail,
