@@ -131,7 +131,13 @@ const MetricCard = ({
   </div>
 );
 
-const SkillsTooltip = ({ skills }: { skills: string[] }) => {
+const SkillsTooltip = ({
+  skills,
+  sidebarCollapsed,
+}: {
+  skills: string[];
+  sidebarCollapsed: boolean;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
@@ -155,6 +161,22 @@ const SkillsTooltip = ({ skills }: { skills: string[] }) => {
 
   if (!skills || skills.length === 0) {
     return <span className="text-gray-700">-</span>;
+  }
+
+  // When sidebar is collapsed, show all skills
+  if (sidebarCollapsed) {
+    return (
+      <div className="flex flex-wrap gap-1">
+        {skills.map((skill, idx) => (
+          <span
+            key={idx}
+            className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    );
   }
 
   return (
