@@ -791,31 +791,37 @@ export default function TeamManagement() {
                       </p>
                     </div>
 
-                    <div className="flex gap-1">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="flex-1 gap-1 h-7 text-xs"
-                        title="Send Email"
-                        onClick={() => handleSendEmail(member.id)}
-                      >
-                        <Mail className="w-3 h-3" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="flex-1 gap-1 h-7 text-xs"
-                        title="Send Message"
-                        onClick={() => handleSendMessage(member.id)}
-                      >
-                        <MessageCircle className="w-3 h-3" />
-                      </Button>
-                      <Button
-                        className="flex-1 gap-1 h-7 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium"
-                        onClick={() => handleViewProfile(member.id)}
-                      >
-                        Profile
-                      </Button>
+                    <div className="flex gap-1 justify-center">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex-1 h-7 text-xs"
+                          >
+                            <MoreVertical className="w-3.5 h-3.5" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem
+                            onClick={() => handleSendEmail(member.id)}
+                          >
+                            <Mail className="w-3.5 h-3.5 mr-2" />
+                            Send Email
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => handleSendMessage(member.id)}
+                          >
+                            <MessageCircle className="w-3.5 h-3.5 mr-2" />
+                            Send Message
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => handleViewProfile(member.id)}
+                          >
+                            View Profile
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
                   </div>
                 ))}
