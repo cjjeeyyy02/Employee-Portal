@@ -569,7 +569,6 @@ export default function TeamManagement() {
             />
           </div>
 
-          {/* View Toggle */}
           {/* Team Members Section */}
           <div className="bg-white rounded-md border border-gray-200 p-2">
             <div className="flex items-center justify-between mb-1.5">
@@ -583,7 +582,16 @@ export default function TeamManagement() {
               </div>
               <div className="flex gap-2">
                 <Button
-                  variant={viewMode === "grid" ? "default" : "outline"}
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setViewMode("list")}
+                  className="gap-2 h-8 text-xs px-2"
+                >
+                  <List className="w-3 h-3" />
+                  List View
+                </Button>
+                <Button
+                  variant="outline"
                   size="sm"
                   onClick={() => setViewMode("grid")}
                   className="gap-2 h-8 text-xs px-2"
@@ -592,13 +600,13 @@ export default function TeamManagement() {
                   Grid View
                 </Button>
                 <Button
-                  variant={viewMode === "list" ? "default" : "outline"}
+                  variant="outline"
                   size="sm"
-                  onClick={() => setViewMode("list")}
+                  onClick={handleExportTeamData}
                   className="gap-2 h-8 text-xs px-2"
                 >
-                  <List className="w-3 h-3" />
-                  List View
+                  <Download className="w-3 h-3" />
+                  Export
                 </Button>
               </div>
             </div>
