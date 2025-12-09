@@ -129,6 +129,81 @@ const MetricCard = ({
   </div>
 );
 
+const ActionMenu = ({
+  memberId,
+  onSendEmail,
+  onSendMessage,
+  onViewProfile,
+}: {
+  memberId: number;
+  onSendEmail: (id: number) => void;
+  onSendMessage: (id: number) => void;
+  onViewProfile: (id: number) => void;
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const handleAction = (action: () => void) => {
+    action();
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="relative" ref={menuRef}>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="h-6 w-6"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <MoreVertical className="w-4 h-4 text-gray-600" />
+      </Button>
+      {isOpen && (
+        <div className="absolute right-0 mt-1 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+          <button
+            onClick={() => handleAction(() => onSendEmail(memberId))}
+            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 first:rounded-t-md"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            Send Email
+          </button>
+          <button
+            onClick={() => handleAction(() => onSendMessage(memberId))}
+            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+          >
+            <MessageCircle className="w-3.5 h-3.5" />
+            Send Message
+          </button>
+          <button
+            onClick={() => handleAction(() => onViewProfile(memberId))}
+            className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 last:rounded-b-md"
+          >
+            View Profile
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function TeamManagement() {
   const { toast } = useToast();
   const navigate = useNavigate();
