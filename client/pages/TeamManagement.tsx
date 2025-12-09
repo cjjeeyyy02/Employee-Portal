@@ -802,16 +802,7 @@ export default function TeamManagement() {
                           {member.department}
                         </td>
                         <td className="px-3 py-2 text-xs text-gray-700">
-                          <div className="flex flex-wrap gap-1">
-                            {member.skills.map((skill, idx) => (
-                              <span
-                                key={idx}
-                                className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
+                          <SkillsTooltip skills={member.skills} />
                         </td>
                         <td className="px-3 py-2 text-xs">
                           <span
