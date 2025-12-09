@@ -967,6 +967,19 @@ export default function TeamAttendance() {
                       </div>
                     </div>
                   </div>
+
+                  <div className="flex justify-center mt-3">
+                    <Button
+                      variant="outline"
+                      className="h-8 text-xs px-4"
+                      onClick={() => toast({
+                        title: "Details",
+                        description: `Viewing leave details for ${member.name}...`,
+                      })}
+                    >
+                      View Details
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
