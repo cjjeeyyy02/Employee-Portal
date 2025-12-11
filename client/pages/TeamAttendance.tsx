@@ -890,23 +890,27 @@ export default function TeamAttendance() {
                     </div>
 
                     <div className="flex gap-2 ml-4">
-                      <Button
-                        className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
-                        title="Approve leave"
-                        onClick={() => handleApproveLeave(request)}
-                      >
-                        <CheckCircle2 className="w-3 h-3 mr-1" />
-                        Approve
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="h-8 text-xs px-3"
-                        title="Deny leave"
-                        onClick={() => handleDenyLeave(request)}
-                      >
-                        <XCircle className="w-3 h-3 mr-1" />
-                        Deny
-                      </Button>
+                      {statusFilter === "all" && !approvedRequests.some(r => r.id === request.id) && !deniedRequests.some(r => r.id === request.id) && (
+                        <>
+                          <Button
+                            className="h-8 text-xs px-3 bg-green-600 hover:bg-green-700 text-white"
+                            title="Approve leave"
+                            onClick={() => handleApproveLeave(request)}
+                          >
+                            <CheckCircle2 className="w-3 h-3 mr-1" />
+                            Approve
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="h-8 text-xs px-3"
+                            title="Deny leave"
+                            onClick={() => handleDenyLeave(request)}
+                          >
+                            <XCircle className="w-3 h-3 mr-1" />
+                            Deny
+                          </Button>
+                        </>
+                      )}
                       <Button
                         variant="outline"
                         className="h-8 text-xs px-3"
