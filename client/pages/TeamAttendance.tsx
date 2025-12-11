@@ -753,6 +753,70 @@ export default function TeamAttendance() {
           {/* Leave Requests Tab Content */}
           {activeTab === "leave-requests" && (
             <div className="space-y-4">
+              {/* Search and Filter Bar for Leave Requests */}
+              <div className="flex items-center gap-2 mb-4">
+                <div className="relative flex-1 max-w-sm">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Input
+                    placeholder="Search leave requests…"
+                    className="pl-10 rounded-full h-8 text-sm"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+
+                <div className="relative">
+                  <button
+                    onClick={() => setStatusFilterOpen(!statusFilterOpen)}
+                    className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7"
+                  >
+                    {statusFilter === "all"
+                      ? "All Status"
+                      : statusFilter === "approved"
+                        ? "Approved"
+                        : "Rejected"}
+                    <ChevronDown className="w-3 h-3" />
+                  </button>
+                  {statusFilterOpen && (
+                    <div className="absolute top-full right-0 mt-1 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                      <button
+                        onClick={() => {
+                          setStatusFilter("all");
+                          setStatusFilterOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 first:rounded-t-md ${
+                          statusFilter === "all" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        }`}
+                      >
+                        All Status
+                      </button>
+                      <button
+                        onClick={() => {
+                          setStatusFilter("approved");
+                          setStatusFilterOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
+                          statusFilter === "approved" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        }`}
+                      >
+                        Approved
+                      </button>
+                      <button
+                        onClick={() => {
+                          setStatusFilter("rejected");
+                          setStatusFilterOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 last:rounded-b-md ${
+                          statusFilter === "rejected" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        }`}
+                      >
+                        Rejected
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">
                   {statusFilter === "all"
