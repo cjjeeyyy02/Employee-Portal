@@ -903,11 +903,11 @@ export default function TeamAttendance() {
                           <Button
                             variant="outline"
                             className="h-8 text-xs px-3"
-                            title="Deny leave"
+                            title="Reject leave"
                             onClick={() => handleDenyLeave(request)}
                           >
                             <XCircle className="w-3 h-3 mr-1" />
-                            Deny
+                            Reject
                           </Button>
                         </>
                       )}
@@ -1466,7 +1466,7 @@ export default function TeamAttendance() {
                       onClick={() => handleDenyLeave(selectedDetail)}
                     >
                       <XCircle className="w-4 h-4 mr-2" />
-                      Deny Request
+                      Reject Request
                     </Button>
                     <Button
                       variant="outline"
