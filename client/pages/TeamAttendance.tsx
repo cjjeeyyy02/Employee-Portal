@@ -948,32 +948,19 @@ export default function TeamAttendance() {
                     onClick={() => setStatusFilterOpen(!statusFilterOpen)}
                     className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7"
                   >
-                    {statusFilter === "all"
-                      ? "All Status"
-                      : statusFilter === "approved"
-                        ? "Approved"
-                        : "Rejected"}
+                    {statusFilter === "approved"
+                      ? "Approved"
+                      : "Rejected"}
                     <ChevronDown className="w-3 h-3" />
                   </button>
                   {statusFilterOpen && (
                     <div className="absolute top-full right-0 mt-1 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-10">
                       <button
                         onClick={() => {
-                          setStatusFilter("all");
-                          setStatusFilterOpen(false);
-                        }}
-                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 first:rounded-t-md ${
-                          statusFilter === "all" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
-                        }`}
-                      >
-                        All Status
-                      </button>
-                      <button
-                        onClick={() => {
                           setStatusFilter("approved");
                           setStatusFilterOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 first:rounded-t-md ${
                           statusFilter === "approved" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
                         }`}
                       >
