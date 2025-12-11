@@ -664,8 +664,8 @@ export default function TeamAttendance() {
 
   const tabs = [
     { id: "leave-requests", label: `Leave Requests (${pendingRequests.length})` },
-    { id: "leave-balances", label: "Leave Balances" },
     { id: "attendance-reports", label: "Attendance Reports" },
+    { id: "leave-balances", label: "Leave Balances" },
   ];
 
   return (
