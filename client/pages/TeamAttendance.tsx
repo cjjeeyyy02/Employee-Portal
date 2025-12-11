@@ -819,14 +819,27 @@ export default function TeamAttendance() {
             <div className="space-y-4">
               <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-1">
-                  Pending Leave Requests
+                  {statusFilter === "all"
+                    ? "All Leave Requests"
+                    : statusFilter === "approved"
+                      ? "Approved Leave Requests"
+                      : "Rejected Leave Requests"}
                 </h2>
                 <p className="text-xs text-gray-500">
-                  Review and approve team leave applications
+                  {statusFilter === "all"
+                    ? "View all leave requests across all statuses"
+                    : statusFilter === "approved"
+                      ? "View approved leave requests"
+                      : "View rejected leave requests"}
                 </p>
               </div>
 
-              {pendingRequests.map((request) => (
+              {(statusFilter === "all"
+                ? [...pendingRequests, ...approvedRequests, ...deniedRequests]
+                : statusFilter === "approved"
+                  ? approvedRequests
+                  : deniedRequests
+              ).map((request) => (
                 <div
                   key={request.id}
                   className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
