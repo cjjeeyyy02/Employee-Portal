@@ -236,8 +236,10 @@ export default function TeamAttendance() {
   const [selectedAttendanceReport, setSelectedAttendanceReport] = useState<AttendanceReport | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
+  const [attendanceStatusFilter, setAttendanceStatusFilter] = useState("all");
   const [selectedLeaveBalance, setSelectedLeaveBalance] = useState<LeaveBalance | null>(null);
   const [statusFilterOpen, setStatusFilterOpen] = useState(false);
+  const [attendanceStatusFilterOpen, setAttendanceStatusFilterOpen] = useState(false);
 
   const handleExportReports = () => {
     try {
@@ -1220,50 +1222,76 @@ export default function TeamAttendance() {
 
                 <div className="relative">
                   <button
-                    onClick={() => setStatusFilterOpen(!statusFilterOpen)}
+                    onClick={() => setAttendanceStatusFilterOpen(!attendanceStatusFilterOpen)}
                     className="flex items-center gap-1 px-2 py-0.5 border border-gray-300 rounded-md bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 h-7"
                   >
-                    {statusFilter === "all"
+                    {attendanceStatusFilter === "all"
                       ? "All Status"
-                      : statusFilter === "approved"
-                        ? "Approved"
-                        : "Rejected"}
+                      : attendanceStatusFilter === "excellent"
+                        ? "Excellent"
+                        : attendanceStatusFilter === "good"
+                          ? "Good"
+                          : attendanceStatusFilter === "warning"
+                            ? "Warning"
+                            : "Critical"}
                     <ChevronDown className="w-3 h-3" />
                   </button>
-                  {statusFilterOpen && (
+                  {attendanceStatusFilterOpen && (
                     <div className="absolute top-full right-0 mt-1 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-10">
                       <button
                         onClick={() => {
-                          setStatusFilter("all");
-                          setStatusFilterOpen(false);
+                          setAttendanceStatusFilter("all");
+                          setAttendanceStatusFilterOpen(false);
                         }}
                         className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 first:rounded-t-md ${
-                          statusFilter === "all" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                          attendanceStatusFilter === "all" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
                         }`}
                       >
                         All Status
                       </button>
                       <button
                         onClick={() => {
-                          setStatusFilter("approved");
-                          setStatusFilterOpen(false);
+                          setAttendanceStatusFilter("excellent");
+                          setAttendanceStatusFilterOpen(false);
                         }}
                         className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
-                          statusFilter === "approved" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                          attendanceStatusFilter === "excellent" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
                         }`}
                       >
-                        Approved
+                        Excellent
                       </button>
                       <button
                         onClick={() => {
-                          setStatusFilter("rejected");
-                          setStatusFilterOpen(false);
+                          setAttendanceStatusFilter("good");
+                          setAttendanceStatusFilterOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 last:rounded-b-md ${
-                          statusFilter === "rejected" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
+                          attendanceStatusFilter === "good" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
                         }`}
                       >
-                        Rejected
+                        Good
+                      </button>
+                      <button
+                        onClick={() => {
+                          setAttendanceStatusFilter("warning");
+                          setAttendanceStatusFilterOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 ${
+                          attendanceStatusFilter === "warning" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        }`}
+                      >
+                        Warning
+                      </button>
+                      <button
+                        onClick={() => {
+                          setAttendanceStatusFilter("critical");
+                          setAttendanceStatusFilterOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-xs hover:bg-gray-100 last:rounded-b-md ${
+                          attendanceStatusFilter === "critical" ? "bg-blue-50 text-blue-600 font-semibold" : "text-gray-700"
+                        }`}
+                      >
+                        Critical
                       </button>
                     </div>
                   )}
@@ -1308,7 +1336,12 @@ export default function TeamAttendance() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
-                      {attendanceReports.map((report) => (
+                      {attendanceReports
+                        .filter((report) => {
+                          if (attendanceStatusFilter === "all") return true;
+                          return report.status === attendanceStatusFilter;
+                        })
+                        .map((report) => (
                         <tr
                           key={report.id}
                           className="hover:bg-gray-50 transition-colors"
