@@ -20,12 +20,14 @@ const MetricCard = ({
   value,
   subtitle,
   valueColor,
+  subtitleColor,
 }: {
   icon: React.ElementType;
   title: string;
   value: string | number;
   subtitle: string;
   valueColor?: string;
+  subtitleColor?: string;
 }) => (
   <div className="bg-white rounded-md p-2 border border-gray-200">
     <div className="flex items-start justify-between mb-1.5">
@@ -37,7 +39,7 @@ const MetricCard = ({
         {value}
       </p>
     </div>
-    <p className="text-xs text-gray-600">{subtitle}</p>
+    <p className={`text-xs ${subtitleColor || "text-gray-600"}`}>{subtitle}</p>
   </div>
 );
 
@@ -725,10 +727,11 @@ export default function TeamAttendance() {
             />
             <MetricCard
               icon={Calendar}
-              title="Avg Hours/Week"
-              value="39.8h"
-              subtitle="Within target range"
+              title="Leave Utilization Rate"
+              value="39 %"
+              subtitle="↑ Higher leave usage this period"
               valueColor="text-purple-600"
+              subtitleColor="text-red-600"
             />
           </div>
         </div>
