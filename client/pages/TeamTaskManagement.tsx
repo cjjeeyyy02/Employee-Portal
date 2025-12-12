@@ -842,7 +842,7 @@ export default function TeamTaskManagement() {
                               {member.activeTasks} active • {member.completedTasks} completed
                             </p>
                           </td>
-                          <td className="px-4 py-3 text-xs font-semibold text-gray-900">
+                          <td className="px-4 py-3 text-xs font-semibold text-gray-900 text-center">
                             {member.activeTasks}
                           </td>
                           <td className="px-4 py-3">
