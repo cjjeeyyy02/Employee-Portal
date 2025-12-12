@@ -394,6 +394,7 @@ export default function TeamTaskManagement() {
         assignees: [member.name],
         dueDate: "",
         project: "",
+        category: "",
       });
       setShowAssignTaskModal(true);
     }
