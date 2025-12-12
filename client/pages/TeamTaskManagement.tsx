@@ -828,6 +828,12 @@ export default function TeamTaskManagement() {
                           Current Workload
                         </th>
                         <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                          Task Completed
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                          Overdue Task
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
                           Capacity (%)
                         </th>
                         <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
