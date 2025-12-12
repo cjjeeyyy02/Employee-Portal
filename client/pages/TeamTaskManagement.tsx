@@ -1444,6 +1444,20 @@ export default function TeamTaskManagement() {
                   />
                 </div>
 
+                {/* Category */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Category
+                  </label>
+                  <input
+                    type="text"
+                    value={newTask.category}
+                    onChange={(e) => setNewTask({ ...newTask, category: e.target.value })}
+                    placeholder="Enter task category"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
                 {/* Description */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
@@ -1456,25 +1470,6 @@ export default function TeamTaskManagement() {
                     rows={4}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                   />
-                </div>
-
-                {/* Project */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Project
-                  </label>
-                  <select
-                    value={newTask.project}
-                    onChange={(e) => setNewTask({ ...newTask, project: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="">Select a project</option>
-                    {projects.map((p) => (
-                      <option key={p.id} value={p.name}>
-                        {p.name}
-                      </option>
-                    ))}
-                  </select>
                 </div>
 
                 {/* Priority */}
