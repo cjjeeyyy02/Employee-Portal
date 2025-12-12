@@ -481,6 +481,30 @@ export default function TeamTaskManagement() {
     }
   };
 
+  const handleUpdateTask = (task: Task) => {
+    toast({
+      title: "Update Task",
+      description: `Opening update form for "${task.title}"...`,
+    });
+    setOpenActionMenu(null);
+  };
+
+  const handleViewTask = (task: Task) => {
+    toast({
+      title: "View Task",
+      description: `Viewing details for "${task.title}"...`,
+    });
+    setOpenActionMenu(null);
+  };
+
+  const handleCancelTask = (task: Task) => {
+    toast({
+      title: "Cancel Task",
+      description: `Task "${task.title}" has been cancelled.`,
+    });
+    setOpenActionMenu(null);
+  };
+
   const tabs = [
     { id: "all-tasks", label: "All Tasks" },
     { id: "team-workload", label: "Team Workload" },
