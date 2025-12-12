@@ -639,112 +639,107 @@ export default function TeamTaskManagement() {
 
           {/* Tasks List */}
           {activeTab === "all-tasks" && (
-            <div className="space-y-3">
-              {filteredTasks.map((task) => (
-                <div
-                  key={task.id}
-                  className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-sm text-gray-900 mb-1">
-                        {task.title}
-                      </h3>
-                      <p className="text-xs text-gray-600 mb-2">
-                        {task.description}
-                      </p>
-
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="flex-1 max-w-xs">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-gray-600">
-                              Progress
-                            </span>
-                            <span className="text-xs font-medium text-gray-900">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Title
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Category
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Assignee
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Due Date
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Progress
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Status
+                      </th>
+                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {filteredTasks.map((task) => (
+                      <tr key={task.id} className="hover:bg-gray-50 transition-colors">
+                        <td className="px-4 py-3">
+                          <p className="text-xs font-semibold text-gray-900">
+                            {task.title}
+                          </p>
+                          <p className="text-xs text-gray-600 mt-1">
+                            {task.description}
+                          </p>
+                        </td>
+                        <td className="px-4 py-3 text-xs text-gray-900">
+                          {task.project}
+                        </td>
+                        <td className="px-4 py-3">
+                          <div className="flex -space-x-1">
+                            {task.assignees.slice(0, 2).map((assignee, idx) => (
+                              <div
+                                key={idx}
+                                className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold border border-white"
+                                title={assignee}
+                              >
+                                {assignee.charAt(0)}
+                              </div>
+                            ))}
+                            {task.assignees.length > 2 && (
+                              <div className="w-6 h-6 rounded-full bg-gray-300 text-gray-700 flex items-center justify-center text-xs font-bold border border-white" title={`+${task.assignees.length - 2} more`}>
+                                +{task.assignees.length - 2}
+                              </div>
+                            )}
+                          </div>
+                          <p className="text-xs text-gray-600 mt-1">
+                            {task.assignees.join(", ")}
+                          </p>
+                        </td>
+                        <td className="px-4 py-3 text-xs text-gray-900">
+                          {task.dueDate}
+                        </td>
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <div className="flex-1 max-w-xs">
+                              <div className="w-full bg-gray-200 rounded-full h-1.5">
+                                <div
+                                  className="bg-blue-600 h-1.5 rounded-full"
+                                  style={{ width: `${task.progress}%` }}
+                                />
+                              </div>
+                            </div>
+                            <span className="text-xs font-medium text-gray-900 w-8 text-right">
                               {task.progress}%
                             </span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-1.5">
-                            <div
-                              className="bg-blue-600 h-1.5 rounded-full"
-                              style={{ width: `${task.progress}%` }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <p className="text-xs text-gray-600 mb-2">
-                        Due {task.dueDate}
-                      </p>
-                      <p className="text-xs text-gray-600">
-                        {task.estimated} estimated{" "}
-                        {task.actual && `/ ${task.actual} actual`}
-                      </p>
-                    </div>
-
-                    <div className="ml-4 flex-shrink-0">
-                      <div className="text-right">
-                        <div className="mb-2">
-                          <span
-                            className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityColor(task.priority)}`}
+                        </td>
+                        <td className="px-4 py-3">
+                          <p className={`text-xs font-medium ${getStatusColor(task.status)}`}>
+                            {getStatusLabel(task.status)}
+                          </p>
+                        </td>
+                        <td className="px-4 py-3">
+                          <Button
+                            variant="outline"
+                            className="h-7 text-xs px-2"
+                            title="Reassign task"
+                            onClick={() => handleReassignTask(task)}
                           >
-                            {task.priority.charAt(0).toUpperCase() +
-                              task.priority.slice(1)}
-                          </span>
-                        </div>
-                        <p
-                          className={`text-xs font-medium ${getStatusColor(task.status)}`}
-                        >
-                          {getStatusLabel(task.status)}
-                        </p>
-                        <p className="text-xs text-gray-600 mt-1">
-                          {task.project}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <div className="flex flex-wrap gap-1">
-                      {task.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-block px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <div className="flex -space-x-1">
-                        {task.assignees.slice(0, 2).map((assignee, idx) => (
-                          <div
-                            key={idx}
-                            className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold border border-white"
-                            title={assignee}
-                          >
-                            {assignee.charAt(0)}
-                          </div>
-                        ))}
-                        {task.assignees.length > 2 && (
-                          <div className="w-6 h-6 rounded-full bg-gray-300 text-gray-700 flex items-center justify-center text-xs font-bold border border-white">
-                            +{task.assignees.length - 2}
-                          </div>
-                        )}
-                      </div>
-                      <Button
-                        variant="outline"
-                        className="h-7 text-xs px-2"
-                        title="Reassign task"
-                        onClick={() => handleReassignTask(task)}
-                      >
-                        Reassign
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                            Reassign
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
 
