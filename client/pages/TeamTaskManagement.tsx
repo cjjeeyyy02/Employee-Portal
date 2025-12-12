@@ -846,8 +846,8 @@ export default function TeamTaskManagement() {
                               {member.activeTasks} active • {member.completedTasks} completed
                             </p>
                           </td>
-                          <td className="px-4 py-3">
-                            <div className="flex items-center justify-center h-full">
+                          <td className="px-4 py-3 align-middle">
+                            <div className="flex items-center justify-center min-h-[40px]">
                               <span className="text-xs font-semibold text-gray-900">
                                 {member.activeTasks}
                               </span>
