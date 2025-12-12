@@ -468,6 +468,7 @@ export default function TeamTaskManagement() {
       assignees: [],
       dueDate: "",
       project: "",
+      category: "",
     });
 
     toast({
