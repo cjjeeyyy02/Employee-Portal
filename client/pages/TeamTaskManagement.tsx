@@ -903,7 +903,7 @@ export default function TeamTaskManagement() {
                                     }}
                                     className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 last:rounded-b-md text-gray-700"
                                   >
-                                    Message
+                                    Send Email
                                   </button>
                                 </div>
                               )}
