@@ -675,9 +675,6 @@ export default function TeamTaskManagement() {
                           <p className="text-xs font-semibold text-gray-900">
                             {task.title}
                           </p>
-                          <p className="text-xs text-gray-600 mt-1">
-                            {task.description}
-                          </p>
                         </td>
                         <td className="px-4 py-3 text-xs text-gray-900">
                           {task.project}
