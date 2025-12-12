@@ -749,15 +749,48 @@ export default function TeamTaskManagement() {
                           </p>
                         </td>
                         <td className="px-4 py-3">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-8 w-8"
-                            title="Task actions"
-                            onClick={() => handleReassignTask(task)}
-                          >
-                            <MoreVertical className="w-4 h-4 text-gray-600" />
-                          </Button>
+                          <div className="relative">
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8"
+                              title="Task actions"
+                              onClick={() => setOpenActionMenu(openActionMenu === task.id ? null : task.id)}
+                            >
+                              <MoreVertical className="w-4 h-4 text-gray-600" />
+                            </Button>
+                            {openActionMenu === task.id && (
+                              <div className="absolute right-0 mt-1 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-20">
+                                <button
+                                  onClick={() => handleUpdateTask(task)}
+                                  className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 first:rounded-t-md text-gray-700"
+                                >
+                                  Update
+                                </button>
+                                <button
+                                  onClick={() => handleViewTask(task)}
+                                  className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 text-gray-700"
+                                >
+                                  View
+                                </button>
+                                <button
+                                  onClick={() => handleCancelTask(task)}
+                                  className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 text-gray-700"
+                                >
+                                  Cancel
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    handleReassignTask(task);
+                                    setOpenActionMenu(null);
+                                  }}
+                                  className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 last:rounded-b-md text-gray-700"
+                                >
+                                  Reassign
+                                </button>
+                              </div>
+                            )}
+                          </div>
                         </td>
                       </tr>
                     ))}
