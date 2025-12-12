@@ -859,6 +859,20 @@ export default function TeamTaskManagement() {
                               </span>
                             </div>
                           </td>
+                          <td className="px-4 py-3 align-middle">
+                            <div className="flex items-center justify-center min-h-[40px]">
+                              <span className="text-xs font-semibold text-gray-900">
+                                {member.completedTasks}
+                              </span>
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 align-middle">
+                            <div className="flex items-center justify-center min-h-[40px]">
+                              <span className="text-xs font-semibold text-gray-900">
+                                0
+                              </span>
+                            </div>
+                          </td>
                           <td className="px-4 py-3">
                             <div className="space-y-2">
                               <div className="flex items-center justify-between">
