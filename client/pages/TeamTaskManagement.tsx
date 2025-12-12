@@ -291,6 +291,7 @@ export default function TeamTaskManagement() {
     assignees: [] as string[],
     dueDate: "",
     project: "",
+    category: "",
   });
 
   const handleTaskAnalytics = () => {
