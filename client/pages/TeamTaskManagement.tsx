@@ -812,63 +812,105 @@ export default function TeamTaskManagement() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {teamMembers.map((member) => (
-                  <div
-                    key={member.id}
-                    className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 hover:shadow-md transition-shadow"
-                  >
-                    <div className="mb-4">
-                      <h3 className="font-semibold text-sm text-gray-900">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs text-gray-600 mt-1">
-                        {member.activeTasks} active • {member.completedTasks}{" "}
-                        completed
-                      </p>
-                    </div>
-
-                    <div className="mb-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-medium text-gray-900">
-                          {member.capacity}% capacity
-                        </span>
-                      </div>
-                      <div className="text-xs text-gray-600 mb-2">
-                        Current workload
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div
-                          className={`h-2 rounded-full ${
-                            member.capacity >= 90
-                              ? "bg-red-600"
-                              : member.capacity >= 75
-                                ? "bg-orange-600"
-                                : "bg-green-600"
-                          }`}
-                          style={{ width: `${member.capacity}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        className="flex-1 h-8 text-xs px-2"
-                        onClick={() => handleAssignTask(member.name)}
-                      >
-                        Assign Task
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="flex-1 h-8 text-xs px-2"
-                        onClick={() => handleMessageMember(member.name)}
-                      >
-                        Message
-                      </Button>
-                    </div>
-                  </div>
-                ))}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50 border-b border-gray-200">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                          Team Member
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                          Current Workload
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                          Capacity (%)
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-gray-900">
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {teamMembers.map((member) => (
+                        <tr key={member.id} className="hover:bg-gray-50 transition-colors">
+                          <td className="px-4 py-3">
+                            <p className="text-xs font-semibold text-gray-900">
+                              {member.name}
+                            </p>
+                            <p className="text-xs text-gray-600 mt-1">
+                              {member.activeTasks} active • {member.completedTasks} completed
+                            </p>
+                          </td>
+                          <td className="px-4 py-3">
+                            <div className="flex items-center gap-2">
+                              <div className="flex-1 max-w-xs">
+                                <div className="w-full bg-gray-200 rounded-full h-2">
+                                  <div
+                                    className={`h-2 rounded-full ${
+                                      member.capacity >= 90
+                                        ? "bg-red-600"
+                                        : member.capacity >= 75
+                                          ? "bg-orange-600"
+                                          : "bg-green-600"
+                                    }`}
+                                    style={{ width: `${member.capacity}%` }}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-xs text-gray-900">
+                            <span className={`inline-block px-2 py-1 rounded-full font-medium ${
+                              member.capacity >= 90
+                                ? "bg-red-100 text-red-800"
+                                : member.capacity >= 75
+                                  ? "bg-orange-100 text-orange-800"
+                                  : "bg-green-100 text-green-800"
+                            }`}>
+                              {member.capacity}%
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">
+                            <div className="relative">
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8"
+                                title="Member actions"
+                                onClick={() => setOpenActionMenu(openActionMenu === `member-${member.id}` ? null : `member-${member.id}`)}
+                              >
+                                <MoreVertical className="w-4 h-4 text-gray-600" />
+                              </Button>
+                              {openActionMenu === `member-${member.id}` && (
+                                <div className="absolute right-0 mt-1 w-40 bg-white border border-gray-300 rounded-md shadow-lg z-20">
+                                  <button
+                                    onClick={() => {
+                                      handleAssignTask(member.name);
+                                      setOpenActionMenu(null);
+                                    }}
+                                    className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 first:rounded-t-md text-gray-700"
+                                  >
+                                    Assign Task
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      handleMessageMember(member.name);
+                                      setOpenActionMenu(null);
+                                    }}
+                                    className="w-full text-left px-4 py-2 text-xs hover:bg-gray-100 last:rounded-b-md text-gray-700"
+                                  >
+                                    Message
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           )}
