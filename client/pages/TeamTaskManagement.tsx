@@ -482,7 +482,6 @@ export default function TeamTaskManagement() {
   const tabs = [
     { id: "all-tasks", label: "All Tasks" },
     { id: "team-workload", label: "Team Workload" },
-    { id: "project-view", label: "Project View" },
   ];
 
   const filteredTasks = allTasks.filter((task) =>
