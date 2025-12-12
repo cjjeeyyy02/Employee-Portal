@@ -842,34 +842,29 @@ export default function TeamTaskManagement() {
                               {member.activeTasks} active • {member.completedTasks} completed
                             </p>
                           </td>
+                          <td className="px-4 py-3 text-xs font-semibold text-gray-900">
+                            {member.activeTasks}
+                          </td>
                           <td className="px-4 py-3">
-                            <div className="flex items-center gap-2">
-                              <div className="flex-1 max-w-xs">
-                                <div className="w-full bg-gray-200 rounded-full h-2">
-                                  <div
-                                    className={`h-2 rounded-full ${
-                                      member.capacity >= 90
-                                        ? "bg-red-600"
-                                        : member.capacity >= 75
-                                          ? "bg-orange-600"
-                                          : "bg-green-600"
-                                    }`}
-                                    style={{ width: `${member.capacity}%` }}
-                                  />
-                                </div>
+                            <div className="space-y-2">
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-semibold text-gray-900">
+                                  {member.capacity}%
+                                </span>
+                              </div>
+                              <div className="w-full bg-gray-200 rounded-full h-2">
+                                <div
+                                  className={`h-2 rounded-full ${
+                                    member.capacity >= 90
+                                      ? "bg-red-600"
+                                      : member.capacity >= 75
+                                        ? "bg-orange-600"
+                                        : "bg-green-600"
+                                  }`}
+                                  style={{ width: `${member.capacity}%` }}
+                                />
                               </div>
                             </div>
-                          </td>
-                          <td className="px-4 py-3 text-xs text-gray-900">
-                            <span className={`inline-block px-2 py-1 rounded-full font-medium ${
-                              member.capacity >= 90
-                                ? "bg-red-100 text-red-800"
-                                : member.capacity >= 75
-                                  ? "bg-orange-100 text-orange-800"
-                                  : "bg-green-100 text-green-800"
-                            }`}>
-                              {member.capacity}%
-                            </span>
                           </td>
                           <td className="px-4 py-3">
                             <div className="relative">
