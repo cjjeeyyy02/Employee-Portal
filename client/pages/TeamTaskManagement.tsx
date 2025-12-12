@@ -283,6 +283,7 @@ export default function TeamTaskManagement() {
   const [messageInput, setMessageInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [openActionMenu, setOpenActionMenu] = useState<string | null>(null);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
