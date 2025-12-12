@@ -6,6 +6,7 @@ import {
   AlertCircle,
   CheckCircle2,
   Clock,
+  MoreVertical,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -727,12 +728,13 @@ export default function TeamTaskManagement() {
                         </td>
                         <td className="px-4 py-3">
                           <Button
-                            variant="outline"
-                            className="h-7 text-xs px-2"
-                            title="Reassign task"
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                            title="Task actions"
                             onClick={() => handleReassignTask(task)}
                           >
-                            Reassign
+                            <MoreVertical className="w-4 h-4 text-gray-600" />
                           </Button>
                         </td>
                       </tr>
