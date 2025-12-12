@@ -555,31 +555,31 @@ export default function TeamTaskManagement() {
           <div className="grid grid-cols-4 gap-2 mb-2">
             <MetricCard
               icon={CheckCircle2}
-              title="Total Tasks"
+              title="Total Task"
               value="4"
-              subtitle="1 completed"
+              subtitle="1 completed this week"
               valueColor="text-blue-600"
             />
             <MetricCard
-              icon={Clock}
-              title="In Progress"
-              value="1"
-              subtitle="Active tasks"
-              valueColor="text-orange-600"
-            />
-            <MetricCard
-              icon={AlertCircle}
-              title="Overdue"
-              value="2"
-              subtitle="Need attention"
-              valueColor="text-red-600"
-            />
-            <MetricCard
               icon={TrendingUp}
-              title="Completion Rate"
+              title="Task Completion Rate"
               value="78%"
               subtitle="+5% from last month"
               valueColor="text-green-600"
+            />
+            <MetricCard
+              icon={AlertCircle}
+              title="Total KPI's Score"
+              value="8%"
+              subtitle="Performance metric"
+              valueColor="text-orange-600"
+            />
+            <MetricCard
+              icon={Clock}
+              title="Pending Task"
+              value="7"
+              subtitle="+0 from last week"
+              valueColor="text-red-600"
             />
           </div>
         </div>
