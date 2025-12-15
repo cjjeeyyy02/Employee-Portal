@@ -1736,6 +1736,161 @@ export default function PerformanceReviews() {
           </div>
         )}
 
+        {/* Add Goal Modal */}
+        {showAddGoalModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Create New SMART Goal
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Define and track your new goal effectively.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowAddGoalModal(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Goal Information Section */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Goal Information
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Define the core aspects of your new goal.
+                  </p>
+
+                  {/* Goal Title */}
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      value={newGoalForm.goalTitle}
+                      onChange={(e) =>
+                        setNewGoalForm({ ...newGoalForm, goalTitle: e.target.value })
+                      }
+                      placeholder="e.g. Launch New Product Feature"
+                      className="w-full px-4 py-2 border border-blue-400 rounded-lg text-sm focus:outline-none focus:border-blue-600"
+                    />
+                  </div>
+
+                  {/* Goal Description */}
+                  <div className="mb-4">
+                    <textarea
+                      value={newGoalForm.description}
+                      onChange={(e) =>
+                        setNewGoalForm({ ...newGoalForm, description: e.target.value })
+                      }
+                      placeholder="Describe the goal in detail..."
+                      rows={3}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+
+                  {/* Level and Priority Row */}
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    {/* Level */}
+                    <div>
+                      <label className="block text-xs text-gray-600 mb-2">
+                        Level
+                      </label>
+                      <select
+                        value={newGoalForm.level}
+                        onChange={(e) =>
+                          setNewGoalForm({ ...newGoalForm, level: e.target.value })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select level</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Team">Team</option>
+                        <option value="Department">Department</option>
+                        <option value="Organization">Organization</option>
+                      </select>
+                    </div>
+
+                    {/* Priority */}
+                    <div>
+                      <label className="block text-xs text-gray-600 mb-2">
+                        Priority
+                      </label>
+                      <select
+                        value={newGoalForm.priority}
+                        onChange={(e) =>
+                          setNewGoalForm({ ...newGoalForm, priority: e.target.value })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Critical">Critical</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Target Date */}
+                  <div>
+                    <label className="block text-xs text-gray-600 mb-2">
+                      Target Date
+                    </label>
+                    <input
+                      type="date"
+                      value={newGoalForm.targetDate}
+                      onChange={(e) =>
+                        setNewGoalForm({ ...newGoalForm, targetDate: e.target.value })
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+
+                {/* Key Performance Indicators Section */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Key Performance Indicators
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Define measurable metrics to track goal progress.
+                  </p>
+
+                  <div className="border border-gray-200 rounded-lg p-4 text-center bg-gray-50">
+                    <p className="text-sm text-gray-600">
+                      No KPIs added yet. Click{" "}
+                      <span className="font-semibold">Add KPI</span> to get started.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200 justify-end">
+                <Button
+                  variant="outline"
+                  className="h-10 text-sm font-medium"
+                  onClick={() => setShowAddGoalModal(false)}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-6"
+                  onClick={handleAddGoal}
+                >
+                  Add Goal
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Add KPI Modal */}
         {showAddKPIModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
