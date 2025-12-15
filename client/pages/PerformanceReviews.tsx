@@ -1373,10 +1373,10 @@ export default function PerformanceReviews() {
               <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
                 <div>
                   <h2 className="text-lg font-bold text-gray-900">
-                    Review Details
+                    {selectedReview.reviewCycle} - Review
                   </h2>
                   <p className="text-xs text-gray-600 mt-1">
-                    {selectedReview.name} • {selectedReview.reviewCycle}
+                    {selectedReview.dateRange || "Review Period"}
                   </p>
                 </div>
                 <button
@@ -1392,159 +1392,147 @@ export default function PerformanceReviews() {
 
               {/* Content */}
               <div className="p-6 space-y-6">
-                {/* Review Status */}
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                  <h3 className="text-sm font-semibold text-gray-900 mb-3">
-                    Review Status
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-xs text-gray-600 mb-1">Status</p>
-                      <span
-                        className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(selectedReview.status)}`}
-                      >
-                        {getStatusLabel(selectedReview.status)}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-600 mb-1">Type</p>
-                      <p className="text-sm font-semibold text-gray-900">
-                        {selectedReview.reviewType.charAt(0).toUpperCase() +
-                          selectedReview.reviewType.slice(1)}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-600 mb-1">Due Date</p>
-                      <p className="text-sm font-semibold text-gray-900">
-                        {selectedReview.dueDate}
-                      </p>
-                    </div>
-                    {selectedReview.completedDate && (
-                      <div>
-                        <p className="text-xs text-gray-600 mb-1">
-                          Completed Date
-                        </p>
-                        <p className="text-sm font-semibold text-gray-900">
-                          {selectedReview.completedDate}
-                        </p>
-                      </div>
-                    )}
+                {/* Self Rating & Completed Date */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-1">Self Rating</p>
+                    <p className="text-2xl font-bold text-gray-900">{selectedReview.selfRating || "N/A"}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-1">Completed</p>
+                    <p className="text-sm font-semibold text-gray-900">{selectedReview.completedDate || "Pending"}</p>
                   </div>
                 </div>
 
-                {/* Ratings */}
-                {selectedReview.selfRating && (
-                  <div className="bg-white rounded-lg p-4 border border-gray-200">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-4">
-                      Performance Ratings
+                {/* Key Achievements */}
+                {selectedReview.keyAchievements && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                      Key Achievements
                     </h3>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="bg-blue-50 rounded-lg p-4 text-center border border-blue-200">
-                        <p className="text-xs text-blue-600 font-medium mb-2">
-                          Self Rating
-                        </p>
-                        <div className="flex justify-center gap-1 mb-2">
-                          {Array.from({ length: 5 }).map((_, idx) => (
-                            <span
-                              key={idx}
-                              className={`text-lg ${
-                                idx < Math.floor(selectedReview.selfRating || 0)
-                                  ? "text-yellow-400"
-                                  : "text-gray-300"
-                              }`}
-                            >
-                              ★
-                            </span>
-                          ))}
-                        </div>
-                        <p className="text-sm font-bold text-blue-900">
-                          {selectedReview.selfRating}
-                        </p>
-                      </div>
-
-                      {selectedReview.managerRating && (
-                        <div className="bg-green-50 rounded-lg p-4 text-center border border-green-200">
-                          <p className="text-xs text-green-600 font-medium mb-2">
-                            Manager Rating
-                          </p>
-                          <div className="flex justify-center gap-1 mb-2">
-                            {Array.from({ length: 5 }).map((_, idx) => (
-                              <span
-                                key={idx}
-                                className={`text-lg ${
-                                  idx < Math.floor(selectedReview.managerRating || 0)
-                                    ? "text-yellow-400"
-                                    : "text-gray-300"
-                                }`}
-                              >
-                                ★
-                              </span>
-                            ))}
-                          </div>
-                          <p className="text-sm font-bold text-green-900">
-                            {selectedReview.managerRating}
-                          </p>
-                        </div>
-                      )}
-
-                      {selectedReview.overallRating && (
-                        <div className="bg-orange-50 rounded-lg p-4 text-center border border-orange-200">
-                          <p className="text-xs text-orange-600 font-medium mb-2">
-                            Overall Rating
-                          </p>
-                          <div className="flex justify-center gap-1 mb-2">
-                            {Array.from({ length: 5 }).map((_, idx) => (
-                              <span
-                                key={idx}
-                                className={`text-lg ${
-                                  idx < Math.floor(selectedReview.overallRating || 0)
-                                    ? "text-yellow-400"
-                                    : "text-gray-300"
-                                }`}
-                              >
-                                ★
-                              </span>
-                            ))}
-                          </div>
-                          <p className="text-sm font-bold text-orange-900">
-                            {selectedReview.overallRating}
-                          </p>
-                        </div>
-                      )}
-                    </div>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {selectedReview.keyAchievements}
+                    </p>
                   </div>
                 )}
 
-                {/* Recommendations */}
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <h3 className="text-sm font-semibold text-blue-900 mb-2">
-                    💡 Recommendations
-                  </h3>
-                  <ul className="space-y-2 text-sm text-blue-800">
-                    <li>
-                      • Continue focusing on technical excellence and code
-                      quality improvements
-                    </li>
-                    <li>
-                      • Consider taking advanced training in leadership skills
-                    </li>
-                    <li>
-                      • Maintain current pace of goal achievement and milestones
-                    </li>
-                  </ul>
+                {/* Challenges and How You Overcame Them */}
+                {selectedReview.challenges && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                      Challenges and How You Overcame Them
+                    </h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {selectedReview.challenges}
+                    </p>
+                  </div>
+                )}
+
+                {/* Goal Achievement */}
+                {selectedReview.goalAchievement && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                      Goal Achievement
+                    </h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {selectedReview.goalAchievement}
+                    </p>
+                  </div>
+                )}
+
+                {/* Areas for Development */}
+                {selectedReview.areasForDevelopment && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-900 mb-2">
+                      Areas for Development
+                    </h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {selectedReview.areasForDevelopment}
+                    </p>
+                  </div>
+                )}
+
+                {/* Divider */}
+                <div className="border-t border-gray-200" />
+
+                {/* Manager's Rating */}
+                <div>
+                  <label className="block text-sm font-semibold text-red-600 mb-3">
+                    Manager's Rating
+                  </label>
+                  <div className="space-y-2">
+                    {[
+                      { value: 1, label: "1 - Unacceptable" },
+                      { value: 2, label: "2 - Below Expectation" },
+                      { value: 3, label: "3 - Meets Expectation" },
+                      { value: 4, label: "4 - Exceeds Expectation" },
+                      { value: 5, label: "5 - Outstanding" },
+                    ].map((option) => (
+                      <label key={option.value} className="flex items-center gap-3 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="managerRating"
+                          value={option.value}
+                          checked={reviewDetailsForm.managerRating === option.value}
+                          onChange={(e) =>
+                            setReviewDetailsForm({
+                              ...reviewDetailsForm,
+                              managerRating: parseInt(e.target.value),
+                            })
+                          }
+                          className="w-4 h-4"
+                        />
+                        <span className="text-sm text-gray-700">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Manager's Comments */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Manager's Comments
+                  </label>
+                  <textarea
+                    value={reviewDetailsForm.managerComments}
+                    onChange={(e) =>
+                      setReviewDetailsForm({
+                        ...reviewDetailsForm,
+                        managerComments: e.target.value,
+                      })
+                    }
+                    placeholder="Provide your feedback and comments..."
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500 bg-yellow-50"
+                  />
                 </div>
               </div>
 
               {/* Actions */}
               <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
                 <Button
-                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  variant="outline"
+                  className="flex-1 h-10 text-sm font-medium"
                   onClick={() => {
                     setShowReviewDetailsModal(false);
                     setSelectedReview(null);
                   }}
                 >
-                  Close
+                  Cancel
+                </Button>
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={() => {
+                    toast({
+                      title: "Review Submitted",
+                      description: "Manager's rating and comments have been submitted.",
+                    });
+                    setShowReviewDetailsModal(false);
+                    setSelectedReview(null);
+                    setReviewDetailsForm({ managerRating: 0, managerComments: "" });
+                  }}
+                >
+                  Submit
                 </Button>
               </div>
             </div>
