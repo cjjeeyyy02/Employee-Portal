@@ -2447,137 +2447,227 @@ export default function PerformanceReviews() {
 
               {/* Content */}
               <div className="p-6 space-y-4">
-                {/* Employee Name */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Employee Name <span className="text-red-600">*</span>
-                  </label>
-                  <select
-                    value={submitFeedbackForm.employeeName}
-                    onChange={(e) =>
-                      setSubmitFeedbackForm({
-                        ...submitFeedbackForm,
-                        employeeName: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="">Select employee</option>
-                    <option value="Mike Chen">Mike Chen</option>
-                    <option value="Lisa Park">Lisa Park</option>
-                    <option value="Alex Kim">Alex Kim</option>
-                    <option value="Emma Wilson">Emma Wilson</option>
-                  </select>
-                </div>
+                {feedbackModalTab === "give" ? (
+                  <>
+                    {/* Employee Name */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Employee Name <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        value={submitFeedbackForm.employeeName}
+                        onChange={(e) =>
+                          setSubmitFeedbackForm({
+                            ...submitFeedbackForm,
+                            employeeName: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select employee</option>
+                        <option value="Mike Chen">Mike Chen</option>
+                        <option value="Lisa Park">Lisa Park</option>
+                        <option value="Alex Kim">Alex Kim</option>
+                        <option value="Emma Wilson">Emma Wilson</option>
+                      </select>
+                    </div>
 
-                {/* Feedback Type */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Feedback Type <span className="text-red-600">*</span>
-                  </label>
-                  <select
-                    value={submitFeedbackForm.feedbackType}
-                    onChange={(e) =>
-                      setSubmitFeedbackForm({
-                        ...submitFeedbackForm,
-                        feedbackType: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="">Select feedback type</option>
-                    <option value="Positive">Positive</option>
-                    <option value="Constructive">Constructive</option>
-                    <option value="Developmental">Developmental</option>
-                    <option value="General">General</option>
-                  </select>
-                </div>
+                    {/* Feedback Type */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Feedback Type <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        value={submitFeedbackForm.feedbackType}
+                        onChange={(e) =>
+                          setSubmitFeedbackForm({
+                            ...submitFeedbackForm,
+                            feedbackType: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select feedback type</option>
+                        <option value="Positive">Positive</option>
+                        <option value="Constructive">Constructive</option>
+                        <option value="Developmental">Developmental</option>
+                        <option value="General">General</option>
+                      </select>
+                    </div>
 
-                {/* Sender Name */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Sender Name <span className="text-gray-400">(Optional)</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={submitFeedbackForm.senderName}
-                    onChange={(e) =>
-                      setSubmitFeedbackForm({
-                        ...submitFeedbackForm,
-                        senderName: e.target.value,
-                      })
-                    }
-                    placeholder="Enter sender name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  />
-                </div>
+                    {/* Sender Name */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Sender Name <span className="text-gray-400">(Optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={submitFeedbackForm.senderName}
+                        onChange={(e) =>
+                          setSubmitFeedbackForm({
+                            ...submitFeedbackForm,
+                            senderName: e.target.value,
+                          })
+                        }
+                        placeholder="Enter sender name"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      />
+                    </div>
 
-                {/* Category */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Category <span className="text-red-600">*</span>
-                  </label>
-                  <select
-                    value={submitFeedbackForm.category}
-                    onChange={(e) =>
-                      setSubmitFeedbackForm({
-                        ...submitFeedbackForm,
-                        category: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="">Select category</option>
-                    <option value="Strengths">Strengths</option>
-                    <option value="Development">Development</option>
-                    <option value="Collaboration">Collaboration</option>
-                    <option value="Leadership">Leadership</option>
-                    <option value="Technical Skills">Technical Skills</option>
-                  </select>
-                </div>
+                    {/* Category */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Category <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        value={submitFeedbackForm.category}
+                        onChange={(e) =>
+                          setSubmitFeedbackForm({
+                            ...submitFeedbackForm,
+                            category: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select category</option>
+                        <option value="Strengths">Strengths</option>
+                        <option value="Development">Development</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="Leadership">Leadership</option>
+                        <option value="Technical Skills">Technical Skills</option>
+                      </select>
+                    </div>
 
-                {/* Rating */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Rating <span className="text-red-600">*</span>
-                  </label>
-                  <select
-                    value={submitFeedbackForm.rating}
-                    onChange={(e) =>
-                      setSubmitFeedbackForm({
-                        ...submitFeedbackForm,
-                        rating: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="">Select rating</option>
-                    <option value="1">1 - Poor</option>
-                    <option value="2">2 - Below Average</option>
-                    <option value="3">3 - Average</option>
-                    <option value="4">4 - Good</option>
-                    <option value="5">5 - Excellent</option>
-                  </select>
-                </div>
+                    {/* Rating */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Rating <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        value={submitFeedbackForm.rating}
+                        onChange={(e) =>
+                          setSubmitFeedbackForm({
+                            ...submitFeedbackForm,
+                            rating: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select rating</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Below Average</option>
+                        <option value="3">3 - Average</option>
+                        <option value="4">4 - Good</option>
+                        <option value="5">5 - Excellent</option>
+                      </select>
+                    </div>
 
-                {/* Comment */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Comment <span className="text-red-600">*</span>
-                  </label>
-                  <textarea
-                    value={submitFeedbackForm.comment}
-                    onChange={(e) =>
-                      setSubmitFeedbackForm({
-                        ...submitFeedbackForm,
-                        comment: e.target.value,
-                      })
-                    }
-                    placeholder="Enter your comment..."
-                    rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  />
-                </div>
+                    {/* Comment */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Comment <span className="text-red-600">*</span>
+                      </label>
+                      <textarea
+                        value={submitFeedbackForm.comment}
+                        onChange={(e) =>
+                          setSubmitFeedbackForm({
+                            ...submitFeedbackForm,
+                            comment: e.target.value,
+                          })
+                        }
+                        placeholder="Enter your comment..."
+                        rows={4}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Feedback From */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Request Feedback From <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        value={requestFeedbackForm.feedbackFrom}
+                        onChange={(e) =>
+                          setRequestFeedbackForm({
+                            ...requestFeedbackForm,
+                            feedbackFrom: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select employee</option>
+                        <option value="Mike Chen">Mike Chen</option>
+                        <option value="Lisa Park">Lisa Park</option>
+                        <option value="Alex Kim">Alex Kim</option>
+                        <option value="Emma Wilson">Emma Wilson</option>
+                      </select>
+                    </div>
+
+                    {/* Feedback Category */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-900 mb-2">
+                        Feedback Category <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        value={requestFeedbackForm.feedbackCategory}
+                        onChange={(e) =>
+                          setRequestFeedbackForm({
+                            ...requestFeedbackForm,
+                            feedbackCategory: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      >
+                        <option value="">Select category</option>
+                        <option value="Strengths">Strengths</option>
+                        <option value="Development">Development Areas</option>
+                        <option value="Collaboration">Collaboration</option>
+                        <option value="Leadership">Leadership</option>
+                        <option value="Technical Skills">Technical Skills</option>
+                      </select>
+                    </div>
+
+                    {/* Specific Questions */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Specific Questions or Areas <span className="text-gray-400">(Optional)</span>
+                      </label>
+                      <textarea
+                        value={requestFeedbackForm.specificQuestions}
+                        onChange={(e) =>
+                          setRequestFeedbackForm({
+                            ...requestFeedbackForm,
+                            specificQuestions: e.target.value,
+                          })
+                        }
+                        placeholder="E.g., How can I improve my presentation skills? What areas should I focus on?"
+                        rows={3}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      />
+                    </div>
+
+                    {/* Deadline */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Feedback Deadline <span className="text-gray-400">(Optional)</span>
+                      </label>
+                      <input
+                        type="date"
+                        value={requestFeedbackForm.deadline}
+                        onChange={(e) =>
+                          setRequestFeedbackForm({
+                            ...requestFeedbackForm,
+                            deadline: e.target.value,
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Actions */}
