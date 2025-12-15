@@ -311,6 +311,13 @@ export default function PerformanceReviews() {
     notes: "",
     statusUpdate: "on-track" as const,
   });
+  const [newGoalForm, setNewGoalForm] = useState({
+    goalTitle: "",
+    description: "",
+    level: "",
+    priority: "High",
+    targetDate: "",
+  });
   const [kpiForm, setKpiForm] = useState({
     name: "",
     description: "",
