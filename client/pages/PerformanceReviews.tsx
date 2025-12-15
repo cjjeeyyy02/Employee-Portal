@@ -2190,7 +2190,7 @@ export default function PerformanceReviews() {
                       Total Employees
                     </p>
                     <p className="text-3xl font-bold text-blue-600">
-                      {teamMembers.length}
+                      4
                     </p>
                   </div>
                   <div className="bg-green-50 rounded-lg p-4">
