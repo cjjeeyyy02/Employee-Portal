@@ -838,10 +838,14 @@ export default function PerformanceReviews() {
                 <Button
                   className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3"
                   onClick={() => {
-                    toast({
-                      title: "Add Goal",
-                      description: "Opening add goal form...",
+                    setNewGoalForm({
+                      goalTitle: "",
+                      description: "",
+                      level: "",
+                      priority: "High",
+                      targetDate: "",
                     });
+                    setShowAddGoalModal(true);
                   }}
                 >
                   <Plus className="w-4 h-4" />
