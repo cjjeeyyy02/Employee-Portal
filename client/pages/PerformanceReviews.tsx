@@ -1910,6 +1910,98 @@ export default function PerformanceReviews() {
           </div>
         )}
 
+        {/* Add KPI to Goal Modal */}
+        {showAddKPIToGoalModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <h2 className="text-lg font-bold text-gray-900">
+                  Add KPI to Goal
+                </h2>
+                <button
+                  onClick={() => setShowAddKPIToGoalModal(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Key Performance Indicators Section */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Key Performance Indicators
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Define measurable metrics to track goal progress.
+                  </p>
+
+                  <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
+                    <p className="text-sm text-gray-600 mb-4">
+                      No KPIs added yet. Click{" "}
+                      <span className="font-semibold">Add KPI</span> to get started.
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="gap-2 h-9"
+                      onClick={() => {
+                        setShowAddKPIToGoalModal(false);
+                        setShowAddKPIModal(true);
+                      }}
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add KPI
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Approval Workflow Section */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Approval Workflow
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Configure who needs to approve this goal.
+                  </p>
+
+                  <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
+                    <p className="text-sm text-gray-600 mb-4">
+                      No approvers added yet. Click{" "}
+                      <span className="font-semibold">Add Approver</span> to get started.
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="gap-2 h-9"
+                      onClick={() => {
+                        toast({
+                          title: "Add Approver",
+                          description: "Opening approver selection...",
+                        });
+                      }}
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add Approver
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200 justify-end">
+                <Button
+                  variant="outline"
+                  className="h-10 text-sm font-medium"
+                  onClick={() => setShowAddKPIToGoalModal(false)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Add KPI Modal */}
         {showAddKPIModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
