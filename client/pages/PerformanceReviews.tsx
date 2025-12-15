@@ -839,7 +839,7 @@ export default function PerformanceReviews() {
                           className="h-8 text-xs px-3 bg-blue-600 hover:bg-blue-700 text-white"
                           onClick={() => handleStartReview(review.name)}
                         >
-                          Start Review
+                          Continue Review
                         </Button>
                       )}
                       {review.status === "in-progress" && (
