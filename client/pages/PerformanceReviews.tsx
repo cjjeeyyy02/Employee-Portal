@@ -109,10 +109,14 @@ const reviews: PerformanceReview[] = [
     selfRating: 4.0,
     managerRating: 4.5,
     overallRating: 4.3,
-    keyAchievements: "Successfully led the migration of legacy systems to cloud infrastructure, resulting in 40% performance improvement. Mentored 2 junior developers and improved team collaboration.",
-    challenges: "Faced initial resistance to new processes but overcame through clear communication and demonstrations of benefits.",
-    goalAchievement: "Completed 8 out of 10 quarterly goals, including all high-priority objectives.",
-    areasForDevelopment: "Focus on an advanced architecture patterns and leadership skills for Q4.",
+    keyAchievements:
+      "Successfully led the migration of legacy systems to cloud infrastructure, resulting in 40% performance improvement. Mentored 2 junior developers and improved team collaboration.",
+    challenges:
+      "Faced initial resistance to new processes but overcame through clear communication and demonstrations of benefits.",
+    goalAchievement:
+      "Completed 8 out of 10 quarterly goals, including all high-priority objectives.",
+    areasForDevelopment:
+      "Focus on an advanced architecture patterns and leadership skills for Q4.",
     managerComments: "",
   },
   {
@@ -253,7 +257,8 @@ const feedbacks: Feedback[] = [
     id: "1",
     from: "Manager",
     to: "Mike Chen",
-    content: "Excellent work on the recent project. Your attention to detail and proactive approach were commendable.",
+    content:
+      "Excellent work on the recent project. Your attention to detail and proactive approach were commendable.",
     rating: 5,
     category: "Strengths",
     date: "2024-12-10",
@@ -262,7 +267,8 @@ const feedbacks: Feedback[] = [
     id: "2",
     from: "Peer",
     to: "Lisa Park",
-    content: "Great collaboration on the design review. Would appreciate more detailed feedback on the UX aspects.",
+    content:
+      "Great collaboration on the design review. Would appreciate more detailed feedback on the UX aspects.",
     rating: 4,
     category: "Collaboration",
     date: "2024-12-08",
@@ -271,7 +277,8 @@ const feedbacks: Feedback[] = [
     id: "3",
     from: "Manager",
     to: "Alex Kim",
-    content: "Good progress on skill development. Consider taking the advanced training course next quarter.",
+    content:
+      "Good progress on skill development. Consider taking the advanced training course next quarter.",
     rating: 4,
     category: "Development",
     date: "2024-12-05",
@@ -292,7 +299,8 @@ const getKPIStatusColor = (status: string) => {
 export default function PerformanceReviews() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("goal-monitoring");
-  const [showPerformanceAnalyticsModal, setShowPerformanceAnalyticsModal] = useState(false);
+  const [showPerformanceAnalyticsModal, setShowPerformanceAnalyticsModal] =
+    useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showReviewDetailsModal, setShowReviewDetailsModal] = useState(false);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
@@ -301,10 +309,15 @@ export default function PerformanceReviews() {
   const [showAddKPIToGoalModal, setShowAddKPIToGoalModal] = useState(false);
   const [showAddKPIModal, setShowAddKPIModal] = useState(false);
   const [showGiveFeedbackModal, setShowGiveFeedbackModal] = useState(false);
-  const [selectedReview, setSelectedReview] = useState<PerformanceReview | null>(null);
+  const [selectedReview, setSelectedReview] =
+    useState<PerformanceReview | null>(null);
   const [selectedGoal, setSelectedGoal] = useState<TeamGoal | null>(null);
-  const [selectedFeedbackRecipient, setSelectedFeedbackRecipient] = useState<string | null>(null);
-  const [reviewModalMode, setReviewModalMode] = useState<"start" | "continue">("start");
+  const [selectedFeedbackRecipient, setSelectedFeedbackRecipient] = useState<
+    string | null
+  >(null);
+  const [reviewModalMode, setReviewModalMode] = useState<"start" | "continue">(
+    "start",
+  );
   const [allReviews, setAllReviews] = useState<PerformanceReview[]>(reviews);
   const [allGoals, setAllGoals] = useState<TeamGoal[]>(teamGoals);
   const [allKPIs, setAllKPIs] = useState<KPI[]>(kpis);
@@ -351,7 +364,9 @@ export default function PerformanceReviews() {
     managerRating: 0,
     managerComments: "",
   });
-  const [feedbackModalTab, setFeedbackModalTab] = useState<"give" | "request">("give");
+  const [feedbackModalTab, setFeedbackModalTab] = useState<"give" | "request">(
+    "give",
+  );
   const [submitFeedbackForm, setSubmitFeedbackForm] = useState({
     employeeName: "",
     feedbackType: "",
@@ -428,7 +443,7 @@ export default function PerformanceReviews() {
             overallRating: (reviewForm.selfRating + 4.2) / 2,
             completedDate: new Date().toISOString().split("T")[0],
           }
-        : review
+        : review,
     );
 
     setAllReviews(updatedReviews);
@@ -451,7 +466,7 @@ export default function PerformanceReviews() {
             status: "in-progress" as const,
             selfRating: reviewForm.selfRating || review.selfRating,
           }
-        : review
+        : review,
     );
 
     setAllReviews(updatedReviews);
@@ -477,7 +492,7 @@ export default function PerformanceReviews() {
               managerRating: 4.0,
               overallRating: 3.75,
             }
-          : r
+          : r,
       );
 
       setAllReviews(updatedReviews);
@@ -549,7 +564,7 @@ export default function PerformanceReviews() {
             progress: adjustGoalForm.progress,
             goalStatus: adjustGoalForm.statusUpdate,
           }
-        : goal
+        : goal,
     );
 
     setAllGoals(updatedGoals);
@@ -564,7 +579,11 @@ export default function PerformanceReviews() {
   };
 
   const handleAddGoal = () => {
-    if (!newGoalForm.goalTitle || !newGoalForm.level || !newGoalForm.targetDate) {
+    if (
+      !newGoalForm.goalTitle ||
+      !newGoalForm.level ||
+      !newGoalForm.targetDate
+    ) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -629,7 +648,10 @@ export default function PerformanceReviews() {
       target: kpiForm.target,
       actual: kpiForm.target,
       assignee: "Current User",
-      period: new Date().toLocaleString("default", { month: "long", year: "numeric" }),
+      period: new Date().toLocaleString("default", {
+        month: "long",
+        year: "numeric",
+      }),
     };
 
     setAllKPIs([...allKPIs, newKPI]);
@@ -1199,32 +1221,35 @@ export default function PerformanceReviews() {
                       Give Feedback to Team
                     </h3>
                     <div className="space-y-3">
-                      {["Mike Chen", "Lisa Park", "Alex Kim", "Emma Wilson"].map(
-                        (member) => (
-                          <div
-                            key={member}
-                            className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
-                          >
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <p className="text-xs font-semibold text-gray-900">
-                                  {member}
-                                </p>
-                                <p className="text-xs text-gray-600 mt-0.5">
-                                  Share your feedback
-                                </p>
-                              </div>
-                              <Button
-                                variant="outline"
-                                className="h-7 text-xs px-2"
-                                onClick={() => handleGiveFeedback(member)}
-                              >
-                                Send
-                              </Button>
+                      {[
+                        "Mike Chen",
+                        "Lisa Park",
+                        "Alex Kim",
+                        "Emma Wilson",
+                      ].map((member) => (
+                        <div
+                          key={member}
+                          className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
+                        >
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <p className="text-xs font-semibold text-gray-900">
+                                {member}
+                              </p>
+                              <p className="text-xs text-gray-600 mt-0.5">
+                                Share your feedback
+                              </p>
                             </div>
+                            <Button
+                              variant="outline"
+                              className="h-7 text-xs px-2"
+                              onClick={() => handleGiveFeedback(member)}
+                            >
+                              Send
+                            </Button>
                           </div>
-                        )
-                      )}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -1258,10 +1283,13 @@ export default function PerformanceReviews() {
                   <p className="text-sm font-bold text-orange-900">
                     {
                       Object.entries(
-                        allFeedbacks.reduce((acc, f) => {
-                          acc[f.category] = (acc[f.category] || 0) + 1;
-                          return acc;
-                        }, {} as Record<string, number>)
+                        allFeedbacks.reduce(
+                          (acc, f) => {
+                            acc[f.category] = (acc[f.category] || 0) + 1;
+                            return acc;
+                          },
+                          {} as Record<string, number>,
+                        ),
                       ).sort((a, b) => b[1] - a[1])[0]?.[0]
                     }
                   </p>
@@ -1279,7 +1307,8 @@ export default function PerformanceReviews() {
               <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
                 <div>
                   <h2 className="text-lg font-bold text-gray-900">
-                    {reviewModalMode === "start" ? "Start" : "Continue"} Performance Review
+                    {reviewModalMode === "start" ? "Start" : "Continue"}{" "}
+                    Performance Review
                   </h2>
                   <p className="text-xs text-gray-600 mt-1">
                     {selectedReview.name} • {selectedReview.reviewCycle}
@@ -1301,7 +1330,11 @@ export default function PerformanceReviews() {
                 {/* Manager Note */}
                 <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
                   <p className="text-sm text-amber-900 leading-relaxed">
-                    <span className="font-semibold">Note:</span> Reviews initiated by the employee will appear here. The Manager is only required to provide comments and a Manager's rating. All details such as Key Achievements, Challenges, etc. are entered by the employee.
+                    <span className="font-semibold">Note:</span> Reviews
+                    initiated by the employee will appear here. The Manager is
+                    only required to provide comments and a Manager's rating.
+                    All details such as Key Achievements, Challenges, etc. are
+                    entered by the employee.
                   </p>
                 </div>
 
@@ -1313,10 +1346,12 @@ export default function PerformanceReviews() {
                       selectedReview.reviewType.slice(1)}
                   </p>
                   <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Status:</span> {getStatusLabel(selectedReview.status)}
+                    <span className="font-semibold">Status:</span>{" "}
+                    {getStatusLabel(selectedReview.status)}
                   </p>
                   <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Due Date:</span> {selectedReview.dueDate}
+                    <span className="font-semibold">Due Date:</span>{" "}
+                    {selectedReview.dueDate}
                   </p>
                 </div>
 
@@ -1329,7 +1364,9 @@ export default function PerformanceReviews() {
                     {[1, 2, 3, 4, 5].map((rating) => (
                       <button
                         key={rating}
-                        onClick={() => setReviewForm({ ...reviewForm, selfRating: rating })}
+                        onClick={() =>
+                          setReviewForm({ ...reviewForm, selfRating: rating })
+                        }
                         className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all ${
                           reviewForm.selfRating === rating
                             ? "border-blue-600 bg-blue-50"
@@ -1352,7 +1389,10 @@ export default function PerformanceReviews() {
                   <textarea
                     value={reviewForm.strengths}
                     onChange={(e) =>
-                      setReviewForm({ ...reviewForm, strengths: e.target.value })
+                      setReviewForm({
+                        ...reviewForm,
+                        strengths: e.target.value,
+                      })
                     }
                     placeholder="Describe the employee's key strengths..."
                     rows={3}
@@ -1368,7 +1408,10 @@ export default function PerformanceReviews() {
                   <textarea
                     value={reviewForm.improvements}
                     onChange={(e) =>
-                      setReviewForm({ ...reviewForm, improvements: e.target.value })
+                      setReviewForm({
+                        ...reviewForm,
+                        improvements: e.target.value,
+                      })
                     }
                     placeholder="Describe areas where improvement is needed..."
                     rows={3}
@@ -1418,7 +1461,9 @@ export default function PerformanceReviews() {
                   className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
                   onClick={handleSubmitReview}
                 >
-                  {reviewModalMode === "start" ? "Submit Review" : "Update Review"}
+                  {reviewModalMode === "start"
+                    ? "Submit Review"
+                    : "Update Review"}
                 </Button>
               </div>
             </div>
@@ -1455,12 +1500,20 @@ export default function PerformanceReviews() {
                 {/* Self Rating & Completed Date */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-gray-600 font-medium mb-1">Self Rating</p>
-                    <p className="text-2xl font-bold text-gray-900">{selectedReview.selfRating || "N/A"}</p>
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Self Rating
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {selectedReview.selfRating || "N/A"}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-600 font-medium mb-1">Completed</p>
-                    <p className="text-sm font-semibold text-gray-900">{selectedReview.completedDate || "Pending"}</p>
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Completed
+                    </p>
+                    <p className="text-sm font-semibold text-gray-900">
+                      {selectedReview.completedDate || "Pending"}
+                    </p>
                   </div>
                 </div>
 
@@ -1528,12 +1581,17 @@ export default function PerformanceReviews() {
                       { value: 4, label: "4 - Exceeds Expectation" },
                       { value: 5, label: "5 - Outstanding" },
                     ].map((option) => (
-                      <label key={option.value} className="flex items-center gap-3 cursor-pointer">
+                      <label
+                        key={option.value}
+                        className="flex items-center gap-3 cursor-pointer"
+                      >
                         <input
                           type="radio"
                           name="managerRating"
                           value={option.value}
-                          checked={reviewDetailsForm.managerRating === option.value}
+                          checked={
+                            reviewDetailsForm.managerRating === option.value
+                          }
                           onChange={(e) =>
                             setReviewDetailsForm({
                               ...reviewDetailsForm,
@@ -1542,7 +1600,9 @@ export default function PerformanceReviews() {
                           }
                           className="w-4 h-4"
                         />
-                        <span className="text-sm text-gray-700">{option.label}</span>
+                        <span className="text-sm text-gray-700">
+                          {option.label}
+                        </span>
                       </label>
                     ))}
                   </div>
@@ -1585,11 +1645,15 @@ export default function PerformanceReviews() {
                   onClick={() => {
                     toast({
                       title: "Review Submitted",
-                      description: "Manager's rating and comments have been submitted.",
+                      description:
+                        "Manager's rating and comments have been submitted.",
                     });
                     setShowReviewDetailsModal(false);
                     setSelectedReview(null);
-                    setReviewDetailsForm({ managerRating: 0, managerComments: "" });
+                    setReviewDetailsForm({
+                      managerRating: 0,
+                      managerComments: "",
+                    });
                   }}
                 >
                   Submit
@@ -1629,16 +1693,20 @@ export default function PerformanceReviews() {
                 {/* Goal Info */}
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 space-y-2">
                   <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Employee:</span> {selectedGoal.employeeName}
+                    <span className="font-semibold">Employee:</span>{" "}
+                    {selectedGoal.employeeName}
                   </p>
                   <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Category:</span> {selectedGoal.category}
+                    <span className="font-semibold">Category:</span>{" "}
+                    {selectedGoal.category}
                   </p>
                   <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Current Progress:</span> {selectedGoal.progress}%
+                    <span className="font-semibold">Current Progress:</span>{" "}
+                    {selectedGoal.progress}%
                   </p>
                   <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Status:</span> {getGoalStatusLabel(selectedGoal.goalStatus)}
+                    <span className="font-semibold">Status:</span>{" "}
+                    {getGoalStatusLabel(selectedGoal.goalStatus)}
                   </p>
                 </div>
 
@@ -1652,7 +1720,10 @@ export default function PerformanceReviews() {
                       <button
                         key={rating}
                         onClick={() =>
-                          setFeedbackForm({ ...feedbackForm, ratingGiven: rating })
+                          setFeedbackForm({
+                            ...feedbackForm,
+                            ratingGiven: rating,
+                          })
                         }
                         className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all ${
                           feedbackForm.ratingGiven === rating
@@ -1676,7 +1747,10 @@ export default function PerformanceReviews() {
                   <textarea
                     value={feedbackForm.feedbackText}
                     onChange={(e) =>
-                      setFeedbackForm({ ...feedbackForm, feedbackText: e.target.value })
+                      setFeedbackForm({
+                        ...feedbackForm,
+                        feedbackText: e.target.value,
+                      })
                     }
                     placeholder="Provide specific feedback on the goal progress and achievement..."
                     rows={4}
@@ -1692,7 +1766,10 @@ export default function PerformanceReviews() {
                   <textarea
                     value={feedbackForm.suggestions}
                     onChange={(e) =>
-                      setFeedbackForm({ ...feedbackForm, suggestions: e.target.value })
+                      setFeedbackForm({
+                        ...feedbackForm,
+                        suggestions: e.target.value,
+                      })
                     }
                     placeholder="Share suggestions to help achieve this goal..."
                     rows={3}
@@ -1799,7 +1876,10 @@ export default function PerformanceReviews() {
                   <textarea
                     value={adjustGoalForm.notes}
                     onChange={(e) =>
-                      setAdjustGoalForm({ ...adjustGoalForm, notes: e.target.value })
+                      setAdjustGoalForm({
+                        ...adjustGoalForm,
+                        notes: e.target.value,
+                      })
                     }
                     placeholder="Add a short progress update..."
                     rows={4}
@@ -1870,7 +1950,10 @@ export default function PerformanceReviews() {
                       type="text"
                       value={newGoalForm.goalTitle}
                       onChange={(e) =>
-                        setNewGoalForm({ ...newGoalForm, goalTitle: e.target.value })
+                        setNewGoalForm({
+                          ...newGoalForm,
+                          goalTitle: e.target.value,
+                        })
                       }
                       placeholder="e.g. Launch New Product Feature"
                       className="w-full px-4 py-2 border border-blue-400 rounded-lg text-sm focus:outline-none focus:border-blue-600"
@@ -1882,7 +1965,10 @@ export default function PerformanceReviews() {
                     <textarea
                       value={newGoalForm.description}
                       onChange={(e) =>
-                        setNewGoalForm({ ...newGoalForm, description: e.target.value })
+                        setNewGoalForm({
+                          ...newGoalForm,
+                          description: e.target.value,
+                        })
                       }
                       placeholder="Describe the goal in detail..."
                       rows={3}
@@ -1900,7 +1986,10 @@ export default function PerformanceReviews() {
                       <select
                         value={newGoalForm.level}
                         onChange={(e) =>
-                          setNewGoalForm({ ...newGoalForm, level: e.target.value })
+                          setNewGoalForm({
+                            ...newGoalForm,
+                            level: e.target.value,
+                          })
                         }
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                       >
@@ -1920,7 +2009,10 @@ export default function PerformanceReviews() {
                       <select
                         value={newGoalForm.priority}
                         onChange={(e) =>
-                          setNewGoalForm({ ...newGoalForm, priority: e.target.value })
+                          setNewGoalForm({
+                            ...newGoalForm,
+                            priority: e.target.value,
+                          })
                         }
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                       >
@@ -1941,7 +2033,10 @@ export default function PerformanceReviews() {
                       type="date"
                       value={newGoalForm.targetDate}
                       onChange={(e) =>
-                        setNewGoalForm({ ...newGoalForm, targetDate: e.target.value })
+                        setNewGoalForm({
+                          ...newGoalForm,
+                          targetDate: e.target.value,
+                        })
                       }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                     />
@@ -1960,7 +2055,8 @@ export default function PerformanceReviews() {
                   <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
                     <p className="text-sm text-gray-600 mb-4">
                       No KPIs added yet. Click{" "}
-                      <span className="font-semibold">Add KPI</span> to get started.
+                      <span className="font-semibold">Add KPI</span> to get
+                      started.
                     </p>
                     <Button
                       variant="outline"
@@ -2025,7 +2121,8 @@ export default function PerformanceReviews() {
                   <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
                     <p className="text-sm text-gray-600 mb-4">
                       No KPIs added yet. Click{" "}
-                      <span className="font-semibold">Add KPI</span> to get started.
+                      <span className="font-semibold">Add KPI</span> to get
+                      started.
                     </p>
                     <Button
                       variant="outline"
@@ -2053,7 +2150,8 @@ export default function PerformanceReviews() {
                   <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
                     <p className="text-sm text-gray-600 mb-4">
                       No approvers added yet. Click{" "}
-                      <span className="font-semibold">Add Approver</span> to get started.
+                      <span className="font-semibold">Add Approver</span> to get
+                      started.
                     </p>
                     <Button
                       variant="outline"
@@ -2092,9 +2190,7 @@ export default function PerformanceReviews() {
             <div className="bg-white rounded-lg shadow-lg max-w-md w-full">
               {/* Header */}
               <div className="bg-white border-b border-gray-200 p-6 flex items-start justify-between">
-                <h2 className="text-lg font-bold text-gray-900">
-                  Add New KPI
-                </h2>
+                <h2 className="text-lg font-bold text-gray-900">Add New KPI</h2>
                 <button
                   onClick={() => setShowAddKPIModal(false)}
                   className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
@@ -2244,24 +2340,23 @@ export default function PerformanceReviews() {
                     <p className="text-xs text-gray-600 font-medium mb-1">
                       Total Employees
                     </p>
-                    <p className="text-3xl font-bold text-blue-600">
-                      4
-                    </p>
+                    <p className="text-3xl font-bold text-blue-600">4</p>
                   </div>
                   <div className="bg-green-50 rounded-lg p-4">
                     <p className="text-xs text-gray-600 font-medium mb-1">
                       Avg Rating
                     </p>
-                    <p className="text-3xl font-bold text-green-600">
-                      4.2/5
-                    </p>
+                    <p className="text-3xl font-bold text-green-600">4.2/5</p>
                   </div>
                   <div className="bg-orange-50 rounded-lg p-4">
                     <p className="text-xs text-gray-600 font-medium mb-1">
                       Goals in Progress
                     </p>
                     <p className="text-3xl font-bold text-orange-600">
-                      {allGoals.filter(g => g.goalStatus === "on-track").length}
+                      {
+                        allGoals.filter((g) => g.goalStatus === "on-track")
+                          .length
+                      }
                     </p>
                   </div>
                   <div className="bg-red-50 rounded-lg p-4">
@@ -2269,7 +2364,10 @@ export default function PerformanceReviews() {
                       At Risk Goals
                     </p>
                     <p className="text-3xl font-bold text-red-600">
-                      {allGoals.filter(g => g.goalStatus === "at-risk").length}
+                      {
+                        allGoals.filter((g) => g.goalStatus === "at-risk")
+                          .length
+                      }
                     </p>
                   </div>
                 </div>
@@ -2280,44 +2378,58 @@ export default function PerformanceReviews() {
                     Review Status Distribution
                   </h3>
                   <div className="space-y-3">
-                    {["pending", "in-progress", "completed", "overdue"].map((status) => {
-                      const count = allReviews.filter(r => r.status === status).length;
-                      const percentage = allReviews.length > 0 ? Math.round((count / allReviews.length) * 100) : 0;
-                      const statusColor = {
-                        "pending": "bg-yellow-100 text-yellow-800",
-                        "in-progress": "bg-blue-100 text-blue-800",
-                        "completed": "bg-green-100 text-green-800",
-                        "overdue": "bg-red-100 text-red-800",
-                      }[status] || "bg-gray-100 text-gray-800";
-                      return (
-                        <div key={status}>
-                          <div className="flex items-center justify-between mb-1">
-                            <div className="flex items-center gap-2">
-                              <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${statusColor}`}>
-                                {status.charAt(0).toUpperCase() + status.slice(1)}
-                              </span>
-                              <span className="text-sm text-gray-600">
-                                {count} review{count !== 1 ? "s" : ""}
+                    {["pending", "in-progress", "completed", "overdue"].map(
+                      (status) => {
+                        const count = allReviews.filter(
+                          (r) => r.status === status,
+                        ).length;
+                        const percentage =
+                          allReviews.length > 0
+                            ? Math.round((count / allReviews.length) * 100)
+                            : 0;
+                        const statusColor =
+                          {
+                            pending: "bg-yellow-100 text-yellow-800",
+                            "in-progress": "bg-blue-100 text-blue-800",
+                            completed: "bg-green-100 text-green-800",
+                            overdue: "bg-red-100 text-red-800",
+                          }[status] || "bg-gray-100 text-gray-800";
+                        return (
+                          <div key={status}>
+                            <div className="flex items-center justify-between mb-1">
+                              <div className="flex items-center gap-2">
+                                <span
+                                  className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${statusColor}`}
+                                >
+                                  {status.charAt(0).toUpperCase() +
+                                    status.slice(1)}
+                                </span>
+                                <span className="text-sm text-gray-600">
+                                  {count} review{count !== 1 ? "s" : ""}
+                                </span>
+                              </div>
+                              <span className="text-sm font-semibold text-gray-900">
+                                {percentage}%
                               </span>
                             </div>
-                            <span className="text-sm font-semibold text-gray-900">
-                              {percentage}%
-                            </span>
+                            <div className="w-full bg-gray-200 rounded-full h-2">
+                              <div
+                                className={`h-2 rounded-full ${
+                                  status === "completed"
+                                    ? "bg-green-600"
+                                    : status === "in-progress"
+                                      ? "bg-blue-600"
+                                      : status === "pending"
+                                        ? "bg-yellow-600"
+                                        : "bg-red-600"
+                                }`}
+                                style={{ width: `${percentage}%` }}
+                              />
+                            </div>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div
-                              className={`h-2 rounded-full ${
-                                status === "completed" ? "bg-green-600" :
-                                status === "in-progress" ? "bg-blue-600" :
-                                status === "pending" ? "bg-yellow-600" :
-                                "bg-red-600"
-                              }`}
-                              style={{ width: `${percentage}%` }}
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      },
+                    )}
                   </div>
                 </div>
 
@@ -2328,19 +2440,31 @@ export default function PerformanceReviews() {
                   </h3>
                   <div className="space-y-3">
                     {["on-track", "at-risk", "completed"].map((status) => {
-                      const count = allGoals.filter(g => g.goalStatus === status).length;
-                      const percentage = allGoals.length > 0 ? Math.round((count / allGoals.length) * 100) : 0;
-                      const statusColor = {
-                        "on-track": "bg-blue-100 text-blue-800",
-                        "at-risk": "bg-red-100 text-red-800",
-                        "completed": "bg-green-100 text-green-800",
-                      }[status] || "bg-gray-100 text-gray-800";
+                      const count = allGoals.filter(
+                        (g) => g.goalStatus === status,
+                      ).length;
+                      const percentage =
+                        allGoals.length > 0
+                          ? Math.round((count / allGoals.length) * 100)
+                          : 0;
+                      const statusColor =
+                        {
+                          "on-track": "bg-blue-100 text-blue-800",
+                          "at-risk": "bg-red-100 text-red-800",
+                          completed: "bg-green-100 text-green-800",
+                        }[status] || "bg-gray-100 text-gray-800";
                       return (
                         <div key={status}>
                           <div className="flex items-center justify-between mb-1">
                             <div className="flex items-center gap-2">
-                              <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${statusColor}`}>
-                                {status === "on-track" ? "On Track" : status === "at-risk" ? "At Risk" : "Completed"}
+                              <span
+                                className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${statusColor}`}
+                              >
+                                {status === "on-track"
+                                  ? "On Track"
+                                  : status === "at-risk"
+                                    ? "At Risk"
+                                    : "Completed"}
                               </span>
                               <span className="text-sm text-gray-600">
                                 {count} goal{count !== 1 ? "s" : ""}
@@ -2353,9 +2477,11 @@ export default function PerformanceReviews() {
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
                               className={`h-2 rounded-full ${
-                                status === "on-track" ? "bg-blue-600" :
-                                status === "at-risk" ? "bg-red-600" :
-                                "bg-green-600"
+                                status === "on-track"
+                                  ? "bg-blue-600"
+                                  : status === "at-risk"
+                                    ? "bg-red-600"
+                                    : "bg-green-600"
                               }`}
                               style={{ width: `${percentage}%` }}
                             />
@@ -2372,10 +2498,29 @@ export default function PerformanceReviews() {
                     📊 Key Insights
                   </h3>
                   <ul className="space-y-2 text-sm text-blue-800">
-                    <li>• Average performance rating stands at 4.2/5 across all teams</li>
-                    <li>• {Math.round((allGoals.filter(g => g.goalStatus === "on-track").length / allGoals.length) * 100)}% of goals are on track for completion</li>
-                    <li>• {allReviews.filter(r => r.status === "overdue").length} reviews are currently overdue - prioritize completion</li>
-                    <li>• Top performers are contributing {Math.round(Math.random() * 30 + 70)}% of total output</li>
+                    <li>
+                      • Average performance rating stands at 4.2/5 across all
+                      teams
+                    </li>
+                    <li>
+                      •{" "}
+                      {Math.round(
+                        (allGoals.filter((g) => g.goalStatus === "on-track")
+                          .length /
+                          allGoals.length) *
+                          100,
+                      )}
+                      % of goals are on track for completion
+                    </li>
+                    <li>
+                      •{" "}
+                      {allReviews.filter((r) => r.status === "overdue").length}{" "}
+                      reviews are currently overdue - prioritize completion
+                    </li>
+                    <li>
+                      • Top performers are contributing{" "}
+                      {Math.round(Math.random() * 30 + 70)}% of total output
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -2504,7 +2649,8 @@ export default function PerformanceReviews() {
                     {/* Sender Name */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Sender Name <span className="text-gray-400">(Optional)</span>
+                        Sender Name{" "}
+                        <span className="text-gray-400">(Optional)</span>
                       </label>
                       <input
                         type="text"
@@ -2540,7 +2686,9 @@ export default function PerformanceReviews() {
                         <option value="Development">Development</option>
                         <option value="Collaboration">Collaboration</option>
                         <option value="Leadership">Leadership</option>
-                        <option value="Technical Skills">Technical Skills</option>
+                        <option value="Technical Skills">
+                          Technical Skills
+                        </option>
                       </select>
                     </div>
 
@@ -2592,7 +2740,8 @@ export default function PerformanceReviews() {
                     {/* Feedback From */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-900 mb-2">
-                        Request Feedback From <span className="text-red-600">*</span>
+                        Request Feedback From{" "}
+                        <span className="text-red-600">*</span>
                       </label>
                       <select
                         value={requestFeedbackForm.feedbackFrom}
@@ -2615,7 +2764,8 @@ export default function PerformanceReviews() {
                     {/* Feedback Category */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-900 mb-2">
-                        Feedback Category <span className="text-red-600">*</span>
+                        Feedback Category{" "}
+                        <span className="text-red-600">*</span>
                       </label>
                       <select
                         value={requestFeedbackForm.feedbackCategory}
@@ -2632,14 +2782,17 @@ export default function PerformanceReviews() {
                         <option value="Development">Development Areas</option>
                         <option value="Collaboration">Collaboration</option>
                         <option value="Leadership">Leadership</option>
-                        <option value="Technical Skills">Technical Skills</option>
+                        <option value="Technical Skills">
+                          Technical Skills
+                        </option>
                       </select>
                     </div>
 
                     {/* Specific Questions */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Specific Questions or Areas <span className="text-gray-400">(Optional)</span>
+                        Specific Questions or Areas{" "}
+                        <span className="text-gray-400">(Optional)</span>
                       </label>
                       <textarea
                         value={requestFeedbackForm.specificQuestions}
@@ -2658,7 +2811,8 @@ export default function PerformanceReviews() {
                     {/* Deadline */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Feedback Deadline <span className="text-gray-400">(Optional)</span>
+                        Feedback Deadline{" "}
+                        <span className="text-gray-400">(Optional)</span>
                       </label>
                       <input
                         type="date"
