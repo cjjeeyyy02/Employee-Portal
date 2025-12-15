@@ -576,17 +576,7 @@ export default function PerformanceReviews() {
   };
 
   const handleAddKPIToGoal = () => {
-    toast({
-      title: "Add KPI",
-      description: "Opening KPI form...",
-    });
-  };
-
-  const handleAddApprover = () => {
-    toast({
-      title: "Add Approver",
-      description: "Opening approver selection...",
-    });
+    setShowAddKPIToGoalModal(true);
   };
 
   const handleAddKPI = () => {
