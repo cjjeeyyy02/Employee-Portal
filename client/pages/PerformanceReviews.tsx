@@ -888,16 +888,9 @@ export default function PerformanceReviews() {
                     <Button
                       variant="outline"
                       className="flex-1 h-8 text-xs px-2"
-                      onClick={() => handleFeedback(goal.goalTitle)}
-                    >
-                      Feedback
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="flex-1 h-8 text-xs px-2"
                       onClick={() => handleAdjustGoal(goal.goalTitle)}
                     >
-                      Adjust
+                      Update Progress
                     </Button>
                   </div>
                 </div>
