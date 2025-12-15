@@ -280,6 +280,7 @@ const getKPIStatusColor = (status: string) => {
 export default function PerformanceReviews() {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("goal-monitoring");
+  const [showPerformanceAnalyticsModal, setShowPerformanceAnalyticsModal] = useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [showReviewDetailsModal, setShowReviewDetailsModal] = useState(false);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
