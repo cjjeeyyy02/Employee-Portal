@@ -2369,86 +2369,141 @@ export default function PerformanceReviews() {
           </div>
         )}
 
-        {/* Give Feedback Modal */}
+        {/* Give/Request Feedback Modal */}
         {showGiveFeedbackModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
               {/* Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">
-                    Give Feedback
-                  </h2>
-                  <p className="text-xs text-gray-600 mt-1">
-                    Share constructive feedback with {giveFeedbackForm.recipient}
-                  </p>
-                </div>
+              <div className="bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <h2 className="text-lg font-bold text-gray-900">
+                  Give/Request Feedback
+                </h2>
                 <button
-                  onClick={() => setShowGiveFeedbackModal(false)}
+                  onClick={() => {
+                    setShowGiveFeedbackModal(false);
+                    setFeedbackModalTab("give");
+                    setSubmitFeedbackForm({
+                      employeeName: "",
+                      feedbackType: "",
+                      senderName: "",
+                      category: "",
+                      rating: "",
+                      comment: "",
+                    });
+                  }}
                   className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
                 >
                   ×
                 </button>
               </div>
 
+              {/* Tabs */}
+              <div className="flex gap-0 border-b border-gray-200 px-6">
+                <button
+                  onClick={() => setFeedbackModalTab("give")}
+                  className={`flex-1 py-3 text-sm font-medium border-b-2 transition-colors ${
+                    feedbackModalTab === "give"
+                      ? "border-blue-600 text-blue-600"
+                      : "border-transparent text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  Give Feedback
+                </button>
+                <button
+                  onClick={() => setFeedbackModalTab("request")}
+                  className={`flex-1 py-3 text-sm font-medium border-b-2 transition-colors ${
+                    feedbackModalTab === "request"
+                      ? "border-blue-600 text-blue-600"
+                      : "border-transparent text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  Request Feedback
+                </button>
+              </div>
+
               {/* Content */}
               <div className="p-6 space-y-4">
-                {/* Recipient Info */}
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Recipient:</span>{" "}
-                    {giveFeedbackForm.recipient}
-                  </p>
-                  <p className="text-xs text-blue-900 mt-1">
-                    <span className="font-semibold">Date:</span>{" "}
-                    {new Date().toISOString().split("T")[0]}
-                  </p>
+                {/* Employee Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Employee Name <span className="text-red-600">*</span>
+                  </label>
+                  <select
+                    value={submitFeedbackForm.employeeName}
+                    onChange={(e) =>
+                      setSubmitFeedbackForm({
+                        ...submitFeedbackForm,
+                        employeeName: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  >
+                    <option value="">Select employee</option>
+                    <option value="Mike Chen">Mike Chen</option>
+                    <option value="Lisa Park">Lisa Park</option>
+                    <option value="Alex Kim">Alex Kim</option>
+                    <option value="Emma Wilson">Emma Wilson</option>
+                  </select>
                 </div>
 
-                {/* Rating */}
+                {/* Feedback Type */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">
-                    Rating *
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Feedback Type <span className="text-red-600">*</span>
                   </label>
-                  <div className="flex gap-2">
-                    {[1, 2, 3, 4, 5].map((rating) => (
-                      <button
-                        key={rating}
-                        onClick={() =>
-                          setGiveFeedbackForm({
-                            ...giveFeedbackForm,
-                            rating,
-                          })
-                        }
-                        className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-all ${
-                          giveFeedbackForm.rating === rating
-                            ? "border-yellow-500 bg-yellow-50"
-                            : "border-gray-300 bg-white hover:border-gray-400"
-                        }`}
-                      >
-                        <span className="text-xl">
-                          {giveFeedbackForm.rating >= rating ? "★" : "☆"}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
+                  <select
+                    value={submitFeedbackForm.feedbackType}
+                    onChange={(e) =>
+                      setSubmitFeedbackForm({
+                        ...submitFeedbackForm,
+                        feedbackType: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  >
+                    <option value="">Select feedback type</option>
+                    <option value="Positive">Positive</option>
+                    <option value="Constructive">Constructive</option>
+                    <option value="Developmental">Developmental</option>
+                    <option value="General">General</option>
+                  </select>
+                </div>
+
+                {/* Sender Name */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Sender Name <span className="text-gray-400">(Optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    value={submitFeedbackForm.senderName}
+                    onChange={(e) =>
+                      setSubmitFeedbackForm({
+                        ...submitFeedbackForm,
+                        senderName: e.target.value,
+                      })
+                    }
+                    placeholder="Enter sender name"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
                 </div>
 
                 {/* Category */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Feedback Category
+                    Category <span className="text-red-600">*</span>
                   </label>
                   <select
-                    value={giveFeedbackForm.category}
+                    value={submitFeedbackForm.category}
                     onChange={(e) =>
-                      setGiveFeedbackForm({
-                        ...giveFeedbackForm,
+                      setSubmitFeedbackForm({
+                        ...submitFeedbackForm,
                         category: e.target.value,
                       })
                     }
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                   >
+                    <option value="">Select category</option>
                     <option value="Strengths">Strengths</option>
                     <option value="Development">Development</option>
                     <option value="Collaboration">Collaboration</option>
@@ -2457,36 +2512,47 @@ export default function PerformanceReviews() {
                   </select>
                 </div>
 
-                {/* Feedback Content */}
+                {/* Rating */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Feedback Content *
+                    Rating <span className="text-red-600">*</span>
                   </label>
-                  <textarea
-                    value={giveFeedbackForm.content}
+                  <select
+                    value={submitFeedbackForm.rating}
                     onChange={(e) =>
-                      setGiveFeedbackForm({
-                        ...giveFeedbackForm,
-                        content: e.target.value,
+                      setSubmitFeedbackForm({
+                        ...submitFeedbackForm,
+                        rating: e.target.value,
                       })
                     }
-                    placeholder="Provide specific, constructive feedback..."
-                    rows={5}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  />
+                  >
+                    <option value="">Select rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Below Average</option>
+                    <option value="3">3 - Average</option>
+                    <option value="4">4 - Good</option>
+                    <option value="5">5 - Excellent</option>
+                  </select>
                 </div>
 
-                {/* Tips */}
-                <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                  <p className="text-xs text-green-900 font-semibold mb-2">
-                    💡 Tips for Good Feedback
-                  </p>
-                  <ul className="space-y-1 text-xs text-green-800">
-                    <li>• Be specific and provide examples</li>
-                    <li>• Focus on behaviors, not personality</li>
-                    <li>• Balance positive and constructive feedback</li>
-                    <li>• Be timely and actionable</li>
-                  </ul>
+                {/* Comment */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Comment <span className="text-red-600">*</span>
+                  </label>
+                  <textarea
+                    value={submitFeedbackForm.comment}
+                    onChange={(e) =>
+                      setSubmitFeedbackForm({
+                        ...submitFeedbackForm,
+                        comment: e.target.value,
+                      })
+                    }
+                    placeholder="Enter your comment..."
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                  />
                 </div>
               </div>
 
@@ -2494,16 +2560,27 @@ export default function PerformanceReviews() {
               <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
                 <Button
                   variant="outline"
-                  className="flex-1 h-10 text-sm font-medium"
-                  onClick={() => setShowGiveFeedbackModal(false)}
+                  className="flex-1 h-9 text-sm font-medium"
+                  onClick={() => {
+                    setShowGiveFeedbackModal(false);
+                    setFeedbackModalTab("give");
+                    setSubmitFeedbackForm({
+                      employeeName: "",
+                      feedbackType: "",
+                      senderName: "",
+                      category: "",
+                      rating: "",
+                      comment: "",
+                    });
+                  }}
                 >
                   Cancel
                 </Button>
                 <Button
-                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  className="flex-1 h-9 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
                   onClick={handleSubmitGiveFeedback}
                 >
-                  Send Feedback
+                  Submit Feedback
                 </Button>
               </div>
             </div>
