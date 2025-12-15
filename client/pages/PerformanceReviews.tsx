@@ -360,6 +360,12 @@ export default function PerformanceReviews() {
     rating: "",
     comment: "",
   });
+  const [requestFeedbackForm, setRequestFeedbackForm] = useState({
+    feedbackFrom: "",
+    feedbackCategory: "",
+    specificQuestions: "",
+    deadline: "",
+  });
 
   const handlePerformanceAnalytics = () => {
     setShowPerformanceAnalyticsModal(true);
