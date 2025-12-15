@@ -351,6 +351,15 @@ export default function PerformanceReviews() {
     managerRating: 0,
     managerComments: "",
   });
+  const [feedbackModalTab, setFeedbackModalTab] = useState<"give" | "request">("give");
+  const [submitFeedbackForm, setSubmitFeedbackForm] = useState({
+    employeeName: "",
+    feedbackType: "",
+    senderName: "",
+    category: "",
+    rating: "",
+    comment: "",
+  });
 
   const handlePerformanceAnalytics = () => {
     setShowPerformanceAnalyticsModal(true);
