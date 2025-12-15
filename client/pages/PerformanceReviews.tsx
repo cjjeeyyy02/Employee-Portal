@@ -673,6 +673,14 @@ export default function PerformanceReviews() {
                   Conduct reviews, set goals and manage appraisal cycles.
                 </p>
               </div>
+              <Button
+                variant="ghost"
+                className="gap-2 h-7 text-xs px-2"
+                onClick={handlePerformanceAnalytics}
+              >
+                <TrendingUp className="w-3 h-3" />
+                Performance Analytics
+              </Button>
             </div>
           </div>
         </div>
