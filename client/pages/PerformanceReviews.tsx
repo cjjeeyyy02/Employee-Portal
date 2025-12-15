@@ -318,6 +318,8 @@ export default function PerformanceReviews() {
     priority: "High",
     targetDate: "",
   });
+  const [goalKPIs, setGoalKPIs] = useState<KPI[]>([]);
+  const [goalApprovers, setGoalApprovers] = useState<string[]>([]);
   const [kpiForm, setKpiForm] = useState({
     name: "",
     description: "",
