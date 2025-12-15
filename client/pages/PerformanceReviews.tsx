@@ -598,7 +598,7 @@ export default function PerformanceReviews() {
   };
 
   const handleCreateKPI = () => {
-    if (!kpiForm.name || !kpiForm.target || !kpiForm.actual || !kpiForm.assignee) {
+    if (!kpiForm.name || !kpiForm.target) {
       toast({
         title: "Error",
         description: "Please fill in all required fields.",
@@ -609,19 +609,26 @@ export default function PerformanceReviews() {
     const newKPI: KPI = {
       id: (allKPIs.length + 1).toString(),
       name: kpiForm.name,
-      status: kpiForm.status,
-      description: kpiForm.description,
+      status: "above",
+      description: kpiForm.notes,
       target: kpiForm.target,
-      actual: kpiForm.actual,
-      assignee: kpiForm.assignee,
-      period: kpiForm.period || new Date().toLocaleString("default", { month: "long", year: "numeric" }),
+      actual: kpiForm.target,
+      assignee: "Current User",
+      period: new Date().toLocaleString("default", { month: "long", year: "numeric" }),
     };
 
     setAllKPIs([...allKPIs, newKPI]);
     setShowAddKPIModal(false);
+    setKpiForm({
+      name: "",
+      kpiType: "Quantitative",
+      target: "",
+      unitType: "Units",
+      notes: "",
+    });
 
     toast({
-      title: "KPI Created",
+      title: "KPI Saved",
       description: `"${kpiForm.name}" has been added successfully.`,
     });
   };
