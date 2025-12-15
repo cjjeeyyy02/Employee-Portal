@@ -893,6 +893,8 @@ export default function PerformanceReviews() {
                       priority: "High",
                       targetDate: "",
                     });
+                    setGoalKPIs([]);
+                    setGoalApprovers([]);
                     setShowAddGoalModal(true);
                   }}
                 >
