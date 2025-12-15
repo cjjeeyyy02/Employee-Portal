@@ -701,11 +701,29 @@ export default function PerformanceReviews() {
         description: `Feedback for ${submitFeedbackForm.employeeName} has been submitted.`,
       });
     } else {
+      if (
+        !requestFeedbackForm.feedbackFrom ||
+        !requestFeedbackForm.feedbackCategory
+      ) {
+        toast({
+          title: "Error",
+          description: "Please fill in all required fields.",
+        });
+        return;
+      }
+
       toast({
         title: "Request Submitted",
-        description: "Your feedback request has been sent.",
+        description: `Feedback request sent to ${requestFeedbackForm.feedbackFrom}.`,
       });
       setShowGiveFeedbackModal(false);
+      setFeedbackModalTab("give");
+      setRequestFeedbackForm({
+        feedbackFrom: "",
+        feedbackCategory: "",
+        specificQuestions: "",
+        deadline: "",
+      });
     }
   };
 
