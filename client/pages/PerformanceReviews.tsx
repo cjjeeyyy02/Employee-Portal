@@ -617,10 +617,10 @@ export default function PerformanceReviews() {
   };
 
   const tabs = [
-    { id: "performance-reviews", label: "Performance Reviews" },
     { id: "goal-monitoring", label: "Goal Monitoring" },
-    { id: "kpis-metrics", label: "KPIs & Metrics" },
-    { id: "feedback-hub", label: "Feedback Hub" },
+    { id: "performance-reviews", label: "Performance Reviews" },
+    { id: "kpis-metrics", label: "KPI & Metrics" },
+    { id: "feedback-hub", label: "Feedback Centre" },
   ];
 
   return (
