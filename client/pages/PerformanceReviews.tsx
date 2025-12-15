@@ -565,10 +565,26 @@ export default function PerformanceReviews() {
 
     setAllGoals([...allGoals, newGoal]);
     setShowAddGoalModal(false);
+    setGoalKPIs([]);
+    setGoalApprovers([]);
 
     toast({
       title: "Goal Created",
       description: `"${newGoalForm.goalTitle}" has been added successfully.`,
+    });
+  };
+
+  const handleAddKPIToGoal = () => {
+    toast({
+      title: "Add KPI",
+      description: "Opening KPI form...",
+    });
+  };
+
+  const handleAddApprover = () => {
+    toast({
+      title: "Add Approver",
+      description: "Opening approver selection...",
     });
   };
 
