@@ -339,17 +339,7 @@ export default function PerformanceReviews() {
   });
 
   const handlePerformanceAnalytics = () => {
-    toast({
-      title: "Performance Analytics",
-      description: "Opening performance analytics dashboard...",
-    });
-  };
-
-  const handleNewReview = () => {
-    toast({
-      title: "New Review",
-      description: "Opening new performance review form...",
-    });
+    setShowPerformanceAnalyticsModal(true);
   };
 
   const handleStartReview = (name: string) => {
