@@ -818,13 +818,27 @@ export default function PerformanceReviews() {
           {/* Goal Monitoring Tab */}
           {activeTab === "goal-monitoring" && (
             <div className="space-y-4">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4">
-                <h2 className="text-lg font-bold text-gray-900 mb-1">
-                  Team Goal Progress
-                </h2>
-                <p className="text-xs text-gray-500">
-                  Monitor and approve team member goals
-                </p>
+              <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-4 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900 mb-1">
+                    Team Goal Progress
+                  </h2>
+                  <p className="text-xs text-gray-500">
+                    Monitor and approve team member goals
+                  </p>
+                </div>
+                <Button
+                  className="gap-2 bg-blue-600 hover:bg-blue-700 h-8 text-sm px-3"
+                  onClick={() => {
+                    toast({
+                      title: "Add Goal",
+                      description: "Opening add goal form...",
+                    });
+                  }}
+                >
+                  <Plus className="w-4 h-4" />
+                  Add Goal
+                </Button>
               </div>
 
               {allGoals.map((goal) => (
