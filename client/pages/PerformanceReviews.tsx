@@ -306,9 +306,8 @@ export default function PerformanceReviews() {
     suggestions: "",
   });
   const [adjustGoalForm, setAdjustGoalForm] = useState({
-    newTarget: "",
-    newDueDate: "",
-    reason: "",
+    progress: 0,
+    notes: "",
     statusUpdate: "on-track" as const,
   });
   const [kpiForm, setKpiForm] = useState({
