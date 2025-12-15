@@ -1579,14 +1579,9 @@ export default function PerformanceReviews() {
             <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
-                <div>
-                  <h2 className="text-lg font-bold text-gray-900">
-                    Adjust Goal
-                  </h2>
-                  <p className="text-xs text-gray-600 mt-1">
-                    {selectedGoal.goalTitle}
-                  </p>
-                </div>
+                <h2 className="text-lg font-bold text-gray-900">
+                  Update Progress
+                </h2>
                 <button
                   onClick={() => {
                     setShowAdjustGoalModal(false);
@@ -1599,99 +1594,63 @@ export default function PerformanceReviews() {
               </div>
 
               {/* Content */}
-              <div className="p-6 space-y-4">
-                {/* Goal Info */}
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 space-y-2">
-                  <p className="text-xs text-gray-900">
-                    <span className="font-semibold">Employee:</span> {selectedGoal.employeeName}
-                  </p>
-                  <p className="text-xs text-gray-900">
-                    <span className="font-semibold">Category:</span> {selectedGoal.category}
-                  </p>
-                  <p className="text-xs text-gray-900">
-                    <span className="font-semibold">Description:</span> {selectedGoal.description}
-                  </p>
-                  <p className="text-xs text-gray-900">
-                    <span className="font-semibold">Current Progress:</span> {selectedGoal.progress}%
-                  </p>
-                </div>
-
-                {/* Current Target */}
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Original Target:</span> {selectedGoal.target}
-                  </p>
-                  <p className="text-xs text-blue-900">
-                    <span className="font-semibold">Original Due Date:</span> {selectedGoal.dueDate}
-                  </p>
-                </div>
-
-                {/* New Target */}
+              <div className="p-6 space-y-6">
+                {/* Goal */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    New Target *
-                  </label>
-                  <input
-                    type="text"
-                    value={adjustGoalForm.newTarget}
-                    onChange={(e) =>
-                      setAdjustGoalForm({ ...adjustGoalForm, newTarget: e.target.value })
-                    }
-                    placeholder="Enter new target"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  />
+                  <p className="text-xs text-gray-600 mb-1">Goal</p>
+                  <p className="text-sm font-semibold text-gray-900">
+                    {selectedGoal.goalTitle}
+                  </p>
                 </div>
 
-                {/* New Due Date */}
+                {/* Progress */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    New Due Date *
-                  </label>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="text-sm font-semibold text-gray-900">
+                      Progress (%)
+                    </label>
+                    <span className="text-sm font-semibold text-gray-900">
+                      {adjustGoalForm.progress}%
+                    </span>
+                  </div>
                   <input
-                    type="date"
-                    value={adjustGoalForm.newDueDate}
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={adjustGoalForm.progress}
                     onChange={(e) =>
                       setAdjustGoalForm({
                         ...adjustGoalForm,
-                        newDueDate: e.target.value,
+                        progress: parseInt(e.target.value, 10),
                       })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                   />
                 </div>
 
-                {/* Goal Status */}
+                {/* Status Indicator */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Goal Status
-                  </label>
-                  <select
-                    value={adjustGoalForm.statusUpdate}
-                    onChange={(e) =>
-                      setAdjustGoalForm({
-                        ...adjustGoalForm,
-                        statusUpdate: e.target.value as any,
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
-                  >
-                    <option value="on-track">On Track</option>
-                    <option value="at-risk">At Risk</option>
-                    <option value="completed">Completed</option>
-                  </select>
+                  <p className="text-xs text-orange-600 font-semibold flex items-center gap-1.5 mb-2">
+                    <AlertCircle className="w-4 h-4" />
+                    {adjustGoalForm.statusUpdate === "on-track"
+                      ? "In Progress"
+                      : adjustGoalForm.statusUpdate === "at-risk"
+                        ? "At Risk"
+                        : "Completed"}
+                  </p>
                 </div>
 
-                {/* Reason for Adjustment */}
+                {/* Notes */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-900 mb-2">
-                    Reason for Adjustment *
+                    Notes (optional)
                   </label>
                   <textarea
-                    value={adjustGoalForm.reason}
+                    value={adjustGoalForm.notes}
                     onChange={(e) =>
-                      setAdjustGoalForm({ ...adjustGoalForm, reason: e.target.value })
+                      setAdjustGoalForm({ ...adjustGoalForm, notes: e.target.value })
                     }
-                    placeholder="Explain why this goal is being adjusted..."
+                    placeholder="Add a short progress update..."
                     rows={4}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-blue-500"
                   />
@@ -1714,7 +1673,7 @@ export default function PerformanceReviews() {
                   className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
                   onClick={handleSubmitAdjustment}
                 >
-                  Save Changes
+                  Save Progress
                 </Button>
               </div>
             </div>
