@@ -654,31 +654,53 @@ export default function PerformanceReviews() {
   };
 
   const handleSubmitGiveFeedback = () => {
-    if (!giveFeedbackForm.content || giveFeedbackForm.rating === 0) {
-      toast({
-        title: "Error",
-        description: "Please provide feedback content and a rating.",
+    if (feedbackModalTab === "give") {
+      if (
+        !submitFeedbackForm.employeeName ||
+        !submitFeedbackForm.feedbackType ||
+        !submitFeedbackForm.category ||
+        !submitFeedbackForm.rating ||
+        !submitFeedbackForm.comment
+      ) {
+        toast({
+          title: "Error",
+          description: "Please fill in all required fields.",
+        });
+        return;
+      }
+
+      const newFeedback: Feedback = {
+        id: (allFeedbacks.length + 1).toString(),
+        from: submitFeedbackForm.senderName || "Anonymous",
+        to: submitFeedbackForm.employeeName,
+        content: submitFeedbackForm.comment,
+        rating: parseInt(submitFeedbackForm.rating),
+        category: submitFeedbackForm.category,
+        date: new Date().toISOString().split("T")[0],
+      };
+
+      setAllFeedbacks([...allFeedbacks, newFeedback]);
+      setShowGiveFeedbackModal(false);
+      setSubmitFeedbackForm({
+        employeeName: "",
+        feedbackType: "",
+        senderName: "",
+        category: "",
+        rating: "",
+        comment: "",
       });
-      return;
+
+      toast({
+        title: "Feedback Submitted",
+        description: `Feedback for ${submitFeedbackForm.employeeName} has been submitted.`,
+      });
+    } else {
+      toast({
+        title: "Request Submitted",
+        description: "Your feedback request has been sent.",
+      });
+      setShowGiveFeedbackModal(false);
     }
-
-    const newFeedback: Feedback = {
-      id: (allFeedbacks.length + 1).toString(),
-      from: "You",
-      to: giveFeedbackForm.recipient,
-      content: giveFeedbackForm.content,
-      rating: giveFeedbackForm.rating,
-      category: giveFeedbackForm.category,
-      date: new Date().toISOString().split("T")[0],
-    };
-
-    setAllFeedbacks([...allFeedbacks, newFeedback]);
-    setShowGiveFeedbackModal(false);
-
-    toast({
-      title: "Feedback Sent",
-      description: `Feedback for ${giveFeedbackForm.recipient} has been submitted.`,
-    });
   };
 
   const tabs = [
