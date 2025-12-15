@@ -59,6 +59,12 @@ interface PerformanceReview {
   selfRating?: number;
   managerRating?: number;
   overallRating?: number;
+  dateRange?: string;
+  keyAchievements?: string;
+  challenges?: string;
+  goalAchievement?: string;
+  areasForDevelopment?: string;
+  managerComments?: string;
 }
 
 interface TeamGoal {
