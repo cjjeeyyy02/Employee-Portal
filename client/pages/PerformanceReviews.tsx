@@ -2414,6 +2414,12 @@ export default function PerformanceReviews() {
                       rating: "",
                       comment: "",
                     });
+                    setRequestFeedbackForm({
+                      feedbackFrom: "",
+                      feedbackCategory: "",
+                      specificQuestions: "",
+                      deadline: "",
+                    });
                   }}
                   className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
                 >
