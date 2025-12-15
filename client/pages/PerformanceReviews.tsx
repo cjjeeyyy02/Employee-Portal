@@ -476,9 +476,8 @@ export default function PerformanceReviews() {
     if (goal) {
       setSelectedGoal(goal);
       setAdjustGoalForm({
-        newTarget: goal.target,
-        newDueDate: goal.dueDate,
-        reason: "",
+        progress: goal.progress,
+        notes: "",
         statusUpdate: goal.goalStatus,
       });
       setShowAdjustGoalModal(true);
