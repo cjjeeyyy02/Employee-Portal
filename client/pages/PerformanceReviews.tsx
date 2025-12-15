@@ -503,10 +503,10 @@ export default function PerformanceReviews() {
   };
 
   const handleSubmitAdjustment = () => {
-    if (!selectedGoal || !adjustGoalForm.newTarget || !adjustGoalForm.newDueDate) {
+    if (!selectedGoal) {
       toast({
         title: "Error",
-        description: "Please fill in all required fields.",
+        description: "Please select a goal.",
       });
       return;
     }
@@ -515,8 +515,7 @@ export default function PerformanceReviews() {
       goal.id === selectedGoal.id
         ? {
             ...goal,
-            target: adjustGoalForm.newTarget,
-            dueDate: adjustGoalForm.newDueDate,
+            progress: adjustGoalForm.progress,
             goalStatus: adjustGoalForm.statusUpdate,
           }
         : goal
@@ -525,7 +524,7 @@ export default function PerformanceReviews() {
     setAllGoals(updatedGoals);
 
     toast({
-      title: "Goal Adjusted",
+      title: "Progress Saved",
       description: `"${selectedGoal.goalTitle}" has been updated successfully.`,
     });
 
