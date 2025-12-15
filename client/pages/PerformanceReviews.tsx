@@ -1222,6 +1222,13 @@ export default function PerformanceReviews() {
 
               {/* Content */}
               <div className="p-6 space-y-6">
+                {/* Manager Note */}
+                <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
+                  <p className="text-sm text-amber-900 leading-relaxed">
+                    <span className="font-semibold">Note:</span> Reviews initiated by the employee will appear here. The Manager is only required to provide comments and a Manager's rating. All details such as Key Achievements, Challenges, etc. are entered by the employee.
+                  </p>
+                </div>
+
                 {/* Review Info */}
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 space-y-2">
                   <p className="text-xs text-blue-900">
