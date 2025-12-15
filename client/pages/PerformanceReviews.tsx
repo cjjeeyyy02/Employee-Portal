@@ -336,12 +336,10 @@ export default function PerformanceReviews() {
   const [goalApprovers, setGoalApprovers] = useState<string[]>([]);
   const [kpiForm, setKpiForm] = useState({
     name: "",
-    description: "",
+    kpiType: "Quantitative",
     target: "",
-    actual: "",
-    assignee: "",
-    period: "",
-    status: "above" as const,
+    unitType: "Units",
+    notes: "",
   });
   const [giveFeedbackForm, setGiveFeedbackForm] = useState({
     recipient: "",
