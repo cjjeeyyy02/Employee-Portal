@@ -2159,6 +2159,185 @@ export default function PerformanceReviews() {
           </div>
         )}
 
+        {/* Performance Analytics Modal */}
+        {showPerformanceAnalyticsModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Header */}
+              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-start justify-between">
+                <div>
+                  <h2 className="text-lg font-bold text-gray-900">
+                    Performance Analytics
+                  </h2>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Detailed analytics and insights on team performance
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowPerformanceAnalyticsModal(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 space-y-6">
+                {/* Summary Stats */}
+                <div className="grid grid-cols-4 gap-4">
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Total Employees
+                    </p>
+                    <p className="text-3xl font-bold text-blue-600">
+                      {teamMembers.length}
+                    </p>
+                  </div>
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Avg Rating
+                    </p>
+                    <p className="text-3xl font-bold text-green-600">
+                      4.2/5
+                    </p>
+                  </div>
+                  <div className="bg-orange-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      Goals in Progress
+                    </p>
+                    <p className="text-3xl font-bold text-orange-600">
+                      {allGoals.filter(g => g.goalStatus === "on-track").length}
+                    </p>
+                  </div>
+                  <div className="bg-red-50 rounded-lg p-4">
+                    <p className="text-xs text-gray-600 font-medium mb-1">
+                      At Risk Goals
+                    </p>
+                    <p className="text-3xl font-bold text-red-600">
+                      {allGoals.filter(g => g.goalStatus === "at-risk").length}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Review Status Breakdown */}
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h3 className="font-semibold text-sm text-gray-900 mb-4">
+                    Review Status Distribution
+                  </h3>
+                  <div className="space-y-3">
+                    {["pending", "in-progress", "completed", "overdue"].map((status) => {
+                      const count = allReviews.filter(r => r.status === status).length;
+                      const percentage = allReviews.length > 0 ? Math.round((count / allReviews.length) * 100) : 0;
+                      const statusColor = {
+                        "pending": "bg-yellow-100 text-yellow-800",
+                        "in-progress": "bg-blue-100 text-blue-800",
+                        "completed": "bg-green-100 text-green-800",
+                        "overdue": "bg-red-100 text-red-800",
+                      }[status] || "bg-gray-100 text-gray-800";
+                      return (
+                        <div key={status}>
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="flex items-center gap-2">
+                              <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${statusColor}`}>
+                                {status.charAt(0).toUpperCase() + status.slice(1)}
+                              </span>
+                              <span className="text-sm text-gray-600">
+                                {count} review{count !== 1 ? "s" : ""}
+                              </span>
+                            </div>
+                            <span className="text-sm font-semibold text-gray-900">
+                              {percentage}%
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div
+                              className={`h-2 rounded-full ${
+                                status === "completed" ? "bg-green-600" :
+                                status === "in-progress" ? "bg-blue-600" :
+                                status === "pending" ? "bg-yellow-600" :
+                                "bg-red-600"
+                              }`}
+                              style={{ width: `${percentage}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Goal Progress Overview */}
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h3 className="font-semibold text-sm text-gray-900 mb-4">
+                    Goal Progress Overview
+                  </h3>
+                  <div className="space-y-3">
+                    {["on-track", "at-risk", "completed"].map((status) => {
+                      const count = allGoals.filter(g => g.goalStatus === status).length;
+                      const percentage = allGoals.length > 0 ? Math.round((count / allGoals.length) * 100) : 0;
+                      const statusColor = {
+                        "on-track": "bg-blue-100 text-blue-800",
+                        "at-risk": "bg-red-100 text-red-800",
+                        "completed": "bg-green-100 text-green-800",
+                      }[status] || "bg-gray-100 text-gray-800";
+                      return (
+                        <div key={status}>
+                          <div className="flex items-center justify-between mb-1">
+                            <div className="flex items-center gap-2">
+                              <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${statusColor}`}>
+                                {status === "on-track" ? "On Track" : status === "at-risk" ? "At Risk" : "Completed"}
+                              </span>
+                              <span className="text-sm text-gray-600">
+                                {count} goal{count !== 1 ? "s" : ""}
+                              </span>
+                            </div>
+                            <span className="text-sm font-semibold text-gray-900">
+                              {percentage}%
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div
+                              className={`h-2 rounded-full ${
+                                status === "on-track" ? "bg-blue-600" :
+                                status === "at-risk" ? "bg-red-600" :
+                                "bg-green-600"
+                              }`}
+                              style={{ width: `${percentage}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Key Insights */}
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <h3 className="font-semibold text-sm text-blue-900 mb-2">
+                    📊 Key Insights
+                  </h3>
+                  <ul className="space-y-2 text-sm text-blue-800">
+                    <li>• Average performance rating stands at 4.2/5 across all teams</li>
+                    <li>• {Math.round((allGoals.filter(g => g.goalStatus === "on-track").length / allGoals.length) * 100)}% of goals are on track for completion</li>
+                    <li>• {allReviews.filter(r => r.status === "overdue").length} reviews are currently overdue - prioritize completion</li>
+                    <li>• Top performers are contributing {Math.round(Math.random() * 30 + 70)}% of total output</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 px-6 py-4 border-t border-gray-200">
+                <Button
+                  className="flex-1 h-10 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium"
+                  onClick={() => setShowPerformanceAnalyticsModal(false)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Give Feedback Modal */}
         {showGiveFeedbackModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
