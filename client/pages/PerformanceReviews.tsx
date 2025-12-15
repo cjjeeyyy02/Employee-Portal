@@ -540,6 +540,36 @@ export default function PerformanceReviews() {
     setSelectedGoal(null);
   };
 
+  const handleAddGoal = () => {
+    if (!newGoalForm.goalTitle || !newGoalForm.level || !newGoalForm.targetDate) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    const newGoal: TeamGoal = {
+      id: (allGoals.length + 1).toString(),
+      employeeName: "Current User",
+      goalTitle: newGoalForm.goalTitle,
+      goalStatus: "on-track",
+      description: newGoalForm.description,
+      category: newGoalForm.level,
+      dueDate: newGoalForm.targetDate,
+      target: newGoalForm.priority,
+      progress: 0,
+    };
+
+    setAllGoals([...allGoals, newGoal]);
+    setShowAddGoalModal(false);
+
+    toast({
+      title: "Goal Created",
+      description: `"${newGoalForm.goalTitle}" has been added successfully.`,
+    });
+  };
+
   const handleAddKPI = () => {
     setKpiForm({
       name: "",
