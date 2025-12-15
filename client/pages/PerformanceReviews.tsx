@@ -349,6 +349,10 @@ export default function PerformanceReviews() {
     rating: 0,
     category: "Strengths",
   });
+  const [reviewDetailsForm, setReviewDetailsForm] = useState({
+    managerRating: 0,
+    managerComments: "",
+  });
 
   const handlePerformanceAnalytics = () => {
     setShowPerformanceAnalyticsModal(true);
