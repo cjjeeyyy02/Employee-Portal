@@ -1880,11 +1880,44 @@ export default function PerformanceReviews() {
                     Define measurable metrics to track goal progress.
                   </p>
 
-                  <div className="border border-gray-200 rounded-lg p-4 text-center bg-gray-50">
-                    <p className="text-sm text-gray-600">
+                  <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
+                    <p className="text-sm text-gray-600 mb-4">
                       No KPIs added yet. Click{" "}
                       <span className="font-semibold">Add KPI</span> to get started.
                     </p>
+                    <Button
+                      variant="outline"
+                      className="gap-2 h-9"
+                      onClick={handleAddKPIToGoal}
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add KPI
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Approval Workflow Section */}
+                <div>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-1">
+                    Approval Workflow
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Configure who needs to approve this goal.
+                  </p>
+
+                  <div className="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
+                    <p className="text-sm text-gray-600 mb-4">
+                      No approvers added yet. Click{" "}
+                      <span className="font-semibold">Add Approver</span> to get started.
+                    </p>
+                    <Button
+                      variant="outline"
+                      className="gap-2 h-9"
+                      onClick={handleAddApprover}
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add Approver
+                    </Button>
                   </div>
                 </div>
               </div>
