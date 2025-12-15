@@ -2692,6 +2692,12 @@ export default function PerformanceReviews() {
                       rating: "",
                       comment: "",
                     });
+                    setRequestFeedbackForm({
+                      feedbackFrom: "",
+                      feedbackCategory: "",
+                      specificQuestions: "",
+                      deadline: "",
+                    });
                   }}
                 >
                   Cancel
